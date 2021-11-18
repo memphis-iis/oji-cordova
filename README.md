@@ -3,7 +3,7 @@ testing meteor cordova
 
 # requirements
 Java JDK version 8 (sudo apt-get install openjdk-8-jre)<br>
-Android SDK (sudo add-apt-repository ppa:maarten-fonville/android-studio, sudo apt update, sudo apt install android-studio)<br>
+Android SDK (sudo snap install androidsdk)<br>
 
 # dev enviorment setup
 meteor add-platform android<br>
