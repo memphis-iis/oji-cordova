@@ -10,7 +10,7 @@ Gradle (sudo apt-get install gradle)
 meteor add-platform android<br>
 meteor add-platform ios
 
-## Add enviorment vars to ~/.bashrc
+## Add enviorment vars to ~/.bashrc (requires bash restart)
 export ANDROID_SDK_ROOT=/yourAndroidStudioPath/Android<br>
 export PATH=${PATH}:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools<br>
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64<br>
