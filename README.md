@@ -6,6 +6,9 @@ Java JDK version 8 (sudo apt-get install openjdk-8-jre)<br>
 Android SDK (sudo add-apt-repository ppa:maarten-fonville/android-studio, sudo apt update, sudo apt install android-studio)<br>
 
 # dev enviorment setup
+meteor add-platform android<br>
+meteor add-platform ios
+
 ## Add enviorment vars to ~/.bashrc
 export ANDROID_SDK_ROOT=/yourAndroidStudioPath/Android<br>
 export PATH=${PATH}:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools<br>
