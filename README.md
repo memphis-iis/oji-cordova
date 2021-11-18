@@ -7,11 +7,11 @@ Android SDK (sudo add-apt-repository ppa:maarten-fonville/android-studio, sudo a
 
 # dev enviorment setup
 ## Add enviorment vars to ~/.bashrc
-export ANDROID_SDK_ROOT=/yourAndroidStudioPath/Android
-export PATH=${PATH}:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
-export PATH=$PATH:/opt/gradle/gradle-6.1.1/bin
-export ANDROID_HOME=/home/ubuntu/tools/android
-export PATH=$PATH:$ANDROID_HOME/bin
-export PATH=/home/ubuntu/tools:/home/ubuntu/tools/bin:$PATH
+export ANDROID_SDK_ROOT=/yourAndroidStudioPath/Android<br>
+export PATH=${PATH}:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools<br>
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64<br>
+export JRE_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre<br>
+export PATH=$PATH:/opt/gradle/gradle-6.1.1/bin<br>
+export ANDROID_HOME=/home/ubuntu/tools/android<br>
+export PATH=$PATH:$ANDROID_HOME/bin<br>
+export PATH=/home/ubuntu/tools:/home/ubuntu/tools/bin:$PATH<br>
