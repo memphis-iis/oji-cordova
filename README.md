@@ -4,7 +4,9 @@ testing meteor cordova
 ## Use the vagrant script to install for headless development
 vagrant up
 
-## For mobile testing, you must install a display manager on vagrant. Not requrired for web testing.
+## Mobile Testing on Vagrant
+For mobile testing, a display manager is required:<br><br>
+
 LXDE: sudo apt-get install lxde<br>
 XFCE4: sudo apt-get install xfce4<br>
 X Terminal: sudo apt-get install xinit<br>
