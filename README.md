@@ -9,7 +9,8 @@ Browser based testing for quick development not involving Android or iOS webview
 meteor run
 
 ### For Android Emulation testing
-startx<br>
+gdm<br>
+open terminal<br>
 meteor run android
 
 ## Why do we need a display server?
