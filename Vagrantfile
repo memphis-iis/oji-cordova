@@ -16,5 +16,5 @@ Vagrant.configure(2) do |config|
     vb.gui = false
     vb.memory = "4096"
   end
-  config.vm.provision "shell", privileged: false, path: ".provisioning_script.sh"
+  config.vm.provision "shell", privileged: false, path: "provisioning_script.sh"
 end
