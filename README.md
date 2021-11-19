@@ -9,9 +9,7 @@ Browser based testing for quick development not involving Android or iOS webview
 meteor run
 
 ### For Android Emulation testing
-gdm<br>
-open terminal<br>
-meteor run android
+must be run in virtualbox window, using gdm and lxde.
 
 ## Why do we need a display server?
 for testing, android studio requires a display enviorment to run the android simulator.<br>
