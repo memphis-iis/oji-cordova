@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 5432, host: 65432
   config.vm.network "forwarded_port", guest: 3000, host: 3000, host_ip: "0.0.0.0"
   config.vm.provider "virtualbox" do |vb|
-    vb.gui = false
+    vb.gui = true
     vb.memory = "4096"
   end
   config.vm.provision "shell", privileged: false, path: "provisioning_script.sh"
