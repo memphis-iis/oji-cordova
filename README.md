@@ -1,20 +1,20 @@
 # cordova-testing
 testing meteor cordova
 
-# Use the vagrant script to install for headless development
+## Use the vagrant script to install for headless development
 vagrant up
 
-# For mobile testing, you must install a display manager on vagrant. Not requrired for web testing.
-LXDE: sudo apt-get install lxde
-XFCE4: sudo apt-get install xfce4
-X Terminal: sudo apt-get install xinit
+## For mobile testing, you must install a display manager on vagrant. Not requrired for web testing.
+LXDE: sudo apt-get install lxde<br>
+XFCE4: sudo apt-get install xfce4<br>
+X Terminal: sudo apt-get install xinit<br>
 
 # requirements
 Java JDK version 8 (sudo apt-get install openjdk-8-jre)<br>
 Android SDK (sudo apt update && sudo apt install android-sdk)<br>
 Gradle (sudo apt-get install gradle)
 
-# dev enviorment setup
+## dev enviorment setup
 meteor add-platform android<br>
 meteor add-platform ios
 
