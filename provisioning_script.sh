@@ -41,7 +41,7 @@ sudo systemctl restart mongod
 ###############################################################################
 
 # Install Java 11
-sudo apt-get install -y openjdk-8-jre
+sudo apt install openjdk-8-jdk-headless 
 
 # Install android tools 
 mkdir ~/android
@@ -59,7 +59,7 @@ echo 'export ANDROID_SDK_ROOT=$HOME/android' >> ~/.bashrc
 echo 'export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH' >> ~/.bashrc
 echo 'export PATH=$ANDROID_HOME/emulator/:$PATH'  >> ~/.bashrc
 echo 'export PATH=$ANDROID_HOME/platform-tools/:$PATH' >> ~/.bashrc
-echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64' >> ~/.bashrc
+echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64' >> ~/.bashrc
 
 #export bash vars
 export ANDROID_HOME=$HOME/android
@@ -67,7 +67,7 @@ export ANDROID_SDK_ROOT=$HOME/android
 export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
 export PATH=$ANDROID_HOME/emulator/:$PATH
 export PATH=$ANDROID_HOME/platform-tools/:$PATH
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 #install node and nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
