@@ -12,7 +12,7 @@ sudo apt-get install -y make
 sudo apt-get install -y automake
 sudo apt-get install -y git
 sudo apt-get install -y unzip
-sudo apt-get install -y lxde
+sudo apt-get install -y xinit
 
 ###############################################################################
 # Install MongoDB
