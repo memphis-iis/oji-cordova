@@ -2,11 +2,11 @@
 testing meteor cordova
 
 ## Use the vagrant script to install for headless development
-vagrant up
+```vagrant up```
 
 ### For Browser testing
 Browser based testing for quick development not involving Android or iOS webview build issues<br>
-meteor run
+```meteor run```
 
 ### For Android Emulation testing
 must be run in virtualbox window, using gdm and lxde.
