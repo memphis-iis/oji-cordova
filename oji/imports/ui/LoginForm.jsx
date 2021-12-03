@@ -10,8 +10,8 @@ export const LoginForm = () => {
 
     Meteor.loginWithPassword(username, password);
     //clears the input boxes on submit
-    e.target[0].value = '';
-    e.target[1].value = '';
+    $('#usernameInput')[0].value = '';
+    $('#passwordInput')[0].value = '';
   };
 
   return (
@@ -19,7 +19,7 @@ export const LoginForm = () => {
       <label htmlFor="username">Username</label>
 
       <input
-        class="UsernameInput"
+        id="usernameInput"
         type="text"
         placeholder="Username"
         name="username"
@@ -30,7 +30,7 @@ export const LoginForm = () => {
       <label htmlFor="password">Password</label>
 
       <input
-        class="passwordInput"
+        id="passwordInput"
         type="password"
         placeholder="Password"
         name="password"
