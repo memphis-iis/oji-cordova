@@ -1,0 +1,40 @@
+<head>
+  <meta charset="utf-8">
+  <title>oji_app</title>
+  <style>
+    body {
+        /* Handle fixed navbars at bottom of page */
+        padding-bottom: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  {{#Layout template="DefaultLayout"}}
+  {{/Layout}}
+  <!-- Using mizzao:bootstrap-3 for bootstrap now
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+</body>
+
+<template name="DefaultLayout">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">OJI</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+</template>

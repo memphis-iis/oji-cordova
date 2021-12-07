@@ -1,6 +1,12 @@
 {
-  "name": "cordova-testing",
-  "private": true,
+  "name": "oji",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
   "scripts": {
     "start": "meteor run",
     "test": "meteor test --once --driver-package meteortesting:mocha",
@@ -14,12 +20,5 @@
     "meteor-node-stubs": "^1.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  },
-  "meteor": {
-    "mainModule": {
-      "client": "client/main.jsx",
-      "server": "server/main.js"
-    },
-    "testModule": "tests/main.js"
   }
 }
