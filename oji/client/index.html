@@ -10,10 +10,9 @@
 </head>
 
 <body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   {{#Layout template="DefaultLayout"}}
   {{/Layout}}
-  <!-- Using mizzao:bootstrap-3 for bootstrap now
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
 </body>
 
 <template name="DefaultLayout">
@@ -22,9 +21,6 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">OJI</a>
         </div>
@@ -32,10 +28,22 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+            {{#if username }}
+            <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{username}}
+                  </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+            {{/if}}
+        </div>
     </div>
   </nav>
-  <div class="container">
+  <div class="container" style="padding-top: 50px;">
     <div id="react-target">
     </div>
   </div>
