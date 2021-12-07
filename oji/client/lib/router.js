@@ -16,3 +16,8 @@ Router.route('/', {
   name: 'home',
   template: 'home'
 });
+
+Router.route('/login', {
+  name: 'login',
+  template: 'login'
+})
