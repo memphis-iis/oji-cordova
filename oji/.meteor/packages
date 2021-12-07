@@ -23,3 +23,5 @@ react-meteor-data       # React higher-order component for reactively tracking M
 iron:router
 blaze-html-templates
 twbs:bootstrap
+react-template-helper
+gadicc:blaze-react-component
