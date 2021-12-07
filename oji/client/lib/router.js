@@ -7,6 +7,10 @@ in Chrome with certain versions of Iron Router (they routing engine we use).
 
 */
 
+//Set Default Template
+Router.configure({
+  layoutTemplate: 'home'
+});
 
 Router.route('/', {
   name: 'home',
