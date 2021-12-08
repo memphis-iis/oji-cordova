@@ -17,8 +17,6 @@ typescript@4.4.0              # Enable TypeScript syntax in .ts and .tsx modules
 shell-server@0.5.0            # Server-side component of the `meteor shell` command
 hot-module-replacement@0.4.0  # Update client in development without reloading the page
 
-autopublish@1.0.7             # Publish all data to the clients (for prototyping)
-insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 react-meteor-data       # React higher-order component for reactively tracking Meteor data
 iron:router
 blaze-html-templates
@@ -26,3 +24,4 @@ twbs:bootstrap
 react-template-helper
 gadicc:blaze-react-component
 accounts-password
+alanning:roles
