@@ -7,6 +7,11 @@ in Chrome with certain versions of Iron Router (they routing engine we use).
 
 */
 
+
+//Get collections
+Meteor.subscribe('allInvites');
+Meteor.subscribe('allOrgs');
+
 //Set Default Template
 Router.configure({
   layoutTemplate: 'DefaultLayout'
@@ -14,8 +19,7 @@ Router.configure({
 
 //Set Up Default Router Actions
 const defaultBehaviorRoutes = [
-  'login',
-  'signup'
+  'login'
 ];
 
 
@@ -39,3 +43,26 @@ Router.route('/', function () {
   this.render('login');
 });
 
+// route organizational invites
+Router.route('/signup/:_id', function(){
+  // add the subscription handle to our waitlist
+  id = parseInt(this.params._id);
+  this.wait(Meteor.subscribe('allInvites'));
+  // this.ready() is true if all items in the wait list are ready
+  if (this.ready()) {
+    targetOrg = Invites.findOne({code: id}).targetOrg;
+    targetOrgInfo = Orgs.findOne({orgId: targetOrg});
+    targetOrgName = targetOrgInfo.orgName;
+    targetOrgOwner = targetOrgInfo.ownerEmail;
+    console.log(targetOrgName);
+    this.render('signup', {
+      data: {
+        org: targetOrg,
+        orgName: targetOrgName,
+        orgOwner: targetOrgOwner
+      }
+    });
+  } else {
+    this.render('Loading');
+  }
+});

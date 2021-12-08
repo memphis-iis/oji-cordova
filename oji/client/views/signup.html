@@ -1,4 +1,5 @@
 <template name="signup">
+  <p>Signing up for {{orgName}}.</p>
     <form>
         <label htmlFor="username">User Name</label>
 
@@ -52,7 +53,14 @@
         required
         />
         <br>
-
+        <input
+        id="organizationSignin"
+        type="text"
+        value="{{org}}"
+        name="organization"
+        required
+        hidden
+        />
 
   <button id="signup-submit">Sign Up</button>
     </form>
