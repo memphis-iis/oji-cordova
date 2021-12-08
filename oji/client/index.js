@@ -24,7 +24,7 @@ Template.DefaultLayout.helpers({
     if (!Meteor.userId()) {
       return false;
     } else {
-      return Meteor.users.findOne(Meteor.userId()).firstname;
+      return Meteor.users.findOne().firstname;
     }
   }
 });
