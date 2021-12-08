@@ -1,13 +1,16 @@
-import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { render } from 'react-dom';
 import { Template } from 'meteor/templating';
-// import { App } from '../imports/ui/App.jsx';
 
 // React Implemetation
 // Template.DefaultLayout.onRendered(() => {
 //     render(<App/>, document.getElementById('react-target'));
 // });
+
+Template.DefaultLayout.onCreated(function() {
+  this.autorun(() => {
+    Meteor.subscribe('userFirstname');
+  });
+})
 
 Template.DefaultLayout.events({
   'click #logoutButton': function(event) {
@@ -21,7 +24,7 @@ Template.DefaultLayout.helpers({
     if (!Meteor.userId()) {
       return false;
     } else {
-      return Meteor.user().username;
+      return Meteor.users.findOne(Meteor.userId()).firstname;
     }
   }
 });
