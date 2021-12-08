@@ -9,15 +9,33 @@ in Chrome with certain versions of Iron Router (they routing engine we use).
 
 //Set Default Template
 Router.configure({
-  layoutTemplate: 'home'
+  layoutTemplate: 'DefaultLayout'
 });
 
-Router.route('/', {
-  name: 'home',
-  template: 'home'
+//Set Up Default Router Actions
+const defaultBehaviorRoutes = [
+  'login',
+  'signup'
+];
+
+
+const getDefaultRouteAction = function(routeName) {
+  return function() {
+    console.log(routeName + ' ROUTE');
+    this.render(routeName);
+  };
+};
+
+// set up all routes with default behavior
+for (const route of defaultBehaviorRoutes) {
+  Router.route('/' + route, {
+    name: 'client.' + route,
+    action: getDefaultRouteAction(route),
+  });
+}
+
+// setup home route
+Router.route('/', function () {
+  this.render('login');
 });
 
-Router.route('/login', {
-  name: 'login',
-  template: 'login'
-})
