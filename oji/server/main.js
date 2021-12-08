@@ -10,6 +10,8 @@ const SEED_ORGANIZATION  = 'IIS';
 const SEED_SUPERVISORID = "0"
 
 Meteor.startup(() => {
+
+
     //create seed user
     if (!Accounts.findUserByUsername(SEED_USERNAME)) {
         Accounts.createUser({
@@ -23,3 +25,32 @@ Meteor.startup(() => {
         });
     }
 });
+
+//Global Methods
+Meteor.methods({
+    createNewUser: function(user, pass, emailAddr, firstName, lastName){
+        serverConsole('createNewUser', user);
+        if (!Accounts.findUserByUsername(user)) {
+            Accounts.createUser({
+                username: user,
+                password: pass,
+                email: emailAddr,
+                firstname: firstName,
+                lastname: lastName,
+                organization: null,
+                supervisor: null,
+            });
+        }
+    }
+})
+
+//Server Methods
+function serverConsole(...args) {
+    const disp = [(new Date()).toString()];
+    for (let i = 0; i < args.length; ++i) {
+      disp.push(args[i]);
+    }
+    // eslint-disable-next-line no-invalid-this
+    console.log.apply(this, disp);
+}
+

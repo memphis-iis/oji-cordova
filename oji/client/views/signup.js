@@ -1,23 +1,17 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
-Template.login.events({
+Template.signup.events({
     'click #signup-submit': function(event) {
         event.preventDefault();
-        if (!Accounts.findUserByUsername($('#usernameSignin')[0].value)) {
-            Accounts.createUser({
-                username: $('#usernameSignin')[0].value,
-                password: $('#passwordSignin')[0].value,
-                email: $('#emailSignin')[0].value,
-                firstname: $('#firstnameSignin')[0].value,
-                lastname: $('#lastnameSignin')[0].value,
-                organization: null,
-                supervisor: null,
-            });
-            Router.go("/");
-        }
-        
+        var user = $('#usernameSignin').val();
+        var pass = $('#passwordSignin').val();
+        var emailAddr = $('#emailSignin').val();
+        var firstName = $('#firstnameSignin').val();
+        var lastName = $('#lastnameSignin').val();
+        console.log(user,pass,emailAddr,firstName,lastName);
+        Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName);
     }
-})
+});
 
 
