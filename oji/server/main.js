@@ -2,13 +2,38 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base'
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
 
-const SEED_USERNAME = 'testUser';
-const SEED_PASSWORD = 'password';
-const SEED_EMAIL = 'testUser@memphis.edu';
-const SEED_FIRSTNAME = 'Johnny';
-const SEED_LASTNAME = 'Test';
-const SEED_ORGANIZATION  = 'IIS';
-const SEED_SUPERVISORID = "0"
+
+const SEED_ADMIN = {
+    username: 'testAdmin',
+    password: 'password',
+    email: 'testAdmin@memphis.edu',
+    firstName: 'Johnny',
+    lastName: 'Test',
+    org : 'IIS',
+    supervisorID: "0",
+    role: 'admin'
+};
+const SEED_SUPERVISOR = {
+    username: 'testSupervisor',
+    password: 'password',
+    email: 'testSupervisor@memphis.edu',
+    firstName: 'Supervisor',
+    lastName: 'Test',
+    org : 'IIS',
+    supervisorID: "0",
+    role: 'supervisor'
+};
+const SEED_USER = {
+    username: 'testUser',
+    password: 'password',
+    email: 'testUser@memphis.edu',
+    firstName: 'User',
+    lastName: 'Test',
+    org : 'IIS',
+    supervisorID: "0",
+    role: 'user'
+};
+const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
 
 Meteor.startup(() => {
@@ -19,24 +44,29 @@ Meteor.startup(() => {
         }
     }
     //create seed user
-    if (!Accounts.findUserByUsername(SEED_USERNAME)) {
-        const uid = Accounts.createUser({
-            username: SEED_USERNAME,
-            password: SEED_PASSWORD,
-            email: SEED_EMAIL,
-        });
-        Meteor.users.update({ _id: uid }, 
-            {   $set: 
-                {
-                    firstname: SEED_FIRSTNAME,
-                    lastname: SEED_LASTNAME,
-                    organization: SEED_ORGANIZATION,
-                    supervisor: SEED_SUPERVISORID,
-                }
+    for(let user of SEED_USERS){
+        if (!Accounts.findUserByUsername(user.username)) {
+            const uid = Accounts.createUser({
+                username: user.username,
+                password: user.password,
+                email: user.email,
             });
-        Roles.addUsersToRoles(uid, 'supervisor');
-        console.log(SEED_USERNAME + ' is in role supervisor? ' + Roles.userIsInRole(uid, 'supervisor'));
+            Meteor.users.update({ _id: uid }, 
+                {   $set: 
+                    {
+                        firstname: user.firstName,
+                        lastname: user.lastName,
+                        organization: user.org,
+                        supervisor: user.supervisorID,
+                    }
+                });
+            Roles.addUsersToRoles(uid, user.role);
+            console.log(user.username + ' is in role admin? ' + Roles.userIsInRole(uid, 'admin'));
+            console.log(user.username + ' is in role supervisor? ' + Roles.userIsInRole(uid, 'supervisor'));
+            console.log(user.username + ' is in role user? ' + Roles.userIsInRole(uid, 'user'));
+        }
     }
+    
 
 
 });
@@ -62,6 +92,11 @@ Meteor.methods({
                 });
             Roles.addUsersToRoles(uid, 'user');
             return true;
+        }
+    },
+    getSupervisors: function() {
+        if(Roles.userIsInRole(this.userId, ['admin'])){
+            return Roles.getUsersInRole(['supervisor']).fetch();
         }
     }
 })
@@ -89,3 +124,11 @@ Meteor.publish('userFirstname', function() {
     return Meteor.users.find({_id: this.userId},
         { fields: {'firstname': 1}});
 })
+
+// Meteor.publish('supervisors', function() {
+//     if(Roles.userIsInRole(this.userId, ['admin'])){
+//         return Meteor.users.find({ 'user._id': }).fetch()
+//     }
+//     this.stop();
+//     return;
+// })
