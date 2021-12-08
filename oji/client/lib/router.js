@@ -39,3 +39,7 @@ Router.route('/', function () {
   this.render('login');
 });
 
+// admin control panel route
+Router.route('/admin-control-panel', function () {
+  this.render('adminControlPanel');
+});
