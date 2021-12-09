@@ -1,11 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
-// React Implemetation
-// Template.DefaultLayout.onRendered(() => {
-//     render(<App/>, document.getElementById('react-target'));
-// });
-
 Template.DefaultLayout.onCreated(function() {
   this.autorun(() => {
     Meteor.subscribe('userFirstname');

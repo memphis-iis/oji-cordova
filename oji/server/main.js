@@ -124,11 +124,3 @@ Meteor.publish('userFirstname', function() {
     return Meteor.users.find({_id: this.userId},
         { fields: {'firstname': 1}});
 })
-
-// Meteor.publish('supervisors', function() {
-//     if(Roles.userIsInRole(this.userId, ['admin'])){
-//         return Meteor.users.find({ 'user._id': }).fetch()
-//     }
-//     this.stop();
-//     return;
-// })
