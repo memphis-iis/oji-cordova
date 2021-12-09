@@ -63,6 +63,6 @@ Router.route('/signup/:_id', function(){
       }
     });
   } else {
-    this.render('Loading');
+    this.render('linkNotFound');
   }
 });

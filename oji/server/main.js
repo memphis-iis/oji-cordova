@@ -36,17 +36,21 @@ Meteor.startup(() => {
 
     }
     //create test organization
-    Orgs.insert({
-        orgId: 0,
-        ownerEmail: "testadmin@memphis.edu",
-        orgName: "Memphis IIS Testing",  
-    })
+    if(!Orgs.find()){
+        Orgs.insert({
+            orgId: 0,
+            ownerEmail: "testadmin@memphis.edu",
+            orgName: "Memphis IIS Testing",  
+        })
+    }
 
     //create test invite link
-    Invites.insert({
-        targetOrg: 0,
-        code: 1234
-    })
+    if(!Invites.find()){
+        Invites.insert({
+            targetOrg: 0,
+            code: 1234
+        })
+    }
 });
 
 //Global Methods
