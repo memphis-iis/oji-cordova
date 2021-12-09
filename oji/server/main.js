@@ -97,28 +97,40 @@ Meteor.methods({
     },
     getInviteInfo: function(inviteCode){
         console.log(inviteCode);
-        if(inviteCode == 0){
+        if(inviteCode == "A"){
             console.log('testing invite routing');
             targetSupervisorId = 0;
             targetSupervisorName = "Super Visor";
             targetOrgId = 0;
             targetOrgName = "UofM IIS";
         } else {
-            supervisor = Meteor.users.find({supervisorInviteCode: inviteCode}).fetch();
+            supervisor = Meteor.users.findOne({supervisorInviteCode: inviteCode});
             targetSupervisorId = supervisor._id;
-            targetSupervisorName = supervisor.firstName + " " + supervisor.lastName;
+            targetSupervisorName = supervisor.firstname + " " + supervisor.lastname;
             targetOrgId = supervisor.organization;
             targetOrgName = "";
+            console.log(targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName);
         }
         return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
     },
     generateInvite: function(supervisorId){
-        var link           = '';
+        var link = '';
+        var length = 16;
         var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
-        for ( var i = 0; i < length; i++ ) {
-            link += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }    
+        var unique = false;
+        while(unique == false){;
+            for ( var i = 0; i < length; i++ ) {
+                link += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }  
+            linkFound = Meteor.users.find({supervisorInviteCode: link}).fetch().length; 
+            if(linkFound == 0){
+                unique = true;
+            } else {
+                link = "";
+            }
+        }
+        serverConsole(link);
         Meteor.users.update({ _id: supervisorId }, 
         {   $set: 
             {

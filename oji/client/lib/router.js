@@ -47,7 +47,7 @@ Router.route('/', function () {
 // route organizational invites
 Router.route('/signup/:_id', function(){
   // add the subscription handle to our waitlist
-  id = parseInt(this.params._id);
+  id = this.params._id;
   Meteor.call('getInviteInfo', id, (err, res) => {
     var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = res;
     if(err || typeof targetOrgId === 'undefined'){
