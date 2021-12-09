@@ -1,4 +1,4 @@
-
+import { Meteor } from 'meteor/meteor';
 /* router.js - the routing logic we use for the application.
 
 If you need to create a new route, note that you should specify a name and an
@@ -19,7 +19,8 @@ Router.configure({
 
 //Set Up Default Router Actions
 const defaultBehaviorRoutes = [
-  'login'
+  'login',
+  'signup'
 ];
 
 
@@ -47,22 +48,17 @@ Router.route('/', function () {
 Router.route('/signup/:_id', function(){
   // add the subscription handle to our waitlist
   id = parseInt(this.params._id);
-  this.wait(Meteor.subscribe('allInvites'));
-  // this.ready() is true if all items in the wait list are ready
-  if (this.ready()) {
-    targetOrg = Invites.findOne({code: id}).targetOrg;
-    targetOrgInfo = Orgs.findOne({orgId: targetOrg});
-    targetOrgName = targetOrgInfo.orgName;
-    targetOrgOwner = targetOrgInfo.ownerEmail;
-    console.log(targetOrgName);
-    this.render('signup', {
-      data: {
-        org: targetOrg,
-        orgName: targetOrgName,
-        orgOwner: targetOrgOwner
-      }
-    });
-  } else {
-    this.render('linkNotFound');
-  }
-});
+  Meteor.call('getInviteInfo', id, (err, res) => {
+    var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = res;
+    if(err || typeof targetOrgId === 'undefined'){
+      this.render('linkNotFound');
+    } else {
+      this.render('signup', {
+        data: {
+          orgName: targetOrgName,
+          supervisorName: targetSupervisorName,
+          linkId: id
+        }
+      });
+    }});
+  })   

@@ -9,11 +9,8 @@ Template.signup.events({
         var emailAddr = $('#emailSignin').val();
         var firstName = $('#firstnameSignin').val();
         var lastName = $('#lastnameSignin').val();
-        var org = $('#organizationSignin').val();
-        console.log(user,pass,emailAddr,firstName,lastName);
-        Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName, org);
-        
-        Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName, org, function(err, res) {
+        var linkId = $('#linkId').val();
+        Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName, linkId, function(err, res) {
             if(res){
                 Meteor.loginWithPassword(user, pass);
                 Router.go('/')

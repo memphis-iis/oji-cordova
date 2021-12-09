@@ -1,5 +1,9 @@
 <template name="signup">
-  <p>Signing up for {{orgName}}.</p>
+  {{#if orgName}}
+    <p>You were invited to {{orgName}} by {{supervisorName}}.</p>
+  {{else}}
+    <p>Welcome to OJI. This sign up form is for new Administrators.</p>
+  {{/if}}
     <form>
         <label htmlFor="username">User Name</label>
 
@@ -54,9 +58,9 @@
         />
         <br>
         <input
-        id="organizationSignin"
+        id="linkId"
         type="text"
-        value="{{org}}"
+        value="{{linkId}}"
         name="organization"
         required
         hidden
