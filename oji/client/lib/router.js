@@ -40,7 +40,7 @@ for (const route of defaultBehaviorRoutes) {
 
 // setup home route
 Router.route('/', function () {
-  this.render('login');
+  this.render('home');
 });
 
 // route organizational invites

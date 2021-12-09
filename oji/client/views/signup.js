@@ -12,6 +12,13 @@ Template.signup.events({
         var org = $('#organizationSignin').val();
         console.log(user,pass,emailAddr,firstName,lastName);
         Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName, org);
+        
+        Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName, org, function(err, res) {
+            if(res){
+                Meteor.loginWithPassword(user, pass);
+                Router.go('/')
+            }
+        });
     }
 });
 
