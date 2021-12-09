@@ -1,0 +1,49 @@
+<template name="createOrg">
+    <div id="step-1">
+        <h1>Step 1: Let's create your organization.</h1>
+        <p>We already have your information, so we've filled that in for you. We will generate a link for you to invite others.</p>
+        <form>
+            <label htmlFor="organization">Organization Name</label>
+    
+            <input
+            id="organizationName"
+            type="text"
+            placeholder="Organization Name"
+            name="username"
+            required
+            />
+            <br>
+    
+            <label htmlFor="ownerEmail">Administrator Email</label>
+    
+            <input
+            id="ownerEmail"
+            type="text"
+            placeholder="{{currentUser.email}}"
+            value = "{{currentUser.email}}"
+            name="owneremail"
+            required
+            disabled
+            />      
+            <br>
+    
+            <label htmlFor="orgdesc">Organization Description</label><br>
+            <textarea
+            id="orgDesc"
+            type="longtext"
+            placeholder="This is the description of what your organization is and does."
+            name="orgDesc"
+            required
+            ></textarea>
+            <br>
+    
+        <button id="orgCreate-submit">Create</button>
+        </form>
+    </div>
+    <div id="step-2" hidden>
+        <h1>Step 2: Let's invite some people to your organization!</h1>
+        <p>We have generated an invite link to send to others. You can share this with your organization members. They will be asked to create an account for your organization.</p>
+        <a id="orgLink" href="">Organization Link</a>
+        <p>That's all, you can use the Administrators Control Panel to manage your organization.</p>
+    </div>
+  </template>

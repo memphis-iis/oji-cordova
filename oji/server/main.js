@@ -39,8 +39,9 @@ Meteor.startup(() => {
     //create test organization
     Orgs.insert({
         orgId: 0,
-        ownerEmail: "testadmin@memphis.edu",
+        ownerID: "0",
         orgName: "Memphis IIS Testing",  
+        orgDesc: "Organizational description."
     })
 
 
@@ -80,7 +81,11 @@ Meteor.methods({
                                 supervisor: targetSupervisorId,
                             }
                         });
-                    Roles.addUsersToRoles(uid, 'user');
+                    if(linkId != null){
+                        Roles.addUsersToRoles(uid, 'user');
+                    } else {
+                        Roles.addUsersToRoles(uid, 'admin');
+                    }
                     serverConsole('create user', user, pass, emailAddr, firstName, lastName, targetOrgId, targetSupervisorId);
                     return true;
                 }
@@ -88,9 +93,9 @@ Meteor.methods({
         }
     },
     createOrganization: function(newOrgName, newOrgOwner, newOrgDesc){
-        Organizations.insert({
+        Orgs.insert({
             orgName: newOrgName,
-            orgOwner: newOrgOwner,
+            orgOwnerId: newOrgOwner,
             orgDesc: newOrgDesc
         });
         return true;

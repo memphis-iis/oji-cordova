@@ -9,7 +9,6 @@ in Chrome with certain versions of Iron Router (they routing engine we use).
 
 
 //Get collections
-Meteor.subscribe('allInvites');
 Meteor.subscribe('allOrgs');
 
 //Set Default Template
@@ -20,7 +19,8 @@ Router.configure({
 //Set Up Default Router Actions
 const defaultBehaviorRoutes = [
   'login',
-  'signup'
+  'signup',
+  'createOrg'
 ];
 
 
