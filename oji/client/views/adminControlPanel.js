@@ -7,13 +7,22 @@ Template.adminControlPanel.helpers({
 })
 
 Template.adminControlPanel.events({
-    'click #supervisorsEditButton': () => alert("edit click"),
+    'click #supervisorsEditButton': function(){
+        alert("edit click")
+    },
 
-    'click #supervisorsDestroyButton': () => alert("Destroy click")
+    'click #supervisorsDestroyButton': function(event){
+        Meteor.call('destroySupervisor', event.currentTarget.getAttribute("data-supervisorid"));
+        updateSupervisorsList();
+    }
 })
 
 Template.adminControlPanel.onCreated(function() {
+    updateSupervisorsList();
+})
+
+function updateSupervisorsList(){
     Meteor.call('getSupervisors',  function(err, res){
         Session.set('supervisorsList', res)
     })
-})
+}

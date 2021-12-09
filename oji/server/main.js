@@ -61,9 +61,7 @@ Meteor.startup(() => {
                     }
                 });
             Roles.addUsersToRoles(uid, user.role);
-            console.log(user.username + ' is in role admin? ' + Roles.userIsInRole(uid, 'admin'));
-            console.log(user.username + ' is in role supervisor? ' + Roles.userIsInRole(uid, 'supervisor'));
-            console.log(user.username + ' is in role user? ' + Roles.userIsInRole(uid, 'user'));
+            console.log(user.username + ' is in role ' + user.role);
         }
     }
     
@@ -97,6 +95,16 @@ Meteor.methods({
     getSupervisors: function() {
         if(Roles.userIsInRole(this.userId, ['admin'])){
             return Roles.getUsersInRole(['supervisor']).fetch();
+        }
+    }, 
+    editSupervisor: function(supervisorID) {
+        if(Roles.userIsInRole(this.userId, ['admin'])){
+
+        }
+    }, 
+    destroySupervisor: function(supervisorID) {
+        if(Roles.userIsInRole(this.userId, ['admin'])){
+            Meteor.users.remove(supervisorID);
         }
     }
 })
