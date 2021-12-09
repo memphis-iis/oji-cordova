@@ -15,11 +15,5 @@ Template.DefaultLayout.events({
 });
 
 Template.DefaultLayout.helpers({
-  username: function() {
-    if (!Meteor.userId()) {
-      return false;
-    } else {
-      return Meteor.users.findOne().firstname;
-    }
-  }
+  'userIsAdmin': () => Roles.userIsInRole(Meteor.userId(), 'admin')
 });
