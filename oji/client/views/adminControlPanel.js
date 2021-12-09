@@ -12,7 +12,7 @@ Template.adminControlPanel.events({
     'click #supervisorsDestroyButton': function(event){
         event.preventDefault();
         if (window.confirm(`Are you sure you want to delete user ${event.currentTarget.getAttribute("data-lastname")}, ${event.currentTarget.getAttribute("data-firstname")}? This cannot be undone.`)){
-            Meteor.call('destroySupervisor', event.currentTarget.getAttribute("data-supervisorid"));
+            Meteor.call('destroyUser', event.currentTarget.getAttribute("data-supervisorid"));
         }
     },
 
