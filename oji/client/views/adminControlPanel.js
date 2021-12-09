@@ -29,15 +29,11 @@ Template.adminControlPanel.events({
 
     'click #removeSupervisorConfirmButton': function(event){
         $('#removeSupervisorConfirmButton').hide();
-        let usersToRemove = [];
         for(let box of $('.supervisorListTableCheckbox')){
-            if(box.checked){
-                usersToRemove.push(box.getAttribute("data-supervisorID"))
-            }
             box.setAttribute("hidden", "");
-        }
-        for(let user of usersToRemove){
-            Meteor.call('removeSupervisor', user);
+            if(box.checked){
+                Meteor.call('removeSupervisor', box.getAttribute("data-supervisorID"));
+            }
         }
     }
 })
