@@ -9,8 +9,13 @@ Template.signup.events({
         var emailAddr = $('#emailSignin').val();
         var firstName = $('#firstnameSignin').val();
         var lastName = $('#lastnameSignin').val();
-        console.log(user,pass,emailAddr,firstName,lastName);
-        Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName);
+        
+        Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName, function(err, res) {
+            if(res){
+                Meteor.loginWithPassword(user, pass);
+                Router.go('/')
+            }
+        });
     }
 });
 
