@@ -50,46 +50,48 @@ Meteor.startup(() => {
 
 //Global Methods
 Meteor.methods({
-    createNewUser: function(user, pass, emailAddr, firstName, lastName, linkId=null){
-        if(linkId != null){
-            Meteor.call('getInviteInfo', linkId, (err, res) => {
-                var targetOrgId = null;
-                var targetSupervisorId = null;
-                if(err){
-                    Router.go('linkNotFound');
-                    return false;
-                } else {
-                    var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = res;                    
-                }
-                if (!Accounts.findUserByUsername(user)) {
-                    const uid = Accounts.createUser({
-                        username: user,
-                        password: pass,
-                        email: emailAddr,
-                        firstname: firstName,
-                        lastname: lastName,
-                        organization: targetOrgId,
-                        supervisor: targetSupervisorId,
-                        supervisorInviteCode: null
+    createNewUser: function(user, pass, emailAddr, firstName, lastName, linkId=""){
+        Meteor.call('getInviteInfo', linkId, (err, res) => {
+            if(linkId){
+                var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = res;                    
+            } else {
+                var targetOrgId = null
+                var targetSupervisorId = null;                     
+            }
+            if (!Accounts.findUserByUsername(user)) {
+                const uid = Accounts.createUser({
+                    username: user,
+                    password: pass,
+                    email: emailAddr,
+                    firstname: firstName,
+                    lastname: lastName,
+                    organization: targetOrgId,
+                    supervisor: targetSupervisorId,
+                    supervisorInviteCode: null
+                });
+                Meteor.users.update({ _id: uid }, 
+                    {   $set: 
+                        {
+                            firstname: firstName,
+                            lastname: lastName,
+                            organization: targetOrgId,
+                            supervisor: targetSupervisorId,
+                        }
                     });
-                    Meteor.users.update({ _id: uid }, 
-                        {   $set: 
-                            {
-                                firstname: firstName,
-                                lastname: lastName,
-                                organization: targetOrgId,
-                                supervisor: targetSupervisorId,
-                            }
-                        });
-                    if(linkId != null){
-                        Roles.addUsersToRoles(uid, 'user');
-                    } else {
-                        Roles.addUsersToRoles(uid, 'admin');
-                    }
+                if(linkId != ""){
+                    Roles.addUsersToRoles(uid, 'user');
+                    serverConsole('create user', user, pass, emailAddr, firstName, lastName, 0, 0);
+                } else {
+                    Roles.addUsersToRoles(uid, 'admin');
                     serverConsole('create user', user, pass, emailAddr, firstName, lastName, targetOrgId, targetSupervisorId);
-                    return true;
                 }
-            });
+                
+            }
+        });
+        if(linkId == ""){
+            return "/createOrg";
+        } else {
+            return "/";
         }
     },
     createOrganization: function(newOrgName, newOrgOwner, newOrgDesc){
@@ -98,6 +100,14 @@ Meteor.methods({
             orgOwnerId: newOrgOwner,
             orgDesc: newOrgDesc
         });
+        newOrgId = Orgs.findOne({orgOwnerId: newOrgOwner})._id;
+        Meteor.users.update({ _id: newOrgOwner }, 
+            {   $set: 
+                {
+                    organization: newOrgId,
+                }
+            });
+        serverConsole(newOrgId, newOrgName, newOrgOwner, newOrgDesc);
         return true;
     },
     getInviteInfo: function(inviteCode){
@@ -111,10 +121,11 @@ Meteor.methods({
         } else {
             supervisor = Meteor.users.findOne({supervisorInviteCode: inviteCode});
             targetSupervisorId = supervisor._id;
+            organization = Orgs.findOne({orgOwnerId: supervisor._id});
             targetSupervisorName = supervisor.firstname + " " + supervisor.lastname;
             targetOrgId = supervisor.organization;
-            targetOrgName = "";
-            console.log(targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName);
+            targetOrgName = organization.orgName;
+            console.log("getinvite:", targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName);
         }
         return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
     },

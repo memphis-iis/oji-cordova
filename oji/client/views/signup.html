@@ -1,10 +1,12 @@
 <template name="signup">
-  {{#if linkId}}
-    <p>You were invited to {{orgName}} by {{supervisorName}}.</p>
+  <h1>Step 1:<br>Create your account.</h1>
+  {{#if orgName}}
+    <p>You were invited to {{orgName}} by {{supervisorName}}. To continue, we need you to create an account.</p>
   {{else}}
-    <p>Welcome to OJI. This sign up form is for new Administrators.</p>
+    <p>Welcome to OJI. This sign up form is for new Administrators. We'll have you create an organization after your account is created.</p>
   {{/if}}
-    <form>
+    <form >
+      <div class="form-floating mb-3">
         <label htmlFor="username">User Name</label>
 
         <input
@@ -12,6 +14,7 @@
         type="text"
         placeholder="Username"
         name="username"
+        class="form-control"
         required
       />
       <br>
@@ -24,6 +27,7 @@
         placeholder="Password"
         name="password"
         required
+        class="form-control"
       />
       <br>
         <label htmlFor="email">Email</label>
@@ -34,6 +38,7 @@
         placeholder="you@domain.com"
         name="email"
         required
+        class="form-control"
         />
         <br>
 
@@ -45,6 +50,7 @@
         placeholder="First Name"
         name="firstname"
         required
+        class="form-control"
         />
         <br>
 
@@ -55,6 +61,7 @@
         placeholder="Last Name"
         name="lastname"
         required
+        class="form-control"
         />
         <br>
         <input
@@ -64,8 +71,10 @@
         name="organization"
         required
         hidden
+
         />
 
-  <button id="signup-submit">Sign Up</button>
+    <button class="btn btn-primary" id="signup-submit">Sign Up</button>
+  </div>
     </form>
 </template>

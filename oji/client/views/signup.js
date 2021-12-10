@@ -11,12 +11,14 @@ Template.signup.events({
         var lastName = $('#lastnameSignin').val();
         var linkId = $('#linkId').val();
         Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName, linkId, function(err, res) {
+            var route;
             if(res){
                 Meteor.loginWithPassword(user, pass);
-                Router.go('/')
+                Router.go(res);
             }
         });
-    }
+    },
+    
 });
 
 
