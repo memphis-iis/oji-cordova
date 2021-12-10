@@ -21,13 +21,16 @@
   <nav class="navbar navbar-light bg-light navbar-fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Oji</a>
-      {{#if username }}
+      {{#if currentUser }}
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {{username}}
+              {{currentUser.firstname}}
               </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {{#if userIsAdmin}}
+                <li><a id="adminPanelNavButton" class="dropdown-item" href="admin-control-panel">Admin Panel</a></li>
+              {{/if}}
               <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
             </ul>
           </li>
