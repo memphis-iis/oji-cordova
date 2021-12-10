@@ -39,3 +39,17 @@ Router.route('/', function () {
   this.render('home');
 });
 
+// admin control panel route
+Router.route('/admin-control-panel', function () {
+  if(Meteor.user()){
+    if (Roles.userIsInRole(Meteor.user(), ['admin'])) {
+      this.render('adminControlPanel');
+    }
+    else{
+      Router.go('/');
+    }
+  }
+  else{
+    Router.go('/');
+  }
+});
