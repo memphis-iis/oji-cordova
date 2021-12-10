@@ -40,10 +40,13 @@ Router.route('/', function () {
 });
 
 // admin control panel route
-Router.route('/admin-control-panel', function () {
+Router.route('/control-panel', function () {
   if(Meteor.user()){
-    if (Roles.userIsInRole(Meteor.user(), ['admin'])) {
+    if (Roles.userIsInRole(Meteor.user(), 'admin')) {
       this.render('adminControlPanel');
+    }
+    else if (Roles.userIsInRole(Meteor.user(), 'supervisor')) {
+      this.render('supervisorControlPanel');
     }
     else{
       Router.go('/');

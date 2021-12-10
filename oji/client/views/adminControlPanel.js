@@ -1,5 +1,5 @@
 Template.adminControlPanel.helpers({
-    'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: -1}}).fetch(),
+    'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: -1, firstname: -1}}).fetch(),
 
     'userList': () => Meteor.users.find({ role: 'user' }).fetch().map(x => x.emails[0].address),
 })
@@ -16,25 +16,8 @@ Template.adminControlPanel.events({
         }
     },
 
-    'click #addSupervisorSubmit': function(event){
-        Meteor.call('elevateUser', $('#adminControlPanelSupervisorDropdown :selected').text());
-    }, 
-
-    'click #removeSupervisorButton': function(event){
-        $('#removeSupervisorConfirmButton').show();
-        for(let box of $('.supervisorListTableCheckbox')){
-            box.removeAttribute("hidden")
-        }
-    },
-
-    'click #removeSupervisorConfirmButton': function(event){
-        $('#removeSupervisorConfirmButton').hide();
-        for(let box of $('.supervisorListTableCheckbox')){
-            box.setAttribute("hidden", "");
-            if(box.checked){
-                Meteor.call('removeSupervisor', box.getAttribute("data-supervisorID"));
-            }
-        }
+    'click #supervisorDemoteButton': function(event){
+        Meteor.call('removeSupervisor', event.currentTarget.getAttribute("data-supervisorID"));
     }
 })
 

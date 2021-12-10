@@ -36,8 +36,8 @@
                   {{currentUser.firstname}}
                   </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {{#if userIsAdmin}}
-                    <li><a id="adminPanelNavButton" class="dropdown-item" href="admin-control-panel">Admin Panel</a></li>
+                  {{#if userIsAdminOrSupervisor}}
+                    <li><a id="adminPanelNavButton" class="dropdown-item" href="control-panel">Control Panel</a></li>
                   {{/if}}
                   <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
                 </ul>

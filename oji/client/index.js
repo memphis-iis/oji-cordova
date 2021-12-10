@@ -2,9 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
 Template.DefaultLayout.onCreated(function() {
-  this.autorun(() => {
-    Meteor.subscribe('userFirstname');
-  });
+  // this.autorun(() => {
+  //   Meteor.subscribe('userFirstname');
+  // });
 })
 
 Template.DefaultLayout.events({
@@ -15,5 +15,5 @@ Template.DefaultLayout.events({
 });
 
 Template.DefaultLayout.helpers({
-  'userIsAdmin': () => Roles.userIsInRole(Meteor.userId(), 'admin')
+  'userIsAdminOrSupervisor': () => Roles.userIsInRole(Meteor.userId(), ['admin', 'supervisor'])
 });

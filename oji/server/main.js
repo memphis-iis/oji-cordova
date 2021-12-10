@@ -74,9 +74,6 @@ Meteor.startup(() => {
             console.log(user.username + ' is in role ' + user.role);
         }
     }
-    
-
-
 });
 
 //Global Methods
@@ -112,12 +109,11 @@ Meteor.methods({
             Meteor.users.remove(userID);
         }
     },
-    elevateUser: function(userEmail) {
+    addSupervisor: function(userId) {
         //elevate user with user role to supervisor
         if(Roles.userIsInRole(this.userId, 'admin')){
-            const user = Meteor.users.findOne( {"emails.address": userEmail} );
-            addUserToRoles(user._id, 'supervisor');
-            removeUserFromRoles(user._id, 'user');
+            addUserToRoles(userId, 'supervisor');
+            removeUserFromRoles(userId, 'user');
         }
     },
     removeSupervisor: function(userId){
@@ -132,12 +128,12 @@ Meteor.methods({
 //Server Methods
 function addUserToRoles(uid, roles){
     Roles.addUsersToRoles(uid, roles);
-    Meteor.users.update({ _id: uid }, { $set: { role: Roles.getRolesForUser(uid) }});
+    Meteor.users.update({ _id: uid }, { $set: { role: Roles.getRolesForUser(uid)[0] }});
 }
 
 function removeUserFromRoles(uid, roles){
     Roles.removeUsersFromRoles(uid, roles);
-    Meteor.users.update({ _id: uid }, { $set: { role: Roles.getRolesForUser(uid) }});
+    Meteor.users.update({ _id: uid }, { $set: { role: Roles.getRolesForUser(uid)[0] }});
 }
 
 function serverConsole(...args) {
@@ -159,16 +155,13 @@ Meteor.users.allow({
 });
 
 //Show current user data for current user
-Meteor.publish('userFirstname', function() {
+Meteor.publish(null, function() {
     return Meteor.users.find({_id: this.userId});
 });
 
 //allow admins to see all users of org, Can only see emails of users. Can See full data of supervisors
 Meteor.publish('getUsersInOrg', function() {
-    if(Roles.userIsInRole(this.userId, 'admin')){
-        return Meteor.users.find({ organization: Meteor.user().organization, role: 'user' }, { fields: {'emails': 1, 'role': 1}});
-    }
-    if(Roles.userIsInRole(this.userId, 'supervisor')){
+    if(Roles.userIsInRole(this.userId, ['admin', 'supervisor'] )){
         return Meteor.users.find({ organization: Meteor.user().organization, role: 'user' });
     }
 });
