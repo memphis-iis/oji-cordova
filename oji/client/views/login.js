@@ -8,5 +8,9 @@ Template.login.events({
         //clears the Login boxes on submit
         $('#usernameLogin')[0].value = '';
         $('#passwordLogin')[0].value = '';
+    },
+    'click #signup-submit': function() {
+        event.preventDefault();
+        Router.go('/signup')
     }
 })

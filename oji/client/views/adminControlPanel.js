@@ -2,6 +2,10 @@ Template.adminControlPanel.helpers({
     'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: -1}}).fetch(),
 
     'userList': () => Meteor.users.find({ role: 'user' }).fetch().map(x => x.emails[0].address),
+
+    'orgLink': () => window.location.protocol + "//" + window.location.host + "/signup/" + Meteor.user().supervisorInviteCode,
+
+    'organization': () => Orgs.findOne(),
 })
 
 Template.adminControlPanel.events({
@@ -18,6 +22,9 @@ Template.adminControlPanel.events({
 
     'click #addSupervisorSubmit': function(event){
         Meteor.call('elevateUser', $('#adminControlPanelSupervisorDropdown :selected').text());
+    }, 
+    'click #regen-link': function(event){
+        Meteor.call('generateInvite', Meteor.userId());
     }, 
 
     'click #removeSupervisorButton': function(event){
@@ -40,5 +47,5 @@ Template.adminControlPanel.events({
 
 Template.adminControlPanel.onCreated(function() {
     Meteor.subscribe('getUsersInOrg');
-    Meteor.subscribe('getSupervisorsInOrg');
+
 })
