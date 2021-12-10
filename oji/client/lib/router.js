@@ -8,8 +8,6 @@ in Chrome with certain versions of Iron Router (they routing engine we use).
 */
 
 
-//Get collections
-Meteor.subscribe('allOrgs');
 
 //Set Default Template
 Router.configure({
@@ -64,6 +62,9 @@ Router.route('/control-panel', function () {
 // route organizational invites
 Router.route('/signup/:_id', function(){
   // add the subscription handle to our waitlist
+  if(Meteor.user()){
+    Router.go('/');
+  }
   id = this.params._id;
   Meteor.call('getInviteInfo', id, (err, res) => {
     var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = res;

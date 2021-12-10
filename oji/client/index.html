@@ -17,37 +17,29 @@
 </body>
 
 <template name="DefaultLayout">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div>
+  <nav class="navbar navbar-light bg-light navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-            </button>
-            <a class="navbar-brand" href="#">OJI</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+      <a class="navbar-brand" href="#">Oji {{#if organization}}/ {{organization.orgName}} {{/if}}</a>
+      {{#if currentUser }}
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{currentUser.firstname}}
+              </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {{#if userIsAdminOrSupervisor}}
+                <li><a id="adminPanelNavButton" class="dropdown-item" href="control-panel">Control Panel</a></li>
+              {{/if}}
+              <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
             </ul>
-            {{#if currentUser }}
-            <ul class="nav navbar-nav navbar-right">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{currentUser.firstname}}
-                  </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {{#if userIsAdminOrSupervisor}}
-                    <li><a id="adminPanelNavButton" class="dropdown-item" href="control-panel">Control Panel</a></li>
-                  {{/if}}
-                  <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
-                </ul>
-              </li>
-            </ul>
-            {{/if}}
-        </div>
-      </div>
-    </nav>
-    <div class="container" style="padding-top: 30px;">
-      {{> yield}}
+          </li>
+        </ul>
+      {{/if}}
     </div>
+  </nav>
+  <div class="container" style="padding-top: 30px;">
+    {{> yield}}
+  </div>
+  </div>
   </template>  
