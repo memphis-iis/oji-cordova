@@ -4,6 +4,8 @@ Template.adminControlPanel.helpers({
     'userList': () => Meteor.users.find({ role: 'user' }).fetch().map(x => x.emails[0].address),
 
     'orgLink': () => window.location.protocol + "//" + window.location.host + "/signup/" + Meteor.user().supervisorInviteCode,
+
+    'organization': () => Orgs.findOne(),
 })
 
 Template.adminControlPanel.events({
@@ -45,5 +47,5 @@ Template.adminControlPanel.events({
 
 Template.adminControlPanel.onCreated(function() {
     Meteor.subscribe('getUsersInOrg');
-    Meteor.subscribe('getSupervisorsInOrg');
+
 })

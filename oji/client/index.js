@@ -3,7 +3,8 @@ import { Template } from 'meteor/templating';
 
 Template.DefaultLayout.onCreated(function() {
   this.autorun(() => {
-    Meteor.subscribe('userFirstname');
+    console.log(Orgs.find().fetch());
+    
   });
 })
 
@@ -16,5 +17,7 @@ Template.DefaultLayout.events({
 });
 
 Template.DefaultLayout.helpers({
-  'userIsAdmin': () => Roles.userIsInRole(Meteor.userId(), 'admin')
+  'userIsAdmin': () => Roles.userIsInRole(Meteor.userId(), 'admin'),
+
+  'organization': () => Orgs.findOne(),
 });
