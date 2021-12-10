@@ -1,4 +1,4 @@
-
+import { Meteor } from 'meteor/meteor';
 /* router.js - the routing logic we use for the application.
 
 If you need to create a new route, note that you should specify a name and an
@@ -6,6 +6,10 @@ action (at a minimum). This is good practice, but it also works around a bug
 in Chrome with certain versions of Iron Router (they routing engine we use).
 
 */
+
+
+//Get collections
+Meteor.subscribe('allOrgs');
 
 //Set Default Template
 Router.configure({
@@ -15,7 +19,8 @@ Router.configure({
 //Set Up Default Router Actions
 const defaultBehaviorRoutes = [
   'login',
-  'signup'
+  'signup',
+  'createOrg'
 ];
 
 
@@ -56,3 +61,21 @@ Router.route('/control-panel', function () {
     Router.go('/');
   }
 });
+// route organizational invites
+Router.route('/signup/:_id', function(){
+  // add the subscription handle to our waitlist
+  id = this.params._id;
+  Meteor.call('getInviteInfo', id, (err, res) => {
+    var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = res;
+    if(err || typeof targetOrgId === 'undefined'){
+      this.render('linkNotFound');
+    } else {
+      this.render('signup', {
+        data: {
+          orgName: targetOrgName,
+          supervisorName: targetSupervisorName,
+          linkId: id
+        }
+      });
+    }});
+  })   

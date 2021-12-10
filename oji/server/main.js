@@ -11,7 +11,8 @@ const SEED_ADMIN = {
     lastName: 'Test',
     org : 'IIS',
     supervisorID: "0",
-    role: 'admin'
+    role: 'admin',
+    supervisorInviteCode: "12345"
 };
 const SEED_SUPERVISOR = {
     username: 'testSupervisor',
@@ -21,7 +22,8 @@ const SEED_SUPERVISOR = {
     lastName: 'Test',
     org : 'IIS',
     supervisorID: "0",
-    role: 'supervisor'
+    role: 'supervisor',
+    supervisorInviteCode: "12345"
 };
 const SEED_USER = {
     username: 'testUser',
@@ -31,7 +33,8 @@ const SEED_USER = {
     lastName: 'Test',
     org : 'IIS',
     supervisorID: "0",
-    role: 'user'
+    role: 'user',
+    supervisorInviteCode: null
 };
 const SEED_USER2 = {
     username: 'testUserNotInIIS',
@@ -41,10 +44,19 @@ const SEED_USER2 = {
     lastName: 'Test',
     org : 'UUS',
     supervisorID: "0",
-    role: 'user'
+    role: 'user',
+    supervisorInviteCode: null
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
+
+
+// Publish Collections
+
+
+  Meteor.publish('allOrgs', function () {
+    return Orgs.find({})
+  });
 
 Meteor.startup(() => {
     //create seed roles
@@ -74,29 +86,48 @@ Meteor.startup(() => {
             console.log(user.username + ' is in role ' + user.role);
         }
     }
+    //create test organization
+    Orgs.insert({
+        orgId: 0,
+        ownerID: "0",
+        orgName: "Memphis IIS Testing",  
+        orgDesc: "Organizational description."
+    })
 });
 
 //Global Methods
 Meteor.methods({
-    createNewUser: function(user, pass, emailAddr, firstName, lastName){
-        serverConsole('createNewUser', user);
-        if (!Accounts.findUserByUsername(user)) {
-            const uid = Accounts.createUser({
-                username: user,
-                password: pass,
-                email: emailAddr,
-            });
-            Meteor.users.update({ _id: uid }, 
-                {   $set: 
-                    {
+    createNewUser: function(user, pass, emailAddr, firstName, lastName, linkId=null){
+        if(linkId != null){
+            Meteor.call('getInviteInfo', linkId, (err, res) => {
+                var targetOrgId = null;
+                var targetSupervisorId = null;
+                if(err){
+                    Router.go('linkNotFound');
+                    return false;
+                } else {
+                    var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = res;                    
+                }
+                if (!Accounts.findUserByUsername(user)) {
+                    const uid = Accounts.createUser({
+                        username: user,
+                        password: pass,
+                        email: emailAddr,
                         firstname: firstName,
                         lastname: lastName,
-                        organization: null,
-                        supervisor: null
-                    }
-                });
-            addUserToRoles(uid, 'user');
-            return true;
+                        organization: targetOrgId,
+                        supervisor: targetSupervisorId,
+                        supervisorInviteCode: null
+                    });
+                }
+                if(linkId != null){
+                    addUsersToRoles(uid, 'user');
+                } else {
+                    addUsersToRoles(uid, 'admin');
+                }
+                serverConsole('create user', user, pass, emailAddr, firstName, lastName, targetOrgId, targetSupervisorId);
+                return true;
+            });
         }
     },
     editSupervisor: function(supervisorID) {
@@ -115,6 +146,58 @@ Meteor.methods({
             addUserToRoles(userId, 'supervisor');
             removeUserFromRoles(userId, 'user');
         }
+    },
+    createOrganization: function(newOrgName, newOrgOwner, newOrgDesc){
+        Orgs.insert({
+            orgName: newOrgName,
+            orgOwnerId: newOrgOwner,
+            orgDesc: newOrgDesc
+        });
+        return true;
+    },
+    getInviteInfo: function(inviteCode){
+        console.log(inviteCode);
+        if(inviteCode == "A"){
+            console.log('testing invite routing');
+            targetSupervisorId = 0;
+            targetSupervisorName = "Super Visor";
+            targetOrgId = 0;
+            targetOrgName = "UofM IIS";
+        } else {
+            supervisor = Meteor.users.findOne({supervisorInviteCode: inviteCode});
+            targetSupervisorId = supervisor._id;
+            targetSupervisorName = supervisor.firstname + " " + supervisor.lastname;
+            targetOrgId = supervisor.organization;
+            targetOrgName = "";
+            console.log(targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName);
+        }
+        return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
+    },
+    generateInvite: function(supervisorId){
+        var link = '';
+        var length = 16;
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        var unique = false;
+        while(unique == false){;
+            for ( var i = 0; i < length; i++ ) {
+                link += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }  
+            linkFound = Meteor.users.find({supervisorInviteCode: link}).fetch().length; 
+            if(linkFound == 0){
+                unique = true;
+            } else {
+                link = "";
+            }
+        }
+        serverConsole(link);
+        Meteor.users.update({ _id: supervisorId }, 
+        {   $set: 
+            {
+                supervisorInviteCode: link
+            }
+        });
+        return link;
     },
     removeSupervisor: function(userId){
         //removes a user from supervisors list if added by mistake. 
