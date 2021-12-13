@@ -253,8 +253,12 @@ Meteor.publish(null, function() {
 
 //allow admins to see all users of org, Can only see emails of users. Can See full data of supervisors
 Meteor.publish('getUsersInOrg', function() {
-    if(Roles.userIsInRole(this.userId, ['admin', 'supervisor'] )){
+    if(Roles.userIsInRole(this.userId, 'admin' )){
+        console.log('admin')
         return Meteor.users.find({ organization: Meteor.user().organization, role: 'user' });
+    }
+    else if(Roles.userIsInRole(this.userId, 'supervisor')){
+        return Meteor.users.find({ organization: Meteor.user().organization, role: 'user', supervisor: this.userId})
     }
 });
 
