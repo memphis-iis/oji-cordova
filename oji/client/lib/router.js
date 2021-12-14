@@ -24,7 +24,6 @@ const defaultBehaviorRoutes = [
 
 const getDefaultRouteAction = function(routeName) {
   return function() {
-    console.log(routeName + ' ROUTE');
     this.render(routeName);
   };
 };

@@ -90,15 +90,16 @@ Meteor.startup(() => {
 
 //Global Methods
 Meteor.methods({
+    getInviteInfo,
     createNewUser: function(user, pass, emailAddr, firstName, lastName, linkId=""){
-        Meteor.call('getInviteInfo', linkId, (err, res) => {
-            if(linkId){
-                var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = res;                    
-            } else {
-                var targetOrgId = null
-                var targetSupervisorId = null;                     
-            }
-            if (!Accounts.findUserByUsername(user)) {
+        if(linkId){
+            var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);                    
+        } else {
+            var targetOrgId = null
+            var targetSupervisorId = null;                     
+        }
+        if (!Accounts.findUserByUsername(user)) {
+            if (!Accounts.findUserByEmail(emailAddr)){
                 const uid = Accounts.createUser({
                     username: user,
                     password: pass,
@@ -118,21 +119,18 @@ Meteor.methods({
                             supervisor: targetSupervisorId,
                         }
                     });
-                serverConsole(linkId)
                 if(linkId != ""){
                     addUserToRoles(uid, 'user');
-                    serverConsole('create user', user, pass, emailAddr, firstName, lastName, targetOrgId, linkId);
                 } else {
                     addUserToRoles(uid, 'admin');
-                    serverConsole('create user', user, pass, emailAddr, firstName, lastName, targetOrgId, targetSupervisorId);
                 }
-                
             }
-        });
-        if(linkId == ""){
-            return "/createOrg";
-        } else {
-            return "/";
+            else{
+                throw new Meteor.Error ('user-already-exists', `Email ${emailAddr} already in use`);
+            }
+        }
+        else{
+            throw new Meteor.Error ('user-already-exists', `User ${user} already exists`);
         }
     },
     createOrganization: function(newOrgName, newOrgOwner, newOrgDesc){
@@ -148,19 +146,7 @@ Meteor.methods({
                     organization: newOrgId,
                 }
             });
-        serverConsole(newOrgId, newOrgName, newOrgOwner, newOrgDesc);
         return true;
-    },
-    getInviteInfo: function(inviteCode){
-        console.log(inviteCode);
-        supervisor = Meteor.users.findOne({supervisorInviteCode: inviteCode});
-        targetSupervisorId = supervisor._id;
-        organization = Orgs.findOne({orgOwnerId: supervisor._id});
-        targetSupervisorName = supervisor.firstname + " " + supervisor.lastname;
-        targetOrgId = supervisor.organization;
-        targetOrgName = organization.orgName;
-        console.log("getinvite:", targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName);
-        return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
     },
     generateInvite: function(supervisorId){
         var link = '';
@@ -179,7 +165,6 @@ Meteor.methods({
                 link = "";
             }
         }
-        serverConsole(link);
         Meteor.users.update({ _id: supervisorId }, 
         {   $set: 
             {
@@ -236,6 +221,15 @@ function serverConsole(...args) {
     console.log.apply(this, disp);
 }
 
+function getInviteInfo(inviteCode) {
+    supervisor = Meteor.users.findOne({supervisorInviteCode: inviteCode});
+    targetSupervisorId = supervisor._id;
+    organization = Orgs.findOne({orgOwnerId: supervisor._id});
+    targetSupervisorName = supervisor.firstname + " " + supervisor.lastname;
+    targetOrgId = supervisor.organization;
+    targetOrgName = organization.orgName;
+    return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
+}
 //Publications and Mongo Access Control
 Meteor.users.deny({
     update() { return true; }
@@ -252,9 +246,8 @@ Meteor.publish(null, function() {
 
 //allow admins to see all users of org, Can only see emails of users. Can See full data of supervisors
 Meteor.publish('getUsersInOrg', function() {
-    if(Roles.userIsInRole(this.userId, 'admin')){
-        serverConsole(this.userId);
-        return Meteor.users.find({ organization: Meteor.user().organization, role: 'user' }, { fields: {'emails': 1, 'role': 1}});
+    if(Roles.userIsInRole(this.userId, 'admin' )){ 
+        return Meteor.users.find({ organization: Meteor.user().organization, role: 'user' });
     }
     if(Roles.userIsInRole(this.userId, 'supervisor')){
         return Meteor.users.find({ supervisor: Meteor.user()._id, role: 'user' });

@@ -4,10 +4,10 @@ import { Template } from 'meteor/templating';
 Template.login.events({
     'click #login-submit': function() {
         event.preventDefault();
-        Meteor.loginWithPassword($('#usernameLogin')[0].value, $('#passwordLogin')[0].value);
+        Meteor.loginWithPassword($('#usernameLogin').val(), $('#passwordLogin').val());
         //clears the Login boxes on submit
-        $('#usernameLogin')[0].value = '';
-        $('#passwordLogin')[0].value = '';
+        $('#usernameLogin').val('');
+        $('#passwordLogin').val('');
     },
     'click #signup-submit': function() {
         event.preventDefault();
