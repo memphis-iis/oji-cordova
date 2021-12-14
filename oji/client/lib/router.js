@@ -42,9 +42,29 @@ Router.route('/', function () {
   this.render('home');
 });
 
+// admin control panel route
+Router.route('/control-panel', function () {
+  if(Meteor.user()){
+    if (Roles.userIsInRole(Meteor.user(), 'admin')) {
+      this.render('adminControlPanel');
+    }
+    else if (Roles.userIsInRole(Meteor.user(), 'supervisor')) {
+      this.render('supervisorControlPanel');
+    }
+    else{
+      Router.go('/');
+    }
+  }
+  else{
+    Router.go('/');
+  }
+});
 // route organizational invites
 Router.route('/signup/:_id', function(){
   // add the subscription handle to our waitlist
+  if(Meteor.user()){
+    Router.go('/');
+  }
   id = this.params._id;
   Meteor.call('getInviteInfo', id, (err, res) => {
     var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = res;
@@ -60,17 +80,3 @@ Router.route('/signup/:_id', function(){
       });
     }});
   })   
-// admin control panel route
-Router.route('/admin-control-panel', function () {
-  if(Meteor.user()){
-    if (Roles.userIsInRole(Meteor.user(), ['admin'])) {
-      this.render('adminControlPanel');
-    }
-    else{
-      Router.go('/');
-    }
-  }
-  else{
-    Router.go('/');
-  }
-});
