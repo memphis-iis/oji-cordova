@@ -9,9 +9,10 @@ const SEED_ADMIN = {
     email: 'testAdmin@memphis.edu',
     firstName: 'Johnny',
     lastName: 'Test',
-    org : 0,
+    org : "",
     supervisorID: "0",
-    role: 'admin'
+    role: 'admin',
+    supervisorInviteCode: "12345"
 };
 const SEED_SUPERVISOR = {
     username: 'testSupervisor',
@@ -19,9 +20,10 @@ const SEED_SUPERVISOR = {
     email: 'testSupervisor@memphis.edu',
     firstName: 'Supervisor',
     lastName: 'Test',
-    org : 0,
+    org : "",
     supervisorID: "0",
-    role: 'supervisor'
+    role: 'supervisor',
+    supervisorInviteCode: "12345"
 };
 const SEED_USER = {
     username: 'testUser',
@@ -29,9 +31,10 @@ const SEED_USER = {
     email: 'testUser@memphis.edu',
     firstName: 'User',
     lastName: 'Test',
-    org : 0,
+    org : "",
     supervisorID: "0",
-    role: 'user'
+    role: 'user',
+    supervisorInviteCode: null
 };
 const SEED_USER2 = {
     username: 'testUserNotInIIS',
@@ -39,9 +42,10 @@ const SEED_USER2 = {
     email: 'testUserNotInIIS@memphis.edu',
     firstName: 'User',
     lastName: 'Test',
-    org : 0,
+    org : "alksdjhfaslkd",
     supervisorID: "0",
-    role: 'user'
+    role: 'user',
+    supervisorInviteCode: null
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
@@ -57,8 +61,7 @@ Meteor.startup(() => {
             Roles.createRole(role);
         }
     }
-
-   
+    let newOrgId;
     //create seed user
     for(let user of SEED_USERS){
         if (!Accounts.findUserByUsername(user.username)) {
@@ -70,7 +73,12 @@ Meteor.startup(() => {
             
             addUserToRoles(uid, user.role);
             if(user.role == "admin"){
-                Meteor.call('createOrganization', "IIS", uid, "Testing");  
+                Orgs.insert({
+                    orgName: "IIS",
+                    orgOwnerId: uid,
+                    orgDesc: "Testing"
+                });
+                newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
                 Meteor.call('generateInvite',uid);
             }
 
@@ -79,8 +87,8 @@ Meteor.startup(() => {
                     {
                         firstname: user.firstName,
                         lastname: user.lastName,
-                        organization: user.org,
-                        supervisor: user.supervisorID
+                        supervisor: user.supervisorID,
+                        organization: user.org ? user.org: newOrgId
                     }
                }
             );
@@ -173,23 +181,9 @@ Meteor.methods({
         });
         return link;
     },
-
-    editSupervisor: function(supervisorID) {
-        if(Roles.userIsInRole(this.userId, ['admin'])){
-
-        }
-    }, 
     destroyUser: function(userID) {
         if(Roles.userIsInRole(this.userId, ['admin'])){
             Meteor.users.remove(userID);
-        }
-    },
-    elevateUser: function(userEmail) {
-        //elevate user with user role to supervisor
-        if(Roles.userIsInRole(this.userId, 'admin')){
-            const user = Meteor.users.findOne( {"emails.address": userEmail} );
-            addUserToRoles(user._id, 'supervisor');
-            removeUserFromRoles(user._id, 'user');
         }
     },
     removeSupervisor: function(userId){
@@ -198,18 +192,30 @@ Meteor.methods({
             addUserToRoles(userId, 'user');
             removeUserFromRoles(userId, 'supervisor');
         }
-    }
+    },
+    editSupervisor: function(supervisorID) {
+        if(Roles.userIsInRole(this.userId, ['admin'])){
+
+        }
+    },
+    addSupervisor: function(userId) {
+        //elevate user with user role to supervisor
+        if(Roles.userIsInRole(this.userId, 'admin')){
+            addUserToRoles(userId, 'supervisor');
+            removeUserFromRoles(userId, 'user');
+        }
+    },
 });
 
 //Server Methods
 function addUserToRoles(uid, roles){
     Roles.addUsersToRoles(uid, roles);
-    Meteor.users.update({ _id: uid }, { $set: { role: Roles.getRolesForUser(uid) }});
+    Meteor.users.update({ _id: uid }, { $set: { role: Roles.getRolesForUser(uid)[0] }});
 }
 
 function removeUserFromRoles(uid, roles){
     Roles.removeUsersFromRoles(uid, roles);
-    Meteor.users.update({ _id: uid }, { $set: { role: Roles.getRolesForUser(uid) }});
+    Meteor.users.update({ _id: uid }, { $set: { role: Roles.getRolesForUser(uid)[0] }});
 }
 
 function serverConsole(...args) {
@@ -249,8 +255,8 @@ Meteor.publish('getUsersInOrg', function() {
     if(Roles.userIsInRole(this.userId, 'admin' )){ 
         return Meteor.users.find({ organization: Meteor.user().organization, role: 'user' });
     }
-    if(Roles.userIsInRole(this.userId, 'supervisor')){
-        return Meteor.users.find({ supervisor: Meteor.user()._id, role: 'user' });
+    else if(Roles.userIsInRole(this.userId, 'supervisor')){
+        return Meteor.users.find({ organization: Meteor.user().organization, role: 'user', supervisor: this.userId})
     }
 });
 
@@ -262,14 +268,9 @@ Meteor.publish('getSupervisorsInOrg', function() {
 
 //Allow users access to Org information
 Meteor.publish(null, function() {
-    user = Meteor.users.findOne({_id: this.userId});
-    organization = user.organization
-    if(organization != "0"){
-        out = Orgs.find({orgOwnerId: user.supervisorId});
-    } else {
-        out = Orgs.find({orgOwnerId: this.userId});
-    } 
-    return out;
+    if(Meteor.user()){
+        return Orgs.find({orgOwnerId: Meteor.user().organization});
+    }
 });
 
 //allow the use of Roles.userIsInRole() accorss client

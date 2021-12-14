@@ -7,18 +7,13 @@
         <div class="col-4">
             <h3>Supervisors</h3>
         </div>
-        <div class="col-4">
-            <button type="button" class="btn btn-success" id="addSupervisorButton" data-bs-toggle="modal" data-bs-target="#addSupervisorModal">Add Supervisor</button>
-            <button type="button" class="btn btn-danger" id="removeSupervisorButton">Remove Supervisor</button>
-            <button type="button" class="btn btn-primary" id="removeSupervisorConfirmButton" style="display: none;">Confirm</button>
-        </div>
     </div>
     <table class="table" id="supervisorListTable">
         <thead>
         <tr>
-            <th scope="col">Last</th>
-            <th scope="col">First</th>
-            <th scope="col">Actions</th>
+            <th scope="col" width="20%">Last</th>
+            <th scope="col" width="40%">First</th>
+            <th scope="col" width="20%">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -27,7 +22,6 @@
                     <th scope="row">{{this.lastname}}</th>
                     <td>{{this.firstname}}</td>
                     <td>
-                        <input type="checkbox" data-supervisorID="{{this._id}}" class="supervisorListTableCheckbox" hidden>
                         <a id="supervisorsEditButton" href="#" data-supervisorID="{{this._id}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -40,37 +34,19 @@
                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                             </svg>
                         </a>
+                        <a id="supervisorDemoteButton" href="#" data-supervisorID="{{this._id}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </a>
                     </td>
                 </tr>
             {{/each}}
         </tbody>
     </table>
+    {{ > supervisorControlPanel }}
     <div class="row">
         <p>Personal Invite Link: <a href="{{orgLink}}">{{orgLink}}</a>    
         <button id="regen-link" class="btn btn-caution">Regenerate Link</button></p>
-    </div>
-    <div class="modal" id="addSupervisorModal" tabindex="-1" aria-labelledby="addSupervisorLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addSupervisorLabel">Add Supervisor</h5>
-                </div>
-                <div class="modal-body">
-                    <div class="dropdown">
-                        <b>Select a user to elevate</b>
-                        <select id="adminControlPanelSupervisorDropdown">  
-                            <option> ---Email--- </option>
-                            {{#each userList}}
-                                <option>{{this}}</option>
-                            {{/each}}
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="addSupervisorSubmit" data-bs-dismiss="modal">Save changes</button>
-                </div>
-            </div>
-        </div>
     </div>
 </template>

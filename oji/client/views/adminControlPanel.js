@@ -1,7 +1,5 @@
 Template.adminControlPanel.helpers({
-    'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: -1}}).fetch(),
-
-    'userList': () => Meteor.users.find({ role: 'user' }).fetch().map(x => x.emails[0].address),
+    'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
 
     'orgLink': () => window.location.protocol + "//" + window.location.host + "/signup/" + Meteor.user().supervisorInviteCode,
 
@@ -20,32 +18,15 @@ Template.adminControlPanel.events({
         }
     },
 
-    'click #addSupervisorSubmit': function(event){
-        Meteor.call('elevateUser', $('#adminControlPanelSupervisorDropdown :selected').text());
+    'click #supervisorDemoteButton': function(event){
+        Meteor.call('removeSupervisor', event.currentTarget.getAttribute("data-supervisorID"));
     }, 
     'click #regen-link': function(event){
         Meteor.call('generateInvite', Meteor.userId());
-    }, 
-
-    'click #removeSupervisorButton': function(event){
-        $('#removeSupervisorConfirmButton').show();
-        for(let box of $('.supervisorListTableCheckbox')){
-            box.removeAttribute("hidden")
-        }
     },
-
-    'click #removeSupervisorConfirmButton': function(event){
-        $('#removeSupervisorConfirmButton').hide();
-        for(let box of $('.supervisorListTableCheckbox')){
-            box.setAttribute("hidden", "");
-            if(box.checked){
-                Meteor.call('removeSupervisor', box.getAttribute("data-supervisorID"));
-            }
-        }
-    }
 })
 
 Template.adminControlPanel.onCreated(function() {
     Meteor.subscribe('getUsersInOrg');
-
+    Meteor.subscribe('getSupervisorsInOrg');
 })
