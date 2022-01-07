@@ -55,6 +55,17 @@ const SEED_ROLES = ['user', 'supervisor', 'admin']
 
 
 Meteor.startup(() => {
+    //load default JSON assessment into mongo collection
+    if(Assessments.find().count() === 0){
+        console.log('Importing Default Assessments into Mongo.')
+        var data = JSON.parse(Assets.getText('defaultAssessments.json'));
+        console.log(data);
+        for (var i =0; i < data['assessments'].length; i++){
+            assessment = data['assessments'][i]['assessment'];
+            console.log(assessment);
+            Assessments.insert(assessment);
+        };
+    }
     //create seed roles
     for(let role of SEED_ROLES){
         if(!Meteor.roles.findOne({ '_id' : role })){
