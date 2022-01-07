@@ -34,7 +34,8 @@ const SEED_USER = {
     org : "",
     supervisorID: "0",
     role: 'user',
-    supervisorInviteCode: null
+    supervisorInviteCode: null,
+    hasCompletedFirstAssessment: false
 };
 const SEED_USER2 = {
     username: 'testUserNotInIIS',
@@ -45,7 +46,8 @@ const SEED_USER2 = {
     org : "alksdjhfaslkd",
     supervisorID: "0",
     role: 'user',
-    supervisorInviteCode: null
+    supervisorInviteCode: null,
+    hasCompletedFirstAssessment: false
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
@@ -99,7 +101,8 @@ Meteor.startup(() => {
                         firstname: user.firstName,
                         lastname: user.lastName,
                         supervisor: user.supervisorID,
-                        organization: user.org ? user.org: newOrgId
+                        organization: user.org ? user.org: newOrgId,
+                        hasCompletedFirstAssessment: user.hasCompletedFirstAssessment
                     }
                }
             );
@@ -127,7 +130,8 @@ Meteor.methods({
                     lastname: lastName,
                     organization: targetOrgId,
                     supervisor: targetSupervisorId,
-                    supervisorInviteCode: null
+                    supervisorInviteCode: null,
+                    hasCompletedFirstAssessment: false
                 });
                 Meteor.users.update({ _id: uid }, 
                     {   $set: 
