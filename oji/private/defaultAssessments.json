@@ -1,0 +1,12 @@
+{
+    "assessments": [{
+        "assessment": {
+            "title": "Default"
+        }
+    },
+    {
+        "assessment":{
+            "title": "Default 2"
+        }
+    }]
+}
