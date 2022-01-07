@@ -2,6 +2,9 @@
     "assessments": [{
         "assessment": {
             "title": "Default",
+            "display": false,
+            "identifier": "Default",
+            "description": "This is the example assessment.",
             "questions": [
                 {
                     "text": "Test Question 1",
@@ -15,7 +18,10 @@
     },
     {
         "assessment":{
-            "title": "PICTS",
+            "title": "Psychological Inventory of Criminal Thinking Styles",
+            "display": true,
+            "identifier": "PICTS",
+            "description": "This is the PICTS assessment.",
             "questions": [
                 {
                     "text": "I will allow nothing to get in the way of me getting what I want.",
@@ -345,7 +351,10 @@
     },
     {
         "assessment": {
-        "title": "PCL_5",
+        "title": "PTSD Checklist for DSM-5",
+        "display": true,
+        "identifier": "PCL_5",
+        "description": "This is the PTSD assessment using DSM-5 standards.",
         "questions": [
                 {
                     "text":"Repeated, disturbing, and unwanted memories of the stressful experience?",
@@ -435,7 +444,10 @@
     },
     {
     "assessment": {
-        "title": "DSM_5",
+        "title": "Initial Patient Interview",
+        "display": true,
+        "identifier": "DSM_5",
+        "description": "This is the patient assessment measures for initial assessment using DSM-5 standards.",
         "questions": [
                 {
                     "text": "Little interest or pleasure in doing things?"
@@ -516,7 +528,10 @@
     },
     {
     "assessment": {
-        "title": "DHS",
+        "title": "Employability Assessment",
+        "display": true,
+        "identifier": "DHS",
+        "description": "This is the DHS assessment, a psychological assessment for employability.",
         "questions": [
             {
                 "text": "I feel sad most of the time.",
@@ -683,6 +698,9 @@
     {
         "assessment": {
             "title": "CSSM",
+            "display": true,
+            "identifier": "CCSM",
+            "description": "This is the CSSM assessment.",
             "questions": [
                 {
                     "text": "Pretty well all laws deserve our respect.",

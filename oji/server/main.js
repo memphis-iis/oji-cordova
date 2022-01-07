@@ -293,3 +293,7 @@ Meteor.publish(null, function () {
         this.ready()
     }
 });
+//allow assessments to be published
+Meteor.publish('assessments', function () {
+    return Assessments.find({});
+});
