@@ -56,10 +56,8 @@ Meteor.startup(() => {
     if(Assessments.find().count() === 0){
         console.log('Importing Default Assessments into Mongo.')
         var data = JSON.parse(Assets.getText('defaultAssessments.json'));
-        console.log(data);
         for (var i =0; i < data['assessments'].length; i++){
             assessment = data['assessments'][i]['assessment'];
-            console.log(assessment);
             Assessments.insert(assessment);
         };
     }
@@ -219,7 +217,6 @@ Meteor.methods({
         trialId = newData.trialId;
         userId = Meteor.userId();
         questionId = newData.questionId;
-        console.log('questionid',questionId);
         oldResults = Trials.findOne({_id: trialId});
         if(typeof oldResults === "undefined"){
             data = [];
@@ -255,7 +252,7 @@ Meteor.methods({
     },
     clearAssessmentProgress: function (){
         userId = Meteor.userId();
-        console.log('clear progress');
+
         Meteor.users.update(userId, {
             $set: {
               curTrial: {

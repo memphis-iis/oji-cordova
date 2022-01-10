@@ -19,7 +19,7 @@ Template.assessment.helpers({
             answerValues: assessment.answerValues,
             reversedValues: assessment.reversedValues,
         }
-        console.log(data);
+
         return data;
     }
 })
