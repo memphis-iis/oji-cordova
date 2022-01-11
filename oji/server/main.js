@@ -53,18 +53,13 @@ const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
 
 
-// Publish Collections
-
-
 Meteor.startup(() => {
     //load default JSON assessment into mongo collection
     if(Assessments.find().count() === 0){
         console.log('Importing Default Assessments into Mongo.')
         var data = JSON.parse(Assets.getText('defaultAssessments.json'));
-        console.log(data);
         for (var i =0; i < data['assessments'].length; i++){
             assessment = data['assessments'][i]['assessment'];
-            console.log(assessment);
             Assessments.insert(assessment);
         };
     }
@@ -220,6 +215,57 @@ Meteor.methods({
             removeUserFromRoles(userId, 'user');
         }
     },
+
+    //assessment data collection
+    saveAssessmentData: function(newData){
+        trialId = newData.trialId;
+        userId = Meteor.userId();
+        questionId = newData.questionId;
+        oldResults = Trials.findOne({_id: trialId});
+        if(typeof oldResults === "undefined"){
+            data = [];
+        } else {
+            data = oldResults.data;
+        }
+        data[newData.questionId] = {
+            response: newData.response,
+            responseValue: newData.responseValue
+        }
+        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, lastAccessed: Date.now(),  data: data}});
+        if(typeof output.insertedId === "undefined"){
+            Meteor.users.update(userId, {
+                $set: {
+                  curTrial: {
+                      trialId: trialId,
+                      questionId: questionId + 1
+                  }
+                }
+              });
+            return trialId;
+        } else {
+            Meteor.users.update(userId, {
+                $set: {
+                    curTrial: {
+                        trialId: output.insertedId,
+                        questionId: 1
+                    }
+                }
+              });
+            return output.insertedId;
+        }
+    },
+    clearAssessmentProgress: function (){
+        userId = Meteor.userId();
+
+        Meteor.users.update(userId, {
+            $set: {
+              curTrial: {
+                  trialId: 0,
+                  questionId: 0
+              }
+            }
+          });
+    }
 });
 
 //Server Methods
@@ -251,6 +297,7 @@ function getInviteInfo(inviteCode) {
     targetOrgName = organization.orgName;
     return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
 }
+
 //Publications and Mongo Access Control
 Meteor.users.deny({
     update() { return true; }
@@ -263,6 +310,11 @@ Meteor.users.allow({
 //Show current user data for current user
 Meteor.publish(null, function() {
     return Meteor.users.find({_id: this.userId});
+});
+
+//Publish current assessment information
+Meteor.publish('curAssessment', function(id) {
+    return Assessments.find({_id: id});
 });
 
 //allow admins to see all users of org, Can only see emails of users. Can See full data of supervisors
@@ -300,4 +352,9 @@ Meteor.publish(null, function () {
 //allow assessments to be published
 Meteor.publish('assessments', function () {
     return Assessments.find({});
+});
+
+//allow current users trial data to be published
+Meteor.publish('usertrials', function () {
+    return Trials.find({'userid': this.userId});
 });
