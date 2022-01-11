@@ -30,12 +30,20 @@ Template.assessment.events({
         trialData = Meteor.users.findOne().curTrial;
         console.log('trialData', trialData);
         assessment = Assessments.findOne();
-        trialId = trialData.trialId
+        if(typeof trialData === "undefined"){
+            trialId = 0;
+        } else {
+            trialId = trialData.trialId ;
+        }
         selectedAnswer = event.target.id;
         selectedAnswerValue = assessment.answerValues[selectedAnswer];
         selectedAnserReversedValue = assessment.reversedValues[selectedAnswer];
         curAssesment = Assessments.findOne();
-        curQuestion = trialData.questionId;
+        if(typeof trialData === "undefined"){
+            curQuestion = 0; 
+        } else {
+            curQuestion =  trialData.questionId ;
+        }
         nextQuestion = parseInt(curQuestion) + 1;
         if(curAssesment.questions.length <= nextQuestion) {
             target = "/assessment/" + curAssesment._id + "/" + "completed";
@@ -50,10 +58,7 @@ Template.assessment.events({
             responseValue: selectedAnswerValue,
             reversedValue: selectedAnserReversedValue
         }
-        curTrialId = Meteor.call('saveAssessmentData', data, function(error, result){
-            Session.set('curTrialId',result);
-        });
-        console.log('curTrialId', Session.get('curTrialId'));
+        Meteor.call('saveAssessmentData', data);
         Router.go(target);
     },
     'click .begin': function(event) {
