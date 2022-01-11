@@ -345,3 +345,12 @@ Meteor.publish(null, function () {
         this.ready()
     }
 });
+//allow assessments to be published
+Meteor.publish('assessments', function () {
+    return Assessments.find({});
+});
+
+//allow current users trial data to be published
+Meteor.publish('usertrials', function () {
+    return Trials.find({'userid': this.userId});
+});

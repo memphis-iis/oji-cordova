@@ -18,8 +18,14 @@ Router.configure({
 const defaultBehaviorRoutes = [
   'login',
   'signup',
-  'createOrg'
+  'createOrg',
+  'restricted'
 ];
+
+//Set Up Logged In Restricted Routes 
+const restrictedRoutes = [
+  'assessmentCenter'
+]
 
 
 const getDefaultRouteAction = function(routeName) {
@@ -35,6 +41,17 @@ for (const route of defaultBehaviorRoutes) {
     action: getDefaultRouteAction(route),
   });
 }
+
+// set up all routes with restricted to login behavior
+for (const route of restrictedRoutes) {
+  Router.route('/' + route, function() {
+    if(Meteor.userId()){
+      this.render(route);
+      }else{
+        Router.go('/');
+      }
+    });
+  }
 
 // setup home route
 Router.route('/', function () {
