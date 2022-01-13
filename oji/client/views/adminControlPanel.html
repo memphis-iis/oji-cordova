@@ -46,7 +46,12 @@
     </table>
     {{ > supervisorControlPanel }}
     <div class="row">
-        <p>Personal Invite Link: <a href="{{orgLink}}">{{orgLink}}</a>    
+        <p>Personal Invite Link: <a href="{{orgLink}}">{{orgLink}}</a>   
         <button id="regen-link" class="btn btn-caution">Regenerate Link</button></p>
+        {{#if showToken}}
+        <p>API Token: {{api.token}} Expires: {{api.expires}}</p> 
+        {{else}}
+        <button id='showapi' class="btn btn-caution">Show API Key</button>
+        {{/if}}
     </div>
 </template>

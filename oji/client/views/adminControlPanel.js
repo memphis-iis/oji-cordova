@@ -4,6 +4,14 @@ Template.adminControlPanel.helpers({
     'orgLink': () => window.location.protocol + "//" + window.location.host + "/signup/" + Meteor.user().supervisorInviteCode,
 
     'organization': () => Orgs.findOne(),
+    
+    'api': function (){
+        api = {
+            token: 0,
+            expires: 0
+        };
+        return api;
+      },
 })
 
 Template.adminControlPanel.events({
