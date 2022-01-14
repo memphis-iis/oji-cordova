@@ -54,37 +54,54 @@ const SEED_ROLES = ['user', 'supervisor', 'admin']
 Meteor.startup(() => {
     
     //Iron Router Api
-    Router.route('/api/:_ownerId',{
+    Router.route('/api',{
     where: "server",
     action: function (){
-      this.response.writeHead(200, {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      });
-      organization = Orgs.findOne({orgOwnerId: this.params._ownerId});
-      userlist = Meteor.users.find({organization: organization._id}, {
-          fields: {
-            firstname: 0,
-            lastname: 0,
-            emails: 0,
-            username: 0,
-            role: 0,
-            supervisorInviteCode: 0,
-            services: 0,
-            organization: 0
-          },
-      }).fetch();
-      userListResponse = []
-      for(i = 0; i < userlist.length; i++){
-        userTrials = Trials.find({userId: userlist[i]._id}).fetch();
-        curUser = userlist[i];
-        curUser.trials = JSON.parse(JSON.stringify(userTrials));
-        userListResponse.push(curUser);
-      }
-      organization.users = userListResponse;
-      console.log(organization);
-      this.response.end(JSON.stringify(organization));
-    }
+        this.response.writeHead(200, {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        });
+        console.log(this.request.headers);
+        username = this.request.headers['x-user-id'];
+        loginToken = this.request.headers['x-auth-token'];
+        user = Meteor.users.findOne({username: username});
+        isTokenExpired = true;
+        keys = user.api;
+        now = new Date();
+        expDate = keys.expires;
+        expDate.setDate(expDate.getDate());
+        console.log('date', now, expDate, keys.expires);
+        if(now < expDate){
+            isTokenExpired = false;
+        }
+        if(!user || user.api.token != loginToken || isTokenExpired == true){
+            this.response.end("{sucess: false, message: 'incorrect username or expired token'}");
+        } else {
+            organization = Orgs.findOne({orgOwnerId: user._id});
+            userlist = Meteor.users.find({organization: organization._id}, {
+                fields: {
+                    firstname: 0,
+                    lastname: 0,
+                    emails: 0,
+                    username: 0,
+                    role: 0,
+                    supervisorInviteCode: 0,
+                    services: 0,
+                    organization: 0,
+                    api: 0
+                },
+            }).fetch();
+            userListResponse = []
+            for(i = 0; i < userlist.length; i++){
+                userTrials = Trials.find({userId: userlist[i]._id}).fetch();
+                curUser = userlist[i];
+                curUser.trials = JSON.parse(JSON.stringify(userTrials));
+                userListResponse.push(curUser);
+            }
+            organization.users = userListResponse;
+            this.response.end(JSON.stringify(organization));
+            }
+        }
   });
 
     //load default JSON assessment into mongo collection
@@ -295,6 +312,25 @@ Meteor.methods({
               curTrial: {
                   trialId: 0,
                   questionId: 0
+              }
+            }
+          });
+    },
+
+    generateApiToken: function(userId){
+        var newToken = "";
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < 16; i++ ) {
+            newToken += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        var future = new Date();
+        future.setDate(future.getDate() + 30);
+        Meteor.users.update(userId, {
+            $set: {
+              api: {
+                  token: newToken,
+                  expires: future
               }
             }
           });
