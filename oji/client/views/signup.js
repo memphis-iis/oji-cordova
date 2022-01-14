@@ -9,8 +9,9 @@ Template.signup.events({
         const emailAddr = $('#emailSignin').val();
         const firstName = $('#firstnameSignin').val();
         const lastName = $('#lastnameSignin').val();
+        const sex = $('#sex').val();
         const linkId = $('#linkId').val();
-        Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName, linkId, function(error, result){
+        Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName, sex, linkId, function(error, result){
             if(error){
                 console.log(error);
             }

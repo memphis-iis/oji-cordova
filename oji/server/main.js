@@ -12,7 +12,8 @@ const SEED_ADMIN = {
     org : "",
     supervisorID: "0",
     role: 'admin',
-    supervisorInviteCode: "12345"
+    supervisorInviteCode: "12345",
+    sex: 'female'
 };
 const SEED_SUPERVISOR = {
     username: 'testSupervisor',
@@ -23,7 +24,8 @@ const SEED_SUPERVISOR = {
     org : "",
     supervisorID: "0",
     role: 'supervisor',
-    supervisorInviteCode: "12345"
+    supervisorInviteCode: "12345",
+    sex: 'male'
 };
 const SEED_USER = {
     username: 'testUser',
@@ -34,7 +36,9 @@ const SEED_USER = {
     org : "",
     supervisorID: "0",
     role: 'user',
-    supervisorInviteCode: null
+    supervisorInviteCode: null,
+    sex: 'female'
+    
 };
 const SEED_USER2 = {
     username: 'testUserNotInIIS',
@@ -45,7 +49,8 @@ const SEED_USER2 = {
     org : "alksdjhfaslkd",
     supervisorID: "0",
     role: 'user',
-    supervisorInviteCode: null
+    supervisorInviteCode: null,
+    sex: 'male'
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
@@ -99,7 +104,8 @@ Meteor.startup(() => {
                         firstname: user.firstName,
                         lastname: user.lastName,
                         supervisor: user.supervisorID,
-                        organization: user.org ? user.org: newOrgId
+                        organization: user.org ? user.org: newOrgId,
+                        sex: user.sex
                     }
                }
             );
@@ -110,7 +116,7 @@ Meteor.startup(() => {
 //Global Methods
 Meteor.methods({
     getInviteInfo,
-    createNewUser: function(user, pass, emailAddr, firstName, lastName, linkId=""){
+    createNewUser: function(user, pass, emailAddr, firstName, lastName, sex, linkId=""){
         if(linkId){
             var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);                    
         } else {
@@ -125,6 +131,7 @@ Meteor.methods({
                     email: emailAddr,
                     firstname: firstName,
                     lastname: lastName,
+                    sex: sex,
                     organization: targetOrgId,
                     supervisor: targetSupervisorId,
                     supervisorInviteCode: null
@@ -136,6 +143,7 @@ Meteor.methods({
                             lastname: lastName,
                             organization: targetOrgId,
                             supervisor: targetSupervisorId,
+                            sex: sex
                         }
                     });
                 if(linkId != ""){
