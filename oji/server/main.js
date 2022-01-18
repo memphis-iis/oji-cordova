@@ -12,7 +12,8 @@ const SEED_ADMIN = {
     org : "",
     supervisorID: "0",
     role: 'admin',
-    supervisorInviteCode: "12345"
+    supervisorInviteCode: "12345",
+    assigned: []
 };
 const SEED_SUPERVISOR = {
     username: 'testSupervisor',
@@ -23,7 +24,8 @@ const SEED_SUPERVISOR = {
     org : "",
     supervisorID: "0",
     role: 'supervisor',
-    supervisorInviteCode: "12345"
+    supervisorInviteCode: "12345",
+    assigned: []
 };
 const SEED_USER = {
     username: 'testUser',
@@ -34,7 +36,8 @@ const SEED_USER = {
     org : "",
     supervisorID: "0",
     role: 'user',
-    supervisorInviteCode: null
+    supervisorInviteCode: null,
+    assigned: []
 };
 const SEED_USER2 = {
     username: 'testUserNotInIIS',
@@ -45,7 +48,8 @@ const SEED_USER2 = {
     org : "alksdjhfaslkd",
     supervisorID: "0",
     role: 'user',
-    supervisorInviteCode: null
+    supervisorInviteCode: null,
+    assigned: []
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
@@ -87,7 +91,8 @@ Meteor.startup(() => {
                 Orgs.insert({
                     orgName: "IIS",
                     orgOwnerId: uid,
-                    orgDesc: "Testing"
+                    orgDesc: "Testing",
+                    newUserAssignments: []
                 });
                 newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
                 Meteor.call('generateInvite',uid);
@@ -99,7 +104,8 @@ Meteor.startup(() => {
                         firstname: user.firstName,
                         lastname: user.lastName,
                         supervisor: user.supervisorID,
-                        organization: user.org ? user.org: newOrgId
+                        organization: user.org ? user.org: newOrgId,
+                        assigned: user.assigned
                     }
                }
             );
@@ -112,7 +118,8 @@ Meteor.methods({
     getInviteInfo,
     createNewUser: function(user, pass, emailAddr, firstName, lastName, linkId=""){
         if(linkId){
-            var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);                    
+            var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);    
+            var organization = Orgs.findOne({_id: targetOrgId});                
         } else {
             var targetOrgId = null
             var targetSupervisorId = null;                     
@@ -136,6 +143,7 @@ Meteor.methods({
                             lastname: lastName,
                             organization: targetOrgId,
                             supervisor: targetSupervisorId,
+                            assigned: organization.newUserAssignments
                         }
                     });
                 if(linkId != ""){
@@ -156,7 +164,8 @@ Meteor.methods({
         Orgs.insert({
             orgName: newOrgName,
             orgOwnerId: newOrgOwner,
-            orgDesc: newOrgDesc
+            orgDesc: newOrgDesc,
+            newUserAssignments: []
         });
         newOrgId = Orgs.findOne({orgOwnerId: newOrgOwner})._id;
         Meteor.users.update({ _id: newOrgOwner }, 
@@ -216,6 +225,24 @@ Meteor.methods({
             removeUserFromRoles(userId, 'user');
         }
     },
+    changeAssignmentToNewUsers: function(assignment){
+        Orgs.upsert({_id: Meteor.user().organization},{newUserAssignments: assignment});
+    },
+    assignToAllUsers: function(assignment){
+        org = Meteor.user().organization;
+        allUsers = Meteor.users.find({organization: org, role: 'user'}).fetch();
+        for(i = 0; i < allUsers.length; i++){
+            curAssignments = allUsers[i].assigned;
+            curAssignments.push(assignment);
+            console.log(allUsers[i]._id, curAssignments);
+            Meteor.users.update({_id: allUsers[i]._id}, {$set: {assigned: curAssignments}});
+        }
+    },
+    changeAssignmentOneUser: function(input){
+        userId = input[0];
+        assignment = input[1];
+        Meteor.users.upsert({_id: userId},{$set: {assigned: assignment}});
+    }
 });
 
 //Server Methods
@@ -280,7 +307,7 @@ Meteor.publish('getSupervisorsInOrg', function() {
 //Allow users access to Org information
 Meteor.publish(null, function() {
     if(Meteor.user()){
-        return Orgs.find({orgOwnerId: Meteor.user().organization});
+        return Orgs.find({_id: Meteor.user().organization});
     }
 });
 
