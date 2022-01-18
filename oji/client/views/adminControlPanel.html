@@ -1,7 +1,12 @@
 <template name="adminControlPanel">
     <div class="row">
+        <div id="alert" class="alert" role="alert" hidden>
+          <span id="alert-p"></span>
+          <button id="close-alert" class="btn btn-caution">Close</button>
+        </div>
         <div class="col-4">
             <h3>Assignments</h3>
+            <p>Assignments must be completed before going on to other assessments or viewing progress reports.</p>
             <p>Assignments for:
                 <select id="user-select">
                         <option value="org">Organization</option>

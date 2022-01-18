@@ -82,7 +82,35 @@ Router.route('/control-panel', function () {
   }
 });
 
-// restricted to logged in users routes
+// route assessment engine
+//intro
+Router.route('/assessment/:_id', {
+  subscriptions: function(){
+    return Meteor.subscribe('curAssessment', this.params._id);
+  },
+  action: function(){
+    this.render('assessment', {
+      data:{
+        isNotQuestion: true,
+      }
+    });w
+  }
+});
+//question
+Router.route('/assessment/:_id/:_questionid', {
+  subscriptions: function(){
+    return Meteor.subscribe('curAssessment', this.params._id);
+  },
+  action: function(){
+    this.render('assessment', {
+      data:{
+        isNotQuestion: false,
+        questionid: this.params._questionid,
+      }
+    });
+  }
+});
+
 // route organizational invites
 Router.route('/signup/:_id', function(){
   // add the subscription handle to our waitlist

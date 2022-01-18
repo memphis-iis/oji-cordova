@@ -1,24 +1,35 @@
 Template.profile.helpers({
     'assignment': function(){
         assigned = Meteor.user().assigned;
-        assignments = [];
-        for(i = 0; i < assigned.length; i++){
-            assessment = Assessments.findOne({_id: assigned[i]});
-            assignments.push(assessment);
+        console.log("assigned", assigned);
+        if(assigned.length == 0){
+            assignment = false;
+        } else {
+            assignment = Assessments.findOne({_id: assigned[0]});
         }
-        if(assignments.length == 0){
-            assignments = false;
-        }
-        console.log(assignments);
-        return assignments;
-    }
+        console.log("assignment", assignment);
+        return assignment;
+    },
+    'userIsAdminOrSupervisor': () => Roles.userIsInRole(Meteor.userId(), ['admin', 'supervisor']),
 })
 
 Template.profile.events({
     'click #startAssessment': function(){
         assignment = $(event.target).data("assessment-id");
-        target = "assessment/" + assignment
+        target = "/assessment/" + assignment
         Router.go(target);
+    },
+    'click #assessmentCenter': function(){
+        target = "/assessmentCenter/";
+        Router.go(target);
+    },
+    'click #controlPanel': function(){
+        target = "/control-panel/";
+        Router.go(target);
+    },
+    'click #logout': function(){
+        Meteor.logout();
+        Router.go("/");
     },
 })
 

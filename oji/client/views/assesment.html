@@ -1,0 +1,31 @@
+<template name="assessment">
+    <div class="px-4 py-5 my-5 text-center">
+       <h1>{{assessment.title}}</h1>
+       {{#if this.isNotQuestion}}
+        <p class="lead mb-4">{{assessment.description}}</p>
+        <p class="lead mb-4">Please complete the entire assessment in one try. You will not be allowed to save your place.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button class="btn btn-primary begin">Let's Begin!</button>
+                <button class="btn btn-caution return">I'm not Ready.</button>
+        </div>
+        {{else}}
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            {{#if completed}}
+            <p class>You have completed this assessment. I have calculated the results.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button class="btn btn-primary return">Return to My Profile</button>
+            </div>
+            {{/if}}
+        <br>
+        <h3>{{question.text}}</h3>
+        <div class="form-check">
+        {{#each question.answers}}
+        <br>
+        <button  class="btn btn-secondary btn-lg btn-block continue" id="{{@index}}" value="{{@index}}" name="">{{this}}</button>
+        {{/each}}
+        </div>
+        </div>
+        {{/if}}
+
+    </div>
+</template>

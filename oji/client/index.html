@@ -29,9 +29,16 @@
               </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               {{#if userIsAdminOrSupervisor}}
-                <li><a id="adminPanelNavButton" class="dropdown-item" href="control-panel">Control Panel</a></li>
+                <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
+              {{else}}
+                {{#if currentUser.assigned}}
+                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile</a></li>
+                {{else}}
+                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile</a></li>
+                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
+                {{/if}}
               {{/if}}
-              <li><a id="assessmentCenterNavButton" class="dropdown-item" href="assessmentCenter">Assessment Center</a></li>
+                
               <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
             </ul>
           </li>

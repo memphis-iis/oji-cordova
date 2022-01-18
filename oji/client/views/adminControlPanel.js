@@ -78,8 +78,17 @@ Template.adminControlPanel.events({
     },
     'click #assign-all': function(event){
         event.preventDefault();
-        assignment = $(event.target).data("assessment-id");
-        Meteor.call('assignToAllUsers', assignment);
+        newAssignment = $(event.target).data("assessment-id");
+        Meteor.call('assignToAllUsers', newAssignment);
+        assignment = Assessments.findOne({_id: newAssignment});
+        console.log('assessment', assignment);
+        $('#alert').show();
+        $('#alert').addClass("alert-success");
+        $('#alert-p').html("Successfully assigned " + assignment.title + " to all users.");
+
+    },
+    'click #close-alert': function(event){
+        $('#alert').hide();
     },
     'click #unassign-one': function(event){
         event.preventDefault();
@@ -106,8 +115,8 @@ Template.adminControlPanel.onCreated(function() {
     Meteor.subscribe('getUsersInOrg');
     Meteor.subscribe('getSupervisorsInOrg');
     Meteor.subscribe('assessments');
+    this.selectedUser = new ReactiveVar("org");
 })
-
 Template.adminControlPanel.onCreated(function(){
     this.selectedUser = new ReactiveVar("org");
 })
