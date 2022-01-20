@@ -2,7 +2,7 @@
     "assessments": [{
         "assessment": {
             "title": "Default",
-            "display": false,
+            "display": true,
             "identifier": "Default",
             "description": "This is the example assessment.",
             "questions": [

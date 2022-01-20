@@ -18,13 +18,15 @@ Router.configure({
 const defaultBehaviorRoutes = [
   'login',
   'signup',
-  'createOrg',
   'restricted'
 ];
 
 //Set Up Logged In Restricted Routes 
 const restrictedRoutes = [
-  'assessmentCenter'
+  'assessmentCenter',
+  'createOrg',
+  'profile'
+  'supervisorCenter'
 ]
 
 
@@ -48,7 +50,12 @@ for (const route of restrictedRoutes) {
     if(Meteor.userId()){
       this.render(route);
       }else{
-        Router.go('/');
+        this.render('home', {
+          data: {
+            message: "That area is not accessible to users who haven't logged in. Please sign in.",
+            alert: "danger"
+          }
+        });
       }
     });
   }
@@ -131,4 +138,5 @@ Router.route('/signup/:_id', function(){
         }
       });
     }});
-  })   
+  })
+

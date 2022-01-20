@@ -14,7 +14,8 @@ const SEED_ADMIN = {
     supervisorID: "0",
     role: 'admin',
     supervisorInviteCode: "12345",
-    sex: 'male'
+    sex: 'female',
+    assigned: []
 };
 const SEED_SUPERVISOR = {
     username: 'testSupervisor',
@@ -26,7 +27,8 @@ const SEED_SUPERVISOR = {
     supervisorID: "0",
     role: 'supervisor',
     supervisorInviteCode: "12345",
-    sex: 'male'
+    sex: 'male',
+    assigned: []
 };
 const SEED_USER = {
     username: 'testUser',
@@ -38,7 +40,9 @@ const SEED_USER = {
     supervisorID: "0",
     role: 'user',
     supervisorInviteCode: null,
-    sex: 'male'
+    sex: 'female',
+    assigned: [],
+    hasCompletedFirstAssessment: false
 };
 const SEED_USER2 = {
     username: 'testUserNotInIIS',
@@ -50,13 +54,67 @@ const SEED_USER2 = {
     supervisorID: "0",
     role: 'user',
     supervisorInviteCode: null,
-    sex: 'male'
+    sex: 'male',
+    assigned: [],
+    hasCompletedFirstAssessment: false
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
 
 
 Meteor.startup(() => {
+    
+    //Iron Router Api
+    Router.route('/api',{
+    where: "server",
+    action: function (){
+        this.response.writeHead(200, {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        });
+        console.log(this.request.headers);
+        username = this.request.headers['x-user-id'];
+        loginToken = this.request.headers['x-auth-token'];
+        user = Meteor.users.findOne({username: username});
+        isTokenExpired = true;
+        keys = user.api;
+        now = new Date();
+        expDate = keys.expires;
+        expDate.setDate(expDate.getDate());
+        console.log('date', now, expDate, keys.expires);
+        if(now < expDate){
+            isTokenExpired = false;
+        }
+        if(!user || user.api.token != loginToken || isTokenExpired == true){
+            this.response.end("{sucess: false, message: 'incorrect username or expired token'}");
+        } else {
+            organization = Orgs.findOne({orgOwnerId: user._id});
+            userlist = Meteor.users.find({organization: organization._id}, {
+                fields: {
+                    firstname: 0,
+                    lastname: 0,
+                    emails: 0,
+                    username: 0,
+                    role: 0,
+                    supervisorInviteCode: 0,
+                    services: 0,
+                    organization: 0,
+                    api: 0
+                },
+            }).fetch();
+            userListResponse = []
+            for(i = 0; i < userlist.length; i++){
+                userTrials = Trials.find({userId: userlist[i]._id}).fetch();
+                curUser = userlist[i];
+                curUser.trials = JSON.parse(JSON.stringify(userTrials));
+                userListResponse.push(curUser);
+            }
+            organization.users = userListResponse;
+            this.response.end(JSON.stringify(organization));
+            }
+        }
+  });
+
     //load default JSON assessment into mongo collection
     if(Assessments.find().count() === 0){
         console.log('Importing Default Assessments into Mongo.')
@@ -87,7 +145,8 @@ Meteor.startup(() => {
                 Orgs.insert({
                     orgName: "IIS",
                     orgOwnerId: uid,
-                    orgDesc: "Testing"
+                    orgDesc: "Testing",
+                    newUserAssignments: []
                 });
                 newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
                 Meteor.call('generateInvite',uid);
@@ -100,7 +159,10 @@ Meteor.startup(() => {
                         firstname: user.firstName,
                         lastname: user.lastName,
                         supervisor: user.supervisorID,
-                        organization: user.org ? user.org: newOrgId
+                        organization: user.org ? user.org: newOrgId,
+                        sex: user.sex,
+                        assigned: user.assigned,
+                        hasCompletedFirstAssessment: user.hasCompletedFirstAssessment
                     }
                }
             );
@@ -111,19 +173,20 @@ Meteor.startup(() => {
 //Global Methods
 Meteor.methods({
     getInviteInfo,
-    createNewUser: function(user, pass, emailAddr, firstName, lastName, linkId="", sex){
+    createNewUser: function(user, pass, emailAddr, firstName, lastName, sex, linkId=""){
         if(linkId){
-            var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);                    
+            var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);    
+            var organization = Orgs.findOne({_id: targetOrgId});          
         } else {
             var targetOrgId = null
-            var targetSupervisorId = null;                     
+            var targetSupervisorId = null;             
         }
         if (!Accounts.findUserByUsername(user)) {
             if (!Accounts.findUserByEmail(emailAddr)){
                 const uid = Accounts.createUser({
                     username: user,
                     password: pass,
-                    email: emailAddr,
+                    email: emailAddr
                 });
                 Meteor.users.update({ _id: uid }, 
                     {   $set: 
@@ -133,6 +196,10 @@ Meteor.methods({
                             lastname: lastName,
                             organization: targetOrgId,
                             supervisor: targetSupervisorId,
+                            sex: sex,
+                            assigned: organization.newUserAssignments,
+                            supervisorInviteCode: null,
+                            hasCompletedFirstAssessment: false
                         }
                     });
                 if(linkId != ""){
@@ -153,7 +220,8 @@ Meteor.methods({
         Orgs.insert({
             orgName: newOrgName,
             orgOwnerId: newOrgOwner,
-            orgDesc: newOrgDesc
+            orgDesc: newOrgDesc,
+            newUserAssignments: []
         });
         newOrgId = Orgs.findOne({orgOwnerId: newOrgOwner})._id;
         Meteor.users.update({ _id: newOrgOwner }, 
@@ -213,10 +281,31 @@ Meteor.methods({
             removeUserFromRoles(userId, 'user');
         }
     },
+    changeAssignmentToNewUsers: function(assignment){
+        Orgs.upsert({_id: Meteor.user().organization},{$set: {newUserAssignments: assignment}});
+    },
+    assignToAllUsers: function(assignment){
+        org = Meteor.user().organization;
+        allUsers = Meteor.users.find({organization: org, role: 'user'}).fetch();
+        for(i = 0; i < allUsers.length; i++){
+            curAssignments = allUsers[i].assigned;
+            if(!curAssignments.includes(assignment)){
+                curAssignments.push(assignment);
+            }
+            Meteor.users.upsert({_id: allUsers[i]._id}, {$set: {assigned: curAssignments}});
+        }
+    },
+    changeAssignmentOneUser: function(input){
+        userId = input[0];
+        assignment = input[1];
+        Meteor.users.upsert({_id: userId},{$set: {assigned: assignment}});
+    },
 
     //assessment data collection
     saveAssessmentData: function(newData){
         trialId = newData.trialId;
+        assessmentId = newData.assessmentId
+        assessmentName = newData.assessmentName
         userId = Meteor.userId();
         questionId = newData.questionId;
         oldResults = Trials.findOne({_id: trialId});
@@ -254,7 +343,7 @@ Meteor.methods({
                 subscaleTotals[subscale] = newData.responseValue;
             }
         }
-        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, lastAccessed: Date.now(), identifier: identifier, data: data, subscaleTotals: subscaleTotals}});
+        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: Date.now(), identifier: identifier, data: data, subscaleTotals: subscaleTotals}});
         if(typeof output.insertedId === "undefined"){
             Meteor.users.update(userId, {
                 $set: {
@@ -296,6 +385,24 @@ Meteor.methods({
             }
           });
     },
+    generateApiToken: function(userId){
+        var newToken = "";
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < 16; i++ ) {
+            newToken += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        var future = new Date();
+        future.setDate(future.getDate() + 30);
+        Meteor.users.update(userId, {
+            $set: {
+              api: {
+                  token: newToken,
+                  expires: future
+              }
+            }
+        });
+    }
 });
 
 //Server Methods
@@ -366,7 +473,7 @@ Meteor.publish('getSupervisorsInOrg', function() {
 //Allow users access to Org information
 Meteor.publish(null, function() {
     if(Meteor.user()){
-        return Orgs.find({orgOwnerId: Meteor.user().organization});
+        return Orgs.find({_id: Meteor.user().organization});
     }
 });
 

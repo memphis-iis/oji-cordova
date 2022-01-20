@@ -5,7 +5,14 @@ Template.assessment.helpers({
     'completed' : function() {
         assessment = Assessments.findOne();
         if(this.questionid == "completed"){
-            Meteor.call('clearAssessmentProgress')
+            Meteor.call('clearAssessmentProgress');
+            userId = Meteor.userId();
+            user = Meteor.users.findOne({_id: userId});
+            index = user.assigned.indexOf(assessment._id);
+            if(index != -1){
+                user.assigned.splice(index, 1);
+            }
+            Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
             return true;
         } else {
             return false;
@@ -61,6 +68,8 @@ Template.assessment.events({
 
         let data = {
             trialId: trialId,
+            assessmentId: curAssesment._id,
+            assessmentName: curAssesment.title,
             userId: this.userId,
             identifier: curAssesment.identifier,
             questionId: curQuestion,
@@ -78,7 +87,7 @@ Template.assessment.events({
         Router.go(target);
     },
     'click .return': function(event) {
-        target = "/assessmentCenter";
+        target = "/profile";
         Router.go(target);
     }
 

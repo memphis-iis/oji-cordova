@@ -20,7 +20,7 @@
   <div>
   <nav class="navbar navbar-light bg-light navbar-fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Oji {{#if organization}}/ {{organization.orgName}} {{/if}}</a>
+      <a class="navbar-brand" href="#" id="navbar-brand">Oji {{#if organization}}/ {{organization.orgName}} {{/if}}</a>
       {{#if currentUser }}
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item dropdown">
@@ -28,10 +28,18 @@
               {{currentUser.firstname}}
               </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {{#if userIsSupervisor}}
+                <li><a id="supervisorCenterNavButton" class="dropdown-item" href="supervisorCenter">Supervisor Center</a></li>
               {{#if userIsAdminOrSupervisor}}
                 <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
+              {{else}}
+                {{#if currentUser.assigned}}
+                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile</a></li>
+                {{else}}
+                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile</a></li>
+                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
+                {{/if}}
               {{/if}}
-              <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
               <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
             </ul>
           </li>
