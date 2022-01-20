@@ -87,7 +87,13 @@ Router.route('/assessment/:_id', {
       data:{
         isNotQuestion: true,
       }
-    });w
+    });
+  }
+});
+
+Router.route('/userAssessmentReport', {
+  action: function(){
+    this.render('userAssessmentReport');
   }
 });
 //question
