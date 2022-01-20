@@ -13,6 +13,7 @@ const SEED_ADMIN = {
     supervisorID: "0",
     role: 'admin',
     supervisorInviteCode: "12345",
+    sex: 'female',
     assigned: []
 };
 const SEED_SUPERVISOR = {
@@ -25,6 +26,7 @@ const SEED_SUPERVISOR = {
     supervisorID: "0",
     role: 'supervisor',
     supervisorInviteCode: "12345",
+    sex: 'male',
     assigned: []
 };
 const SEED_USER = {
@@ -37,6 +39,7 @@ const SEED_USER = {
     supervisorID: "0",
     role: 'user',
     supervisorInviteCode: null,
+    sex: 'female',
     assigned: [],
     hasCompletedFirstAssessment: false
 };
@@ -50,6 +53,7 @@ const SEED_USER2 = {
     supervisorID: "0",
     role: 'user',
     supervisorInviteCode: null,
+    sex: 'male',
     assigned: [],
     hasCompletedFirstAssessment: false
 };
@@ -154,6 +158,7 @@ Meteor.startup(() => {
                         lastname: user.lastName,
                         supervisor: user.supervisorID,
                         organization: user.org ? user.org: newOrgId,
+                        sex: user.sex,
                         assigned: user.assigned,
                         hasCompletedFirstAssessment: user.hasCompletedFirstAssessment
                     }
@@ -166,7 +171,7 @@ Meteor.startup(() => {
 //Global Methods
 Meteor.methods({
     getInviteInfo,
-    createNewUser: function(user, pass, emailAddr, firstName, lastName, linkId=""){
+    createNewUser: function(user, pass, emailAddr, firstName, lastName, sex, linkId=""){
         if(linkId){
             var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);    
             var organization = Orgs.findOne({_id: targetOrgId});    
@@ -197,6 +202,7 @@ Meteor.methods({
                             lastname: lastName,
                             organization: targetOrgId,
                             supervisor: targetSupervisorId,
+                            sex: sex,
                             assigned: organization.newUserAssignments
                         }
                     });
