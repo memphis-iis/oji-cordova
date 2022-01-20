@@ -52,6 +52,8 @@ Template.assessment.events({
         }
         data = {
             trialId: trialId,
+            assessmentId: curAssesment._id,
+            assessmentName: curAssesment.title,
             userId: this.userId,
             questionId: curQuestion,
             response: selectedAnswer,
