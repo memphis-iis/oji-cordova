@@ -127,9 +127,9 @@ Template.adminControlPanel.events({
         userId = t.selectedUser.get();
         user = Meteor.users.findOne({_id: userId});
         assignment = $(event.target).data("assessment-id");
-        user.assigned.push(assignment)
+        user.assigned.push(assignment);
         Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
-    }
+    },
     'click #gen-key': function(event){
         Meteor.call('generateApiToken', Meteor.userId());
     },
