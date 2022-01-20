@@ -13,10 +13,16 @@ Template.DefaultLayout.events({
     event.preventDefault();
     Meteor.logout();
     Router.go("/");
+  },
+
+  'click #navbar-brand': function(event){
+    event.preventDefault();
+    Router.go("/");
   }
 });
 
 Template.DefaultLayout.helpers({
-  'userIsAdminOrSupervisor': () => Roles.userIsInRole(Meteor.userId(), ['admin', 'supervisor']),
+  'userIsAdmin': () => Roles.userIsInRole(Meteor.userId(), 'admin'),
+  'userIsSupervisor': () => Roles.userIsInRole(Meteor.userId(), 'supervisor'),
   'organization': () => Orgs.findOne(),
 }); 

@@ -24,7 +24,8 @@ const defaultBehaviorRoutes = [
 
 //Set Up Logged In Restricted Routes 
 const restrictedRoutes = [
-  'assessmentCenter'
+  'assessmentCenter',
+  'supervisorCenter'
 ]
 
 
