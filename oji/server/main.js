@@ -131,7 +131,6 @@ Meteor.methods({
                     email: emailAddr,
                     firstname: firstName,
                     lastname: lastName,
-                    sex: sex,
                     organization: targetOrgId,
                     supervisor: targetSupervisorId,
                     supervisorInviteCode: null
