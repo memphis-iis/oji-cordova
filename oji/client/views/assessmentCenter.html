@@ -9,8 +9,7 @@
                     <hr>
                     <h3>{{this.title}}</h3>
                     <p>{{this.description}}</p>
-                    <p><i>Last Assessed:</i>{{this.lastAssessed}}</p>
-                    <button id="signup-submit" class="startAssessment btn btn-primary {{this.identifier}}">Begin {{this.title}}</button>
+                    <button id="{{this._id}}" class="startAssessment btn btn-primary startAssessment">Begin {{this.title}}</button>
                 </div>
             {{/if}}
            {{/each}}

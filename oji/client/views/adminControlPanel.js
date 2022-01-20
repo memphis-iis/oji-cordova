@@ -4,6 +4,27 @@ Template.adminControlPanel.helpers({
     'orgLink': () => window.location.protocol + "//" + window.location.host + "/signup/" + Meteor.user().supervisorInviteCode,
 
     'organization': () => Orgs.findOne(),
+    
+    'apiKeys': function (){
+        keys = Meteor.user().api;
+        isExpired = false;
+        now = new Date();
+        expDate = keys.expires;
+        expDate.setDate(expDate.getDate());
+        console.log('date', now, expDate, keys.expires);
+        if(now >= expDate){
+            isExpired = true;
+        }
+        api = {
+            token: keys.token,
+            expires: expDate,
+            expired: isExpired,
+            curlExample: "curl " + window.location.protocol + "//" + window.location.host + "/api -H \"x-user-id:" + Meteor.user().username +"\" -H \"x-auth-token:" + keys.token + "\""
+        }
+
+        return api;
+      },
+    'showToken': true,
 })
 
 Template.adminControlPanel.events({
@@ -23,6 +44,9 @@ Template.adminControlPanel.events({
     }, 
     'click #regen-link': function(event){
         Meteor.call('generateInvite', Meteor.userId());
+    },
+    'click #gen-key': function(event){
+        Meteor.call('generateApiToken', Meteor.userId());
     },
 })
 
