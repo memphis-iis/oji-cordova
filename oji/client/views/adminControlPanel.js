@@ -36,7 +36,6 @@ Template.adminControlPanel.helpers({
     }
     return data;
 },
-    
     'organization': () => Orgs.findOne(),
     
     'apiKeys': function (){
