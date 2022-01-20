@@ -8,6 +8,8 @@ Template.login.events({
         //clears the Login boxes on submit
         $('#usernameLogin').val('');
         $('#passwordLogin').val('');
+        //goes to profile
+        Router.go('profile');
     },
     'click #signup-submit': function() {
         event.preventDefault();

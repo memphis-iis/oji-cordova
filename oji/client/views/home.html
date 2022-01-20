@@ -1,4 +1,9 @@
 <template name="home">
+    {{#if message}}
+    <div class="alert alert-{{alert}}" role="alert">
+      Message: {{message}}
+    </div>
+    {{/if}}
     <div class="px-4 py-5 my-5 text-center">
         <h1>Welcome to Oji</h1>
         <p class="lead mb-4">Oji is a mental health assessment tool developed by University of Southern Mississippi and the Institute for Intelligent Systems at the University of Memphis.</p>
