@@ -102,7 +102,13 @@
     </table>
     {{ > supervisorControlPanel }}
     <div class="row">
-        <p>Personal Invite Link: <a href="{{orgLink}}">{{orgLink}}</a>    
+        <p>Personal Invite Link: <a href="{{orgLink}}">{{orgLink}}</a>   
         <button id="regen-link" class="btn btn-caution">Regenerate Link</button></p>
+        <p><h3>API Information</h3>API allows you to get raw anonymized JSON data about your organization for use in other apps.<br>{{#if apiKeys.expired}} is expired. {{else}} (Expires {{apiKeys.expires}}):<br>
+        <b>[x-user-id]:</b> {{currentUser.username}}<br>
+        <b>[x-auth-token]:</b> {{apiKeys.token}} {{/if}} <br> 
+        Example CURL command:<br> <code>{{apiKeys.curlExample}}</code><br>
+        </p> 
+        <button id='gen-key' class="btn btn-caution">Generate New 30 Day Key</button>
     </div>
 </template>

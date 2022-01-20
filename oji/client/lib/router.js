@@ -26,6 +26,7 @@ const restrictedRoutes = [
   'assessmentCenter',
   'createOrg',
   'profile'
+  'supervisorCenter'
 ]
 
 
@@ -131,4 +132,5 @@ Router.route('/signup/:_id', function(){
         }
       });
     }});
-  })   
+  })
+

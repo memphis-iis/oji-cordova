@@ -37,7 +37,8 @@ const SEED_USER = {
     supervisorID: "0",
     role: 'user',
     supervisorInviteCode: null,
-    assigned: []
+    assigned: [],
+    hasCompletedFirstAssessment: false
 };
 const SEED_USER2 = {
     username: 'testUserNotInIIS',
@@ -49,13 +50,66 @@ const SEED_USER2 = {
     supervisorID: "0",
     role: 'user',
     supervisorInviteCode: null,
-    assigned: []
+    assigned: [],
+    hasCompletedFirstAssessment: false
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
 
 
 Meteor.startup(() => {
+    
+    //Iron Router Api
+    Router.route('/api',{
+    where: "server",
+    action: function (){
+        this.response.writeHead(200, {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        });
+        console.log(this.request.headers);
+        username = this.request.headers['x-user-id'];
+        loginToken = this.request.headers['x-auth-token'];
+        user = Meteor.users.findOne({username: username});
+        isTokenExpired = true;
+        keys = user.api;
+        now = new Date();
+        expDate = keys.expires;
+        expDate.setDate(expDate.getDate());
+        console.log('date', now, expDate, keys.expires);
+        if(now < expDate){
+            isTokenExpired = false;
+        }
+        if(!user || user.api.token != loginToken || isTokenExpired == true){
+            this.response.end("{sucess: false, message: 'incorrect username or expired token'}");
+        } else {
+            organization = Orgs.findOne({orgOwnerId: user._id});
+            userlist = Meteor.users.find({organization: organization._id}, {
+                fields: {
+                    firstname: 0,
+                    lastname: 0,
+                    emails: 0,
+                    username: 0,
+                    role: 0,
+                    supervisorInviteCode: 0,
+                    services: 0,
+                    organization: 0,
+                    api: 0
+                },
+            }).fetch();
+            userListResponse = []
+            for(i = 0; i < userlist.length; i++){
+                userTrials = Trials.find({userId: userlist[i]._id}).fetch();
+                curUser = userlist[i];
+                curUser.trials = JSON.parse(JSON.stringify(userTrials));
+                userListResponse.push(curUser);
+            }
+            organization.users = userListResponse;
+            this.response.end(JSON.stringify(organization));
+            }
+        }
+  });
+
     //load default JSON assessment into mongo collection
     if(Assessments.find().count() === 0){
         console.log('Importing Default Assessments into Mongo.')
@@ -100,7 +154,8 @@ Meteor.startup(() => {
                         lastname: user.lastName,
                         supervisor: user.supervisorID,
                         organization: user.org ? user.org: newOrgId,
-                        assigned: user.assigned
+                        assigned: user.assigned,
+                        hasCompletedFirstAssessment: user.hasCompletedFirstAssessment
                     }
                }
             );
@@ -133,6 +188,7 @@ Meteor.methods({
                     supervisor: targetSupervisorId,
                     supervisorInviteCode: null,
                     assigned: newUserAssignments,
+                    hasCompletedFirstAssessment: false
                 });
                 Meteor.users.update({ _id: uid }, 
                     {   $set: 
@@ -246,6 +302,8 @@ Meteor.methods({
     //assessment data collection
     saveAssessmentData: function(newData){
         trialId = newData.trialId;
+        assessmentId = newData.assessmentId
+        assessmentName = newData.assessmentName
         userId = Meteor.userId();
         questionId = newData.questionId;
         oldResults = Trials.findOne({_id: trialId});
@@ -258,7 +316,7 @@ Meteor.methods({
             response: newData.response,
             responseValue: newData.responseValue
         }
-        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, lastAccessed: Date.now(),  data: data}});
+        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: Date.now(),  data: data}});
         if(typeof output.insertedId === "undefined"){
             Meteor.users.update(userId, {
                 $set: {
@@ -289,6 +347,25 @@ Meteor.methods({
               curTrial: {
                   trialId: 0,
                   questionId: 0
+              }
+            }
+          });
+    },
+
+    generateApiToken: function(userId){
+        var newToken = "";
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < 16; i++ ) {
+            newToken += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        var future = new Date();
+        future.setDate(future.getDate() + 30);
+        Meteor.users.update(userId, {
+            $set: {
+              api: {
+                  token: newToken,
+                  expires: future
               }
             }
           });
