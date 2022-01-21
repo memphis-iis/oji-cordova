@@ -1,3 +1,18 @@
 <template name="userAssessmentReport">
-    {{assessment}}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Scale</th>
+                <th scope="col">Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each assessment}}
+                <tr>
+                    <th scope="row">{{this.subscaleName}}</th>
+                    <td>{{this.subscaleScore}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </template>

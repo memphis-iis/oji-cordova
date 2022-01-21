@@ -852,6 +852,13 @@
                     "subscales": ["ICO"]
                 }
             ],
+            "subscaleTitles": {
+              "LAW": "Law",
+              "COURTS": "Courts",
+              "POLICE": "Police",
+              "TLV": "Tolerance for Law Violations",
+              "ICO": "Identification with Criminal Others"
+            },
             "answers": ["Agree", "Undecided", "Disagree"],
             "answerValues": [0, 1, 2],
             "reversedQuestions": [2, 3, 4, 6, 9, 10, 11, 13, 16, 20, 22, 24, 25, 26, 28, 29, 31, 32, 33, 34, 35, 37, 38, 49],
