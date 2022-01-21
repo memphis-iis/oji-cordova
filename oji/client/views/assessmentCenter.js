@@ -1,5 +1,5 @@
 Template.assessmentCenter.helpers({
-    'assessment': getUsersAssignedAssessments
+    'assessment': getAssessments
 })
 
 Template.assessmentCenter.events({
@@ -15,11 +15,6 @@ Template.assessmentCenter.onCreated(function() {
     Meteor.subscribe('usertrials');
 })
 
-function getUsersAssignedAssessments(){
-    if(Roles.userIsInRole(Meteor.userId(), ['supervisor', 'admin']) || Meteor.user().hasCompletedFirstAssessment){
+function getAssessments(){
         return Assessments.find({})
-    }
-    else{
-        return Assessments.find({identifier: "DSM_5"})
-    }
 }

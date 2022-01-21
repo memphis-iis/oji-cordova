@@ -171,7 +171,7 @@ Meteor.startup(() => {
 //Global Methods
 Meteor.methods({
     getInviteInfo,
-    createNewUser: function(user, pass, emailAddr, firstName, lastName, sex, linkId=""){
+    createNewUser: function(user, pass, emailAddr, firstName, lastName, sex, gender, linkId=""){
         if(linkId){
             var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);    
             var organization = Orgs.findOne({_id: targetOrgId});    
@@ -179,7 +179,7 @@ Meteor.methods({
         } else {
             var targetOrgId = null
             var targetSupervisorId = null;  
-            var newUserAssignments = [];                   
+            var organization = {newUserAssignments: []};   
         }
         if (!Accounts.findUserByUsername(user)) {
             if (!Accounts.findUserByEmail(emailAddr)){
@@ -203,7 +203,8 @@ Meteor.methods({
                             organization: targetOrgId,
                             supervisor: targetSupervisorId,
                             sex: sex,
-                            assigned: organization.newUserAssignments
+                            gender: gender,
+                            assigned: organization.newUserAssignments || []
                         }
                     });
                 if(linkId != ""){
@@ -221,11 +222,16 @@ Meteor.methods({
         }
     },
     createOrganization: function(newOrgName, newOrgOwner, newOrgDesc){
+        allAssessments = Assessments.find().fetch();
+        newUserAssignments = [];
+        for(i=0; i<allAssessments.length; i++){
+            newUserAssignments.push(allAssessments[i]._id);
+        }
         Orgs.insert({
             orgName: newOrgName,
             orgOwnerId: newOrgOwner,
             orgDesc: newOrgDesc,
-            newUserAssignments: []
+            newUserAssignments: newUserAssignments
         });
         newOrgId = Orgs.findOne({orgOwnerId: newOrgOwner})._id;
         Meteor.users.update({ _id: newOrgOwner }, 
