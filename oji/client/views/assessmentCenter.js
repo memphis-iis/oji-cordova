@@ -20,6 +20,6 @@ function getUsersAssignedAssessments(){
         return Assessments.find({})
     }
     else{
-        return Assessments.find({identifier: "DSM_5"})
+        return Assessments.find({identifier: "CSSM"})
     }
 }

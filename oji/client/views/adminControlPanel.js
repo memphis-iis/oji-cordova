@@ -129,7 +129,7 @@ Template.adminControlPanel.events({
         assignment = $(event.target).data("assessment-id");
         user.assigned.push(assignment)
         Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
-    }
+    },
     'click #gen-key': function(event){
         Meteor.call('generateApiToken', Meteor.userId());
     },
