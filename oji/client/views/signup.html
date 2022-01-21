@@ -63,7 +63,9 @@
         required
         class="form-control"
         />
-        <label htmlFor="sex">Sex</label>
+        <br>
+
+        <label htmlFor="sex">Biological Sex</label>
         <select
         id="sex"     
         name="sex"
@@ -73,6 +75,22 @@
           <option value="female">Female</option>
         </select>
         <br>
+
+        <label htmlFor="gender">Gender Identity</label>
+        <select
+        id="gender"     
+        name="gender"
+        required
+        class="form-control">
+          <option value="cis male">Man</option>
+          <option value="cis female">Woman</option>
+          <option value="trans male">Trans Man</option>
+          <option value="trans female">Trans Woman</option>
+          <option value="genderqueer">Gender NonConforming/Genderqueer</option>
+          <option value="other">Other</option>
+        </select>
+        <br>
+
         <input
         id="linkId"
         type="text"
@@ -82,6 +100,7 @@
         hidden
 
         />
+        
 
     <button class="btn btn-primary" id="signup-submit">Sign Up</button>
   </div>

@@ -1,4 +1,3 @@
-
 <head>
   <meta charset="utf-8">
   <title>oji_app</title>
@@ -33,13 +32,16 @@
               {{else if userIsAdminOrSupervisor}}
                 <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
               {{else}}
-                {{#if currentUser.assigned}}
-                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile</a></li>
+                {{#if userIsAdminOrSupervisor}}
+                    <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
                 {{else}}
-                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile</a></li>
-                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
+                  {{#if currentUser.assigned}}
+                    <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile1</a></li>
+                  {{else}}
+                      <li><a id="profileNavButton" class="dropdown-item" href="/profile">Profile</a></li>
+                    <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
+                 {{/if}}
                 {{/if}}
-              {{/if}}
               <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
             </ul>
           </li>
