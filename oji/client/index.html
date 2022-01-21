@@ -27,17 +27,14 @@
               {{currentUser.firstname}}
               </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              {{#if userIsSupervisor}}
-                 <li><a id="supervisorCenterNavButton" class="dropdown-item" href="supervisorCenter">Supervisor Center</a></li>
                 {{#if userIsAdminOrSupervisor}}
                     <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
                 {{else}}
                   {{#if currentUser.assigned}}
-                    <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile</a></li>
+                    <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile1</a></li>
                   {{else}}
-                      <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile</a></li>
+                      <li><a id="profileNavButton" class="dropdown-item" href="/profile">Profile</a></li>
                     <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
-                   {{/if}}
                  {{/if}}
                 {{/if}}
               <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>

@@ -15,6 +15,9 @@ Template.createOrg.events({
             $('#orgLink').attr("href", orgUrl);
             $('#step-2').show();
         });
+    },
+    'click #admin-control-panel': function(event) {
+        target = "/control-panel";
+        Router.go(target);
     }
 });
-

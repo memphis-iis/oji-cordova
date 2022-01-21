@@ -1,5 +1,5 @@
 Template.assessmentCenter.helpers({
-    'assessment': getUsersAssignedAssessments
+    'assessment': getAssessments
 })
 
 Template.assessmentCenter.events({
@@ -15,6 +15,6 @@ Template.assessmentCenter.onCreated(function() {
     Meteor.subscribe('usertrials');
 })
 
-function getUsersAssignedAssessments(){
+function getAssessments(){
         return Assessments.find({})
 }
