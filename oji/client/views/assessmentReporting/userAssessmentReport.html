@@ -1,18 +1,34 @@
 <template name="userAssessmentReport">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Scale</th>
-                <th scope="col">Score</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each assessment}}
-                <tr>
-                    <th scope="row">{{this.subscaleName}}</th>
-                    <td>{{this.subscaleScore}}</td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
+    <div class="assessment-report-container">
+        <div class="item" style="flex-grow: 2; flex-basis: 30rem;">
+            <table class="table" id="subscaleBreakdown">
+                <thead>
+                    <tr>
+                        <th scope="col">Scale</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each assessment}}
+                        <tr>
+                            <th scope="row">{{this.subscaleName}}</th>
+                            <td>{{this.subscaleScore}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <table class="table" id="subscaleDescriptions">
+                <tbody>
+                    {{#each assessment}}
+                        <tr>
+                            <td>{{this.subscaleScore}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="item" style="flex-grow: 1;">
+            <canvas id="trialReportChart"></canvas>
+        </div>
+    </div>
 </template>

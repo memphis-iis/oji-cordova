@@ -141,6 +141,3 @@ Template.adminControlPanel.onCreated(function() {
     Meteor.subscribe('assessments');
     this.selectedUser = new ReactiveVar("org");
 })
-Template.adminControlPanel.onCreated(function(){
-    this.selectedUser = new ReactiveVar("org");
-})

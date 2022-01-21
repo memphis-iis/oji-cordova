@@ -674,6 +674,16 @@
                 "subscales": ["CRITICAL"]
             }
         ],
+        "subscaleTitles": {
+          "DEPRESSION": "Law",
+          "HOPELESSNESS": "Courts",
+          "CRITICAL": "Police"
+        },
+        "resultParagraphs": {
+          "DEPRESSION": "Higher scores on the depression scale mean that you may be experiencing sadness, disappointment, or failure. You may have difficulty sleeping, feeling energized, or having an appetite. You may be dissatisfied with life, bored, or weighed down by problems.",
+          "HOPELESSNESS": "Higher scores on the hopelessness scale mean that you may feel that your future is bleak or unhappy. You may believe that your situation will not improve, and you will not succeed. You may feel overwhelmed by life and that your situation is hopeless.",
+          "CRITICAL": "Higher scores on the critical item scale means that you may have attempted suicide in the past, are contemplating suicide now, or are at risk for attempting suicide in the future. Please discuss this with your probation officer and call the suicide hotlines in your Contacts tab if you have thoughts of suicide."
+        },
         "answers": ["False", "True"],
         "answerValues": [0, 1],
         "reversedValues": [1, 0],
@@ -859,7 +869,13 @@
               "TLV": "Tolerance for Law Violations",
               "ICO": "Identification with Criminal Others"
             },
+            "resultParagraphs": {
+              "LCP": "Higher Law, Courts, and Police scores mean you hold more negative attitudes about the legal and criminal justice systems.",
+              "TLV": "Higher Tolerance for Law Violations scores mean you are more ok with breaking the law or seeing breaking the law as acceptable.",
+              "ICO": "Higher Identification with Criminal Others scores mean you have more in common with other people who break the law."
+            },
             "answers": ["Agree", "Undecided", "Disagree"],
+            "chartTitle": "Your Common Attitudes Toward Authority and Crime",
             "answerValues": [0, 1, 2],
             "reversedQuestions": [2, 3, 4, 6, 9, 10, 11, 13, 16, 20, 22, 24, 25, 26, 28, 29, 31, 32, 33, 34, 35, 37, 38, 49],
             "reversedValues": [2, 1, 0]
