@@ -16,10 +16,5 @@ Template.assessmentCenter.onCreated(function() {
 })
 
 function getUsersAssignedAssessments(){
-    if(Roles.userIsInRole(Meteor.userId(), ['supervisor', 'admin']) || Meteor.user().hasCompletedFirstAssessment){
         return Assessments.find({})
-    }
-    else{
-        return Assessments.find({identifier: "DSM_5"})
-    }
 }

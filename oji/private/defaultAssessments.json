@@ -3,6 +3,7 @@
         "assessment": {
             "title": "Default",
             "display": true,
+            "owner" : false,
             "identifier": "Default",
             "description": "This is the example assessment.",
             "questions": [
@@ -20,6 +21,7 @@
         "assessment":{
             "title": "Psychological Inventory of Criminal Thinking Styles",
             "display": true,
+            "owner" : false,
             "identifier": "PICTS",
             "description": "This is the PICTS assessment.",
             "questions": [
@@ -353,6 +355,7 @@
         "assessment": {
         "title": "PTSD Checklist for DSM-5",
         "display": true,
+        "owner" : false,
         "identifier": "PCL_5",
         "description": "This is the PTSD assessment using DSM-5 standards.",
         "questions": [
@@ -446,6 +449,7 @@
     "assessment": {
         "title": "Initial Patient Interview",
         "display": true,
+        "owner" : false,
         "identifier": "DSM_5",
         "description": "This is the patient assessment measures for initial assessment using DSM-5 standards.",
         "questions": [
@@ -530,6 +534,7 @@
     "assessment": {
         "title": "Employability Assessment",
         "display": true,
+        "owner" : false,
         "identifier": "DHS",
         "description": "This is the DHS assessment, a psychological assessment for employability.",
         "questions": [
@@ -699,6 +704,7 @@
         "assessment": {
             "title": "CSSM",
             "display": true,
+            "owner" : false,
             "identifier": "CCSM",
             "description": "This is the CSSM assessment.",
             "questions": [

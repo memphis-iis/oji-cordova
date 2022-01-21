@@ -12,12 +12,15 @@ Template.adminControlPanel.helpers({
       org = Orgs.findOne({_id: Meteor.user().organization});
       if(userId == "org"){
         for(i = 0; i < data.length; i++){
+            data[i].status = "";
             data[i].orgView = true;
             if(org.newUserAssignments.includes(data[i]._id)){
-                data[i].status = "Assigned to new users.";
+                data[i].status += "Assigned to new users.";
                 data[i].newUserRequired = true;
-            } else {
-                data[i].status = ""; 
+            } 
+            if(data[i].owner == org._id){
+                data[i].status += "Created by your organization."
+                data[i].owned = true;
             }
         }
       } else {
@@ -104,12 +107,15 @@ Template.adminControlPanel.events({
         assignment = Assessments.findOne({_id: newAssignment});
         console.log('assessment', assignment);
         $('#alert').show();
-        $('#alert').addClass("alert-success");
+        $('#alert').removeClass();
+        $('#alert').addClass("alert alert-success");
         $('#alert-p').html("Successfully assigned " + assignment.title + " to all users.");
 
     },
     'click #close-alert': function(event){
         $('#alert').hide();
+        $('#alert-confirm').hide();
+
     },
     'click #unassign-one': function(event){
         event.preventDefault();
@@ -129,6 +135,36 @@ Template.adminControlPanel.events({
         assignment = $(event.target).data("assessment-id");
         user.assigned.push(assignment);
         Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+    },
+    'click #delete-assessment': function(event){
+        event.preventDefault();
+        deletedAssignment = $(event.target).data("assessment-id");
+        assignment = Assessments.findOne({_id: deletedAssignment});
+        $('#alert').show();
+        $('#alert').removeClass();
+        $('#alert').addClass("alert alert-danger");
+        $('#alert-p').html(assignment.title + " will be deleted. This cannot be undone.");
+        $('#alert-confirm').show();
+        $('#alert-confirm').data({assessment: deletedAssignment});
+
+    },
+    'click #copy-assessment': function(event){
+        event.preventDefault();
+        org = Orgs.findOne({_id: Meteor.user().organization});
+        copiedAssessment = $(event.target).data("assessment-id");
+        Meteor.call('copyAssessment', {newOwner: org._id, assessment: copiedAssessment});
+    },
+    'click #edit-assessment': function(event){
+        org = Orgs.findOne({_id: Meteor.user().organization});
+        editAssessment = $(event.target).data("assessment-id");
+        target = "/assessmentEditor/" + editAssessment;
+        Router.go(target);
+    },
+    'click #alert-confirm': function(event){
+        deletedAssignment = $(event.target).data("assessment");
+        Meteor.call('deleteAssessment', deletedAssignment);
+        $('#alert').hide();
+        $('#alert-confirm').hide();
     },
     'click #gen-key': function(event){
         Meteor.call('generateApiToken', Meteor.userId());
