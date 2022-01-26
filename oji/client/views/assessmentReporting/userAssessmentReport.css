@@ -1,0 +1,16 @@
+.assessment-report-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+@media (max-width: 800px) {
+    .assessment-report-container {
+      flex-direction: column;
+    }
+  }

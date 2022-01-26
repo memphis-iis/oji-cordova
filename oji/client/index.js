@@ -23,6 +23,7 @@ Template.DefaultLayout.events({
 
 Template.DefaultLayout.helpers({
   'userIsAdmin': () => Roles.userIsInRole(Meteor.userId(), 'admin'),
+  'userIsAdminOrSupervisor': () => Roles.userIsInRole(Meteor.userId(), ['admin', 'supervisor']),
   'userIsSupervisor': () => Roles.userIsInRole(Meteor.userId(), 'supervisor'),
   'organization': () => Orgs.findOne(),
 }); 
