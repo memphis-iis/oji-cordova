@@ -25,7 +25,7 @@ const defaultBehaviorRoutes = [
 const restrictedRoutes = [
   'assessmentCenter',
   'createOrg',
-  'profile'
+  'profile',
   'supervisorCenter'
 ]
 

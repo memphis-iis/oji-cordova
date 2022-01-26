@@ -30,7 +30,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               {{#if userIsSupervisor}}
                 <li><a id="supervisorCenterNavButton" class="dropdown-item" href="supervisorCenter">Supervisor Center</a></li>
-              {{#if userIsAdminOrSupervisor}}
+              {{else if userIsAdminOrSupervisor}}
                 <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
               {{else}}
                 {{#if currentUser.assigned}}
