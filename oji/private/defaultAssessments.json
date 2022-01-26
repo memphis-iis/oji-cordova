@@ -23,6 +23,34 @@
             "display": true,
             "identifier": "PICTS",
             "description": "This set of questions, if answered honsestly, are designed to help you better understand your thinking and behaviors. There are 80 multiple-choice questions in total. It is expected to take you about 15 to 20 minutes to finish, if you focus without distractions.",
+            "assessmentReportConstants": {
+              "subscaleTitles": {
+                "CON": "Confusion",
+                "DEF": "Defensiveness",
+                "MOLL": "Mollification",
+                "CUT": "Cutoff",
+                "ENT": "Entitlement",
+                "PO": "Power Orientation",
+                "SENT": "Sentimentality",
+                "SO": "Superoptimism",
+                "CI": "Cognitive Indolence",
+                "DISC": "Discontinuity",
+                "CUR": "Current Criminal Thinking",
+                "HIST": "Historical Criminal Thinking",
+                "PROB": "Problem Avoidance",
+                "INTHOST": "Infrequency",
+                "ASSERT": "Self-Assertion/Deception",
+                "DNT": "Denial of Harm",
+                "FOC": "Fear of Change"
+              },
+              "resultParagraphs": [
+                "An Overall score of 50 means you often think in ways that put you at risk for continued criminal behavior or rule violations.",
+                "A Proactive score of 55 or higher means you are more likely to plan out behavior that is criminal or breaks rules.",
+                "A Reactive score of 55 or higher means you are more likely to be more implusive in your rule breaking behavior.",
+                "A score of 60 or higher on any of the 8 thinking styles means you think this way a lot. Refer to your workbook for more details. But, scores below 60 should not be ignored--you should always pay attention to all examples of criminal thinking."
+              ],
+              "chartTitle": "Your Common Criminal Thinking Styles"
+            },
             "questions": [
                 {
                     "text": "I will allow nothing to get in the way of me getting what I want.",
@@ -696,6 +724,21 @@
             "display": true,
             "identifier": "CCSM",
             "description": "This set of questions asks about your thoughts toward the law and legal system. Read each statement carefully and decide how you feel about it. Click “Agree” if you agree with the statement or “Disagree” if you disagree with the statement. If you are undecided or cannot make up your mind about the statement, click “Undecided.” There are no right or wrong answers. There are 41 questions in total. It is expected to take you between 5-10 minutes to finish, if you focus without distractions.",
+            "assessmentReportConstants": {
+              "subscaleTitles": {
+                "LAW": "Law",
+                "COURTS": "Courts",
+                "POLICE": "Police",
+                "TLV": "Tolerance for Law Violations",
+                "ICO": "Identification with Criminal Others"
+              },
+              "resultParagraphs": [
+                "Higher Law, Courts, and Police scores mean you hold more negative attitudes about the legal and criminal justice systems.",
+                "Higher Tolerance for Law Violations scores mean you are more ok with breaking the law or seeing breaking the law as acceptable.",
+                "Higher Identification with Criminal Others scores mean you have more in common with other people who break the law."
+              ],
+              "chartTitle": "Your Common Attitudes Toward Authority and Crime"
+            },
             "questions": [
                 {
                     "text": "Pretty well all laws deserve our respect.",
@@ -862,20 +905,7 @@
                     "subscales": ["ICO"]
                 }
             ],
-            "subscaleTitles": {
-              "LAW": "Law",
-              "COURTS": "Courts",
-              "POLICE": "Police",
-              "TLV": "Tolerance for Law Violations",
-              "ICO": "Identification with Criminal Others"
-            },
-            "resultParagraphs": {
-              "LCP": "Higher Law, Courts, and Police scores mean you hold more negative attitudes about the legal and criminal justice systems.",
-              "TLV": "Higher Tolerance for Law Violations scores mean you are more ok with breaking the law or seeing breaking the law as acceptable.",
-              "ICO": "Higher Identification with Criminal Others scores mean you have more in common with other people who break the law."
-            },
             "answers": ["Agree", "Undecided", "Disagree"],
-            "chartTitle": "Your Common Attitudes Toward Authority and Crime",
             "answerValues": [0, 1, 2],
             "reversedQuestions": [2, 3, 4, 6, 9, 10, 11, 13, 16, 20, 22, 24, 25, 26, 28, 29, 31, 32, 33, 34, 35, 37, 38, 49],
             "reversedValues": [2, 1, 0]

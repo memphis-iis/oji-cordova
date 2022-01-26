@@ -4,6 +4,14 @@
     align-items: center;
 }
 
+.trialReportChartContainer {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: relative;
+  height:50vh;
+  width:40vw;
+}
+
 .item {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -12,5 +20,12 @@
 @media (max-width: 800px) {
     .assessment-report-container {
       flex-direction: column;
+    }
+    .trialReportChartContainer {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      position: relative;
+      height:50vh;
+      width:90vw;
     }
   }

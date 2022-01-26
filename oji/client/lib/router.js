@@ -98,9 +98,13 @@ Router.route('/assessment/:_id', {
   }
 });
 
-Router.route('/userAssessmentReport', {
+Router.route('/userAssessmentReport/:_identifier', {
   action: function(){
-    this.render('userAssessmentReport');
+    this.render('userAssessmentReport', {
+      params: {
+        assessmentIdentifier: this.params._identifier
+      }
+    });
   }
 });
 //question
