@@ -1,6 +1,6 @@
 <template name="assessmentEditor">
     <div class="px-4 py-5 my-5">
-        <h1><a href="/control-panel">Control Panel</a> / Assessment Editor / {{assessment.title}}</h1>
+        <h2><a href="/control-panel">Control Panel</a> / Assessment Editor / {{assessment.title}}</h2>
         <p>All changes are made instantly.</p>
         <hr>
         <h3>Information</h3>
@@ -14,8 +14,9 @@
         <h3>Answers</h3>
         <table class="table" id="answersList">
             <thead>
-                <th scope="col" width="60%">Answer </th>
+                <th scope="col" width="40%">Answer </th>
                 <th scope="col" width="20%">Value</th>
+                <th scope="col" width="20%">Reversed Value</th>
                 <th scope="col" width="20%">Actions</th>
             </thead>
             <tbody>
@@ -33,6 +34,10 @@
                     <a id="open-editor" data-field="answerValues[{{this.id}}]"  data-value="{{this.value}}"> Edit</a><br>
                     </td>
                     <td>
+                        Todo: Reversed Values Here{{This.ReversedValue}}
+                        <a id="open-editor" data-field="reversedValues[{{this.id}}]"  data-value="{{this.value}}"> Edit</a><br>
+                    </td>
+                    <td>
                     <a id="delete-item" data-field="answers[{{this.id}}]">Delete</a>
                     </td>
                 </tr>
@@ -47,8 +52,9 @@
         <h3>Questions</h3>
         <table class="table" id="questionsList">
             <thead>
-                <th scope="col" width="60%">Question</th>
-                <th scope="col" width="20%">Subscale</th>
+                <th scope="col" width="40%">Question</th>
+                <th scope="col" width="20%">Subscales</th>
+                <th scope="col" width="20%">Use Reversed Values</th>
                 <th scope="col" width="20%">Actions</th>
             </thead>
             <tbody>
@@ -67,6 +73,12 @@
 
                     {{/each}}
                     <a id="add-item" data-field="questions[{{this.id}}].subscales">Add</a>
+                </td>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          Reverse Values
+                      </div>
                 </td>
                 <td>
                     <a id="delete-item" data-field="questions[{{this.id}}]">Delete</a>
