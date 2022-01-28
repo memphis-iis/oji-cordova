@@ -57,7 +57,7 @@ Template.userAssessmentReport.events({
         for (i = 0; i < tablinks.length; i++) {
           tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-        document.getElementById(target.data('linkName')).style.display = "block";
+        document.getElementById(event.currentTarget.dataset.linkname).style.display = "block";
         target.className += " active";
     }
 })
