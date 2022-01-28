@@ -1,4 +1,4 @@
-export {getScoreForPICTSSubscale}
+export {calculateScores}
 let subscaleScores = 
 {
     "con": {
@@ -104,7 +104,17 @@ let subscaleScores =
 }
 
 function getScoreForPICTSSubscale(scores, sex){
-    let calculatedScores = {};
+    let calculatedScores = { "GCT": 0, 
+        "PCT": scores["MOLL"] + scores['ENT'] + scores["PO"] + scores["SO"],
+        "RCT":  scores["CUT"] + scores['CI'] + scores["DISC"]
+    };
+    calculatedScores['GCT'] = calculatedScores["RCT"] + calculatedScores["PCT"];
+
+    for(let subscale of Object.keys(calculatedScores)){
+        const scale = subscaleScores[subscale.toLowerCase()]
+        calculatedScores[subscale] = scale[sex][Math.floor(calculatedScores[subscale] - scale.min)]
+    }
+
     const subscales = Object.keys(scores);
 
     for(let subscale of subscales){
@@ -113,4 +123,40 @@ function getScoreForPICTSSubscale(scores, sex){
     }
     
     return calculatedScores;
+}
+
+function getScoreForDHSSubscale(scores){
+    let calculatedScores = {};
+    for(let subscale of Object.keys(scores)){
+        let score = scores[subscale];
+        if(subscale == 'DEPRESSION'){
+            calculatedScores[subscale] = score / 17;
+        }
+        else if(subscale == 'HOPELESSNESS'){
+            calculatedScores[subscale] = score / 10;
+        }
+        else if(subscale == 'CSI'){
+            calculatedScores[subscale] = score / 2;
+        }
+        else if(subscale == 'HIST'){
+            calculatedScores[subscale] = score / 5;
+        }
+        else if(subscale == 'CUR'){
+            calculatedScores[subscale] = score / 3;
+        }
+    }
+
+    return calculatedScores;
+}
+
+function calculateScores(subscale, scores, sex){
+    switch (subscale.toUpperCase()){
+        case 'PICTS':
+            return getScoreForPICTSSubscale(scores, sex);
+        // case 'DHS':
+        //     return getScoreForDHSSubscale(scores, sex);
+        default:
+            // no extra calculation needed. return
+            return false;
+    }
 }

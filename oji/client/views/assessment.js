@@ -37,6 +37,7 @@ Template.assessment.events({
         trialData = Meteor.users.findOne().curTrial;
         console.log('trialData', trialData);
         let curAssesment = Assessments.findOne();
+        let completed = false;
 
         if(typeof trialData === "undefined"){
             trialId = 0;
@@ -54,7 +55,7 @@ Template.assessment.events({
 
         if(curAssesment.questions.length <= nextQuestion) {
             target = "/assessment/" + curAssesment._id + "/" + "completed";
-            Meteor.call('endAssessment', trialData.trialId);
+            completed = true;
         } else {
             target = "/assessment/" + curAssesment._id + "/" + nextQuestion;
         }
@@ -79,6 +80,7 @@ Template.assessment.events({
         }
 
         Meteor.call('saveAssessmentData', data);
+        if (completed) Meteor.call('endAssessment', trialData.trialId);
         Router.go(target);
     },
     'click .begin': function(event) {

@@ -25,23 +25,17 @@
             "description": "This set of questions, if answered honsestly, are designed to help you better understand your thinking and behaviors. There are 80 multiple-choice questions in total. It is expected to take you about 15 to 20 minutes to finish, if you focus without distractions.",
             "assessmentReportConstants": {
               "subscaleTitles": {
-                "CON": "Confusion",
-                "DEF": "Defensiveness",
+                "GCT": "Overall",
+                "PCT": "Proactive",
+                "RCT": "Reactive",
                 "MOLL": "Mollification",
-                "CUT": "Cutoff",
                 "ENT": "Entitlement",
                 "PO": "Power Orientation",
                 "SENT": "Sentimentality",
                 "SO": "Superoptimism",
+                "CUT": "Cutoff",
                 "CI": "Cognitive Indolence",
-                "DISC": "Discontinuity",
-                "CUR": "Current Criminal Thinking",
-                "HIST": "Historical Criminal Thinking",
-                "PROB": "Problem Avoidance",
-                "INTHOST": "Infrequency",
-                "ASSERT": "Self-Assertion/Deception",
-                "DNT": "Denial of Harm",
-                "FOC": "Fear of Change"
+                "DISC": "Discontinuity"
               },
               "resultParagraphs": [
                 "An Overall score of 50 means you often think in ways that put you at risk for continued criminal behavior or rule violations.",
@@ -544,6 +538,22 @@
         "display": true,
         "identifier": "DHS",
         "description": "This set of questions asks about your current mood. Please be advised that some questions may trigger strong emotional feelings. Contact your supervisor or a mental health professional immediately if you become upset by these questions. You may also call the National Suicide Prevention Hotline at 1-800-273-8255. There are 39 true/false questions in total. It is expected to take you between 5-10 minutes to finish, if you focus without distractions.",
+        "assessmentReportConstants": {
+          "subscaleTitles": {
+            "DEPRESSION": "Depression",
+            "HOPELESSNESS": "Hopelessness",
+            "CSI": "Cognitive Suicide",
+            "HIST": "Historical Ideation",
+            "CUR": "Current Ideation"
+          },
+          "resultParagraphs": [
+            "Depression scores greater than or equal to 6 mean you experience heightened depression.",
+            "Hopelessness scores greater than or equal to 2 mean you experience heightened feelings of hopelessness.",
+            "Highlighted critical items (marked Y) warrant counselor attention."
+          ],
+          "chartTitle": "Your Risk Factors for Suicide",
+          "criticalItems": [3, 7, 11, 15, 19, 23, 27, 31, 33, 35, 37, 38]
+        },
         "questions": [
             {
                 "text": "I feel sad most of the time.",
@@ -559,7 +569,7 @@
             },
             {
                 "text": "I have been diagnosed as being depressed by a psychiatrist or psychologist in the past.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "DIAG"]
             },
             {
                 "text": "I am mostly happy.",
@@ -575,7 +585,7 @@
             },
             {
                 "text": "I have close friends or family members who have killed themselves.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "RELATION"]
             },
             {
                 "text": "I have a normal amount of energy.",
@@ -591,7 +601,7 @@
             },
             {
                 "text": "Suicide is not an option for me.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "CSI"]
             },
             {
                 "text": "I feel tired a lot of the time.",
@@ -607,7 +617,7 @@
             },
             {
                 "text": "I have had serious thoughts of suicide in the past.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "HIST"]
             },
             {
                 "text": "Usually I sleep soundly.",
@@ -623,7 +633,7 @@
             },
             {
                 "text": "I have intentionally hurt myself.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "HIST"]
             },
             {
                 "text": "I am often bored and unhappy.",
@@ -639,7 +649,7 @@
             },
             {
                 "text": "If circumstances get too bad, suicide is always an option.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "CSI"]
             },
             {
                 "text": "I have many interests I follow.",
@@ -655,7 +665,7 @@
             },
             {
                 "text": "In the past my suicidal thoughts have led to a suicide attempt.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "HIST"]
             },
             {
                 "text": "I have lost my appetite.",
@@ -671,7 +681,7 @@
             },
             {
                 "text": "I have attempted suicide more than once in the past.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "HIST"]
             },
             {
                 "text": "My problems don't seem to end.",
@@ -679,7 +689,7 @@
             },
             {
                 "text": "I have attempted suicide in the past two years.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "HIST"]
             },
             {
                 "text": "I feel my situation is hopeless.",
@@ -687,7 +697,7 @@
             },
             {
                 "text": "I have recently had thoughts of hurting myself.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "CUR"]
             },
             {
                 "text": "I don't think I will amount to anything.",
@@ -695,23 +705,13 @@
             },
             {
                 "text": "Life is not worth living.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "CUR"]
             },
             {
                 "text": "I have a plan to hurt myself.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "CUR"]
             }
         ],
-        "subscaleTitles": {
-          "DEPRESSION": "Law",
-          "HOPELESSNESS": "Courts",
-          "CRITICAL": "Police"
-        },
-        "resultParagraphs": {
-          "DEPRESSION": "Higher scores on the depression scale mean that you may be experiencing sadness, disappointment, or failure. You may have difficulty sleeping, feeling energized, or having an appetite. You may be dissatisfied with life, bored, or weighed down by problems.",
-          "HOPELESSNESS": "Higher scores on the hopelessness scale mean that you may feel that your future is bleak or unhappy. You may believe that your situation will not improve, and you will not succeed. You may feel overwhelmed by life and that your situation is hopeless.",
-          "CRITICAL": "Higher scores on the critical item scale means that you may have attempted suicide in the past, are contemplating suicide now, or are at risk for attempting suicide in the future. Please discuss this with your probation officer and call the suicide hotlines in your Contacts tab if you have thoughts of suicide."
-        },
         "answers": ["False", "True"],
         "answerValues": [0, 1],
         "reversedValues": [1, 0],

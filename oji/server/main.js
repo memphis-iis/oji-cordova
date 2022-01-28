@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
-import { getScoreForPICTSSubscale } from './PICTSSubscaleCalculation.js';
+import { calculateScores } from './subscaleCalculations.js';
 
 
 const SEED_ADMIN = {
@@ -375,10 +375,9 @@ Meteor.methods({
     },
     endAssessment: function(trialId) {
         let trial = Trials.findOne({'_id': trialId});
-        if(trial.identifier.toLowerCase() == 'picts'){
-            const adjustedScores = getScoreForPICTSSubscale(trial.subscaleTotals, Meteor.user().sex);
+        const adjustedScores = calculateScores(trial.identifier, trial.subscaleTotals, Meteor.user().sex)
+        if(adjustedScores)
             Trials.upsert({_id: trialId}, {$set: {subscaleTotals: adjustedScores}});
-        }
     },
     clearAssessmentProgress: function (){
         userId = Meteor.userId();

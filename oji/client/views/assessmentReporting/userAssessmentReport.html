@@ -1,6 +1,26 @@
 <template name="userAssessmentReport">
     <div class="assessment-report-container">
         <div class="item" style="flex-grow: 2; flex-basis: 30rem;">
+            <div class="tab">
+                <button class="tabLinks" data-linkName="Scores">Scores</button>
+                <button class="tabLinks" data-linkName="CriticalItems">Critical Items</button>
+                <button class="tabLinks" data-linkName="Info">Info</button>
+              </div>
+              
+              <div id="Scores" class="tabcontent">
+                <h3>Scores</h3>
+                <p>Scores is the capital city of England.</p>
+              </div>
+              
+              <div id="CriticalItems" class="tabcontent">
+                <h3>Critical Items</h3>
+                <p>Critical Items is the capital of France.</p> 
+              </div>
+              
+              <div id="Info" class="tabcontent">
+                <h3>Info</h3>
+                <p>Info is the capital of Japan.</p>
+              </div>
             <table class="table" id="subscaleBreakdown">
                 <thead>
                     <tr>
@@ -9,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each assessment}}
+                    {{#each subscaleScores}}
                         <tr>
                             <th scope="row">{{this.subscaleName}}</th>
                             <td>{{this.subscaleScore}}</td>
@@ -17,6 +37,24 @@
                     {{/each}}
                 </tbody>
             </table>
+            {{#if displayCritItems}}
+                <table class="table" id="criticalItems">
+                    <thead>
+                        <tr>
+                            <th scope="col">Critical Items</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each criticalItems}}
+                            <tr>
+                                <th scope="row">{{this.itemName}}</th>
+                                <td>{{this.itemValue}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
             <table class="table" id="subscaleDescriptions">
                 <tbody>
                     {{#each tooltips}}
