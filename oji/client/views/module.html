@@ -1,0 +1,99 @@
+<template name="module">
+    <div class="px-4 py-5 my-5 text-center">
+       <h1>{{module.title}}</h1>
+       {{#if this.pageId}}
+       {{#if completed}}
+            <p>You have completed this module!</p>
+            <button class="btn btn-primary" id="goBack">Return to My Profile</button>    
+        {{else}}
+        <h4>Page {{pageid}} of {{totalpages}} ({{percentDone}}%)</h4>
+        <hr>
+        {{#if page.typeText}}
+        <h3><b>{{page.header}}</b></h3>
+        <h4><b>{{page.subheader}}</b></h4>
+        {{#if page.imageAbove}}
+            <img src="/{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+            <br>
+        {{/if}}
+        <p id="pageText">{{page.text}}</p>
+        <br>
+        {{#if page.imageBelow}}
+            <img src="/{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+            <br>
+        {{/if}}
+        <button id="contine" class="btn btn-primary continue">Save and Continue</button>
+        {{/if}}
+        {{#if this.questionId}}
+            <h3><b>Activity: {{page.header}}</b></h3>
+            <h5>Question {{questionid}}</h5>
+            {{#if question.promptImg}}
+            <img src="/{{question.promptImg}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+            {{/if}}
+            {{#if question.typeBlank}}
+                <h3>{{question.prompt}}</h3><br>
+                <form>
+                    <input type="text" class="textInput">
+                </form>
+                <br>
+                <button id="contine" class="btn btn-primary continue">Save and Continue</button>
+            {{/if}}
+            {{#if question.typeLongText}}
+                <h3>{{question.prompt}}</h3><br>
+                <form>
+                    <textarea style="height:100px; width:100%;" class="textareaInput"></textarea>
+                </form>
+                <br>
+                <button id="contine" class="btn btn-primary continue">Save and Continue</button>
+            {{/if}}
+            {{#if question.typeMultiChoice}}
+            <h3>{{question.prompt}}</h3><br>
+            <form>
+                {{#each question.answers}}
+                <button  class="btn btn-secondary btn-lg btn-block multichoice continue" id="{{@index}}" value="{{this.value}}" name="">{{this.answer}}</button>
+                {{/each}}
+            </form>
+            <br>
+            {{/if}}
+            {{#if question.typeCombo}}
+            <h3>{{question.prompt}}</h3><br>
+                <form>
+                {{#each question.fields}}
+                    {{#if this.typeBlank}}
+                        <h3>{{this.text}}</h3>
+                            <input class="combo" type="text">
+                    {{/if}}
+                    {{#if this.typeLongText}}
+                    <h3>{{this.text}}</h3><br>
+                    <form>
+                        <textarea style="height:100px; width:100%;" class="combo"></textarea>
+                    </form>
+                    <br>
+                   {{/if}}
+                    {{#if this.typeMultiChoice}}
+                    <h3>{{this.text}}</h3>
+                        {{#each this.answers}}
+                        <button  class="btn btn-secondary btn-lg btn-block multichoice combo" id="{{@index}}" value="{{@index}}" name="">{{this.answer}}</button>
+                        {{/each}}
+                    {{/if}}
+                    <br>
+                {{/each}}
+                </form> 
+                <br>
+                <button  class="btn btn-primary continue" id="continue" name="">Save and Continue</button>
+            <br>
+            {{/if}}
+        {{else}}
+        {{#if page.typeActivity}}
+        <h3><b>Activity: {{page.header}}</b></h3>
+        <p>{{page.instructions}}</p>
+        <button class="btn btn-primary" id="startActivity">Begin Activity!</button>
+        {{/if}}
+        {{/if}}
+        {{/if}}
+       {{else}}
+            <p>{{module.description}}</p>
+            <button class="btn btn-primary" id="startModule">Lets Begin!</button>
+            <button class="btn" id="goBack">I'm not ready.</button>
+        {{/if}}
+    </div>
+</template>

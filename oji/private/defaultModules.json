@@ -1,0 +1,256 @@
+{
+    "modules": [{
+        "module": {
+            "title": "Default",
+            "display": false,
+            "identifier": "Default",
+            "description": "This is the example module.",
+            "pages": [
+                {
+                    "type": "text",
+                    "header": "If I were a rich man... ladasdadad",
+                    "text": "This is a test module",
+                    "image": "imageTest.jpg"
+                },
+                {
+                    "type": "activity",
+                    "header": "Awesome Quiz",
+                    "instructions": "This is a sample quiz!",
+                    "questions": [
+                        {
+                            "type": "blank",
+                            "prompt": "This _______ is empty. Fill it in!"
+                        },
+                        {
+                            "type": "multiChoice",
+                            "prompt": "This is a multiple choice question!",
+                            "promptImg": "imageTest.jpg",
+                            "answers": [
+                                {
+                                    "answer": "Yes",
+                                    "value": 1
+                                },
+                                {
+                                    "answer": "No",
+                                    "value" : 2
+                                }
+                            ]
+                        },
+                        {
+                            "type":"longText",
+                            "prompt": "Tell us about yourself",
+                            "promtImg":"imgTest.jpg"
+                        },
+                        {
+                            "type": "combo",
+                            "prompt": "This is a combo question!",
+                            "promptImg": "imageTest.jpg",
+                            "fields":[
+                                {
+                                    "type": "blank",
+                                    "text": "this is a ______."
+                                },
+                                {
+                                    "type":"longtext",
+                                    "text":"tell us about yourself."
+                                },
+                                {
+                                    "type": "dropdown",
+                                    "text": "color",
+                                    "answers": [
+                                        {
+                                            "answer": "Yes",
+                                            "value": 1
+                                        },
+                                        {
+                                            "answer": "No",
+                                            "value" : 2
+                                        }
+                                    ]
+                                }
+                            ]
+
+                        }
+
+                    ]
+
+                }
+            ]
+        }
+        
+    },
+    {
+        "module":{
+            "title": "Re-Creating the Self: Making Change Happen",
+            "description": "",
+            "display": true,
+            "identifier": "OJI1",
+            "pages": [
+                {
+                    "type":"text",
+                    "header":"Worksheet 1",
+                    "subheader": "The Basics of Oji's Journey",
+                    "text": "There are a number of reasons why people find themselves in the criminal justice system, but the main problem is a pattern of thinking that leads to impulsive behavior without much consideration of what might happen as a result. People on probation and parole often have trouble handling stress in the first place and having to live under the rules of supervision can add to that stress."
+                },
+                {
+                    "type":"text",
+                    "header":"Worksheet 1: The Basic's of Oji's Journey",
+                    "subheader": "THE Circle of Change",
+                    "text": "The figure below shows how different things in your life can lead to where you are at a given moment – right now you are on community supervision. <b>But, how did you get here?</b> The way you <b>think</b> about your world led you to act in ways that are consistent with those thoughts, and those actions landed you in trouble. It’s important to remember that this is a CYCLE. So, being on supervision (an environmental situation) may, in turn, increase the kinds of thoughts that leads to more poor choices. This cycle makes it harder for you to stay out of the criminal justice system. ",
+                    "image": "test.jpg",
+                    "imageBelow":true
+
+                },
+                {
+                    "type":"text",
+                    "header":"Worksheet 1: The Basic's of Oji's Journey",
+                    "subheader": "THE Circle of Change",
+                    "text": "How do you get out of the cycle? <b><u>YOU MUST MAKE CHANGES!</b></u>  To reach your goals, you must change how you think, how you act, and the places you go. You can apply this idea to any part of your life that you are not happy with and set positive goals for improving your situation. In this program, your main focus is to: <br><br> Successfully serve your time on community supervision and learn new skills to manage the problems that led you here so you <b>do not come back.</b>"
+                },
+                {
+                    "type":"text",
+                    "header":"Worksheet 1: The Basic's of Oji's Journey",
+                    "subheader":"Exercise 1",
+                    "text":"To get the hang of <u>THE</u> Circle of Change, try an example. Read the story on the next page about Marcus and complete the pieces of the circle.<br><br> "
+                },
+                {
+                    "type":"activity",
+                    "header":"Exercise 1",
+                    "text":"&quot;Marcus is a 35-year-old man. He grew up in a poor neighborhood where many of his friends did illegal things to make money and survive. Marcus often robbed people whom he thought were wealthy and could afford to lose their personal belongings. He figured if he could get access to their items, then those people didn’t deserve to have them anyway. One night, he broke into a family’s home believing the house was empty. He was wrong! The police were called, and Marcus was placed under arrest. He already has a criminal record and there was evidence of his break-in, so there is a good chance he will serve jail or prison time for his crime.&quot;",       
+                    "questions": [
+                        {
+                            "type": "combo",
+                            "prompt": "Please answer the following:",
+                            "fields":[
+                                {
+                                    "type": "longtext",
+                                    "text": "What MUST Marcus change about his life? Write down specific examples."
+                                },
+                                {
+                                    "type": "longtext",
+                                    "text": "What new goals might Marcus set for himself?"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type":"activity",
+                    "header":"Bonus (Optional)",
+                    "text":"",       
+                    "questions": [
+                        {
+                            "type": "combo",
+                            "prompt": "Can you fill in the blanks based on examples from your own life?",
+                            "fields":[
+                                {
+                                    "type": "longtext",
+                                    "text": "What MUST you change about your life? Write down specific examples."
+                                },
+                                {
+                                    "type": "longtext",
+                                    "text": "What new goals might you set for yourself?"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type":"text",
+                    "header":"Worksheet 1: The Basic's of Oji's Journey",
+                    "subheader":"THE Circle of Change",
+                    "text":"Throughout this program, you will be applying <b>THE Circle of Change</b> to your personal situation – that is, where you are now. You will be introduced to new skills that will help you identify and change the thoughts, actions, and environments that lead to the choices you made just before your involvement in the criminal justice system or those that keep you involved. For everyone completing this program, the different parts of <b>THE Circle of Change</b> will be related to criminal or antisocial tendencies; for other people, they will also be related a mental health problem. Review your assessment results to find out if mental health will be a target area for you."
+                },
+                {
+                    "type":"text",
+                    "header":"Worksheet 1: The Basic's of Oji's Journey",
+                    "subheader":"The Green Light to Goals",
+                    "text":"So, <b><i>how</b></i> do you know which thoughts, habits, and environments (remember, this can also include the people you hang around) are NOT helpful for achieving your goal of staying out of the criminal justice system once your supervision period is over? One way to do this is to use a <b>mental traffic light.</b> Just as traffic lights in the real-world help keep people safe by enforcing the rules of the road, your mental traffic light can help you stay safe in your recovery from criminal conduct and, for some people, mental illness. With the mental traffic light, you can first become aware of your thoughts, habits, and environments and then evaluate how helpful or not helpful they are in reaching your goals. Again, this model can be applied to other aspects of your life to help you stay on track with all of your goals. But, for now, your focus is to remain violation free and stay off of community supervision once your sentence ends. Review the picture below.",
+                    "imageBelow": true,
+                    "image": "test.jpg"
+                },
+                {
+                    "type":"text",
+                    "header":"Worksheet 1: The Basic's of Oji's Journey",
+                    "subheader":"The Green Light to Goals",
+                    "text":"Use your mental traffic light throughout this program to make sure you are keeping in line with your goal of managing the problems that led you to your involvement with the criminal justice system. Remember, change is a difficult process and you won’t always see green. However, you are responsible for avoiding yellow and red whenever possible, and for learning how to prevent the negative effects of red and yellow when you do encounter them.",
+                    "imageBelow": true,
+                    "image": "test.jpg"
+                },
+                {
+                    "type":"activity",
+                    "header":"Exercise 2",
+                    "text":"",       
+                    "questions": [
+                        {
+                            "type": "combo",
+                            "prompt": "To practice using your mental traffic light, write down one thought, one action, and one environment that you experienced recently and determine whether each one was a green, yellow, or red light in your goal of getting out and staying out of restrictive housing.",
+                            "fields":[
+                                {
+                                    "type": "longtext",
+                                    "text": "I recently thought this:"
+                                },
+                                {
+                                    "type":"multiChoice",
+                                    "text":"Color",
+                                    "answers":[
+                                        {
+                                            "answer":"Green"
+                                        },
+                                        {
+                                            "answer":"Yellow"
+                                        },
+                                        {
+                                            "answer":"Red"
+                                        }
+                                        
+                                    ]
+                                },
+                                {
+                                    "type": "longtext",
+                                    "text": "I recently did this:"
+                                },
+                                {
+                                    "type":"multiChoice",
+                                    "text":"Color:",
+                                    "answers":[
+                                        {
+                                            "answer":"Green"
+                                        },
+                                        {
+                                            "answer":"Yellow"
+                                        },
+                                        {
+                                            "answer":"Red"
+                                        }
+                                        
+                                    ]
+                                },
+                                {
+                                    "type": "longtext",
+                                    "text": "I was recently in this place and/or with these people:"
+                                },
+                                {
+                                    "type":"multiChoice",
+                                    "text":"Color:",
+                                    "answers":[
+                                        {
+                                            "answer":"Green"
+                                        },
+                                        {
+                                            "answer":"Yellow"
+                                        },
+                                        {
+                                            "answer":"Red"
+                                        }
+                                        
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }]
+}
