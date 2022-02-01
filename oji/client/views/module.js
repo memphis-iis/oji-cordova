@@ -17,11 +17,11 @@ Template.module.helpers({
         const t = Template.instance();
         if(page.type == "text"){
             page.typeText = true;
+            t.pageType.set("text");
         };
         if(page.type == "activity"){
             page.typeActivity = true;
             t.pageType.set("activity");
-            
         };
         if(!page.imgStyle){
             page.imgStyle = "max-width:50%; height:auto; margin:10px;"
@@ -56,6 +56,9 @@ Template.module.helpers({
                 };
                 if(fields[i].type == "multiChoice"){
                     fields[i].typeMultiChoice = true;
+                    for(j = 0; j < fields[i].answers.length; j++){
+                        fields[i].answers[j].group = i;
+                    }
                 };
                 
             }
@@ -121,8 +124,19 @@ Template.module.events({
             moduleData.responses.push(data);
             moduleData.nextPage = thisPage;
             moduleData.nextQuestion = parseInt(thisQuestion) + 1;
+            if(typeof Modules.findOne().pages[moduleData.nextPage] !== "undefined"){
+                if(typeof Modules.findOne().pages[moduleData.nextPage].questions !== "undefined"){
+                    if(moduleData.nextQuestion >= Modules.findOne().pages[moduleData.nextPage].questions.length){
+                        moduleData.nextPage = thisPage + 1;
+                        moduleData.nextQuestion = 0;
+                        target = "/module/" + Modules.findOne()._id + "/" + moduleData.nextPage;
+                    } else  {
+                        target = "/module/" + Modules.findOne()._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
+                    }
+                 }
+            }
             Meteor.call("saveModuleData", moduleData);
-            target = "/module/" + Modules.findOne()._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
+            
         } else {
             moduleData.nextPage = parseInt(thisPage) + 1;
             moduleData.nextQuestion = 0;
@@ -134,15 +148,6 @@ Template.module.events({
             console.log(moduleData);
             Meteor.call("saveModuleData", moduleData);
             target = "/module/" + Modules.findOne()._id + "/" + moduleData.nextPage;
-        }
-        if(typeof Modules.findOne().pages[moduleData.nextPage] !== "undefined"){
-            if(typeof Modules.findOne().pages[moduleData.nextPage].questions !== "undefined"){
-                if(moduleData.nextQuestion >= Modules.findOne().pages[moduleData.nextPage].questions.length){
-                    moduleData.nextPage = thisPage + 1;
-                    moduleData.nextQuestion = 0;
-                    target = "/module/" + Modules.findOne()._id + "/" + moduleData.nextPage;
-                }
-            }
         }
         if(moduleData.nextPage >= Modules.findOne().pages.length){
             moduleData.nextPage = "completed";
@@ -163,7 +168,9 @@ Template.module.events({
         event.preventDefault();
         const collection = document.getElementsByClassName("multichoice");
         for (let i = 0; i < collection.length; i++){
-            collection[i].classList.remove("btn-info");
+            if(collection[i].dataset.group == $(event.target).data("group")){
+                collection[i].classList.remove("btn-info");
+            }
         }
         event.target.classList.toggle('btn-info');
     },
