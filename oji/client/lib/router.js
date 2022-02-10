@@ -26,7 +26,8 @@ const restrictedRoutes = [
   'assessmentCenter',
   'createOrg',
   'profile',
-  'supervisorCenter'
+  'supervisorCenter',
+  'moduleCenter'
 ]
 
 
@@ -94,7 +95,7 @@ Router.route('/assessment/:_id', {
       data:{
         isNotQuestion: true,
       }
-    });w
+    });
   }
 });
 //question
@@ -112,6 +113,50 @@ Router.route('/assessment/:_id/:_questionid', {
   }
 });
 
+// route module engine
+//intro
+Router.route('/module/:_id', {
+  subscriptions: function(){
+    return Meteor.subscribe('curModule', this.params._id);
+  },
+  action: function(){
+    this.render('module');
+  }
+});
+//module page id
+Router.route('/module/:_id/:_pageid', {
+  subscriptions: function(){
+    subs = [];
+    subs.push(Meteor.subscribe('curModule', this.params._id));
+    subs.push(Meteor.subscribe('curModuleResult'));
+    return subs;
+  },
+  action: function(){
+    this.render('module', {
+      data:{
+        pageId: this.params._pageid,
+      }
+    });
+  }
+});
+
+//module quiz page question id
+Router.route('/module/:_id/:_pageid/:_questionid', {
+  subscriptions: function(){
+    subs = [];
+    subs.push(Meteor.subscribe('curModule', this.params._id));
+    subs.push(Meteor.subscribe('curModuleResult'));
+    return subs;
+  },
+  action: function(){
+    this.render('module', {
+      data:{
+        pageId: this.params._pageid,
+        questionId: this.params._questionid,
+      }
+    });
+  }
+});
 // route organizational invites
 Router.route('/signup/:_id', function(){
   // add the subscription handle to our waitlist
@@ -134,3 +179,4 @@ Router.route('/signup/:_id', function(){
     }});
   })
 
+//Route Static Assets
