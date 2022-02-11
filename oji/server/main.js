@@ -104,8 +104,10 @@ Meteor.startup(() => {
             userListResponse = []
             for(i = 0; i < userlist.length; i++){
                 userTrials = Trials.find({userId: userlist[i]._id}).fetch();
+                userModules = Modules.find({userId: userlist[i]._id}).fetch();
                 curUser = userlist[i];
                 curUser.trials = JSON.parse(JSON.stringify(userTrials));
+                curUser.modules = JSON.parse(JSON.stringify(userModules));
                 userListResponse.push(curUser);
             }
             organization.users = userListResponse;

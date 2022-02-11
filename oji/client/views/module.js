@@ -177,6 +177,7 @@ Template.module.events({
     'click #startModule': function(event){
         event.preventDefault();
         data = {
+            userId: Meteor.userId(),
             moduleId: Modules.findOne()._id, 
             responses: []
         }
