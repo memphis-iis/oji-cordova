@@ -32,13 +32,12 @@
               {{else if userIsAdminOrSupervisor}}
                 <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
               {{else}}
-                {{#if userIsAdminOrSupervisor}}
-                  <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
-                {{else if currentUser.assigned}}
+                {{#if currentUser.assigned}}
                   <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile1</a></li>
                 {{else}}
                   <li><a id="profileNavButton" class="dropdown-item" href="/profile">Profile</a></li>
                   <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
+                  <li><a id="userAssessmentReportNavButton" class="dropdown-item" href="/userAssessmentReport">View Completed Assessments</a></li>
                 {{/if}}
               {{/if}}
               <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>

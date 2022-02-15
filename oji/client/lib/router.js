@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import Chart from 'chart.js/auto'
 /* router.js - the routing logic we use for the application.
 
 If you need to create a new route, note that you should specify a name and an
@@ -93,6 +94,16 @@ Router.route('/assessment/:_id', {
     this.render('assessment', {
       data:{
         isNotQuestion: true,
+      }
+    });
+  }
+});
+
+Router.route('/userAssessmentReport/', {
+  action: function(){
+    this.render('userAssessmentReportLanding', {
+      params: {
+        assessmentIdentifier: this.params._identifier
       }
     });
   }

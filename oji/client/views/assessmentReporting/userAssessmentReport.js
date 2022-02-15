@@ -4,19 +4,29 @@ Template.userAssessmentReport.helpers({
     'subscaleScores': function() {
         const curTrial = getCurrentTrial();
         const assessment = getCurrentAssessment();
-        const subscales = Object.keys(assessment.assessmentReportConstants.subscaleTitles);
-        let scales = [];
+        if(assessment && curTrial){
+            const subscales = Object.keys(assessment.assessmentReportConstants.subscaleTitles);
+            let scales = [];
 
-        for(let subscale of subscales){
-            scales.push({
-                'subscaleName': assessment.assessmentReportConstants.subscaleTitles[subscale],
-                'subscaleScore': curTrial.subscaleTotals[subscale]
-            })
+            for(let subscale of subscales){
+                scales.push({
+                    'subscaleName': assessment.assessmentReportConstants.subscaleTitles[subscale],
+                    'subscaleScore': curTrial.subscaleTotals[subscale]
+                })
+            }
+            return scales;
         }
-        
-        return scales;
     }, 
-    'chart': drawChart,
+    'chart': function() {
+        if(!document.getElementById("trialReportChart")){
+            Meteor.setTimeout(function() {
+                drawChart()
+            }, 100)
+        }
+        else{
+            drawChart();
+        }
+    },
     'tooltips': function() {
         const assessment = getCurrentAssessment();
         if(assessment){
@@ -29,19 +39,21 @@ Template.userAssessmentReport.helpers({
     'criticalItems': function() {
         const assessment = getCurrentAssessment();
         const curTrial = getCurrentTrial();
-        const criticalItems = assessment.assessmentReportConstants.criticalItems;
-        const subscales = Object.keys(assessment.assessmentReportConstants.criticalItems);
-        let items = []
-        if(criticalItems){
-            for(let criticalItem of criticalItems){
-                items.push({
-                    "itemName": assessment.questions[criticalItem].text,
-                    "itemValue": curTrial.data[criticalItem].responseValue > 0 ? "Y" : "N"
-                });
+        if(assessment && curTrial){
+            const criticalItems = assessment.assessmentReportConstants.criticalItems;
+            const subscales = Object.keys(assessment.assessmentReportConstants.criticalItems);
+            let items = []
+            if(criticalItems){
+                for(let criticalItem of criticalItems){
+                    items.push({
+                        "itemName": assessment.questions[criticalItem].text,
+                        "itemValue": curTrial.data[criticalItem].responseValue > 0 ? "Y" : "N"
+                    });
+                }
             }
+            console.log(items)
+            return items;
         }
-        console.log(items)
-        return items;
     }
 });
 
@@ -68,18 +80,17 @@ Template.userAssessmentReport.onCreated(function() {
 });
 
 function drawChart(){
-    const identifier = Router.current().params._identifier.toUpperCase()
-    const curTrial = Trials.findOne({'identifier': identifier});
-    const assessment = Assessments.findOne({"identifier": identifier});
-    const subscales = Object.keys(assessment.assessmentReportConstants.subscaleTitles)
-    let scales = {}
-
-    for(let subscale of subscales){
-        scales[subscale] = curTrial.subscaleTotals[subscale]
-    }
-
+    const curTrial = getCurrentTrial();
+    const assessment = getCurrentAssessment();
+    console.log('assessment:' + assessment)
     if(assessment){
-        const ctx = $('#trialReportChart');
+        const subscales = Object.keys(assessment.assessmentReportConstants.subscaleTitles)
+        let scales = {}
+    
+        for(let subscale of subscales){
+            scales[subscale] = curTrial.subscaleTotals[subscale]
+        }
+        const ctx = document.getElementById("trialReportChart").getContext('2d');
         const data = {
             labels: Object.keys(scales),
             datasets: [{
@@ -121,7 +132,7 @@ function drawChart(){
                         text: assessment.assessmentReportConstants.chartTitle
                     },
                     legend: {
-                      display: false
+                    display: false
                     }
                 }
             },
@@ -136,5 +147,5 @@ function getCurrentAssessment(){
 
 function getCurrentTrial(){
     const identifier = Router.current().params._identifier.toUpperCase()
-    return Trials.findOne({'userId': Meteor.userId(), 'identifier': identifier});
+    return Trials.find({'userId': Meteor.userId(), 'identifier': identifier}, {sort: {_id:-1}}).fetch()[0];
 }

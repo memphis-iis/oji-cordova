@@ -350,7 +350,7 @@ Meteor.methods({
                 subscaleTotals[subscale] = newData.responseValue;
             }
         }
-        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: Date.now(), identifier: identifier, data: data, subscaleTotals: subscaleTotals}});
+        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: new Date(), identifier: identifier, data: data, subscaleTotals: subscaleTotals}});
         if(typeof output.insertedId === "undefined"){
             Meteor.users.update(userId, {
                 $set: {
