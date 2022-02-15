@@ -339,7 +339,7 @@ Meteor.methods({
             response: newData.response,
             responseValue: newData.responseValue
         }
-        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: Date.now(),  data: data}});
+        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: Date.now().toGMTString(),  data: data}});
         if(typeof output.insertedId === "undefined"){
             Meteor.users.update(userId, {
                 $set: {
@@ -523,6 +523,11 @@ Meteor.publish('modules', function () {
     return Modules.find({});
 });
 //get module results
-Meteor.publish('curModuleResult', function (id) {
+Meteor.publish('getUserModuleResults', function (id) {
     return ModuleResults.find({});
+});
+
+//get module results for a single trial
+Meteor.publish('getModuleResultsByTrialId', function (id) {
+    return ModuleResults.find({_id: id});
 });
