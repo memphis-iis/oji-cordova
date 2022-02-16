@@ -23,6 +23,10 @@ Template.profile.events({
         target = "/assessmentCenter/";
         Router.go(target);
     },
+    'click #moduleCenter': function(){
+        target = "/moduleCenter/";
+        Router.go(target);
+    },
     'click #controlPanel': function(){
         target = "/control-panel/";
         Router.go(target);

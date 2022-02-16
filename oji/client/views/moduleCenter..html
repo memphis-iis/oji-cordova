@@ -1,0 +1,18 @@
+<template name="moduleCenter">
+    <div class="px-4 py-5 my-5 text-center">
+       <h1>Module Center</h1>
+       <p class="lead mb-4">Below are a list of available modules to help you improve your mental health.</p>
+       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+           {{#each modules}}
+            {{#if this.display}} 
+                <div class="module" style="margin-top:5px;">
+                    <hr>
+                    <h3>{{this.title}}</h3>
+                    <p>{{this.description}}</p>
+                    <button id="{{this._id}}" class="startAssessment btn btn-primary startAssessment">Begin {{this.title}}</button>
+                </div>
+            {{/if}}
+           {{/each}}
+    </div>
+    </div>
+</template>

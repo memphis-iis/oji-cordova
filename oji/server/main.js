@@ -124,6 +124,17 @@ Meteor.startup(() => {
             Assessments.insert(assessment);
         };
     }
+
+    //load default JSON modules into mongo collection
+    if(Modules.find().count() === 0){
+        console.log('Importing Default Modules into Mongo.')
+        var data = JSON.parse(Assets.getText('defaultModules.json'));
+        for (var i =0; i < data['modules'].length; i++){
+            newModule = data['modules'][i]['module'];
+            Modules.insert(newModule);
+        };
+    }
+
     //create seed roles
     for(let role of SEED_ROLES){
         if(!Meteor.roles.findOne({ '_id' : role })){
@@ -391,6 +402,35 @@ Meteor.methods({
             }
           });
     },
+    createNewModuleTrial: function(data){
+        const results = ModuleResults.insert(data);
+            Meteor.users.update(Meteor.userId(), {
+                $set: {
+                curModule: {
+                    moduleId: results,
+                    pageId: 0,
+                    questionId: 0,
+                 }
+                }
+            });
+        return results;
+    },
+    saveModuleData: function (moduleData){
+        ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
+        Meteor.users.upsert(Meteor.userId(), {
+            $set: {
+            curModule: {
+                moduleId: Meteor.user().curModule.moduleId,
+                pageId: moduleData.nextPage,
+                questionId: moduleData.nextQuestion,
+            }
+        }
+    })
+},
+    getPrivateImage: function(fileName){
+        result =  Assets.absoluteFilePath(fileName);
+        return result;
+    },
     generateApiToken: function(userId){
         var newToken = "";
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -502,4 +542,17 @@ Meteor.publish('usertrials', function () {
     if(Roles.userIsInRole(this.userId, ['admin', 'supervisor']))
         return Trials.find();
     return Trials.find({'userId': this.userId});
+});
+
+//allow current module pages to be published
+Meteor.publish('curModule', function (id) {
+    return Modules.find({_id: id});
+});
+//allow all modules to be seen
+Meteor.publish('modules', function () {
+    return Modules.find({});
+});
+//get module results
+Meteor.publish('curModuleResult', function (id) {
+    return ModuleResults.find({});
 });

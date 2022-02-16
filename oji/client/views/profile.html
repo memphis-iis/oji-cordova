@@ -13,10 +13,20 @@
        <h1>Hello there.</h1>
        <h3>Where would you like to go?</h3>
        {{#if isInRole 'supervisor, admin'}}
+            <h3>Control Panel</h3>
+            <p>Access tools and settings for your organization and users.</p>
             <button id="controlPanel" class="btn btn-primary">Control Panel</button>
         {{else}}
+            <h3>Assessment Center</h3>
+            <p>The assessment center measures your current mental health.</p>
             <button id="assessmentCenter" class="btn btn-primary">Assessment Center</button>
+            <br><br>
+            <h3>Module Center</h3>
+            <p>The module center presents exercises to improve your mental health.</p>
+            <button id="moduleCenter" class="btn btn-primary">Module Center</button>
         {{/if}}
+            <br><br>
+            <h3>Account</h3>
             <button id="logout" class="btn btn-warning">Log Out</button>
        {{/if}}
        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">

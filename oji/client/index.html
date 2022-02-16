@@ -17,13 +17,13 @@
 
 <template name="DefaultLayout">
   <div>
-  <nav class="navbar navbar-light bg-light navbar-fixed-top">
+  <nav class="navbar navbar-light bg-light navbar-fixed-top" style="background-color:white; box-shadow: 0 4px 2px -2px gray;">
     <div class="container">
       <a class="navbar-brand" href="#" id="navbar-brand">Oji {{#if organization}}/ {{organization.orgName}} {{/if}}</a>
       {{#if currentUser }}
         <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item dropdown ml-auto">
+            <a class="nav-link dropdown-toggle text-right" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{currentUser.firstname}}
               </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -34,7 +34,7 @@
                 <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
               {{else}}
                 {{#if currentUser.assigned}}
-                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile1</a></li>
+                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile</a></li>
                 {{else}}
                   <li><a id="profileNavButton" class="dropdown-item" href="/profile">Profile</a></li>
                   <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
