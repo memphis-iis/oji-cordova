@@ -118,6 +118,28 @@ Router.route('/userAssessmentReport/:_identifier', {
     });
   }
 });
+
+Router.route('/userAssessmentReport/supervisor/:_userid/', {
+  action: function(){
+    this.render('userAssessmentReportLanding', {
+      params: {
+        userId: this.params._userid,
+      }
+    });
+  }
+});
+
+Router.route('/userAssessmentReport/supervisor/:_userid/:_identifier', {
+  action: function(){
+    this.render('userAssessmentReport', {
+      params: {
+        userId: this.params._userid,
+        assessmentIdentifier: this.params._identifier
+      }
+    });
+  }
+});
+
 //question
 Router.route('/assessment/:_id/:_questionid', {
   subscriptions: function(){

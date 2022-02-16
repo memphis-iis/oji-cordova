@@ -147,5 +147,9 @@ function getCurrentAssessment(){
 
 function getCurrentTrial(){
     const identifier = Router.current().params._identifier.toUpperCase()
-    return Trials.find({'userId': Meteor.userId(), 'identifier': identifier}, {sort: {_id:-1}}).fetch()[0];
+    let userid = Meteor.userId();
+    if(Roles.userIsInRole(Meteor.userId(), 'supervisor')){
+        userid = Router.current().params._userid;
+    }
+    return Trials.find({'userId': userid, 'identifier': identifier}, {sort: {_id:-1}}).fetch()[0];
 }

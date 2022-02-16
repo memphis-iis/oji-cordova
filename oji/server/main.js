@@ -499,5 +499,7 @@ Meteor.publish('assessments', function () {
 
 //allow current users trial data to be published
 Meteor.publish('usertrials', function () {
+    if(Roles.userIsInRole(this.userId, ['admin', 'supervisor']))
+        return Trials.find();
     return Trials.find({'userId': this.userId});
 });
