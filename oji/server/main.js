@@ -165,19 +165,23 @@ Meteor.startup(() => {
                 Meteor.call('generateInvite',uid);
             }
 
+            let supervisorID = '';
+            if(user.username == 'testUser'){
+                supervisorID =  Accounts.findUserByUsername(SEED_SUPERVISOR.username)._id;
+            }
             Meteor.users.update({ _id: uid }, 
                 {   $set:
                     {
                         sex: user.sex,
                         firstname: user.firstName,
                         lastname: user.lastName,
-                        supervisor: user.supervisorID,
+                        supervisor: supervisorID,
                         organization: user.org ? user.org: newOrgId,
                         sex: user.sex,
                         assigned: user.assigned,
                         hasCompletedFirstAssessment: user.hasCompletedFirstAssessment
                     }
-               }
+                }
             );
         }
     }
