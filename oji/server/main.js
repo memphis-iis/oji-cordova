@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base'
+import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
+import { calculateScores } from './subscaleCalculations.js';
 
 
 const SEED_ADMIN = {
@@ -165,6 +166,7 @@ Meteor.startup(() => {
             Meteor.users.update({ _id: uid }, 
                 {   $set:
                     {
+                        sex: user.sex,
                         firstname: user.firstName,
                         lastname: user.lastName,
                         supervisor: user.supervisorID,
@@ -185,8 +187,7 @@ Meteor.methods({
     createNewUser: function(user, pass, emailAddr, firstName, lastName, sex, gender, linkId=""){
         if(linkId){
             var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);    
-            var organization = Orgs.findOne({_id: targetOrgId});    
-            var newUserAssignments = organization.newUserAssignments;            
+            var organization = Orgs.findOne({_id: targetOrgId});          
         } else {
             var targetOrgId = null
             var targetSupervisorId = null;  
@@ -197,23 +198,19 @@ Meteor.methods({
                 const uid = Accounts.createUser({
                     username: user,
                     password: pass,
-                    email: emailAddr,
-                    firstname: firstName,
-                    lastname: lastName,
-                    organization: targetOrgId,
-                    supervisor: targetSupervisorId,
-                    supervisorInviteCode: null,
-                    assigned: newUserAssignments,
-                    hasCompletedFirstAssessment: false
+                    email: emailAddr
                 });
                 Meteor.users.update({ _id: uid }, 
                     {   $set: 
                         {
+                            sex: sex,
                             firstname: firstName,
                             lastname: lastName,
                             organization: targetOrgId,
                             supervisor: targetSupervisorId,
                             sex: sex,
+                            supervisorInviteCode: null,
+                            hasCompletedFirstAssessment: false,
                             gender: gender,
                             assigned: organization.newUserAssignments || []
                         }
@@ -330,16 +327,41 @@ Meteor.methods({
         userId = Meteor.userId();
         questionId = newData.questionId;
         oldResults = Trials.findOne({_id: trialId});
+        let identifier;
+        
         if(typeof oldResults === "undefined"){
             data = [];
+            subscaleTotals = {};
+            identifier = newData.identifier;
         } else {
             data = oldResults.data;
+            subscaleTotals = oldResults.subscaleTotals;
+            identifier = oldResults.identifier;
         }
         data[newData.questionId] = {
             response: newData.response,
-            responseValue: newData.responseValue
+            responseValue: newData.responseValue,
+            subscales: newData.subscales
         }
-        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: Date.now(),  data: data}});
+        //sum the response values by subscale for data reporting
+        if(!newData.subscales){
+            //current assessment doesnt use subscales, just tally the totalls
+            if(subscaleTotals['default']){
+                subscaleTotals['default'] += newData.responseValue;
+            }
+            else{
+                subscaleTotals['default'] = newData.responseValue;
+            }
+        }
+        for(let subscale of newData.subscales){
+            if(subscaleTotals[subscale]){
+                subscaleTotals[subscale] += newData.responseValue;
+            }
+            else{
+                subscaleTotals[subscale] = newData.responseValue;
+            }
+        }
+        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: new Date(), identifier: identifier, data: data, subscaleTotals: subscaleTotals}});
         if(typeof output.insertedId === "undefined"){
             Meteor.users.update(userId, {
                 $set: {
@@ -361,6 +383,12 @@ Meteor.methods({
               });
             return output.insertedId;
         }
+    },
+    endAssessment: function(trialId) {
+        let trial = Trials.findOne({'_id': trialId});
+        const adjustedScores = calculateScores(trial.identifier, trial.subscaleTotals, Meteor.user().sex)
+        if(adjustedScores)
+            Trials.upsert({_id: trialId}, {$set: {subscaleTotals: adjustedScores}});
     },
     clearAssessmentProgress: function (){
         userId = Meteor.userId();
@@ -419,7 +447,7 @@ Meteor.methods({
                   expires: future
               }
             }
-          });
+        });
     }
 });
 
@@ -511,7 +539,9 @@ Meteor.publish('assessments', function () {
 
 //allow current users trial data to be published
 Meteor.publish('usertrials', function () {
-    return Trials.find({'userid': this.userId});
+    if(Roles.userIsInRole(this.userId, ['admin', 'supervisor']))
+        return Trials.find();
+    return Trials.find({'userId': this.userId});
 });
 
 //allow current module pages to be published

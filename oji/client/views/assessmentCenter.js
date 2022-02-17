@@ -16,5 +16,5 @@ Template.assessmentCenter.onCreated(function() {
 })
 
 function getAssessments(){
-        return Assessments.find({})
+    return Assessments.find({})
 }
