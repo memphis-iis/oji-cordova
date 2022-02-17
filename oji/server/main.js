@@ -477,10 +477,11 @@ function serverConsole(...args) {
 function getInviteInfo(inviteCode) {
     supervisor = Meteor.users.findOne({supervisorInviteCode: inviteCode});
     targetSupervisorId = supervisor._id;
-    organization = Orgs.findOne({orgOwnerId: supervisor._id});
+    organization = Orgs.findOne({_id: supervisor.organization});
     targetSupervisorName = supervisor.firstname + " " + supervisor.lastname;
     targetOrgId = supervisor.organization;
     targetOrgName = organization.orgName;
+    console.log(targetOrgId,targetOrgName,targetSupervisorId,targetSupervisorName);
     return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
 }
 

@@ -27,9 +27,6 @@
               {{currentUser.firstname}}
               </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              {{#if isInRole 'supervisor'}}
-                <li><a id="supervisorCenterNavButton" class="dropdown-item" href="supervisorCenter">Supervisor Center</a></li>
-              {{/if}}
               {{#if isInRole 'supervisor,admin'}}
                 <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
               {{else}}

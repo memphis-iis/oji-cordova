@@ -5,9 +5,9 @@
           <button id="close-alert" class="btn btn-caution">Close</button>
         </div>
         <div class="col-4">
-            <h3>Assignments/Modules</h3>
+            <h3>Assignments</h3>
             <p>Assignments must be completed before going on to modules or viewing progress reports.</p>
-            <p>Assignments/Modules for:
+            <p>Assignments for:
                 <select id="user-select">
                         <option value="org">Organization</option>
                     {{#each userInfo}}
@@ -60,29 +60,6 @@
                 {{/each}}
                 </tbody>
             </table>
-            <h4>Module Results</h4>
-            {{#if orgViewOn}}
-                 Module results can be seen when selecting an individual user.
-            {{else}}
-            <table class="table" id="moduleList">
-                <thead>
-                    <th scope="col" width="40%">Date Last Accessed</th>
-                    <th scope="col" width="40%">Module</th>
-                    <th scope="col" width="15%">Progress</th>
-                    <th scope="col" width="5%">Results</th>
-                </thead>
-                <tbody>
-                    {{#each modules}}
-                        <tr>
-                            <td>{{this.lastAccessed}}</td>
-                            <td>{{this.title}}</td>
-                            <td>Page {{this.lastPage}} of {{this.totalPages}} / {{this.percentDone}}% </td>
-                            <td><a href="/moduleReport/{{this.id}}">Report</a></td>
-                        </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-            {{/if}}
         </div>
         <div class="col-4">
             <h3>Supervisors</h3>
@@ -125,14 +102,4 @@
         </tbody>
     </table>
     {{ > supervisorControlPanel }}
-    <div class="row">
-        <p>Personal Invite Link: <a href="{{orgLink}}">{{orgLink}}</a>   
-        <button id="regen-link" class="btn btn-caution">Regenerate Link</button></p>
-        <p><h3>API Information</h3>API allows you to get raw anonymized JSON data about your organization for use in other apps.<br>{{#if apiKeys.expired}} is expired. {{else}} (Expires {{apiKeys.expires}}):<br>
-        <b>[x-user-id]:</b> {{currentUser.username}}<br>
-        <b>[x-auth-token]:</b> {{apiKeys.token}} {{/if}} <br> 
-        Example CURL command:<br> <code>{{apiKeys.curlExample}}</code><br>
-        </p> 
-        <button id='gen-key' class="btn btn-caution">Generate New 30 Day Key</button>
-    </div>
 </template>

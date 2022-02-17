@@ -1,13 +1,11 @@
 Template.profile.helpers({
     'assignment': function(){
         assigned = Meteor.user().assigned;
-        console.log("assigned", assigned);
         if(assigned.length == 0){
             assignment = false;
         } else {
             assignment = Assessments.findOne({_id: assigned[0]});
         }
-        console.log("assignment", assignment);
         return assignment;
     },
     'userIsAdminOrSupervisor': () => Roles.userIsInRole(Meteor.userId(), ['admin', 'supervisor']),

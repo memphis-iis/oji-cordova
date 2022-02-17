@@ -11,15 +11,6 @@
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center" style="padding-bottom: 2rem;">
                 <a class="btn btn-primary" id="assessmentNavButton" href="profile" >View Profile</a>
             </div>
-            {{#if isInRole 'supervisor'}}
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center" style="padding-bottom: 2rem;">
-                    <a class="btn btn-primary" id="supervisorControlPanelNavButton" href="control-panel">Supervisor Control Panel</a>
-                </div>
-            {{#if isInRole 'admin'}}
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center" style="padding-bottom: 2rem;">
-                    <a class="btn btn-primary" id="adminControlPanelNavButton" href="control-panel">Admin Control Panel</a>
-                </div>
-            {{/if}}
         {{else}}
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 {{>login}}
