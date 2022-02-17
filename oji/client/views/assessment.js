@@ -36,38 +36,51 @@ Template.assessment.events({
         event.preventDefault();
         trialData = Meteor.users.findOne().curTrial;
         console.log('trialData', trialData);
-        assessment = Assessments.findOne();
+        let curAssesment = Assessments.findOne();
+        let completed = false;
+
         if(typeof trialData === "undefined"){
             trialId = 0;
         } else {
             trialId = trialData.trialId ;
         }
-        selectedAnswer = event.target.id;
-        selectedAnswerValue = assessment.answerValues[selectedAnswer];
-        selectedAnserReversedValue = assessment.reversedValues[selectedAnswer];
-        curAssesment = Assessments.findOne();
+
         if(typeof trialData === "undefined"){
             curQuestion = 0; 
         } else {
             curQuestion =  trialData.questionId ;
         }
-        nextQuestion = parseInt(curQuestion) + 1;
+
+        let nextQuestion = parseInt(curQuestion) + 1;
+
         if(curAssesment.questions.length <= nextQuestion) {
             target = "/assessment/" + curAssesment._id + "/" + "completed";
+            completed = true;
         } else {
             target = "/assessment/" + curAssesment._id + "/" + nextQuestion;
         }
-        data = {
+
+        let selectedAnswer = event.target.id;
+        let subscales = curAssesment.questions[curQuestion].subscales;
+        let selectedAnswerValue = assessment.answerValues[selectedAnswer];
+        if(curAssesment.reversedQuestions.includes(curQuestion)){
+            selectedAnswerValue = curAssesment.reversedValues[selectedAnswer]
+        }
+
+        let data = {
             trialId: trialId,
             assessmentId: curAssesment._id,
             assessmentName: curAssesment.title,
             userId: this.userId,
+            identifier: curAssesment.identifier,
             questionId: curQuestion,
             response: selectedAnswer,
             responseValue: selectedAnswerValue,
-            reversedValue: selectedAnserReversedValue
+            subscales: subscales || ""
         }
+
         Meteor.call('saveAssessmentData', data);
+        if (completed) Meteor.call('endAssessment', trialData.trialId);
         Router.go(target);
     },
     'click .begin': function(event) {

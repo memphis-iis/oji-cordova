@@ -26,19 +26,22 @@
             <a class="nav-link dropdown-toggle text-right" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{currentUser.firstname}}
               </a>
-            <ul class="dropdown-menu" style="width:100%;" aria-labelledby="navbarDropdown">
-                {{#if userIsAdminOrSupervisor}}
-                    <li class="text-right"><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {{#if isInRole 'supervisor'}}
+                <li><a id="supervisorCenterNavButton" class="dropdown-item" href="supervisorCenter">Supervisor Center</a></li>
+              {{/if}}
+              {{#if isInRole 'supervisor,admin'}}
+                <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
+              {{else}}
+                {{#if currentUser.assigned}}
+                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile</a></li>
                 {{else}}
-                  {{#if currentUser.assigned}}
-                  <li class="text-right"><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile1</a></li>
-                  {{else}}
-                    <li class="text-right"><a id="profileNavButton" class="dropdown-item" href="/profile">Profile</a></li>
-                    <li class="text-right"><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
-                    <li class="text-right"><a id="moduleCenterNavButton" class="dropdown-item" href="/moduleCenter">Module Center</a></li>
-                 {{/if}}
+                  <li><a id="profileNavButton" class="dropdown-item" href="/profile">Profile</a></li>
+                  <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
+                  <li><a id="userAssessmentReportNavButton" class="dropdown-item" href="/userAssessmentReport">View Completed Assessments</a></li>
                 {{/if}}
-                <li class="text-right"><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
+              {{/if}}
+              <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
             </ul>
           </li>
         </ul>

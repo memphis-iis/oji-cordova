@@ -1,7 +1,5 @@
 Template.supervisorControlPanel.helpers({
     'usersList': () => Meteor.users.find({ role: 'user' }, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
-
-    'currentUserIsAdmin': () => Roles.userIsInRole(Meteor.userId(), 'admin')
 })
 
 Template.supervisorControlPanel.events({

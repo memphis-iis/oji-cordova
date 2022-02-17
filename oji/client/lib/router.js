@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import Chart from 'chart.js/auto'
 /* router.js - the routing logic we use for the application.
 
 If you need to create a new route, note that you should specify a name and an
@@ -98,6 +99,48 @@ Router.route('/assessment/:_id', {
     });
   }
 });
+
+Router.route('/userAssessmentReport/', {
+  action: function(){
+    this.render('userAssessmentReportLanding', {
+      params: {
+        assessmentIdentifier: this.params._identifier
+      }
+    });
+  }
+});
+
+Router.route('/userAssessmentReport/:_identifier', {
+  action: function(){
+    this.render('userAssessmentReport', {
+      params: {
+        assessmentIdentifier: this.params._identifier
+      }
+    });
+  }
+});
+
+Router.route('/userAssessmentReport/supervisor/:_userid/', {
+  action: function(){
+    this.render('userAssessmentReportLanding', {
+      params: {
+        userId: this.params._userid,
+      }
+    });
+  }
+});
+
+Router.route('/userAssessmentReport/supervisor/:_userid/:_identifier', {
+  action: function(){
+    this.render('userAssessmentReport', {
+      params: {
+        userId: this.params._userid,
+        assessmentIdentifier: this.params._identifier
+      }
+    });
+  }
+});
+
 //question
 Router.route('/assessment/:_id/:_questionid', {
   subscriptions: function(){

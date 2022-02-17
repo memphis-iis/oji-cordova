@@ -166,7 +166,7 @@ Template.adminControlPanel.events({
     },
     'click #gen-key': function(event){
         Meteor.call('generateApiToken', Meteor.userId());
-    },
+    }
 })
 
 Template.adminControlPanel.onCreated(function() {
@@ -175,8 +175,5 @@ Template.adminControlPanel.onCreated(function() {
     Meteor.subscribe('assessments');
     Meteor.subscribe('getUserModuleResults');
     Meteor.subscribe('modules');
-    this.selectedUser = new ReactiveVar("org");
-})
-Template.adminControlPanel.onCreated(function(){
     this.selectedUser = new ReactiveVar("org");
 })
