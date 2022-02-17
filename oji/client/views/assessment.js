@@ -13,9 +13,23 @@ Template.assessment.helpers({
                 user.assigned.splice(index, 1);
             }
             Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
-            return true;
+            return oldTrial;
         } else {
             return false;
+        }
+    },
+    'resumeableTrial': function() {
+        userId = Meteor.userId();
+        user = Meteor.users.findOne({_id: userId});
+        if(!user.curTrial.trialId){
+            return false;
+        } else {
+            oldTrial = Trials.findOne({'_id': user.curTrial.trialId});
+            if(Date.now() - oldTrial.lastAccessed < 1800000){ //30 minutes
+                return oldTrial;
+            } else {
+                return false;
+            }
         }
     },
     'question': function(){
@@ -25,10 +39,11 @@ Template.assessment.helpers({
             answers: assessment.answers,
             answerValues: assessment.answerValues,
             reversedValues: assessment.reversedValues,
+            totalQuestions: assessment.questions.length,
+            percentageCompleted: ((this.questionid - 1) / assessment.questions.length * 100).toFixed()
         }
-
         return data;
-    }
+    },
 })
 
 Template.assessment.events({
@@ -91,11 +106,19 @@ Template.assessment.events({
     'click .return': function(event) {
         target = "/profile";
         Router.go(target);
+    },
+    'click .resume': function(event){
+        curAssesment = Assessments.findOne();
+        userId = Meteor.userId();
+        user = Meteor.users.findOne({_id: userId});
+        target = "/assessment/" + curAssesment._id + "/" + user.curTrial.questionId;
+        Router.go(target)
     }
-
 })
 
 
-
+Template.assessment.onCreated(function() {
+    Meteor.subscribe('usertrials');
+});
 
 

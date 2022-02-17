@@ -2,12 +2,21 @@
     <div class="px-4 py-5 my-5 text-center">
        <h1>{{assessment.title}}</h1>
        {{#if this.isNotQuestion}}
-        <p class="lead mb-4">{{assessment.description}}</p>
-        <p class="lead mb-4">Please complete the entire assessment in one try. You will not be allowed to save your place.</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button class="btn btn-primary begin">Let's Begin!</button>
-                <button class="btn btn-caution return">I'm not Ready.</button>
-        </div>
+            {{#if resumeableTrial}}
+                <p class="lead mb-4">{{assessment.description}}</p>
+                <p class="lead mb-4">Please continue your last assessment.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button class="btn btn-primary resume">Let's Continue!</button>
+                    <button class="btn btn-caution return">I'm not Ready.</button>
+            </div>
+            {{else}}
+            <p class="lead mb-4">{{assessment.description}}</p>
+            <p class="lead mb-4">Please complete the entire assessment. You will be allowed to return for the next 30 minutes.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button class="btn btn-primary begin">Let's Begin!</button>
+                    <button class="btn btn-caution return">I'm not Ready.</button>
+            </div>
+            {{/if}}
         {{else}}
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             {{#if completed}}
@@ -17,6 +26,7 @@
             </div>
             {{/if}}
         <br>
+        Question {{questionid}} of {{question.totalQuestions}} ({{question.percentageCompleted}}%)
         <h3>{{question.text}}</h3>
         <div class="form-check">
         {{#each question.answers}}
