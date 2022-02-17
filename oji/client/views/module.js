@@ -84,10 +84,10 @@ Template.module.events({
         const t = Template.instance();
         let target = "";
         let moduleId = Meteor.user().curModule.moduleId;
-        let moduleData = ModuleResults.findOne();
+        let moduleData = ModuleResults.findOne({_id: moduleId});
+        console.log(moduleId,moduleData);
         console.log(moduleData);
-        moduleData.moduleId = moduleId;
-        moduleData.lastAccessed = Date.now();
+        moduleData.lastAccessed = Date.now().toString();
         thisPage = Meteor.user().curModule.pageId;
         thisQuestion = parseInt(Meteor.user().curModule.questionId);
         if(t.pageType.get() == "activity"){
@@ -119,7 +119,7 @@ Template.module.events({
                 pageId: thisPage,
                 questionId: thisQuestion,
                 response: response,
-                responseTimeStamp: Date.now()
+                responseTimeStamp: Date.now().toString()
             }
             moduleData.responses.push(data);
             moduleData.nextPage = thisPage;
@@ -143,7 +143,7 @@ Template.module.events({
             data = {
                 pageId: thisPage,
                 response: "read",
-                responseTimeStamp: Date.now()
+                responseTimeStamp: Date.now().toString()
             }
             console.log(moduleData);
             Meteor.call("saveModuleData", moduleData);
@@ -177,6 +177,7 @@ Template.module.events({
     'click #startModule': function(event){
         event.preventDefault();
         data = {
+            userId: Meteor.userId(),
             moduleId: Modules.findOne()._id, 
             responses: []
         }

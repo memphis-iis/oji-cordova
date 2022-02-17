@@ -5,9 +5,9 @@
           <button id="close-alert" class="btn btn-caution">Close</button>
         </div>
         <div class="col-4">
-            <h3>Assignments</h3>
-            <p>Assignments must be completed before going on to other assessments or viewing progress reports.</p>
-            <p>Assignments for:
+            <h3>Assignments/Modules</h3>
+            <p>Assignments must be completed before going on to modules or viewing progress reports.</p>
+            <p>Assignments/Modules for:
                 <select id="user-select">
                         <option value="org">Organization</option>
                     {{#each userInfo}}
@@ -15,6 +15,7 @@
                     {{/each}}
                 </select>
             </p>
+            <h4>Assessments</h4>
             <table class="table" id="assessmentList">
                 <thead>
                     <th scope="col" width="30%">Assessment</th>
@@ -59,6 +60,29 @@
                 {{/each}}
                 </tbody>
             </table>
+            <h4>Module Results</h4>
+            {{#if orgViewOn}}
+                 Module results can be seen when selecting an individual user.
+            {{else}}
+            <table class="table" id="moduleList">
+                <thead>
+                    <th scope="col" width="40%">Date Last Accessed</th>
+                    <th scope="col" width="40%">Module</th>
+                    <th scope="col" width="15%">Progress</th>
+                    <th scope="col" width="5%">Results</th>
+                </thead>
+                <tbody>
+                    {{#each modules}}
+                        <tr>
+                            <td>{{this.lastAccessed}}</td>
+                            <td>{{this.title}}</td>
+                            <td>Page {{this.lastPage}} of {{this.totalPages}} / {{this.percentDone}}% </td>
+                            <td><a href="/moduleReport/{{this.id}}">Report</a></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
         </div>
         <div class="col-4">
             <h3>Supervisors</h3>

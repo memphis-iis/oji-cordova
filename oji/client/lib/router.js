@@ -171,7 +171,7 @@ Router.route('/module/:_id/:_pageid', {
   subscriptions: function(){
     subs = [];
     subs.push(Meteor.subscribe('curModule', this.params._id));
-    subs.push(Meteor.subscribe('curModuleResult'));
+    subs.push(Meteor.subscribe('getUserModuleResults'));
     return subs;
   },
   action: function(){
@@ -188,7 +188,7 @@ Router.route('/module/:_id/:_pageid/:_questionid', {
   subscriptions: function(){
     subs = [];
     subs.push(Meteor.subscribe('curModule', this.params._id));
-    subs.push(Meteor.subscribe('curModuleResult'));
+    subs.push(Meteor.subscribe('getUserModuleResults'));
     return subs;
   },
   action: function(){
@@ -222,4 +222,22 @@ Router.route('/signup/:_id', function(){
     }});
   })
 
+// route module results report
+//intro
+Router.route('/moduleReport/:_id', {
+  subscriptions: function(){
+    subs = [];
+    subs.push(Meteor.subscribe('getModuleResultsByTrialId', this.params._id));
+    return subs;
+  },
+  action: function(){
+    if(Meteor.user()){
+      if (Roles.userIsInRole(Meteor.user(), 'admin') || Roles.userIsInRole(Meteor.user(), 'supervisor')  ) {
+        this.render('moduleReport');
+      }
+    } else {
+      this.render('/');
+    }
+  }
+});
 //Route Static Assets

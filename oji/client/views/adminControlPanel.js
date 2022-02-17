@@ -4,6 +4,16 @@ Template.adminControlPanel.helpers({
     'userInfo': () => Meteor.users.find({role: 'user'}),
 
     'orgLink': () => window.location.protocol + "//" + window.location.host + "/signup/" + Meteor.user().supervisorInviteCode,
+
+    'orgViewOn': function(){
+        const t = Template.instance();
+        userId = t.selectedUser.get();
+        if(userId == 'org'){
+            return true;
+        } else {
+            return false;
+        }
+    },
   
     'assessments': function (){
       const t = Template.instance();
@@ -36,6 +46,30 @@ Template.adminControlPanel.helpers({
     }
     return data;
 },
+    'modules': function() {
+        const t = Template.instance();
+        userId = t.selectedUser.get();
+        data = ModuleResults.find({userId: userId}).fetch();
+        results = [];
+        console.log(data.length);
+        for(i = 0; i < data.length; i++){
+            moduleInfo = Modules.findOne({_id: data[i].moduleId})
+            dateAccessed = new Date(0);
+            dateAccessed.setUTCSeconds(parseInt(data[i].lastAccessed))
+            dataToPush = {
+                id: data[i]._id,
+                lastAccessed: dateAccessed,
+                title: moduleInfo.title,
+                lastPage: data[i].nextPage,
+                totalPages : moduleInfo.pages.length,
+                percentDone: (data[i].nextPage / moduleInfo.pages.length * 100).toFixed(0)
+            };
+            console.log(dataToPush);
+            results.push(dataToPush);
+        }
+        return results;
+    },
+
     'organization': () => Orgs.findOne(),
     
     'apiKeys': function (){
@@ -139,5 +173,7 @@ Template.adminControlPanel.onCreated(function() {
     Meteor.subscribe('getUsersInOrg');
     Meteor.subscribe('getSupervisorsInOrg');
     Meteor.subscribe('assessments');
+    Meteor.subscribe('getUserModuleResults');
+    Meteor.subscribe('modules');
     this.selectedUser = new ReactiveVar("org");
 })

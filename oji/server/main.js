@@ -105,8 +105,10 @@ Meteor.startup(() => {
             userListResponse = []
             for(i = 0; i < userlist.length; i++){
                 userTrials = Trials.find({userId: userlist[i]._id}).fetch();
+                userModules = Modules.find({userId: userlist[i]._id}).fetch();
                 curUser = userlist[i];
                 curUser.trials = JSON.parse(JSON.stringify(userTrials));
+                curUser.modules = JSON.parse(JSON.stringify(userModules));
                 userListResponse.push(curUser);
             }
             organization.users = userListResponse;
@@ -362,6 +364,7 @@ Meteor.methods({
             }
         }
         var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: new Date(), identifier: identifier, data: data, subscaleTotals: subscaleTotals}});
+
         if(typeof output.insertedId === "undefined"){
             Meteor.users.update(userId, {
                 $set: {
@@ -553,6 +556,11 @@ Meteor.publish('modules', function () {
     return Modules.find({});
 });
 //get module results
-Meteor.publish('curModuleResult', function (id) {
+Meteor.publish('getUserModuleResults', function (id) {
     return ModuleResults.find({});
+});
+
+//get module results for a single trial
+Meteor.publish('getModuleResultsByTrialId', function (id) {
+    return ModuleResults.find({_id: id});
 });
