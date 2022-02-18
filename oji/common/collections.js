@@ -7,4 +7,5 @@ Assessments  = new Mongo.Collection('assessments');
 Trials = new Mongo.Collection('trials');
 Modules = new Mongo.Collection('modules');
 ModuleResults = new Mongo.Collection('modresults');
+Events = new Mongo.Collection('events');
 

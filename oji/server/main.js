@@ -162,6 +162,20 @@ Meteor.startup(() => {
                     newUserAssignments: []
                 });
                 newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
+                const d = new Date();
+                let month = d.getMonth(); 
+                let day = d.getDay();
+                let year = d.getFullYear();
+                let title = "test event";
+                Events.insert({
+                    type: "org",
+                    org: newOrgId,
+                    month: month,
+                    day: day,
+                    year: year,
+                    title: title,
+                    createdBy: uid
+                });
                 Meteor.call('generateInvite',uid);
             }
 
@@ -210,7 +224,6 @@ Meteor.methods({
                             lastname: lastName,
                             organization: targetOrgId,
                             supervisor: targetSupervisorId,
-                            sex: sex,
                             supervisorInviteCode: null,
                             hasCompletedFirstAssessment: false,
                             gender: gender,
@@ -451,6 +464,20 @@ Meteor.methods({
               }
             }
         });
+    },
+    createEvent: function(type, month, day, year, title){
+        Events.insert({
+            type: type,
+            org: Meteor.user().organization,
+            month: month,
+            day: day,
+            year: year,
+            title: title,
+            createdBy: this.userId
+        })
+    },
+    deleteEvent: function(eventId){
+        Events.remove({_id: eventId})
     }
 });
 
@@ -560,7 +587,19 @@ Meteor.publish('getUserModuleResults', function (id) {
     return ModuleResults.find({});
 });
 
-//get module results for a single trial
 Meteor.publish('getModuleResultsByTrialId', function (id) {
     return ModuleResults.find({_id: id});
+});
+
+//get my events
+Meteor.publish(null, function() {
+    return Events.find({createdBy: this.userId});
+});
+
+//get all organization events
+Meteor.publish(null, function() {
+    console.log(Meteor.user().organization, this.userId)
+    if(Meteor.user()){
+        return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]}]}, {sort: {year:1 , month:1, day:1}})
+    }
 });
