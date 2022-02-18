@@ -95,7 +95,6 @@ Template.adminControlPanel.helpers({
     'orgData': function (){
         Meteor.call('calcOrgStats');
         orgData = Orgs.findOne({_id: Meteor.user().organization}).orgStats;
-        console.log('rusty',orgData);
         return orgData;
     }
 })
