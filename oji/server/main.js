@@ -63,29 +63,6 @@ const SEED_ROLES = ['user', 'supervisor', 'admin']
 
 
 Meteor.startup(() => {
-
-    //Meteor Cordova Notifications
-    Push.Configure({
-        apn: {
-          certData: Assets.getText('apnDevCert.pem'),
-          keyData: Assets.getText('apnDevKey.pem'),
-          passphrase: 'xxxxxxxxx',
-          production: true,
-          //gateway: 'gateway.push.apple.com',
-        },
-        gcm: {
-          apiKey: 'xxxxxxx',  // GCM/FCM server key
-        }
-        // production: true,
-        // 'sound' true,
-        // 'badge' true,
-        // 'alert' true,
-        // 'vibrate' true,
-        // 'sendInterval': 15000, Configurable interval between sending
-        // 'sendBatchSize': 1, Configurable number of notifications to send per batch
-        // 'keepNotifications': false,
-      //
-      });
     
     //Iron Router Api
     Router.route('/api',{
@@ -501,29 +478,30 @@ Meteor.methods({
     },
     deleteEvent: function(eventId){
         Events.remove({_id: eventId})
+    },
+    addPushTask: function(id, details){
+        SyncedCron.add({
+            name: id,
+            schedule: function(parser) {
+                return parser.recur().on(details.date).fullDate();
+            },
+            job: function() {
+                Push.send(
+                    {
+                        from: 'Oji',
+                        title: 'Event Reminder',
+                        text: details.text
+                    }
+                );
+                FutureTasks.remove(id);
+                SyncedCron.remove(id);
+                    return id;
+            }
+        });
     }
 });
 
 //Server Methods
-
-function setupPushNotifications(){
-      //Schedule Previous Tasks
-  events = Events.find({});
-  for( event in events){
-    eventTime = 8;
-    sendDate = new Date(event.year, event.month, event.day, eventTime);
-    Push.send({
-      from: 'Oji',
-      title: 'Event Reminder',
-      text: event.title,
-      query: {}
-      token: {}
-      tokens: [{},{}]
-      delayUntil: sendDate,
-      notId: numberId
-    });
-  }
-}
 function addUserToRoles(uid, roles){
     Roles.addUsersToRoles(uid, roles);
     Meteor.users.update({ _id: uid }, { $set: { role: Roles.getRolesForUser(uid)[0] }});

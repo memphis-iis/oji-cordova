@@ -1,27 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
-//Meteor Cordova Notifications
-Meteor.startup(() => {
-  Push.Configure({
-    android: {
-      senderID: 12341234,
-      alert: true,
-      badge: true,
-      sound: true,
-      vibrate: true,
-      clearNotifications: true
-      // icon: '',
-      // iconColor: ''
-    },
-    ios: {
-      alert: true,
-      badge: true,
-      sound: true
-    }
-  });
-
-
 Template.DefaultLayout.onCreated(function() {
   this.autorun(() => {
     console.log(Orgs.find().fetch());
@@ -44,4 +23,4 @@ Template.DefaultLayout.events({
 
 Template.DefaultLayout.helpers({
   'organization': () => Orgs.findOne(),
-}); 
+});
