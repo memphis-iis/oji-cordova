@@ -13,18 +13,21 @@
        <h1>Hello there.</h1>
        <h3>Where would you like to go?</h3>
        {{#if isInRole 'user'}}
-       <h3>Assessment Center</h3>
-       <p>The assessment center measures your current mental health.</p>
-       <button id="assessmentCenter" class="btn btn-primary">Assessment Center</button>
-       <br><br>
-       <h3>Module Center</h3>
-       <p>The module center presents exercises to improve your mental health.</p>
-       <button id="moduleCenter" class="btn btn-primary">Module Center</button>
+            <h3>Assessment Center</h3>
+            <p>The assessment center measures your current mental health.</p>
+            <button id="assessmentCenter" class="btn btn-primary">Assessment Center</button>
+            <br><br>
+            <h3>Module Center</h3>
+            <p>The module center presents exercises to improve your mental health.</p>
+            <button id="moduleCenter" class="btn btn-primary">Module Center</button>
         {{else}}
-         <h3>Control Panel</h3>
+        <h3>Control Panel</h3>
             <p>Access tools and settings for your organization and users.</p>
             <button id="controlPanel" class="btn btn-primary">Control Panel</button>
         {{/if}}
+            <h3>Calendar</h3>
+            <p>Access your calendar.</p>
+            <button id="calendar" class="btn btn-primary">Calendar</button>
             <br><br>
             <h3>Account</h3>
             <button id="logout" class="btn btn-warning">Log Out</button>

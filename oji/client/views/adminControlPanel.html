@@ -5,7 +5,37 @@
           <button id="close-alert" class="btn btn-caution">Close</button>
         </div>
         <div class="col-4">
-            <h3>Assignments</h3>
+            <h3>Aggregate Statistics</h3>
+            <p>User Count: {{orgData.userCount}}<br></p>
+            <p>Total User Assessments Completed: {{orgData.assessmentCount}}</p>
+            <p>Total User Modules Completed: {{orgData.moduleCount}}</p>
+    
+            <h4>Subscales:<br></h4>
+            {{#if orgData.displaySubscales}}
+            <table class="table" id="subscalesAggregates">
+                <thead>
+                    <th scope="col" width="20%">Subscale</th>
+                    <th scope="col" width="20%">Average</th>
+                    <th scope="col" width="20%">Median</th>
+                    <th scope="col" width="20%">Total</th>
+                </thead>
+                <tbody> 
+                    {{#each orgData.subscaleData}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.avg}}</td>
+                        <td>{{this.median}}</td>
+                        <td>{{this.sum}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>                    
+                </table>
+            {{else}}
+            <p>Subscale statistics will be displayed when more than two assessments are started.</p>
+            {{/if}}
+        </div>
+        <div class="col-4">
+            <h3>Assignments/Modules</h3>
             <p>Assignments must be completed before going on to modules or viewing progress reports.</p>
             <p>Assignments for:
                 <select id="user-select">

@@ -34,6 +34,37 @@ Template.adminControlPanel.helpers({
     }
     return data;
 },
+
+    'organization': () => Orgs.findOne(),
+    
+    'apiKeys': function (){
+        keys = Meteor.user().api;
+        isExpired = false;
+        now = new Date();
+        expDate = keys.expires;
+        expDate.setDate(expDate.getDate());
+        console.log('date', now, expDate, keys.expires);
+        if(now >= expDate){
+            isExpired = true;
+        }
+        api = {
+            token: keys.token,
+            expires: expDate,
+            expired: isExpired,
+            curlExample: "curl " + window.location.protocol + "//" + window.location.host + "/api -H \"x-user-id:" + Meteor.user().username +"\" -H \"x-auth-token:" + keys.token + "\""
+        }
+
+        return api;
+      },
+    'showToken': true,
+    'orgData': function (){
+        Meteor.call('calcOrgStats');
+        orgData = Orgs.findOne({_id: Meteor.user().organization}).orgStats;
+        if(orgData.assessmentCount < 2){
+            orgData.displaySubscales = false;
+        }
+        return orgData;
+    }
 })
 
 Template.adminControlPanel.events({

@@ -23,4 +23,4 @@ Template.DefaultLayout.events({
 
 Template.DefaultLayout.helpers({
   'organization': () => Orgs.findOne(),
-}); 
+});

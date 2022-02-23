@@ -162,22 +162,40 @@ Meteor.startup(() => {
                     newUserAssignments: []
                 });
                 newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
+                const d = new Date();
+                let month = d.getMonth(); 
+                let day = d.getDay();
+                let year = d.getFullYear();
+                let title = "test event";
+                Events.insert({
+                    type: "org",
+                    org: newOrgId,
+                    month: month,
+                    day: day,
+                    year: year,
+                    title: title,
+                    createdBy: uid
+                });
                 Meteor.call('generateInvite',uid);
             }
 
+            let supervisorID = '';
+            if(user.username == 'testUser'){
+                supervisorID =  Accounts.findUserByUsername(SEED_SUPERVISOR.username)._id;
+            }
             Meteor.users.update({ _id: uid }, 
                 {   $set:
                     {
                         sex: user.sex,
                         firstname: user.firstName,
                         lastname: user.lastName,
-                        supervisor: user.supervisorID,
+                        supervisor: supervisorID,
                         organization: user.org ? user.org: newOrgId,
                         sex: user.sex,
                         assigned: user.assigned,
                         hasCompletedFirstAssessment: user.hasCompletedFirstAssessment
                     }
-               }
+                }
             );
         }
     }
@@ -210,7 +228,6 @@ Meteor.methods({
                             lastname: lastName,
                             organization: targetOrgId,
                             supervisor: targetSupervisorId,
-                            sex: sex,
                             supervisorInviteCode: null,
                             hasCompletedFirstAssessment: false,
                             gender: gender,
@@ -451,7 +468,73 @@ Meteor.methods({
               }
             }
         });
-    }
+    },
+    calcOrgStats: function(){
+        users = Meteor.users.find({organization: Meteor.user().organization}).fetch();
+        subscales = [];
+        subscaleList = [];
+        data = {};
+        data.userCount = users.length;
+        data.assessmentCount = 0;
+        data.moduleCount = 0;
+        subscaleData = [];
+        for(i = 0; i < users.length; i++){
+            trials = Trials.find({"userId": users[i]._id}).fetch();
+            for(j = 0; j < trials.length; j++){
+                data.assessmentCount++;
+                for(k = 0; k < Object.getOwnPropertyNames(trials[j].subscaleTotals).length; k++){
+                    subscale = Object.getOwnPropertyNames(trials[j].subscaleTotals)[k];
+                    subscaleIndex = subscaleList.indexOf(subscale);
+                    if(subscaleIndex === -1){
+                        subscaleList.push(subscale);
+                        subscaleIndex = subscaleList.indexOf(subscale);
+                        subscaleData[subscaleIndex] = {
+                            name: subscale,
+                            all: [trials[j].subscaleTotals[subscale]],
+                            count: 1,
+                            sum: trials[j].subscaleTotals[subscale],
+                            avg:  trials[j].subscaleTotals[subscale],
+                            median: trials[j].subscaleTotals[subscale],
+                        };
+                    } else {
+                        subscaleData[subscaleIndex].all.push(trials[j].subscaleTotals[subscale]);
+                        subscaleData[subscaleIndex].count++;
+                        subscaleData[subscaleIndex].sum+= trials[j].subscaleTotals[subscale];
+                        subscaleData[subscaleIndex].avg = subscaleData[subscaleIndex].sum / subscaleData[subscaleIndex].count;
+                        const sorted = subscaleData[subscaleIndex].all.slice().sort((a, b) => a - b);
+                        const middle = Math.floor(sorted.length / 2);
+                        if (sorted.length % 2 === 0) {
+                            median = (sorted[middle - 1] + sorted[middle]) / 2;
+                        } else {
+                            median = sorted[middle];
+                        }
+                        subscaleData[subscaleIndex].median = median;
+                    }
+           
+                }
+            }
+        }
+        data.subscaleData = subscaleData;
+        Orgs.upsert({_id: Meteor.user().organization},{
+            $set: {
+                orgStats: data
+            }
+        })
+    },
+    createEvent: function(type, month, day, year, title){
+        Events.insert({
+            type: type,
+            org: Meteor.user().organization,
+            month: month,
+            day: day,
+            year: year,
+            title: title,
+            createdBy: this.userId
+        })
+    },
+    deleteEvent: function(eventId){
+        Events.remove({_id: eventId})
+    },
 });
 
 //Server Methods
@@ -561,7 +644,19 @@ Meteor.publish('getUserModuleResults', function (id) {
     return ModuleResults.find({});
 });
 
-//get module results for a single trial
 Meteor.publish('getModuleResultsByTrialId', function (id) {
     return ModuleResults.find({_id: id});
+});
+
+//get my events
+Meteor.publish(null, function() {
+    return Events.find({createdBy: this.userId});
+});
+
+//get all organization events
+Meteor.publish('events', function() {
+    console.log(Meteor.user().organization, this.userId)
+    if(Meteor.user()){
+        return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]}]}, {sort: {year:1 , month:1, day:1}})
+    }
 });
