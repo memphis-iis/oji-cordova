@@ -164,7 +164,7 @@ Meteor.startup(() => {
                 newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
                 const d = new Date();
                 let month = d.getMonth(); 
-                let day = d.getDay();
+                let day = d.getDate();
                 let year = d.getFullYear();
                 let title = "test event";
                 Events.insert({
@@ -521,7 +521,7 @@ Meteor.methods({
             }
         })
     },
-    createEvent: function(type, month, day, year, title){
+    createEvent: function(type, month, day, year, time, title){
         Events.insert({
             type: type,
             org: Meteor.user().organization,
@@ -529,6 +529,7 @@ Meteor.methods({
             day: day,
             year: year,
             title: title,
+            time: time,
             createdBy: this.userId
         })
     },

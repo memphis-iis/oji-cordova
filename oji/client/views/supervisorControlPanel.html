@@ -53,17 +53,16 @@
     <div class="row">
         <div class="col-4">
             <h3>Module Results</h3>
-            <p>Module Results for:
-                <select id="user-select">
-                    <option value="Select User">Select User</option>
-                    {{#each usersList}}
-                        <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
-                    {{/each}}
-                </select>
-            </p>
+            <select id="user-select">
+                <option value="none">None</option>
+            {{#each usersList}}
+                <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
+            {{/each}}
+           </select><br><br>
             {{#if orgViewOn}}
-                Module results can be seen when selecting an individual user.
+                 Module results can be seen when selecting an individual user  that you supervise.
             {{else}}
+            {{#if modules}}
             <table class="table" id="moduleList">
                 <thead>
                     <th scope="col" width="40%">Date Last Accessed</th>
@@ -82,6 +81,9 @@
                     {{/each}}
                 </tbody>
             </table>
+            {{else}}
+            No modules have been started by this user.
+            {{/if}}
             {{/if}}
         </div>
     </div>

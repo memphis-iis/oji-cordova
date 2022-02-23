@@ -1,6 +1,23 @@
 <template name="calendar">
     <div class="row">
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+            <a class="nav-link active" id="toggle-month-view" aria-current="page" href="#">Month View</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link toggle-agenda-view" href="#">Agenda View</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link toggle-create-view" href="#">Create Event</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row" id="month-view">
         <h3>{{calendar.Month}} / {{calendar.Year}}</h3>
+        <p>
+            <a href="#" id="decrement-month">Previous</a>
+            <a href="#" id="increment-month">Next</a>
+        </p>
         <table class="table" style="width:100%">
             <thead>
                 <th scope="col" width="1%"></th>
@@ -22,16 +39,22 @@
                         {{#if this.today}}
                         <td class="text-align-top text-align-left" style="background-color:rgb(201, 235, 252);">
                             <h5><b>{{this.dayNum}}</b>
+                                <br>
                             {{#if hasEvents}}
-                            <span class="glyphicon glyphicon-list-alt"></span>
-                            {{/if}}
+                                <a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;({{this.numEvents}})</a>
+                                {{else}}
+                                <a class="toggle-create-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}"><span class="glyphicon glyphicon-plus"></span>&nbsp;({{this.numEvents}})</a>
+                                {{/if}}
                             </h5>
                         </td>
                         {{else}}
                         <td class="text-align-top text-align-left">
                             <h5>{{this.dayNum}}
+                                <br>
                             {{#if hasEvents}}
-                            <span class="glyphicon glyphicon-list-alt"></span>
+                                <a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;({{this.numEvents}})</a>
+                             {{else}}
+                             <a class="toggle-create-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}"><span class="glyphicon glyphicon-plus"></span>&nbsp;({{this.numEvents}})</a>
                              {{/if}}
                             </h5>
                         </td>
@@ -46,23 +69,19 @@
             </tbody>
         </table>
     </div>
-    <div class="row">
-        <h3>Agenda</h3>
+    <div class="row" id="agenda-view" hidden>
+        <h3>{{agenda.monthName}} {{agenda.day}}, {{agenda.year}}</h3>
         <table class="table" >
             <thead>
-                <th scope="col" width="10%">Date</th>
-                <th scope="col" width="20%">Type</th>
-                <th scope="col" width="50%">Event</th>
-                <th scope="col" width="10%">Action</th>
+                <th scope="col" width="10%">Time</th>
+                <th scope="col" width="60%">Event</th>
+                <th scope="col" width="30%">Action</th>
             </thead>
             <tbody>
-                {{#each agenda}}
+                {{#each agenda.events}}
                 <tr>
                     <td>
-                        {{this.month}}/{{this.day}}/{{this.year}}
-                    </td>
-                    <td>
-                        {{this.type}}
+                        {{this.time}}
                     </td>
                     <td>
                         {{this.title}}
@@ -76,12 +95,15 @@
                 {{/each}}
             </tbody>
         </table>
+   </div>
+   <div class="row" id="create-view" hidden>
         <h3>
             Create Event
         </h3>
         <form>
             Title<br><input type="text" id="title"><br><br>
             Date:<br> <input type=date min=2014-09-08 id="date"><br><br>
+            Time:<br> <input type=time min=2014-09-08 id="time"><br><br>
             Type:<br>
             <select id="type">
                 {{#if isInRole 'supervisor'}}

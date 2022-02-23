@@ -1,36 +1,38 @@
 Template.supervisorControlPanel.helpers({
-    'usersList': () => Meteor.users.find({ role: 'user', organization: Meteor.user().organization, supervisor: Meteor.userId()}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
-    'orgViewOn': function(){
-        const t = Template.instance();
-        userId = t.selectedUser.get();
-        if(userId == 'org'){
-            return true;
-        } else {
-            return false;
-        }
-    },
+        'usersList': () => Meteor.users.find({ role: 'user', organization: Meteor.user().organization, supervisor: Meteor.userId()}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
+        'orgViewOn': function(){
+            const t = Template.instance();
+            userId = t.selectedUser.get();
+            if(userId == 'org'){
+                return true;
+            } else {
+                return false;
+            }
+        },
+        
+        'organization': () => Orgs.findOne(),
     
-    'organization': () => Orgs.findOne(),
-    
-    'apiKeys': function (){
-        keys = Meteor.user().api;
-        isExpired = false;
-        now = new Date();
-        expDate = keys.expires;
-        expDate.setDate(expDate.getDate());
-        if(now >= expDate){
-            isExpired = true;
-        }
-        api = {
-            token: keys.token,
-            expires: expDate,
-            expired: isExpired,
-            curlExample: "curl " + window.location.protocol + "//" + window.location.host + "/api -H \"x-user-id:" + Meteor.user().username +"\" -H \"x-auth-token:" + keys.token + "\""
-        }
+        'apiKeys': function (){
+            keys = Meteor.user().api;
+            isExpired = false;
+            now = new Date();
+            expDate = keys.expires;
+            expDate.setDate(expDate.getDate());
+            if(now >= expDate || typeof keys.token === 'undefined'){
+                isExpired = true;
+            }
+            api = {
+                token: keys.token,
+                expires: expDate,
+                expired: isExpired,
+                curlExample: "curl " + window.location.protocol + "//" + window.location.host + "/api -H \"x-user-id:" + Meteor.user().username +"\" -H \"x-auth-token:" + keys.token + "\""
+            }
 
-        return api;
-      },
-    'showToken': true,
+            return api;
+        },
+
+        'showToken': true,
+
         'orgLink': () => window.location.protocol + "//" + window.location.host + "/signup/" + Meteor.user().supervisorInviteCode,
 
         'modules': function() {
@@ -51,6 +53,9 @@ Template.supervisorControlPanel.helpers({
                     percentDone: (data[i].nextPage / moduleInfo.pages.length * 100).toFixed(0)
                 };
                 results.push(dataToPush);
+            }
+            if(results.length == 0){
+                results = false;
             }
             return results;
     },
