@@ -535,26 +535,6 @@ Meteor.methods({
     deleteEvent: function(eventId){
         Events.remove({_id: eventId})
     },
-    addPushTask: function(id, details){
-        SyncedCron.add({
-            name: id,
-            schedule: function(parser) {
-                return parser.recur().on(details.date).fullDate();
-            },
-            job: function() {
-                Push.send(
-                    {
-                        from: 'Oji',
-                        title: 'Event Reminder',
-                        text: details.text
-                    }
-                );
-                FutureTasks.remove(id);
-                SyncedCron.remove(id);
-                    return id;
-            }
-        });
-    }
 });
 
 //Server Methods
@@ -673,7 +653,7 @@ Meteor.publish(null, function() {
 });
 
 //get all organization events
-Meteor.publish(null, function() {
+Meteor.publish('events', function() {
     console.log(Meteor.user().organization, this.userId)
     if(Meteor.user()){
         return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]}]}, {sort: {year:1 , month:1, day:1}})
