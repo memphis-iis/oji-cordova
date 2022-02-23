@@ -31,6 +31,10 @@ Template.profile.events({
         target = "/control-panel/";
         Router.go(target);
     },
+    'click #calendar': function(){
+        target = "/calendar/";
+        Router.go(target);
+    },
     'click #logout': function(){
         Meteor.logout();
         Router.go("/");

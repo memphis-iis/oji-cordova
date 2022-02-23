@@ -9,7 +9,9 @@
             <p>User Count: {{orgData.userCount}}<br></p>
             <p>Total User Assessments Completed: {{orgData.assessmentCount}}</p>
             <p>Total User Modules Completed: {{orgData.moduleCount}}</p>
-            <p>Subscales:<br></p>
+    
+            <h4>Subscales:<br></h4>
+            {{#if orgData.displaySubscales}}
             <table class="table" id="subscalesAggregates">
                 <thead>
                     <th scope="col" width="20%">Subscale</th>
@@ -28,6 +30,9 @@
                     {{/each}}
                 </tbody>                    
                 </table>
+            {{else}}
+            <p>Subscale statistics will be displayed when more than two assessments are started.</p>
+            {{/if}}
         </div>
         <div class="col-4">
             <h3>Assignments/Modules</h3>
@@ -89,6 +94,7 @@
             {{#if orgViewOn}}
                  Module results can be seen when selecting an individual user.
             {{else}}
+            {{#if modules}}
             <table class="table" id="moduleList">
                 <thead>
                     <th scope="col" width="40%">Date Last Accessed</th>
@@ -107,6 +113,9 @@
                     {{/each}}
                 </tbody>
             </table>
+            {{else}}
+            No modules have been started by this user.
+            {{/if}}
             {{/if}}
         </div>
         <div class="col-4">
