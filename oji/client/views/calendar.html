@@ -1,0 +1,98 @@
+<template name="calendar">
+    <div class="row">
+        <h3>{{calendar.Month}} / {{calendar.Year}}</h3>
+        <table class="table" style="width:100%">
+            <thead>
+                <th scope="col" width="1%"></th>
+                <th scope="col" width="14%">Sun</th>
+                <th scope="col" width="14%">Mon</th>
+                <th scope="col" width="14%">Tues</th>
+                <th scope="col" width="14%">Wed</th>
+                <th scope="col" width="14%">Thur</th>
+                <th scope="col" width="14%">Fri</th>
+                <th scope="col" width="14%">Sat</th>
+                <th scope="col" width="1%"></th>
+            </thead>
+            <tbody>
+                {{#each calendar.weeks}}
+                <tr>
+                <td></td>
+                    {{#each this.days}}
+                        {{#if this.display}}
+                        {{#if this.today}}
+                        <td class="text-align-top text-align-left" style="background-color:rgb(201, 235, 252);">
+                            <h5><b>{{this.dayNum}}</b>
+                            {{#if hasEvents}}
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                            {{/if}}
+                            </h5>
+                        </td>
+                        {{else}}
+                        <td class="text-align-top text-align-left">
+                            <h5>{{this.dayNum}}
+                            {{#if hasEvents}}
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                             {{/if}}
+                            </h5>
+                        </td>
+                        {{/if}}
+                        {{else}}
+                        <td style="background-color:rgb(244, 250, 253)">
+                        </td>
+                        {{/if}}
+                    {{/each}}
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <h3>Agenda</h3>
+        <table class="table" >
+            <thead>
+                <th scope="col" width="10%">Date</th>
+                <th scope="col" width="20%">Type</th>
+                <th scope="col" width="50%">Event</th>
+                <th scope="col" width="10%">Action</th>
+            </thead>
+            <tbody>
+                {{#each agenda}}
+                <tr>
+                    <td>
+                        {{this.month}}/{{this.day}}/{{this.year}}
+                    </td>
+                    <td>
+                        {{this.type}}
+                    </td>
+                    <td>
+                        {{this.title}}
+                    </td>
+                    <td>
+                        {{#if this.deleteShow}}
+                            <a href="" id="deleteEvent" data-id="{{this._id}}">Delete</a>
+                        {{/if}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <h3>
+            Create Event
+        </h3>
+        <form>
+            Title<br><input type="text" id="title"><br><br>
+            Date:<br> <input type=date min=2014-09-08 id="date"><br><br>
+            Type:<br>
+            <select id="type">
+                {{#if isInRole 'supervisor'}}
+                <option>Supervisor Group</option>
+                {{/if}}
+                {{#if isInRole 'admin'}}
+                <option>All Organization</option>
+                {{/if}}
+                <option>Personal</option>
+            </select><br><br>
+            <button class="btn btn-primary" id="createEvent">Create Event</button>
+        </form>
+    </div>
+</template>
