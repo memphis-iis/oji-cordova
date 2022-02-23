@@ -34,7 +34,8 @@ Template.assessment.helpers({
 Template.assessment.events({
     'click .continue': function(event) {
         event.preventDefault();
-        trialData = Meteor.users.findOne().curTrial;
+        userId = Meteor.userId();
+        trialData = Meteor.users.findOne({_id: userId}).curTrial;
         console.log('trialData', trialData);
         let curAssesment = Assessments.findOne();
         let completed = false;

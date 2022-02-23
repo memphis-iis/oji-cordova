@@ -110,6 +110,7 @@ Template.calendar.events({
 })
 
 Template.calendar.onCreated(function() {
+    Meteor.subscribe('events');
     const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
     unixDate = new Date();

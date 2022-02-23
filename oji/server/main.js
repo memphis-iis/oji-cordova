@@ -469,6 +469,58 @@ Meteor.methods({
             }
         });
     },
+    calcOrgStats: function(){
+        users = Meteor.users.find({organization: Meteor.user().organization}).fetch();
+        subscales = [];
+        subscaleList = [];
+        data = {};
+        data.userCount = users.length;
+        data.assessmentCount = 0;
+        data.moduleCount = 0;
+        subscaleData = [];
+        for(i = 0; i < users.length; i++){
+            trials = Trials.find({"userId": users[i]._id}).fetch();
+            for(j = 0; j < trials.length; j++){
+                data.assessmentCount++;
+                for(k = 0; k < Object.getOwnPropertyNames(trials[j].subscaleTotals).length; k++){
+                    subscale = Object.getOwnPropertyNames(trials[j].subscaleTotals)[k];
+                    subscaleIndex = subscaleList.indexOf(subscale);
+                    if(subscaleIndex === -1){
+                        subscaleList.push(subscale);
+                        subscaleIndex = subscaleList.indexOf(subscale);
+                        subscaleData[subscaleIndex] = {
+                            name: subscale,
+                            all: [trials[j].subscaleTotals[subscale]],
+                            count: 1,
+                            sum: trials[j].subscaleTotals[subscale],
+                            avg:  trials[j].subscaleTotals[subscale],
+                            median: trials[j].subscaleTotals[subscale],
+                        };
+                    } else {
+                        subscaleData[subscaleIndex].all.push(trials[j].subscaleTotals[subscale]);
+                        subscaleData[subscaleIndex].count++;
+                        subscaleData[subscaleIndex].sum+= trials[j].subscaleTotals[subscale];
+                        subscaleData[subscaleIndex].avg = subscaleData[subscaleIndex].sum / subscaleData[subscaleIndex].count;
+                        const sorted = subscaleData[subscaleIndex].all.slice().sort((a, b) => a - b);
+                        const middle = Math.floor(sorted.length / 2);
+                        if (sorted.length % 2 === 0) {
+                            median = (sorted[middle - 1] + sorted[middle]) / 2;
+                        } else {
+                            median = sorted[middle];
+                        }
+                        subscaleData[subscaleIndex].median = median;
+                    }
+           
+                }
+            }
+        }
+        data.subscaleData = subscaleData;
+        Orgs.upsert({_id: Meteor.user().organization},{
+            $set: {
+                orgStats: data
+            }
+        })
+    },
     createEvent: function(type, month, day, year, title){
         Events.insert({
             type: type,
@@ -483,26 +535,6 @@ Meteor.methods({
     deleteEvent: function(eventId){
         Events.remove({_id: eventId})
     },
-    addPushTask: function(id, details){
-        SyncedCron.add({
-            name: id,
-            schedule: function(parser) {
-                return parser.recur().on(details.date).fullDate();
-            },
-            job: function() {
-                Push.send(
-                    {
-                        from: 'Oji',
-                        title: 'Event Reminder',
-                        text: details.text
-                    }
-                );
-                FutureTasks.remove(id);
-                SyncedCron.remove(id);
-                    return id;
-            }
-        });
-    }
 });
 
 //Server Methods
@@ -621,7 +653,7 @@ Meteor.publish(null, function() {
 });
 
 //get all organization events
-Meteor.publish(null, function() {
+Meteor.publish('events', function() {
     console.log(Meteor.user().organization, this.userId)
     if(Meteor.user()){
         return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]}]}, {sort: {year:1 , month:1, day:1}})

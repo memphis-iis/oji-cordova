@@ -51,7 +51,6 @@ Template.adminControlPanel.helpers({
         userId = t.selectedUser.get();
         data = ModuleResults.find({userId: userId}).fetch();
         results = [];
-        console.log(data.length);
         for(i = 0; i < data.length; i++){
             moduleInfo = Modules.findOne({_id: data[i].moduleId})
             dateAccessed = new Date(0);
@@ -66,6 +65,9 @@ Template.adminControlPanel.helpers({
             };
             console.log(dataToPush);
             results.push(dataToPush);
+        }
+        if(results.length = 0){
+            results = false;
         }
         return results;
     },
@@ -92,6 +94,14 @@ Template.adminControlPanel.helpers({
         return api;
       },
     'showToken': true,
+    'orgData': function (){
+        Meteor.call('calcOrgStats');
+        orgData = Orgs.findOne({_id: Meteor.user().organization}).orgStats;
+        if(orgData.assessmentCount < 2){
+            orgData.displaySubscales = false;
+        }
+        return orgData;
+    }
 })
 
 Template.adminControlPanel.events({
