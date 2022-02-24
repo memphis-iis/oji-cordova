@@ -633,6 +633,7 @@ Meteor.publish('usertrials', function () {
     return Trials.find({'userId': this.userId});
 });
 
+//allow cur
 //allow current module pages to be published
 Meteor.publish('curModule', function (id) {
     return Modules.find({_id: id});
