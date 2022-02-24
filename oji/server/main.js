@@ -521,7 +521,7 @@ Meteor.methods({
             }
         })
     },
-    createEvent: function(type, month, day, year, time, title){
+    createEvent: function(type, month, day, year, time, title, importance){
         Events.insert({
             type: type,
             org: Meteor.user().organization,
@@ -530,6 +530,7 @@ Meteor.methods({
             year: year,
             title: title,
             time: time,
+            importance: importance,
             createdBy: this.userId
         })
     },
@@ -658,6 +659,6 @@ Meteor.publish(null, function() {
 Meteor.publish('events', function() {
     console.log(Meteor.user().organization, this.userId)
     if(Meteor.user()){
-        return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]}]}, {sort: {year:1 , month:1, day:1}})
+        return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]},{type:this.userId}]}, {sort: {year:1 , month:1, day:1, time:1}})
     }
 });

@@ -44,13 +44,18 @@ Template.supervisorControlPanel.helpers({
                 moduleInfo = Modules.findOne({_id: data[i].moduleId})
                 dateAccessed = new Date(0);
                 dateAccessed.setUTCSeconds(parseInt(data[i].lastAccessed))
+                completed = false;
+                if(data[i].nextPage == "completed"){
+                    completed = true;
+                }
                 dataToPush = {
                     id: data[i]._id,
                     lastAccessed: dateAccessed,
                     title: moduleInfo.title,
                     lastPage: data[i].nextPage,
                     totalPages : moduleInfo.pages.length,
-                    percentDone: (data[i].nextPage / moduleInfo.pages.length * 100).toFixed(0)
+                    percentDone: (data[i].nextPage / moduleInfo.pages.length * 100).toFixed(0),
+                    completed: completed
                 };
                 results.push(dataToPush);
             }

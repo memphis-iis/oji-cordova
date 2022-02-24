@@ -75,7 +75,11 @@
                         <tr>
                             <td>{{this.lastAccessed}}</td>
                             <td>{{this.title}}</td>
+                            {{#if this.completed}}
+                            <td>Completed</td>
+                            {{else}}
                             <td>Page {{this.lastPage}} of {{this.totalPages}} / {{this.percentDone}}% </td>
+                            {{/if}}
                             <td><a href="/moduleReport/{{this.id}}">Report</a></td>
                         </tr>
                     {{/each}}

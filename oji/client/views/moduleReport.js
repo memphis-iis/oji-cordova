@@ -37,7 +37,6 @@ Template.moduleReport.helpers({
                 }
             }
         }
-        console.log(responses);
         return responses;
     },
 })
