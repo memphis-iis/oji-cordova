@@ -2,18 +2,6 @@ Template.adminControlPanel.helpers({
     'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
 
     'userInfo': () => Meteor.users.find({role: 'user'}),
-
-    'orgLink': () => window.location.protocol + "//" + window.location.host + "/signup/" + Meteor.user().supervisorInviteCode,
-
-    'orgViewOn': function(){
-        const t = Template.instance();
-        userId = t.selectedUser.get();
-        if(userId == 'org'){
-            return true;
-        } else {
-            return false;
-        }
-    },
   
     'assessments': function (){
       const t = Template.instance();
@@ -46,31 +34,6 @@ Template.adminControlPanel.helpers({
     }
     return data;
 },
-    'modules': function() {
-        const t = Template.instance();
-        userId = t.selectedUser.get();
-        data = ModuleResults.find({userId: userId}).fetch();
-        results = [];
-        for(i = 0; i < data.length; i++){
-            moduleInfo = Modules.findOne({_id: data[i].moduleId})
-            dateAccessed = new Date(0);
-            dateAccessed.setUTCSeconds(parseInt(data[i].lastAccessed))
-            dataToPush = {
-                id: data[i]._id,
-                lastAccessed: dateAccessed,
-                title: moduleInfo.title,
-                lastPage: data[i].nextPage,
-                totalPages : moduleInfo.pages.length,
-                percentDone: (data[i].nextPage / moduleInfo.pages.length * 100).toFixed(0)
-            };
-            console.log(dataToPush);
-            results.push(dataToPush);
-        }
-        if(results.length = 0){
-            results = false;
-        }
-        return results;
-    },
 
     'organization': () => Orgs.findOne(),
     
@@ -119,12 +82,11 @@ Template.adminControlPanel.events({
     'click #supervisorDemoteButton': function(event){
         Meteor.call('removeSupervisor', event.currentTarget.getAttribute("data-supervisorID"));
     }, 
-    'click #regen-link': function(event){
-        Meteor.call('generateInvite', Meteor.userId());
-    },
+
     'change #user-select': function(event){
         const t = Template.instance();
         t.selectedUser.set(event.target.value);
+        $('#user-select').val(t.selectedUser.get())
     },
     'click #assign-new': function(event){
         event.preventDefault();
@@ -146,7 +108,6 @@ Template.adminControlPanel.events({
         newAssignment = $(event.target).data("assessment-id");
         Meteor.call('assignToAllUsers', newAssignment);
         assignment = Assessments.findOne({_id: newAssignment});
-        console.log('assessment', assignment);
         $('#alert').show();
         $('#alert').addClass("alert-success");
         $('#alert-p').html("Successfully assigned " + assignment.title + " to all users.");
@@ -173,9 +134,6 @@ Template.adminControlPanel.events({
         assignment = $(event.target).data("assessment-id");
         user.assigned.push(assignment);
         Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
-    },
-    'click #gen-key': function(event){
-        Meteor.call('generateApiToken', Meteor.userId());
     }
 })
 

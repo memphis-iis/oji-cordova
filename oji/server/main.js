@@ -164,7 +164,7 @@ Meteor.startup(() => {
                 newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
                 const d = new Date();
                 let month = d.getMonth(); 
-                let day = d.getDay();
+                let day = d.getDate();
                 let year = d.getFullYear();
                 let title = "test event";
                 Events.insert({
@@ -521,7 +521,7 @@ Meteor.methods({
             }
         })
     },
-    createEvent: function(type, month, day, year, title){
+    createEvent: function(type, month, day, year, time, title, importance){
         Events.insert({
             type: type,
             org: Meteor.user().organization,
@@ -529,6 +529,8 @@ Meteor.methods({
             day: day,
             year: year,
             title: title,
+            time: time,
+            importance: importance,
             createdBy: this.userId
         })
     },
@@ -560,10 +562,11 @@ function serverConsole(...args) {
 function getInviteInfo(inviteCode) {
     supervisor = Meteor.users.findOne({supervisorInviteCode: inviteCode});
     targetSupervisorId = supervisor._id;
-    organization = Orgs.findOne({orgOwnerId: supervisor._id});
+    organization = Orgs.findOne({_id: supervisor.organization});
     targetSupervisorName = supervisor.firstname + " " + supervisor.lastname;
     targetOrgId = supervisor.organization;
     targetOrgName = organization.orgName;
+    console.log(targetOrgId,targetOrgName,targetSupervisorId,targetSupervisorName);
     return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
 }
 
@@ -656,6 +659,6 @@ Meteor.publish(null, function() {
 Meteor.publish('events', function() {
     console.log(Meteor.user().organization, this.userId)
     if(Meteor.user()){
-        return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]}]}, {sort: {year:1 , month:1, day:1}})
+        return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]},{type:this.userId}]}, {sort: {year:1 , month:1, day:1, time:1}})
     }
 });

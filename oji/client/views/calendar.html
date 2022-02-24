@@ -1,6 +1,32 @@
 <template name="calendar">
-    <div class="row">
+    <div>
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item">
+            <a class="nav-link active" id="toggle-month-view" aria-current="page" href="#">Month View</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link toggle-agenda-view" href="#">Agenda View</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link toggle-create-view" href="#">Create Event</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row text-center" id="month-view">
         <h3>{{calendar.Month}} / {{calendar.Year}}</h3>
+        <p>
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="decrement-month">Previous Month</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="select-today">Today</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="increment-month">Next Month</a>
+                </li>
+            </ul>
+        </p>
         <table class="table" style="width:100%">
             <thead>
                 <th scope="col" width="1%"></th>
@@ -21,19 +47,37 @@
                         {{#if this.display}}
                         {{#if this.today}}
                         <td class="text-align-top text-align-left" style="background-color:rgb(201, 235, 252);">
-                            <h5><b>{{this.dayNum}}</b>
                             {{#if hasEvents}}
-                            <span class="glyphicon glyphicon-list-alt"></span>
-                            {{/if}}
-                            </h5>
+                            <h5>
+                                <a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">
+                                {{this.dayNum}}
+                                <br>
+                                {{#if hasCritical}}
+                                    <span class="glyphicon glyphicon-list-alt" style="color:red"></span>
+                                {{else}}
+                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                {{/if}}
+                            </a></h5>
+                                {{else}}
+                                <h5><a class="toggle-create-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}</a></h5>
+                                {{/if}}
                         </td>
                         {{else}}
                         <td class="text-align-top text-align-left">
-                            <h5>{{this.dayNum}}
                             {{#if hasEvents}}
-                            <span class="glyphicon glyphicon-list-alt"></span>
+                                <h5><a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}
+                                <br>
+                                {{#if hasCritical}}
+                                    <span class="glyphicon glyphicon-list-alt" style="color:red;"></span>
+                                {{else}}
+                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                {{/if}}
+                                </a>
+                                </h5>
+                             {{else}}
+                             <h5><a class="toggle-create-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}</a></h5>
+                                <br>
                              {{/if}}
-                            </h5>
                         </td>
                         {{/if}}
                         {{else}}
@@ -46,43 +90,61 @@
             </tbody>
         </table>
     </div>
-    <div class="row">
-        <h3>Agenda</h3>
-        <table class="table" >
-            <thead>
-                <th scope="col" width="10%">Date</th>
-                <th scope="col" width="20%">Type</th>
-                <th scope="col" width="50%">Event</th>
-                <th scope="col" width="10%">Action</th>
-            </thead>
-            <tbody>
-                {{#each agenda}}
-                <tr>
-                    <td>
-                        {{this.month}}/{{this.day}}/{{this.year}}
-                    </td>
-                    <td>
-                        {{this.type}}
-                    </td>
-                    <td>
-                        {{this.title}}
-                    </td>
-                    <td>
-                        {{#if this.deleteShow}}
-                            <a href="" id="deleteEvent" data-id="{{this._id}}">Delete</a>
-                        {{/if}}
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+    <div class="row" id="agenda-view" hidden>
+        <h3 class="text-center">{{agenda.monthName}} {{agenda.day}}, {{agenda.year}}</h3>
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item">
+                <a href="#" class="nav-link"  id="decrement-day">Previous</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"  id="select-today">Today</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="increment-day">Next Day</a>
+            </li>
+        </ul>
+        {{#if agenda.events}}
+            <table class="table" >
+                <thead>
+                    <th scope="col" width="10%">Time</th>
+                    <th scope="col" width="20%">Importance</th>
+                    <th scope="col" width="50%">Event</th>
+                    <th scope="col" width="10%">Action</th>
+                </thead>
+                <tbody>
+                    {{#each agenda.events}}  
+                        <tr style="background-color:{{this.bgColor}};">
+                        <td>
+                            {{this.time}}
+                        </td>
+                        <td>
+                            {{this.importance}}
+                        </td>
+                        <td>
+                            {{this.title}}
+                        </td>
+                        <td>
+                            {{#if this.deleteShow}}
+                                <a href="" id="deleteEvent" data-id="{{this._id}}">Delete</a>
+                            {{/if}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+            <br><br>
+            There are no agenda events for this day.
+        {{/if}}
+  </div>
+   <div class="row text-center" id="create-view" hidden>
         <h3>
             Create Event
         </h3>
         <form>
-            Title<br><input type="text" id="title"><br><br>
-            Date:<br> <input type=date min=2014-09-08 id="date"><br><br>
-            Type:<br>
+            <br><input type="text" id="title" style="height: 40px; font-size:large;" placeholder="Title"><br><br>
+            <input type=date id="date"> at <input type=time id="time"><br><br>
+            for:
             <select id="type">
                 {{#if isInRole 'supervisor'}}
                 <option>Supervisor Group</option>
@@ -91,6 +153,15 @@
                 <option>All Organization</option>
                 {{/if}}
                 <option>Personal</option>
+                {{#each usersList}}
+                <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
+                {{/each}}
+            </select><br><br>
+            Importance:
+            <select id="importance">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>Critical</option>
             </select><br><br>
             <button class="btn btn-primary" id="createEvent">Create Event</button>
         </form>
