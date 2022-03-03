@@ -56,7 +56,7 @@
                 },
                 {
                     "type":"activity",
-                    "header":"Bonus (Optional)",
+                    "header":"Bonus",
                     "text":"",       
                     "questions": [
                         {
