@@ -1,0 +1,32 @@
+<template name="moduleCenter">
+    <div class="px-4 py-5 my-5 text-center">
+       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            {{#if nextModule.display}} 
+            <hr>
+                <h3>Let's complete this next:</h3>
+                <div class="module" style="margin-top:5px;">
+                    <h3>{{nextModule.title}}</h3>
+                    <p>{{nextModule.description}}</p>
+                    <button id="{{nextModule._id}}" class="startAssessment btn btn-primary startAssessment">Begin {{nexModule.title}}</button>
+                </div>
+                <hr>
+            {{/if}}
+        </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        {{#if completedModules}}
+        <h3>You can revisit these:</h3>
+            {{#each completedModules}}
+                {{#if this.display}} 
+                    <div class="module" style="margin-top:5px;">
+                        <hr>
+                        <h3>{{this.title}}</h3>
+                        <p>{{this.description}}</p>
+                        <button id="{{this._id}}" class="startAssessment btn btn-primary startAssessment">Begin {{this.title}}</button>
+                    </div>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+        </div>
+
+    </div>
+</template>

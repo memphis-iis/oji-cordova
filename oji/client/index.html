@@ -17,33 +17,41 @@
 
 <template name="DefaultLayout">
   <div>
-  <nav class="navbar navbar-light bg-light navbar-fixed-top">
+    {{#if currentUser }}
+  <nav class="navbar navbar-light bg-light navbar-fixed-top" style="background-color:white; box-shadow: 0 4px 2px -2px gray;">
     <div class="container">
-      <a class="navbar-brand" href="#" id="navbar-brand">Oji {{#if organization}}/ {{organization.orgName}} {{/if}}</a>
-      {{#if currentUser }}
-        <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {{currentUser.firstname}}
-              </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {{#if userIsAdminOrSupervisor}}
-                    <li><a id="adminPanelNavButton" class="dropdown-item" href="/control-panel">Control Panel</a></li>
-                {{else}}
-                  {{#if currentUser.assigned}}
-                    <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/profile">Profile1</a></li>
-                  {{else}}
-                      <li><a id="profileNavButton" class="dropdown-item" href="/profile">Profile</a></li>
-                    <li><a id="assessmentCenterNavButton" class="dropdown-item" href="/assessmentCenter">Assessment Center</a></li>
-                 {{/if}}
-                {{/if}}
-              <li><a id="logoutButton" class="dropdown-item" href="logout">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-      {{/if}}
+      <ul class="nav nav-pills nav-fill justify-content-right">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/profile">Oji {{#if organization}}/ {{organization.orgName}} {{/if}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/profile"><span class="glyphicon glyphicon-home"></span></a>
+        </li>
+        {{#if isInRole 'supervisor,admin'}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/calendar"><span class="glyphicon glyphicon-calendar"></span></a>
+        </li>
+        <li>
+          <a class="nav-link active" aria-current="page" href="/control-panel"><span class="glyphicon glyphicon-cog"></span></a>
+        </li>
+        {{else}}
+        {{#if currentUser.assigned}}
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/calendar"><span class="glyphicon glyphicon-calendar"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/userAssessmentReport"><span class="glyphicon glyphicon-dashboard"></span></a>
+        </li>
+        {{/if}}
+        {{/if}}
+        <li class="nav-item">
+          <a class="nav-link active" id="logoutButton" aria-current="page" href="logout"><span class=" glyphicon glyphicon-log-out"></span></a>
+        </li>
+      </ul>
     </div>
   </nav>
+  {{/if}}
   <div class="container" style="padding-top: 30px;">
     {{> yield}}
   </div>

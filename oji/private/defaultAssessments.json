@@ -14,7 +14,8 @@
             ],
             "answers": ["A", "B", "C", "D"],
             "answerValues": [1,2,3,4],
-            "reversedValues": [0, 1, 2, 3, 4, 5, 6, 7]
+            "reversedValues": [4, 3, 2, 1],
+            "reversedQuestions": [0, 1, 2, 3, 4, 5, 6, 7]
         }
     },
     {
@@ -24,6 +25,28 @@
             "owner" : false,
             "identifier": "PICTS",
             "description": "This set of questions, if answered honsestly, are designed to help you better understand your thinking and behaviors. There are 80 multiple-choice questions in total. It is expected to take you about 15 to 20 minutes to finish, if you focus without distractions.",
+            "assessmentReportConstants": {
+              "subscaleTitles": {
+                "GCT": "Overall",
+                "PCT": "Proactive",
+                "RCT": "Reactive",
+                "MOLL": "Mollification",
+                "ENT": "Entitlement",
+                "PO": "Power Orientation",
+                "SENT": "Sentimentality",
+                "SO": "Superoptimism",
+                "CUT": "Cutoff",
+                "CI": "Cognitive Indolence",
+                "DISC": "Discontinuity"
+              },
+              "resultParagraphs": [
+                "An Overall score of 50 means you often think in ways that put you at risk for continued criminal behavior or rule violations.",
+                "A Proactive score of 55 or higher means you are more likely to plan out behavior that is criminal or breaks rules.",
+                "A Reactive score of 55 or higher means you are more likely to be more implusive in your rule breaking behavior.",
+                "A score of 60 or higher on any of the 8 thinking styles means you think this way a lot. Refer to your workbook for more details. But, scores below 60 should not be ignored--you should always pay attention to all examples of criminal thinking."
+              ],
+              "chartTitle": "Your Common Criminal Thinking Styles"
+            },
             "questions": [
                 {
                     "text": "I will allow nothing to get in the way of me getting what I want.",
@@ -345,11 +368,12 @@
                     "text": "I have used good behavior (abstaining from crime for a period of time) or various situations (fight with a spouse) to give myself permission to commit a crime or engage in other irresponsible activities such as using drugs.",
                     "subscales": ["ENT", "HIST"]
                   }
-            ]
-        },
-        "answers": ["Disagree", "Uncertain", "Agree", "Strongly Agree"],
-        "answerValues": [1,2,3,4],
-        "reversedValues": [5, 9, 15, 19, 31, 57, 58, 71]
+            ],
+            "answers": ["Disagree", "Uncertain", "Agree", "Strongly Agree"],
+            "answerValues": [1,2,3,4],
+            "reversedValues": [4, 3, 2, 1],
+            "reversedQuestions": [5, 9, 15, 19, 31, 57, 58, 71]
+        }
     },
     {
         "assessment": {
@@ -360,89 +384,70 @@
         "description": "This set of questions asks about problems people sometimes have in response to a very stressful experience. Please read each problem carefully and then click the answer that best indicates how much you have been bothered by that problem in the PAST MONTH. Please be advised that some questions may trigger strong emotional feelings. Contact your supervisor or a mental health professional immediately if you become upset by these questions. There are 20 multiple-choice questions in total. It is expected to take you less than 5 minutes to finish, if you focus without distractions.",
         "questions": [
                 {
-                    "text":"Repeated, disturbing, and unwanted memories of the stressful experience?",
-                    "subscales": [""]
+                    "text":"Repeated, disturbing, and unwanted memories of the stressful experience?"
                 },
                 {
-                    "text":"Repeated, disturbing dreams of the stressful experience?",
-                    "subscales": [""]
+                    "text":"Repeated, disturbing dreams of the stressful experience?"
                 },
                 {
-                    "text":"Suddenly feeling or acting as if the stressful experience were actually happening again(as if you were actually back there reliving it)?",
-                    "subscales": [""]
+                    "text":"Suddenly feeling or acting as if the stressful experience were actually happening again(as if you were actually back there reliving it)?"
                 },
                 {
-                    "text":"Feeling very upset when something reminded you of the stressful experience?",
-                    "subscales": [""]
+                    "text":"Feeling very upset when something reminded you of the stressful experience?"
                 },
                 {
-                    "text":"Having strong physical reactions when something reminded you of the stressful experience(for example, heart pounding, trouble breathing, sweating)?",
-                    "subscales": [""]
+                    "text":"Having strong physical reactions when something reminded you of the stressful experience(for example, heart pounding, trouble breathing, sweating)?"
                 },
                 {
-                    "text":"Avoiding memories, thoughts, or feelings related to the stressful experience?",
-                    "subscales": [""]
+                    "text":"Avoiding memories, thoughts, or feelings related to the stressful experience?"
                 },
                 {
-                    "text":"Avoiding external reminders of the stressful experience (for example, people, places, conversations, activities, objects, or situations)?",
-                    "subscales": [""]
+                    "text":"Avoiding external reminders of the stressful experience (for example, people, places, conversations, activities, objects, or situations)?"
                 },
                 {
-                    "text":"Trouble remembering important parts of the stressful experience?",
-                    "subscales": [""]
+                    "text":"Trouble remembering important parts of the stressful experience?"
                 },
                 {
-                    "text":"Having strong negative beliefs about yourself, other people, or the world (for example, having thoughts such as: I am bad, there is something seriously wrong with me, no one can be trusted, the world is completely dangerous)?",
-                    "subscales": [""]
+                    "text":"Having strong negative beliefs about yourself, other people, or the world (for example, having thoughts such as: I am bad, there is something seriously wrong with me, no one can be trusted, the world is completely dangerous)?"
                 },
                 {
-                    "text":"Blaming yourself or someone else for the stressful experience or what happened after it?",
-                    "subscales": [""]
+                    "text":"Blaming yourself or someone else for the stressful experience or what happened after it?"
                 },
                 {
-                    "text":"Having strong negative feelings such as fear, horror, anger, guilt, or shame?",
-                    "subscales": [""]
+                    "text":"Having strong negative feelings such as fear, horror, anger, guilt, or shame?"
                 },
                 {
-                    "text":"Loss of interest in activities that you used to enjoy?",
-                    "subscales": [""]
+                    "text":"Loss of interest in activities that you used to enjoy?"
                 },
                 {
-                    "text":"Feeling distant or cut off from other people?",
-                    "subscales": [""]
+                    "text":"Feeling distant or cut off from other people?"
                 },
                 {
-                    "text":"Trouble experiencing positive feelings (for example, being unable to feel happiness or have loving feelings for people close to you)?",
-                    "subscales": [""]
+                    "text":"Trouble experiencing positive feelings (for example, being unable to feel happiness or have loving feelings for people close to you)?"
                 },
                 {
-                    "text":"Irritable behavior, angry outbursts, or acting aggressively?",
-                    "subscales": [""]
+                    "text":"Irritable behavior, angry outbursts, or acting aggressively?"
                 },
                 {
-                    "text":"Taking too many risks or doing things that could cause you harm?",
-                    "subscales": [""]
+                    "text":"Taking too many risks or doing things that could cause you harm?"
                 },
                 {
-                    "text":"7. Being \"superalert\" or watchful or on guard?",
-                    "subscales": [""]
+                    "text":"7. Being \"superalert\" or watchful or on guard?"
                 },
                 {
-                    "text":"Feeling jumpy or easily startled?",
-                    "subscales": [""]
+                    "text":"Feeling jumpy or easily startled?"
                 },
                 {
-                    "text":"Having difficulty concentrating?",
-                    "subscales": [""]
+                    "text":"Having difficulty concentrating?"
                 },
                 {
-                    "text":"Trouble falling or staying asleep?",
-                    "subscales": [""]
+                    "text":"Trouble falling or staying asleep?"
                 }
           ],
         "answers": ["Not at all", "A little bit", "Moderately", "Quite a bit", "Extremely"],
         "answerValues": [0,1,2,3,4],
-        "reversedValues": []
+        "reversedValues": [4, 3, 2, 1, 0],
+        "reversedQuestions": []
         }
     },
     {
@@ -526,7 +531,8 @@
         "answers": ["None/not at all", "Slight or rare, less than a day or two", "Mild or several days",
             "Moderate or more than half the days", "Severe or nearly every day"],
         "answerValues": [0,1,2,3,4],
-        "reversedValues": []
+        "reversedValues": [4, 3, 2, 1, 0],
+        "reversedQuestions": []
         }
         
     },
@@ -537,6 +543,22 @@
         "owner" : false,
         "identifier": "DHS",
         "description": "This set of questions asks about your current mood. Please be advised that some questions may trigger strong emotional feelings. Contact your supervisor or a mental health professional immediately if you become upset by these questions. You may also call the National Suicide Prevention Hotline at 1-800-273-8255. There are 39 true/false questions in total. It is expected to take you between 5-10 minutes to finish, if you focus without distractions.",
+        "assessmentReportConstants": {
+          "subscaleTitles": {
+            "DEPRESSION": "Depression",
+            "HOPELESSNESS": "Hopelessness",
+            "CSI": "Cognitive Suicide",
+            "HIST": "Historical Ideation",
+            "CUR": "Current Ideation"
+          },
+          "resultParagraphs": [
+            "Depression scores greater than or equal to 6 mean you experience heightened depression.",
+            "Hopelessness scores greater than or equal to 2 mean you experience heightened feelings of hopelessness.",
+            "Highlighted critical items (marked Y) warrant counselor attention."
+          ],
+          "chartTitle": "Your Risk Factors for Suicide",
+          "criticalItems": [3, 7, 11, 15, 19, 23, 27, 31, 33, 35, 37, 38]
+        },
         "questions": [
             {
                 "text": "I feel sad most of the time.",
@@ -552,7 +574,7 @@
             },
             {
                 "text": "I have been diagnosed as being depressed by a psychiatrist or psychologist in the past.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "DIAG"]
             },
             {
                 "text": "I am mostly happy.",
@@ -568,7 +590,7 @@
             },
             {
                 "text": "I have close friends or family members who have killed themselves.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "RELATION"]
             },
             {
                 "text": "I have a normal amount of energy.",
@@ -584,7 +606,7 @@
             },
             {
                 "text": "Suicide is not an option for me.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "CSI"]
             },
             {
                 "text": "I feel tired a lot of the time.",
@@ -600,7 +622,7 @@
             },
             {
                 "text": "I have had serious thoughts of suicide in the past.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "HIST"]
             },
             {
                 "text": "Usually I sleep soundly.",
@@ -616,7 +638,7 @@
             },
             {
                 "text": "I have intentionally hurt myself.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "HIST"]
             },
             {
                 "text": "I am often bored and unhappy.",
@@ -632,7 +654,7 @@
             },
             {
                 "text": "If circumstances get too bad, suicide is always an option.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "CSI"]
             },
             {
                 "text": "I have many interests I follow.",
@@ -648,7 +670,7 @@
             },
             {
                 "text": "In the past my suicidal thoughts have led to a suicide attempt.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "HIST"]
             },
             {
                 "text": "I have lost my appetite.",
@@ -664,7 +686,7 @@
             },
             {
                 "text": "I have attempted suicide more than once in the past.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "HIST"]
             },
             {
                 "text": "My problems don't seem to end.",
@@ -672,7 +694,7 @@
             },
             {
                 "text": "I have attempted suicide in the past two years.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "HIST"]
             },
             {
                 "text": "I feel my situation is hopeless.",
@@ -680,7 +702,7 @@
             },
             {
                 "text": "I have recently had thoughts of hurting myself.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "CUR"]
             },
             {
                 "text": "I don't think I will amount to anything.",
@@ -688,16 +710,17 @@
             },
             {
                 "text": "Life is not worth living.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "CUR"]
             },
             {
                 "text": "I have a plan to hurt myself.",
-                "subscales": ["CRITICAL"]
+                "subscales": ["CRITICAL", "CUR"]
             }
         ],
         "answers": ["False", "True"],
         "answerValues": [0, 1],
-        "reversedValues": [4, 8, 11, 13, 16, 21, 24, 30]
+        "reversedValues": [1, 0],
+        "reversedQuestions": [4, 8, 11, 13, 16, 21, 24, 30]
         }
     },
     {
@@ -707,6 +730,21 @@
             "owner" : false,
             "identifier": "CCSM",
             "description": "This set of questions asks about your thoughts toward the law and legal system. Read each statement carefully and decide how you feel about it. Click “Agree” if you agree with the statement or “Disagree” if you disagree with the statement. If you are undecided or cannot make up your mind about the statement, click “Undecided.” There are no right or wrong answers. There are 41 questions in total. It is expected to take you between 5-10 minutes to finish, if you focus without distractions.",
+            "assessmentReportConstants": {
+              "subscaleTitles": {
+                "LAW": "Law",
+                "COURTS": "Courts",
+                "POLICE": "Police",
+                "TLV": "Tolerance for Law Violations",
+                "ICO": "Identification with Criminal Others"
+              },
+              "resultParagraphs": [
+                "Higher Law, Courts, and Police scores mean you hold more negative attitudes about the legal and criminal justice systems.",
+                "Higher Tolerance for Law Violations scores mean you are more ok with breaking the law or seeing breaking the law as acceptable.",
+                "Higher Identification with Criminal Others scores mean you have more in common with other people who break the law."
+              ],
+              "chartTitle": "Your Common Attitudes Toward Authority and Crime"
+            },
             "questions": [
                 {
                     "text": "Pretty well all laws deserve our respect.",
@@ -875,7 +913,8 @@
             ],
             "answers": ["Agree", "Undecided", "Disagree"],
             "answerValues": [0, 1, 2],
-            "reversedValues": [2, 3, 4, 6, 9, 10, 11, 13, 16, 20, 22, 24, 25, 26, 28, 29, 31, 32, 33, 34, 35, 37, 38, 49]
+            "reversedQuestions": [2, 3, 4, 6, 9, 10, 11, 13, 16, 20, 22, 24, 25, 26, 28, 29, 31, 32, 33, 34, 35, 37, 38, 49],
+            "reversedValues": [2, 1, 0]
         }
     }]
 }

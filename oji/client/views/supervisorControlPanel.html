@@ -24,7 +24,15 @@
                                 <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                             </svg>
                         </a>
-                        {{#if currentUserIsAdmin }}
+                        {{#if isInRole 'supervisor'}}
+                        <a id="viewItemButton" href="/userAssessmentReport/supervisor/{{this._id}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                            </svg>
+                        </a>
+                        {{ /if }}
+                        {{#if isInRole 'admin'}}
                             <a id="usersDestroyButton" href="#" data-userID="{{this._id}}" data-lastname="{{this.lastname}}" data-firstname="{{this.firstname}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -42,4 +50,59 @@
             {{/each}}
         </tbody>
     </table>
+    <div class="row">
+        <div class="col-4">
+            <h3>Module Results</h3>
+            <select id="user-select">
+                <option value="none">None</option>
+            {{#each usersList}}
+                <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
+            {{/each}}
+           </select><br><br>
+            {{#if orgViewOn}}
+                 Module results can be seen when selecting an individual user  that you supervise.
+            {{else}}
+            {{#if modules}}
+            <table class="table" id="moduleList">
+                <thead>
+                    <th scope="col" width="40%">Date Last Accessed</th>
+                    <th scope="col" width="40%">Module</th>
+                    <th scope="col" width="15%">Progress</th>
+                    <th scope="col" width="5%">Results</th>
+                </thead>
+                <tbody>
+                    {{#each modules}}
+                        <tr>
+                            <td>{{this.lastAccessed}}</td>
+                            <td>{{this.title}}</td>
+                            {{#if this.completed}}
+                            <td>Completed</td>
+                            {{else}}
+                            <td>Page {{this.lastPage}} of {{this.totalPages}} / {{this.percentDone}}% </td>
+                            {{/if}}
+                            <td><a href="/moduleReport/{{this.id}}">Report</a></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+            No modules have been started by this user.
+            {{/if}}
+            {{/if}}
+        </div>
+    </div>
+    <div class="row">
+        <h3>Invite Link</h3>
+        <p>Personal Invite Link (you will be the user's supervisor): <a href="{{orgLink}}">{{orgLink}}</a>   
+        <br><button id="regen-link" class="btn btn-caution">Regenerate Link</button>
+        </p>
+    </div>
+    <div class="row">
+        <p><h3>API Information</h3>API allows you to get raw anonymized JSON data about your organization for use in other apps.<br>{{#if apiKeys.expired}} is expired. {{else}} (Expires {{apiKeys.expires}}):<br>
+        <b>[x-user-id]:</b> {{currentUser.username}}<br>
+        <b>[x-auth-token]:</b> {{apiKeys.token}} {{/if}} <br> 
+        Example CURL command:<br> <code>{{apiKeys.curlExample}}</code><br>
+        </p> 
+        <button id='gen-key' class="btn btn-caution">Generate New 30 Day Key</button>
+    </div>
 </template>

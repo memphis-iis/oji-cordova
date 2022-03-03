@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "37791188326",
+    "project_id": "oji-cordova-8e924",
+    "storage_bucket": "oji-cordova-8e924.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37791188326:android:b0751f9d332d2d1be2b4a7",
+        "android_client_info": {
+          "package_name": "com.uofmiis.ojicordova"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37791188326-vrjvc5qbv7efbiuph3cvbrg539cmj11c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBndw2Fn8QA14pjCO4YRT4pH6wJPDJROt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37791188326-vrjvc5qbv7efbiuph3cvbrg539cmj11c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

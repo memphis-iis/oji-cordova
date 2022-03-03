@@ -1,7 +1,8 @@
 import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base'
+import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
-
+import { calculateScores } from './subscaleCalculations.js';
+import { Push } from 'meteor/activitree:push';
 
 const SEED_ADMIN = {
     username: 'testAdmin',
@@ -14,7 +15,8 @@ const SEED_ADMIN = {
     role: 'admin',
     supervisorInviteCode: "12345",
     sex: 'female',
-    assigned: []
+    assigned: [],
+    nextModule: -1
 };
 const SEED_SUPERVISOR = {
     username: 'testSupervisor',
@@ -27,7 +29,8 @@ const SEED_SUPERVISOR = {
     role: 'supervisor',
     supervisorInviteCode: "12345",
     sex: 'male',
-    assigned: []
+    assigned: [],
+    nextModule: -1
 };
 const SEED_USER = {
     username: 'testUser',
@@ -41,7 +44,8 @@ const SEED_USER = {
     supervisorInviteCode: null,
     sex: 'female',
     assigned: [],
-    hasCompletedFirstAssessment: false
+    hasCompletedFirstAssessment: false,
+    nextModule: 0
 };
 const SEED_USER2 = {
     username: 'testUserNotInIIS',
@@ -55,10 +59,15 @@ const SEED_USER2 = {
     supervisorInviteCode: null,
     sex: 'male',
     assigned: [],
-    hasCompletedFirstAssessment: false
+    hasCompletedFirstAssessment: false,
+    nextModule: 0
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
+
+//Configure Push Notifications
+serviceAccountData = null;
+
 
 
 Meteor.startup(() => {
@@ -104,8 +113,10 @@ Meteor.startup(() => {
             userListResponse = []
             for(i = 0; i < userlist.length; i++){
                 userTrials = Trials.find({userId: userlist[i]._id}).fetch();
+                userModules = Modules.find({userId: userlist[i]._id}).fetch();
                 curUser = userlist[i];
                 curUser.trials = JSON.parse(JSON.stringify(userTrials));
+                curUser.modules = JSON.parse(JSON.stringify(userModules));
                 userListResponse.push(curUser);
             }
             organization.users = userListResponse;
@@ -123,6 +134,17 @@ Meteor.startup(() => {
             Assessments.insert(assessment);
         };
     }
+
+    //load default JSON modules into mongo collection
+    if(Modules.find().count() === 0){
+        console.log('Importing Default Modules into Mongo.')
+        var data = JSON.parse(Assets.getText('defaultModules.json'));
+        for (var i =0; i < data['modules'].length; i++){
+            newModule = data['modules'][i]['module'];
+            Modules.insert(newModule);
+        };
+    }
+
     //create seed roles
     for(let role of SEED_ROLES){
         if(!Meteor.roles.findOne({ '_id' : role })){
@@ -148,21 +170,41 @@ Meteor.startup(() => {
                     newUserAssignments: []
                 });
                 newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
+                const d = new Date();
+                let month = d.getMonth(); 
+                let day = d.getDate();
+                let year = d.getFullYear();
+                let title = "test event";
+                Events.insert({
+                    type: "org",
+                    org: newOrgId,
+                    month: month,
+                    day: day,
+                    year: year,
+                    title: title,
+                    createdBy: uid
+                });
                 Meteor.call('generateInvite',uid);
             }
 
+            let supervisorID = '';
+            if(user.username == 'testUser'){
+                supervisorID =  Accounts.findUserByUsername(SEED_SUPERVISOR.username)._id;
+            }
             Meteor.users.update({ _id: uid }, 
                 {   $set:
                     {
+                        sex: user.sex,
                         firstname: user.firstName,
                         lastname: user.lastName,
-                        supervisor: user.supervisorID,
+                        supervisor: supervisorID,
                         organization: user.org ? user.org: newOrgId,
                         sex: user.sex,
                         assigned: user.assigned,
-                        hasCompletedFirstAssessment: user.hasCompletedFirstAssessment
+                        hasCompletedFirstAssessment: user.hasCompletedFirstAssessment,
+                        nextModule: 0
                     }
-               }
+                }
             );
         }
     }
@@ -174,8 +216,7 @@ Meteor.methods({
     createNewUser: function(user, pass, emailAddr, firstName, lastName, sex, gender, linkId=""){
         if(linkId){
             var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);    
-            var organization = Orgs.findOne({_id: targetOrgId});    
-            var newUserAssignments = organization.newUserAssignments;            
+            var organization = Orgs.findOne({_id: targetOrgId});          
         } else {
             var targetOrgId = null
             var targetSupervisorId = null;  
@@ -186,25 +227,21 @@ Meteor.methods({
                 const uid = Accounts.createUser({
                     username: user,
                     password: pass,
-                    email: emailAddr,
-                    firstname: firstName,
-                    lastname: lastName,
-                    organization: targetOrgId,
-                    supervisor: targetSupervisorId,
-                    supervisorInviteCode: null,
-                    assigned: newUserAssignments,
-                    hasCompletedFirstAssessment: false
+                    email: emailAddr
                 });
                 Meteor.users.update({ _id: uid }, 
                     {   $set: 
                         {
+                            sex: sex,
                             firstname: firstName,
                             lastname: lastName,
                             organization: targetOrgId,
                             supervisor: targetSupervisorId,
-                            sex: sex,
+                            supervisorInviteCode: null,
+                            hasCompletedFirstAssessment: false,
                             gender: gender,
-                            assigned: organization.newUserAssignments || []
+                            assigned: organization.newUserAssignments || [],
+                            nextModule: 0
                         }
                     });
                 if(linkId != ""){
@@ -399,16 +436,42 @@ Meteor.methods({
         userId = Meteor.userId();
         questionId = newData.questionId;
         oldResults = Trials.findOne({_id: trialId});
+        let identifier;
+        
         if(typeof oldResults === "undefined"){
             data = [];
+            subscaleTotals = {};
+            identifier = newData.identifier;
         } else {
             data = oldResults.data;
+            subscaleTotals = oldResults.subscaleTotals;
+            identifier = oldResults.identifier;
         }
         data[newData.questionId] = {
             response: newData.response,
-            responseValue: newData.responseValue
+            responseValue: newData.responseValue,
+            subscales: newData.subscales
         }
-        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: Date.now(),  data: data}});
+        //sum the response values by subscale for data reporting
+        if(!newData.subscales){
+            //current assessment doesnt use subscales, just tally the totalls
+            if(subscaleTotals['default']){
+                subscaleTotals['default'] += newData.responseValue;
+            }
+            else{
+                subscaleTotals['default'] = newData.responseValue;
+            }
+        }
+        for(let subscale of newData.subscales){
+            if(subscaleTotals[subscale]){
+                subscaleTotals[subscale] += newData.responseValue;
+            }
+            else{
+                subscaleTotals[subscale] = newData.responseValue;
+            }
+        }
+        var output = Trials.upsert({_id: trialId}, {$set: {userId: userId, assessmentId: assessmentId, assessmentName: assessmentName, lastAccessed: new Date(), identifier: identifier, data: data, subscaleTotals: subscaleTotals}});
+
         if(typeof output.insertedId === "undefined"){
             Meteor.users.update(userId, {
                 $set: {
@@ -431,6 +494,12 @@ Meteor.methods({
             return output.insertedId;
         }
     },
+    endAssessment: function(trialId) {
+        let trial = Trials.findOne({'_id': trialId});
+        const adjustedScores = calculateScores(trial.identifier, trial.subscaleTotals, Meteor.user().sex)
+        if(adjustedScores)
+            Trials.upsert({_id: trialId}, {$set: {subscaleTotals: adjustedScores}});
+    },
     clearAssessmentProgress: function (){
         userId = Meteor.userId();
 
@@ -443,7 +512,40 @@ Meteor.methods({
             }
           });
     },
-
+    createNewModuleTrial: function(data){
+        const results = ModuleResults.insert(data);
+            Meteor.users.update(Meteor.userId(), {
+                $set: {
+                curModule: {
+                    moduleId: results,
+                    pageId: 0,
+                    questionId: 0,
+                 }
+                }
+            });
+        return results;
+    },
+    saveModuleData: function (moduleData){
+        ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
+        nextModule = Meteor.users.findOne({_id: Meteor.userId()}).nextModule;
+        if(moduleData.pageId == 'completed'){
+            nextModule++;
+        }
+        Meteor.users.upsert(Meteor.userId(), {
+            $set: {
+            curModule: {
+                moduleId: Meteor.user().curModule.moduleId,
+                pageId: moduleData.nextPage,
+                questionId: moduleData.nextQuestion,
+            },
+            nextModule: nextModule
+        }
+    })
+},
+    getPrivateImage: function(fileName){
+        result =  Assets.absoluteFilePath(fileName);
+        return result;
+    },
     generateApiToken: function(userId){
         var newToken = "";
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -460,9 +562,76 @@ Meteor.methods({
                   expires: future
               }
             }
-          });
+        });
     },
-    
+    calcOrgStats: function(){
+        users = Meteor.users.find({organization: Meteor.user().organization}).fetch();
+        subscales = [];
+        subscaleList = [];
+        data = {};
+        data.userCount = users.length;
+        data.assessmentCount = 0;
+        data.moduleCount = 0;
+        subscaleData = [];
+        for(i = 0; i < users.length; i++){
+            trials = Trials.find({"userId": users[i]._id}).fetch();
+            for(j = 0; j < trials.length; j++){
+                data.assessmentCount++;
+                for(k = 0; k < Object.getOwnPropertyNames(trials[j].subscaleTotals).length; k++){
+                    subscale = Object.getOwnPropertyNames(trials[j].subscaleTotals)[k];
+                    subscaleIndex = subscaleList.indexOf(subscale);
+                    if(subscaleIndex === -1){
+                        subscaleList.push(subscale);
+                        subscaleIndex = subscaleList.indexOf(subscale);
+                        subscaleData[subscaleIndex] = {
+                            name: subscale,
+                            all: [trials[j].subscaleTotals[subscale]],
+                            count: 1,
+                            sum: trials[j].subscaleTotals[subscale],
+                            avg:  trials[j].subscaleTotals[subscale],
+                            median: trials[j].subscaleTotals[subscale],
+                        };
+                    } else {
+                        subscaleData[subscaleIndex].all.push(trials[j].subscaleTotals[subscale]);
+                        subscaleData[subscaleIndex].count++;
+                        subscaleData[subscaleIndex].sum+= trials[j].subscaleTotals[subscale];
+                        subscaleData[subscaleIndex].avg = subscaleData[subscaleIndex].sum / subscaleData[subscaleIndex].count;
+                        const sorted = subscaleData[subscaleIndex].all.slice().sort((a, b) => a - b);
+                        const middle = Math.floor(sorted.length / 2);
+                        if (sorted.length % 2 === 0) {
+                            median = (sorted[middle - 1] + sorted[middle]) / 2;
+                        } else {
+                            median = sorted[middle];
+                        }
+                        subscaleData[subscaleIndex].median = median;
+                    }
+           
+                }
+            }
+        }
+        data.subscaleData = subscaleData;
+        Orgs.upsert({_id: Meteor.user().organization},{
+            $set: {
+                orgStats: data
+            }
+        })
+    },
+    createEvent: function(type, month, day, year, time, title, importance){
+        Events.insert({
+            type: type,
+            org: Meteor.user().organization,
+            month: month,
+            day: day,
+            year: year,
+            title: title,
+            time: time,
+            importance: importance,
+            createdBy: this.userId
+        })
+    },
+    deleteEvent: function(eventId){
+        Events.remove({_id: eventId})
+    },
 });
 
 //Server Methods
@@ -488,10 +657,11 @@ function serverConsole(...args) {
 function getInviteInfo(inviteCode) {
     supervisor = Meteor.users.findOne({supervisorInviteCode: inviteCode});
     targetSupervisorId = supervisor._id;
-    organization = Orgs.findOne({orgOwnerId: supervisor._id});
+    organization = Orgs.findOne({_id: supervisor.organization});
     targetSupervisorName = supervisor.firstname + " " + supervisor.lastname;
     targetOrgId = supervisor.organization;
     targetOrgName = organization.orgName;
+    console.log(targetOrgId,targetOrgName,targetSupervisorId,targetSupervisorName);
     return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
 }
 
@@ -553,5 +723,38 @@ Meteor.publish('assessments', function () {
 
 //allow current users trial data to be published
 Meteor.publish('usertrials', function () {
-    return Trials.find({'userid': this.userId});
+    if(Roles.userIsInRole(this.userId, ['admin', 'supervisor']))
+        return Trials.find();
+    return Trials.find({'userId': this.userId});
+});
+
+//allow cur
+//allow current module pages to be published
+Meteor.publish('curModule', function (id) {
+    return Modules.find({_id: id});
+});
+//allow all modules to be seen
+Meteor.publish('modules', function () {
+    return Modules.find({});
+});
+//get module results
+Meteor.publish('getUserModuleResults', function (id) {
+    return ModuleResults.find({});
+});
+
+Meteor.publish('getModuleResultsByTrialId', function (id) {
+    return ModuleResults.find({_id: id});
+});
+
+//get my events
+Meteor.publish(null, function() {
+    return Events.find({createdBy: this.userId});
+});
+
+//get all organization events
+Meteor.publish('events', function() {
+    console.log(Meteor.user().organization, this.userId)
+    if(Meteor.user()){
+        return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]},{type:this.userId}]}, {sort: {year:1 , month:1, day:1, time:1}})
+    }
 });

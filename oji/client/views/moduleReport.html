@@ -1,0 +1,24 @@
+<template name="moduleReport">
+    <div class="px-4 py-5 my-5 text-left">
+       <h1>Module Report:</h1>
+       <p>Module Name: {{generalinfo.title}}<br>
+        Last Accessed: {{generalinfo.lastAccessed}}<br>
+       </p>
+       <div class="d-grid gap-2 d-sm-flex">
+        <table class="table" id="moduleList">
+            <thead>
+                <th scope="col" width="50%">Question</th>
+                <th scope="col" width="50%">Answer</th>
+            </thead>
+            <tbody>
+                {{#each pages}}
+                    <tr>
+                        <td>{{this.question}}</td>
+                        <td>{{this.answer}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</template>

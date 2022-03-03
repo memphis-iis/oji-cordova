@@ -2,8 +2,6 @@ Template.adminControlPanel.helpers({
     'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
 
     'userInfo': () => Meteor.users.find({role: 'user'}),
-
-    'orgLink': () => window.location.protocol + "//" + window.location.host + "/signup/" + Meteor.user().supervisorInviteCode,
   
     'assessments': function (){
       const t = Template.instance();
@@ -39,6 +37,7 @@ Template.adminControlPanel.helpers({
     }
     return data;
 },
+
     'organization': () => Orgs.findOne(),
     
     'apiKeys': function (){
@@ -61,6 +60,14 @@ Template.adminControlPanel.helpers({
         return api;
       },
     'showToken': true,
+    'orgData': function (){
+        Meteor.call('calcOrgStats');
+        orgData = Orgs.findOne({_id: Meteor.user().organization}).orgStats;
+        if(orgData.assessmentCount < 2){
+            orgData.displaySubscales = false;
+        }
+        return orgData;
+    }
 })
 
 Template.adminControlPanel.events({
@@ -78,12 +85,11 @@ Template.adminControlPanel.events({
     'click #supervisorDemoteButton': function(event){
         Meteor.call('removeSupervisor', event.currentTarget.getAttribute("data-supervisorID"));
     }, 
-    'click #regen-link': function(event){
-        Meteor.call('generateInvite', Meteor.userId());
-    },
+
     'change #user-select': function(event){
         const t = Template.instance();
         t.selectedUser.set(event.target.value);
+        $('#user-select').val(t.selectedUser.get())
     },
     'click #assign-new': function(event){
         event.preventDefault();
@@ -105,7 +111,6 @@ Template.adminControlPanel.events({
         newAssignment = $(event.target).data("assessment-id");
         Meteor.call('assignToAllUsers', newAssignment);
         assignment = Assessments.findOne({_id: newAssignment});
-        console.log('assessment', assignment);
         $('#alert').show();
         $('#alert').removeClass();
         $('#alert').addClass("alert alert-success");
@@ -135,48 +140,14 @@ Template.adminControlPanel.events({
         assignment = $(event.target).data("assessment-id");
         user.assigned.push(assignment);
         Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
-    },
-    'click #delete-assessment': function(event){
-        event.preventDefault();
-        deletedAssignment = $(event.target).data("assessment-id");
-        assignment = Assessments.findOne({_id: deletedAssignment});
-        $('#alert').show();
-        $('#alert').removeClass();
-        $('#alert').addClass("alert alert-danger");
-        $('#alert-p').html(assignment.title + " will be deleted. This cannot be undone.");
-        $('#alert-confirm').show();
-        $('#alert-confirm').data({assessment: deletedAssignment});
-
-    },
-    'click #copy-assessment': function(event){
-        event.preventDefault();
-        org = Orgs.findOne({_id: Meteor.user().organization});
-        copiedAssessment = $(event.target).data("assessment-id");
-        Meteor.call('copyAssessment', {newOwner: org._id, assessment: copiedAssessment});
-    },
-    'click #edit-assessment': function(event){
-        org = Orgs.findOne({_id: Meteor.user().organization});
-        editAssessment = $(event.target).data("assessment-id");
-        target = "/assessmentEditor/" + editAssessment;
-        Router.go(target);
-    },
-    'click #alert-confirm': function(event){
-        deletedAssignment = $(event.target).data("assessment");
-        Meteor.call('deleteAssessment', deletedAssignment);
-        $('#alert').hide();
-        $('#alert-confirm').hide();
-    },
-    'click #gen-key': function(event){
-        Meteor.call('generateApiToken', Meteor.userId());
-    },
+    }
 })
 
 Template.adminControlPanel.onCreated(function() {
     Meteor.subscribe('getUsersInOrg');
     Meteor.subscribe('getSupervisorsInOrg');
     Meteor.subscribe('assessments');
-    this.selectedUser = new ReactiveVar("org");
-})
-Template.adminControlPanel.onCreated(function(){
+    Meteor.subscribe('getUserModuleResults');
+    Meteor.subscribe('modules');
     this.selectedUser = new ReactiveVar("org");
 })

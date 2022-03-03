@@ -13,9 +13,23 @@ Template.assessment.helpers({
                 user.assigned.splice(index, 1);
             }
             Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
-            return true;
+            return oldTrial;
         } else {
             return false;
+        }
+    },
+    'resumeableTrial': function() {
+        userId = Meteor.userId();
+        user = Meteor.users.findOne({_id: userId});
+        if(!user.curTrial.trialId){
+            return false;
+        } else {
+            oldTrial = Trials.findOne({'_id': user.curTrial.trialId});
+            if(Date.now() - oldTrial.lastAccessed < 1800000){ //30 minutes
+                return oldTrial;
+            } else {
+                return false;
+            }
         }
     },
     'question': function(){
@@ -25,49 +39,64 @@ Template.assessment.helpers({
             answers: assessment.answers,
             answerValues: assessment.answerValues,
             reversedValues: assessment.reversedValues,
+            totalQuestions: assessment.questions.length,
+            percentageCompleted: ((this.questionid - 1) / assessment.questions.length * 100).toFixed()
         }
-
         return data;
-    }
+    },
 })
 
 Template.assessment.events({
     'click .continue': function(event) {
         event.preventDefault();
-        trialData = Meteor.users.findOne().curTrial;
+        userId = Meteor.userId();
+        trialData = Meteor.users.findOne({_id: userId}).curTrial;
         console.log('trialData', trialData);
-        assessment = Assessments.findOne();
+        let curAssesment = Assessments.findOne();
+        let completed = false;
+
         if(typeof trialData === "undefined"){
             trialId = 0;
         } else {
             trialId = trialData.trialId ;
         }
-        selectedAnswer = event.target.id;
-        selectedAnswerValue = assessment.answerValues[selectedAnswer];
-        selectedAnserReversedValue = assessment.reversedValues[selectedAnswer];
-        curAssesment = Assessments.findOne();
+
         if(typeof trialData === "undefined"){
             curQuestion = 0; 
         } else {
             curQuestion =  trialData.questionId ;
         }
-        nextQuestion = parseInt(curQuestion) + 1;
+
+        let nextQuestion = parseInt(curQuestion) + 1;
+
         if(curAssesment.questions.length <= nextQuestion) {
             target = "/assessment/" + curAssesment._id + "/" + "completed";
+            completed = true;
         } else {
             target = "/assessment/" + curAssesment._id + "/" + nextQuestion;
         }
-        data = {
+
+        let selectedAnswer = event.target.id;
+        let subscales = curAssesment.questions[curQuestion].subscales;
+        let selectedAnswerValue = assessment.answerValues[selectedAnswer];
+        if(curAssesment.reversedQuestions.includes(curQuestion)){
+            selectedAnswerValue = curAssesment.reversedValues[selectedAnswer]
+        }
+
+        let data = {
             trialId: trialId,
             assessmentId: curAssesment._id,
             assessmentName: curAssesment.title,
             userId: this.userId,
+            identifier: curAssesment.identifier,
             questionId: curQuestion,
             response: selectedAnswer,
             responseValue: selectedAnswerValue,
-            reversedValue: selectedAnserReversedValue
+            subscales: subscales || ""
         }
+
         Meteor.call('saveAssessmentData', data);
+        if (completed) Meteor.call('endAssessment', trialData.trialId);
         Router.go(target);
     },
     'click .begin': function(event) {
@@ -78,11 +107,19 @@ Template.assessment.events({
     'click .return': function(event) {
         target = "/profile";
         Router.go(target);
+    },
+    'click .resume': function(event){
+        curAssesment = Assessments.findOne();
+        userId = Meteor.userId();
+        user = Meteor.users.findOne({_id: userId});
+        target = "/assessment/" + curAssesment._id + "/" + user.curTrial.questionId;
+        Router.go(target)
     }
-
 })
 
 
-
+Template.assessment.onCreated(function() {
+    Meteor.subscribe('usertrials');
+});
 
 

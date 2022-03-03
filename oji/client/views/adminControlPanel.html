@@ -6,12 +6,38 @@
           <button id="close-alert" class="btn btn-caution">Close</button>
         </div>
         <div class="col-4">
-            <h1>Control Panel</h1>
-            <h3>  <a data-toggle="collapse" href="#collapseAssignment" >
-                Assessments / Assignments
-              </a></h3>
-            <div id="collapseAssignment" class="collapse">
-            <p>Assignments must be completed before going on to other assessments or viewing progress reports.</p>
+            <h3>Aggregate Statistics</h3>
+            <p>User Count: {{orgData.userCount}}<br></p>
+            <p>Total User Assessments Completed: {{orgData.assessmentCount}}</p>
+            <p>Total User Modules Completed: {{orgData.moduleCount}}</p>
+    
+            <h4>Subscales:<br></h4>
+            {{#if orgData.displaySubscales}}
+            <table class="table" id="subscalesAggregates">
+                <thead>
+                    <th scope="col" width="20%">Subscale</th>
+                    <th scope="col" width="20%">Average</th>
+                    <th scope="col" width="20%">Median</th>
+                    <th scope="col" width="20%">Total</th>
+                </thead>
+                <tbody> 
+                    {{#each orgData.subscaleData}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.avg}}</td>
+                        <td>{{this.median}}</td>
+                        <td>{{this.sum}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>                    
+                </table>
+            {{else}}
+            <p>Subscale statistics will be displayed when more than two assessments are started.</p>
+            {{/if}}
+        </div>
+        <div class="col-4">
+            <h3>Assignments/Modules</h3>
+            <p>Assignments must be completed before going on to modules or viewing progress reports.</p>
             <p>Assignments for:
                 <select id="user-select">
                         <option value="org">Organization</option>
@@ -20,6 +46,7 @@
                     {{/each}}
                 </select>
             </p>
+            <h4>Assessments</h4>
             <table class="table" id="assessmentList">
                 <thead>
                     <th scope="col" width="30%">Assessment</th>
@@ -124,14 +151,4 @@
         </tbody>
     </table>
     {{ > supervisorControlPanel }}
-    <div class="row">
-        <p>Personal Invite Link: <a href="{{orgLink}}">{{orgLink}}</a>   
-        <button id="regen-link" class="btn btn-caution">Regenerate Link</button></p>
-        <p><h3>API Information</h3>API allows you to get raw anonymized JSON data about your organization for use in other apps.<br>{{#if apiKeys.expired}} is expired. {{else}} (Expires {{apiKeys.expires}}):<br>
-        <b>[x-user-id]:</b> {{currentUser.username}}<br>
-        <b>[x-auth-token]:</b> {{apiKeys.token}} {{/if}} <br> 
-        Example CURL command:<br> <code>{{apiKeys.curlExample}}</code><br>
-        </p> 
-        <button id='gen-key' class="btn btn-caution">Generate New 30 Day Key</button>
-    </div>
 </template>

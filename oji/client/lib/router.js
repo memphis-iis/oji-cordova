@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import Chart from 'chart.js/auto'
 /* router.js - the routing logic we use for the application.
 
 If you need to create a new route, note that you should specify a name and an
@@ -26,7 +27,8 @@ const restrictedRoutes = [
   'assessmentCenter',
   'createOrg',
   'profile',
-  'supervisorCenter'
+  'moduleCenter',
+  'calendar'
 ]
 
 
@@ -97,6 +99,49 @@ Router.route('/assessment/:_id', {
     });
   }
 });
+
+Router.route('/userAssessmentReport/', {
+  action: function(){
+    this.render('userAssessmentReportLanding', {
+      params: {
+        assessmentIdentifier: this.params._identifier
+      }
+    });
+
+  }
+});
+
+Router.route('/userAssessmentReport/:_identifier', {
+  action: function(){
+    this.render('userAssessmentReport', {
+      params: {
+        assessmentIdentifier: this.params._identifier
+      }
+    });
+  }
+});
+
+Router.route('/userAssessmentReport/supervisor/:_userid/', {
+  action: function(){
+    this.render('userAssessmentReportLanding', {
+      params: {
+        userId: this.params._userid,
+      }
+    });
+  }
+});
+
+Router.route('/userAssessmentReport/supervisor/:_userid/:_identifier', {
+  action: function(){
+    this.render('userAssessmentReport', {
+      params: {
+        userId: this.params._userid,
+        assessmentIdentifier: this.params._identifier
+      }
+    });
+  }
+});
+
 //question
 Router.route('/assessment/:_id/:_questionid', {
   subscriptions: function(){
@@ -123,6 +168,50 @@ Router.route('/assessmentEditor/:_assessmentid', {
   }
 });
 
+// route module engine
+//intro
+Router.route('/module/:_id', {
+  subscriptions: function(){
+    return Meteor.subscribe('curModule', this.params._id);
+  },
+  action: function(){
+    this.render('module');
+  }
+});
+//module page id
+Router.route('/module/:_id/:_pageid', {
+  subscriptions: function(){
+    subs = [];
+    subs.push(Meteor.subscribe('curModule', this.params._id));
+    subs.push(Meteor.subscribe('getUserModuleResults'));
+    return subs;
+  },
+  action: function(){
+    this.render('module', {
+      data:{
+        pageId: this.params._pageid,
+      }
+    });
+  }
+});
+
+//module quiz page question id
+Router.route('/module/:_id/:_pageid/:_questionid', {
+  subscriptions: function(){
+    subs = [];
+    subs.push(Meteor.subscribe('curModule', this.params._id));
+    subs.push(Meteor.subscribe('getUserModuleResults'));
+    return subs;
+  },
+  action: function(){
+    this.render('module', {
+      data:{
+        pageId: this.params._pageid,
+        questionId: this.params._questionid,
+      }
+    });
+  }
+});
 // route organizational invites
 Router.route('/signup/:_id', function(){
   // add the subscription handle to our waitlist
@@ -145,3 +234,22 @@ Router.route('/signup/:_id', function(){
     }});
   })
 
+// route module results report
+//intro
+Router.route('/moduleReport/:_id', {
+  subscriptions: function(){
+    subs = [];
+    subs.push(Meteor.subscribe('getModuleResultsByTrialId', this.params._id));
+    return subs;
+  },
+  action: function(){
+    if(Meteor.user()){
+      if (Roles.userIsInRole(Meteor.user(), 'admin') || Roles.userIsInRole(Meteor.user(), 'supervisor')  ) {
+        this.render('moduleReport');
+      }
+    } else {
+      this.render('/');
+    }
+  }
+});
+//Route Static Assets
