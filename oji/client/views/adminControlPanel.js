@@ -10,12 +10,15 @@ Template.adminControlPanel.helpers({
       org = Orgs.findOne({_id: Meteor.user().organization});
       if(userId == "org"){
         for(i = 0; i < data.length; i++){
+            data[i].status = "";
             data[i].orgView = true;
             if(org.newUserAssignments.includes(data[i]._id)){
-                data[i].status = "Assigned to new users.";
+                data[i].status += "Assigned to new users.";
                 data[i].newUserRequired = true;
-            } else {
-                data[i].status = ""; 
+            } 
+            if(data[i].owner == org._id){
+                data[i].status += "Created by your organization."
+                data[i].owned = true;
             }
         }
       } else {
@@ -109,12 +112,15 @@ Template.adminControlPanel.events({
         Meteor.call('assignToAllUsers', newAssignment);
         assignment = Assessments.findOne({_id: newAssignment});
         $('#alert').show();
-        $('#alert').addClass("alert-success");
+        $('#alert').removeClass();
+        $('#alert').addClass("alert alert-success");
         $('#alert-p').html("Successfully assigned " + assignment.title + " to all users.");
 
     },
     'click #close-alert': function(event){
         $('#alert').hide();
+        $('#alert-confirm').hide();
+
     },
     'click #unassign-one': function(event){
         event.preventDefault();

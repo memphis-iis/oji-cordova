@@ -347,7 +347,87 @@ Meteor.methods({
         assignment = input[1];
         Meteor.users.upsert({_id: userId},{$set: {assigned: assignment}});
     },
+    deleteAssessment: function(assessment){
+        Assessments.remove({_id: assessment});
+    },
+    copyAssessment: function(input){
+        orgId = input.newOwner;
+        assessment = input.assessment;
+        copiedAssessment = Assessments.findOne({_id: assessment});
+        delete copiedAssessment._id;
+        copiedAssessment.owner = orgId;
+        copiedAssessment.title = copiedAssessment.title + " copy";
+        Assessments.insert(copiedAssessment);
+    },
 
+    changeAssessment(input){
+        assessmentId = input.assessmentId;
+        field = input.field;
+        result = input.result
+        assessment = Assessments.findOne({_id: assessmentId});
+        text = "assessment." + field + "=" + result;
+        eval(text);
+        Assessments.update(assessmentId, {$set: assessment});
+
+    },
+    deleteAssessmentItem(input){
+        assessmentId = input.assessmentId;
+        field = input.field;
+        assessment = Assessments.findOne({_id: assessmentId})
+        fieldParsed = field.split(".")
+        item = fieldParsed[fieldParsed.length - 1].split("[");
+        index = item[1].substring(0, item[1].length - 1);
+        index = parseInt(index);
+        if(fieldParsed.length == 1){
+            items = eval("assessment." + item[0])
+        } else {
+            prefix = "";
+            for(i = 0; i < fieldParsed.length - 1; i++){
+                prefix+=fieldParsed[i] + ".";
+            }
+            items = eval("assessment." + prefix + item[0])
+        }
+        items.splice(index, 1);
+        text = "assessment." + item[0] + "=items";
+        eval(text);
+        Assessments.update(assessmentId, {$set: assessment});
+    },
+    addAssessmentItem(input){
+        console.log(input);
+        assessmentId = input.assessmentId;
+        field = input.field;
+        assessment = Assessments.findOne({_id: assessmentId});
+        text = "assessment." + field;
+        console.log(text);
+        newField = eval(text);
+        if(typeof newField[0] === "object"){
+            keys = Object.keys(newField[0]);
+            newItem = {};
+            for(i = 0; i < keys.length; i++){
+                text = "newField[i]." + keys[i];
+                console.log(text);
+                key = eval(text);
+                console.log(keys[i], typeof key);
+                subField = eval('newField[i].' + keys[i] );
+                if(typeof subField == 'string'){
+                    text = 'newItem.' + keys[i] + '= \"New\"';
+                    eval(text);
+                    console.log('evaltext',text)
+                }
+                if(typeof subField == "object"){
+                    text = 'newItem.' + keys[i] + '= []';
+                    eval(text);
+                    console.log('evaltext',text)
+                }
+            }
+            newField.push(newItem)
+        
+        } else {
+            newField.push('New');
+        }
+        console.log(assessment);
+        Assessments.upsert(assessmentId, {$set: assessment});
+    },
     //assessment data collection
     saveAssessmentData: function(newData){
         trialId = newData.trialId;

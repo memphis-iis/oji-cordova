@@ -107,6 +107,7 @@ Router.route('/userAssessmentReport/', {
         assessmentIdentifier: this.params._identifier
       }
     });
+
   }
 });
 
@@ -151,6 +152,17 @@ Router.route('/assessment/:_id/:_questionid', {
       data:{
         isNotQuestion: false,
         questionid: this.params._questionid,
+      }
+    });
+  }
+});
+// editing assessments
+Router.route('/assessmentEditor/:_assessmentid', {
+  action: function(){
+    this.render('assessmentEditor', {
+      data:{
+        isNotQuestion: false,
+        assessmentid: this.params._assessmentid,
       }
     });
   }
