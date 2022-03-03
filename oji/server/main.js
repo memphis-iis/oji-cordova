@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
 import { calculateScores } from './subscaleCalculations.js';
-
+import { Push } from 'meteor/activitree:push';
 
 const SEED_ADMIN = {
     username: 'testAdmin',
@@ -15,7 +15,8 @@ const SEED_ADMIN = {
     role: 'admin',
     supervisorInviteCode: "12345",
     sex: 'female',
-    assigned: []
+    assigned: [],
+    nextModule: -1
 };
 const SEED_SUPERVISOR = {
     username: 'testSupervisor',
@@ -28,7 +29,8 @@ const SEED_SUPERVISOR = {
     role: 'supervisor',
     supervisorInviteCode: "12345",
     sex: 'male',
-    assigned: []
+    assigned: [],
+    nextModule: -1
 };
 const SEED_USER = {
     username: 'testUser',
@@ -42,7 +44,8 @@ const SEED_USER = {
     supervisorInviteCode: null,
     sex: 'female',
     assigned: [],
-    hasCompletedFirstAssessment: false
+    hasCompletedFirstAssessment: false,
+    nextModule: 0
 };
 const SEED_USER2 = {
     username: 'testUserNotInIIS',
@@ -56,10 +59,15 @@ const SEED_USER2 = {
     supervisorInviteCode: null,
     sex: 'male',
     assigned: [],
-    hasCompletedFirstAssessment: false
+    hasCompletedFirstAssessment: false,
+    nextModule: 0
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
+
+//Configure Push Notifications
+serviceAccountData = null;
+
 
 
 Meteor.startup(() => {
@@ -193,7 +201,8 @@ Meteor.startup(() => {
                         organization: user.org ? user.org: newOrgId,
                         sex: user.sex,
                         assigned: user.assigned,
-                        hasCompletedFirstAssessment: user.hasCompletedFirstAssessment
+                        hasCompletedFirstAssessment: user.hasCompletedFirstAssessment,
+                        nextModule: 0
                     }
                 }
             );
@@ -231,7 +240,8 @@ Meteor.methods({
                             supervisorInviteCode: null,
                             hasCompletedFirstAssessment: false,
                             gender: gender,
-                            assigned: organization.newUserAssignments || []
+                            assigned: organization.newUserAssignments || [],
+                            nextModule: 0
                         }
                     });
                 if(linkId != ""){
@@ -437,13 +447,18 @@ Meteor.methods({
     },
     saveModuleData: function (moduleData){
         ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
+        nextModule = Meteor.users.findOne({_id: Meteor.userId()}).nextModule;
+        if(moduleData.pageId == 'completed'){
+            nextModule++;
+        }
         Meteor.users.upsert(Meteor.userId(), {
             $set: {
             curModule: {
                 moduleId: Meteor.user().curModule.moduleId,
                 pageId: moduleData.nextPage,
                 questionId: moduleData.nextQuestion,
-            }
+            },
+            nextModule: nextModule
         }
     })
 },
