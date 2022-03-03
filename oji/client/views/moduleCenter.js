@@ -1,9 +1,15 @@
 Template.moduleCenter.helpers({
-    'modules': function(){
-        mods = Modules.find();
-        console.log('mods', mods);
-        return mods;
+    'nextModule': function(){
+        nextModule = Meteor.users.findOne({_id: Meteor.userId()}).nextModule;
+        console.log(nextModule);
+        mod = Modules.findOne({order: nextModule})
+        return mod;
     },
+    'completedModules':function(){
+        nextModule = Meteor.users.findOne({_id: Meteor.userId()}).nextModule;
+        mods = Modules.find({"order": {$lt: nextModule}}).fetch();
+        return mods;
+    }
 })
 
 Template.moduleCenter.events({

@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
 import { calculateScores } from './subscaleCalculations.js';
-
+import { Push } from 'meteor/activitree:push';
 
 const SEED_ADMIN = {
     username: 'testAdmin',
@@ -15,7 +15,8 @@ const SEED_ADMIN = {
     role: 'admin',
     supervisorInviteCode: "12345",
     sex: 'female',
-    assigned: []
+    assigned: [],
+    nextModule: -1
 };
 const SEED_SUPERVISOR = {
     username: 'testSupervisor',
@@ -28,7 +29,8 @@ const SEED_SUPERVISOR = {
     role: 'supervisor',
     supervisorInviteCode: "12345",
     sex: 'male',
-    assigned: []
+    assigned: [],
+    nextModule: -1
 };
 const SEED_USER = {
     username: 'testUser',
@@ -42,7 +44,8 @@ const SEED_USER = {
     supervisorInviteCode: null,
     sex: 'female',
     assigned: [],
-    hasCompletedFirstAssessment: false
+    hasCompletedFirstAssessment: false,
+    nextModule: 0
 };
 const SEED_USER2 = {
     username: 'testUserNotInIIS',
@@ -56,10 +59,60 @@ const SEED_USER2 = {
     supervisorInviteCode: null,
     sex: 'male',
     assigned: [],
-    hasCompletedFirstAssessment: false
+    hasCompletedFirstAssessment: false,
+    nextModule: 0
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
+
+//Configure Push Notifications
+serviceAccountData = null;
+Push.Configure({
+    appName: 'Oji',
+    firebaseAdmin: {
+      serviceAccountData,
+      databaseURL: '____firebase_database_url____'
+    },
+    defaults: {
+      // ******** Meteor Push Messaging Processor *******
+      sendBatchSize: 5,          // Configurable number of notifications to send per batch
+      sendInterval: 3000,
+      keepNotifications: false,  // the following keeps the notifications in the DB
+      delayUntil: null,          // Date
+      sendTimeout: 60000,        // miliseconds 60 x 1000 = 1 min
+  
+      // ******** Global Message *******
+      appName: 'Oji',        // Serve it as a 'from' default for IOS notifications
+      sound: 'note',             // String (file has to exist in app/src/res/... or default on the mobile will be used). For Android no extension, for IOS add '.caf'
+      data: null,                // Global Data object - applies to all vendors if specific vendor data object does not exist.
+      imageUrl: 'https://a_default_image_url.jpg',
+      badge: 1,                  // Integer
+      vibrate: 1,                // Boolean // TODO see if I really use this.
+      requireInteraction: false, // TODO Implement this and move it to where it belongs
+      analyticsLabel: 'activitreeOji',   // Android, IOS: Label associated with the message's analytics data.
+  
+      // ******* IOS Specifics ******
+      apnsPriority: '10',
+      topic: 'com.activitree',   // String = the IOS App id
+      launchImage: '',           // IOS: String
+      iosData: null,             // Data object targeted to the IOS notification
+  
+      // ******* Android Specificas *******
+      icon: 'statusbaricon',     // String (name of icon for Android has to exist in app/src/res/....)
+      color: '#337FAE',          // String e.g 3 rrggbb
+      ttl: '86400s',             // if not set, use default max of 4 weeks
+      priority: 'HIGH',          // Android: one of NORMAL or HIGH
+      notificationPriority: 'PRIORITY_DEFAULT', // Android: one of none, or PRIORITY_MIN, PRIORITY_LOW, PRIORITY_DEFAULT, PRIORITY_HIGH, PRIORITY_MAX
+      collapseKey: 1,            // String/ Integer??, Android:  A maximum of 4 different collapse keys is allowed at any given time.
+      androidData: null,           // Data object targeted to the Android notiffication
+      visibility: 'PRIVATE', // Android: One of 'PRIVATE', 'PUBLIC', 'SECRET'. Default is 'PRIVATE',
+  
+      // ******* Web Specifics *******
+      webIcon: 'https://link_to_your_logo.jpg',
+      webData: null,                 // Data object targeted to the Web notification
+      webTTL: `${3600 * 1000}`       // Number of seconds as a string
+    }
+  })
 
 
 Meteor.startup(() => {
@@ -193,7 +246,8 @@ Meteor.startup(() => {
                         organization: user.org ? user.org: newOrgId,
                         sex: user.sex,
                         assigned: user.assigned,
-                        hasCompletedFirstAssessment: user.hasCompletedFirstAssessment
+                        hasCompletedFirstAssessment: user.hasCompletedFirstAssessment,
+                        nextModule: 0
                     }
                 }
             );
@@ -231,7 +285,8 @@ Meteor.methods({
                             supervisorInviteCode: null,
                             hasCompletedFirstAssessment: false,
                             gender: gender,
-                            assigned: organization.newUserAssignments || []
+                            assigned: organization.newUserAssignments || [],
+                            nextModule: 0
                         }
                     });
                 if(linkId != ""){
@@ -437,13 +492,18 @@ Meteor.methods({
     },
     saveModuleData: function (moduleData){
         ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
+        nextModule = Meteor.users.findOne({_id: Meteor.userId()}).nextModule;
+        if(moduleData.pageId == 'completed'){
+            nextModule++;
+        }
         Meteor.users.upsert(Meteor.userId(), {
             $set: {
             curModule: {
                 moduleId: Meteor.user().curModule.moduleId,
                 pageId: moduleData.nextPage,
                 questionId: moduleData.nextQuestion,
-            }
+            },
+            nextModule: nextModule
         }
     })
 },

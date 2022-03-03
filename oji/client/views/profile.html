@@ -11,15 +11,15 @@
         </div>
        {{else}}
        <h1>Hello there, {{currentUser.firstname}}.</h1>
-       <h3>Where would you like to go?</h3>
+       <h3>What would you like to do?</h3>
        {{#if isInRole 'user'}}
-            <h3>Assessment Center</h3>
-            <p>The assessment center measures your current mental health.</p>
-            <button id="assessmentCenter" class="btn btn-primary">Assessment Center</button>
-            <br><br>
-            <h3>Module Center</h3>
-            <p>The module center presents exercises to improve your mental health.</p>
+            <h3>Next Modules</h3>
+            <p>The modules present exercises to improve your mental health.</p>
             <button id="moduleCenter" class="btn btn-primary">Module Center</button>
+            <br><br>
+            <h3>Retake Assessments</h3>
+            <p>The assessments measures your current mental health.</p>
+            <button id="assessmentCenter" class="btn btn-primary">Assessment Center</button>
         {{else}}
         <h3>Control Panel</h3>
             <p>Access tools and settings for your organization and users.</p>

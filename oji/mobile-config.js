@@ -1,6 +1,6 @@
 // This section sets up some basic app metadata, the entire section is optional.
 App.info({
-    id: 'com.uofmiis.oji-cordova',
+    id: 'com.uofmiis.ojicordova',
     name: 'Oji',
     description: 'Mental Health Assessment App',
     author: 'UofM Institute for Intelligent Systems'
@@ -39,7 +39,12 @@ App.info({
   App.setPreference('Orientation', 'default');
   App.setPreference('Orientation', 'all', 'ios');
   
-  // Pass preferences for a particular PhoneGap/Cordova plugin.
   App.configurePlugin('phonegap-plugin-push', {
-    SENDER_ID: 12341234
-  });
+    SENDER_ID: 'xxxxxxxxxxxxxxxx'
+  })
+  
+  App.appendToConfig(`
+  <platform name="android">
+      <resource-file target="google-services.json" src="./resourcesd/android/google-services.json"/>
+  </platform>
+  `)
