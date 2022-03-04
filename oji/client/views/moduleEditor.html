@@ -1,0 +1,197 @@
+<template name="moduleEditor">
+    <div class="px-4 py-5 my-5">
+        <h2><a href="/control-panel">Control Panel</a> / Module Editor / {{module.title}}</h2>
+        <p>All changes are made instantly.</p>
+        <hr>
+        <h3>Information</h3>
+        Title: {{module.title}}<a id="open-editor" data-value={{module.title}} data-field="title"> Edit</a><br>
+        Display: {{#if module.display}}<code id="switch">true</code>{{else}}<code id="switch">false</code>{{/if}}<a id="switch-display"> Switch</a><br>
+        Identifier: {{module.identifier}}<a id="open-editor" data-value={{module.identifier}} data-field="identifier"> Edit</a><br>
+        <h3>Description</h3>
+        <p>{{module.description}}<a id="open-editor" data-value={{module.description}} data-field="description"> Edit</a><br></p>
+        <hr>
+        <h3>Module Flow</h3>
+        {{#each module.pages}}
+
+
+        <a data-bs-toggle="collapse" href="#collapse-page-{{@index}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <h3><u>Page {{@index}}</u></h3>
+          </a>
+        <div class="collapse" id="collapse-page-{{@index}}">
+        <table class="table" id="pageList-{{@index}}">
+            <thead>
+                <th scope="col" width="5%">Type</th>
+                <th scope="col" width="10%">Header</th>
+                <th scope="col" width="10%">Subheader</th>
+                <th scope="col" width="40%">Text</th>
+                <th scope="col" width="10%">Image</th>
+                <th scope="col" width="10%">Image Below Text?</th>
+                <th scope="col" width="10%">Actions</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                    <div id="pages-{{@index}}-type">
+                        <select id="type" class="combo-save" data-field="pages[{{@index}}].type">
+                            <option >{{this.type}}</option>
+                            <option>text</option>
+                            <option>activity</option>
+                        </select>
+                    </div>
+                    </td>
+                    <td>
+                    <div id="pages-{{@index}}-header">
+                        {{this.header}} <a id="open-editor" data-field="pages[{{@index}}].header" data-target="pages-{{@index}}-header" data-value="{{this.header}}"> Edit</a><br>
+                    </div>
+                    </td>
+                    <td>
+                        <div id="pages-{{@index}}-subheader">
+                            {{this.subheader}}<a id="open-editor" data-field="pages[{{@index}}].subheader" data-target="pages-{{@index}}-subheader" data-value="{{this.subheader}}"> Edit</a><br>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="pages-{{@index}}-text">
+                            {{this.text}}<a id="open-editor" data-field="pages[{{@index}}].text" data-target="pages-{{@index}}-text" data-value="{{this.text}}"> Edit</a><br>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="pages-{{@index}}-image">
+                            {{this.image}}<a id="open-editor" data-field="pages[{{@index}}].image" data-target="pages-{{@index}}-image" data-value="{{this.image}}"> Edit</a><br>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="pages-{{@index}}-imageBelow">
+                            {{this.imageBelow}}<a id="open-editor" data-field="pages[{{@index}}].imageBelow" data-target="pages-{{@index}}-imageBelow" data-value="{{this.imageBelow}}"> Edit</a><br>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="page-{{this.id}}">
+                            <a id="delete-item" data-field="pages[{{@index}}]">Delete</a>
+                        </div>
+                    </td>
+              </tr>
+            </tbody>
+        </table>
+        {{#if this.isActivity}}
+        {{#each questions}}
+        <a data-bs-toggle="collapse" href="#collapse-page-{{this.parent}}-question{{@index}}" role="button" aria-expanded="false" aria-controls="collapseExample"><h4>Question {{@index}}</h4></a>
+        <div class="collapse" id="collapse-page-{{this.parent}}-question{{@index}}">
+        <table class="table" id="questionList">
+            <thead>
+                <th scope="col" width="10%">Type</th>
+                <th scope="col" width="70%">Prompt/Text/Answer</th>
+                <th scope="col" width="20%">Actions</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div id="pages[{{this.parent}}]-questions[{{@index}}]-type">
+                            <select id="type" class="combo-save" data-field="pages[{{this.parent}}].questions[{{@index}}].type">
+                                <option >{{this.type}}</option>
+                                <option>longtext</option>
+                                <option>blank</option>
+                                <option>multiChoice</option>
+                                <option>combo</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        {{this.prompt}}<a id="open-editor" data-field="pages[{{this.parent}}].questions[{{@index}}].prompt" data-value="{{this.prompt}}"> Edit</a><br>
+                    </td>
+                    <td>
+                        <a id="delete-item" data-field="pages[{{this.parent}}].questions[{{@index}}]">Delete</a>
+                        {{#if this.isCombo}}
+                        <br> <a id="add-item" data-field="pages[{{this.parent}}].questions[{{@index}}].fields">Add Combo Question</a>
+                        {{/if}}
+                        {{#if this.isMultiChoice}}
+                        <br> <a id="add-item" data-field="pages[{{this.parent}}].questions[{{@index}}].answers">Add Choice</a>
+                        {{/if}}
+                        
+                    </td>
+                </tr>
+                {{#if this.isCombo}}
+                    {{#each this.fields}}
+                    <tr>
+                        <td>
+                            <div id="pages[{{this.page}}]-questions[{{this.parent}}]-fields[{{@index}}]-type">
+                                <select id="type" class="combo-save" data-field="pages[{{this.page}}].questions[{{this.parent}}].fields[{{@index}}].type">
+                                    <option >{{this.type}}</option>
+                                    <option>longtext</option>
+                                    <option>blank</option>
+                                    <option>multiChoice</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="pages[{{this.page}}]-questions[{{this.parent}}]-fields[{{@index}}]-text">
+                                {{this.text}}<a id="open-editor" data-field="pages[{{this.page}}].questions[{{this.parent}}].fields[{{@index}}].text" data-value="{{this.text}}"> Edit</a><br>
+                            </div>
+                        </td>
+                        <td>
+                            <a id="delete-item" data-field="pages[{{this.page}}].questions[{{this.parent}}].fields[{{@index}}]">Delete</a>
+                            {{#if this.isMultiChoice}}
+                            <br> <a id="add-item" data-field="pages[{{this.page}}].questions[{{this.parent}}].fields[{{@index}}].answers">Add Choice</a>
+                            {{/if}}
+                            
+                        </td>
+                    </tr>
+                        {{#if this.isMultiChoice}}
+                            {{#each this.answers}}
+                            <tr>
+                                <td>
+                                    Answer --->
+                                </td>
+                                <td>
+                                    <div id="pages[{{this.page}}]-questions[{{this.question}}]-fields[{{this.parent}}]-answers[{{@index}}].answer">
+                                        {{this.answer}}<a id="open-editor" data-field="pages[{{this.page}}].questions[{{this.question}}].fields[{{this.parent}}].answers[{{@index}}].answer" data-value="{{this.answer}}"> Edit</a><br>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="delete-item" data-field="pages[{{this.page}}].questions[{{this.question}}].fields[{{this.parent}}].answers[{{@index}}]">Delete</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+                {{#if this.isMultiChoice}}
+                    {{#each this.answers}}
+                    <tr>
+                        <td>
+                            Answer -->
+                        </td>
+                        <td>
+                            {{this.answer}}<a id="open-editor" data-field="pages[{{this.page}}].questions[{{this.parent}}].answers[{{@index}}].answer" data-value="{{this.answer}}"> Edit</a><br>
+                        </td>
+                        <td>
+                            <a id="delete-item" data-field="pages[{{this.page}}].questions[{{this.parent}}].answers[{{@index}}]">Delete</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                {{/if}}
+            </tbody>
+        </table>
+        </div>
+        {{/each}}
+        <br>
+        <br>
+        <a id="add-item" data-field="pages[{{@index}}].questions">Add Question</a>
+        {{/if}}
+        </div>
+    {{/each}}
+    <a id="add-item" data-field="pages">Add Page</a>
+    </div>
+    <a id="show-json">View JSON</a>
+    <a id="hide-json" hidden>Hide JSON</a>
+    <br>
+    <code id="json" hidden>{{json}}</code>
+    <div id="text-editor" hidden>
+        <form id="change-title">
+            <span style="display:block; overflow:hidden; padding-right:50px;">
+            <input type="text" id="input-editor" style="width:90%">
+            <button class="btn btn-primary" id="button-save">Save</button>
+            </span>
+            <input id="moduleId" type="hidden" value="{{module._id}}">
+        </form>
+    </div>
+</template>

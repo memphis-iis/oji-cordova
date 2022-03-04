@@ -161,8 +161,17 @@ Router.route('/assessmentEditor/:_assessmentid', {
   action: function(){
     this.render('assessmentEditor', {
       data:{
-        isNotQuestion: false,
         assessmentid: this.params._assessmentid,
+      }
+    });
+  }
+});
+// editing modules
+Router.route('/moduleEditor/:_moduleId', {
+  action: function(){
+    this.render('moduleEditor', {
+      data:{
+        moduleId: this.params._moduleId,
       }
     });
   }
