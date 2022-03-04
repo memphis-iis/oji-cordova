@@ -202,7 +202,8 @@ Meteor.startup(() => {
                         sex: user.sex,
                         assigned: user.assigned,
                         hasCompletedFirstAssessment: user.hasCompletedFirstAssessment,
-                        nextModule: 0
+                        nextModule: 0,
+                        author: true
                     }
                 }
             );
@@ -229,6 +230,13 @@ Meteor.methods({
                     password: pass,
                     email: emailAddr
                 });
+                const authors = Meteor.settings.public.authors;
+                var emailToVerify = Meteor.user().emails[0];
+                console.log(emailToVerify);
+                author = false;
+                if(authors.indexOf(emailAddr) !== -1){
+                    author = true;
+                }
                 Meteor.users.update({ _id: uid }, 
                     {   $set: 
                         {
@@ -241,7 +249,8 @@ Meteor.methods({
                             hasCompletedFirstAssessment: false,
                             gender: gender,
                             assigned: organization.newUserAssignments || [],
-                            nextModule: 0
+                            nextModule: 0,
+                            author: author
                         }
                     });
                 if(linkId != ""){
@@ -348,6 +357,7 @@ Meteor.methods({
         Meteor.users.upsert({_id: userId},{$set: {assigned: assignment}});
     },
     deleteAssessment: function(assessment){
+        console.log('Delete: ' + assessment);
         Assessments.remove({_id: assessment});
     },
     copyAssessment: function(input){
@@ -359,16 +369,62 @@ Meteor.methods({
         copiedAssessment.title = copiedAssessment.title + " copy";
         Assessments.insert(copiedAssessment);
     },
+    deleteModule: function(module){
+        console.log('Delete: ' + module);
+        Modules.remove({_id: module});
+    },
+    copyModule: function(input){
+        orgId = input.newOwner;
+        newModule = input.module;
+        copiedModule = Modules.findOne({_id: newModule});
+        delete copiedModule._id;
+        copiedModule.owner = orgId;
+        copiedModule.title = copiedModule.title + " copy";
+        Modules.insert(copiedModule);
+    },
+    createModule: function(){
+        orgId = Meteor.user().organization,
+        newModule = {
+            title: "New Module",
+            identifier: "New",
+            display: false,
+            description: "Description",
+            pages: [],
+        }
+        Modules.insert(newModule);
+    },
+
 
     changeAssessment(input){
         assessmentId = input.assessmentId;
         field = input.field;
         result = input.result
         assessment = Assessments.findOne({_id: assessmentId});
-        text = "assessment." + field + "=" + result;
-        eval(text);
+        if(field == "reversedQuestions"){
+            result = parseInt(result);
+            index = assessment.reversedQuestions.indexOf(result);
+            if(index > -1){
+                assessment.reversedQuestions.splice(index,1);
+            } else {
+                assessment.reversedQuestions.push(result);
+            }
+            assessment.reversedQuestions.sort(function(a,b){return a - b});
+        } else {
+            text = "assessment." + field + "=" + result;
+            eval(text);
+        }
         Assessments.update(assessmentId, {$set: assessment});
 
+    },
+    changeModule(input){
+        moduleId = input.moduleId;
+        field = input.field;
+        result = input.result
+        curModule = Modules.findOne({_id: moduleId});
+        text = "curModule." + field + "=" + result;
+        console.log(text);
+        eval(text);
+        Modules.update(moduleId, {$set: curModule});
     },
     deleteAssessmentItem(input){
         assessmentId = input.assessmentId;
@@ -427,6 +483,94 @@ Meteor.methods({
         }
         console.log(assessment);
         Assessments.upsert(assessmentId, {$set: assessment});
+    },
+    deleteModuleItem(input){
+        moduleId = input.moduleId;
+        field = input.field;
+        curModule = Modules.findOne({_id: moduleId})
+        fieldParsed = field.split(".")
+        item = fieldParsed[fieldParsed.length - 1].split("[");
+        index = item[1].substring(0, item[1].length - 1);
+        index = parseInt(index);
+        console.log('delete:',moduleId, field);
+        if(fieldParsed.length == 1){
+            items = eval("curModule." + item[0])
+        } else {
+            prefix = "";
+            for(i = 0; i < fieldParsed.length - 1; i++){
+                prefix+=fieldParsed[i] + ".";
+            }
+            items = eval("curModule." + prefix + item[0])
+        }
+        items.splice(index, 1);
+        text = "curModule." + item[0] + "=items";
+        eval(text);
+        Modules.update(moduleId, {$set: curModule});
+    },
+    addModuleItem(input){
+        console.log(input);
+        moduleId = input.moduleId;
+        field = input.field;
+        curModule = Modules.findOne({_id: moduleId});
+        text = "curModule." + field;
+        newField = eval(text);
+        if(typeof newField !== "undefined" && typeof newField[0] !== "undefined"){
+            console.log("defined:" + newField);
+            if(typeof newField[0] === "object"){
+                keys = Object.keys(newField[0]);
+                newItem = {};
+                for(i = 0; i < keys.length; i++){
+                    text = "newField[0]." + keys[i];
+                    console.log(text);
+                    eval(text);
+                    console.log(keys[i], typeof key);
+                    subField = eval('newField[0].' + keys[i] );
+                    if(typeof subField == 'string'){
+                        text = 'newItem.' + keys[i] + '= \"New\"';
+                        eval(text);
+                        console.log('evaltext',text)
+                    }
+                    if(typeof subField == "object"){
+                        text = 'newItem.' + keys[i] + '= []';
+                        eval(text);
+                        console.log('evaltext',text)
+                    }
+                }
+                newField.push(newItem)
+            
+            } 
+        } else {
+            addedField = field.split(".");
+            addedField = addedField[addedField.length - 1];
+            console.log('undefined: ' + addedField);          
+            if(addedField == "questions"){
+                data = {
+                    type :"New",
+                    prompt: "New"
+                }
+                text = "curModule." + field + "=[data]";
+                console.log(text);
+                eval(text);
+            }
+            if(addedField == "pages" || addedField == "fields"){
+                data = {
+                    type :"New",
+                    text: "New"
+                }
+                text = "curModule." + field + "=[data]";
+                console.log(text);
+                eval(text);
+            }
+            if(addedField == "answers"){
+                data = {
+                    answer:"New",
+                }
+                text = "curModule." + field + "=[data]";
+                console.log(text);
+                eval(text);
+            }
+        }
+        Modules.upsert(moduleId, {$set: curModule});
     },
     //assessment data collection
     saveAssessmentData: function(newData){

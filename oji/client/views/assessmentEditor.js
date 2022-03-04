@@ -6,11 +6,13 @@ Template.assessmentEditor.helpers({
         assessment = Assessments.findOne({_id: assessmentId});
         answersCombined = [];
         questionsCombined = [];
+        questionsReversed = assessment.reversedQuestions;
         for(i = 0; i < assessment.answers.length; i++){
             answersCombined.push({
                 id: i,
                 answer: assessment.answers[i],
                 value: assessment.answerValues[i],
+                reversedValue: assessment.reversedValues[i]
             })
         }
         for(j = 0; j < assessment.questions.length; j++){
@@ -23,10 +25,15 @@ Template.assessmentEditor.helpers({
                     parent: j
                 });
             }
+            reversed = false;
+            if(questionsReversed.indexOf(j) !== -1){
+                reversed = true;
+            }
             questionsCombined.push({
                 text: assessment.questions[j].text,
                 id: j,
-                subscalesCombined: subscalesCombined
+                subscalesCombined: subscalesCombined,
+                reversedValueEnabled: reversed
             })
         }
         assessment.organization = Orgs.findOne({_id: Meteor.user().organization}).orgName;
@@ -53,8 +60,13 @@ Template.assessmentEditor.events({
         $('#hide-json').hide();
     },
     'click #switch-display': function(event){
-        assessmentId = $('#assessmentid').val();
-        result = !assessment.display;
+        assessmentId = $('#assessmentId').val();
+        state = $('#switch').html();
+        if(state == "false"){
+            result = "true";
+        } else {
+            result = "false";
+        }
         changeAssessment(assessmentId, "display", result);
     },
     'click #open-editor': function(event){
@@ -94,9 +106,14 @@ Template.assessmentEditor.events({
         result = "\"" + $('#clone #input-editor').val() + "\"";
         assessmentId = $('#assessmentid').val();
         addAssessmentItem(assessmentId, field);
+    },
+    'change .reversedValueSwitch': function(event){
+        event.preventDefault();
+        assessmentId = $('#assessmentid').val();
+        field = "reversedQuestions";
+        result = event.target.getAttribute('data-question');
+        changeAssessment(assessmentId, field, result);
     }
-    
-
 })
 
 Template.assessmentEditor.onCreated(function() {

@@ -2,6 +2,10 @@ Template.adminControlPanel.helpers({
     'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
 
     'userInfo': () => Meteor.users.find({role: 'user'}),
+
+    'author': function(){
+        return Meteor.user().author;
+    } ,
   
     'assessments': function (){
       const t = Template.instance();
@@ -34,9 +38,12 @@ Template.adminControlPanel.helpers({
                 data[i].assigned = false;
             }
         }
-    }
-    return data;
-},
+        } 
+        return data;
+    },
+    'module': function(){
+        return Modules.find({});
+    },
 
     'organization': () => Orgs.findOne(),
     
@@ -140,6 +147,69 @@ Template.adminControlPanel.events({
         assignment = $(event.target).data("assessment-id");
         user.assigned.push(assignment);
         Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+    },
+    'click #copy-assessment': function (event){
+        assessment = $(event.target).data("assessment-id");
+        newOwner = Meteor.user().organization;
+        Meteor.call('copyAssessment', {
+            newOwner: newOwner,
+            assessment: assessment
+        });
+    },
+    'click #edit-assessment': function (event){
+        assessment = $(event.target).data("assessment-id");
+        Router.go('/assessmentEditor/' + assessment);
+    },
+    'click #delete-assessment': function (event){
+        event.preventDefault();
+        deletedAssessment = $(event.target).data("assessment-id");
+        assessment = Assessments.findOne({_id: deletedAssessment});
+        $('#alert').show();
+        $('#alert').removeClass();
+        $('#alert').addClass("alert alert-danger");
+        $('#alert-p').html("This cannot be undone." + assessment.title + " will be permanently deleted. Did you make a backup?");
+        $('#alert-confirm').attr('data-assessment-id', deletedAssessment);
+        $('#alert-confirm').addClass("confirm-delete-assessment");
+    },
+    'click #copy-module': function (event){
+        newModule = $(event.target).data("module-id");
+        newOwner = Meteor.user().organization;
+        Meteor.call('copyModule', {
+            newOwner: newOwner,
+            module: newModule
+        });
+    },
+    'click #edit-module': function (event){
+        moduleId = $(event.target).data("module-id");
+        Router.go('/moduleEditor/' + moduleId);
+    },
+    'click #delete-module': function (event){
+        event.preventDefault();
+        deletedModule = $(event.target).data("module-id");
+        moduleDeleted = Modules.findOne({_id: deletedModule});
+        $('#alert-mods').show();
+        $('#alert-mods').removeClass();
+        $('#alert-mods').addClass("alert alert-danger");
+        $('#alert-mods-p').html("This cannot be undone." + moduleDeleted.title + " will be permanently deleted. Did you make a backup?");
+        $('#alert-mods-confirm').attr('data-module-id', deletedModule);
+        $('#alert-mods-confirm').addClass("confirm-delete-module");
+    },
+    'click .confirm-delete-module': function (event){
+        event.preventDefault();
+        deletedModule = event.target.getAttribute('data-module-id');
+        Meteor.call('deleteModule',deletedModule);
+        $('#alert-mods-confirm').removeAttr('module-id');
+        $('#alert-mods').hide();
+    },
+    'click .confirm-delete-assessment': function (event){
+        event.preventDefault();
+        deletedAssessment= event.target.getAttribute('data-assessment-id');
+        Meteor.call('deleteAssessment',deletedAssessment);
+        $('#alert-confirm').removeAttr('assessment-id');
+        $('#alert').hide();
+    },
+    'click #add-module': function (event){
+        Meteor.call('createModule');
     }
 })
 

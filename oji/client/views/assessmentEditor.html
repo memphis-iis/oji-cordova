@@ -5,16 +5,16 @@
         <hr>
         <h3>Information</h3>
         Title: {{assessment.title}}<a id="open-editor" data-value={{assessment.title}} data-field="title"> Edit</a><br>
-        Display: {{#if assessment.display}}<code>true</code>{{else}}<code>false</code>{{/if}}<a id="switch-display"> Switch</a><br>
+        Display: {{#if assessment.display}}<code id="switch">true</code>{{else}}<code id="switch">false</code>{{/if}}<a id="switch-display"> Switch</a><br>
         Organization: {{assessment.organization}}<br>
         Identifier: {{assessment.identifier}}<a id="open-editor" data-value={{assessment.identifier}} data-field="identifier"> Edit</a><br>
         <h3>Description</h3>
         <p>{{assessment.description}}<a id="open-editor" data-value={{assessment.description}} data-field="description"> Edit</a><br></p>
         <hr>
-        <h3>Answers</h3>
+        <h3>Page Flow</h3>
         <table class="table" id="answersList">
             <thead>
-                <th scope="col" width="40%">Answer </th>
+                <th scope="col" width="40%">Page </th>
                 <th scope="col" width="20%">Value</th>
                 <th scope="col" width="20%">Reversed Value</th>
                 <th scope="col" width="20%">Actions</th>
@@ -34,7 +34,7 @@
                     <a id="open-editor" data-field="answerValues[{{this.id}}]"  data-value="{{this.value}}"> Edit</a><br>
                     </td>
                     <td>
-                        Todo: Reversed Values Here{{This.ReversedValue}}
+                        {{this.reversedValue}}
                         <a id="open-editor" data-field="reversedValues[{{this.id}}]"  data-value="{{this.value}}"> Edit</a><br>
                     </td>
                     <td>
@@ -76,8 +76,13 @@
                 </td>
                 <td>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                          Reverse Values
+                        {{#if this.reversedValueEnabled}}
+                        <input class="reversedValueSwitch" data-question="{{this.id}}" type="checkbox" value="" id="flexCheckDefault" checked>
+                        {{else}}
+                        <input class="reversedValueSwitch" data-question="{{this.id}}" type="checkbox" value="" id="flexCheckDefault">
+                        {{/if}}  
+                        Reverse Values
+
                       </div>
                 </td>
                 <td>
