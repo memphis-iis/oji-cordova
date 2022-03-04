@@ -13,7 +13,7 @@ Template.assessment.helpers({
                 user.assigned.splice(index, 1);
             }
             Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
-            return oldTrial;
+            return true;
         } else {
             return false;
         }
@@ -51,7 +51,6 @@ Template.assessment.events({
         event.preventDefault();
         userId = Meteor.userId();
         trialData = Meteor.users.findOne({_id: userId}).curTrial;
-        console.log('trialData', trialData);
         let curAssesment = Assessments.findOne();
         let completed = false;
 

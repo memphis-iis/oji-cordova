@@ -24,16 +24,16 @@
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <button class="btn btn-primary return">Return to My Profile</button>
             </div>
-            {{/if}}
-        <br>
-        Question {{questionid}} of {{question.totalQuestions}} ({{question.percentageCompleted}}%)
-        <h3>{{question.text}}</h3>
-        <div class="form-check">
-        {{#each question.answers}}
-        <br>
-        <button  class="btn btn-secondary btn-lg btn-block continue" id="{{@index}}" value="{{@index}}" name="">{{this}}</button>
-        {{/each}}
-        </div>
+            {{else}}
+            Question {{questionid}} of {{question.totalQuestions}} ({{question.percentageCompleted}}%)
+            <h3>{{question.text}}</h3>
+            <div class="form-check">
+                {{#each question.answers}}
+                <br>
+                <button  class="btn btn-secondary btn-lg btn-block continue" id="{{@index}}" value="{{@index}}" name="">{{this}}</button>
+                {{/each}}
+            </div>
+        {{/if}}
         </div>
         {{/if}}
 

@@ -106,7 +106,6 @@ Template.moduleEditor.events({
     'change .combo-save': function(event){
         field = event.target.getAttribute('data-field');
         result = "\"" + event.target.value + "\"";
-        console.log(result, field);
         moduleId = $('#moduleId').val();
         changeModule(moduleId, field, result);
     },

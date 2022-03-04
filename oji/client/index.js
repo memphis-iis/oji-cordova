@@ -3,10 +3,7 @@ import { Template } from 'meteor/templating';
 import WebPush, { CordovaPush } from 'meteor/activitree:push';
 
 Template.DefaultLayout.onCreated(function() {
-  this.autorun(() => {
-    console.log(Orgs.find().fetch());
-    
-  });
+
 })
 
 Meteor.startup(() => {

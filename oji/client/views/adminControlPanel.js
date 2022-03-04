@@ -53,7 +53,6 @@ Template.adminControlPanel.helpers({
         now = new Date();
         expDate = keys.expires;
         expDate.setDate(expDate.getDate());
-        console.log('date', now, expDate, keys.expires);
         if(now >= expDate){
             isExpired = true;
         }

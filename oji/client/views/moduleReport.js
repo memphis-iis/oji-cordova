@@ -15,7 +15,6 @@ Template.moduleReport.helpers({
     'pages': function(){
         resultsData = ModuleResults.findOne();
         modData = Modules.findOne({_id: resultsData.moduleId})
-        console.log(resultsData, modData);
         responses = [];
         for(i = 0; i < resultsData.responses.length; i++){
             if(modData.pages[resultsData.responses[i].pageId].questions[resultsData.responses[i].questionId].type != "combo"){
@@ -23,7 +22,6 @@ Template.moduleReport.helpers({
                     question: modData.pages[resultsData.responses[i].pageId].questions[resultsData.responses[i].questionId].prompt,
                     answer: resultsData.responses[i].response[0]
                 }
-                console.log(data);
                 responses.push(data)
             } else {
                 comboQuestions = modData.pages[resultsData.responses[i].pageId].questions[resultsData.responses[i].questionId].fields;
@@ -32,7 +30,6 @@ Template.moduleReport.helpers({
                         question: comboQuestions[j].text,
                         answer: resultsData.responses[i].response[j]
                     }
-                    console.log(data);
                     responses.push(data);
                 }
             }

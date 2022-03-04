@@ -62,7 +62,6 @@ Template.module.helpers({
                 };
                 
             }
-            console.log(fields);
         };
         t.questionType.set(question.type);
         question.length = question.length;
@@ -85,8 +84,6 @@ Template.module.events({
         let target = "";
         let moduleId = Meteor.user().curModule.moduleId;
         let moduleData = ModuleResults.findOne({_id: moduleId});
-        console.log(moduleId,moduleData);
-        console.log(moduleData);
         moduleData.lastAccessed = Date.now().toString();
         thisPage = Meteor.user().curModule.pageId;
         thisQuestion = parseInt(Meteor.user().curModule.questionId);
@@ -106,7 +103,6 @@ Template.module.events({
                 allInput = document.getElementsByClassName('combo');
                 response = [];
                 for(i = 0; i < allInput.length; i++){
-                    console.log($(allInput[i]).prop("nodeName") == "INPUT");
                     if ($(allInput[i]).prop('nodeName') == "INPUT" || $(allInput[i]).prop('nodeName') == "TEXTAREA"){
                         response.push($(allInput[i]).val());
                     }
@@ -145,7 +141,6 @@ Template.module.events({
                 response: "read",
                 responseTimeStamp: Date.now().toString()
             }
-            console.log(moduleData);
             Meteor.call("saveModuleData", moduleData);
             target = "/module/" + Modules.findOne()._id + "/" + moduleData.nextPage;
         }
@@ -156,12 +151,10 @@ Template.module.events({
             target = "/module/" + Modules.findOne()._id + "/completed";
         } 
 
-        console.log(target);
         Router.go(target);
     },
     'click #startActivity': function(event){
         target =  $(location).attr('href') + "/0";
-        console.log(target);
         Router.go(target);
     },
     'click .multichoice': function(event){

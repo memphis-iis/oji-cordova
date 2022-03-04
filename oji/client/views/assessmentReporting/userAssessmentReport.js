@@ -51,7 +51,6 @@ Template.userAssessmentReport.helpers({
                     });
                 }
             }
-            console.log(items)
             return items;
         }
     }
@@ -82,7 +81,6 @@ Template.userAssessmentReport.onCreated(function() {
 function drawChart(){
     const curTrial = getCurrentTrial();
     const assessment = getCurrentAssessment();
-    console.log('assessment:' + assessment)
     if(assessment){
         const subscales = Object.keys(assessment.assessmentReportConstants.subscaleTitles)
         let scales = {}

@@ -1,7 +1,7 @@
 {
     "modules": [{
         "module":{
-            "title": "Re-Creating the Self: Making Change Happen",
+            "title": "Module 1: Re-Creating the Self: Making Change Happen",
             "description": "",
             "display": true,
             "identifier": "OJI1",
@@ -359,5 +359,364 @@
                 }
             ]
         }
-    }]
+    },
+    {
+        "module":{
+                "title": "Module 2: Preparing for Community Supervision",
+                "identifier": "New",
+                "display": false,
+                "description": "Description",
+                "pages": [
+                  {
+                    "type": "activity",
+                    "text": "Circle the BEST possible answer to each question. Each question is worth 1 point.",
+                    "questions": [
+                      {
+                        "type": "multiChoice",
+                        "prompt": "1. You could be incarcerated if you fail to comply with community supervision.",
+                        "answers": [
+                          {
+                            "answer": "True"
+                          },
+                          {
+                            "answer": "False"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "multiChoice",
+                        "prompt": "Which of the following is NOT a common rule or requirement of community supervision?",
+                        "answers": [
+                          {
+                            "answer": "Paying supervision fees"
+                          },
+                          {
+                            "answer": "Avoiding contact with other people on supervision"
+                          },
+                          {
+                            "answer": "Going back to school"
+                          },
+                          {
+                            "answer": "Finding a job"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "multiChoice",
+                        "prompt": "Anger...",
+                        "answers": [
+                          {
+                            "answer": "Is something you should ignore or keep to yourself"
+                          },
+                          {
+                            "answer": "Is never a useful or helpful emotion"
+                          },
+                          {
+                            "answer": "Is a good way to get what you want in life"
+                          },
+                          {
+                            "answer": "Is ok if you learn to handle it properly"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "multiChoice",
+                        "prompt": "Making a very detailed list of things you need to do is a good way to keep yourself organized:",
+                        "answers": [
+                          {
+                            "answer": "True"
+                          },
+                          {
+                            "answer": "False"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "multiChoice",
+                        "prompt": "Which one of the tasks below is a leisure task?",
+                        "answers": [
+                          {
+                            "answer": "Checking in with your probation officer"
+                          },
+                          {
+                            "answer": "Joining a scrimmage basketball team"
+                          },
+                          {
+                            "answer": "Interviewing for a new job"
+                          },
+                          {
+                            "answer": "Doing the laundry"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "multiChoice",
+                        "prompt": "Following the rules and having good behavior while on supervision will…",
+                        "answers": [
+                          {
+                            "answer": "Get you into trouble in the long-run"
+                          },
+                          {
+                            "answer": "Cause you to go un-noticed by corrections staff"
+                          },
+                          {
+                            "answer": "Give staff and the judge a reason to support you and offer help"
+                          },
+                          {
+                            "answer": "Keep you on supervision longer"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "multiChoice",
+                        "prompt": "NOT planning pro-social leisure activities…",
+                        "answers": [
+                          {
+                            "answer": "Is a risk factor for returning to criminal activity"
+                          },
+                          {
+                            "answer": "Is helpful for reducing stress"
+                          },
+                          {
+                            "answer": "Is something you can’t do on supervision"
+                          },
+                          {
+                            "answer": "Is a common problem among law-abiding citizens"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "multiChoice",
+                        "prompt": " Of the people listed below, who would be “green”?",
+                        "answers": [
+                          {
+                            "answer": "Tyrell, who gets blackout drunk on the weekends"
+                          },
+                          {
+                            "answer": "Sandy, who drives you to your supervision appointments when you don’t have a ride"
+                          },
+                          {
+                            "answer": "Jimmy, your neighbor who is a nice guy but sold you weed before"
+                          },
+                          {
+                            "answer": "Roger, your buddy who jokes about how you’ll always be the same “player” he’s always known"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "multiChoice",
+                        "prompt": "Only medication from a doctor can cure sleep problems.",
+                        "answers": [
+                          {
+                            "answer": "True"
+                          },
+                          {
+                            "answer": "False"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "multiChoice",
+                        "prompt": "Which of the following will NOT help you sleep better at night?",
+                        "answers": [
+                          {
+                            "answer": "Sticking to a regular schedule of sleep"
+                          },
+                          {
+                            "answer": "Taking naps during the day"
+                          },
+                          {
+                            "answer": "Exercising during the day"
+                          },
+                          {
+                            "answer": "Using Progressive Muscle Relaxation (PMR)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "Because of your illegal actions, you are being placed under community supervision to monitor your behavior and help you get back on track. Your placement is meant to be both a punishment or consequence for how you chose to behave in the community and a way for you to make needed changes like get off drugs or find a job. According to the Bureau of Justice Statistics—a government agency that collects data on people in the criminal justice system–about 4.6 million people are being supervised by community corrections departments like the one you report to. If you aren’t new to supervision, some of the information in this section will be a no-brainer (duh!). But, some of the information here is helpful whether you’re a rookie or have been around the block a few times.",
+                    "questions": [],
+                    "subheader": "Why am I Here?",
+                    "header": "Worksheet #1: Understanding Community Supervision"
+                  },
+                  {
+                    "type": "text",
+                    "text": "People are placed on supervision for various reasons; some are sentenced to probation instead of serving jail time. Others may be on parole because they were released early from prison. The terms of your supervision period may depend on the reason for your placement. The rules also vary from state to state or even from person to person.",
+                    "questions": [],
+                    "header": "Worksheet #1: Understanding Community Supervision ",
+                    "subheader": "Know the"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Community supervision requirements are stringent and typically include the following: Pay supervision fees—yes, it costs money to be supervised. Try to pay these fees on time so you don’t get behind on what you owe or get charged with late fees. Avoid illegal conduct—it seems pretty obvious that you shouldn’t commit crimes while you’re being punished for one. Avoid contact with other people on supervision outside the building—don’t hang out with other people who engage in crime or who are in trouble for committing a crime. We will talk more about this in a later module. Report any arrests or police contact to your officer. Find stable employment and housing.",
+                    "questions": [],
+                    "header": "Worksheet #1: Understanding Community Supervision ",
+                    "subheader": "Know the"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Report for mandatory check-ins with supervision officers. Avoid drug use and submit to random drug screenings. Be available for unscheduled home and work visitations from officers. Comply with mandated treatment programming. Obtain permission to travel outside a designated location or change your residence.",
+                    "questions": [],
+                    "header": "Worksheet #1: Understanding Community Supervision ",
+                    "subheader": "Know the"
+                  }
+                ],
+                "answers": [],
+                "questions": [
+                  {
+                    "type": "multiChoice",
+                    "prompt": "1. You could be incarcerated if you fail to comply with community supervision.",
+                    "answers": [
+                      {
+                        "answer": "True"
+                      },
+                      {
+                        "answer": "False"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "multiChoice",
+                    "prompt": "Which of the following is NOT a common rule or requirement of community supervision?",
+                    "answers": [
+                      {
+                        "answer": "Paying supervision fees"
+                      },
+                      {
+                        "answer": "Avoiding contact with other people on supervision"
+                      },
+                      {
+                        "answer": "Going back to school"
+                      },
+                      {
+                        "answer": "Finding a job"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "multiChoice",
+                    "prompt": "Anger...",
+                    "answers": [
+                      {
+                        "answer": "Is something you should ignore or keep to yourself"
+                      },
+                      {
+                        "answer": "Is never a useful or helpful emotion"
+                      },
+                      {
+                        "answer": "Is a good way to get what you want in life"
+                      },
+                      {
+                        "answer": "Is ok if you learn to handle it properly"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "multiChoice",
+                    "prompt": "Making a very detailed list of things you need to do is a good way to keep yourself organized:",
+                    "answers": [
+                      {
+                        "answer": "True"
+                      },
+                      {
+                        "answer": "False"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "multiChoice",
+                    "prompt": "Which one of the tasks below is a leisure task?",
+                    "answers": [
+                      {
+                        "answer": "Checking in with your probation officer"
+                      },
+                      {
+                        "answer": "Joining a scrimmage basketball team"
+                      },
+                      {
+                        "answer": "Interviewing for a new job"
+                      },
+                      {
+                        "answer": "Doing the laundry"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "multiChoice",
+                    "prompt": "Following the rules and having good behavior while on supervision will…",
+                    "answers": [
+                      {
+                        "answer": "Get you into trouble in the long-run"
+                      },
+                      {
+                        "answer": "Cause you to go un-noticed by corrections staff"
+                      },
+                      {
+                        "answer": "Give staff and the judge a reason to support you and offer help"
+                      },
+                      {
+                        "answer": "Keep you on supervision longer"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "multiChoice",
+                    "prompt": "NOT planning pro-social leisure activities…",
+                    "answers": [
+                      {
+                        "answer": "Is a risk factor for returning to criminal activity"
+                      },
+                      {
+                        "answer": "Is helpful for reducing stress"
+                      },
+                      {
+                        "answer": "Is something you can’t do on supervision"
+                      },
+                      {
+                        "answer": "Is a common problem among law-abiding citizens"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "multiChoice",
+                    "prompt": " Of the people listed below, who would be “green”?",
+                    "answers": [
+                      {
+                        "answer": "Tyrell, who gets blackout drunk on the weekends"
+                      },
+                      {
+                        "answer": "Sandy, who drives you to your supervision appointments when you don’t have a ride"
+                      },
+                      {
+                        "answer": "Jimmy, your neighbor who is a nice guy but sold you weed before"
+                      },
+                      {
+                        "answer": "Roger, your buddy who jokes about how you’ll always be the same “player” he’s always known"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "multiChoice",
+                    "prompt": "Only medication from a doctor can cure sleep problems.",
+                    "answers": [
+                      {
+                        "answer": "True"
+                      },
+                      {
+                        "answer": "False"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "New",
+                    "prompt": "New",
+                    "answers": []
+                  }
+                ]
+              }
+        }    
+    ]
 }

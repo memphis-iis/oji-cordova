@@ -1,7 +1,6 @@
 Template.moduleCenter.helpers({
     'nextModule': function(){
         nextModule = Meteor.users.findOne({_id: Meteor.userId()}).nextModule;
-        console.log(nextModule);
         mod = Modules.findOne({order: nextModule})
         return mod;
     },

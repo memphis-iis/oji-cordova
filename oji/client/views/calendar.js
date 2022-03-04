@@ -122,7 +122,6 @@ Template.calendar.events({
         console.log(inputDate);
         time =  $('#time').val();
         var date = inputDate.split("-");
-        console.log(date);
         var day = parseInt(date[2]);
         var month = date[1] - 1;
         var year = parseInt(date[0]);
@@ -152,12 +151,10 @@ Template.calendar.events({
         const t = Template.instance();
         const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];
-        console.log(event.target.getAttribute('data-day'));
         if(event.target.getAttribute('data-day')){
             newDay = parseInt(event.target.getAttribute('data-day'));
             newMonth = parseInt(event.target.getAttribute('data-month'));
             newYear = parseInt(event.target.getAttribute('data-year'));
-            console.log(newDay,newMonth,newYear)
             t.displayMonthName.set(monthNames[newMonth]);
             t.displayMonth.set(newMonth);
             t.displayYear.set(newYear);
@@ -183,7 +180,6 @@ Template.calendar.events({
             if(newDay < 10) newDay = "0" + newDay;
             if(newMonth < 10) newMonth = "0" + (newMonth + 1);
             dateString = newYear + "-" + newMonth + "-" + newDay;
-            console.log(dateString);
             document.getElementById("date").value = dateString;
         }
         event.preventDefault();
@@ -244,7 +240,6 @@ Template.calendar.events({
             t.displayMonth.set(newMonth);
             newDay = newDaysInAMonth;
         }
-        console.log(newMonth,newDaysInAMonth);
         t.displayDay.set(newDay);
     },
     'click #increment-day': function(){

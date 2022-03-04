@@ -80,7 +80,6 @@ Meteor.startup(() => {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*'
         });
-        console.log(this.request.headers);
         username = this.request.headers['x-user-id'];
         loginToken = this.request.headers['x-auth-token'];
         user = Meteor.users.findOne({username: username});
@@ -88,8 +87,7 @@ Meteor.startup(() => {
         keys = user.api;
         now = new Date();
         expDate = keys.expires;
-        expDate.setDate(expDate.getDate());
-        console.log('date', now, expDate, keys.expires);
+        expDate.setDate(expDate.getDate())
         if(now < expDate){
             isTokenExpired = false;
         }
@@ -232,7 +230,6 @@ Meteor.methods({
                 });
                 const authors = Meteor.settings.public.authors;
                 var emailToVerify = Meteor.user().emails[0];
-                console.log(emailToVerify);
                 author = false;
                 if(authors.indexOf(emailAddr) !== -1){
                     author = true;
@@ -357,7 +354,6 @@ Meteor.methods({
         Meteor.users.upsert({_id: userId},{$set: {assigned: assignment}});
     },
     deleteAssessment: function(assessment){
-        console.log('Delete: ' + assessment);
         Assessments.remove({_id: assessment});
     },
     copyAssessment: function(input){
@@ -370,7 +366,6 @@ Meteor.methods({
         Assessments.insert(copiedAssessment);
     },
     deleteModule: function(module){
-        console.log('Delete: ' + module);
         Modules.remove({_id: module});
     },
     copyModule: function(input){
@@ -422,7 +417,6 @@ Meteor.methods({
         result = input.result
         curModule = Modules.findOne({_id: moduleId});
         text = "curModule." + field + "=" + result;
-        console.log(text);
         eval(text);
         Modules.update(moduleId, {$set: curModule});
     },
@@ -449,31 +443,25 @@ Meteor.methods({
         Assessments.update(assessmentId, {$set: assessment});
     },
     addAssessmentItem(input){
-        console.log(input);
         assessmentId = input.assessmentId;
         field = input.field;
         assessment = Assessments.findOne({_id: assessmentId});
         text = "assessment." + field;
-        console.log(text);
         newField = eval(text);
         if(typeof newField[0] === "object"){
             keys = Object.keys(newField[0]);
             newItem = {};
             for(i = 0; i < keys.length; i++){
                 text = "newField[i]." + keys[i];
-                console.log(text);
                 key = eval(text);
-                console.log(keys[i], typeof key);
                 subField = eval('newField[i].' + keys[i] );
                 if(typeof subField == 'string'){
                     text = 'newItem.' + keys[i] + '= \"New\"';
                     eval(text);
-                    console.log('evaltext',text)
                 }
                 if(typeof subField == "object"){
                     text = 'newItem.' + keys[i] + '= []';
                     eval(text);
-                    console.log('evaltext',text)
                 }
             }
             newField.push(newItem)
@@ -481,7 +469,6 @@ Meteor.methods({
         } else {
             newField.push('New');
         }
-        console.log(assessment);
         Assessments.upsert(assessmentId, {$set: assessment});
     },
     deleteModuleItem(input){
@@ -492,7 +479,6 @@ Meteor.methods({
         item = fieldParsed[fieldParsed.length - 1].split("[");
         index = item[1].substring(0, item[1].length - 1);
         index = parseInt(index);
-        console.log('delete:',moduleId, field);
         if(fieldParsed.length == 1){
             items = eval("curModule." + item[0])
         } else {
@@ -508,14 +494,12 @@ Meteor.methods({
         Modules.update(moduleId, {$set: curModule});
     },
     addModuleItem(input){
-        console.log(input);
         moduleId = input.moduleId;
         field = input.field;
         curModule = Modules.findOne({_id: moduleId});
         text = "curModule." + field;
         newField = eval(text);
         if(typeof newField !== "undefined" && typeof newField[0] !== "undefined"){
-            console.log("defined:" + newField);
             if(typeof newField[0] === "object"){
                 keys = Object.keys(newField[0]);
                 newItem = {};
@@ -672,7 +656,8 @@ Meteor.methods({
     saveModuleData: function (moduleData){
         ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
         nextModule = Meteor.users.findOne({_id: Meteor.userId()}).nextModule;
-        if(moduleData.pageId == 'completed'){
+        console.log("nextModule", nextModule, typeof nextModule);
+        if(moduleData.nextPage == 'completed'){
             nextModule++;
         }
         Meteor.users.upsert(Meteor.userId(), {
