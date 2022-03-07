@@ -64,6 +64,38 @@ Template.supervisorControlPanel.helpers({
             }
             return results;
     },
+    'assessments': function() {
+            console.log('test');
+            const t = Template.instance();
+            userId = t.selectedUser.get();
+            data = Trials.find({userId: userId}).fetch();
+            console.log(data.length);
+            results = [];
+            for(i = 0; i < data.length; i++){
+                console.log("data", data[i])
+                assessmentInfo = Assessments.findOne({_id: data[i].assessmentId})
+                console.log(assessmentInfo);
+                completed = false;
+                if(data[i].completed == "true"){
+                    completed = true;
+                }
+                dataToPush = {
+                    id: data[i]._id,
+                    lastAccessed: data[i].lastAccessed,
+                    title: assessmentInfo.title,
+                    lastPage: data[i].curQuestion || 0,
+                    totalPages : assessmentInfo.questions.length,
+                    percentDone: (data[i].curQuestion / assessmentInfo.questions.length * 100).toFixed(0),
+                    completed: completed
+                };
+                results.push(dataToPush);
+            }
+            console.log(results);
+            if(results.length == 0){
+                results = false;
+            }
+            return results;   
+        }
 });
 
 Template.supervisorControlPanel.events({
@@ -98,6 +130,7 @@ Template.supervisorControlPanel.events({
 Template.supervisorControlPanel.onCreated(function() {
     Meteor.subscribe('getUsersInOrg');
     Meteor.subscribe('assessments');
+    Meteor.subscribe('usertrials');
     Meteor.subscribe('getUserModuleResults');
     Meteor.subscribe('modules');
     this.selectedUser = new ReactiveVar("org");

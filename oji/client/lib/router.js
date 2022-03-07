@@ -244,7 +244,6 @@ Router.route('/signup/:_id', function(){
   })
 
 // route module results report
-//intro
 Router.route('/moduleReport/:_id', {
   subscriptions: function(){
     subs = [];
@@ -255,6 +254,23 @@ Router.route('/moduleReport/:_id', {
     if(Meteor.user()){
       if (Roles.userIsInRole(Meteor.user(), 'admin') || Roles.userIsInRole(Meteor.user(), 'supervisor')  ) {
         this.render('moduleReport');
+      }
+    } else {
+      this.render('/');
+    }
+  }
+});
+// route assessments results report
+Router.route('/assessmentReport/:_id', {
+  subscriptions: function(){
+    subs = [];
+    subs.push(Meteor.subscribe('getAssessmentsResultsByTrialId', this.params._id));
+    return subs;
+  },
+  action: function(){
+    if(Meteor.user()){
+      if (Roles.userIsInRole(Meteor.user(), 'admin') || Roles.userIsInRole(Meteor.user(), 'supervisor')  ) {
+        this.render('assessmentReport');
       }
     } else {
       this.render('/');

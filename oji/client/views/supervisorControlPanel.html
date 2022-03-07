@@ -52,7 +52,7 @@
     </table>
     <div class="row">
         <div class="col-4">
-            <h3>Module Results</h3>
+            <h3>User History</h3>
             <select id="user-select">
                 <option value="none">None</option>
             {{#each usersList}}
@@ -60,8 +60,34 @@
             {{/each}}
            </select><br><br>
             {{#if orgViewOn}}
-                 Module results can be seen when selecting an individual user  that you supervise.
+                 History can be seen when selecting an individual user  that you supervise.
             {{else}}
+            {{#if assessments}}
+            <table class="table" id="moduleList">
+                <thead>
+                    <th scope="col" width="40%">Date Last Accessed</th>
+                    <th scope="col" width="40%">Assessment</th>
+                    <th scope="col" width="15%">Progress</th>
+                    <th scope="col" width="5%">Results</th>
+                </thead>
+                <tbody>
+                    {{#each assessments}}
+                        <tr>
+                            <td>{{this.lastAccessed}}</td>
+                            <td>{{this.title}}</td>
+                            {{#if this.completed}}
+                            <td>Completed</td>
+                            {{else}}
+                            <td>Page {{this.lastPage}} of {{this.totalPages}} / {{this.percentDone}}% </td>
+                            {{/if}}
+                            <td><a href="/assessmentReport/{{this.id}}">Report</a></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+            No assessments have been started by this user.
+            {{/if}}
             {{#if modules}}
             <table class="table" id="moduleList">
                 <thead>

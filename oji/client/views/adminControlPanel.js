@@ -17,11 +17,17 @@ Template.adminControlPanel.helpers({
             data[i].status = "";
             data[i].orgView = true;
             if(org.newUserAssignments.includes(data[i]._id)){
-                data[i].status += "Assigned to new users.";
+                data[i].status += "Assigned to new users. ";
                 data[i].newUserRequired = true;
             } 
             if(data[i].owner == org._id){
                 data[i].status += "Created by your organization."
+                data[i].owned = true;
+            }
+            if(data[i].owner == false){
+                data[i].status += "Uploaded by App Administrator."
+            }
+            if(Meteor.user().author){
                 data[i].owned = true;
             }
         }
@@ -42,7 +48,23 @@ Template.adminControlPanel.helpers({
         return data;
     },
     'module': function(){
-        return Modules.find({});
+        data = Modules.find().fetch();
+        org = Orgs.findOne({_id: Meteor.user().organization});     
+        for(i = 0; i < data.length; i++){
+            data[i].status = "";
+            data[i].orgView = true;
+            if(data[i].owner == org._id){
+                data[i].status += "Created by your organization."
+                data[i].owned = true;
+            }
+            if(data[i].owner == false){
+                data[i].status += "Uploaded by App Administrator."
+            }
+            if(Meteor.user().author){
+                data[i].owned = true;
+            }
+        }
+          return data;
     },
 
     'organization': () => Orgs.findOne(),
@@ -209,6 +231,9 @@ Template.adminControlPanel.events({
     },
     'click #add-module': function (event){
         Meteor.call('createModule');
+    },
+    'click #add-assessment': function (event){
+        Meteor.call('createAssessment');
     }
 })
 

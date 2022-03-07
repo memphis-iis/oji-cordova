@@ -20,7 +20,7 @@ Template.moduleReport.helpers({
             if(modData.pages[resultsData.responses[i].pageId].questions[resultsData.responses[i].questionId].type != "combo"){
                 data = {
                     question: modData.pages[resultsData.responses[i].pageId].questions[resultsData.responses[i].questionId].prompt,
-                    answer: resultsData.responses[i].response[0]
+                    response: resultsData.responses[i].response[0]
                 }
                 responses.push(data)
             } else {
@@ -28,7 +28,7 @@ Template.moduleReport.helpers({
                 for(j = 0; j < comboQuestions.length; j++){
                     data = {
                         question: comboQuestions[j].text,
-                        answer: resultsData.responses[i].response[j]
+                        response: resultsData.responses[i].response[j]
                     }
                     responses.push(data);
                 }
