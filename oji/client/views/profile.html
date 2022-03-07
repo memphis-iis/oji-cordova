@@ -7,7 +7,12 @@
             <hr>
             <h3>{{assignment.title}}</h3>
             <p>{{assignment.description}}</p>
+            {{#if assignment.isAssessment}}
             <button id="startAssessment" data-assessment-id="{{assignment._id}}" class="startAssessment btn btn-primary startAssessment">Begin {{assignment.title}}</button>
+            {{/if}}
+            {{#if assignment.isModule}}
+            <button id="startModule" data-assessment-id="{{assignment._id}}" class="startModule btn btn-primary startAssessment">Begin {{assignment.title}}</button>
+            {{/if}}
         </div>
        {{else}}
        <h1>Hello there, {{currentUser.firstname}}.</h1>

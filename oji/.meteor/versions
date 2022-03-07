@@ -72,6 +72,8 @@ nimble:restivus@0.8.13
 npm-mongo@3.9.1
 observe-sequence@1.0.19
 ordered-dict@1.1.0
+ostrio:cookies@2.7.0
+ostrio:files@2.0.1
 promise@0.12.0
 random@1.2.0
 rate-limit@1.0.9

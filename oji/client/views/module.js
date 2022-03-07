@@ -147,6 +147,12 @@ Template.module.events({
         if(moduleData.nextPage >= Modules.findOne().pages.length){
             moduleData.nextPage = "completed";
             moduleData.nextQuestion = "completed";
+            index = user.assigned.findIndex(x => x.assignmentId === moduleId);
+            if(index != -1){
+                user.assigned.splice(index, 1);
+            }
+            user.assigned.splice(index, 1);
+            Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
             Meteor.call("saveModuleData", moduleData);
             target = "/module/" + Modules.findOne()._id + "/completed";
         } 

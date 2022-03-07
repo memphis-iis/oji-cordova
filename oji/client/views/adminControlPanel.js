@@ -1,3 +1,7 @@
+import { Template }    from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
+import { FilesCollection } from 'meteor/ostrio:files';
+
 Template.adminControlPanel.helpers({
     'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
 
@@ -6,7 +10,34 @@ Template.adminControlPanel.helpers({
     'author': function(){
         return Meteor.user().author;
     } ,
+    currentUpload() {
+        return Template.instance().currentUpload.get();
+    },
+    'assignments': function(){
+        data =  Orgs.findOne({_id: Meteor.user().organization}).newUserAssignments;
+        console.log(data);
+        for(i = 0; i < data.length; i++){
+            data.first = false;
+            data.last =  false;
+            if(data[i].type == "assessment"){
+                data[i] = Assessments.findOne({_id: data[i].assignment});
+            }
+            if(data[i].type == "module"){
+                data[i] = Modules.findOne({_id: data[i].assignment});
+            }
+            if(i == 0){
+                data[i].first = true;
+            }
+            if(i == data.length - 1){
+                data[i].last = true;
+            }
+        }
+        return data;
+    },
   
+    'files':  function(){
+        return Orgs.findOne({_id: Meteor.user().organization}).files;
+    },
     'assessments': function (){
       const t = Template.instance();
       userId = t.selectedUser.get();
@@ -16,7 +47,7 @@ Template.adminControlPanel.helpers({
         for(i = 0; i < data.length; i++){
             data[i].status = "";
             data[i].orgView = true;
-            if(org.newUserAssignments.includes(data[i]._id)){
+            if(org.newUserAssignments.findIndex(x => x.assignment === data[i]._id) > -1){
                 data[i].status += "Assigned to new users. ";
                 data[i].newUserRequired = true;
             } 
@@ -53,6 +84,10 @@ Template.adminControlPanel.helpers({
         for(i = 0; i < data.length; i++){
             data[i].status = "";
             data[i].orgView = true;
+            if(org.newUserAssignments.findIndex(x => x.assignment === data[i]._id) > -1){
+                data[i].status += "Assigned to new users. ";
+                data[i].newUserRequired = true;
+            } 
             if(data[i].owner == org._id){
                 data[i].status += "Created by your organization."
                 data[i].owned = true;
@@ -123,14 +158,37 @@ Template.adminControlPanel.events({
         event.preventDefault();
         org = Orgs.findOne({_id: Meteor.user().organization});
         assignment = $(event.target).data("assessment-id");
-        org.newUserAssignments.push(assignment);
+        data = {
+            type: "assessment",
+            assignment: assignment
+        }
+        org.newUserAssignments.push(data);
+        Meteor.call('changeAssignmentToNewUsers', org.newUserAssignments);
+    },
+    'click #assign-new-module': function(event){
+        event.preventDefault();
+        org = Orgs.findOne({_id: Meteor.user().organization});
+        assignment = $(event.target).data("module-id");
+        data = {
+            type: "module",
+            assignment: assignment
+        }
+        org.newUserAssignments.push(data);
         Meteor.call('changeAssignmentToNewUsers', org.newUserAssignments);
     },
     'click #unassign-new': function(event){
         event.preventDefault();
         org = Orgs.findOne({_id: Meteor.user().organization});
         assignment = $(event.target).data("assessment-id");
-        index = org.newUserAssignments.indexOf(assignment);
+        index = org.newUserAssignments.findIndex(x => x.assignment === assignment);
+        org.newUserAssignments.splice(index, 1);
+        Meteor.call('changeAssignmentToNewUsers', org.newUserAssignments);
+    },
+    'click #unassign-new-module': function(event){
+        event.preventDefault();
+        org = Orgs.findOne({_id: Meteor.user().organization});
+        assignment = $(event.target).data("module-id");
+        index = org.newUserAssignments.findIndex(x => x.assignment === assignment);
         org.newUserAssignments.splice(index, 1);
         Meteor.call('changeAssignmentToNewUsers', org.newUserAssignments);
     },
@@ -147,27 +205,7 @@ Template.adminControlPanel.events({
     },
     'click #close-alert': function(event){
         $('#alert').hide();
-        $('#alert-confirm').hide();
 
-    },
-    'click #unassign-one': function(event){
-        event.preventDefault();
-        const t = Template.instance();
-        userId = t.selectedUser.get();
-        user = Meteor.users.findOne({_id: userId});
-        assignment = $(event.target).data("assessment-id");
-        index = user.assigned.indexOf(assignment);
-        user.assigned.splice(index, 1);
-        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
-    },
-    'click #assign-one': function(event){
-        event.preventDefault();
-        const t = Template.instance();
-        userId = t.selectedUser.get();
-        user = Meteor.users.findOne({_id: userId});
-        assignment = $(event.target).data("assessment-id");
-        user.assigned.push(assignment);
-        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
     },
     'click #copy-assessment': function (event){
         assessment = $(event.target).data("assessment-id");
@@ -234,7 +272,60 @@ Template.adminControlPanel.events({
     },
     'click #add-assessment': function (event){
         Meteor.call('createAssessment');
-    }
+    },
+    'change #fileInput'(e, template) {
+        if (e.currentTarget.files && e.currentTarget.files[0]) {
+          // We upload only one file, in case
+          // multiple files were selected
+          const upload = Images.insert({
+            file: e.currentTarget.files[0],
+            chunkSize: 'dynamic'
+          }, false);
+    
+          upload.on('start', function () {
+            template.currentUpload.set(this);
+          });
+    
+          upload.on('end', function (error, fileObj) {
+            if (error) {
+              alert(`Error during upload: ${error}`);
+            } else {
+              alert(`File "${fileObj.name}" successfully uploaded`);
+              link = Images.link(fileObj);
+              fileName = fileObj.name;
+              Meteor.call('addFileToOrg',  link, fileName);
+            }
+            template.currentUpload.set(false);
+          });
+    
+          upload.start();
+        }
+    },
+    'click #delete-file': function (event){
+        event.preventDefault();
+        deletedFile = $(event.target).data("name");
+        Meteor.call('deleteFileFromOrg', deletedFile);
+    },
+    'click #moveup-assignment': function(event){
+        org = Orgs.findOne({_id: Meteor.user().organization});
+        index = $(event.target).data("index");
+        assigned = org.newUserAssignments;
+        a = assigned[index];
+        b = assigned[index - 1];
+        assigned[index] = b;
+        assigned[index - 1] = a;
+        Meteor.call('changeAssignmentToNewUsers', assigned);
+    },
+    'click #movedown-assignment': function(event){
+        org = Orgs.findOne({_id: Meteor.user().organization});
+        index = $(event.target).data("index");
+        assigned = org.newUserAssignments;
+        a = assigned[index];
+        b = assigned[index + 1];
+        assigned[index] = b;
+        assigned[index + 1] = a;
+        Meteor.call('changeAssignmentToNewUsers', assigned);
+    },
 })
 
 Template.adminControlPanel.onCreated(function() {
@@ -244,4 +335,5 @@ Template.adminControlPanel.onCreated(function() {
     Meteor.subscribe('getUserModuleResults');
     Meteor.subscribe('modules');
     this.selectedUser = new ReactiveVar("org");
+    this.currentUpload = new ReactiveVar(false);
 })

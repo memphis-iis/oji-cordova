@@ -52,7 +52,7 @@
     </table>
     <div class="row">
         <div class="col-4">
-            <h3>User History</h3>
+            <h3>User Flow</h3>
             <select id="user-select">
                 <option value="none">None</option>
             {{#each usersList}}
@@ -60,8 +60,71 @@
             {{/each}}
            </select><br><br>
             {{#if orgViewOn}}
-                 History can be seen when selecting an individual user  that you supervise.
+                 User Flow can be seen when selecting an individual user  that you supervise.
             {{else}}
+            <h4>Assignments</h4>
+            {{#if assignments}}
+            <table class="table" id="assessmentList">
+                <thead>
+                    <th scope="col" width="50%">Module/Assignment</th>
+                    <th scope="col" width="50%">Actions</th>
+                </thead>
+                <tbody>
+                {{#each assignments}}
+                    <tr>
+                        <td>{{this.title}}</td>
+                        <td>
+                            {{#if this.first}}
+                            {{else}}
+                            <a id="moveup-assignment" data-index="{{@index}}">Move Up</a><br>
+                            {{/if}}
+                            {{#if this.last}}
+                            {{else}}
+                            <a id="movedown-assignment" data-index="{{@index}}">Move Down</a><br>
+                            {{/if}}
+                            <a id="unassign-assignment" data-assignment-id="{{this.assignment}}">Unassign</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+                No assignments for this user.
+            {{/if}}
+            <h4>Available Assessments</h4>
+            {{#if assessmentsAvailable}}
+            <table class="table" id="assessmentList">
+                <thead>
+                    <th scope="col" width="70%">Assessment</th>
+                    <th scope="col" width="30%">Actions</th>
+                </thead>
+                <tbody>
+                {{#each assessmentsAvailable}}
+                    <tr>
+                        <td>{{this.title}}</td>
+                        <td><a id="assign-assessment" data-assessment-id="{{this._id}}">Assign to User</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+            <h4>Available Modules</h4>
+            {{#if modulesAvailable}}
+            <table class="table" id="assessmentList">
+                <thead>
+                    <th scope="col" width="70%">Module</th>
+                    <th scope="col" width="30%">Actions</th>
+                </thead>
+                <tbody>
+                {{#each modulesAvailable}}
+                    <tr>
+                        <td>{{this.title}}</td>
+                        <td><a id="assign-module" data-module-id="{{this._id}}">Assign to User</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+            <h4>History</h4>
             {{#if assessments}}
             <table class="table" id="moduleList">
                 <thead>
@@ -86,7 +149,7 @@
                 </tbody>
             </table>
             {{else}}
-            No assessments have been started by this user.
+            No assessments have been started by this user.<br>
             {{/if}}
             {{#if modules}}
             <table class="table" id="moduleList">

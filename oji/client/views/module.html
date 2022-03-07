@@ -12,13 +12,13 @@
         <h3><b>{{page.header}}</b></h3>
         <h4><b>{{page.subheader}}</b></h4>
         {{#if page.imageAbove}}
-            <img src="/{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+            <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             <br>
         {{/if}}
         <p id="pageText">{{{page.text}}}</p>
         <br>
         {{#if page.imageBelow}}
-            <img src="/{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+            <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             <br>
         {{/if}}
         <button id="contine" class="btn btn-primary continue">Save and Continue</button>
@@ -27,7 +27,7 @@
             <h3><b>Activity: {{page.header}}</b></h3>
             <h5>Question {{questionid}}</h5>
             {{#if question.promptImg}}
-            <img src="/{{question.promptImg}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+            <img src="{{question.promptImg}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             {{/if}}
             {{#if question.typeBlank}}
                 <h3>{{{question.prompt}}}</h3><br>
@@ -49,7 +49,13 @@
             <h3>{{{question.prompt}}}</h3><br>
             <form>
                 {{#each question.answers}}
-                <button  class="btn btn-secondary text-nowrap btn-lg btn-block multichoice continue" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{this.value}}" name="">{{this.answer}}</button>
+                    {{#if this.image}}
+                    <button  class="btn btn-secondary text-nowrap btn-lg btn-block multichoice continue" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{this.value}}" name="">
+                        <img class="img-responsive center-block" src="{{this.image}}" alt="Your Alt Text">
+                    </button>
+                    {{else}}
+                     <button  class="btn btn-secondary text-nowrap btn-lg btn-block multichoice continue" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{this.value}}" name="">{{this.answer}}</button>
+                     {{/if}}
                 {{/each}}
             </form>
             <br>
@@ -72,7 +78,13 @@
                     {{#if this.typeMultiChoice}}
                     <h3>{{this.text}}</h3>
                         {{#each this.answers}}
+                        {{#if this.image}}
+                        <button  class="btn btn-secondary  text-nowrap btn-lg btn-block multichoice combo" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{@index}}" name="">
+                            <img class="img-responsive center-block" src="{{this.image}}" alt="Your Alt Text">
+                        </button>
+                        {{else}}
                         <button  class="btn btn-secondary  text-nowrap btn-lg btn-block multichoice combo" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{@index}}" name="">{{this.answer}}</button>
+                        {{/if}}
                         {{/each}}
                     {{/if}}
                     <br>

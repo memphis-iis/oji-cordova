@@ -3,6 +3,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
 import { calculateScores } from './subscaleCalculations.js';
 import { Push } from 'meteor/activitree:push';
+import { FilesCollection } from 'meteor/ostrio:files';
 
 const SEED_ADMIN = {
     username: 'testAdmin',
@@ -67,11 +68,16 @@ const SEED_ROLES = ['user', 'supervisor', 'admin']
 
 //Configure Push Notifications
 serviceAccountData = null;
-
+//Public Dynamic Assets
 
 
 Meteor.startup(() => {
-    
+    if (Meteor.isServer) {
+        Meteor.publish('files.images.all', function () {
+          return Images.find().cursor;
+        });
+    }
+
     //Iron Router Api
     Router.route('/api',{
     where: "server",
@@ -266,11 +272,27 @@ Meteor.methods({
             throw new Meteor.Error ('user-already-exists', `User ${user} already exists`);
         }
     },
-    createOrganization: function(newOrgName, newOrgOwner, newOrgDesc){
+    createOrganization: function(newOrgName, newOrgOwner, newOrgDesc, useDefaultFlow){
         allAssessments = Assessments.find().fetch();
+        allModules = Modules.find().fetch();
         newUserAssignments = [];
-        for(i=0; i<allAssessments.length; i++){
-            newUserAssignments.push(allAssessments[i]._id);
+        if(useDefaultFlow){
+            for(i=0; i<allAssessments.length; i++){
+                assessment = allAssessments[i]._id;
+                data = {
+                    assignment: assessment,
+                    type: "assessment"
+                }
+                newUserAssignments.push(data);
+            }
+            for(i=0; i<allModules.length; i++){
+                modules = allModules[i]._id;
+                data = {
+                    assignment: modules,
+                    type: "module"
+                }
+                newUserAssignments.push(data);
+            }
         }
         Orgs.insert({
             orgName: newOrgName,
@@ -780,6 +802,29 @@ Meteor.methods({
     deleteEvent: function(eventId){
         Events.remove({_id: eventId})
     },
+    addFileToOrg: function(filePath, fileName){
+        org = Orgs.findOne({_id: Meteor.user().organization});
+        console.log(org);
+        if(typeof org.files === "undefined"){
+            org.files = [];
+        }
+        image = Images.findOne({})
+        data = {
+            filePath: filePath,
+            name: fileName,
+            dateUploaded: Date.now()
+        }
+        org.files.push(data);
+        Orgs.update({_id: Meteor.user().organization}, {$set: {files: org.files} })
+    },
+    deleteFileFromOrg: function(fileName){
+        Images.remove({name: fileName})
+        org = Orgs.findOne({_id: Meteor.user().organization});
+        orgFiles = org.files
+        index = orgFiles.findIndex(x => x.name === fileName);
+        orgFiles.splice(index, 1);
+        Orgs.update({_id: Meteor.user().organization}, {$set: {files: orgFiles} })
+    }
 });
 
 //Server Methods

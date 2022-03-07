@@ -7,6 +7,7 @@ Template.DefaultLayout.onCreated(function() {
 })
 
 Meteor.startup(() => {
+  Meteor.subscribe('files.images.all');
   if (Meteor.isCordova) {
     // Check cordova-push-plugin for all options supported.
     // The configuration object is used to initialize Cordova Push on the device.

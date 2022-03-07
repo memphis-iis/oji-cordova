@@ -8,10 +8,11 @@ Template.assessment.helpers({
             Meteor.call('clearAssessmentProgress');
             userId = Meteor.userId();
             user = Meteor.users.findOne({_id: userId});
-            index = user.assigned.indexOf(assessment._id);
+            index = user.assigned.findIndex(x => x.assignmentId === assessment._id);
             if(index != -1){
                 user.assigned.splice(index, 1);
             }
+            user.assigned.splice(index, 1);
             Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
             return true;
         } else {
@@ -91,7 +92,8 @@ Template.assessment.events({
             questionId: curQuestion,
             response: selectedAnswer,
             responseValue: selectedAnswerValue,
-            subscales: subscales || ""
+            subscales: subscales || "",
+            nextQuestion: curQuestion
         }
 
         Meteor.call('saveAssessmentData', data);

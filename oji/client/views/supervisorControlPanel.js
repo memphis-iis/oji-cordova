@@ -95,6 +95,36 @@ Template.supervisorControlPanel.helpers({
                 results = false;
             }
             return results;   
+        },
+        'assessmentsAvailable': function() {
+            data = Assessments.find().fetch();
+            return data;
+        },
+        'modulesAvailable': function() {
+            data = Modules.find().fetch();
+            return data;
+        },
+        'assignments': function(){
+            user = Meteor.users.findOne({_id: userId});
+            data = user.assigned;
+            console.log(data);
+            for(i = 0; i < data.length; i++){
+                data.first = false;
+                data.last =  false;
+                if(data[i].type == "assessment"){
+                    data[i] = Assessments.findOne({_id: data[i].assignment});
+                }
+                if(data[i].type == "module"){
+                    data[i] = Modules.findOne({_id: data[i].assignment});
+                }
+                if(i == 0){
+                    data[i].first = true;
+                }
+                if(i == data.length - 1){
+                    data[i].last = true;
+                }
+            }
+            return data;
         }
 });
 
@@ -124,6 +154,72 @@ Template.supervisorControlPanel.events({
         const t = Template.instance();
         t.selectedUser.set(event.target.value);
         $('#user-select').val(t.selectedUser.get())
+    },
+    'click #unassign-assignment': function(event){
+        event.preventDefault();
+        const t = Template.instance();
+        userId = t.selectedUser.get();
+        user = Meteor.users.findOne({_id: userId});
+        assignment = $(event.target).data("assessment-id");
+        index = user.assigned.findIndex(x => x.assignmentId === assignment);
+        user.assigned.splice(index, 1);
+        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+    },
+    'click #assign-assessment': function(event){
+        event.preventDefault();
+        const t = Template.instance();
+        userId = t.selectedUser.get();
+        user = Meteor.users.findOne({_id: userId});
+        newAssignmentId = $(event.target).data("assessment-id");
+        assignment = {
+            assignment:  newAssignmentId,
+            type: "assessment"
+        }
+        user.assigned.push(assignment);
+        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+    },
+    'click #assign-module': function(event){
+        event.preventDefault();
+        const t = Template.instance();
+        userId = t.selectedUser.get();
+        user = Meteor.users.findOne({_id: userId});
+        newAssignmentId = $(event.target).data("module-id");
+        assignment = {
+            assignment:  newAssignmentId,
+            type: "module"
+        }
+        user.assigned.push(assignment);
+        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+    },
+    'click #moveup-assignment': function(event){
+        event.preventDefault();
+        const t = Template.instance();
+        userId = t.selectedUser.get();
+        user = Meteor.users.findOne({_id: userId});
+        index = $(event.target).data("index");
+        assigned = user.assigned;
+        a = assigned[index];
+        b = assigned[index - 1];
+        console.log(index,a,b);
+        assigned[index] = b;
+        assigned[index - 1] = a;
+        user.assigned = assigned;
+        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+    },
+    'click #movedown-assignment': function(event){
+        event.preventDefault();
+        const t = Template.instance();
+        userId = t.selectedUser.get();
+        user = Meteor.users.findOne({_id: userId});
+        index = $(event.target).data("index");
+        assigned = user.assigned;
+        a = assigned[index];
+        b = assigned[index  + 1];
+        console.log(index,a,b);
+        assigned[index] = b;
+        assigned[index + 1] = a;
+        user.assigned = assigned;
+        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
     },
 })
 

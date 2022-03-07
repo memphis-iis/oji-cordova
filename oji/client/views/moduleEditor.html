@@ -80,7 +80,8 @@
         <table class="table" id="questionList">
             <thead>
                 <th scope="col" width="10%">Type</th>
-                <th scope="col" width="70%">Prompt/Text/Answer</th>
+                <th scope="col" width="50%">Prompt/Text/Answer</th>
+                <th scope="col" width="20%">Image</th>
                 <th scope="col" width="20%">Actions</th>
             </thead>
             <tbody>
@@ -97,7 +98,10 @@
                         </div>
                     </td>
                     <td>
-                        {{this.prompt}}<a id="open-editor" data-field="pages[{{this.parent}}].questions[{{@index}}].prompt" data-value="{{this.prompt}}"> Edit</a><br>
+                        {{this.prompt}}<a id="open-editor" data-field="pages[{{this.parent}}].questions[{{@index}}].image" data-value="{{this.image}}"> Edit</a><br>
+                    </td>
+                    <td>
+                        {{this.image}}<a id="open-editor" data-field="pages[{{this.parent}}].questions[{{@index}}].image" data-value="{{this.image}}"> Edit</a><br>
                     </td>
                     <td>
                         <a id="delete-item" data-field="pages[{{this.parent}}].questions[{{@index}}]">Delete</a>
@@ -129,6 +133,11 @@
                             </div>
                         </td>
                         <td>
+                            <div id="pages[{{this.page}}]-questions[{{this.parent}}]-fields[{{@index}}]-image">
+                                {{this.text}}<a id="open-editor" data-field="pages[{{this.page}}].questions[{{this.parent}}].fields[{{@index}}].image" data-value="{{this.image}}"> Edit</a><br>
+                            </div>
+                        </td>
+                        <td>
                             <a id="delete-item" data-field="pages[{{this.page}}].questions[{{this.parent}}].fields[{{@index}}]">Delete</a>
                             {{#if this.isMultiChoice}}
                             <br> <a id="add-item" data-field="pages[{{this.page}}].questions[{{this.parent}}].fields[{{@index}}].answers">Add Choice</a>
@@ -148,6 +157,9 @@
                                     </div>
                                 </td>
                                 <td>
+                                    <img src="{{this.image}}" style="max-width:40px;"><a id="open-editor" data-field="pages[{{this.parent}}].questions[{{@index}}].image" data-value="{{this.image}}"> Edit</a><br>
+                                </td>
+                                <td>
                                     <a id="delete-item" data-field="pages[{{this.page}}].questions[{{this.question}}].fields[{{this.parent}}].answers[{{@index}}]">Delete</a>
                                 </td>
                             </tr>
@@ -163,6 +175,9 @@
                         </td>
                         <td>
                             {{this.answer}}<a id="open-editor" data-field="pages[{{this.page}}].questions[{{this.parent}}].answers[{{@index}}].answer" data-value="{{this.answer}}"> Edit</a><br>
+                        </td>
+                        <td>
+                            <img src="{{this.image}}" style="max-width:40px;"><a id="open-editor" data-field="pages[{{this.page}}].questions[{{this.parent}}].answers[{{@index}}].image" data-value="{{this.image}}"> Edit</a><br>
                         </td>
                         <td>
                             <a id="delete-item" data-field="pages[{{this.page}}].questions[{{this.parent}}].answers[{{@index}}]">Delete</a>
