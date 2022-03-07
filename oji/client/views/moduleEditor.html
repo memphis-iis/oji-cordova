@@ -133,9 +133,7 @@
                             </div>
                         </td>
                         <td>
-                            <div id="pages[{{this.page}}]-questions[{{this.parent}}]-fields[{{@index}}]-image">
-                                {{this.text}}<a id="open-editor" data-field="pages[{{this.page}}].questions[{{this.parent}}].fields[{{@index}}].image" data-value="{{this.image}}"> Edit</a><br>
-                            </div>
+
                         </td>
                         <td>
                             <a id="delete-item" data-field="pages[{{this.page}}].questions[{{this.parent}}].fields[{{@index}}]">Delete</a>
@@ -157,7 +155,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <img src="{{this.image}}" style="max-width:40px;"><a id="open-editor" data-field="pages[{{this.parent}}].questions[{{@index}}].image" data-value="{{this.image}}"> Edit</a><br>
+                                    <img src="{{this.image}}" style="max-width:40px;"><a id="open-editor" data-field="pages[{{this.page}}].questions[{{this.question}}].fields[{{this.parent}}].answers[{{@index}}].image" data-value="{{this.image}}"> Edit</a><br>
                                 </td>
                                 <td>
                                     <a id="delete-item" data-field="pages[{{this.page}}].questions[{{this.question}}].fields[{{this.parent}}].answers[{{@index}}]">Delete</a>
