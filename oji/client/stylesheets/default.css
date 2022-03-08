@@ -75,7 +75,7 @@ input, option, textarea {
 .tab{
     background-color: rgba(0, 0, 0, 0.5);
 }
-.login input{
+.login input, .code input{
     background-color: rgba(0, 0, 0, 0.5);
     border-color: #e26b4d;
     border-radius: 50px;

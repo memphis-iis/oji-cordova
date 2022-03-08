@@ -27,7 +27,10 @@ Template.signup.events({
             }
         })
     },
-    
+    'click #home-route': function() {
+        event.preventDefault();
+        Router.go('/')
+    }
 });
 
 

@@ -311,7 +311,7 @@ Meteor.methods({
     },
     generateInvite: function(supervisorId){
         var link = '';
-        var length = 16;
+        var length = 5;
         var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
         var unique = false;

@@ -19,7 +19,8 @@ Router.configure({
 const defaultBehaviorRoutes = [
   'login',
   'signup',
-  'restricted'
+  'restricted',
+  'code'
 ];
 
 //Set Up Logged In Restricted Routes 
@@ -243,6 +244,7 @@ Router.route('/signup/:_id', function(){
         data: {
           orgName: targetOrgName,
           supervisorName: targetSupervisorName,
+          supervisorId: targetSupervisorId,
           linkId: id
         }
       });

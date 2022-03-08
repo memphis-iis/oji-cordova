@@ -35,6 +35,8 @@ Template.supervisorControlPanel.helpers({
 
         'orgLink': () => window.location.protocol + "//" + window.location.host + "/signup/" + Meteor.user().supervisorInviteCode,
 
+        'orgCode': () => Meteor.user().supervisorInviteCode,
+
         'modules': function() {
             const t = Template.instance();
             userId = t.selectedUser.get();

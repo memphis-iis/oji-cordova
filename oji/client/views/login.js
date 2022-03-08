@@ -14,5 +14,9 @@ Template.login.events({
     'click #signup-submit': function() {
         event.preventDefault();
         Router.go('/signup')
+    },
+    'click #code-submit': function() {
+        event.preventDefault();
+        Router.go('/code')
     }
 })
