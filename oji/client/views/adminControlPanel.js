@@ -36,7 +36,14 @@ Template.adminControlPanel.helpers({
     },
   
     'files':  function(){
-        return Orgs.findOne({_id: Meteor.user().organization}).files;
+        files = Orgs.findOne({_id: Meteor.user().organization}).files;
+        for(i = 0; i < files.length; i++){
+            files[i].isImage = false;
+            if(files[i].type.includes("image")){
+                files[i].isImage = true;
+            }
+        }
+        return files;
     },
     'assessments': function (){
       const t = Template.instance();
@@ -207,6 +214,14 @@ Template.adminControlPanel.events({
         $('#alert').hide();
 
     },
+    'click #close-files-alert': function(event){
+        $('#alert-files').hide();
+
+    },
+    'click #close-mods-alert': function(event){
+        $('#alert-mods').hide();
+
+    },
     'click #copy-assessment': function (event){
         assessment = $(event.target).data("assessment-id");
         newOwner = Meteor.user().organization;
@@ -293,7 +308,8 @@ Template.adminControlPanel.events({
               alert(`File "${fileObj.name}" successfully uploaded`);
               link = Images.link(fileObj);
               fileName = fileObj.name;
-              Meteor.call('addFileToOrg',  link, fileName);
+              type = fileObj.type;
+              Meteor.call('addFileToOrg',  link, fileName, type);
             }
             template.currentUpload.set(false);
           });
@@ -304,7 +320,19 @@ Template.adminControlPanel.events({
     'click #delete-file': function (event){
         event.preventDefault();
         deletedFile = $(event.target).data("name");
+        $('#alert-files').show();
+        $('#alert-files').removeClass();
+        $('#alert-files').addClass("alert alert-danger");
+        $('#alert-files-p').html("This cannot be undone." + deletedFile + " will be permanently deleted. Did you make a backup?");
+        $('#alert-files-confirm').attr('name', deletedFile);
+        $('#alert-files-confirm').addClass("confirm-delete-file");
+    },
+    'click .confirm-delete-file': function (event){
+        event.preventDefault();
+        deletedFile = $(event.target).data("name");
         Meteor.call('deleteFileFromOrg', deletedFile);
+        $('#alert-files-confirm').removeAttr('module-id');
+        $('#alert-files').hide();
     },
     'click #moveup-assignment': function(event){
         org = Orgs.findOne({_id: Meteor.user().organization});

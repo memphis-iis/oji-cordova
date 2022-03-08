@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <title>oji_app</title>
+  <title>oji_app&#8480;</title>
   <style>
     body {
         /* Handle fixed navbars at bottom of page */
@@ -18,11 +18,11 @@
 <template name="DefaultLayout">
   <div>
     {{#if currentUser }}
-  <nav class="navbar navbar-light bg-light navbar-fixed-top" style="background-color:white; box-shadow: 0 4px 2px -2px gray;">
+  <nav class="navbar navbar-light bg-light navbar-fixed-top">
     <div class="container">
       <ul class="nav nav-pills nav-fill justify-content-right">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/profile">Oji {{#if organization}}/ {{organization.orgName}} {{/if}}</a>
+          <a class="nav-link active" aria-current="page" href="/profile"><img id="logo-color" src="/logo.png" style="max-width:40px;"> &#8480;{{#if organization}} | <span class="orgLogo">{{organization.orgNameTruncated}}</span> {{/if}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/profile"><span class="glyphicon glyphicon-home"></span></a>
@@ -34,7 +34,7 @@
         <li>
           <a class="nav-link active" aria-current="page" href="/control-panel"><span class="glyphicon glyphicon-cog"></span></a>
         </li>
-\        {{else}}
+        {{else}}
         {{#if currentUser.assigned}}
         {{else}}
         <li class="nav-item">
@@ -46,14 +46,18 @@
         {{/if}}
         {{/if}}
         <li class="nav-item">
-          <a class="nav-link active" id="logoutButton" aria-current="page" href="logout"><span class=" glyphicon glyphicon-log-out"></span></a>
+          <a class="nav-link active" id="logoutButton" href="/logout" aria-current="page"><span class=" glyphicon glyphicon-log-out"></span></a>
         </li>
       </ul>
     </div>
   </nav>
   {{/if}}
-  <div class="container" style="padding-top: 30px;">
+  <div class="container" id="container-yield">
     {{> yield}}
   </div>
+  </div>
+  <div id="footer">
+    <p>{{footer.copyright}}</p>
+    <p>{{footer.message}}</p>
   </div>
   </template>  

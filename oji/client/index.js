@@ -47,12 +47,17 @@ Meteor.startup(() => {
     })
   }
 })
-
+Template.DefaultLayout.helpers({
+  'footer': function(){
+      footer.copyright = "Copyright 2022";
+      footer.message = "Oji is a collaboration between the University of Memphis, The Institute for Intelligent Systems, and the University of Southern Mississippi."
+      return footer;
+  }
+})
 Template.DefaultLayout.events({
   'click #logoutButton': function(event) {
     event.preventDefault();
-    Meteor.logout();
-    Router.go("/");
+    Router.go("/logout");
   },
 
   'click #navbar-brand': function(event){
@@ -62,5 +67,19 @@ Template.DefaultLayout.events({
 });
 
 Template.DefaultLayout.helpers({
-  'organization': () => Orgs.findOne(),
+  'organization': function () {
+     orgs = Orgs.findOne();
+     orgSplit = orgs.orgName.split(" ");
+     newOrgName = orgs.orgName;
+     if(orgSplit.length > 1){
+        newOrgName = "";
+        for(i = 0; i < Math.max(orgSplit.length - 1, 2); i++){
+          newOrgName += orgSplit[i].charAt(0);
+        }
+     } else {
+        newOrgName = orgs.orgName.substring(0,Math.min(3, orgs.orgName.length));
+     }
+     orgs.orgNameTruncated = newOrgName;
+     return orgs;
+  }
 });

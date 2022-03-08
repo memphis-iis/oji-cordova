@@ -178,15 +178,28 @@
             </table>
         <h3>Assets Available</h3>
         {{#if files}}
+        <div id="alert-files" class="alert" role="alert" hidden>
+            <span id="alert-files-p"></span>
+            <button id="alert-files-confirm" class="btn btn-caution" hidden>Confirm</button>
+            <button id="close-files-alert" class="btn btn-caution">Close</button>
+          </div>
         <table class="table" id="assessmentList">
             <thead>
-                <th scope="col" width="80%">File</th>
+                <th scope="col" width="40%">File</th>
+                <th scope="col" width="20%">Type</th>
+                <th scope="col" width="20%">Preview</th>
                 <th scope="col" width="20%">Action</th>
             </thead>
                 {{#each files}}
                 <tr>
                     <td>
                         <a href="{{this.filePath}}" target="_new">{{this.name}}</a>
+                    </td>
+                    <td>
+                        {{this.type}}
+                    </td>
+                    <td>
+                        {{#if this.isImage}}<img src="{{this.filePath}}" class="img-responsive" style="max-width: 80px;">{{/if}}
                     </td>
                     <td>
                         <a id="delete-file" data-name="{{this.name}}">Delete</a>

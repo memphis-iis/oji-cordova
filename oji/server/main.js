@@ -802,7 +802,7 @@ Meteor.methods({
     deleteEvent: function(eventId){
         Events.remove({_id: eventId})
     },
-    addFileToOrg: function(filePath, fileName){
+    addFileToOrg: function(filePath, fileName,type){
         org = Orgs.findOne({_id: Meteor.user().organization});
         console.log(org);
         if(typeof org.files === "undefined"){
@@ -812,6 +812,7 @@ Meteor.methods({
         data = {
             filePath: filePath,
             name: fileName,
+            type: type,
             dateUploaded: Date.now()
         }
         org.files.push(data);

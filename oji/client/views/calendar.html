@@ -1,6 +1,6 @@
 <template name="calendar">
     <div>
-        <ul class="nav nav-pills justify-content-center">
+        <ul class="nav nav-pills justify-content-center nav-calendar" style>
             <li class="nav-item">
             <a class="nav-link active" id="toggle-month-view" aria-current="page" href="#">Month View</a>
             </li>
@@ -15,7 +15,7 @@
     <div class="row text-center" id="month-view">
         <h3>{{calendar.Month}} / {{calendar.Year}}</h3>
         <p>
-            <ul class="nav nav-pills justify-content-center">
+            <ul class="nav nav-pills justify-content-center nav-calendar">
                 <li class="nav-item">
                     <a href="#" class="nav-link" id="decrement-month">Previous Month</a>
                 </li>
@@ -46,7 +46,7 @@
                     {{#each this.days}}
                         {{#if this.display}}
                         {{#if this.today}}
-                        <td class="text-align-top text-align-left" style="background-color:rgb(201, 235, 252);">
+                        <td class="text-align-top text-align-left calendar-today">
                             {{#if hasEvents}}
                             <h5>
                                 <a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">
@@ -81,7 +81,7 @@
                         </td>
                         {{/if}}
                         {{else}}
-                        <td style="background-color:rgb(244, 250, 253)">
+                        <td class="no-calendar-day">
                         </td>
                         {{/if}}
                     {{/each}}
@@ -92,7 +92,7 @@
     </div>
     <div class="row" id="agenda-view" hidden>
         <h3 class="text-center">{{agenda.monthName}} {{agenda.day}}, {{agenda.year}}</h3>
-        <ul class="nav nav-pills justify-content-center">
+        <ul class="nav nav-pills justify-content-center nav-calendar">
             <li class="nav-item">
                 <a href="#" class="nav-link"  id="decrement-day">Previous</a>
             </li>

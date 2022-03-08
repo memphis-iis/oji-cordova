@@ -67,6 +67,12 @@ Router.route('/', function () {
   this.render('home');
 });
 
+//setup logout
+Router.route('/logout', function(){
+  Meteor.logout();
+  this.render('home');
+})
+
 // admin control panel route
 Router.route('/control-panel', function () {
   if(Meteor.user()){

@@ -1,7 +1,11 @@
 <template name="userAssessmentReportLanding">
     <div class="assessment-report-container">
+        <h1>Report Center</h1>
+        {{#if trialsList}}
+        <p class="lead mb-4">Below are a list of the results of assessments you have completed.</p>
         <table class="table" id="UserListTable">
             <thead>
+                
             <tr>
                 <th scope="col" width="30%">Trial</th>
                 <th scope="col" width="30%">Last Taken</th>
@@ -25,5 +29,8 @@
                 {{/each}}
             </tbody>
         </table>
+        {{else}}
+        <p class="lead mb-4">No trials have been completed.</p>
+        {{/if}}
     </div>
 </template>

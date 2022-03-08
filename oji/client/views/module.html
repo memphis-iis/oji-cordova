@@ -1,6 +1,6 @@
 <template name="module">
     <div class="px-4 py-5 my-5 text-center">
-       <h1>{{module.title}}</h1>
+       <h3>{{module.title}}</h3>
        {{#if this.pageId}}
        {{#if completed}}
             <p>You have completed this module!</p>
@@ -105,7 +105,7 @@
        {{else}}
             <p>{{module.description}}</p>
             <button class="btn btn-primary" id="startModule">Lets Begin!</button>
-            <button class="btn" id="goBack">I'm not ready.</button>
+            <button class="btn btn-caution" id="goBack">I'm not ready.</button>
         {{/if}}
     </div>
 </template>
