@@ -22,7 +22,7 @@
     <div class="container">
       <ul class="nav nav-pills nav-fill justify-content-right">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/profile"><img id="logo-color" src="/logo.png" style="max-width:40px;"> &#8480;{{#if organization}} | <span class="orgLogo">{{organization.orgNameTruncated}}</span> {{/if}}</a>
+          <a class="nav-link active" aria-current="page" href="/profile"><img id="logo-color" src="/logo.png" style="max-width:40px;">{{#if organization}} | <span class="orgLogo">{{organization.orgNameTruncated}}</span> {{/if}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/profile"><span class="glyphicon glyphicon-home"></span></a>
@@ -36,10 +36,10 @@
         </li>
         {{else}}
         {{#if currentUser.assigned}}
-        {{else}}
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/calendar"><span class="glyphicon glyphicon-calendar"></span></a>
         </li>
+        {{else}}
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/userAssessmentReport"><span class="glyphicon glyphicon-dashboard"></span></a>
         </li>
