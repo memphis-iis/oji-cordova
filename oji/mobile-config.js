@@ -6,18 +6,13 @@ App.info({
     author: 'UofM Institute for Intelligent Systems'
   });
   
+
   // Set PhoneGap/Cordova preferences.
-  App.setPreference('BackgroundColor', '0xff0000ff');
-  App.setPreference('HideKeyboardFormAccessoryBar', true);
-  App.setPreference('Orientation', 'default');
-  App.setPreference('Orientation', 'all', 'ios');
-  
-  App.configurePlugin('phonegap-plugin-push', {
-    SENDER_ID: 'xxxxxxxxxxxxxxxx'
-  })
-  
+  App.accessRule('*');
   App.appendToConfig(`
   <platform name="android">
-      <resource-file target="google-services.json" src="./resources/android/google-services.json"/>
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+     <application android:usesCleartextTraffic="true" />
+    </edit-config>
   </platform>
   `)
