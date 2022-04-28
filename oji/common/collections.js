@@ -8,6 +8,7 @@ Trials = new Mongo.Collection('trials');
 Modules = new Mongo.Collection('modules');
 ModuleResults = new Mongo.Collection('modresults');
 Events = new Mongo.Collection('events');
+Journals = new Mongo.Collection('journals');
 
 //Init DynamicAssets Collection
 Images = new FilesCollection({

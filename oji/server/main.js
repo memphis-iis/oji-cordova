@@ -802,6 +802,18 @@ Meteor.methods({
     deleteEvent: function(eventId){
         Events.remove({_id: eventId})
     },
+    addEntry: function(text){
+        dateReadable = new Date().toISOString().slice(0, 10);
+        Journals.insert({
+            date: dateReadable,
+            unixDate: Date.now(),
+            text: text,
+            createdBy: this.userId
+        })
+    },
+    deleteEntry: function(entryId){
+        Journals.remove({_id: entryId})
+    },
     addFileToOrg: function(filePath, fileName,type){
         org = Orgs.findOne({_id: Meteor.user().organization});
         console.log(org);
@@ -946,6 +958,10 @@ Meteor.publish('getAssessmentsResultsByTrialId', function (id) {
 //get my events
 Meteor.publish(null, function() {
     return Events.find({createdBy: this.userId});
+});
+//get my events
+Meteor.publish(null, function() {
+    return Journals.find({createdBy: this.userId});
 });
 
 //get all organization events

@@ -1,0 +1,28 @@
+<template name="journal">
+    <div class="px-4 py-5 my-5 container">
+       <h1 class="text-center">Journal</h1>
+        <h3 text-center>New Entry</h3>
+        <a href="#entries">View Entries</a>
+        <form>
+            <textarea style="width: 100%; min-height: 500px;" id="text"></textarea>
+        </form>
+        <br>
+        <button class="btn btn-primary" style="width:100%" id="createEntry">Create Entry</button>
+        <br>
+        <h3 id="entries">Entries</h3>
+        <table class="table" id="subscalesAggregates">
+            <thead>
+                <th scope="col" width="20%">Date</th>
+                <th scope="col" width="80%">Entry</th>
+            </thead>
+            <tbody> 
+                {{#each entries}}
+                <tr>
+                    <td>{{this.date}}</td>
+                    <td>{{this.text}}</td>
+                </tr>
+                {{/each}}
+            </tbody>                    
+            </table>
+    </div>
+</template>

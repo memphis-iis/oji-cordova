@@ -29,7 +29,8 @@ const restrictedRoutes = [
   'createOrg',
   'profile',
   'moduleCenter',
-  'calendar'
+  'calendar',
+  'journal'
 ]
 
 
