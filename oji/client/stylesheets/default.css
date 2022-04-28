@@ -12,9 +12,8 @@ body{
     margin-top:50px;
 }
 .navbar{
-    height: 60px;
-    font-size: 28px;
-    background-image: url("/main-background.jpg");
+    height: 40px;
+    font-size: 22px;
 }
 a {
     color:white;
@@ -26,11 +25,11 @@ a {
     margin-top:10px;
 }
 .nav-link span{
-    font-size:30px;
-    width:30px;
+    font-size:25px;
+    width:20px;
     text-align: center;
     color:white;
-    line-height: 40px;
+    line-height: 30px;
     text-align: center;
 }
 .nav-link .orgLogo{
