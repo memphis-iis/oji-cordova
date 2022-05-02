@@ -30,6 +30,24 @@
             <p>Access tools and settings for your organization and users.</p>
             <button id="controlPanel" class="btn btn-primary">Control Panel</button>
         {{/if}}
+
        {{/if}}
+       <hr>
+       <h3>Certifcates</h3>
+            <p>Download earned certifcates as PDF</p>
+            <table class="table" id="subscalesAggregates">
+                <thead>
+                    <th scope="col" width="100%">Certificate</th>
+                </thead>
+                <tbody> 
+                    {{#each certificates}}
+                    <tr>
+                        <td>
+                            <a href="{{this.link}}">{{this.moduleTitle}}</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>                    
+            </table>
     </div>
 </template>

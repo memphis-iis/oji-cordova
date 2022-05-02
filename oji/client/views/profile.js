@@ -21,6 +21,23 @@ Template.profile.helpers({
         return assignment;
     },
     'userIsAdminOrSupervisor': () => Roles.userIsInRole(Meteor.userId(), ['admin', 'supervisor']),
+    'certificates': function(){
+        files = Files.find({"meta.user": Meteor.userId()}).fetch();
+        certificates = [];
+        for(let cert of files){
+            moduleTitle = 'Oji Completion'
+            if(cert.meta.moduleId !== "completion"){
+                moduleTitle = Modules.findOne({_id: cert.meta.moduleId}).title;
+            }
+            certificates.push({
+                file: cert.name,
+                link: Files.link(cert),
+                moduleTitle: moduleTitle
+            });
+        }
+        console.log(certificates);
+        return certificates;
+    }
 })
 
 Template.profile.events({
@@ -59,4 +76,5 @@ Template.profile.events({
 
 Template.profile.onCreated(function() {
     Meteor.subscribe('assessments');
+    Meteor.subscribe('files.images.all');
 })

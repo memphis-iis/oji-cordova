@@ -4,6 +4,8 @@ import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Comm
 import { calculateScores } from './subscaleCalculations.js';
 import { Push } from 'meteor/activitree:push';
 import { FilesCollection } from 'meteor/ostrio:files';
+import { degrees, PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import fontkit from 'fontkit';
 
 const SEED_ADMIN = {
     username: 'testAdmin',
@@ -74,7 +76,7 @@ serviceAccountData = null;
 Meteor.startup(() => {
     if (Meteor.isServer) {
         Meteor.publish('files.images.all', function () {
-          return Images.find().cursor;
+          return Files.find().cursor;
         });
     }
 
@@ -712,7 +714,7 @@ Meteor.methods({
         }
     })
 },
-    getPrivateImage: function(fileName){
+    getAsset: function(fileName){
         result =  Assets.absoluteFilePath(fileName);
         return result;
     },
@@ -820,23 +822,92 @@ Meteor.methods({
         if(typeof org.files === "undefined"){
             org.files = [];
         }
-        image = Images.findOne({})
+        image = Files.findOne({})
         data = {
             filePath: filePath,
             name: fileName,
             type: type,
-            dateUploaded: Date.now()
+            dateUploaded: Date.now(),
+            createdBy: Meteor.userId()
         }
         org.files.push(data);
         Orgs.update({_id: Meteor.user().organization}, {$set: {files: org.files} })
     },
     deleteFileFromOrg: function(fileName){
-        Images.remove({name: fileName})
+        Files.remove({name: fileName})
         org = Orgs.findOne({_id: Meteor.user().organization});
         orgFiles = org.files
         index = orgFiles.findIndex(x => x.name === fileName);
         orgFiles.splice(index, 1);
         Orgs.update({_id: Meteor.user().organization}, {$set: {files: orgFiles} })
+    },
+    generateCertificate: async function(moduleId=false){
+        user = Meteor.user().firstName + " " + Meteor.user().lastName;
+        let page = 0;
+        let type = "completion";
+        file = Assets.getBinary('certificates.pdf');
+        const pdfDoc = await PDFDocument.load(file);
+        const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+        let pages = await pdfDoc.getPages();
+        const { width, height } = pages[0].getSize();
+        let nameHeightOffset = 70;
+        let dateAndSigY = 125;
+        let dateOffsetX = 100;
+        let sigOffsetX = -200;
+        if(moduleId){
+            page = 1;
+            type = Modules.findOne({_id: moduleId}).title;
+            nameHeightOffset = 0;
+        }
+        for(let i=0; i < pages.length; i++){
+            if(i != page){
+                pdfDoc.removePage(i)
+            }
+        }
+        pages = pdfDoc.getPages();
+        page = pages[0];
+        let nameText = Meteor.user().firstname + " " + Meteor.user().lastname;
+        let nameWidth = helveticaFont.widthOfTextAtSize(nameText, 30);
+        let nameX = (width - nameWidth) / 2;
+        let date = new Date(Date.now()).toLocaleString().split(",")[0];
+        orgOwnerId = Orgs.findOne({_id: Meteor.user().organization}).orgOwnerId;
+        orgOwner = Meteor.users.findOne({_id: orgOwnerId});
+        orgOwnerName = orgOwner.firstname + " " + orgOwner.lastname;
+        console.log(orgOwnerName, moduleId, type, nameText, nameX, nameHeightOffset, dateOffsetX, sigOffsetX);
+        page.drawText(nameText,{
+            x: nameX,
+            y: height / 2 + nameHeightOffset,
+            size: 30,
+            font: helveticaFont,
+            color: rgb(0,0,0)
+        });
+        page.drawText(date,{
+            x: width / 2 + dateOffsetX,
+            y: dateAndSigY,
+            size: 15,
+            font: helveticaFont,
+            color: rgb(0,0,0)
+        });
+
+        page.drawText(orgOwnerName,{
+            x: width / 2 + sigOffsetX,
+            y: dateAndSigY,
+            size: 15,
+            font: helveticaFont,
+            color: rgb(0,0,0)
+        });
+        const pdfSave = await pdfDoc.save();
+        let fileName = Meteor.user().lastname + "_" + Meteor.user().firstname + "_" + type + ".pdf";
+        supervisor = Meteor.user().supervisor;
+        await Files.write(pdfSave, {
+            fileName:  fileName,
+            meta: {
+                user: Meteor.userId(),
+                moduleId: type,
+                supervisor: supervisor
+            }
+        });
+        return {pdfDoc: pdfSave, fileName: fileName};     
     }
 });
 

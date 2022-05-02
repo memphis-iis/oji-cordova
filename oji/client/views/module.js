@@ -155,6 +155,10 @@ Template.module.events({
             Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
             Meteor.call("saveModuleData", moduleData);
             target = "/module/" + Modules.findOne()._id + "/completed";
+            Meteor.call('generateCertificate',Modules.findOne()._id);
+            if(Modules.findOne().lastModule){
+                Meteor.call('generateCertificate');
+            }
         } 
 
         Router.go(target);

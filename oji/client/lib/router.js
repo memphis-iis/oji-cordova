@@ -30,7 +30,8 @@ const restrictedRoutes = [
   'profile',
   'moduleCenter',
   'calendar',
-  'journal'
+  'journal',
+  'devtest'
 ]
 
 

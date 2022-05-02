@@ -292,7 +292,7 @@ Template.adminControlPanel.events({
         if (e.currentTarget.files && e.currentTarget.files[0]) {
           // We upload only one file, in case
           // multiple files were selected
-          const upload = Images.insert({
+          const upload = Files.insert({
             file: e.currentTarget.files[0],
             chunkSize: 'dynamic'
           }, false);
@@ -306,7 +306,7 @@ Template.adminControlPanel.events({
               alert(`Error during upload: ${error}`);
             } else {
               alert(`File "${fileObj.name}" successfully uploaded`);
-              link = Images.link(fileObj);
+              link = Files.link(fileObj);
               fileName = fileObj.name;
               type = fileObj.type;
               Meteor.call('addFileToOrg',  link, fileName, type);

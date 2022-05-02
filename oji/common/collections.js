@@ -11,7 +11,7 @@ Events = new Mongo.Collection('events');
 Journals = new Mongo.Collection('journals');
 
 //Init DynamicAssets Collection
-Images = new FilesCollection({
+Files = new FilesCollection({
     collectionName: 'Images',
     allowClientCode: false, // Disallow remove files from Client
     onBeforeUpload(file) {
