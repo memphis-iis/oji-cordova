@@ -18,14 +18,21 @@ Template.calendar.helpers({
             for(j = 0; j < 7; j++){
                 today = false;
                 hasEvents = false;
+                hasEntries = false;
                 hasCritical = false;
                 events = Events.find({month: displayMonth, day: curDay, year: displayYear}).fetch();
+                entryMonth = displayMonth + 1;
+                entries = Journals.find({month: entryMonth, day: curDay, year: displayYear}).fetch(),
                 numEvents = events.length;
                 if(curDay == new Date().getDate() && displayMonth == new Date().getMonth()){
                     today = true;
                 }
                 if(events.length != 0){
                     hasEvents = true;
+                }
+                if(entries.length != 0){
+                    hasEntries = true;
+                    console.log("true");
                 }
                 if (events.filter(function(e) { return e.importance === 'Critical'; }).length > 0) {
                     hasCritical = true;
@@ -37,7 +44,8 @@ Template.calendar.helpers({
                         today: today,
                         hasEvents: hasEvents,
                         numEvents: numEvents,
-                        hasCritical: hasCritical
+                        hasCritical: hasCritical,
+                        hasEntries: hasEntries
                     }
                     monthStarted = true;
                     curDay++;
@@ -49,7 +57,8 @@ Template.calendar.helpers({
                             today: today,
                             hasEvents: hasEvents,
                             numEvents: numEvents,
-                            hasCritical: hasCritical
+                            hasCritical: hasCritical,
+                            hasEntries, hasEntries
                         }
                         curDay++;
                     } else {
@@ -86,7 +95,9 @@ Template.calendar.helpers({
         var day = displayDay;
         var month = displayMonth;
         var year = displayYear;
+        var journalMonth = displayMonth + 1;
         events = Events.find({year: year, month: month, day: day}).fetch();
+        entries = Journals.find({month: journalMonth, day: day, year: year}).fetch(),
         events.forEach(element => {
             element.deleteShow = true;
             element.bgColor = "";
@@ -102,7 +113,8 @@ Template.calendar.helpers({
             day: day,
             month: month + 1,
             year: year,
-            events: events
+            events: events,
+            entries: entries
         }
         if(events.length == 0){
             events = false;

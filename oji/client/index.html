@@ -11,8 +11,6 @@
 
 <body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  {{#Layout template="DefaultLayout"}}
-  {{/Layout}}
 </body>
 
 <template name="DefaultLayout">
@@ -60,13 +58,17 @@
       </ul>
     </div>
   </nav>
+  <br>
+  <br>
   {{/if}}
   <div class="container" id="container-yield">
     {{> yield}}
   </div>
   </div>
   <div id="footer">
-    <p>{{footer.copyright}}</p>
-    <p>{{footer.message}}</p>
+    <br>
+    <p>Copyright 2022</p>
+    <p>Oji is a collaboration between the University of Memphis, The Institute for Intelligent Systems, and the University of Southern Mississippi.</p>
+    <br>
   </div>
   </template>  
