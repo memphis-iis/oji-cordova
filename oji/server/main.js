@@ -806,8 +806,15 @@ Meteor.methods({
     },
     addEntry: function(text){
         dateReadable = new Date().toISOString().slice(0, 10);
+        dateArray = dateReadable.split("-");
+        curYear = parseInt(dateArray[0]);
+        curMonth = parseInt(dateArray[1]);
+        curDay = parseInt(dateArray[2]);
         Journals.insert({
             date: dateReadable,
+            day: curDay,
+            month: curMonth,
+            year: curYear,
             unixDate: Date.now(),
             text: text,
             createdBy: this.userId

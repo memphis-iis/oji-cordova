@@ -67,6 +67,14 @@ Template.profile.events({
         target = "/calendar/";
         Router.go(target);
     },
+    'click #dashboard': function(){
+        target = "/userAssessmentReport/";
+        Router.go(target);
+    },
+    'click #journal': function(){
+        target = "/journal/";
+        Router.go(target);
+    },
     'click #logout': function(){
         Meteor.logout();
         Router.go("/");
