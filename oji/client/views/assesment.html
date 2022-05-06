@@ -13,8 +13,8 @@
             <p class="lead mb-4">{{assessment.description}}</p>
             <p class="lead mb-4">Please complete the entire assessment. You will be allowed to return for the next 30 minutes.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button class="btn btn-primary begin">Let's Begin!</button>
-                    <button class="btn btn-caution return">I'm not Ready.</button>
+                <button class="btn btn-primary btn-wide begin" id="startAssessment">Lets Begin!</button>
+                <button class="btn btn-caution btn-wide" id="goBack">I'm not ready.</button>
             </div>
             {{/if}}
         {{else}}
