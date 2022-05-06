@@ -1,12 +1,12 @@
 <template name="module">
     <div class="px-4 py-5 my-5 text-center">
-       <h3>{{module.title}}</h3>
+       <h4>{{module.title}}</h4>
        {{#if this.pageId}}
        {{#if completed}}
             <p>You have completed this module! A certificate has been awarded to you.</p>
             <button class="btn btn-primary" id="goBack">Return to My Profile</button>    
         {{else}}
-        <h4>Page {{pageid}} of {{totalpages}} ({{percentDone}}%)</h4>
+        <h4>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}} ({{percentDone}}%){{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h4>
         <hr>
         {{#if page.typeText}}
         <h3><b>{{page.header}}</b></h3>
@@ -15,13 +15,13 @@
             <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             <br>
         {{/if}}
-        <p id="pageText">{{{page.text}}}</p>
+        <p id="pageText" class="text-align-left">{{{page.text}}}</p>
         <br>
         {{#if page.imageBelow}}
             <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             <br>
         {{/if}}
-        <button id="contine" class="btn btn-primary continue">Save and Continue</button>
+        <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
         {{/if}}
         {{#if this.questionId}}
             <h3><b>Activity: {{page.header}}</b></h3>
@@ -35,7 +35,7 @@
                     <input type="text" class="textInput">
                 </form>
                 <br>
-                <button id="contine" class="btn btn-primary continue">Save and Continue</button>
+                <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
             {{/if}}
             {{#if question.typeLongText}}
                 <h3>{{question.prompt}}</h3><br>
@@ -43,18 +43,18 @@
                     <textarea style="height:100px; width:100%;" class="textareaInput"></textarea>
                 </form>
                 <br>
-                <button id="contine" class="btn btn-primary continue">Save and Continue</button>
+                <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
             {{/if}}
             {{#if question.typeMultiChoice}}
             <h3>{{{question.prompt}}}</h3><br>
             <form>
                 {{#each question.answers}}
                     {{#if this.image}}
-                    <button  class="btn btn-secondary text-nowrap btn-lg btn-block multichoice continue" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{this.value}}" name="">
+                    <button  class="btn btn-secondary text-nowrap btn-lg btn-block multichoice continue btn-wide" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{this.value}}" name="">
                         <img class="img-responsive center-block" src="{{this.image}}" alt="Your Alt Text">
                     </button>
                     {{else}}
-                     <button  class="btn btn-secondary text-nowrap btn-lg btn-block multichoice continue" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{this.value}}" name="">{{this.answer}}</button>
+                     <button  class="btn btn-secondary text-nowrap btn-lg btn-block multichoice continue btn-wide" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{this.value}}" name="">{{this.answer}}</button>
                      {{/if}}
                 {{/each}}
             </form>
@@ -91,21 +91,26 @@
                 {{/each}}
                 </form> 
                 <br>
-                <button  class="btn btn-primary continue" id="continue" name="">Save and Continue</button>
+                <button  class="btn btn-primary continue btn-wide" id="continue btn-wide" name="">Save and Continue</button>
             <br>
             {{/if}}
         {{else}}
         {{#if page.typeActivity}}
-        <h3><b>Activity: {{page.header}}</b></h3>
+
         <p>{{page.instructions}}</p>
-        <button class="btn btn-primary" id="startActivity">Begin Activity!</button>
+        {{#if isFurthestPage}}
+            <button class="btn btn-primary btn-wide" id="startActivity"><h3><b>Activity: {{page.header}}</b></h3></button>
+        {{else}}
+            <p>You have already completed this activity.</p>
+        {{/if}}
         {{/if}}
         {{/if}}
         {{/if}}
        {{else}}
             <p>{{module.description}}</p>
-            <button class="btn btn-primary" id="startModule">Lets Begin!</button>
-            <button class="btn btn-caution" id="goBack">I'm not ready.</button>
+            <br>
+            <button class="btn btn-primary btn-wide" id="startModule">Lets Begin!</button>
+            <button class="btn btn-caution btn-wide" id="goBack">I'm not ready.</button>
         {{/if}}
     </div>
 </template>

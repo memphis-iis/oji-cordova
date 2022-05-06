@@ -1,6 +1,6 @@
 Template.module.helpers({
     'module': () => Modules.findOne(),
-    'pageid': function() {return parseInt(Meteor.user().curModule.pageId);},
+    'pageid': function() {return parseInt(this.pageId) + 1;},
     'questionid': function() {return parseInt(this.questionId) + 1;},
     'totalpages': function(){
         return Modules.findOne().pages.length;
@@ -12,9 +12,30 @@ Template.module.helpers({
             return false;
         }
     },
+    'isFurthestPage': function(){
+        return Meteor.user().curModule.pageId == this.pageId;
+    },
+    'displayNextPageBtn': function(){
+        if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
+            return true;
+        } else {
+            return false;
+        }
+    },
+    'displayLastPageBth': function() {
+        if(this.pageId  > 0){
+            return true;
+        } else {
+            return false;
+        }
+    },
     'page': function(){
         page = Modules.findOne().pages[parseInt(this.pageId)];
         const t = Template.instance();
+        $('.continue').show();
+        if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
+            $('.continue').hide();
+        }
         if(page.type == "text"){
             page.typeText = true;
             t.pageType.set("text");
@@ -32,6 +53,10 @@ Template.module.helpers({
         page = Modules.findOne().pages[parseInt(this.pageId)];
         question = page.questions[parseInt(this.questionId)];
         const t = Template.instance();
+        $('#continue').prop('disabled', false);
+        if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
+            $('#continue').prop('disabled', true);
+        }
         if(question.type == "blank"){
             question.typeBlank = true;
         };
@@ -191,7 +216,18 @@ Template.module.events({
     'click #goBack': function(event){
         target = "/profile/"
         Router.go(target);
+    },
+    'click #goBackPage': function(event){
+        lastPage = this.pageId - 1
+        target = "/module/" + Modules.findOne()._id + "/" + lastPage;
+        Router.go(target);
+    },
+    'click #goForward': function(event){
+        nextPage = parseInt(this.pageId) + 1;
+        target = "/module/" + Modules.findOne()._id + "/" + nextPage;
+        Router.go(target);
     }
+    
 })
 
 Template.module.onCreated(function(){
