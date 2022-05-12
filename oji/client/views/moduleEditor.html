@@ -14,11 +14,19 @@
         <h3>Module Flow</h3>
         {{#each module.pages}}
 
-
+        
         <a data-bs-toggle="collapse" href="#collapse-page-{{@index}}" role="button" aria-expanded="false" aria-controls="collapseExample">
             <h3><u>Page {{@index}}</u></h3>
           </a>
         <div class="collapse" id="collapse-page-{{@index}}">
+            {{#if this.isFirst}}
+            {{else}}
+            <a id="move-page-up" aria-current="page" href="#" data-page="{{@index}}">Move Page Up</a><br>
+            {{/if}}
+            {{#if this.isLast}}
+            {{else}}
+            <a id="move-page-down" aria-current="page" href="#" data-page="{{@index}}">Move Page Down</a>
+            {{/if}}
         <table class="table" id="pageList-{{@index}}">
             <thead>
                 <th scope="col" width="5%">Type</th>
