@@ -89,6 +89,7 @@ input, option, textarea {
 #footer{
     background-color: rgba(0, 0, 0, 0.5);
     margin: 10px;
+    width:100%;
     border-radius: 10px;
 }
 #footer p{
