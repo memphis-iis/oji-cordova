@@ -915,6 +915,14 @@ Meteor.methods({
             }
         });
         return {pdfDoc: pdfSave, fileName: fileName};     
+    },
+    swapPageOrder: function(moduleId, pageId, swapTo){
+        moduleToChange = Modules.findOne({_id: moduleId});
+        pageToMemory1 = moduleToChange.pages[pageId];
+        pageToMemory2 = moduleToChange.pages[swapTo];
+        moduleToChange.pages[swapTo] = pageToMemory1;
+        moduleToChange.pages[pageId] = pageToMemory2;
+        Modules.update({_id: moduleId},{$set: {pages: moduleToChange.pages}});
     }
 });
 

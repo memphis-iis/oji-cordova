@@ -1,7 +1,8 @@
 
 /* Main Elements */
 body{
-    background-attachment: fixed;
+    background-attachment:fixed;
+    background-size: cover;
     background-image: url("/main-background.jpg");
     color:white;
 }
@@ -23,6 +24,12 @@ a {
 .btn-wide{
     width:100%;
 }
+select { 
+    /* Whatever color  you want */
+    background-color:black;
+    color:white;
+}
+
 .alert{
     margin-bottom: 50px;
     margin-left:10px;
