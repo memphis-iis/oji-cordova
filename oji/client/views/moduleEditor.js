@@ -4,6 +4,12 @@ Template.moduleEditor.helpers({
         curModule = Modules.findOne({_id: moduleId});
         pages = curModule.pages;
         for(i = 0; i < pages.length; i++){
+            if(i == 0){
+                pages[i].isFirst = true;
+            }
+            if(i == pages.length - 1){
+                pages[i].isLast = true;
+            }
             pages[i].isActivity = false;
             if(pages[i].type == "activity"){
                 pages[i].isActivity = true;
@@ -123,6 +129,20 @@ Template.moduleEditor.events({
         moduleId = $('#moduleId').val();
         addModuleItem(moduleId, field);
     },
+    'click #move-page-up': function(event){
+        event.preventDefault();
+        moduleId = $('#moduleId').val();
+        pageId = parseInt(event.target.getAttribute('data-page'));
+        swapTo = pageId - 1;
+        Meteor.call('swapPageOrder',moduleId,pageId,swapTo);
+    },
+    'click #move-page-down': function(event){
+        event.preventDefault();
+        moduleId = $('#moduleId').val();
+        pageId = parseInt(event.target.getAttribute('data-page'));
+        swapTo = pageId + 1;
+        Meteor.call('swapPageOrder',moduleId,pageId,swapTo);
+    }
     
 })
 
