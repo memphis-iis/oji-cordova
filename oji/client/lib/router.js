@@ -109,6 +109,17 @@ Router.route('/assessment/:_id', {
   }
 });
 
+//route to today's agenda 
+Router.route('/calendar/agenda', {
+  action: function(){
+    this.render('calendar', {
+      data:{
+        agendaView: true,
+      }
+    });
+  }
+});
+
 Router.route('/userAssessmentReport/', {
   action: function(){
     this.render('userAssessmentReportLanding', {

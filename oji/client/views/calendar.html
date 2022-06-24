@@ -124,14 +124,22 @@
                 There are no events for this day.
             </p>
         {{/if}}
-        <h3 class="text-center">Journal Entry</h3>
+        <h3 class="text-center">Journal Entries</h3>
         {{#if agenda.entries}}
+        <div class="row" style="margin: 20px;">   
                 {{#each agenda.entries}}  
-                        <p class="text-center">
-                        {{this.text}}
-                        </p>
+
+                        <div class="col-xs-10 col-md-4">
+                            <div class="journal-entry">
+                            <h3>Entry</h3>
+                            <p class="text-left">
+                                {{this.text}}
+                            </p>
+                        </div>
                         <br>
+                        </div>
                 {{/each}}
+                </div>
         {{else}}
         <br><br>
         <p class="text-center">

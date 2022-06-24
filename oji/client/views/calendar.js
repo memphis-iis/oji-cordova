@@ -2,6 +2,13 @@ Template.calendar.helpers({
     'usersList': () => Meteor.users.find({ role: 'user', organization: Meteor.user().organization, supervisor: Meteor.userId()}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
 
     'calendar': function(){
+        mode = this.agendaView;
+        console.log("Rusty", mode);
+        if(mode == true){
+            $('#month-view').hide();
+            $('#agenda-view').show();
+            $('#create-view').hide();
+        }
         const t = Template.instance();
         displayMonthName =  t.displayMonthName.get();
         displayMonth = t.displayMonth.get();
@@ -305,6 +312,5 @@ Template.calendar.onCreated(function() {
     this.displayYear = new ReactiveVar(curYear);
     this.displayDay = new ReactiveVar(unixDate.getDate());
     this.daysInAMonth = new ReactiveVar(daysInAMonth)
-
 })
 

@@ -7,6 +7,7 @@ Template.journal.events({
         event.preventDefault();
         var text= $('#text').val();
         Meteor.call('addEntry',text);
+        Router.go("/calendar/agenda");
     }
 });
 Template.journal.onCreated(function() {
