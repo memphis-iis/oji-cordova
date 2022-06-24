@@ -310,6 +310,15 @@ Template.adminControlPanel.events({
               fileName = fileObj.name;
               type = fileObj.type;
               Meteor.call('addFileToOrg',  link, fileName, type);
+              if(fileObj.ext == "json"){
+                Meteor.call('uploadModule',fileObj.path,Meteor.userId(),function(err,res){
+                    if(err){
+                        alert("package failed");
+                    } else {
+                        console.log(res);
+                    }
+                });
+            }
             }
             template.currentUpload.set(false);
           });

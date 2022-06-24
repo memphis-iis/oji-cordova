@@ -431,7 +431,24 @@ Meteor.methods({
         }
         Modules.insert(newModule);
     },
-
+    uploadModule: function(path,user){
+        const fs = Npm.require('fs');
+        const bound = Meteor.bindEnvironment((callback) => {callback();});
+        fs.readFile(path,'utf8', (err,data) => {
+            bound(() => {
+                if(err){
+                    console.log(err)
+                } else {
+                    console.log(data);
+                    var newModule =  JSON.parse(data);
+                    newModule.owner = user;
+                    newModule.orgOwnedBy = Meteor.users.find({_id: user}).organization;
+                    delete newModule._id;
+                    Modules.insert(newModule);
+                }
+            });
+        });
+    },
 
     changeAssessment(input){
         assessmentId = input.assessmentId;
