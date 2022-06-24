@@ -117,3 +117,10 @@ img #logo-color{
     max-width:100px;
     border-radius: 20px;
 }
+.journal-entry{
+    border: 1px whitesmoke;
+    border-radius: 20px;
+    background-color: rgba(132, 132, 132, 0.5);
+    font-size: large;
+    padding: 20px;
+}
