@@ -199,6 +199,19 @@ Template.adminControlPanel.events({
         org.newUserAssignments.splice(index, 1);
         Meteor.call('changeAssignmentToNewUsers', org.newUserAssignments);
     },
+    'click #assign-assessment': function(event){
+        event.preventDefault();
+        const t = Template.instance();
+        userId = t.selectedUser.get();
+        user = Meteor.users.findOne({_id: userId});
+        newAssignmentId = $(event.target).data("assessment-id");
+        assignment = {
+            assignment:  newAssignmentId,
+            type: "assessment"
+        }
+        user.assigned.push(assignment);
+        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+    },
     'click #assign-all': function(event){
         event.preventDefault();
         newAssignment = $(event.target).data("assessment-id");

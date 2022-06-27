@@ -84,5 +84,6 @@ Template.profile.events({
 
 Template.profile.onCreated(function() {
     Meteor.subscribe('assessments');
+    Meteor.subscribe('modules');
     Meteor.subscribe('files.images.all');
 })
