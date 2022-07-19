@@ -7,7 +7,7 @@ Template.assessment.helpers({
         if(this.questionid == "completed"){
             Meteor.call('clearAssessmentProgress');
             userId = Meteor.userId();
-            user = Meteor.users.findOne({_id: userId});
+            user = Meteor.user();
             index = user.assigned.findIndex(x => x.assignmentId === assessment._id);
             if(index != -1){
                 user.assigned.splice(index, 1);
@@ -20,13 +20,12 @@ Template.assessment.helpers({
         }
     },
     'resumeableTrial': function() {
-        userId = Meteor.userId();
-        user = Meteor.users.findOne({_id: userId});
+        user = Meteor.user();
         if(!user.curTrial.trialId){
             return false;
         } else {
             oldTrial = Trials.findOne({'_id': user.curTrial.trialId});
-            if(Date.now() - oldTrial.lastAccessed < 1800000){ //30 minutes
+            if(oldTrial && Date.now() - oldTrial.lastAccessed < 1800000){ //30 minutes
                 return oldTrial;
             } else {
                 return false;

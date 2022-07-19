@@ -715,7 +715,7 @@ Meteor.methods({
     },
     saveModuleData: function (moduleData){
         ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
-        nextModule = Meteor.users.findOne({_id: Meteor.userId()}).nextModule;
+        nextModule = Meteor.user().nextModule;
         console.log("nextModule", nextModule, typeof nextModule);
         if(moduleData.nextPage == 'completed'){
             nextModule++;
