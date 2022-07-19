@@ -51,20 +51,20 @@ Template.assessment.events({
     'click .continue': function(event) {
         event.preventDefault();
         userId = Meteor.userId();
-        trialData = Meteor.users.findOne({_id: userId}).curTrial;
+        trialData = Meteor.user().curTrial;
         let curAssesment = Assessments.findOne();
         let completed = false;
 
         if(typeof trialData === "undefined"){
             trialId = 0;
         } else {
-            trialId = trialData.trialId ;
+            trialId = trialData.trialId;
         }
 
         if(typeof trialData === "undefined"){
             curQuestion = 0; 
         } else {
-            curQuestion =  trialData.questionId ;
+            curQuestion =  trialData.questionId;
         }
 
         let nextQuestion = parseInt(curQuestion) + 1;
@@ -96,9 +96,16 @@ Template.assessment.events({
             nextQuestion: curQuestion
         }
 
-        Meteor.call('saveAssessmentData', data);
-        if (completed) Meteor.call('endAssessment', trialData.trialId);
-        Router.go(target);
+        Meteor.call('saveAssessmentData', data, function(error, result){
+            if(error){
+                console.log(error);
+            } else {
+                if (completed) {
+                    Meteor.call('endAssessment', result);
+                }
+                Router.go(target);
+            }
+        });
     },
     'click .begin': function(event) {
         curAssesment = Assessments.findOne();
@@ -112,10 +119,14 @@ Template.assessment.events({
     'click .resume': function(event){
         curAssesment = Assessments.findOne();
         userId = Meteor.userId();
-        user = Meteor.users.findOne({_id: userId});
+        user = Meteor.user();
         target = "/assessment/" + curAssesment._id + "/" + user.curTrial.questionId;
         Router.go(target)
-    }
+    },
+    'click #goBack': function(event){
+        target = "/profile/"
+        Router.go(target);
+    },
 })
 
 

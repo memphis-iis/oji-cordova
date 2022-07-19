@@ -7,7 +7,7 @@ Template.moduleCenter.helpers({
 Template.moduleCenter.events({
     'click .startModule': function(event){
         event.preventDefault();
-        target = "/module/" + event.target.id;
+        target = "/module/" + event.currentTarget.id;
         window.location.href = target;
     },
 })

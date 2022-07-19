@@ -105,13 +105,15 @@ Template.module.helpers({
 Template.module.events({
     'click .continue': function(event) {
         event.preventDefault();
+        const curModule = Modules.findOne();
+        const curUser = Meteor.user();
         const t = Template.instance();
         let target = "";
-        let moduleId = Meteor.user().curModule.moduleId;
+        let moduleId = curUser.curModule.moduleId;
         let moduleData = ModuleResults.findOne({_id: moduleId});
         moduleData.lastAccessed = Date.now().toString();
-        thisPage = Meteor.user().curModule.pageId;
-        thisQuestion = parseInt(Meteor.user().curModule.questionId);
+        thisPage = curUser.curModule.pageId;
+        thisQuestion = parseInt(curUser.curModule.questionId);
         if(t.pageType.get() == "activity"){
             questionData = {};
             questionData.questionType = t.questionType.get();
@@ -145,14 +147,14 @@ Template.module.events({
             moduleData.responses.push(data);
             moduleData.nextPage = thisPage;
             moduleData.nextQuestion = parseInt(thisQuestion) + 1;
-            if(typeof Modules.findOne().pages[moduleData.nextPage] !== "undefined"){
-                if(typeof Modules.findOne().pages[moduleData.nextPage].questions !== "undefined"){
-                    if(moduleData.nextQuestion >= Modules.findOne().pages[moduleData.nextPage].questions.length){
+            if(typeof curModule.pages[moduleData.nextPage] !== "undefined"){
+                if(typeof curModule.pages[moduleData.nextPage].questions !== "undefined"){
+                    if(moduleData.nextQuestion >= curModule.pages[moduleData.nextPage].questions.length){
                         moduleData.nextPage = thisPage + 1;
                         moduleData.nextQuestion = 0;
-                        target = "/module/" + Modules.findOne()._id + "/" + moduleData.nextPage;
+                        target = "/module/" + curModule._id + "/" + moduleData.nextPage;
                     } else  {
-                        target = "/module/" + Modules.findOne()._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
+                        target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
                     }
                  }
             }
@@ -167,21 +169,21 @@ Template.module.events({
                 responseTimeStamp: Date.now().toString()
             }
             Meteor.call("saveModuleData", moduleData);
-            target = "/module/" + Modules.findOne()._id + "/" + moduleData.nextPage;
+            target = "/module/" + curModule._id + "/" + moduleData.nextPage;
         }
-        if(moduleData.nextPage >= Modules.findOne().pages.length){
+        if(moduleData.nextPage >= curModule.pages.length){
             moduleData.nextPage = "completed";
             moduleData.nextQuestion = "completed";
-            index = user.assigned.findIndex(x => x.assignmentId === moduleId);
+            index = curUser.assigned.findIndex(x => x.assignmentId === moduleId);
             if(index != -1){
-                user.assigned.splice(index, 1);
+                curUser.assigned.splice(index, 1);
             }
-            user.assigned.splice(index, 1);
-            Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+            curUser.assigned.splice(index, 1);
+            Meteor.call('changeAssignmentOneUser', [Meteor.userId(),  curUser.assigned]);
             Meteor.call("saveModuleData", moduleData);
-            target = "/module/" + Modules.findOne()._id + "/completed";
-            Meteor.call('generateCertificate',Modules.findOne()._id);
-            if(Modules.findOne().lastModule){
+            target = "/module/" + curModule._id + "/completed";
+            Meteor.call('generateCertificate',curModule._id);
+            if(curModule.lastModule){
                 Meteor.call('generateCertificate');
             }
         } 

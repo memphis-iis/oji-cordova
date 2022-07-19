@@ -241,7 +241,7 @@ Meteor.methods({
                 const authors = Meteor.settings.public.authors;
                 console.log(authors);
                 author = false;
-                if(authors.indexOf(emailAddr) !== -1){
+                if(authors?.indexOf(emailAddr) !== -1){
                     author = true;
                 }
                 Meteor.users.update({ _id: uid }, 
