@@ -76,7 +76,7 @@ Template.assessment.events({
         }
 
         let selectedAnswer = event.target.id;
-        let subscales = curAssesment.questions[curQuestion].subscales;
+        let subscales = curAssesment.questions[curQuestion]?.subscales || curAssesment.questions[curQuestion - 1].subscales;//temp fix
         let selectedAnswerValue = assessment.answerValues[selectedAnswer];
         if(curAssesment.reversedQuestions.includes(curQuestion)){
             selectedAnswerValue = curAssesment.reversedValues[selectedAnswer]
