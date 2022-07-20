@@ -1,9 +1,9 @@
 Template.module.helpers({
-    'module': () => Modules.findOne(),
+    'module': () => Modules.findOne({_id: Meteor.user().curAssignment.id}),
     'pageid': function() {return parseInt(this.pageId) + 1;},
     'questionid': function() {return parseInt(this.questionId) + 1;},
     'totalpages': function(){
-        return Modules.findOne().pages.length;
+        return Modules.findOne({_id: Meteor.user().curAssignment.id}).pages.length;
     },
     'completed' : function(){
         if(Meteor.user().curModule.pageId == "completed"){
@@ -30,27 +30,29 @@ Template.module.helpers({
         }
     },
     'page': function(){
-        page = Modules.findOne().pages[parseInt(this.pageId)];
-        const t = Template.instance();
-        $('.continue').show();
-        if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
-            $('.continue').hide();
+        page = Modules.findOne({_id: Meteor.user().curAssignment.id}).pages[parseInt(this.pageId)];
+        if(page) {
+            const t = Template.instance();
+            $('.continue').show();
+            if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
+                $('.continue').hide();
+            }
+            if(page.type == "text"){
+                page.typeText = true;
+                t.pageType.set("text");
+            };
+            if(page.type == "activity"){
+                page.typeActivity = true;
+                t.pageType.set("activity");
+            };
+            if(!page.imgStyle){
+                page.imgStyle = "max-width:50%; height:auto; margin:10px;"
+            }
+            return page;
         }
-        if(page.type == "text"){
-            page.typeText = true;
-            t.pageType.set("text");
-        };
-        if(page.type == "activity"){
-            page.typeActivity = true;
-            t.pageType.set("activity");
-        };
-        if(!page.imgStyle){
-            page.imgStyle = "max-width:50%; height:auto; margin:10px;"
-        }
-        return page;
     },
     'question': function(){
-        page = Modules.findOne().pages[parseInt(this.pageId)];
+        page = Modules.findOne({_id: Meteor.user().curAssignment.id}).pages[parseInt(this.pageId)];
         question = page.questions[parseInt(this.questionId)];
         const t = Template.instance();
         $('#continue').prop('disabled', false);
@@ -96,7 +98,7 @@ Template.module.helpers({
         return question;
     },
     'percentDone': function(){
-        length = Modules.findOne().pages.length;
+        length = Modules.findOne({_id: Meteor.user().curAssignment.id}).pages.length;
         percent = parseInt(this.pageId) / length * 100;
         return percent.toFixed(0);
     },
@@ -105,7 +107,7 @@ Template.module.helpers({
 Template.module.events({
     'click .continue': function(event) {
         event.preventDefault();
-        const curModule = Modules.findOne();
+        const curModule = Modules.findOne({_id: Meteor.user().curAssignment.id});
         const curUser = Meteor.user();
         const t = Template.instance();
         let target = "";
@@ -158,7 +160,6 @@ Template.module.events({
                     }
                  }
             }
-            Meteor.call("saveModuleData", moduleData);
             
         } else {
             moduleData.nextPage = parseInt(thisPage) + 1;
@@ -168,7 +169,6 @@ Template.module.events({
                 response: "read",
                 responseTimeStamp: Date.now().toString()
             }
-            Meteor.call("saveModuleData", moduleData);
             target = "/module/" + curModule._id + "/" + moduleData.nextPage;
         }
         if(moduleData.nextPage >= curModule.pages.length){
@@ -179,14 +179,14 @@ Template.module.events({
                 curUser.assigned.splice(index, 1);
             }
             curUser.assigned.splice(index, 1);
-            Meteor.call('changeAssignmentOneUser', [Meteor.userId(),  curUser.assigned]);
-            Meteor.call("saveModuleData", moduleData);
+            Meteor.call('changeAssignmentOneUser', Meteor.userId(),  curUser.assigned);
             target = "/module/" + curModule._id + "/completed";
             Meteor.call('generateCertificate',curModule._id);
             if(curModule.lastModule){
                 Meteor.call('generateCertificate');
             }
         } 
+        Meteor.call("saveModuleData", moduleData);
 
         Router.go(target);
     },
@@ -208,11 +208,11 @@ Template.module.events({
         event.preventDefault();
         data = {
             userId: Meteor.userId(),
-            moduleId: Modules.findOne()._id, 
+            moduleId: Meteor.user().curAssignment?.id, 
             responses: []
         }
         Meteor.call("createNewModuleTrial", data);
-        target = "/module/" + Modules.findOne()._id + "/0";
+        target = "/module/" + Meteor.user().curAssignment?.id + "/0";
         Router.go(target);
     },
     'click #goBack': function(event){
@@ -221,12 +221,12 @@ Template.module.events({
     },
     'click #goBackPage': function(event){
         lastPage = this.pageId - 1
-        target = "/module/" + Modules.findOne()._id + "/" + lastPage;
+        target = "/module/" + Meteor.user().curAssignment?.id + "/" + lastPage;
         Router.go(target);
     },
     'click #goForward': function(event){
         nextPage = parseInt(this.pageId) + 1;
-        target = "/module/" + Modules.findOne()._id + "/" + nextPage;
+        target = "/module/" + Meteor.user().curAssignment?.id + "/" + nextPage;
         Router.go(target);
     }
     

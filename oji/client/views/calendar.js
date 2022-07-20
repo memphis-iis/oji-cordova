@@ -3,7 +3,6 @@ Template.calendar.helpers({
 
     'calendar': function(){
         mode = this.agendaView;
-        console.log("Rusty", mode);
         if(mode == true){
             $('#month-view').hide();
             $('#agenda-view').show();
@@ -39,7 +38,6 @@ Template.calendar.helpers({
                 }
                 if(entries.length != 0){
                     hasEntries = true;
-                    console.log("true");
                 }
                 if (events.filter(function(e) { return e.importance === 'Critical'; }).length > 0) {
                     hasCritical = true;

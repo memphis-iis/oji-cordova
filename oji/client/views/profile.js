@@ -1,24 +1,27 @@
 Template.profile.helpers({
     'assignment': function(){
-        assigned = Meteor.user().assigned;
-        assignment = {};
-        if(assigned.length === 0){
-            assignment = false;
-        } else {
-            assignment.show = true;
-            assignment.isAssessment = false;
-            assignment.isModule = false;
-            if(assigned[0].type == "assessment"){
-                assignment = Assessments.findOne({_id: assigned[0].assignment});
-                assignment.isAssessment = true;
-            }
+        const user = Meteor.user();
+        if(user){
+            assigned = user.assigned;
+            assignment = {};
+            if(assigned.length === 0){
+                assignment = false;
+            } else {
+                assignment.show = true;
+                assignment.isAssessment = false;
+                assignment.isModule = false;
+                if(assigned[0].type == "assessment"){
+                    assignment = Assessments.findOne({_id: assigned[0].assignment});
+                    assignment.isAssessment = true;
+                }
 
-            if(assigned[0].type == "module"){
-                assignment = Modules.findOne({_id: assigned[0].assignment});
-                assignment.isModule = true;
+                if(assigned[0].type == "module"){
+                    assignment = Modules.findOne({_id: assigned[0].assignment});
+                    assignment.isModule = true;
+                }
             }
+            return assignment;
         }
-        return assignment;
     },
     'userIsAdminOrSupervisor': () => Roles.userIsInRole(Meteor.userId(), ['admin', 'supervisor']),
     'certificates': function(){
@@ -42,14 +45,26 @@ Template.profile.helpers({
 
 Template.profile.events({
     'click #startAssessment': function(){
-        assignment = $(event.target).data("assignment-id");
+        assignment = $(event.target).data("assessmentId");
         target = "/assessment/" + assignment
-        Router.go(target);
+        Meteor.call('setCurrentAssignment', {id: assignment, type: "assessment"}, function(err, res){
+            if(err){
+                console.log(err);
+            } else {
+                Router.go(target);
+            }
+        });
     },
     'click #startModule': function(){
-        assignment = $(event.target).data("assignment-id");
+        assignment = $(event.target).data("assessmentId");
         target = "/module/" + assignment
-        Router.go(target);
+        Meteor.call('setCurrentAssignment', {id: assignment, type: "module"}, function(err, res){
+            if(err){
+                console.log(err);
+            } else {
+                Router.go(target);
+            }
+        });
     },
     'click #assessmentCenter': function(){
         target = "/assessmentCenter/";

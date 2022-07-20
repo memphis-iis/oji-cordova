@@ -1,5 +1,11 @@
 Template.supervisorControlPanel.helpers({
-        'usersList': () => Meteor.users.find({ role: 'user', organization: Meteor.user().organization, supervisor: Meteor.userId()}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
+        'usersList': function() {
+            if(Roles.userIsInRole(Meteor.userId(), 'admin')) {
+                return Meteor.users.find({ role: 'user', organization: Meteor.user().organization}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch();
+            } else {
+                return Meteor.users.find({ role: 'user', organization: Meteor.user().organization, supervisor: Meteor.userId()}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch();
+            }
+        },
         'orgViewOn': function(){
             const t = Template.instance();
             userId = t.selectedUser.get();
@@ -165,7 +171,7 @@ Template.supervisorControlPanel.events({
         assignment = $(event.target).data("assessment-id");
         index = user.assigned.findIndex(x => x.assignmentId === assignment);
         user.assigned.splice(index, 1);
-        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+        Meteor.call('changeAssignmentOneUser', userId, user.assigned);
     },
     'click #assign-assessment': function(event){
         event.preventDefault();
@@ -178,7 +184,7 @@ Template.supervisorControlPanel.events({
             type: "assessment"
         }
         user.assigned.push(assignment);
-        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+        Meteor.call('changeAssignmentOneUser', userId, user.assigned);
     },
     'click #assign-module': function(event){
         event.preventDefault();
@@ -191,7 +197,7 @@ Template.supervisorControlPanel.events({
             type: "module"
         }
         user.assigned.push(assignment);
-        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+        Meteor.call('changeAssignmentOneUser', userId, user.assigned);
     },
     'click #moveup-assignment': function(event){
         event.preventDefault();
@@ -206,7 +212,7 @@ Template.supervisorControlPanel.events({
         assigned[index] = b;
         assigned[index - 1] = a;
         user.assigned = assigned;
-        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+        Meteor.call('changeAssignmentOneUser', userId, user.assigned);
     },
     'click #movedown-assignment': function(event){
         event.preventDefault();
@@ -221,7 +227,7 @@ Template.supervisorControlPanel.events({
         assigned[index] = b;
         assigned[index + 1] = a;
         user.assigned = assigned;
-        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+        Meteor.call('changeAssignmentOneUser', userId, user.assigned);
     },
 })
 

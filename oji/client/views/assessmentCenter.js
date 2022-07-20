@@ -6,7 +6,13 @@ Template.assessmentCenter.events({
     'click .startAssessment': function(event){
         event.preventDefault();
         target = "/assessment/" + event.currentTarget.id;
-        window.location.href = target;
+        Meteor.call('setCurrentAssignment', {id: event.currentTarget.id, type: "assessment"}, function(err, res){
+            if(err){
+                console.log(err);
+            } else {
+                Router.go(target);
+            }
+        });
     },
 })
 

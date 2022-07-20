@@ -37,13 +37,15 @@ Template.adminControlPanel.helpers({
   
     'files':  function(){
         files = Orgs.findOne({_id: Meteor.user().organization}).files;
-        for(i = 0; i < files.length; i++){
-            files[i].isImage = false;
-            if(files[i].type.includes("image")){
-                files[i].isImage = true;
+        if(files){
+            for(i = 0; i < files.length; i++){
+                files[i].isImage = false;
+                if(files[i].type.includes("image")){
+                    files[i].isImage = true;
+                }
             }
+            return files;
         }
-        return files;
     },
     'assessments': function (){
       const t = Template.instance();
@@ -91,7 +93,7 @@ Template.adminControlPanel.helpers({
         for(i = 0; i < data.length; i++){
             data[i].status = "";
             data[i].orgView = true;
-            if(org.newUserAssignments.findIndex(x => x.assignment === data[i]._id) > -1){
+            if(org.newUserAssignments && org.newUserAssignments.findIndex(x => x.assignment === data[i]._id) > -1){
                 data[i].status += "Assigned to new users. ";
                 data[i].newUserRequired = true;
             } 
@@ -210,17 +212,29 @@ Template.adminControlPanel.events({
             type: "assessment"
         }
         user.assigned.push(assignment);
-        Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+        Meteor.call('changeAssignmentOneUser', userId, user.assigned);
     },
     'click #assign-all': function(event){
         event.preventDefault();
-        newAssignment = $(event.target).data("assessment-id");
+        const assessmentId = $(event.target).data("assessment-id");
+        const newAssignment = {assignment: assessmentId, type: "assessment"};
         Meteor.call('assignToAllUsers', newAssignment);
-        assignment = Assessments.findOne({_id: newAssignment});
+        assignment = Assessments.findOne({_id: assessmentId});
         $('#alert').show();
         $('#alert').removeClass();
         $('#alert').addClass("alert alert-success");
         $('#alert-p').html("Successfully assigned " + assignment.title + " to all users.");
+    },
+    'click #assign-all-module': function(event){
+        event.preventDefault();
+        const moduleId = $(event.target).data("module-id");
+        const newModule = {assignment: moduleId, type: "module"};
+        Meteor.call('assignToAllUsers', newModule);
+        module = Modules.findOne({_id: moduleId});
+        $('#alert').show();
+        $('#alert').removeClass();
+        $('#alert').addClass("alert alert-success");
+        $('#alert-p').html("Successfully assigned " + module.title + " to all users.");
 
     },
     'click #close-alert': function(event){

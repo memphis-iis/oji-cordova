@@ -1,9 +1,9 @@
 Template.assessment.helpers({
-    'assessment': () => Assessments.findOne(),
+    'assessment': () => Assessments.findOne({_id: Meteor.user().curAssignment.id}),
     'isNotQuestion': () => this.isNotQuestion,
     'questionid': function() {return parseInt(this.questionid) + 1;},
     'completed' : function() {
-        assessment = Assessments.findOne();
+        assessment = Assessments.findOne({_id: Meteor.user().curAssignment.id});
         if(this.questionid == "completed"){
             Meteor.call('clearAssessmentProgress');
             userId = Meteor.userId();
@@ -13,7 +13,7 @@ Template.assessment.helpers({
                 user.assigned.splice(index, 1);
             }
             user.assigned.splice(index, 1);
-            Meteor.call('changeAssignmentOneUser', [userId, user.assigned]);
+            Meteor.call('changeAssignmentOneUser', userId, user.assigned);
             return true;
         } else {
             return false;
@@ -33,7 +33,7 @@ Template.assessment.helpers({
         }
     },
     'question': function(){
-        var assessment = Assessments.findOne();
+        var assessment = Assessments.findOne({_id: Meteor.user().curAssignment.id});
         data = {
             text: assessment.questions[this.questionid].text,
             answers: assessment.answers,
@@ -51,7 +51,7 @@ Template.assessment.events({
         event.preventDefault();
         userId = Meteor.userId();
         trialData = Meteor.user().curTrial;
-        let curAssesment = Assessments.findOne();
+        let curAssesment = Assessments.findOne({_id: Meteor.user().curAssignment.id});
         let completed = false;
 
         if(typeof trialData === "undefined"){
@@ -107,7 +107,7 @@ Template.assessment.events({
         });
     },
     'click .begin': function(event) {
-        curAssesment = Assessments.findOne();
+        curAssesment = Assessments.findOne({_id: Meteor.user().curAssignment.id});
         target = "/assessment/" + curAssesment._id + "/" + "0";
         Router.go(target);
     },
@@ -116,7 +116,7 @@ Template.assessment.events({
         Router.go(target);
     },
     'click .resume': function(event){
-        curAssesment = Assessments.findOne();
+        curAssesment = Assessments.findOne({_id: Meteor.user().curAssignment.id});
         userId = Meteor.userId();
         user = Meteor.user();
         target = "/assessment/" + curAssesment._id + "/" + user.curTrial.questionId;

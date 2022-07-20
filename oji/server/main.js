@@ -341,6 +341,9 @@ Meteor.methods({
             Meteor.users.remove(userID);
         }
     },
+    userIsAdmin: function(){
+        return Roles.userIsInRole(Meteor.userId(), ['admin']);
+    },
     removeSupervisor: function(userId){
         //removes a user from supervisors list if added by mistake. 
         if(Roles.userIsInRole(this.userId, 'admin')){
@@ -374,9 +377,7 @@ Meteor.methods({
             Meteor.users.upsert({_id: allUsers[i]._id}, {$set: {assigned: curAssignments}});
         }
     },
-    changeAssignmentOneUser: function(input){
-        userId = input[0];
-        assignment = input[1];
+    changeAssignmentOneUser: function(userId, assignment){
         Meteor.users.upsert({_id: userId},{$set: {assigned: assignment}});
     },
     deleteAssessment: function(assessment){
@@ -682,6 +683,13 @@ Meteor.methods({
             return output.insertedId;
         }
     },
+    setCurrentAssignment: function(assignment){
+        Meteor.users.update(Meteor.userId(), {
+            $set: {
+                curAssignment: assignment
+            }
+        });
+    },
     endAssessment: function(trialId) {
         let trial = Trials.findOne({'_id': trialId});
         const adjustedScores = calculateScores(trial.identifier, trial.subscaleTotals, Meteor.user().sex)
@@ -722,15 +730,15 @@ Meteor.methods({
         }
         Meteor.users.upsert(Meteor.userId(), {
             $set: {
-            curModule: {
-                moduleId: Meteor.user().curModule.moduleId,
-                pageId: moduleData.nextPage,
-                questionId: moduleData.nextQuestion,
-            },
-            nextModule: nextModule
-        }
-    })
-},
+                curModule: {
+                    moduleId: Meteor.user().curModule.moduleId,
+                    pageId: moduleData.nextPage,
+                    questionId: moduleData.nextQuestion,
+                },
+                nextModule: nextModule
+            }
+        })
+    },
     getAsset: function(fileName){
         result =  Assets.absoluteFilePath(fileName);
         return result;
@@ -1069,7 +1077,6 @@ Meteor.publish(null, function() {
 
 //get all organization events
 Meteor.publish('events', function() {
-    console.log(Meteor.user().organization, this.userId)
     if(Meteor.user()){
         return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]},{type:this.userId}]}, {sort: {year:1 , month:1, day:1, time:1}})
     }
