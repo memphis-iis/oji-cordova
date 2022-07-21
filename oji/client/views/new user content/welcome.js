@@ -33,7 +33,7 @@ Template.welcome.events({
             const assignment = org.newUserAssignments[0];
             if(assignment){
                 const target = `/${assignment.type}/` + assignment.assignment;
-                Meteor.call('setCurrentAssignment', {id: assignment.assignment, type: assignment.type}, function(err, res){
+                Meteor.call('setCurrentAssignment', {id: assignment.assignment, type: assignment.type, newUserAssignment: true}, function(err, res){
                     if(err){
                         console.log(err);
                     } else {

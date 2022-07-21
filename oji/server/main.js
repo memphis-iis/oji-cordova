@@ -739,6 +739,13 @@ Meteor.methods({
             }
         })
     },
+    userFinishedOrientation: function(){
+        Meteor.users.update(Meteor.userId(), {
+            $set: {
+                hasCompletedFirstAssessment: true
+            }
+        });
+    },
     getAsset: function(fileName){
         result =  Assets.absoluteFilePath(fileName);
         return result;

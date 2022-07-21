@@ -1,7 +1,9 @@
 Template.profile.helpers({
     'assignment': function(){
         const user = Meteor.user();
-        if(user){
+        const modules = Modules.find({}).fetch();
+        const assessments = Assessments.find({}).fetch();
+        if(user && modules.length > 0 && assessments.length > 0){
             assigned = user.assigned;
             assignment = {};
             if(assigned.length === 0){

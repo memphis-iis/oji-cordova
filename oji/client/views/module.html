@@ -4,6 +4,9 @@
        {{#if this.pageId}}
        {{#if completed}}
             <p>You have completed this module! A certificate has been awarded to you.</p>
+            {{#if isNewUserAssignment}}
+            <button class="btn btn-primary" id="startNextAssignment">Continue your journey</button>    
+            {{/if}}
             <button class="btn btn-primary" id="goBack">Return to My Profile</button>    
         {{else}}
         <h4>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}} ({{percentDone}}%){{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h4>

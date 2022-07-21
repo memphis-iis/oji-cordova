@@ -1,9 +1,11 @@
 Template.module.helpers({
-    'module': () => Modules.findOne({_id: Meteor.user().curAssignment.id}),
+    'module': () => Modules.findOne({_id: Meteor.user().curAssignment?.id}),
     'pageid': function() {return parseInt(this.pageId) + 1;},
     'questionid': function() {return parseInt(this.questionId) + 1;},
     'totalpages': function(){
-        return Modules.findOne({_id: Meteor.user().curAssignment.id}).pages.length;
+        if(Meteor.user().curAssignment){
+            return Modules.findOne({_id: Meteor.user().curAssignment.id}).pages.length;
+        }
     },
     'completed' : function(){
         if(Meteor.user().curModule.pageId == "completed"){
@@ -12,14 +14,31 @@ Template.module.helpers({
             return false;
         }
     },
+    'isNewUserAssignment': function(){
+        if(Meteor.user().curAssignment?.newUserAssignment) {
+            let newUserAssignments = Orgs.findOne().newUserAssignments;
+            const curAssignment = Meteor.user().curAssignment;
+            const curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element = curAssignment.id)
+            if(curAssignmentIndex >= newUserAssignments.length - 1){
+                Meteor.call('userFinishedOrientation');
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    },
     'isFurthestPage': function(){
         return Meteor.user().curModule.pageId == this.pageId;
     },
     'displayNextPageBtn': function(){
-        if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
-            return true;
-        } else {
-            return false;
+        if(Meteor.user().curModule){
+            if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
+                return true;
+            } else {
+                return false;
+            }
         }
     },
     'displayLastPageBth': function() {
@@ -30,25 +49,28 @@ Template.module.helpers({
         }
     },
     'page': function(){
-        page = Modules.findOne({_id: Meteor.user().curAssignment.id}).pages[parseInt(this.pageId)];
-        if(page) {
-            const t = Template.instance();
-            $('.continue').show();
-            if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
-                $('.continue').hide();
+        const user = Meteor.user();
+        if(user && user.curAssignment){
+            page = Modules.findOne({_id: Meteor.user().curAssignment.id}).pages[parseInt(this.pageId)];
+            if(page) {
+                const t = Template.instance();
+                $('.continue').show();
+                if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
+                    $('.continue').hide();
+                }
+                if(page.type == "text"){
+                    page.typeText = true;
+                    t.pageType.set("text");
+                };
+                if(page.type == "activity"){
+                    page.typeActivity = true;
+                    t.pageType.set("activity");
+                };
+                if(!page.imgStyle){
+                    page.imgStyle = "max-width:50%; height:auto; margin:10px;"
+                }
+                return page;
             }
-            if(page.type == "text"){
-                page.typeText = true;
-                t.pageType.set("text");
-            };
-            if(page.type == "activity"){
-                page.typeActivity = true;
-                t.pageType.set("activity");
-            };
-            if(!page.imgStyle){
-                page.imgStyle = "max-width:50%; height:auto; margin:10px;"
-            }
-            return page;
         }
     },
     'question': function(){
@@ -98,9 +120,12 @@ Template.module.helpers({
         return question;
     },
     'percentDone': function(){
-        length = Modules.findOne({_id: Meteor.user().curAssignment.id}).pages.length;
-        percent = parseInt(this.pageId) / length * 100;
-        return percent.toFixed(0);
+        const user = Meteor.user();
+        if(user && user.curAssignment){
+            const length = Modules.findOne({_id: Meteor.user().curAssignment.id}).pages.length;
+            percent = parseInt(this.pageId) / length * 100;
+            return percent.toFixed(0);
+        }
     },
 });
 
@@ -228,6 +253,20 @@ Template.module.events({
         nextPage = parseInt(this.pageId) + 1;
         target = "/module/" + Meteor.user().curAssignment?.id + "/" + nextPage;
         Router.go(target);
+    },
+    'click #continueJourney': function(event){
+        let newUserAssignments = Orgs.findOne().newUserAssignments;
+        const curAssignment = Meteor.user().curAssignment;
+        let curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element = curAssignment.id)
+        const nextAssignment = newUserAssignments[curAssignmentIndex + 1];
+        const target = `/${nextAssignment.type}/` + nextAssignment.assignment;
+        Meteor.call('setCurrentAssignment', {id: nextAssignment.assignment, type: nextAssignment.type, newUserAssignment: true}, function(err, res){
+            if(err){
+                console.log(err);
+            } else {
+                Router.go(target);
+            }
+        });
     }
     
 })
