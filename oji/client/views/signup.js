@@ -19,7 +19,7 @@ Template.signup.events({
             else{
                 Meteor.loginWithPassword($('#usernameSignin').val(), $('#passwordSignin').val());
                 if($('#linkId').val()){
-                    Router.go("/");
+                    Router.go("/profile");
                 }
                 else{
                     Router.go("/createOrg")
