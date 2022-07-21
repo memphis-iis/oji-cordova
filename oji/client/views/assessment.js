@@ -19,6 +19,21 @@ Template.assessment.helpers({
             return false;
         }
     },
+    'isNewUserAssignment': function(){
+        if(Meteor.user().curAssignment?.newUserAssignment) {
+            let newUserAssignments = Orgs.findOne().newUserAssignments;
+            const curAssignment = Meteor.user().curAssignment;
+            const curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id)
+            if(curAssignmentIndex >= newUserAssignments.length - 1){
+                Meteor.call('userFinishedOrientation');
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    },
     'resumeableTrial': function() {
         user = Meteor.user();
         if(!user.curTrial.trialId){
@@ -76,7 +91,9 @@ Template.assessment.events({
         }
 
         let selectedAnswer = event.target.id;
-        let subscales = curAssesment.questions[curQuestion]?.subscales || curAssesment.questions[curQuestion - 1].subscales;//temp fix
+        let subscales
+        if(curAssesment.questions[curQuestion]?.subscales)
+            subscales = curAssesment.questions[curQuestion]?.subscales || curAssesment.questions[curQuestion - 1].subscales;//temp fix
         let selectedAnswerValue = assessment.answerValues[selectedAnswer];
         if(curAssesment.reversedQuestions.includes(curQuestion)){
             selectedAnswerValue = curAssesment.reversedValues[selectedAnswer]
@@ -126,6 +143,20 @@ Template.assessment.events({
         target = "/profile/"
         Router.go(target);
     },
+    'click #startNextAssignment': function(event){
+        let newUserAssignments = Orgs.findOne().newUserAssignments;
+        const curAssignment = Meteor.user().curAssignment;
+        const curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id);
+        const nextAssignment = newUserAssignments[curAssignmentIndex + 1];
+        target = `/${nextAssignment.type}/${nextAssignment.assignment}`;
+        Meteor.call('setCurrentAssignment', {id: nextAssignment.assignment, type: nextAssignment.type, newUserAssignment: true}, function(err, res){
+            if(err){
+                console.log(err);
+            } else {
+                Router.go(target);
+            }
+        });
+    }
 })
 
 

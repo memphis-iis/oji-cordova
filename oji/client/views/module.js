@@ -18,7 +18,7 @@ Template.module.helpers({
         if(Meteor.user().curAssignment?.newUserAssignment) {
             let newUserAssignments = Orgs.findOne().newUserAssignments;
             const curAssignment = Meteor.user().curAssignment;
-            const curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element = curAssignment.id)
+            const curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id)
             if(curAssignmentIndex >= newUserAssignments.length - 1){
                 Meteor.call('userFinishedOrientation');
                 return false;
@@ -257,7 +257,7 @@ Template.module.events({
     'click #continueJourney': function(event){
         let newUserAssignments = Orgs.findOne().newUserAssignments;
         const curAssignment = Meteor.user().curAssignment;
-        let curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element = curAssignment.id)
+        let curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id)
         const nextAssignment = newUserAssignments[curAssignmentIndex + 1];
         const target = `/${nextAssignment.type}/` + nextAssignment.assignment;
         Meteor.call('setCurrentAssignment', {id: nextAssignment.assignment, type: nextAssignment.type, newUserAssignment: true}, function(err, res){

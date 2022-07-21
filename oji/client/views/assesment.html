@@ -21,9 +21,13 @@
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             {{#if completed}}
             <p class>You have completed this assessment. I have calculated the results.</p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button class="btn btn-primary return">Return to My Profile</button>
-            </div>
+            {{#if isNewUserAssignment}}
+                <button class="btn btn-primary" id="startNextAssignment">Continue your journey</button>
+            {{else}}
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button class="btn btn-primary return">Return to My Profile</button>
+                </div>    
+            {{/if}}
             {{else}}
             Question {{questionid}} of {{question.totalQuestions}} ({{question.percentageCompleted}}%)
             <h3>{{question.text}}</h3>
