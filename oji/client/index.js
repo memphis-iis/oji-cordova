@@ -69,17 +69,19 @@ Template.DefaultLayout.events({
 Template.DefaultLayout.helpers({
   'organization': function () {
      orgs = Orgs.findOne();
-     orgSplit = orgs.orgName.split(" ");
-     newOrgName = orgs.orgName;
-     if(orgSplit.length > 1){
-        newOrgName = "";
-        for(i = 0; i < Math.max(orgSplit.length - 1, 2); i++){
-          newOrgName += orgSplit[i].charAt(0);
-        }
-     } else {
-        newOrgName = orgs.orgName.substring(0,Math.min(3, orgs.orgName.length));
+     if(orgs){
+      orgSplit = orgs.orgName.split(" ");
+      newOrgName = orgs.orgName;
+      if(orgSplit.length > 1){
+         newOrgName = "";
+         for(i = 0; i < Math.max(orgSplit.length - 1, 2); i++){
+           newOrgName += orgSplit[i].charAt(0);
+         }
+      } else {
+         newOrgName = orgs.orgName.substring(0,Math.min(3, orgs.orgName.length));
+      }
+      orgs.orgNameTruncated = newOrgName;
+      return orgs;
      }
-     orgs.orgNameTruncated = newOrgName;
-     return orgs;
   }
 });

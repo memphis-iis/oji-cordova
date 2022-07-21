@@ -59,19 +59,19 @@ Template.module.helpers({
         if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
             $('#continue').prop('disabled', true);
         }
-        if(question.type == "blank"){
+        if(question.type.toLowerCase() == "blank"){
             question.typeBlank = true;
         };
-        if(question.type == "multiChoice"){
+        if(question.type.toLowerCase() == "multichoice"){
             question.typeMultiChoice = true;
         };
-        if(question.type == "longText"){
+        if(question.type.toLowerCase() == "longtext"){
             question.typeLongText = true;
         };
-        if(question.type == "dropdown"){
+        if(question.type.toLowerCase() == "dropdown"){
             question.typeDropDown = true;
         };
-        if(question.type == "combo"){
+        if(question.type.toLowerCase() == "combo"){
             question.typeCombo= true;
             fields = question.fields;
             for(i = 0; i < fields.length; i++){
@@ -119,16 +119,16 @@ Template.module.events({
         if(t.pageType.get() == "activity"){
             questionData = {};
             questionData.questionType = t.questionType.get();
-            if(questionData.questionType == "blank"){
+            if(questionData.questionType.toLowerCase() == "blank"){
                 response = $('.textInput').val();
             }
-            if(questionData.questionType == "multiChoice"){
+            if(questionData.questionType.toLowerCase() == "multichoice"){
                 response = $(event.target).html();
             }
-            if(questionData.questionType == "longText"){
+            if(questionData.questionType.toLowerCase() == "longtext"){
                 response = $('.textareaInput').val();
             }
-            if(questionData.questionType == "combo"){
+            if(questionData.questionType.toLowerCase() == "combo"){
                 allInput = document.getElementsByClassName('combo');
                 response = [];
                 for(i = 0; i < allInput.length; i++){

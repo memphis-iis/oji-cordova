@@ -23,7 +23,6 @@ Template.profile.helpers({
             return assignment;
         }
     },
-    'userIsAdminOrSupervisor': () => Roles.userIsInRole(Meteor.userId(), ['admin', 'supervisor']),
     'certificates': function(){
         files = Files.find({"meta.user": Meteor.userId()}).fetch();
         certificates = [];
@@ -40,6 +39,12 @@ Template.profile.helpers({
         }
         console.log(certificates);
         return certificates;
+    },
+    'hasCompletedFistTimeAssessment': function(){
+        const user = Meteor.user();
+        if(user){
+            return user.hasCompletedFirstAssessment;
+        }
     }
 })
 
