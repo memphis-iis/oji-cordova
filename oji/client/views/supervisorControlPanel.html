@@ -165,7 +165,7 @@
                             <td>{{this.lastAccessed}}</td>
                             <td>{{this.title}}</td>
                             {{#if this.completed}}
-                            <td>Completed</td>
+                            <td>Completed: <a id="generate-certificate" data-module-id="{{this.moduleId}}">Generate Certficates</a></td>
                             {{else}}
                             <td>Page {{this.lastPage}} of {{this.totalPages}} / {{this.percentDone}}% </td>
                             {{/if}}

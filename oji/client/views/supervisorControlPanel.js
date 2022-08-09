@@ -58,6 +58,7 @@ Template.supervisorControlPanel.helpers({
                 }
                 dataToPush = {
                     id: data[i]._id,
+                    moduleId: data[i].moduleId,
                     lastAccessed: dateAccessed,
                     title: moduleInfo.title,
                     lastPage: data[i].nextPage,
@@ -185,6 +186,12 @@ Template.supervisorControlPanel.events({
         }
         user.assigned.push(assignment);
         Meteor.call('changeAssignmentOneUser', userId, user.assigned);
+    },
+    'click #generate-certificate': function(event){
+        userId = t.selectedUser.get();
+        user = Meteor.users.findOne({_id: userId});
+        curModuleId = $(event.target).data("module-id");
+        Meteor.call('generateCertificate',curModuleId);
     },
     'click #assign-module': function(event){
         event.preventDefault();

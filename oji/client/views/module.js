@@ -206,10 +206,6 @@ Template.module.events({
             curUser.assigned.splice(index, 1);
             Meteor.call('changeAssignmentOneUser', Meteor.userId(),  curUser.assigned);
             target = "/module/" + curModule._id + "/completed";
-            Meteor.call('generateCertificate',curModule._id);
-            if(curModule.lastModule){
-                Meteor.call('generateCertificate');
-            }
         } 
         Meteor.call("saveModuleData", moduleData);
 
