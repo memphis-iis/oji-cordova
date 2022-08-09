@@ -132,7 +132,8 @@ Meteor.startup(() => {
   });
 
     //load default JSON assessment into mongo collection
-    if(Assessments.find().count() === 0){
+    importDefaultAssessments = Meteor.settings.importDefaults;
+    if(Assessments.find().count() === 0 && importDefaultAssessments){
         console.log('Importing Default Assessments into Mongo.')
         var data = JSON.parse(Assets.getText('defaultAssessments.json'));
         for (var i =0; i < data['assessments'].length; i++){
