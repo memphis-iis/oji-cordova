@@ -262,6 +262,34 @@
             {{/each}}
         </tbody>
     </table>
+    <h3>
+        Transfers
+    </h3>
+    <p>Reversing an organizqational transfer requires contact with the other organziation.</p>
+    <form>
+        <div class="form-group">
+            <label for="user">User:</label>
+            <select id="transferUser">
+                {{#each usersList}}
+                    <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="transferTo">Transfer To Supervisor:</label>
+            <select id="transferTo">
+                {{#each supervisorsList}}
+                    <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary" id="transferSupervisorButton">Transfer Supervisors</button>
+        <div class="form-group">
+            <label for="transforToOrg">Transfer To supervisor at other organization by code:</label>
+            <input type="text"  id="transferToOrg" placeholder="Organization Code">
+        </div>
+        <button type="button" class="btn btn-primary" id="transferOrgButton">Transfer to Supervisor at another organization</button>
+    </form>
 </div>
     {{ > supervisorControlPanel }}
 </template>

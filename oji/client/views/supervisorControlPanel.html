@@ -1,7 +1,7 @@
 <template name="supervisorControlPanel">
     <div class="row">
         <div class="col-4">
-            <h3>Users</h3>
+            <h3>Users Supervised</h3>
         </div>
     </div>
     <table class="table" id="UserListTable">
@@ -62,7 +62,6 @@
             {{#if orgViewOn}}
                  User Flow can be seen when selecting an individual user  that you supervise.
             {{else}}
-            <h4>Assignments</h4>
             {{#if assignments}}
             <table class="table" id="assessmentList">
                 <thead>
