@@ -31,7 +31,8 @@ const restrictedRoutes = [
   'moduleCenter',
   'calendar',
   'journal',
-  'devtest'
+  'devtest',
+  'postAssessmentPrompt'
 ]
 
 
