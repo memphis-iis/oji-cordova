@@ -5,6 +5,14 @@ import { FilesCollection } from 'meteor/ostrio:files';
 Template.adminControlPanel.helpers({
     'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
 
+    'usersList': function() {
+        if(Roles.userIsInRole(Meteor.userId(), 'admin')) {
+            return Meteor.users.find({ role: 'user', organization: Meteor.user().organization}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch();
+        } else {
+            return Meteor.users.find({ role: 'user', organization: Meteor.user().organization, supervisor: Meteor.userId()}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch();
+        }
+    },
+
     'userInfo': () => Meteor.users.find({role: 'user'}),
 
     'author': function(){
@@ -390,6 +398,21 @@ Template.adminControlPanel.events({
         assigned[index + 1] = a;
         Meteor.call('changeAssignmentToNewUsers', assigned);
     },
+    'click #transferSupervisorButton': function(event){
+        event.preventDefault();
+        userId = $('#transferUser').val();
+        newSupervisorId = $('#transferTo').val();
+        Meteor.call('transferUserToOtherSupervisor', userId, newSupervisorId);
+        alert("User transferred");
+    },
+    'click #transferOrgButton': function(event){
+        event.preventDefault();
+        userId = $('#transferUser').val();
+        orgCode = $('#transferToOrg').val();
+        Meteor.call('transferUserToOtherOrg', userId, orgCode, function(err,res){
+               
+        });
+    }
 })
 
 Template.adminControlPanel.onCreated(function() {

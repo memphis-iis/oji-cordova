@@ -341,6 +341,33 @@ Meteor.methods({
             Meteor.users.remove(userID);
         }
     },
+    transferUserToOtherSupervisor: function(userID, newSupervisorID){
+        console.log("Transfer Supervisor: ",userID, newSupervisorID);
+        if(Roles.userIsInRole(this.userId, ['admin'])){
+            Meteor.users.update({ _id: userID }, 
+                {   $set: 
+                    {
+                        supervisor: newSupervisorID,
+                    }
+                });
+        }
+    },
+    transferUserToOtherOrg: function(userID, newOrgCode){
+        console.log("Transfer Organization: ",userID, newOrgCode);
+        inviteInfo = getInviteInfo(newOrgCode);
+        inviteOrgId = inviteInfo.targetOrgId;
+        inviteSupervisorId = inviteInfo.targetSupervisorId;
+        if(Roles.userIsInRole(this.userId, ['admin'])){
+            Meteor.users.update({ _id: userID }, 
+                {   $set: 
+                    {
+                        supervisor: inviteSupervisorId,
+                        organization: inviteOrgId,
+                    }
+                });
+        }
+        
+    },
     userIsAdmin: function(){
         return Roles.userIsInRole(Meteor.userId(), ['admin']);
     },
