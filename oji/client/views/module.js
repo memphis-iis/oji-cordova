@@ -157,8 +157,11 @@ Template.module.events({
                 allInput = document.getElementsByClassName('combo');
                 response = [];
                 for(i = 0; i < allInput.length; i++){
-                    if ($(allInput[i]).prop('nodeName') == "INPUT" || $(allInput[i]).prop('nodeName') == "TEXTAREA"){
+                    if (($(allInput[i]).prop('nodeName') == "INPUT" || $(allInput[i]).prop('nodeName') == "TEXTAREA") && $(allInput[i]).val() != ""){
                         response.push($(allInput[i]).val());
+                    } else {
+                        alert("Please fill in all fields");
+                        return;
                     }
                     if ($(allInput[i]).hasClass('btn-info')){
                         response.push($(allInput[i]).html());
