@@ -147,13 +147,18 @@ Template.assessment.events({
         let newUserAssignments = Orgs.findOne().newUserAssignments;
         const curAssignment = Meteor.user().curAssignment;
         const curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id);
-        const nextAssignment = newUserAssignments[curAssignmentIndex + 1];
+        const nextAssignment = newUserAssignments[curAssignmentIndex + 1];        
         target = `/${nextAssignment.type}/${nextAssignment.assignment}`;
         Meteor.call('setCurrentAssignment', {id: nextAssignment.assignment, type: nextAssignment.type, newUserAssignment: true}, function(err, res){
             if(err){
                 console.log(err);
             } else {
-                Router.go(target);
+                if(nextAssignment.type == "assessment"){
+                    Router.go(target);
+                } else {
+                    target = "/postAssessmentPrompt";
+                    Router.go(target);
+                }
             }
         });
     }
