@@ -179,7 +179,11 @@ Template.module.events({
                     if(moduleData.nextQuestion >= curModule.pages[moduleData.nextPage].questions.length){
                         moduleData.nextPage = thisPage + 1;
                         moduleData.nextQuestion = 0;
-                        target = "/module/" + curModule._id + "/" + moduleData.nextPage;
+                        if(curModule.pages[moduleData.nextPage].questions[moduleData.nextQuestion].text || curModule.pages[moduleData.nextPage].questions[moduleData.nextQuestion].text == ''){
+                            target = "/module/" + curModule._id + "/" + moduleData.nextPage;
+                        } else {
+                            target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
+                        }
                     } else  {
                         target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
                     }
