@@ -32,7 +32,9 @@ const restrictedRoutes = [
   'calendar',
   'journal',
   'devtest',
-  'postAssessmentPrompt'
+  'postAssessmentPrompt',
+  'certifcates',
+  'goals'
 ]
 
 

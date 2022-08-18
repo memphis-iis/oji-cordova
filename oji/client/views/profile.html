@@ -16,19 +16,31 @@
                     <br>
                 </div>
             {{else}} 
-                <h4>{{currentUser.firstname}}'s Dashboard</h4>
+                <div class="container">
+                    <ul class="nav nav-tabs" style>
+                        <li class="nav-item">
+                        <a class="nav-link active" id="toggle-month-view" aria-current="page" href="profile">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link active" id="toggle-month-view" aria-current="page" href="goals">Goals</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link toggle-agenda-view" href="certifcates">Certificates</a>
+                        </li>
+                    </ul>
+                </div>
                 <br>
+                <button id="calendar" class="btn btn-primary btn-wide">
+                    <h4><span class="glyphicon glyphicon-calendar"></span> Calendar</h4>
+                </button>
+                <button id="journal" class="btn btn-primary btn-wide">
+                    <h4><span class="glyphicon glyphicon-pencil"></span> Add Thought Log</h4>
+                </button>
                 <button id="dashboard" class="btn btn-primary btn-wide">
                     <h4><span class="glyphicon glyphicon-stats"></span> Dashboard</h4>
                 </button>
                 <button id="moduleCenter" class="btn btn-primary btn-wide">
                     <h4><span class="glyphicon glyphicon-repeat"></span> Review Modules</h4>
-                </button>
-                <button id="journal" class="btn btn-primary btn-wide">
-                    <h4><span class="glyphicon glyphicon-pencil"></span> Add Journal Entry</h4>
-                </button>
-                <button id="calendar" class="btn btn-primary btn-wide">
-                    <h4><span class="glyphicon glyphicon-calendar"></span> Calendar</h4>
                 </button>
             {{/if}}
         {{else}}
