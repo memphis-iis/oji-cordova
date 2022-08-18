@@ -32,9 +32,11 @@ select {
 
 .alert{
     margin-bottom: 50px;
-    margin-left:10px;
-    margin-right:10px;
     margin-top:10px;
+    width:100%;
+}
+.row{
+    padding-right: 30px;
 }
 .nav-link span{
     font-size:25px;
@@ -93,11 +95,18 @@ input, option, textarea {
     margin-top: 0px;
     color: #e26b4d;
 }
-#footer{
-    background-color: rgba(0, 0, 0, 0.5);
-    margin: 10px;
+
+.footer-container{
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 1);
+    margin-top: 10px;
     width:100%;
-    border-radius: 10px;
+    border-radius: 5px;
+    height: 50px;
+}
+.footer-div{
+    text-align: center;
 }
 #footer p{
     text-align: center;
@@ -116,11 +125,4 @@ img #logo-color{
     background-image: url('/logo.png');
     max-width:100px;
     border-radius: 20px;
-}
-.journal-entry{
-    border: 1px whitesmoke;
-    border-radius: 20px;
-    background-color: rgba(132, 132, 132, 0.5);
-    font-size: large;
-    padding: 20px;
 }

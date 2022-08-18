@@ -1,11 +1,33 @@
 <template name="journal">
     <div class="px-4 py-5 my-5 container">
-       <h1 class="text-center">New Journal Entry</h1>
+       <h1 class="text-center">New Thought Log Entry</h1>
         <form>
-            <textarea style="width: 100%; min-height: 300px;" id="text"></textarea>
+            <div class="form-group">
+               <h3>Triggering Event</h3>
+               <h5>Who? What? When? Where?</h5>
+                <textarea style="width: 100%; min-height: 300px;" id="triggeringEvent"></textarea>
+                <h3>Mood</h3>
+                <h5>What are you feeling?2. Rate how much you’re feeling this feeling (0-100%).</h5>
+                <textarea style="width: 100%; min-height: 300px;" id="mood"></textarea>
+                <h3>Automatic Thoughts</h3>
+               <h5> What was your mind sayingbefore you started feeling this way? What criminal thinking style is this?</h5>
+                <textarea style="width: 100%; min-height: 300px;" id="automaticThoughts"></textarea>
+                <h3>Evidence <u>FOR</u> Thoughts:</h3>
+                <h5>What information supports your thoughts?</h5>
+                <textarea style="width: 100%; min-height: 300px;" id="evidenceForThoughts"></textarea>
+                <h3>Evidence <u>AGAINST</u> Thoughts:</h3>
+                <h5>What information does NOT support your thoughts?</h5>
+                <textarea style="width: 100%; min-height: 300px;" id="evidenceAgainstThoughts"></textarea>
+               <h3>Other Thoughts</h3>
+               <h5>Write more helpful thoughts. How much do you believe in these thoughts (0-100%)?</h5>
+                <textarea style="width: 100%; min-height: 300px;" id="otherThoughts"></textarea>
+               <h3>New Mood</h3>
+               <h5>Re-rate your feelings from earlier AND any new feelings that you now have (0-100%) Are your feelings more helpful now?</h5>
+                <textarea style="width: 100%; min-height: 300px;" id="newMood"></textarea>
+            </div> 
         </form>
         <br>
-        <button class="btn btn-primary" style="width:100%" id="createEntry">Create Entry</button>
+        <button class="btn btn-primary" style="width:100%" id="createEntry">Create Log</button>
         <br>
         </div>
 </template>

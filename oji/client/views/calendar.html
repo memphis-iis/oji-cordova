@@ -1,96 +1,101 @@
 <template name="calendar">
     <div class="container">
-        <ul class="nav nav-tabs" style>
-            <li class="nav-item">
-            <a class="nav-link active" id="toggle-month-view" aria-current="page" href="#">Month View</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link toggle-agenda-view" href="#">Agenda View</a>
-            </li>
-        </ul>
+        <div class="row">
+            <ul class="nav nav-tabs" style>
+                <li class="nav-item">
+                <a class="nav-link active" id="toggle-month-view" aria-current="page" href="#">Month View</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link toggle-agenda-view" href="#">Agenda View</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"  id="select-today">Today</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="row text-center" id="month-view">
-        <h3><a href="#" class="nav-link" id="decrement-month"><span class="glyphicon glyphicon-chevron-left"></span></a> {{calendar.Month}} / {{calendar.Year}} <a href="#" class="nav-link" id="increment-month"><span class="glyphicon glyphicon-chevron-right"></span></a></h3>
+    <div class="container">
+        <div class="row text-center" id="month-view">
+            <h3><a href="#" class="nav-link" id="decrement-month"><span class="glyphicon glyphicon-chevron-left"></span></a> {{calendar.Month}} / {{calendar.Year}} <a href="#" class="nav-link" id="increment-month"><span class="glyphicon glyphicon-chevron-right"></span></a></h3>
 
-        <table class="table" style="width:100%">
-            <thead>
-                <th scope="col" width="1%"></th>
-                <th scope="col" width="14%">Sun</th>
-                <th scope="col" width="14%">Mon</th>
-                <th scope="col" width="14%">Tues</th>
-                <th scope="col" width="14%">Wed</th>
-                <th scope="col" width="14%">Thur</th>
-                <th scope="col" width="14%">Fri</th>
-                <th scope="col" width="14%">Sat</th>
-                <th scope="col" width="1%"></th>
-            </thead>
-            <tbody>
-                {{#each calendar.weeks}}
-                <tr>
-                <td></td>
-                    {{#each this.days}}
-                        {{#if this.display}}
-                        {{#if this.today}}
-                        <td class="text-align-top text-align-left calendar-today">
-                            {{#if hasEvents}}
-                            <h5>
-                                <a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">
-                                {{this.dayNum}}
-                                <br>
-                                {{#if hasCritical}}
-                                    <span class="glyphicon glyphicon-list-alt" style="color:red"></span>
-                                {{else}}
-                                    <span class="glyphicon glyphicon-list-alt"></span>
-                                {{/if}}
-                            </a></h5>
-                            {{else}}
-                            {{#if hasEntries}}
-                                <h5><a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">
+            <table class="table" style="width:100%">
+                <thead>
+                    <th scope="col" width="1%"></th>
+                    <th scope="col" width="14%">Sun</th>
+                    <th scope="col" width="14%">Mon</th>
+                    <th scope="col" width="14%">Tues</th>
+                    <th scope="col" width="14%">Wed</th>
+                    <th scope="col" width="14%">Thur</th>
+                    <th scope="col" width="14%">Fri</th>
+                    <th scope="col" width="14%">Sat</th>
+                    <th scope="col" width="1%"></th>
+                </thead>
+                <tbody>
+                    {{#each calendar.weeks}}
+                    <tr>
+                    <td></td>
+                        {{#each this.days}}
+                            {{#if this.display}}
+                            {{#if this.today}}
+                            <td class="text-align-top text-align-left calendar-today">
+                                {{#if hasEvents}}
+                                <h5>
+                                    <a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">
                                     {{this.dayNum}}
                                     <br>
-                                    <span class="glyphicon glyphicon-pencil"></span>
-                                    </a></h5>
-
-                            {{else}}
-                                <h5><a class="toggle-create-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}</a></h5>
-                            {{/if}}
-                        {{/if}}
-                        </td>
-                        {{else}}
-                        <td class="text-align-top text-align-left">
-                            {{#if hasEvents}}
-                                <h5><a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}
-                                <br>
-                                {{#if hasCritical}}
-                                    <span class="glyphicon glyphicon-list-alt" style="color:red;"></span>
+                                    {{#if hasCritical}}
+                                        <span class="glyphicon glyphicon-list-alt" style="color:red"></span>
+                                    {{else}}
+                                        <span class="glyphicon glyphicon-list-alt"></span>
+                                    {{/if}}
+                                </a></h5>
                                 {{else}}
-                                    <span class="glyphicon glyphicon-list-alt"></span>
+                                {{#if hasEntries}}
+                                    <h5><a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">
+                                        {{this.dayNum}}
+                                        <br>
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                        </a></h5>
+
+                                {{else}}
+                                    <h5><a class="toggle-create-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}</a></h5>
                                 {{/if}}
-                                </a>
-                                </h5>
-                             {{else}}
-                             <h5><a class="toggle-create-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}</a></h5>
-                                <br>
-                             {{/if}}
-                        </td>
-                        {{/if}}
-                        {{else}}
-                        <td class="no-calendar-day">
-                        </td>
-                        {{/if}}
+                            {{/if}}
+                            </td>
+                            {{else}}
+                            <td class="text-align-top text-align-left">
+                                {{#if hasEvents}}
+                                    <h5><a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}
+                                    <br>
+                                    {{#if hasCritical}}
+                                        <span class="glyphicon glyphicon-list-alt" style="color:red;"></span>
+                                    {{else}}
+                                        <span class="glyphicon glyphicon-list-alt"></span>
+                                    {{/if}}
+                                    </a>
+                                    </h5>
+                                {{else}}
+                                <h5><a class="toggle-create-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}</a></h5>
+                                    <br>
+                                {{/if}}
+                            </td>
+                            {{/if}}
+                            {{else}}
+                            <td class="no-calendar-day">
+                            </td>
+                            {{/if}}
+                        {{/each}}
+                    </tr>
                     {{/each}}
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="row" id="agenda-view" hidden>
         <h3 class="text-center"><a href="#" class="nav-link"  id="decrement-day"><span class="glyphicon glyphicon-chevron-left"></span></a>&nbsp;{{agenda.monthName}} {{agenda.day}}, {{agenda.year}}             <a href="#" class="nav-link" id="increment-day"><span class="glyphicon glyphicon-chevron-right"></span></a></h3>
-        <p class="text-center">
-                <a href="#" class="nav-link"  id="select-today">Today</a>
-    </p>
-        <h3 class="text-center">Events</h3>
+
         {{#if agenda.events}}
+        <h3 class="text-center">Events</h3>
             <table class="table" >
                 <thead>
                     <th scope="col" width="10%">Time</th>
@@ -124,16 +129,53 @@
                 There are no events for this day.
             </p>
         {{/if}}
-        <h3 class="text-center">Journal Entries</h3>
+        <h3 class="text-center">Thought Log</h3>
         {{#if agenda.entries}}
-        <div class="row" style="margin: 20px;">   
+        <div class="row" style="margin-left: 20px;">   
                 {{#each agenda.entries}}  
-
+                        <hr>
                         <div class="col-xs-10 col-md-4">
                             <div class="journal-entry">
-                            <h3>Entry</h3>
-                            <p class="text-left">
-                                {{this.text}}
+                            <p class="text-left"><b>
+                                Triggering Event:<br></b>
+                                {{this.triggeringEvent}}
+                                <br><br>
+                            </p>
+                            <p class="text-left"><b>
+                                Mood:<br></b>
+                                {{this.mood}}
+                                <br><br>
+                            </p>
+                            <p class="text-left"><b>
+                                Automatic Thoughts:
+                                <br></b>
+                                {{this.automaticThoughts}}
+                                <br><br>
+                            </p>
+                            <p class="text-left"><b>
+                                Evidence For Thoughts:
+                                <br></b>
+                                {{this.evidenceForThoughts}}
+                                <br><br>
+                            </p>
+                            <p class="text-left"><b>
+                                Evedence Against Thoughts:
+                                <br></b>
+                                {{this.evidenceAgainstThoughts}}
+    
+                                <br><br>
+                            </p>
+                            <p class="text-left"><b>
+                                Other Thoughts:
+                                <br></b>
+                                {{this.otherThoughts}}
+                                <br><br>
+                            </p>
+                            <p class="text-left"><b>
+                                New Mood:
+                                <br></b>
+                                {{this.newMood}}
+                                <br><br>
                             </p>
                         </div>
                         <br>
@@ -143,7 +185,7 @@
         {{else}}
         <br><br>
         <p class="text-center">
-            There are no journal entries for this day.
+            There are no thought logs for this day.
         </p>
     {{/if}}
     
