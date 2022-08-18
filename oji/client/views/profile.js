@@ -44,8 +44,13 @@ Template.profile.helpers({
     },
     'hasCompletedFistTimeAssessment': function(){
         const user = Meteor.user();
-        if(user){
-            return user.hasCompletedFirstAssessment;
+        const org = Orgs.findOne();
+        if(user && org.newUserAssignments.length > 0){
+            if(user){
+                return user.hasCompletedFirstAssessment;
+            }
+        } else {
+            return true;
         }
     }
 })

@@ -1,0 +1,55 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "JsonRoutes",
+      "testOnly": false
+    },
+    {
+      "name": "RestMiddleware",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "underscore",
+      "constraint": "1.0.10"
+    },
+    {
+      "package": "webapp",
+      "constraint": "1.12.0"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/json-routes.js",
+      "length": 4021,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "json-routes.js",
+      "hash": "e4e08b67218ac2eefab3622fd037012a6a5cb4ef",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/middleware.js",
+      "length": 55,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "middleware.js",
+      "hash": "0ddf998371d06405e4e3cb63d59acb393e3d7d57",
+      "fileOptions": {
+        "lazy": false
+      }
+    }
+  ],
+  "node_modules": "npm/node_modules"
+}

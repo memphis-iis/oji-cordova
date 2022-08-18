@@ -1,0 +1,55 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.14.4"
+    },
+    {
+      "package": "templating",
+      "constraint": "1.4.1"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "css",
+      "file": "web.cordova/google_login_button.css",
+      "length": 1227,
+      "offset": 0,
+      "path": "google_login_button.css",
+      "hash": "6636e1d8ac79bff54828e78df6e3d407e6b6c38e",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "html",
+      "file": "web.cordova/google_configure.html",
+      "length": 1063,
+      "offset": 0,
+      "path": "google_configure.html",
+      "hash": "68117506d949bb4472ab866be41372283460044b",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/google_configure.js",
+      "length": 264,
+      "offset": 0,
+      "path": "google_configure.js",
+      "hash": "105a0cffd1f2962141e5df9a0bc0c0fd95155220",
+      "fileOptions": {
+        "lazy": false
+      }
+    }
+  ]
+}

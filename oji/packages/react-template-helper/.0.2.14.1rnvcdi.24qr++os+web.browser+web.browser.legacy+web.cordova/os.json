@@ -1,0 +1,39 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "templating",
+      "constraint": "1.1.7"
+    },
+    {
+      "package": "underscore",
+      "constraint": "1.0.6 || 1.0.10"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.4.1 || 0.15.2"
+    },
+    {
+      "package": "tmeasday:check-npm-versions",
+      "constraint": "1.0.2"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/react-template-helper.js",
+      "length": 1920,
+      "offset": 0,
+      "path": "react-template-helper.js",
+      "hash": "167a14d936d26d90a6e941e30e1456109e232651",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "HTML",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.15.1"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/preamble.js",
+      "length": 1101,
+      "offset": 0,
+      "path": "preamble.js",
+      "hash": "55778e1df6eed4697c03166f28c580d2f2d4c952",
+      "fileOptions": {
+        "mainModule": true,
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/html.js",
+      "length": 8568,
+      "offset": 0,
+      "path": "html.js",
+      "hash": "ba271e6509466411edbcb167481ca1cfef463ae0",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/htmljs_test.js",
+      "length": 3166,
+      "offset": 0,
+      "path": "htmljs_test.js",
+      "hash": "f9bb2e30a381ca70d35ec03bf041cd604b4cf353",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/visitors.js",
+      "length": 10674,
+      "offset": 0,
+      "path": "visitors.js",
+      "hash": "999431f3cf1122d6aba4dca019ef9f4541392293",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

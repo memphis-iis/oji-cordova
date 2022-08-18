@@ -1,0 +1,43 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "meteorInstall",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/installer.js",
+      "length": 20922,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "installer.js",
+      "hash": "085c3ece0812db280113f631bd1cf899db2007c1",
+      "fileOptions": {
+        "bare": true,
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/legacy.js",
+      "length": 972,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "legacy.js",
+      "hash": "ed26ff8868f3bad55c6e5a6e644f7b2065783a2d",
+      "fileOptions": {
+        "lazy": false
+      }
+    }
+  ]
+}

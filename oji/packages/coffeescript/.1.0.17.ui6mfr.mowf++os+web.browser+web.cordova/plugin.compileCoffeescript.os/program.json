@@ -1,0 +1,62 @@
+{
+  "format": "javascript-image-pre1",
+  "arch": "os",
+  "load": [
+    {
+      "sourceMap": "packages/underscore.js.map",
+      "path": "packages/underscore.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/meteor/node_modules",
+      "sourceMap": "packages/meteor.js.map",
+      "path": "packages/meteor.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/babel-compiler/node_modules",
+      "sourceMap": "packages/babel-compiler.js.map",
+      "path": "packages/babel-compiler.js"
+    },
+    {
+      "sourceMap": "packages/ecmascript.js.map",
+      "path": "packages/ecmascript.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/modules-runtime/node_modules",
+      "sourceMap": "packages/modules-runtime.js.map",
+      "path": "packages/modules-runtime.js"
+    },
+    {
+      "sourceMap": "packages/modules.js.map",
+      "path": "packages/modules.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/promise/node_modules",
+      "sourceMap": "packages/promise.js.map",
+      "path": "packages/promise.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/ecmascript-runtime/node_modules",
+      "sourceMap": "packages/ecmascript-runtime.js.map",
+      "path": "packages/ecmascript-runtime.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/babel-runtime/node_modules",
+      "sourceMap": "packages/babel-runtime.js.map",
+      "path": "packages/babel-runtime.js"
+    },
+    {
+      "sourceMap": "packages/random.js.map",
+      "path": "packages/random.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/caching-compiler/node_modules",
+      "sourceMap": "packages/caching-compiler.js.map",
+      "path": "packages/caching-compiler.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/compileCoffeescript/node_modules",
+      "sourceMap": "packages/compileCoffeescript_plugin.js.map",
+      "path": "packages/compileCoffeescript_plugin.js"
+    }
+  ]
+}

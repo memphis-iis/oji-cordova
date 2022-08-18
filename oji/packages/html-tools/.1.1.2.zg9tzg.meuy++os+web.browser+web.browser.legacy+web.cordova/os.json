@@ -1,0 +1,151 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "HTMLTools",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.15.1"
+    },
+    {
+      "package": "htmljs",
+      "constraint": "1.1.0"
+    }
+  ],
+  "implies": [
+    {
+      "package": "htmljs",
+      "constraint": "1.1.0"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/main.js",
+      "length": 740,
+      "offset": 0,
+      "path": "main.js",
+      "hash": "51ac5b37a4c2a4e496a702564ccedb941d90a17c",
+      "fileOptions": {
+        "mainModule": true,
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/charref.js",
+      "length": 152557,
+      "offset": 0,
+      "path": "charref.js",
+      "hash": "ada3f06f29b8130a2ebf1f5f832adb766c531fee",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/charref_tests.js",
+      "length": 4116,
+      "offset": 0,
+      "path": "charref_tests.js",
+      "hash": "3e090f08efb77be777731a32df773a7686b6bbff",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/parse.js",
+      "length": 11778,
+      "offset": 0,
+      "path": "parse.js",
+      "hash": "e4e7db374cf8d40e3644f974db1d7d26bd68258d",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/parse_tests.js",
+      "length": 15085,
+      "offset": 0,
+      "path": "parse_tests.js",
+      "hash": "6f903a8f34535a87ef8c5c108151a33fa1c547e6",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/scanner.js",
+      "length": 2821,
+      "offset": 0,
+      "path": "scanner.js",
+      "hash": "29b05896cd488ff21f0d35b1009dcc0ad83824a2",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/templatetag.js",
+      "length": 712,
+      "offset": 0,
+      "path": "templatetag.js",
+      "hash": "23ff4f96523dc408c9985c7752fb278209a1d366",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/tokenize.js",
+      "length": 15952,
+      "offset": 0,
+      "path": "tokenize.js",
+      "hash": "09d8b73d487b619f078780b04adea5caddddc139",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/tokenize_tests.js",
+      "length": 12735,
+      "offset": 0,
+      "path": "tokenize_tests.js",
+      "hash": "3b5ccb6c4af74e0cf565f5b7b86d618e5e5aeb67",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/utils.js",
+      "length": 2546,
+      "offset": 0,
+      "path": "utils.js",
+      "hash": "6cd2e046b5e33c6dbfaed28855fd5bd23328aa75",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

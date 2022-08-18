@@ -1,0 +1,132 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "tracker",
+      "constraint": "1.2.0 || 1.2.0 || 1.2.0 || 1.2.0"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.13.0 || 0.14.4 || 0.15.0 || 0.15.2"
+    },
+    {
+      "package": "typescript",
+      "constraint": "3.7.0 || 4.1.2 || 4.1.2 || 4.3.2"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/index.js",
+      "length": 440,
+      "offset": 0,
+      "path": "index.js",
+      "hash": "f54a9eebd04f851cf13b07208eee11f791fb00a6",
+      "fileOptions": {
+        "lazy": true,
+        "mainModule": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/tests.js",
+      "length": 94,
+      "offset": 0,
+      "path": "tests.js",
+      "hash": "839e89281386c224aa1c26b6beff2ed1579ecbcd",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/useFind.tests.js",
+      "length": 2793,
+      "offset": 0,
+      "path": "useFind.tests.js",
+      "hash": "79606bf146ce90e187b1727c5cfaa1b49f24857c",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "ts",
+      "file": "web.browser/useFind.ts",
+      "length": 4428,
+      "offset": 0,
+      "path": "useFind.ts",
+      "hash": "5616a7ff164fa208c1f77ed97a16b8daeb150fae",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "ts",
+      "file": "web.browser/useSubscribe.ts",
+      "length": 666,
+      "offset": 0,
+      "path": "useSubscribe.ts",
+      "hash": "f8ec47547acf1c79e805e1d34f0fba6e4c4d5624",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/useTracker.tests.js",
+      "length": 29318,
+      "offset": 0,
+      "path": "useTracker.tests.js",
+      "hash": "6b289252842143a4351e3a2a0e8b661c3573303c",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "ts",
+      "file": "web.browser/useTracker.ts",
+      "length": 7608,
+      "offset": 0,
+      "path": "useTracker.ts",
+      "hash": "a7f17e7e214aea1d0dfa31d7e76fb9e9ac16a224",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/withTracker.tests.js",
+      "length": 12733,
+      "offset": 0,
+      "path": "withTracker.tests.js",
+      "hash": "7b63df759bdadade62778830f290a022f84f80a9",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "tsx",
+      "file": "web.browser/withTracker.tsx",
+      "length": 867,
+      "offset": 0,
+      "path": "withTracker.tsx",
+      "hash": "e287d930fc855677bc78160f318b2a34a3692867",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

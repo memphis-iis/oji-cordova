@@ -1,0 +1,63 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "ReactFastRefresh",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "modules"
+    },
+    {
+      "package": "hot-module-replacement",
+      "weak": true
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/client.js",
+      "length": 775,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "client.js",
+      "hash": "b5292bb1721efc0bb541e09de9e51201e7638915",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/client-runtime.js",
+      "length": 3565,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "client-runtime.js",
+      "hash": "d769a47c5bcdabec989f2a949fca33b2e6ff0fcb",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/server.js",
+      "length": 2047,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "server.js",
+      "hash": "897ff0732227d1e63213aa3f9d44c461d2ac2e8b",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ],
+  "node_modules": "npm/node_modules"
+}

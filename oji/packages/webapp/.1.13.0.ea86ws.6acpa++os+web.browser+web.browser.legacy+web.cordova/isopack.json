@@ -1,0 +1,34 @@
+{
+  "isopack-2": {
+    "name": "webapp",
+    "summary": "Serves a Meteor app over HTTP",
+    "version": "1.13.0",
+    "isTest": false,
+    "builds": [
+      {
+        "kind": "main",
+        "arch": "os",
+        "path": "os.json"
+      },
+      {
+        "kind": "main",
+        "arch": "web.browser",
+        "path": "web.browser.json"
+      },
+      {
+        "kind": "main",
+        "arch": "web.browser.legacy",
+        "path": "web.browser.legacy.json"
+      },
+      {
+        "kind": "main",
+        "arch": "web.cordova",
+        "path": "web.cordova.json"
+      }
+    ],
+    "plugins": [],
+    "cordovaDependencies": {
+      "cordova-plugin-meteor-webapp": "2.0.0"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "BlazeReactComponent",
+      "testOnly": false
+    },
+    {
+      "name": "blazeToReact",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.4.0-rc.0 || 0.4.0-beta.10 || 0.2.1-modules.0"
+    },
+    {
+      "package": "blaze",
+      "constraint": "2.1.4-rc.0 || 2.1.4-beta.10 || 2.1.4-modules.0"
+    },
+    {
+      "package": "templating",
+      "constraint": "1.1.6-rc.0 || 1.1.6-beta.10 || 1.1.6-modules.0"
+    },
+    {
+      "package": "underscore",
+      "constraint": "1.0.5-rc.0 || 1.0.5-beta.10 || 1.0.5-modules.0"
+    },
+    {
+      "package": "reactive-var",
+      "constraint": "1.0.6-rc.0 || 1.0.6 || 1.0.6"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/blaze-react-component-client.js",
+      "length": 2091,
+      "offset": 0,
+      "path": "blaze-react-component-client.js",
+      "hash": "0436b232b79e2d02d2cfaa233f8401a507865f1c",
+      "fileOptions": {
+        "mainModule": true,
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/blaze-react-component-server.js",
+      "length": 541,
+      "offset": 0,
+      "path": "blaze-react-component-server.js",
+      "hash": "63876c8e2039c98d84000acc6ed1e172bf45f0e8",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

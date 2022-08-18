@@ -1,0 +1,39 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "observe-sequence",
+      "constraint": "1.0.16"
+    },
+    {
+      "package": "tracker",
+      "constraint": "1.2.0"
+    },
+    {
+      "package": "htmljs",
+      "constraint": "1.1.0"
+    },
+    {
+      "package": "blaze",
+      "constraint": "2.5.0"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "web.browser.legacy-legacy/packages/spacebars.js",
+      "length": 10298,
+      "offset": 0,
+      "servePath": "/packages/spacebars.js"
+    }
+  ],
+  "packageVariables": [
+    {
+      "name": "Spacebars",
+      "export": true
+    }
+  ]
+}

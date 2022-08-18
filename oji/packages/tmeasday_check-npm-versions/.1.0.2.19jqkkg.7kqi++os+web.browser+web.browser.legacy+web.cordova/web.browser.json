@@ -1,0 +1,29 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "typescript",
+      "constraint": "4.1.2"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "ts",
+      "file": "web.browser/check-npm-versions.ts",
+      "length": 2209,
+      "offset": 0,
+      "path": "check-npm-versions.ts",
+      "hash": "4335fd15355025ca20eccbebc2b1038406126083",
+      "fileOptions": {
+        "mainModule": true,
+        "lazy": false
+      }
+    }
+  ],
+  "node_modules": "npm/node_modules"
+}

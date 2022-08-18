@@ -1,3 +1,6 @@
+import { Template }    from 'meteor/templating';
+import { Meteor } from 'meteor/meteor';
+
 Template.welcome.helpers({
     'assignment': function(){
         const user = Meteor.user();
@@ -27,6 +30,7 @@ Template.welcome.helpers({
 
 Template.welcome.events({
     'click #startJourney': function(){
+        alert('start journey');
         const user = Meteor.user();
         const org = Orgs.findOne();
         if(user && org){
@@ -40,7 +44,11 @@ Template.welcome.events({
                         Router.go(target);
                     }
                 });
+            } else {
+                Router.go('/');
             }
+        } else {
+            Router.go('/');
         }
     },
     'click #continueJourney': function(){

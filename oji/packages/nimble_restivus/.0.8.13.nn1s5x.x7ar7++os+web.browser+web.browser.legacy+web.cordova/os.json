@@ -1,0 +1,85 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "Restivus",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "check",
+      "constraint": "1.3.1"
+    },
+    {
+      "package": "coffeescript",
+      "constraint": "1.0.3"
+    },
+    {
+      "package": "underscore",
+      "constraint": "1.0.10"
+    },
+    {
+      "package": "accounts-password",
+      "constraint": "2.1.0"
+    },
+    {
+      "package": "simple:json-routes",
+      "constraint": "2.1.0"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "coffee",
+      "file": "os/lib/auth.coffee",
+      "length": 2037,
+      "offset": 0,
+      "path": "lib/auth.coffee",
+      "hash": "a9983c510da7196cf711f8365ede0a0cd1b14489",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/lib/iron-router-error-to-response.js",
+      "length": 1090,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "lib/iron-router-error-to-response.js",
+      "hash": "f3b3d4c434835749e23c8b23ee1256a721d0dfa7",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "coffee",
+      "file": "os/lib/route.coffee",
+      "length": 10290,
+      "offset": 0,
+      "path": "lib/route.coffee",
+      "hash": "9c4f26ebdae06634f9dc48a11addeb43246160b0",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "coffee",
+      "file": "os/lib/restivus.coffee",
+      "length": 12820,
+      "offset": 0,
+      "path": "lib/restivus.coffee",
+      "hash": "863d1f62a1105bd22c74e29ab962174ccb342f4d",
+      "fileOptions": {
+        "lazy": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "blaze",
+      "constraint": "2.5.0"
+    },
+    {
+      "package": "spacebars",
+      "constraint": "1.2.0"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.15.1"
+    },
+    {
+      "package": "templating-compiler",
+      "constraint": "1.4.1"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/dynamic.js",
+      "length": 1048,
+      "offset": 0,
+      "path": "dynamic.js",
+      "hash": "8d8bd666fc8662c1da4bfd5df727a3ce1b4d52eb",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/dynamic_tests.js",
+      "length": 6937,
+      "offset": 0,
+      "path": "dynamic_tests.js",
+      "hash": "2e264d2982ae649702554595d6733f94a723e899",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/templating.js",
+      "length": 5978,
+      "offset": 0,
+      "path": "templating.js",
+      "hash": "abff3e2b383159e1bb7805cf7c2f7f6578b0cb75",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ],
+  "node_modules": "npm/node_modules"
+}

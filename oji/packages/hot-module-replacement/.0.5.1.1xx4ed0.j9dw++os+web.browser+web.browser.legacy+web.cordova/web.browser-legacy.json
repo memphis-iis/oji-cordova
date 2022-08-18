@@ -1,0 +1,38 @@
+{
+  "format": "unipackage-unibuild-pre1",
+  "uses": [
+    {
+      "package": "modules"
+    },
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "hot-code-push",
+      "unordered": true
+    },
+    {
+      "package": "ecmascript-runtime-client",
+      "weak": true
+    },
+    {
+      "package": "dev-error-overlay",
+      "weak": true
+    }
+  ],
+  "implies": [
+    {
+      "package": "modules-runtime-hot",
+      "constraint": "0.13.0"
+    }
+  ],
+  "resources": [
+    {
+      "type": "prelink",
+      "file": "web.browser-legacy/packages/hot-module-replacement.js",
+      "length": 19722,
+      "offset": 0,
+      "servePath": "/packages/hot-module-replacement.js"
+    }
+  ]
+}

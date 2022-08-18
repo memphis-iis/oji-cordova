@@ -1,0 +1,62 @@
+{
+  "isopack-2": {
+    "name": "coffeescript",
+    "summary": "Javascript dialect with fewer braces and semicolons",
+    "version": "1.0.17",
+    "isTest": false,
+    "builds": [
+      {
+        "kind": "main",
+        "arch": "os",
+        "path": "os.json"
+      },
+      {
+        "kind": "main",
+        "arch": "web.browser",
+        "path": "web.browser.json"
+      },
+      {
+        "kind": "main",
+        "arch": "web.cordova",
+        "path": "web.cordova.json"
+      }
+    ],
+    "plugins": [
+      {
+        "name": "compileCoffeescript",
+        "arch": "os",
+        "path": "plugin.compileCoffeescript.os/program.json"
+      }
+    ]
+  },
+  "isopack-1": {
+    "name": "coffeescript",
+    "summary": "Javascript dialect with fewer braces and semicolons",
+    "version": "1.0.17",
+    "isTest": false,
+    "builds": [
+      {
+        "kind": "main",
+        "arch": "os",
+        "path": "os-legacy.json"
+      },
+      {
+        "kind": "main",
+        "arch": "web.browser",
+        "path": "web.browser-legacy.json"
+      },
+      {
+        "kind": "main",
+        "arch": "web.cordova",
+        "path": "web.cordova-legacy.json"
+      }
+    ],
+    "plugins": [
+      {
+        "name": "compileCoffeescript",
+        "arch": "os",
+        "path": "plugin.compileCoffeescript.os/program.json"
+      }
+    ]
+  }
+}

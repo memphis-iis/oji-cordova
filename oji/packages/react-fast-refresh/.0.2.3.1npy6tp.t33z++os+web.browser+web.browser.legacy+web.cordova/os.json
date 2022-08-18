@@ -1,0 +1,63 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "ReactFastRefresh",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "modules"
+    },
+    {
+      "package": "hot-module-replacement",
+      "weak": true
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/server.js",
+      "length": 2003,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "server.js",
+      "hash": "7064e8cc4b642227e1348ac9554949563c32ea79",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/client-runtime.js",
+      "length": 3745,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "client-runtime.js",
+      "hash": "333042e60cd61face1f50b226366914ba22538c7",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "os/client.js",
+      "length": 786,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "client.js",
+      "hash": "51181e510c2c343d997fb6cefae669a8ce198e07",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ],
+  "node_modules": "npm/node_modules"
+}

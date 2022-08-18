@@ -1,24 +1,23 @@
 <template name="module">
     <div class="px-4 py-5 my-5 text-center">
-       <h4>{{module.title}}</h4>
        {{#if this.pageId}}
        {{#if completed}}
-            <p>You have completed this module! A certificate has been awarded to you after your supervisor reviews the results.</p>
+            <p>You have completed this module! A certificate will be awarded to you after your supervisor reviews the results.</p>
             {{#if isNewUserAssignment}}
             <button class="btn btn-primary" id="startNextAssignment">Continue your journey</button>    
             {{/if}}
             <button class="btn btn-primary" id="goBack">Return to My Profile</button>    
         {{else}}
-        <h4>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}} ({{percentDone}}%){{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h4>
-        <hr>
         {{#if page.typeText}}
+        <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
         <h3><b>{{page.header}}</b></h3>
-        <h4><b>{{page.subheader}}</b></h4>
         {{#if page.imageAbove}}
             <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             <br>
         {{/if}}
-        <p id="pageText" class="text-align-left">{{{page.text}}}</p>
+        <br>
+        <p id="pageText" class="text-left">{{{page.text}}}</p>
+        <br>
         <br>
         {{#if page.imageBelow}}
             <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
@@ -27,8 +26,8 @@
         <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
         {{/if}}
         {{#if this.questionId}}
-            <h3><b>Activity: {{page.header}}</b></h3>
-            <h5>Question {{questionid}}</h5>
+            <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
+            <h3><b>{{page.header}}</b></h3>
             {{#if question.promptImg}}
             <img src="{{question.promptImg}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             {{/if}}
@@ -64,17 +63,17 @@
             <br>
             {{/if}}
             {{#if question.typeCombo}}
-            <h3>{{{question.prompt}}}</h3><br>
+            <h5 class="text-left">{{{question.prompt}}}</h5><br>
                 <form>
                 {{#each question.fields}}
                     {{#if this.typeBlank}}
-                        <h3>{{this.text}}</h3>
+                        <h4>{{this.text}}</h4>
                             <input class="combo" type="text">
                     {{/if}}
                     {{#if this.typeLongText}}
-                    <h3>{{this.text}}</h3><br>
+                    <h4>{{this.text}}</h4><br>
                     <form>
-                        <textarea style="height:100px; width:100%;" class="combo"></textarea>
+                        <textarea style="height:50px; font-size: 20px; width:100%;" class="combo"></textarea>
                     </form>
                     <br>
                    {{/if}}
@@ -110,10 +109,11 @@
         {{/if}}
         {{/if}}
        {{else}}
+            <h3>{{module.title}}</h3>
             <p>{{module.description}}</p>
             <br>
             <button class="btn btn-primary btn-wide" id="startModule">Lets Begin!</button>
-            <button class="btn btn-caution btn-wide" id="goBack">Return to Profile.</button>
+            <button class="btn btn-caution btn-wide" id="goBack">Return to Profile</button>
         {{/if}}
     </div>
 </template>

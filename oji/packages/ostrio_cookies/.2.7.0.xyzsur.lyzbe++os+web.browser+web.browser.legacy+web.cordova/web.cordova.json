@@ -1,0 +1,44 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.5.7"
+    },
+    {
+      "package": "fetch",
+      "constraint": "0.1.1"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/cookies.js",
+      "length": 19280,
+      "offset": 0,
+      "path": "cookies.js",
+      "hash": "628dcbaa6af83d2482ed15fb72e9f6e594167302",
+      "fileOptions": {
+        "mainModule": true,
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/cookies-tests.js",
+      "length": 12087,
+      "offset": 0,
+      "path": "cookies-tests.js",
+      "hash": "b478392b462e9647c18430d27eb51559606f6ccf",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

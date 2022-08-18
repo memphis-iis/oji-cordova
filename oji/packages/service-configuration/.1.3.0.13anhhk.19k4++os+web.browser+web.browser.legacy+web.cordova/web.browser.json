@@ -1,0 +1,49 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "ServiceConfiguration",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "accounts-base"
+    },
+    {
+      "package": "mongo"
+    },
+    {
+      "package": "ecmascript"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/service_configuration_common.js",
+      "length": 1242,
+      "offset": 0,
+      "path": "service_configuration_common.js",
+      "hash": "14538f10793bc3a7e11456f768d667aeb46b2029",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/service_configuration_server.js",
+      "length": 1928,
+      "offset": 0,
+      "path": "service_configuration_server.js",
+      "hash": "5a6ba33fa6e7b2afd6267af62578eb2b8e651920",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

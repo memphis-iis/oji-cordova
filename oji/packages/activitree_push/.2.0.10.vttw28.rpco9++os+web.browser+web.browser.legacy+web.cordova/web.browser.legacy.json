@@ -1,0 +1,114 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "tracker",
+      "constraint": "1.2.0 || 1.2.0"
+    },
+    {
+      "package": "accounts-base",
+      "constraint": "1.4.3 || 2.0.0",
+      "weak": true
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.12.0 || 0.15.2"
+    },
+    {
+      "package": "check",
+      "constraint": "1.3.1 || 1.3.1"
+    },
+    {
+      "package": "mongo",
+      "constraint": "1.6.0 || 1.12.0"
+    },
+    {
+      "package": "ejson",
+      "constraint": "1.1.0 || 1.1.1"
+    },
+    {
+      "package": "random",
+      "constraint": "1.1.0 || 1.2.0"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/lib/client/web.js",
+      "length": 9130,
+      "offset": 0,
+      "path": "lib/client/web.js",
+      "hash": "74ea38ae3200ca362f6897400fdb68b0e8c15c3b",
+      "fileOptions": {
+        "mainModule": true,
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/lib/client/cordova.js",
+      "length": 6383,
+      "offset": 0,
+      "path": "lib/client/cordova.js",
+      "hash": "fd47106422ef212231e0cf5d7c188c457057c9d5",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/lib/server/internalMethods.js",
+      "length": 5475,
+      "offset": 0,
+      "path": "lib/server/internalMethods.js",
+      "hash": "1508b0ad0a9475b2514795a8bf0c38ca5f0d8a08",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/lib/server/notification.js",
+      "length": 4159,
+      "offset": 0,
+      "path": "lib/server/notification.js",
+      "hash": "e287de5de486ce20e757638c74b94a0e3bd0e27b",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/lib/server/pushToDB.js",
+      "length": 3825,
+      "offset": 0,
+      "path": "lib/server/pushToDB.js",
+      "hash": "5c047778a64c69b18b058bb9d1bd51d21a606c88",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/lib/server/pushToDevice.js",
+      "length": 9211,
+      "offset": 0,
+      "path": "lib/server/pushToDevice.js",
+      "hash": "d4dc6323ed97cbb39e4d2c84ad2348ef36f53c9e",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ],
+  "node_modules": "npm/node_modules"
+}

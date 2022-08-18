@@ -1,3 +1,5 @@
+import { Template }    from 'meteor/templating';
+
 Template.postAssesmentPrompt.helpers({
     'assignment': function(){
         const user = Meteor.user();

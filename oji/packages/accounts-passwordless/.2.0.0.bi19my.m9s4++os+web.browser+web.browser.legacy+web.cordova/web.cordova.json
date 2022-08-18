@@ -1,0 +1,83 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "accounts-base"
+    },
+    {
+      "package": "sha"
+    },
+    {
+      "package": "ejson"
+    },
+    {
+      "package": "ddp"
+    },
+    {
+      "package": "tracker"
+    },
+    {
+      "package": "ecmascript"
+    }
+  ],
+  "implies": [
+    {
+      "package": "accounts-base",
+      "constraint": ""
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/passwordless_client.js",
+      "length": 3400,
+      "offset": 0,
+      "path": "passwordless_client.js",
+      "hash": "d8c3fb51908b7fd3a528014d060af9eb0c8996ef",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/email_templates.js",
+      "length": 835,
+      "offset": 0,
+      "path": "email_templates.js",
+      "hash": "376f29a48b1671f5ac71c5918285a03554290f54",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/passwordless_server.js",
+      "length": 6397,
+      "offset": 0,
+      "path": "passwordless_server.js",
+      "hash": "db838735c1d9c11b59b8663a7da9cecbcae2c890",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/server_utils.js",
+      "length": 357,
+      "offset": 0,
+      "path": "server_utils.js",
+      "hash": "2a005da9eba3240c7902be73969becdc581dd276",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

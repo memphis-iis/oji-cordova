@@ -1,0 +1,36 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "caching-compiler",
+      "constraint": "1.2.2"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.15.1"
+    },
+    {
+      "package": "templating-tools",
+      "constraint": "1.2.1"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/caching-html-compiler.js",
+      "length": 4528,
+      "offset": 0,
+      "path": "caching-html-compiler.js",
+      "hash": "d75caaa35c8ab0a3e606cb1ae8afc9d9bc1ffa7e",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ],
+  "node_modules": "npm/node_modules"
+}

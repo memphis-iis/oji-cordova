@@ -1,0 +1,106 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "blaze",
+      "constraint": "2.0.0"
+    },
+    {
+      "package": "underscore",
+      "constraint": "1.0.0"
+    },
+    {
+      "package": "ui",
+      "constraint": "1.0.2"
+    },
+    {
+      "package": "jquery",
+      "constraint": "1.11.9 || 3.0.0"
+    },
+    {
+      "package": "tracker",
+      "constraint": "1.0.2"
+    },
+    {
+      "package": "reactive-var",
+      "constraint": "1.0.1"
+    },
+    {
+      "package": "templating",
+      "constraint": "1.0.6"
+    },
+    {
+      "package": "random",
+      "constraint": "1.0.0"
+    },
+    {
+      "package": "iron:core",
+      "constraint": "1.0.11"
+    }
+  ],
+  "implies": [
+    {
+      "package": "iron:core",
+      "constraint": ""
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/version_conflict_error.js",
+      "length": 759,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "version_conflict_error.js",
+      "hash": "a3bc302b6e3a7a8abd1e9b3e480f55f2354353a6",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "js",
+      "file": "web.browser.legacy/packages/iron_dynamic-template/template.dynamic_template.js",
+      "length": 473,
+      "offset": 0,
+      "servePath": "/packages/iron_dynamic-template/template.dynamic_template.js"
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/dynamic_template.js",
+      "length": 17602,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "dynamic_template.js",
+      "hash": "a097948be2d348bf9ae5d7fc1031e0b1c7ff6805",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/blaze_overrides.js",
+      "length": 1312,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "blaze_overrides.js",
+      "hash": "52877b9f37ff4d288e5f65739e41785ace2bd244",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "js",
+      "file": "web.browser.legacy/packages/iron_dynamic-template/template.dynamic_template_test.js",
+      "length": 5751,
+      "offset": 0,
+      "servePath": "/packages/iron_dynamic-template/template.dynamic_template_test.js"
+    }
+  ]
+}

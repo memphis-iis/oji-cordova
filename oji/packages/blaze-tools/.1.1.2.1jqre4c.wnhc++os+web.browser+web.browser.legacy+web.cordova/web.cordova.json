@@ -1,0 +1,73 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "BlazeTools",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.15.1"
+    },
+    {
+      "package": "htmljs",
+      "constraint": "1.1.0"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/preamble.js",
+      "length": 422,
+      "offset": 0,
+      "path": "preamble.js",
+      "hash": "ff62dbea68824828f3a55b86a7e220518d37da5f",
+      "fileOptions": {
+        "mainModule": true,
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/tojs.js",
+      "length": 4744,
+      "offset": 0,
+      "path": "tojs.js",
+      "hash": "219bca61d9f5552aa3afbd9a3332052b13de18a9",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/token_tests.js",
+      "length": 2849,
+      "offset": 0,
+      "path": "token_tests.js",
+      "hash": "43d15bf47fa14bfd2a5f68738404a8ba1b536d6a",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/tokens.js",
+      "length": 15619,
+      "offset": 0,
+      "path": "tokens.js",
+      "hash": "30781f2889e24eca1357ec5c0933546a18d57f1d",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "SpacebarsCompiler",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.15.1"
+    },
+    {
+      "package": "htmljs",
+      "constraint": "1.1.0"
+    },
+    {
+      "package": "html-tools",
+      "constraint": "1.1.2"
+    },
+    {
+      "package": "blaze-tools",
+      "constraint": "1.1.2"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/preamble.js",
+      "length": 501,
+      "offset": 0,
+      "path": "preamble.js",
+      "hash": "bd4208664de657593950b3935c763c0963ca3f20",
+      "fileOptions": {
+        "mainModule": true,
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/codegen.js",
+      "length": 14734,
+      "offset": 0,
+      "path": "codegen.js",
+      "hash": "aa4e7a013bc70e94d6619f6b786f3778f838f800",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/compile_tests.js",
+      "length": 5053,
+      "offset": 0,
+      "path": "compile_tests.js",
+      "hash": "272be877f2fb59a7a2a6fc44192e50d0d3fbcd12",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/compiler.js",
+      "length": 4089,
+      "offset": 0,
+      "path": "compiler.js",
+      "hash": "9dcfe25f1a3a0e298074f6efb07957e973db2ede",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/compiler_output_tests.js",
+      "length": 7246,
+      "offset": 0,
+      "path": "compiler_output_tests.js",
+      "hash": "7c016493afc15daf5e28d0e72b65954d66f170bc",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/optimizer.js",
+      "length": 6420,
+      "offset": 0,
+      "path": "optimizer.js",
+      "hash": "5bf3317081da5ea4627f61bd29c73b22f620279f",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/react.js",
+      "length": 1978,
+      "offset": 0,
+      "path": "react.js",
+      "hash": "b558ecdcceed6852dd4fdd14c377dee1bd024c41",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/spacebars_tests.js",
+      "length": 12662,
+      "offset": 0,
+      "path": "spacebars_tests.js",
+      "hash": "db7946c87181803f2ca440e4a3f53d11cdf0f414",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/templatetag.js",
+      "length": 17525,
+      "offset": 0,
+      "path": "templatetag.js",
+      "hash": "a840884b76441406d31a225ace9b51f063f148c4",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/whitespace.js",
+      "length": 2230,
+      "offset": 0,
+      "path": "whitespace.js",
+      "hash": "6942c574348ae2b9bc2c67a70a600b8a0a552066",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ],
+  "node_modules": "npm/node_modules"
+}

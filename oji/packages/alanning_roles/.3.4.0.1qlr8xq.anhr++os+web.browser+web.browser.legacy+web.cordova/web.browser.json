@@ -1,0 +1,593 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "Roles",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "ecmascript",
+      "constraint": "0.14.4 || 0.15.2"
+    },
+    {
+      "package": "accounts-base",
+      "constraint": "1.7.1 || 2.0.0"
+    },
+    {
+      "package": "tracker",
+      "constraint": "1.2.0 || 1.2.0"
+    },
+    {
+      "package": "mongo",
+      "constraint": "1.10.1 || 1.12.0"
+    },
+    {
+      "package": "check",
+      "constraint": "1.3.1 || 1.3.1"
+    },
+    {
+      "package": "blaze",
+      "constraint": "2.5.0",
+      "weak": true
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/roles/roles_common.js",
+      "length": 31675,
+      "offset": 0,
+      "path": "roles/roles_common.js",
+      "hash": "4744ecd79254ece44a7e257d1f00e79427029073",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/roles/client/debug.js",
+      "length": 557,
+      "offset": 0,
+      "path": "roles/client/debug.js",
+      "hash": "3c556642c9264993b6e62fddf0a8c0e2ae5fa793",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/roles/client/uiHelpers.js",
+      "length": 2330,
+      "offset": 0,
+      "path": "roles/client/uiHelpers.js",
+      "hash": "2e7fd6f7034c0b212ccdeead84bd5c281b181338",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/roles/client/subscriptions.js",
+      "length": 351,
+      "offset": 0,
+      "path": "roles/client/subscriptions.js",
+      "hash": "d9aa7a57c17ed51aef437495210c76fc3c16dd85",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/client/header.js",
+      "length": 716,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/client/header.js",
+      "hash": "2f5f9438ac15ed1796ece20a198f2303fce47ae8",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/client/layouts.js",
+      "length": 239,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/client/layouts.js",
+      "hash": "abe7a7dfdce48b4fd05f22a8d6873faba5d41867",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/client/noteOfTheDay.js",
+      "length": 125,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/client/noteOfTheDay.js",
+      "hash": "fa6eb4ff41e0a12114f1c7359e16151eade73e60",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/client/routing.js",
+      "length": 731,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/client/routing.js",
+      "hash": "0e78c27b7429c1184b94690e9f4e4488f148ae51",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/client/signin.js",
+      "length": 254,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/client/signin.js",
+      "hash": "37741607c59ad2353ee6bcf9c86c3a0418bcaa62",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "css",
+      "file": "web.browser/examples/flow-router-advanced/main/client/style.css",
+      "length": 865,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/client/style.css",
+      "hash": "097c25f31715b5cc00c27ac5b8b92eb89b6c98a8",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/client/lib/app.js",
+      "length": 815,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/client/lib/app.js",
+      "hash": "438250f0bc44f92e67288677aad0520a5acf5611",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/client/lib/patches.js",
+      "length": 498,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/client/lib/patches.js",
+      "hash": "b180a2af78074bbb32698d3ad2519aacf8bfa9c7",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/client/lib/polyfills.js",
+      "length": 154,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/client/lib/polyfills.js",
+      "hash": "fdae7b8aeb517b56a79111cb62fca702dbcc0741",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/server/startup/fixtures.js",
+      "length": 1138,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/server/startup/fixtures.js",
+      "hash": "11cbff6ec17fc914c0948387f1d9a87cc0cb2eea",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/server/startup/publish.js",
+      "length": 193,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/server/startup/publish.js",
+      "hash": "002843a5adc5c10162658a5cb36802074c821bd5",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/main/server/startup/validateNewUser.js",
+      "length": 409,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/main/server/startup/validateNewUser.js",
+      "hash": "00eb1beb818f0ae3a587746b7068629fc9598c2a",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/manageUsers/client/manage-users.js",
+      "length": 380,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/manageUsers/client/manage-users.js",
+      "hash": "e4bd52481671c123f524406f18832fd664777241",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/manageUsers/client/manageController.js",
+      "length": 363,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/manageUsers/client/manageController.js",
+      "hash": "5358808685242c7a4c6312d543b1311b0aa74d7d",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/manageUsers/client/routing.js",
+      "length": 446,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/manageUsers/client/routing.js",
+      "hash": "a71345db5cce655d5ca835780b817373d32ec45a",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/manageUsers/server/manageUsers.js",
+      "length": 453,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/manageUsers/server/manageUsers.js",
+      "hash": "d16557443c1e97cee0104a043a48e6f9f6c5663e",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/secrets/model.js",
+      "length": 108,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/secrets/model.js",
+      "hash": "8c040522fd8251eed92c94218f2f5f09ef86de4b",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/secrets/client/routing.js",
+      "length": 434,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/secrets/client/routing.js",
+      "hash": "bd7517f5e0bc4a43d2a7e39e671ac911b5c5cb14",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/secrets/client/secrets.js",
+      "length": 168,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/secrets/client/secrets.js",
+      "hash": "730c8433fc844b53b07024e0d99a084289038d31",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/secrets/client/secretsController.js",
+      "length": 360,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/secrets/client/secretsController.js",
+      "hash": "f30d5185a13c20e620028b7753a7f171dac85f1b",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/secrets/server/fixtures.js",
+      "length": 538,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/secrets/server/fixtures.js",
+      "hash": "7a13a46c15d6add4bd9422f244d7f2b62d2f1512",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router-advanced/secrets/server/secrets.js",
+      "length": 355,
+      "offset": 0,
+      "path": "examples/flow-router-advanced/secrets/server/secrets.js",
+      "hash": "c6b429ed8a8c3a34221f91d910a3f441c24f07e9",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router/model.js",
+      "length": 134,
+      "offset": 0,
+      "path": "examples/flow-router/model.js",
+      "hash": "90b65b9e3cbbcc57a909e8860f2123edcb99e171",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router/client/client.js",
+      "length": 2455,
+      "offset": 0,
+      "path": "examples/flow-router/client/client.js",
+      "hash": "38b29844614858004df56dc121c8d685bd39ca5b",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "css",
+      "file": "web.browser/examples/flow-router/client/example.css",
+      "length": 865,
+      "offset": 0,
+      "path": "examples/flow-router/client/example.css",
+      "hash": "097c25f31715b5cc00c27ac5b8b92eb89b6c98a8",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router/client/layouts.js",
+      "length": 239,
+      "offset": 0,
+      "path": "examples/flow-router/client/layouts.js",
+      "hash": "abe7a7dfdce48b4fd05f22a8d6873faba5d41867",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router/client/manage-users.js",
+      "length": 380,
+      "offset": 0,
+      "path": "examples/flow-router/client/manage-users.js",
+      "hash": "e4bd52481671c123f524406f18832fd664777241",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router/client/routing.js",
+      "length": 988,
+      "offset": 0,
+      "path": "examples/flow-router/client/routing.js",
+      "hash": "4f60a6b7fbdf2c2653fb70fa7ea511e0ed1e09a1",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router/client/secrets.js",
+      "length": 168,
+      "offset": 0,
+      "path": "examples/flow-router/client/secrets.js",
+      "hash": "730c8433fc844b53b07024e0d99a084289038d31",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router/client/lib/globals.js",
+      "length": 29,
+      "offset": 0,
+      "path": "examples/flow-router/client/lib/globals.js",
+      "hash": "d7aba836e5eded13a510e1d84dca93d60c203880",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/flow-router/server/server.js",
+      "length": 2898,
+      "offset": 0,
+      "path": "examples/flow-router/server/server.js",
+      "hash": "1d1b9613bf105c812d85bd0523d06bbfee3ef72a",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/iron-router/model.js",
+      "length": 134,
+      "offset": 0,
+      "path": "examples/iron-router/model.js",
+      "hash": "90b65b9e3cbbcc57a909e8860f2123edcb99e171",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/iron-router/client/client.js",
+      "length": 2606,
+      "offset": 0,
+      "path": "examples/iron-router/client/client.js",
+      "hash": "3ea3c9d5422b9ad9c5f9bf6a76441752dcae2f17",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "css",
+      "file": "web.browser/examples/iron-router/client/example.css",
+      "length": 865,
+      "offset": 0,
+      "path": "examples/iron-router/client/example.css",
+      "hash": "097c25f31715b5cc00c27ac5b8b92eb89b6c98a8",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/iron-router/client/manage-users.js",
+      "length": 380,
+      "offset": 0,
+      "path": "examples/iron-router/client/manage-users.js",
+      "hash": "e4bd52481671c123f524406f18832fd664777241",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/iron-router/client/routing.js",
+      "length": 1772,
+      "offset": 0,
+      "path": "examples/iron-router/client/routing.js",
+      "hash": "9763465c817e7ebeb4a3c9eacfb9f518de191e81",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/iron-router/client/secrets.js",
+      "length": 168,
+      "offset": 0,
+      "path": "examples/iron-router/client/secrets.js",
+      "hash": "730c8433fc844b53b07024e0d99a084289038d31",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/iron-router/client/lib/globals.js",
+      "length": 29,
+      "offset": 0,
+      "path": "examples/iron-router/client/lib/globals.js",
+      "hash": "d7aba836e5eded13a510e1d84dca93d60c203880",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/examples/iron-router/server/server.js",
+      "length": 2900,
+      "offset": 0,
+      "path": "examples/iron-router/server/server.js",
+      "hash": "dec716b3bd8fd17228fb150606d82d1f3573eb9f",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/roles/roles_server.js",
+      "length": 13030,
+      "offset": 0,
+      "path": "roles/roles_server.js",
+      "hash": "6e62cd782acc45e3f2a4db86b4aa0640e087a20b",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/roles/tests/client.js",
+      "length": 3640,
+      "offset": 0,
+      "path": "roles/tests/client.js",
+      "hash": "ee4802dd03f3483668afbba7ae9f89f42ec74bdd",
+      "fileOptions": {
+        "lazy": true
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser/roles/tests/server.js",
+      "length": 80229,
+      "offset": 0,
+      "path": "roles/tests/server.js",
+      "hash": "9874e8e679c737e74f27dfa50f82c31ccf47c762",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

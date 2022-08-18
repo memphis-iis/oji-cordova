@@ -1,0 +1,71 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "modules"
+    },
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "hot-code-push",
+      "unordered": true
+    },
+    {
+      "package": "ecmascript-runtime-client",
+      "weak": true
+    },
+    {
+      "package": "dev-error-overlay",
+      "weak": true
+    }
+  ],
+  "implies": [
+    {
+      "package": "modules-runtime-hot",
+      "constraint": "0.13.0"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/hot-api.js",
+      "length": 2832,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "hot-api.js",
+      "hash": "430b481bcab1462367796c6c5968db0559809678",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/client.js",
+      "length": 14066,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "client.js",
+      "hash": "eeabafee2a3560defaef11f58a49a278fe11b2a7",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/server.js",
+      "length": 367,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "server.js",
+      "hash": "706a0d746a233adbdc37a295a90943173f85b3d3",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

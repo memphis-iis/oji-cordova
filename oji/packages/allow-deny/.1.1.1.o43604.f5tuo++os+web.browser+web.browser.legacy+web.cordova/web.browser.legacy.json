@@ -1,0 +1,55 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "AllowDeny",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "ecmascript"
+    },
+    {
+      "package": "minimongo"
+    },
+    {
+      "package": "check"
+    },
+    {
+      "package": "ejson"
+    },
+    {
+      "package": "ddp"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/allow-deny.js",
+      "length": 20319,
+      "offset": 0,
+      "path": "allow-deny.js",
+      "hash": "27c0c121d2d66c2648c0017efb7a8e7b980630d5",
+      "fileOptions": {
+        "lazy": false
+      }
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/allow-deny-tests.js",
+      "length": 32,
+      "offset": 0,
+      "path": "allow-deny-tests.js",
+      "hash": "71818466e24d901be9c819d8eacef963c4487192",
+      "fileOptions": {
+        "lazy": true
+      }
+    }
+  ]
+}

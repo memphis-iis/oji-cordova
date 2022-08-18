@@ -1,0 +1,76 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "jquery",
+      "constraint": "1.0.1"
+    }
+  ],
+  "resources": [
+    {
+      "type": "asset",
+      "file": "web.cordova/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.eot",
+      "length": 20127,
+      "offset": 0,
+      "servePath": "/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.eot",
+      "path": "dist/fonts/glyphicons-halflings-regular.eot"
+    },
+    {
+      "type": "asset",
+      "file": "web.cordova/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
+      "length": 108738,
+      "offset": 0,
+      "servePath": "/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
+      "path": "dist/fonts/glyphicons-halflings-regular.svg"
+    },
+    {
+      "type": "asset",
+      "file": "web.cordova/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.ttf",
+      "length": 45404,
+      "offset": 0,
+      "servePath": "/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.ttf",
+      "path": "dist/fonts/glyphicons-halflings-regular.ttf"
+    },
+    {
+      "type": "asset",
+      "file": "web.cordova/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.woff",
+      "length": 23424,
+      "offset": 0,
+      "servePath": "/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.woff",
+      "path": "dist/fonts/glyphicons-halflings-regular.woff"
+    },
+    {
+      "type": "asset",
+      "file": "web.cordova/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.woff2",
+      "length": 18028,
+      "offset": 0,
+      "servePath": "/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.woff2",
+      "path": "dist/fonts/glyphicons-halflings-regular.woff2"
+    },
+    {
+      "type": "source",
+      "extension": "css",
+      "file": "web.cordova/dist/css/bootstrap.css",
+      "length": 146082,
+      "offset": 0,
+      "path": "dist/css/bootstrap.css",
+      "hash": "4316dcfb54e1b0a428e1d37203a4028fd0408298",
+      "fileOptions": {}
+    },
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.cordova/dist/js/bootstrap.js",
+      "length": 68954,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "dist/js/bootstrap.js",
+      "hash": "8cf4186ce86777b4b408ce308ca9f66dd421f509",
+      "fileOptions": {}
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [],
+  "uses": [
+    {
+      "package": "meteor"
+    }
+  ],
+  "implies": [
+    {
+      "package": "blaze",
+      "constraint": "2.5.0"
+    },
+    {
+      "package": "ui",
+      "constraint": "1.0.13"
+    },
+    {
+      "package": "spacebars",
+      "constraint": "1.2.0"
+    },
+    {
+      "package": "templating",
+      "constraint": "1.4.1"
+    }
+  ],
+  "resources": []
+}

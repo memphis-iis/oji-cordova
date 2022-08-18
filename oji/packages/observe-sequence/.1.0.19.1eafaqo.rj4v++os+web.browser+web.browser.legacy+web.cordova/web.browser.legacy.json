@@ -1,0 +1,49 @@
+{
+  "format": "isopack-2-unibuild",
+  "declaredExports": [
+    {
+      "name": "ObserveSequence",
+      "testOnly": false
+    }
+  ],
+  "uses": [
+    {
+      "package": "meteor"
+    },
+    {
+      "package": "tracker",
+      "constraint": "1.2.0"
+    },
+    {
+      "package": "mongo-id",
+      "constraint": "1.0.8"
+    },
+    {
+      "package": "diff-sequence",
+      "constraint": "1.1.1"
+    },
+    {
+      "package": "underscore",
+      "constraint": "1.0.10"
+    },
+    {
+      "package": "random",
+      "constraint": "1.2.0"
+    }
+  ],
+  "resources": [
+    {
+      "type": "source",
+      "extension": "js",
+      "file": "web.browser.legacy/observe_sequence.js",
+      "length": 13983,
+      "offset": 0,
+      "usesDefaultSourceProcessor": true,
+      "path": "observe_sequence.js",
+      "hash": "c239715f39fcff62fde7572c70b1947ee05300af",
+      "fileOptions": {
+        "lazy": false
+      }
+    }
+  ]
+}
