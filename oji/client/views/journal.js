@@ -5,8 +5,15 @@ Template.journal.helpers({
 Template.journal.events({
     'click #createEntry': function(event){
         event.preventDefault();
-        var text= $('#text').val();
-        Meteor.call('addEntry',text);
+        data = {};
+        data.triggeringEvent= $('#triggeringEvent').val();
+        data.mood = $('#mood').val();
+        data.automaticThoughts = $('#automaticThoughts').val();
+        data.evidenceForThoughts = $('#evidenceForThoughts').val();
+        data.evidenceAgainstThoughts = $('#evidenceAgainstThoughts').val();
+        data.otherThoughts =  $('#otherThoughts').val();
+        data.newMood = $('#newMood').val();
+        Meteor.call('addEntry',data);
         Router.go("/calendar/agenda");
     }
 });

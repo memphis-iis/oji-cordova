@@ -182,11 +182,10 @@ Template.module.events({
                     if(moduleData.nextQuestion >= curModule.pages[moduleData.nextPage].questions.length){
                         moduleData.nextPage = thisPage + 1;
                         moduleData.nextQuestion = 0;
-                        if(curModule.pages[moduleData.nextPage].questions[moduleData.nextQuestion].text || curModule.pages[moduleData.nextPage].questions[moduleData.nextQuestion].text == ''){
-                            target = "/module/" + curModule._id + "/" + moduleData.nextPage;
-                        } else {
-                            target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
-                        }
+                        moduleData.nextPage = thisPage + 1;
+                        moduleData.nextQuestion = 0;
+                        target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;    
+                      
                     } else  {
                         target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
                     }
@@ -196,12 +195,16 @@ Template.module.events({
         } else {
             moduleData.nextPage = parseInt(thisPage) + 1;
             moduleData.nextQuestion = 0;
+            if(curModule.pages[moduleData.nextPage].type == "activity" && curModule.pages[moduleData.nextPage].questions.length > 0 && (curModule.pages[moduleData.nextPage].text == "" || !curModule.pages[moduleData.nextPage].text)){
+                target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
+            } else {
+                target = "/module/" + curModule._id + "/" + moduleData.nextPage;
+            }
             data = {
                 pageId: thisPage,
                 response: "read",
                 responseTimeStamp: Date.now().toString()
             }
-            target = "/module/" + curModule._id + "/" + moduleData.nextPage;
         }
         if(moduleData.nextPage >= curModule.pages.length){
             moduleData.nextPage = "completed";
@@ -215,7 +218,7 @@ Template.module.events({
             target = "/module/" + curModule._id + "/completed";
         } 
         Meteor.call("saveModuleData", moduleData);
-
+        $('textArea').val("");
         Router.go(target);
     },
     'click #startActivity': function(event){

@@ -1,23 +1,23 @@
 <template name="profile">
     <div class="px-4 py-5 my-5 text-center container">
-    <h1>Hello there, {{currentUser.firstname}}.</h1>
     {{#if isInRole 'user'}}
         {{#if hasCompletedFistTimeAssessment}}
             {{#if assignment}}
-                <h1>Let's start here today.</h1>
-                <h4>To continue, please complete the following.</h4>
+                <br>
+                <h4>Hello, {{currentUser.firstname}}. Let's continue on your journey.</h4>
                 <div class="assessment" style="margin-top:5px;">
-                    <hr>
-                    <h4>{{assignment.title}}</h4>
-                    <p>{{assignment.description}}</p>
+                    <br>
                     {{#if assignment.isAssessment}}
-                    <button id="startAssessment" data-assessment-id="{{assignment._id}}" class="startAssessment btn btn-primary startAssessment">Begin {{assignment.title}}</button>
+                    <button id="startAssessment" data-assessment-id="{{assignment._id}}" class="startAssessment btn btn-primary startAssessment">{{assignment.title}}</button>
                     {{/if}}
                     {{#if assignment.isModule}}
-                    <button id="startModule" data-assessment-id="{{assignment._id}}" class="startModule btn btn-primary startAssessment">Begin {{assignment.title}}</button>
+                    <button id="startModule" data-assessment-id="{{assignment._id}}" class="startModule btn btn-primary startAssessment">{{assignment.title}}</button>
                     {{/if}}
+                    <br>
                 </div>
             {{else}} 
+                <h4>{{currentUser.firstname}}'s Dashboard</h4>
+                <br>
                 <button id="dashboard" class="btn btn-primary btn-wide">
                     <h4><span class="glyphicon glyphicon-stats"></span> Dashboard</h4>
                 </button>
@@ -35,6 +35,8 @@
             {{> welcome}}
         {{/if}}
     {{else}}
+    <h4>{{currentUser.firstname}}'s Dashboard</h4>
+    <br>
         <button id="controlPanel" class="btn btn-primary btn-wide">
             <h4><span class="glyphicon glyphicon-cog"></span> Control Panel</h4>
         </button>

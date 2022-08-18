@@ -864,21 +864,17 @@ Meteor.methods({
     deleteEvent: function(eventId){
         Events.remove({_id: eventId})
     },
-    addEntry: function(text){
+    addEntry: function(data){
+        console.log("data", data);
         dateReadable = new Date().toISOString().slice(0, 10);
         dateArray = dateReadable.split("-");
-        curYear = parseInt(dateArray[0]);
-        curMonth = parseInt(dateArray[1]);
-        curDay = parseInt(dateArray[2]);
-        Journals.insert({
-            date: dateReadable,
-            day: curDay,
-            month: curMonth,
-            year: curYear,
-            unixDate: Date.now(),
-            text: text,
-            createdBy: this.userId
-        })
+        unixDate = new Date().getTime();
+        data.year = parseInt(dateArray[0]);
+        data.month = parseInt(dateArray[1]);
+        data.day = parseInt(dateArray[2]);
+        data.createdBy = this.userId;
+        data.unixDate = unixDate;
+        Journals.insert(data);
     },
     deleteEntry: function(entryId){
         Journals.remove({_id: entryId})
