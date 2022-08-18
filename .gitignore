@@ -1,3 +1,4 @@
 .vagrant
 oji/.idea
 oji/node_modules
+oji/packages
