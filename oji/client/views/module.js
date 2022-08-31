@@ -100,6 +100,9 @@ Template.module.helpers({
                 if(fields[i].type == "blank"){
                     fields[i].typeBlank = true;
                 };
+                if(fields[i].type == "displayText"){
+                    fields[i].typeDisplayText = true;
+                }
                 if(fields[i].type == "longtext"){
                     fields[i].typeLongText = true;
                 };
@@ -157,7 +160,7 @@ Template.module.events({
                 allInput = document.getElementsByClassName('combo');
                 response = [];
                 for(i = 0; i < allInput.length; i++){
-                    if (($(allInput[i]).prop('nodeName') == "INPUT" || $(allInput[i]).prop('nodeName') == "TEXTAREA") && $(allInput[i]).val() != ""){
+                    if ((($(allInput[i]).prop('nodeName') == "INPUT" || $(allInput[i]).prop('nodeName') == "TEXTAREA") && $(allInput[i]).val() != "") && !$(allInput[i]).hasClass('btn-info')){
                         response.push($(allInput[i]).val());
                     } else {
                         alert("Please fill in all fields");

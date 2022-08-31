@@ -34,7 +34,11 @@ const restrictedRoutes = [
   'devtest',
   'postAssessmentPrompt',
   'certifcates',
-  'goals'
+  'goals',
+  'messages',
+  'askSupervisor',
+  'modulesAdmin',
+  'usersAdmin',
 ]
 
 

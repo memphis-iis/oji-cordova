@@ -66,6 +66,9 @@
             <h5 class="text-left">{{{question.prompt}}}</h5><br>
                 <form>
                 {{#each question.fields}}
+                    {{#if this.typeDisplayText}}
+                        <h4>{{this.text}}</h4>
+                    {{/if}}
                     {{#if this.typeBlank}}
                         <h4>{{this.text}}</h4>
                             <input class="combo" type="text">

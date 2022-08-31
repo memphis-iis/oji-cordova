@@ -56,24 +56,5 @@
             <h4><span class="glyphicon glyphicon-calendar"></span> Calendar</h4>
         </button>
     {{/if}}
-    {{#if certifcates}}
-    <hr>
-    <h4>Certifcates</h4>
-            <p>Download earned certifcates as PDF</p>
-            <table class="table" id="subscalesAggregates">
-                <thead>
-                    <th scope="col" width="100%">Certificate</th>
-                </thead>
-                <tbody> 
-                    {{#each certificates}}
-                    <tr>
-                        <td>
-                            <a href="{{this.link}}">{{this.moduleTitle}}</a>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>                    
-            </table>
-        {{/if}}
     </div>
 </template>
