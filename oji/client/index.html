@@ -20,7 +20,7 @@
     <div class="container">
       <ul class="nav nav-pills nav-fill justify-content-right">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/profile"><img id="logo-color" src="/logo.png" style="max-width:40px;">{{#if organization}} | <span class="orgLogo">{{organization.orgNameTruncated}}</span> {{/if}}</a>
+          <a class="nav-link active" aria-current="page" href="/profile"><img id="logo-color" src="/logo.png" style="max-width:30px;">{{#if organization}} | <span class="orgLogo">{{organization.orgNameTruncated}}</span> {{/if}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/profile"><span class="glyphicon glyphicon-home"></span></a>
@@ -50,8 +50,15 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/userAssessmentReport"><span class="glyphicon glyphicon-stats"></span></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/askSupervisor"><span class="glyphicon glyphicon-question-sign"></span></a>
+        </li>
         {{/if}}
         {{/if}}
+        <li class="nav-item">
+          <a class="nav-link active" id="messages" href="/messages" aria-current="page"><span class="glyphicon glyphicon-comment"></span> <div class="badge badge-pill badge-danger" id="message-count">{{messageCount}}</div></a> 
+         
+        </li>
         <li class="nav-item">
           <a class="nav-link active" id="logoutButton" href="/logout" aria-current="page"><span class=" glyphicon glyphicon-log-out"></span></a>
         </li>

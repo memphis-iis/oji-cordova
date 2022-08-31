@@ -263,8 +263,12 @@ Meteor.methods({
                     });
                 if(linkId != ""){
                     addUserToRoles(uid, 'user');
+                    targetOrgOwner = Orgs.findOne({_id: targetOrgId}).orgOwnerId;
+                    sendSystemMessage(targetOrgOwner, `${firstName} ${lastName} has joined ${targetOrgName}`, 'New User Added');
+                    sendSystemMessage(targetSupervisorId, `${firstName} ${lastName} has joined your organization.`, "New User Added");
                 } else {
                     addUserToRoles(uid, 'admin');
+                    sendSystemMessage(uid, "Welcome to Oji!", "Welcome");
                 }
             }
             else{
@@ -303,6 +307,7 @@ Meteor.methods({
             orgDesc: newOrgDesc,
             newUserAssignments: newUserAssignments
         });
+        sendSystemMessage(newOrgOwner, `${newOrgName} has been created.`, "New Organization Created");
         newOrgId = Orgs.findOne({orgOwnerId: newOrgOwner})._id;
         Meteor.users.update({ _id: newOrgOwner }, 
             {   $set: 
@@ -352,6 +357,7 @@ Meteor.methods({
                     }
                 });
         }
+        sendSystemMessage(newSupervisorID, `${Meteor.users.findOne({_id: userID}).firstname} ${Meteor.users.findOne({_id: userID}).lastname} has been transferred to you.`, "New User Added");
     },
     transferUserToOtherOrg: function(userID, newOrgCode){
         console.log("Transfer Organization: ",userID, newOrgCode);
@@ -367,7 +373,7 @@ Meteor.methods({
                     }
                 });
         }
-        
+        sendSystemMessage(inviteSupervisorId, `${Meteor.users.findOne({_id: userID}).firstname} ${Meteor.users.findOne({_id: userID}).lastname} has been transferred to you.`, "New User Added");
     },
     userIsAdmin: function(){
         return Roles.userIsInRole(Meteor.userId(), ['admin']);
@@ -456,28 +462,100 @@ Meteor.methods({
             display: false,
             description: "Description",
             pages: [],
-            owner: orgId
+            owner: orgId,
+            createdBy: Meteor.userId()
         }
         Modules.insert(newModule);
     },
-    uploadModule: function(path,user){
-        const fs = Npm.require('fs');
-        const bound = Meteor.bindEnvironment((callback) => {callback();});
-        fs.readFile(path,'utf8', (err,data) => {
-            bound(() => {
-                if(err){
-                    console.log(err)
-                } else {
-                    console.log(data);
-                    var newModule =  JSON.parse(data);
-                    newModule.owner = user;
-                    newModule.orgOwnedBy = Meteor.users.find({_id: user}).organization;
-                    delete newModule._id;
-                    Modules.insert(newModule);
-                }
-            });
-        });
+    uploadModule: function(path,user, data=false){
+        if(data){
+            var newModule = JSON.parse(data);
+            newModule.owner = user;
+            newModule.orgOwnedBy = Meteor.user().organization;
+            newModule.createdBy = Meteor.userId();
+            delete newModule._id;
+            Modules.insert(newModule);
+        } else {
+           return "No Data";
+        }
     },
+
+    processPackageUpload: function(path, owner){
+        const fs = Npm.require('fs');
+        const unzip = Npm.require('unzipper');
+        fs.createReadStream(path)
+          .pipe(unzip.Parse())
+          .on('entry', async function(entry){
+            var jsonContent = [];
+            var fileNameArray = entry.path.split("/");
+            var fileName = fileNameArray[fileNameArray.length - 1];
+            var content =  await entry.buffer().then(async function(file){
+              let fileSplit = fileName.split(".");
+              let type = fileSplit[fileSplit.length - 1];
+              if(type =="json"){
+                rawFileContents = file.toString();
+                parsedFileContents = JSON.parse(rawFileContents);
+                JSONStringContents = JSON.stringify(parsedFileContents);
+                fileFinal = {
+                    type: "stim",
+                    contents: JSONStringContents,
+                    fileName: fileName
+                }
+                jsonContent.push(fileFinal);
+              } else {
+                const foundFile = Files.findOne({userId: owner, name: fileName});
+                if(foundFile){
+                  foundFile.remove(function (error){
+                    if (error) {
+                      console.log(`File ${fileName} could not be removed`, error)
+                    }
+                    else{
+                      console.log(`File ${fileName} already exists, overwritting.`)
+                      Files.write(file, {
+                        fileName: fileName,
+                        userId: owner,
+                        parent: path
+                      });
+                    }
+                  })
+                }
+                else{
+                  console.log(`File ${fileName} doesn't exist, uploading`)
+                  Files.write(file, {
+                    fileName: fileName,
+                    userId: owner,
+                    parent: path
+                  });
+                }
+              }
+              return {jsonContent}
+            });
+            referenceContents = [];
+            referenceFiles = Files.find({}).forEach(function(fileRef){
+                replacePath = Files.link(fileRef);
+                data = {
+                  fileName: fileRef.name,
+                  replacePath: replacePath,
+                  parent: fileRef.name
+                }
+                referenceContents.push(data);
+                Files.collection.update({_id: fileRef._id}, {$set: {meta: {link: replacePath}}});
+            });
+            for(let files of content.jsonContent){
+                newContents = files.contents;
+                for(let referenceFile of referenceContents){
+                  toReplace = newContents;
+                  theSplit = toReplace.split(referenceFile.fileName);
+                  if(theSplit.length > 1){
+                    newContents = theSplit.join(referenceFile.replacePath);
+                  } 
+                }
+                Meteor.call("uploadModule",path, Meteor.userId(), newContents);
+            }
+          });
+          assets = Files.find({}).fetch();
+          return assets;
+      },
 
     changeAssessment(input){
         assessmentId = input.assessmentId;
@@ -773,6 +851,7 @@ Meteor.methods({
                 hasCompletedFirstAssessment: true
             }
         });
+        sendSystemMessage(Meteor.userId(), "You have completed the orientation. You can now begin taking the first assessment.");
     },
     getAsset: function(fileName){
         result =  Assets.absoluteFilePath(fileName);
@@ -863,6 +942,22 @@ Meteor.methods({
     },
     deleteEvent: function(eventId){
         Events.remove({_id: eventId})
+    },
+    newMessage: function(message, to, subject){
+        dateReadable = new Date().toLocaleDateString();
+        Chats.insert({
+            message: message,
+            from: Meteor.user()._id,
+            fromName: Meteor.user().firstname + " " + Meteor.user().lastname,
+            to: to,
+            subject: subject,
+            time: new Date(),
+            dateReadable: dateReadable,
+            status: "unread"
+        })
+    },
+    updateMessageStatus: function(messageId, status){
+        Chats.update({_id: messageId}, {$set: {status: status}})
     },
     addEntry: function(data){
         console.log("data", data);
@@ -970,6 +1065,13 @@ Meteor.methods({
                 supervisor: supervisor
             }
         });
+        Meteor.user().certificates.push({
+            fileName: fileName,
+            type: type,
+            date: new Date()
+        });
+        sendSystemMessage(supervisor, "You have been issued a certificate for completing " + type + " for " + nameText + ".");
+        sendSystemMessage(Meteor.userId(), "You have been issued a certificate for completing " + type + " for " + nameText + ".");
         return {pdfDoc: pdfSave, fileName: fileName};     
     },
     swapPageOrder: function(moduleId, pageId, swapTo){
@@ -1013,6 +1115,19 @@ function getInviteInfo(inviteCode) {
     return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
 }
 
+function sendSystemMessage(userId, message, subject) {
+    dateReadable = new Date().toLocaleDateString();
+    Chats.insert({
+        from: "00000000-0000-0000-0000-000000000000",
+        fromName: "System",
+        subject: subject,
+        to: userId,
+        message: message,
+        date: Date.now(),
+        dateReadable: dateReadable,
+        status: "unread"
+    });
+}
 //Publications and Mongo Access Control
 Meteor.users.deny({
     update() { return true; }
@@ -1026,6 +1141,11 @@ Meteor.users.allow({
 Meteor.publish(null, function() {
     return Meteor.users.find({_id: this.userId});
 });
+
+//Publish all user chats that include the current user
+Meteor.publish('chats', function() {
+    return Chats.find({'to': this.userId});
+} );
 
 //Publish current assessment information
 Meteor.publish('curAssessment', function(id) {

@@ -1,0 +1,233 @@
+<template name="usersAdmin">
+    <div class="container">
+        <ul class="nav nav-tabs" style>
+            <li class="nav-item">
+            <a class="nav-link active" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Modules and Assessments</a>
+                </li>
+            <li class="nav-item">
+            <a class="nav-link toggle-users-view" href="/usersAdmin">Users</a>
+            </li>
+        </ul>
+    </div>
+    <div class="px-4 py-5 my-5 container">
+      
+
+            <h3>Users</h3>
+
+    <table class="table" id="UserListTable">
+        <thead>
+        <tr>
+            <th scope="col" width="30%">Last</th>
+            <th scope="col" width="30%">First</th>
+            <th scope="col" width="40%">Actions</th>
+        </tr>
+        </thead>
+        
+        <tbody>
+            {{#each usersList}}
+                <tr>
+                    <th scope="row">{{this.lastname}}</th>
+                    <td>{{this.firstname}}</td>
+                    <td>
+                        {{#if isInRole 'supervisor'}}
+                        <a id="viewItemButton" href="/userAssessmentReport/supervisor/{{this._id}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                            </svg>
+                        </a>
+                        {{ /if }}
+                        {{#if isInRole 'admin'}}
+                            <a id="usersDestroyButton" href="#" data-userID="{{this._id}}" data-lastname="{{this.lastname}}" data-firstname="{{this.firstname}}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                            </a>
+                            <a id="userPromoteButton" href="#" data-userID="{{this._id}}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                                </svg>
+                            </a>
+                        {{ /if }}
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+    <div class="px-4 py-5 my-5 container">
+        <div class="col-4">
+            
+            <h3>User Select</h3>
+            <select id="user-select">
+                <option value="false">None</option>
+            {{#each usersList}}
+                <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
+            {{/each}}
+           </select><br><br>
+           {{#if userSelected}}
+            <h3>{{userSelected.lastname}}, {{userSelected.firstname}}</h3>
+            <h4>
+                Transfers
+            </h4>
+            <p>Reversing an organizqational transfer requires contact with the other organziation.</p>
+            <form>
+                <div class="form-group">
+                    <label for="transferTo">Transfer To Supervisor:</label>
+                    <select id="transferTo">
+                        {{#each supervisorsList}}
+                            <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="transferSupervisorButton">Transfer Supervisors</button>
+                <div class="form-group">
+                    <label for="transforToOrg">Transfer To supervisor at other organization by code:</label>
+                    <input type="text"  id="transferToOrg" placeholder="Organization Code">
+                </div>
+                <button type="button" class="btn btn-primary" id="transferOrgButton">Transfer to Supervisor at another organization</button>
+            </form>
+            {{#if orgViewOn}}
+                 User Flow can be seen when selecting an individual user  that you supervise.
+            {{else}}
+            {{#if userSelected.editedClassList}}
+            <h4>Entrolled Classes</h4>
+            <table class="table" id="classList">
+                <thead>
+                    <th scope="col" width="50%">Classes</th>
+                    <th scope="col" width="50%">Actions</th>
+                </thead>
+                <tbody>
+                {{#each userSelected.editedClassList}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>
+                            <a id="unassign-class" data-class-id="{{this.classId}}">Remove From Class</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+            {{#if assignments}}
+            <h4>Individual Assignments</h4>
+            <table class="table" id="assessmentList">
+                <thead>
+                    <th scope="col" width="50%">Assignment</th>
+                    <th scope="col" width="50%">Actions</th>
+                </thead>
+                <tbody>
+                {{#each assignments}}
+                    <tr>
+                        <td>{{this.title}}</td>
+                        <td>
+                            {{#if this.first}}
+                            {{else}}
+                            <a id="moveup-assignment" data-index="{{@index}}">Move Up</a><br>
+                            {{/if}}
+                            {{#if this.last}}
+                            {{else}}
+                            <a id="movedown-assignment" data-index="{{@index}}">Move Down</a><br>
+                            {{/if}}
+                            <a id="unassign-assignment" data-assignment-id="{{this.assignment}}">Unassign</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+
+            {{#if modulesAvailable}}
+            <h4>Available Assignments</h4>
+            <table class="table" id="assessmentList">
+                <thead>
+                    <th scope="col" width="70%">Module</th>
+                    <th scope="col" width="30%">Actions</th>
+                </thead>
+                <tbody>
+                {{#each modulesAvailable}}
+                    <tr>
+                        <td>{{this.title}}</td>
+                        <td><a id="assign-module" data-module-id="{{this._id}}">Assign to User</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{#if assessmentsAvailable}}
+            <table class="table" id="assessmentList">
+                <thead>
+                    <th scope="col" width="70%">Assessment</th>
+                    <th scope="col" width="30%">Actions</th>
+                </thead>
+                <tbody>
+                {{#each assessmentsAvailable}}
+                    <tr>
+                        <td>{{this.title}}</td>
+                        <td><a id="assign-assessment" data-assessment-id="{{this._id}}">Assign to User</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+            
+            {{/if}}
+            <h4>History</h4>
+            {{#if assessments}}
+                <table class="table" id="moduleList">
+                    <thead>
+                        <th scope="col" width="40%">Date Last Accessed</th>
+                        <th scope="col" width="40%">Assessment</th>
+                        <th scope="col" width="15%">Progress</th>
+                        <th scope="col" width="5%">Results</th>
+                    </thead>
+                    <tbody>
+                        {{#each assessments}}
+                            <tr>
+                                <td>{{this.lastAccessed}}</td>
+                                <td>{{this.title}}</td>
+                                {{#if this.completed}}
+                                <td>Completed</td>
+                                {{else}}
+                                <td>Page {{this.lastPage}} of {{this.totalPages}} / {{this.percentDone}}% </td>
+                                {{/if}}
+                                <td><a href="/assessmentReport/{{this.id}}">Report</a></td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+                No assessments have been started by this user.<br>
+                {{/if}}
+            {{#if modules}}
+            <table class="table" id="moduleList">
+                <thead>
+                    <th scope="col" width="40%">Date Last Accessed</th>
+                    <th scope="col" width="30%">Module</th>
+                    <th scope="col" width="25%">Progress</th>
+                    <th scope="col" width="5%">Results</th>
+                </thead>
+                <tbody>
+                    {{#each modules}}
+                        <tr>
+                            <td>{{this.dateAccessed}}</td>
+                            <td>{{this.title}}</td>
+                            {{#if this.completed}}
+                            <td>Completed</td>
+                            {{else}}
+                            <td>Page {{this.lastPage}} of {{this.totalPages}} / {{this.percentDone}}%, Score: {{this.score}}</td>
+                            {{/if}}
+                            <td><a href="/moduleReport/{{this.id}}">Report</a></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+            No modules have been started by this user.
+            {{/if}}
+            {{/if}}
+            {{/if}}
+        </div>
+    </div>
+</template>

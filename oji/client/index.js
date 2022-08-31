@@ -83,5 +83,12 @@ Template.DefaultLayout.helpers({
       orgs.orgNameTruncated = newOrgName;
       return orgs;
      }
+  },
+  'messageCount': function(){
+    return Chats.find({status: 'unread'}).count();
   }
+});
+
+Template.DefaultLayout.onRendered(function() {
+  Meteor.subscribe('chats');
 });
