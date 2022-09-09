@@ -129,6 +129,17 @@
                 There are no events for this day.
             </p>
         {{/if}}
+        <div class="container">
+            <ul class="nav nav-tabs" style>
+                <li class="nav-item">
+                <a class="nav-link active" id="thoughtlog" aria-current="page">Thought Log</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" id="exercise" aria-current="goals">Exercies</a>
+                </li>
+            </ul>
+        </div>
+        {{#if thoughtlogview}}
         <h3 class="text-center">Thought Log</h3>
         {{#if agenda.entries}}
         <div class="row" style="margin-left: 20px;">   
@@ -188,9 +199,20 @@
             There are no thought logs for this day.
         </p>
     {{/if}}
+    {{/if}}
     
         
   </div>
+  {{#if exerciseview}}
+    <h3>Exercises</h3>
+    <hr>
+    {{#if agenda.exercises}}
+    {{else}}
+    <p class="text-center">
+        There are no exercises for this day.
+    </p>
+    {{/if}}
+  {{/if}}
    <div class="row text-center" id="create-view" hidden>
         <h3>
             Create Event

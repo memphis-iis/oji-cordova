@@ -1,6 +1,10 @@
 Template.calendar.helpers({
     'usersList': () => Meteor.users.find({ role: 'user', organization: Meteor.user().organization, supervisor: Meteor.userId()}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
 
+    'thoughtlogview': () => Template.instance().thoughtlogview.get(),
+
+    'exerciseview': () => Template.instance().exerciseview.get(),
+
     'calendar': function(){
         mode = this.agendaView;
         if(mode == true){
@@ -132,6 +136,16 @@ Template.calendar.events({
     'change #month-select': function(event){
         const t = Template.instance();
         t.selectedUser.set(event.target.value);
+    },
+    'click #thoughtlog' : function(event){
+        const t = Template.instance();
+        t.thoughtlogview.set(true);
+        t.exerciseview.set(false);
+    },
+    "click #exercise": function(event){
+        const t = Template.instance();
+        t.exerciseview.set(true);
+        t.thoughtlogview.set(false);
     },
     'click #createEvent': function(event){
         event.preventDefault();
@@ -310,5 +324,7 @@ Template.calendar.onCreated(function() {
     this.displayYear = new ReactiveVar(curYear);
     this.displayDay = new ReactiveVar(unixDate.getDate());
     this.daysInAMonth = new ReactiveVar(daysInAMonth)
+    this.thoughtlogview = new ReactiveVar(false);
+    this.exerciseview = new ReactiveVar(false);
 })
 

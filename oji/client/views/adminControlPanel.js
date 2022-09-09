@@ -24,7 +24,7 @@ Template.adminControlPanel.helpers({
     'assignments': function(){
         data =  Orgs.findOne({_id: Meteor.user().organization}).newUserAssignments;
         console.log(data);
-        for(i = 0; i < data.length; i++){
+        for(i = 0; i < data.length - 1; i++){
             data.first = false;
             data.last =  false;
             if(data[i].type == "assessment"){

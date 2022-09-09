@@ -12,6 +12,11 @@
             </li>
         </ul>
     </div>
+    {{#if author}}
+    <div id="author-alert" class="alert alert-danger" role="alert">
+        Author mode activated. All editing is enabled.
+    </div>
+    {{/if}}
     <div class="px-4 py-5 my-5 container">
         <div class="col-4">
             <h3>Default Flow</h3>
@@ -94,8 +99,22 @@
                                 <a data-module-id="{{this._id}}" id="test-assessment">
                                     <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Test Assessment
                                 </a>
+                                {{else}}
+                            
+                                {{#if author}}
+                                    <a data-module-id="{{this._id}}" id="edit-module">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit Module
+                                    </a>
+                                    <br>
+                                    <a data-module-id="{{this._id}}" id="delete-module">
+                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Delete Module
+                                    </a>
+                                    <br>
+                                    <a data-module-id="{{this._id}}" id="copy-module">
+                                        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Copy Module
+                                    </a>
                                 {{/if}}
-                                <br>
+                                {{/if}}
                         </td>
                     </tr>
                 {{/each}}
@@ -138,7 +157,7 @@
                                 <a data-module-id="{{this._id}}" id="assign-all-module">
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Assign to all users
                                 </a>
-
+                                {{#if author}}
                                     <br>
                                     <a data-module-id="{{this._id}}" id="edit-module">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit Module
@@ -155,6 +174,7 @@
                                     <a data-module-id="{{this._id}}" id="test-module">
                                         <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Test Module
                                     </a>
+                                {{/if}}
                             </td>
                         </tr>
                     {{/each}}

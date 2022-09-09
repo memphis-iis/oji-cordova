@@ -476,7 +476,13 @@ Meteor.methods({
             delete newModule._id;
             Modules.insert(newModule);
         } else {
-           return "No Data";
+            const fs = Npm.require('fs');
+            var newModule = JSON.parse(fs.readFileSync(path, 'utf8'));
+            newModule.owner = user;
+            newModule.orgOwnedBy = Meteor.user().organization;
+            newModule.createdBy = Meteor.userId();
+            delete newModule._id;
+            Modules.insert(newModule);
         }
     },
 
@@ -790,11 +796,19 @@ Meteor.methods({
         }
     },
     setCurrentAssignment: function(assignment){
-        Meteor.users.update(Meteor.userId(), {
-            $set: {
-                curAssignment: assignment
-            }
-        });
+        curSetAssignment = Meteor.user.curAssignment;
+        if(curSetAssignment != assignment){
+            Meteor.users.update(Meteor.userId(), {
+                $set: {
+                    curAssignment: assignment,
+                    curTrial: {
+                        trialId: null,
+                        questionId: null,
+                        pageId: null
+                    }
+                }
+            });
+        }
     },
     endAssessment: function(trialId) {
         let trial = Trials.findOne({'_id': trialId});
@@ -813,6 +827,16 @@ Meteor.methods({
               }
             }
           });
+    },
+    createModuleStorageforUser: function(moduleId){
+        userId = Meteor.userId();
+        Meteor.users.update(userId, {
+            curModule: {
+                moduleId: moduleId,
+                pageId: 0,
+                questionId: 0
+            }
+        });
     },
     createNewModuleTrial: function(data){
         const results = ModuleResults.insert(data);
@@ -1146,6 +1170,11 @@ Meteor.publish(null, function() {
 Meteor.publish('chats', function() {
     return Chats.find({'to': this.userId});
 } );
+
+// Publish all of users exercises
+Meteor.publish('exercises', function() {
+    return Exercises.find({'userId': this.userId});
+})
 
 //Publish current assessment information
 Meteor.publish('curAssessment', function(id) {

@@ -7,6 +7,15 @@ Template.module.helpers({
             return Modules.findOne({_id: Meteor.user().curAssignment.id}).pages.length;
         }
     },
+    'resume': function(){
+        curPage = Meteor.user().curModule.pageId || 0;
+        curQuestion = Meteor.user().curModule.questionId || 0;
+        console.log(curPage, curQuestion);
+        if(curPage > 0){
+            return true;
+        }
+        return false;
+    },
     'completed' : function(){
         if(Meteor.user().curModule.pageId == "completed"){
             return true;
@@ -198,10 +207,8 @@ Template.module.events({
         } else {
             moduleData.nextPage = parseInt(thisPage) + 1;
             moduleData.nextQuestion = 0;
-            if(curModule.pages[moduleData.nextPage].type == "activity" && curModule.pages[moduleData.nextPage].questions.length > 0 && (curModule.pages[moduleData.nextPage].text == "" || !curModule.pages[moduleData.nextPage].text)){
+            if(curModule.pages[moduleData.nextPage].type == "activity" && curModule.pages[moduleData.nextPage].questions.length > 0){
                 target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
-            } else {
-                target = "/module/" + curModule._id + "/" + moduleData.nextPage;
             }
             data = {
                 pageId: thisPage,
@@ -242,11 +249,24 @@ Template.module.events({
         event.preventDefault();
         data = {
             userId: Meteor.userId(),
-            moduleId: Meteor.user().curAssignment?.id, 
+            moduleId: Meteor.user(),
             responses: []
         }
         Meteor.call("createNewModuleTrial", data);
         target = "/module/" + Meteor.user().curAssignment?.id + "/0";
+        Router.go(target);
+    },
+    
+    'click #resumeModule': function(event){
+        event.preventDefault();
+        curPage = Meteor.user().curModule.pageId;
+        curQuestion = Meteor.user().curModule.questionId;
+        if(curPage){
+            target = "/module/" + Meteor.user().curAssignment?.id + "/" + curPage 
+        }
+        if(curQuestion){
+            target = "/module/" + Meteor.user().curAssignment?.id + "/" + curPage + "/" + curQuestion;
+        }
         Router.go(target);
     },
     'click #goBack': function(event){

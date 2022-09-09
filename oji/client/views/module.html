@@ -26,8 +26,6 @@
         <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
         {{/if}}
         {{#if this.questionId}}
-            <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
-            <h3><b>{{page.header}}</b></h3>
             {{#if question.promptImg}}
             <img src="{{question.promptImg}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             {{/if}}
@@ -112,11 +110,19 @@
         {{/if}}
         {{/if}}
        {{else}}
+            {{#if resume}}
+            <h3>{{module.title}}</h3>
+            <p>{{module.description}}</p>
+            <br>
+            <button class="btn btn-primary btn-wide" id="resumeModule">Lets Continue!</button>
+            <button class="btn btn-caution btn-wide" id="goBack">Return to Profile</button>
+            {{else}}
             <h3>{{module.title}}</h3>
             <p>{{module.description}}</p>
             <br>
             <button class="btn btn-primary btn-wide" id="startModule">Lets Begin!</button>
             <button class="btn btn-caution btn-wide" id="goBack">Return to Profile</button>
+            {{/if}}
         {{/if}}
     </div>
 </template>
