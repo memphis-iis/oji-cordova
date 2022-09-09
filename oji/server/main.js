@@ -132,7 +132,8 @@ Meteor.startup(() => {
   });
 
     //load default JSON assessment into mongo collection
-    importDefaultAssessments = Meteor.settings.importDefaults;
+    importDefaultAssessments = Meteor.settings.importDefaults.assessments;
+    importDefaultModules = Meteor.settings.importDefaults.modules;
     if(Assessments.find().count() === 0 && importDefaultAssessments){
         console.log('Importing Default Assessments into Mongo.')
         var data = JSON.parse(Assets.getText('defaultAssessments.json'));
@@ -144,7 +145,7 @@ Meteor.startup(() => {
     }
 
     //load default JSON modules into mongo collection
-    if(Modules.find().count() === 0){
+    if(Modules.find().count() === 0 && importDefaultModules){
         console.log('Importing Default Modules into Mongo.')
         var data = JSON.parse(Assets.getText('defaultModules.json'));
         for (var i =0; i < data['modules'].length; i++){
@@ -162,60 +163,63 @@ Meteor.startup(() => {
     }
     let newOrgId;
     //create seed user
-    for(let user of SEED_USERS){
-        if (!Accounts.findUserByUsername(user.username)) {
-            const uid = Accounts.createUser({
-                username: user.username,
-                password: user.password,
-                email: user.email,
-            });
-            
-            addUserToRoles(uid, user.role);
-            if(user.role == "admin"){
-                Orgs.insert({
-                    orgName: "IIS",
-                    orgOwnerId: uid,
-                    orgDesc: "Testing",
-                    newUserAssignments: []
+    importSeedUsers = Meteor.settings.importDefaults.users;
+    if(importSeedUsers){
+        for(let user of SEED_USERS){
+            if (!Accounts.findUserByUsername(user.username)) {
+                const uid = Accounts.createUser({
+                    username: user.username,
+                    password: user.password,
+                    email: user.email,
                 });
-                newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
-                const d = new Date();
-                let month = d.getMonth(); 
-                let day = d.getDate();
-                let year = d.getFullYear();
-                let title = "test event";
-                Events.insert({
-                    type: "org",
-                    org: newOrgId,
-                    month: month,
-                    day: day,
-                    year: year,
-                    title: title,
-                    createdBy: uid
-                });
-                Meteor.call('generateInvite',uid);
-            }
-
-            let supervisorID = '';
-            if(user.username == 'testUser'){
-                supervisorID =  Accounts.findUserByUsername(SEED_SUPERVISOR.username)._id;
-            }
-            Meteor.users.update({ _id: uid }, 
-                {   $set:
-                    {
-                        sex: user.sex,
-                        firstname: user.firstName,
-                        lastname: user.lastName,
-                        supervisor: supervisorID,
-                        organization: user.org ? user.org: newOrgId,
-                        sex: user.sex,
-                        assigned: user.assigned,
-                        hasCompletedFirstAssessment: user.hasCompletedFirstAssessment,
-                        nextModule: 0,
-                        author: true
-                    }
+                
+                addUserToRoles(uid, user.role);
+                if(user.role == "admin"){
+                    Orgs.insert({
+                        orgName: "IIS",
+                        orgOwnerId: uid,
+                        orgDesc: "Testing",
+                        newUserAssignments: []
+                    });
+                    newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
+                    const d = new Date();
+                    let month = d.getMonth(); 
+                    let day = d.getDate();
+                    let year = d.getFullYear();
+                    let title = "test event";
+                    Events.insert({
+                        type: "org",
+                        org: newOrgId,
+                        month: month,
+                        day: day,
+                        year: year,
+                        title: title,
+                        createdBy: uid
+                    });
+                    Meteor.call('generateInvite',uid);
                 }
-            );
+
+                let supervisorID = '';
+                if(user.username == 'testUser'){
+                    supervisorID =  Accounts.findUserByUsername(SEED_SUPERVISOR.username)._id;
+                }
+                Meteor.users.update({ _id: uid }, 
+                    {   $set:
+                        {
+                            sex: user.sex,
+                            firstname: user.firstName,
+                            lastname: user.lastName,
+                            supervisor: supervisorID,
+                            organization: user.org ? user.org: newOrgId,
+                            sex: user.sex,
+                            assigned: user.assigned,
+                            hasCompletedFirstAssessment: user.hasCompletedFirstAssessment,
+                            nextModule: 0,
+                            author: true
+                        }
+                    }
+                );
+            }
         }
     }
 });
