@@ -1,10 +1,4 @@
 {
     "public":{
-        "authors":["testAdmin@memphis.edu","jrhaner@memphis.edu","rawhite2@memphis.edu"],
-        "importDefaults": {
-            "modules": false,
-            "assessments": true,
-            "users": true
-        }
-    }
-}
+        "authors":["testAdmin@memphis.edu","jrhaner@memphis.edu","rawhite2@memphis.edu"]
+    },

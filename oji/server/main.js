@@ -80,6 +80,11 @@ Meteor.startup(() => {
         });
     }
 
+    //Change for defaults
+    importDefaultModules = false;
+    importDefaultUsers = true;
+    importDefaultAssessments = true;
+
     //Iron Router Api
     Router.route('/api',{
     where: "server",
@@ -132,8 +137,6 @@ Meteor.startup(() => {
   });
 
     //load default JSON assessment into mongo collection
-    importDefaultAssessments = Meteor.settings.importDefaults.assessments;
-    importDefaultModules = Meteor.settings.importDefaults.modules;
     if(Assessments.find().count() === 0 && importDefaultAssessments){
         console.log('Importing Default Assessments into Mongo.')
         var data = JSON.parse(Assets.getText('defaultAssessments.json'));
@@ -163,8 +166,7 @@ Meteor.startup(() => {
     }
     let newOrgId;
     //create seed user
-    importSeedUsers = Meteor.settings.importDefaults.users;
-    if(importSeedUsers){
+    if(importDefaultUsers){
         for(let user of SEED_USERS){
             if (!Accounts.findUserByUsername(user.username)) {
                 const uid = Accounts.createUser({
