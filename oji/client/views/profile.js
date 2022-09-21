@@ -102,6 +102,10 @@ Template.profile.events({
         target = "/journal/";
         Router.go(target);
     },
+    'click #exercises': function(){
+        target = "/relaxationTechniques/";
+        Router.go(target);
+    },
     'click #logout': function(){
         Meteor.logout();
         Router.go("/");

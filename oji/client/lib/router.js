@@ -39,6 +39,7 @@ const restrictedRoutes = [
   'askSupervisor',
   'modulesAdmin',
   'usersAdmin',
+  'relaxationTechniques'
 ]
 
 

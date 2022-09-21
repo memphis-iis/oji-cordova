@@ -9,7 +9,7 @@ Modules = new Mongo.Collection('modules');
 ModuleResults = new Mongo.Collection('modresults');
 Events = new Mongo.Collection('events');
 Journals = new Mongo.Collection('journals');
-Exerciese =  new Mongo.Collection('exercises');
+Exercises =  new Mongo.Collection('exercises');
 Chats = new Mongo.Collection('chats');
 
 //Init DynamicAssets Collection

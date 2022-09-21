@@ -1,0 +1,293 @@
+<template name="relaxationTechniques">
+    {{#if selectedTechnique}}
+        <button id="backToTechniques" class="btn btn-primary btn-wide">
+            <h4><span class="glyphicon glyphicon-arrow-left"></span> Back to Techniques</h4>
+        </button>
+        {{#Template.dynamic template=selectedTechnique}}
+        {{/Template.dynamic}}
+    {{else}}    
+        {{> relaxationTechniqueMenu}}
+    {{/if}}
+</template>
+
+<template name="relaxationTechniqueMenu">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Relaxation Techniques</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    {{#each relaxationTechniques}}
+                        <button class="btn btn-default btn-primary btn-wide select-tech" data-technique-id="{{@index}}">
+                            {{title}}
+                        </button>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="rt0">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Relaxation Technique 1</h1>
+            <h2>Using Your Breathing</h2>
+        </div>
+        <div class="col-md-12">
+            <p>This is similar to what you learned in <u>Preparing for Community Supervision</u> but presented in a slightly different way to give you more variety in the strategies you use. Not all exercises will work as well for you as they do for some other people but try them all a few times so you can decide which ones work best for you. </p>
+        </div>
+        <div class="col-md-12">
+            <h3>Deep Breathing</h3>
+            <ul>
+                <li>Lie down on your bed or on the floor. Bend your knees and move your feet about eight inches apart with your toes turned slightly outward. Make sure that your spine is straight and flat.</li>
+                <li>Check your body for tension. Feel where the tension is in your body.</li>
+                <li>Put one hand on your stomach and one hand on your chest.</li>
+                <li>Breathe in slowly and deeply through your nose into your stomach to push up your hand as much as feels comfortable. Your chest should move only a little and only with your stomach.</li>
+                <li>When you feel comfortable with the last step, smile slightly and breathe in through your nose and breath out through your mouth, making a quiet, relaxing, whooshing should like the wind as you blow gently out. Your mouth, tongue, and jaw will be relaxed. Take long, slow, deep breaths that raise and lower your stomach. Focus on the sound and feeling of your breathing as you become more and more relaxed.</li>
+                <li>Continue this deep breathing for about five or ten minutes at a time, once or twice a day. Then, if you like, gradually extend this period to twenty minutes as you practice more.</li>
+                <li>At the end of each deep-breathing session, take a little time to once again check your body for tension. Compare the tension you feel at the conclusion of the exercise with that which you experienced when you began.</li>
+                <li> When you become comfortable with breathing into your stomach, practice it any time during the day when you feel like it while sitting down or standing still. Focus on your stomach moving up and down, the air moving in and out of your lungs, and the feeling of relaxation that deep breathing gives you.</li>
+            </ul>
+            <h3>Counting Your Breaths</h3>
+            <ul>
+                <li> Sit or lie in a comfortable position with your arms and legs uncrossed and your spine straight and flat. </li>
+                <li> Breathe deeply into your stomach. Let yourself pause for a few seconds before you breathe out.</li>
+                <li>As you breathe out, count “one” to yourself. As you continue to breathe in and out, count each time you release your breath: “Two…Three…Four.” Continue this for about 10 minutes.</li>
+                <li>Notice your breathing, your body relaxing, and your mind calming as you practice this exercise.</li>
+            </ul>
+            <h3>Letting Go of Tension</h3>
+            <ul>
+                <li>Sit comfortably with your feet on the floor.</li>
+                <li>Breathe in deeply into your stomach and say silently to yourself, “Breathe in relaxation.” Let yourself pause before you let go of your breath. </li>
+                <li>Breathe out from your stomach and say silently to yourself, “Breathe out tension.” Pause before you breathe in again. </li>
+                <li>Each time you breathe in, use this as a moment to become aware of any tension in your body. </li>
+                <li> Each time you breathe out, use this as an opportunity to let go of tension.</li>
+                <li>You may find it helpful to use your imagination to see or feel the relaxation entering and the tension leaving your body.</li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Record your use of these strategies</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</label>
+                        <textarea class="form-control" id="question1" rows="3"></textarea>
+                        <label for="rt1DeepBreathing">Which Strategy Did You Use?</label>
+                        <select class="form-control" id="question2">
+                            <option>Deep Breathing</option>
+                            <option>Counting Your Breaths</option>
+                            <option>Letting Go of Tension</option>
+                        </select>
+                        <label for="rt1DeepBreathing">How long did you use this strategy?</label>
+                        <input type="text" class="form-control" id="question3" placeholder="How long did you use this strategy?">
+                        <label for="rt1DeepBreathing">Did you feel better after using this strategy?</label>
+                        <select class="form-control" id="question4">
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                        <button id="submitExercise" type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="rt1">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Relaxation Technique 2</h1>
+            <h2>Progressive Muscle Relaxation</h2>
+        </div>
+        <div class="col-md-12">
+            <p>You may want to go through and read all of the instructions first so you can have an idea on what to expect.</p>
+        </div>
+        <div class="col-md-12">
+            <h3>Basic Procedure</h3>
+            <ul>
+                <li>Get into a comfortable position. Try to block out other noises the best you can.</li>
+                <li>You may want to loosen your clothing and remove your shoes. </li>
+                <li>Begin to relax as you take a few slow, deep breaths.</li>
+                <li>Now, as you let the rest of your body relax, clench your fists and bend them back at the wrists…Tighter and tighter. Feel the tension in your fists and forearms…Now relax. Feel the looseness in your hands and forearms…Notice how this differs from the tension… (If you have time, repeat this, and all succeeding procedures, at least one more time.)</li>
+                <li>Now, bend your elbows and tense your biceps… Tense them as hard as you can and observe the feeling of tightness. Let your hands drop down and relax… Feel the difference.</li>
+                <li>Turn your attention to your head and wrinkle your forehead as tight as you can…Feel the tension in your forehead and scalp. Now, relax and let your forehead smooth out. Imagine your entire forehead and scalp becoming smooth and at rest.</li>
+                <li>Now, frown and notice the strain spreading throughout your forehead. Let go… Allow your brow to become smooth again. Squeeze throughout your forehead…Tighter…Relax your eyes. Let them remain closed –gently and comfortably.</li>
+                <li>Now, open your mouth wide and feel the tension in your jaw…Relax your jaw…When the jaw is relaxed, your lips will be slightly open. Notice the contrast between tension and relaxation.</li>
+                <li>Now, press your tongue against the roof of your mouth. Experience the ache in the back of your mouth…Relax…Press your lips together now, purse them into an “O”… Relax your lips…Feel the relaxation in your forehead, scalp, eyes, jaw, tongue, and lips.</li>
+                <li>Roll your head slowly around your neck, feeling the point of tension shifting as your head moves…and then slowly roll your head the other way. Relax…Allowing your head to return to a comfortable upright position.</li>
+                <li>Now, shrug your shoulders; bring your shoulders up toward your ears…Hold it for a few seconds…Drop your shoulders back down and feel the relaxation spreading through your neck, throat, and shoulders…Pure relaxation, deeper and deeper…</li>
+                <li>Now, breathe in and fill your lungs completely. Hold your breath for a few seconds. Experience the tension…Now exhale and let your chest become loose…Continue relaxing, let your breath come freely and gently…Notice the tension draining out of your muscles each time you breathe out.</li>
+                <li>Next, tighten your stomach and hold. Feel the tension…Relax…Now place your hand on your stomach. Breathe deeply into your stomach, pushing your hand up. Hold…And relax. Feel the contrast of relaxation as the air rushes out… Now arch your back, without hurting yourself. Keep the rest of your body as relaxed as possible. Focus on the tension in your lower back…Now relax…Let the tension float away.</li>
+                <li>Tighten your buttocks and thighs…Relax and feel the difference…Now straighten and tense your legs and curl your toes downward. Experience the tension…Relax…Straighten and tense your legs and bend your toes toward your face…Hold a few seconds and relax.</li>
+                <li>Feel the comfortable warmth and heaviness of deep relaxation throughout your entire body as you continue to breath slowly and deeply…You can relax even more as you move up through your body, letting go of the last bit of tension in your body. Relax your knees…Relax your thighs…Relax your buttocks…Let the relaxation spread to your stomach…To your lower back…To your chest…Let go more and more. Feel the relaxation deepening in your shoulders…In your arms…And in your hands…Deeper and deeper. Notice the feelings of looseness and relaxation in your neck…Your jaw…Your face…And your scalp…Continue to breathe slowly and deeply. Your entire body is comfortable loose and relaxed, calm and rested.</li>
+            </ul>
+            <p>The more you practice PMR, the more easily you will be able to do it. For the first few times, you may need to read the instructions again. But, you will get the hang of it eventually. You will be able to relax better once you can do PMR on your own. So, stick with it. </p>
+            <h3>Quick Procedure</h3>
+            <p>Once you have mastered the basic procedure, use the following procedure to relax your muscles quickly. Whole muscle groups are simultaneously tensed and then relaxed. As before, repeat each procedure at least once, tensing each muscle group from 5 to 7 seconds and then relaxing them from fifteen to thirty seconds. Remember to notice the differences between the sensations of tension and relaxation.</p>
+            <ul>
+                <li>Curl both fists, tightening biceps and forearms. Relax.</li>
+                <li>Roll your head around on your neck in a complete circle, and then reverse directions. Relax.</li>
+                <li>Wrinkle up the muscles of your face like a walnut: forehead wrinkled, eyes squinted, mouth open, and shoulders hunched. Relax.</li>
+                <li> Arch your shoulders back as you take a deep breath into your chest. Hold it for a few seconds. Relax. Take a deep breath, pressing out the stomach. Hold again. Relax again.</li>
+                <li>Straighten your legs and point your toes back toward your face, tightening your shins. Hold it for a few seconds. Relax. Straighten your legs and curl your toes, simultaneously tightening your calves, thighs, and buttocks. Hold it again. Relax again.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Record your use of these strategies</h3>
+            <form>
+                <div class="form-group">
+                    <label for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</label>
+                    <textarea class="form-control" id="question1" rows="3"></textarea>
+                    <label for="rt1DeepBreathing">Which Strategy Did You Use?</label>
+                    <textarea class="form-control" id="question2" rows="3"></textarea>
+                    <label for="rt1DeepBreathing">How long did you use this strategy?</label>
+                    <input type="text" class="form-control" id="question3" placeholder="How long did you use this strategy?">
+                    <label for="rt1DeepBreathing">Did you feel better after using this strategy?</label>
+                    <select class="form-control" id="question4">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                    <button id="submitExercise" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>
+        
+<template name="rt2">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Relaxation Technique 3</h1>
+            <h2>Guided Imagery</h2>
+        </div>
+        <div class="col-md-12">
+            <h3>Creating an Imaginary Special Place</h3>
+            <p>In creating your special place, you will make an imaginary retreat for relaxation and guidance. This place may be indoors or out. In structuring your place, follow a few guidelines</p>
+            <ul>
+                <li>Make your place peaceful, comfortable, and safe.</li>
+                <li>Fill your place with lots of different sensations. Create a midground, foreground, and a background in your place.</li>
+                <li>Your special place might be at the end of a path that leads to a pond. Grass is under your feet, the pond is about thirty feet away, and mountains are in the distance. You can feel the coolness of the air in this shady spot. A bird is singing. The sun is bright on the pond. The flower’s pungent odor attracts the bee buzzing over the flower with its sweet nectar.</li>
+                <li>Or, your special place might be a sparkling-clean kitchen, where there are cinnamon buns baking in the oven. Through the kitchen window you can see fields of yellow wheat. Fresh laundry flutters in the breeze. At the table is a cup of tea for your guest.</li>
+                <li>Allow room for an inner guide or other person to comfortably be with you.</li>
+            </ul>
+            <h3>Going to Your Special Place</h3>
+            <ul>
+                <li>To go to your safe place, lie down and be totally comfortable.</li>
+                <li>Close your eyes and walk slowly to a quiet place in your mind. Your place can be inside or outside; it just needs to be peaceful and safe</li>
+                <li>Picture yourself unloading your anxieties and your worries.</li>
+                <li>Notice the view in the distance… What do you smell?...What do you hear?...Notice what is before you…Reach out and touch it…How does it feel?...Smell it…Hear it…Make the temperature comfortable…Be safe here.</li>
+                <li>Look around for a special spot, a private spot…Find the path to this place…Feel the ground with your feet…Look above you…. What do you see?...Hear?...Smell?...Walk down this path until you can enter your own quiet, comfortable, safe place.</li>
+                <li>You have arrived at your special place…What is under your feet? ...How does it feel?...Take several steps…What do you see above you?...What do you hear?... Do you hear something else?</li>
+                <li>Reach and touch something…What is the texture? Are there pens, paper, paints nearby, or is there sand to draw in, clay to work? Go to them, handle them, smell them. These are your special tools, or tools for your inner guide to reveal ideas or feeling to you.</li>
+                <li>Look as far as you can see…What do you see? What do you hear? What aromas do you notice?</li>
+                <li>Sit or lie in your special place…Notice its smells, sounds, sights…This is your place, and nothing can harm you here…If danger is here, tell it to leave.</li>
+                <li>Spend three to five minutes realizing you are relaxed, safe, and comfortable.</li>
+                <li> Memorize this place’s smells, tastes, sights, sounds…You can come back and relax here whenever you want…Leave by the same path or entrance…Notice the ground, touch things near you…Look far away and appreciate the view…Remind yourself this special place you created can be entered whenever you wish. Say an affirmation such as, “I can relax here” or, “This is my special place. I can come here whenever I wish.”</li>
+                <li>Now open your eyes and spend a few minutes appreciating your relaxation.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Record your use of these strategies</h3>
+            <form>
+                <div class="form-group">
+                    <label for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</label>
+                    <textarea class="form-control" id="question1" rows="3"></textarea>
+                    <label for="rt1DeepBreathing">The place I went</label>
+                    <textarea class="form-control" id="question2" rows="3"></textarea>
+                    <label for="rt1DeepBreathing">How long did you use this strategy?</label>
+                    <input type="text" class="form-control" id="question3" placeholder="How long did you use this strategy?">
+                    <label for="rt1DeepBreathing">Did you feel better after using this strategy?</label>
+                    <select class="form-control" id="question4">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                    <button id="submitExercise" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>
+
+<template name="rt3">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Relaxation Technique 4</h1>
+            <h2>Positive Self-Talk</h2>
+        </div>
+        <div class="col-md-12">
+            <p>Sometimes when you are stressed, your mind will start to get worked up and wander all over the place. That is, you have negative automatic thoughts in response to a stressful situation. Many people feel that they are much worse at things than they really are or that their situation is much worse than it really is. So, people will make themselves feel bad. This is called negative self-talk. And it’s not helpful. One way to deal with this kind of stress is to start talking yourself back down to reality again using positive self-talk. Have a conversation with yourself. It helps to think about what you might say to yourself when negative self-talk happens to you. You’ve had some practice with positive self-talk before (see Worksheet #10). But, here are some other ideas.</p>
+            <h3>Steps for Positive Self-Talk</h3>
+            <ul>
+                <li>Notice when you are becoming tense.</li>
+                <li>Pay attention to what you are currently thinking. Decide if these thoughts are good and true or if they are negative self-talk such as “I am not good at anything” or “Nobody that I know likes me.”</li>
+                <li>Clear your mind of these thoughts and replace them with thoughts from the list below.</li>
+                <li>Repeat these thoughts until you start to feel better. </li>
+            </ul>  
+        </div>
+        <div class="col-md-12">
+            <h3>List of Positive Self-Talk Thoughts</h3>
+            <ul>
+                <li>Take a deep breath and relax.</li>
+                <li>Getting upset won’t help.</li>
+                <li>Just as long as I keep my cool, I’m in control.</li>
+                <li>Easy does it… There’s nothing to be gained from getting mad.</li>
+                <li>I’m not going to let him/her get to me.</li>
+                <li>I can’t change him/her with anger or by freaking out; I’ll just upset myself.</li>
+                <li>I can find a way to say what I want without anger.</li>
+                <li>Stay calm – no sarcasm, no verbal attacks.</li>
+                <li>No one is right; no one is wrong. We just have different needs or ideas.</li>
+                <li>I don’t like when people judge me, so I shouldn’t judge them.</li>
+                <li>No matter what is said, I know I’m a good person.</li>
+                <li>I’ll stay rational; anger won’t solve anything.</li>
+                <li>Let them look foolish and upset. I can stay cool and calm.</li>
+                <li>His/her opinion isn’t important. I won’t be pushed into losing my cool.</li>
+                <li>It’s just a hassle. Nothing more, nothing less. I can deal with hassles.</li>
+                <li>Break the problem down. Anger often comes from lumping things together.</li>
+                <li>Just because someone said “no” to my request doesn’t mean I should not have asked in the first place.</li>
+                <li>I’m getting better at this anger management stuff.</li>
+                <li>I got angry but kept the lid on saying stupid things. That’s progress.</li>
+                <li>Stress means that it’s time to relax and cope.</li>
+                <li>I can manage this; I’m in control </li>
+                <li>I can stand it if I don’t get what I need or want.</li>
+                <li>If they want me to get angry (or stressed out), I’m going to disappoint them.</li>
+                <li>There is no law that says other peoples’ opinions are more correct than mine.</li>
+                <li>I can’t expect people to act the way I want them to.</li>
+                <li>I can still feel OK with myself even if someone else is upset with me (as long as I did not hurt them on purpose).</li>
+                <li>I don’t have to take this so seriously.</li>
+                <li>I have a plan to relax and cope.</li>
+                <li>This is funny if you look at it that way.</li>
+                <li>I’d rather stick to my goals than stress out</li>
+            </ul>
+            <p>Think of a few more on your own. Feel free to keep adding positive self-talk statements as you think of more later on.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Record your use of these strategies</h3>
+            <form>
+                <div class="form-group">
+                    <label for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</label>
+                    <textarea class="form-control" id="question1" rows="3"></textarea>
+                    <label for="rt1DeepBreathing">What I said to myself</label>
+                    <textarea class="form-control" id="question2" rows="3"></textarea>
+                    <label for="rt1DeepBreathing">How long did you use this strategy?</label>
+                    <input type="text" class="form-control" id="question3" placeholder="How long did you use this strategy?">
+                    <label for="rt1DeepBreathing">Did you feel better after using this strategy?</label>
+                    <select class="form-control" id="question4">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                    <button id="submitExercise" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</template>

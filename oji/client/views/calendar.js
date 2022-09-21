@@ -27,21 +27,30 @@ Template.calendar.helpers({
             weekDays = []
             for(j = 0; j < 7; j++){
                 today = false;
+                hasSomething = false;
                 hasEvents = false;
                 hasEntries = false;
                 hasCritical = false;
+                hasExercises = false;
                 events = Events.find({month: displayMonth, day: curDay, year: displayYear}).fetch();
                 entryMonth = displayMonth + 1;
                 entries = Journals.find({month: entryMonth, day: curDay, year: displayYear}).fetch(),
+                exercises = Exercises.find({month: entryMonth, day: curDay, year: displayYear}).fetch(),
                 numEvents = events.length;
                 if(curDay == new Date().getDate() && displayMonth == new Date().getMonth()){
                     today = true;
                 }
                 if(events.length != 0){
                     hasEvents = true;
+                    hasSomething = true;
                 }
                 if(entries.length != 0){
                     hasEntries = true;
+                    hasSomething = true;
+                }
+                if(exercises.length != 0){
+                    hasExercises = true;
+                    hasSomething = true;
                 }
                 if (events.filter(function(e) { return e.importance === 'Critical'; }).length > 0) {
                     hasCritical = true;
@@ -54,7 +63,8 @@ Template.calendar.helpers({
                         hasEvents: hasEvents,
                         numEvents: numEvents,
                         hasCritical: hasCritical,
-                        hasEntries: hasEntries
+                        hasEntries: hasEntries,
+                        hasExercises: hasExercises
                     }
                     monthStarted = true;
                     curDay++;
@@ -67,7 +77,8 @@ Template.calendar.helpers({
                             hasEvents: hasEvents,
                             numEvents: numEvents,
                             hasCritical: hasCritical,
-                            hasEntries, hasEntries
+                            hasEntries, hasEntries,
+                            hasExercises: hasExercises
                         }
                         curDay++;
                     } else {
@@ -107,6 +118,7 @@ Template.calendar.helpers({
         var journalMonth = displayMonth + 1;
         events = Events.find({year: year, month: month, day: day}).fetch();
         entries = Journals.find({month: journalMonth, day: day, year: year}).fetch(),
+        exercises = Exercises.find({month: journalMonth, day: day, year: year}).fetch(),
         events.forEach(element => {
             element.deleteShow = true;
             element.bgColor = "";

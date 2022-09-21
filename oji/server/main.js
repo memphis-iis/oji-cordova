@@ -475,18 +475,19 @@ Meteor.methods({
     },
     uploadModule: function(path,user, data=false){
         if(data){
+            console.log("uploading module from data");
             var newModule = JSON.parse(data);
             newModule.owner = user;
-            newModule.orgOwnedBy = Meteor.user().organization;
-            newModule.createdBy = Meteor.userId();
+            newModule.orgOwnedBy = Meteor.users.findOne({_id: user}).organization;
+            newModule.createdBy = user;
             delete newModule._id;
             Modules.insert(newModule);
         } else {
             const fs = Npm.require('fs');
             var newModule = JSON.parse(fs.readFileSync(path, 'utf8'));
             newModule.owner = user;
-            newModule.orgOwnedBy = Meteor.user().organization;
-            newModule.createdBy = Meteor.userId();
+            newModule.orgOwnedBy = Meteor.users.findOne({_id: user}).organization;
+            newModule.createdBy = user;
             delete newModule._id;
             Modules.insert(newModule);
         }
@@ -505,11 +506,11 @@ Meteor.methods({
               let fileSplit = fileName.split(".");
               let type = fileSplit[fileSplit.length - 1];
               if(type =="json"){
+                console.log("json file found");
                 rawFileContents = file.toString();
                 parsedFileContents = JSON.parse(rawFileContents);
                 JSONStringContents = JSON.stringify(parsedFileContents);
                 fileFinal = {
-                    type: "stim",
                     contents: JSONStringContents,
                     fileName: fileName
                 }
@@ -540,6 +541,7 @@ Meteor.methods({
                   });
                 }
               }
+              console.log("Processing file: " + fileName);
               return {jsonContent}
             });
             referenceContents = [];
@@ -562,7 +564,11 @@ Meteor.methods({
                     newContents = theSplit.join(referenceFile.replacePath);
                   } 
                 }
-                Meteor.call("uploadModule",path, Meteor.userId(), newContents);
+                console.log("new contents: " + newContents);
+                // show the new contents
+                newContents = JSON.parse(newContents);
+                newContentsString = JSON.stringify(newContents);
+                Meteor.call("uploadModule",path, owner, newContentsString);
             }
           });
           assets = Files.find({}).fetch();
@@ -1006,7 +1012,7 @@ Meteor.methods({
     },
     addFileToOrg: function(filePath, fileName,type){
         org = Orgs.findOne({_id: Meteor.user().organization});
-        console.log(org);
+        console.log("org", org.orgName, "file", fileName);
         if(typeof org.files === "undefined"){
             org.files = [];
         }
@@ -1111,6 +1117,15 @@ Meteor.methods({
         moduleToChange.pages[swapTo] = pageToMemory1;
         moduleToChange.pages[pageId] = pageToMemory2;
         Modules.update({_id: moduleId},{$set: {pages: moduleToChange.pages}});
+    },
+    addExercise: function(data){
+        data.time = new Date();
+        data.month = new Date().getMonth();
+        data.year = new Date().getFullYear();
+        data.day = new Date().getDate();
+        data.user = Meteor.userId();
+        data.timeReadable = new Date().toISOString().slice(0, 10);
+        Exercises.insert(data);
     }
 });
 

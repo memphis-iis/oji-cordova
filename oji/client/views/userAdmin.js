@@ -109,7 +109,7 @@ Template.usersAdmin.helpers({
         user = Meteor.users.findOne({_id: userId});
         data = user.assigned;
         console.log("Assignments:" ,data);
-        for(i = 0; i < data.length - 1; i++){
+        for(i = 0; i < data.length; i++){
             console.log(data[i]);
             data[i].first = false;
             data[i].last =  false;
@@ -516,6 +516,7 @@ Template.usersAdmin.events({
         assignment:  newAssignmentId,
         type: "module"
     }
+    console.log(assignment);
     user.assigned.push(assignment);
     Meteor.call('changeAssignmentOneUser', userId, user.assigned);
 },

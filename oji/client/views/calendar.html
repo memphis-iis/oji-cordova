@@ -36,50 +36,20 @@
                     <td></td>
                         {{#each this.days}}
                             {{#if this.display}}
-                            {{#if this.today}}
-                            <td class="text-align-top text-align-left calendar-today">
-                                {{#if hasEvents}}
-                                <h5>
-                                    <a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">
-                                    {{this.dayNum}}
-                                    <br>
-                                    {{#if hasCritical}}
-                                        <span class="glyphicon glyphicon-list-alt" style="color:red"></span>
-                                    {{else}}
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                    {{/if}}
-                                </a></h5>
-                                {{else}}
-                                {{#if hasEntries}}
-                                    <h5><a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">
-                                        {{this.dayNum}}
+                                    <td class="text-align-top text-left calendar-today-{{today}}">
+                                    <a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{dayNum}}
                                         <br>
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                        </a></h5>
-
-                                {{else}}
-                                    <h5><a class="toggle-create-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}</a></h5>
-                                {{/if}}
-                            {{/if}}
-                            </td>
-                            {{else}}
-                            <td class="text-align-top text-align-left">
-                                {{#if hasEvents}}
-                                    <h5><a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}
-                                    <br>
-                                    {{#if hasCritical}}
-                                        <span class="glyphicon glyphicon-list-alt" style="color:red;"></span>
-                                    {{else}}
-                                        <span class="glyphicon glyphicon-list-alt"></span>
-                                    {{/if}}
+                                        {{#if hasEvents}}
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        {{/if}}   
+                                        {{#if hasEntries}}
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        {{/if}}
+                                        {{#if hasExercises}}
+                                            <span class="glyphicon glyphicon-heart"></span>
+                                        {{/if}}
                                     </a>
-                                    </h5>
-                                {{else}}
-                                <h5><a class="toggle-create-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{this.dayNum}}</a></h5>
-                                    <br>
-                                {{/if}}
-                            </td>
-                            {{/if}}
+                                    </td>
                             {{else}}
                             <td class="no-calendar-day">
                             </td>

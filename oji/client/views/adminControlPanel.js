@@ -369,7 +369,7 @@ Template.adminControlPanel.events({
                 fileName = fileObj.name;
                 type = fileObj.type;
                 Meteor.call('addFileToOrg',  link, fileName, type);
-                if(fileObj.ext == "json"){
+                if(fileObj.extension == "json"){
                   Meteor.call('uploadModule',fileObj.path,Meteor.userId(),function(err,res){
                       if(err){
                           alert("package failed");
@@ -377,17 +377,17 @@ Template.adminControlPanel.events({
                           console.log(res);
                       }
                   });
-                  if(fileObj.ext == "zip"){
+                }
+                if(fileObj.extension == "zip"){
                     console.log('package detected')
                     Meteor.call('processPackageUpload', fileObj.path, Meteor.userId(), function(err,res){
-                      if(err){
+                    if(err){
                         alert("Package upload failed.\n"+err);
-                      } else {
+                    } else {
                         console.log(res);
-                      }
+                    }
                     });
-                  }
-              }
+                }
               }
               template.currentUpload.set(false);
             });

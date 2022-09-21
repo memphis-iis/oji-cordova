@@ -74,7 +74,7 @@ select {
     border-color: #e26b4d;
     border-width: 5px;
 }
-.calendar-today {
+.calendar-today-true {
     background-color: #22847f;
 }
 .nav-calendar{

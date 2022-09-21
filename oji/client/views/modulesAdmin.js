@@ -360,7 +360,6 @@ Template.modulesAdmin.events({
               if (error) {
                 alert(`Error during upload: ${error}`);
               } else {
-                alert(`File "${fileObj.name}" successfully uploaded`);
                 link = Files.link(fileObj);
                 fileName = fileObj.name;
                 type = fileObj.type;
@@ -370,7 +369,7 @@ Template.modulesAdmin.events({
                       if(err){
                           alert("package failed");
                       } else {
-                          console.log(res);
+                        alert(`File "${fileObj.name}" successfully uploaded`);
                       }
                   });
                   if(fileObj.ext == "zip"){
