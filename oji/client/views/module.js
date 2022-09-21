@@ -169,14 +169,18 @@ Template.module.events({
                 allInput = document.getElementsByClassName('combo');
                 response = [];
                 for(i = 0; i < allInput.length; i++){
-                    if ((($(allInput[i]).prop('nodeName') == "INPUT" || $(allInput[i]).prop('nodeName') == "TEXTAREA") && $(allInput[i]).val() != "") && !$(allInput[i]).hasClass('btn-info')){
-                        response.push($(allInput[i]).val());
+                    //check if html element is a text area
+                    if(allInput[i].nodeName == "TEXTAREA" || allInput[i].nodeName == "INPUT"){
+                        //check if text area is empty
+                        if(allInput[i].value == ""){
+                            //change border color to red
+                            allInput[i].style.borderColor = "red";
+                            alert("Please fill out all fields");
+                        } else {
+                            response.push(allInput[i].value);
+                        }
                     } else {
-                        alert("Please fill in all fields");
-                        return;
-                    }
-                    if ($(allInput[i]).hasClass('btn-info')){
-                        response.push($(allInput[i]).html());
+                        response.push(allInput[i].innerHTML);
                     }
                 }
             }
@@ -201,9 +205,14 @@ Template.module.events({
                     } else  {
                         target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
                     }
-                 }
+                 } else {
+                    moduleData.nextPage = thisPage + 1;
+                    moduleData.nextQuestion = 0;
+                    target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
+                }
+            } else {
+                target = "/module/" + curModule._id + "/complete";
             }
-            
         } else {
             moduleData.nextPage = parseInt(thisPage) + 1;
             moduleData.nextQuestion = 0;

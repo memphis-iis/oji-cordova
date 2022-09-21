@@ -30,7 +30,6 @@ Template.welcome.helpers({
 
 Template.welcome.events({
     'click #startJourney': function(){
-        alert('start journey');
         const user = Meteor.user();
         const org = Orgs.findOne();
         if(user && org){
