@@ -148,7 +148,8 @@ Template.assessment.events({
         const curAssignment = Meteor.user().curAssignment;
         const curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id);
         const nextAssignment = newUserAssignments[curAssignmentIndex + 1];        
-        target = `/${nextAssignment.type}/${nextAssignment.assignment}`;
+        target = `/${nextAssignment.type}/${nextAssignment.assignment}`;\
+        Meteor.call('createNewModuleTrial')
         Meteor.call('setCurrentAssignment', {id: nextAssignment.assignment, type: nextAssignment.type, newUserAssignment: true}, function(err, res){
             if(err){
                 console.log(err);
