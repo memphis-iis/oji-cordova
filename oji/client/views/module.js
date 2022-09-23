@@ -24,11 +24,11 @@ Template.module.helpers({
         }
     },
     'isNewUserAssignment': function(){
-        if(Meteor.user().curAssignment?.newUserAssignment) {
+        if(!Meteor.user().hasCompletedFirstAssessment){
             let newUserAssignments = Orgs.findOne().newUserAssignments;
             const curAssignment = Meteor.user().curAssignment;
-            const curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id)
-            if(curAssignmentIndex >= newUserAssignments.length - 1){
+            const newUserAssignmentsRemaining = newUserAssignments.filter(assignment => assignment.assignmentId !== curAssignment.id);
+            if(newUserAssignmentsRemaining.length == 0){
                 Meteor.call('userFinishedOrientation');
                 return false;
             } else {
@@ -71,6 +71,14 @@ Template.module.helpers({
                     page.typeText = true;
                     t.pageType.set("text");
                 };
+                //check if page image is url or file
+                if(page.image && page.image.startsWith("http")){
+                    page.image = page.image;
+                } else if(page.image){
+                    //add full url
+                    page.image = window.location.origin + "/" + page.image;
+                }
+
                 if(page.type == "activity"){
                     page.typeActivity = true;
                     t.pageType.set("activity");
@@ -80,6 +88,7 @@ Template.module.helpers({
                 }
                 return page;
             }
+            console.log("no page");
         }
     },
     'question': function(){
@@ -148,8 +157,11 @@ Template.module.events({
         const curUser = Meteor.user();
         const t = Template.instance();
         let target = "";
+        let allowContinue = true;
         let moduleId = curUser.curModule.moduleId;
+        console.log("curUSer", curUser);
         let moduleData = ModuleResults.findOne({_id: moduleId});
+        console.log("moduleData", moduleData);
         moduleData.lastAccessed = Date.now().toString();
         thisPage = curUser.curModule.pageId;
         thisQuestion = parseInt(curUser.curModule.questionId);
@@ -168,20 +180,66 @@ Template.module.events({
             if(questionData.questionType.toLowerCase() == "combo"){
                 allInput = document.getElementsByClassName('combo');
                 response = [];
+                goalIndexes = [];
+                //iterate through each question in the combo
+                for(i = 0; i < curModule.pages[thisPage].questions[thisQuestion].fields.length; i++){
+                    //check if the question has a goal tag
+                    if(curModule.pages[thisPage].questions[thisQuestion].fields[i].tag == "goals"){
+                        //if it does, add the quesion index and the goal tag array
+                        goalIndexes.push(i);
+                    }
+                }
+                console.log("goalIndexes", goalIndexes);
+                btnGrps = [];
                 for(i = 0; i < allInput.length; i++){
                     //check if html element is a text area
                     if(allInput[i].nodeName == "TEXTAREA" || allInput[i].nodeName == "INPUT"){
                         //check if text area is empty
                         if(allInput[i].value == ""){
-                            //change border color to red
-                            allInput[i].style.borderColor = "red";
-                            alert("Please fill out all fields");
+                            //change border color to red 1px
+                            allInput[i].style.border = "1px solid red";
+                            allowContinue = false;
                         } else {
                             response.push(allInput[i].value);
                         }
-                    } else {
-                        response.push(allInput[i].innerHTML);
                     }
+                    //get all buttons
+                    if(allInput[i].nodeName == "BUTTON"){
+                        //get the button group
+                        groupIndex = parseInt(allInput[i].getAttribute("data-group") - 1);
+                        //check if the button group is false or undefined
+                        if(!btnGrps[groupIndex]){
+                            //if it is, then check if the button has the class btn-info
+                            if(allInput[i].classList.contains("btn-info")){
+                                //if it does, then set the button group index to true
+                                btnGrps[groupIndex] = true;
+                            } else {
+                                //if it doesn't, then set the button group index to false
+                                btnGrps[groupIndex] = false;
+                            }
+                        }
+                    }
+                }
+                console.log("btnGrps", btnGrps);
+                //iterate over all button groups
+                for(j = 0; j < btnGrps.length; j++){
+                    //check if the button group is false or undefined
+                    if(!btnGrps[j]){
+                        //if it is, then set allowContinue to false
+                        allowContinue = false;
+                    } else {
+                        allowContinue = true;
+                    }
+                }
+                //check if there are any goals
+                if(goalIndexes.length > 0){
+                    goals = [];
+                    //iterate trough each goal and add the response to the goals array
+                    for(i = 0; i < goalIndexes.length; i++){
+                        goals.push(response[goalIndexes[i]]);
+                    }
+                    //update the goals using a meteor call
+                    Meteor.call('updateGoals', goals);
                 }
             }
             data = {
@@ -189,6 +247,9 @@ Template.module.events({
                 questionId: thisQuestion,
                 response: response,
                 responseTimeStamp: Date.now().toString()
+            }
+            if(curModule.pages[thisPage].questions[thisQuestion].tag == "goals"){
+                Meteor.call('updateGoals', response);
             }
             moduleData.responses.push(data);
             moduleData.nextPage = thisPage;
@@ -210,14 +271,14 @@ Template.module.events({
                     moduleData.nextQuestion = 0;
                     target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
                 }
-            } else {
-                target = "/module/" + curModule._id + "/complete";
-            }
+            } 
         } else {
             moduleData.nextPage = parseInt(thisPage) + 1;
             moduleData.nextQuestion = 0;
-            if(curModule.pages[moduleData.nextPage].type == "activity" && curModule.pages[moduleData.nextPage].questions.length > 0){
+            if(curModule.pages[moduleData.nextPage]?.type == "activity" && curModule.pages[moduleData.nextPage]?.questions.length > 0){
                 target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
+            } else {
+                target = "/module/" + curModule._id + "/" + moduleData.nextPage;
             }
             data = {
                 pageId: thisPage,
@@ -236,9 +297,14 @@ Template.module.events({
             Meteor.call('changeAssignmentOneUser', Meteor.userId(),  curUser.assigned);
             target = "/module/" + curModule._id + "/completed";
         } 
-        Meteor.call("saveModuleData", moduleData);
         $('textArea').val("");
-        Router.go(target);
+        //if allowContinue is false, do not redirect
+        if(allowContinue){
+            Meteor.call("saveModuleData", moduleData);
+            Router.go(target);
+        } else {
+            alert("Please fill in all fields and select an option for each question.");
+        }
     },
     'click #startActivity': function(event){
         target =  $(location).attr('href') + "/0";
@@ -256,12 +322,15 @@ Template.module.events({
     },
     'click #startModule': function(event){
         event.preventDefault();
+        module = Modules.findOne({_id: Meteor.user().curAssignment.id});
+        console.log("start module " + this._id);
         data = {
+            moduleId: module._id,
             userId: Meteor.userId(),
-            moduleId: Meteor.user(),
-            responses: []
+            lastAccessed: Date.now().toString(),
+            responses: [],
         }
-        Meteor.call("createNewModuleTrial", data);
+        Meteor.call('createNewModuleTrial',data);
         target = "/module/" + Meteor.user().curAssignment?.id + "/0";
         Router.go(target);
     },
@@ -297,19 +366,19 @@ Template.module.events({
         const curAssignment = Meteor.user().curAssignment;
         let curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id)
         const nextAssignment = newUserAssignments[curAssignmentIndex + 1];
-        const target = `/${nextAssignment.type}/` + nextAssignment.assignment;
-        Meteor.call('setCurrentAssignment', {id: nextAssignment.assignment, type: nextAssignment.type, newUserAssignment: true}, function(err, res){
-            if(err){
-                console.log(err);
-            } else {
-                Router.go(target);
-            }
-        });
+        if(nextAssignment){
+            const target = `/${nextAssignment.type}/` + nextAssignment.assignment;
+            Router.go(target);
+        } else {
+            Meteor.call('userFinishedOrientation');
+            Router.go("/profile");
+        }
     }
     
 })
 
 Template.module.onCreated(function(){
+    Meteor.subscribe('getUserModuleResults');
     this.questionType = new ReactiveVar("");
     this.pageType = new ReactiveVar("");
     this.pageId = new ReactiveVar("");

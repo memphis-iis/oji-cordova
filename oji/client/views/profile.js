@@ -58,25 +58,12 @@ Template.profile.helpers({
 Template.profile.events({
     'click #startAssessment': function(){
         assignment = $(event.target).data("assessmentId");
-        target = "/assessment/" + assignment
-        Meteor.call('setCurrentAssignment', {id: assignment, type: "assessment"}, function(err, res){
-            if(err){
-                console.log(err);
-            } else {
-                Router.go(target);
-            }
-        });
+        target = "/assessment/" + assignment;
+        Router.go(target);
     },
     'click #startModule': function(){
         assignment = $(event.target).data("assessmentId");
         target = "/module/" + assignment
-        Meteor.call('setCurrentAssignment', {id: assignment, type: "module"}, function(err, res){
-            if(err){
-                console.log(err);
-            } else {
-                Router.go(target);
-            }
-        });
     },
     'click #assessmentCenter': function(){
         target = "/assessmentCenter/";

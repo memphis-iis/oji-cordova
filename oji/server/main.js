@@ -215,7 +215,7 @@ Meteor.startup(() => {
                             organization: user.org ? user.org: newOrgId,
                             sex: user.sex,
                             assigned: user.assigned,
-                            hasCompletedFirstAssessment: user.hasCompletedFirstAssessment,
+                            hasCompletedFirstAssessment: false,
                             nextModule: 0,
                             author: true
                         }
@@ -264,7 +264,8 @@ Meteor.methods({
                             gender: gender,
                             assigned: organization.newUserAssignments || [],
                             nextModule: 0,
-                            author: author
+                            author: author,
+                            goals: []
                         }
                     });
                 if(linkId != ""){
@@ -807,26 +808,22 @@ Meteor.methods({
             return output.insertedId;
         }
     },
-    setCurrentAssignment: function(assignment){
-        curSetAssignment = Meteor.user.curAssignment;
-        if(curSetAssignment != assignment){
-            Meteor.users.update(Meteor.userId(), {
-                $set: {
-                    curAssignment: assignment,
-                    curTrial: {
-                        trialId: null,
-                        questionId: null,
-                        pageId: null
-                    }
-                }
-            });
-        }
-    },
     endAssessment: function(trialId) {
-        let trial = Trials.findOne({'_id': trialId});
+        let trial = Trials.findOne({'_id': trialId});3
         const adjustedScores = calculateScores(trial.identifier, trial.subscaleTotals, Meteor.user().sex)
         if(adjustedScores)
             Trials.upsert({_id: trialId}, {$set: {subscaleTotals: adjustedScores, completed: "true"}});
+    },
+    setCurrentAssignment(assignmentId){
+        //set the users current assessment
+        userId = Meteor.userId();
+        Meteor.users.update(userId, {
+            $set: {
+                curAssignment: {
+                    id: assignmentId
+                }
+            }
+        });
     },
     clearAssessmentProgress: function (){
         userId = Meteor.userId();
@@ -863,12 +860,27 @@ Meteor.methods({
             });
         return results;
     },
+    createNewAssessmentTrial: function(data){
+        Meteor.users.update(Meteor.userId(), {
+            $set: {
+                curTrial: {
+                    trialId: data._id,
+                    questionId: 0,
+                    pageId: 0
+                }
+            }
+        });
+    return data._id;
+    },
+
     saveModuleData: function (moduleData){
         ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
         nextModule = Meteor.user().nextModule;
         console.log("nextModule", nextModule, typeof nextModule);
         if(moduleData.nextPage == 'completed'){
             nextModule++;
+            const supervisor = Meteor.users.findOne({'_id': Meteor.userId()}).supervisor;
+            sendSystemMessage(supervisor, "The module " + moduleData.name + " has been completed by " + Meteor.user().firstname + " " + Meteor.user().lastname + ". Please review the results.", "Module Completed");
         }
         Meteor.users.upsert(Meteor.userId(), {
             $set: {
@@ -881,6 +893,47 @@ Meteor.methods({
             }
         })
     },
+
+    updateGoals: function (goals){
+        // get the current goals
+        const currentGoals = Meteor.user().goals;
+        // if there are no current goals, just set the goals
+        if(!currentGoals){
+            Meteor.users.update(Meteor.userId(), {
+                $set: {
+                    goals: [goals]
+                }
+            });
+        } else {
+            // if there are current goals, append the given array to goal array
+            Meteor.users.update(Meteor.userId(), {
+                $set: {
+                    goals: currentGoals.concat(goals)
+                }
+            });
+        }
+    },
+    deleteGoal: function (goalId){
+        //delete goal by array index
+        const currentGoals = Meteor.user().goals;
+        currentGoals.splice(goalId, 1);
+        Meteor.users.update(Meteor.userId(), {
+            $set: {
+                goals: currentGoals
+            }
+        });
+    },
+    addGoal: function (goal){
+        //add goal to the end of the array
+        const currentGoals = Meteor.user().goals;
+        currentGoals.push(goal);
+        Meteor.users.update(Meteor.userId(), {
+            $set: {
+                goals: currentGoals
+            }
+        });
+    },
+    
     userFinishedOrientation: function(){
         Meteor.users.update(Meteor.userId(), {
             $set: {

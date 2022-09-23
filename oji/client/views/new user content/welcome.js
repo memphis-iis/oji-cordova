@@ -33,18 +33,17 @@ Template.welcome.events({
         const user = Meteor.user();
         const org = Orgs.findOne();
         if(user && org){
-            const assignment = org.newUserAssignments[0];
-            if(assignment){
-                const target = `/${assignment.type}/` + assignment.assignment;
-                Meteor.call('setCurrentAssignment', {id: assignment.assignment, type: assignment.type, newUserAssignment: true}, function(err, res){
-                    if(err){
-                        console.log(err);
-                    } else {
-                        Router.go(target);
-                    }
-                });
+            //get user assignments
+            assignments = user.assigned;
+            //if the length of the assignments array is greater than 1
+            if(assignments.length >= 1){
+                //get first assignment
+                assignment = assignments[0];
+                Meteor.call('setCurrentAssignment', assignment.assignment);
+                target = `/${assignment.type}/` + assignment.assignment;
+                Router.go(target);
             } else {
-                Router.go('/');
+                Router.go('/')
             }
         } else {
             Router.go('/');

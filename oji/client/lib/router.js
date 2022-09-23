@@ -39,7 +39,7 @@ const restrictedRoutes = [
   'askSupervisor',
   'modulesAdmin',
   'usersAdmin',
-  'relaxationTechniques'
+  'relaxationTechniques',
 ]
 
 
@@ -212,16 +212,17 @@ Router.route('/module/:_id', {
     return Meteor.subscribe('curModule', this.params._id);
   },
   action: function(){
-    this.render('module');
+    this.render('module', {
+      data:{
+        moduleId: this.params._id,
+      }
+    });
   }
 });
 //module page id
 Router.route('/module/:_id/:_pageid', {
   subscriptions: function(){
-    subs = [];
-    subs.push(Meteor.subscribe('curModule', this.params._id));
-    subs.push(Meteor.subscribe('getUserModuleResults'));
-    return subs;
+    return Meteor.subscribe('curModule', this.params._id);
   },
   action: function(){
     this.render('module', {
@@ -274,18 +275,18 @@ Router.route('/signup/:_id', function(){
 
 // route module results report
 Router.route('/moduleReport/:_id', {
-  subscriptions: function(){
-    subs = [];
-    subs.push(Meteor.subscribe('getModuleResultsByTrialId', this.params._id));
-    return subs;
+  waitOn: function(){
+   return Meteor.subscribe('getModuleResultsByTrialId', this.params._id);
   },
   action: function(){
-    if(Meteor.user()){
-      if (Roles.userIsInRole(Meteor.user(), 'admin') || Roles.userIsInRole(Meteor.user(), 'supervisor')  ) {
-        this.render('moduleReport');
+    if(this.ready){
+      if(Meteor.user()){
+        if (Roles.userIsInRole(Meteor.user(), 'admin') || Roles.userIsInRole(Meteor.user(), 'supervisor')  ) {
+          this.render('moduleReport');
+        }
+      } else {
+        this.render('/');
       }
-    } else {
-      this.render('/');
     }
   }
 });

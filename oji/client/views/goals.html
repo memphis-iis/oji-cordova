@@ -13,17 +13,29 @@
                 </li>
             </ul>
         </div>
+        <!-- set new goals form -->
+        <form>
+            <div class="form-group">
+                <label for="goal">Set a new goal</label>
+                <textarea id="goal" placeholder="Enter a goal"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="goal_submit">Add Goal</button>
+        </form>
         <br>
             <table class="table" id="subscalesAggregates">
                 <thead>
-                    <th scope="col" width="100%">Goals</th>
+                    <th scope="col" width="90%">Goals</th>
+                    <th scope="col" width="10%">Delete</th>
                 </thead>
                 <tbody> 
-                    {{#if goal}}
-                        {{#each goal}}
+                    {{#if goals}}
+                        {{#each goals}}
                         <tr>
                             <td>
                                 {{this}}
+                            </td>
+                            <td>
+                                <button class="btn btn-danger deleteGoal" data-index="{{@index}}">Delete</button>
                             </td>
                         </tr>
                         {{/each}}

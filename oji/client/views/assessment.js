@@ -6,25 +6,25 @@ Template.assessment.helpers({
         assessment = Assessments.findOne({_id: Meteor.user().curAssignment.id});
         if(this.questionid == "completed"){
             Meteor.call('clearAssessmentProgress');
-            userId = Meteor.userId();
-            user = Meteor.user();
-            index = user.assigned.findIndex(x => x.assignmentId === assessment._id);
-            if(index != -1){
-                user.assigned.splice(index, 1);
-            }
-            user.assigned.splice(index, 1);
-            Meteor.call('changeAssignmentOneUser', userId, user.assigned);
+            //get user assignments
+            const assignments = Meteor.user().assigned;
+            //remove the assignment matching the current assignment
+            const newAssignments = assignments.filter(function(assignment){
+                return assignment.assignment !== Meteor.user().curAssignment.id;
+            });
+            //update the user's assigned array
+            Meteor.call('changeAssignmentOneUser', Meteor.userId(), newAssignments);
             return true;
         } else {
             return false;
         }
     },
     'isNewUserAssignment': function(){
-        if(Meteor.user().curAssignment?.newUserAssignment) {
+        if(!Meteor.user().hasCompletedFirstAssessment){
             let newUserAssignments = Orgs.findOne().newUserAssignments;
             const curAssignment = Meteor.user().curAssignment;
-            const curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id)
-            if(curAssignmentIndex >= newUserAssignments.length - 1){
+            const newUserAssignmentsRemaining = newUserAssignments.filter(assignment => assignment.assignmentId !== curAssignment.id);
+            if(newUserAssignmentsRemaining.length == 0){
                 Meteor.call('userFinishedOrientation');
                 return false;
             } else {
@@ -68,6 +68,8 @@ Template.assessment.events({
         trialData = Meteor.user().curTrial;
         let curAssesment = Assessments.findOne({_id: Meteor.user().curAssignment.id});
         let completed = false;
+        console.log(trialData);
+        console.log(curAssesment);
 
         if(typeof trialData === "undefined"){
             trialId = 0;
@@ -80,7 +82,6 @@ Template.assessment.events({
         } else {
             curQuestion =  trialData.questionId;
         }
-
         let nextQuestion = parseInt(curQuestion) + 1;
 
         if(curAssesment.questions.length <= nextQuestion) {
@@ -119,12 +120,14 @@ Template.assessment.events({
                 if (completed) {
                     Meteor.call('endAssessment', result);
                 }
-                Router.go(target);
             }
         });
+        Router.go(target);
+
     },
     'click .begin': function(event) {
         curAssesment = Assessments.findOne({_id: Meteor.user().curAssignment.id});
+        Meteor.call('setUserTrial', Meteor.userId(), curAssesment._id, 0);
         target = "/assessment/" + curAssesment._id + "/" + "0";
         Router.go(target);
     },
@@ -147,21 +150,16 @@ Template.assessment.events({
         let newUserAssignments = Orgs.findOne().newUserAssignments;
         const curAssignment = Meteor.user().curAssignment;
         const curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id);
-        const nextAssignment = newUserAssignments[curAssignmentIndex + 1];        
-        target = `/${nextAssignment.type}/${nextAssignment.assignment}`;\
+        const nextAssignment = newUserAssignments[curAssignmentIndex + 1];   
+        Meteor.call('setCurrentAssignment',nextAssignment.assignment);     
         Meteor.call('createNewModuleTrial')
-        Meteor.call('setCurrentAssignment', {id: nextAssignment.assignment, type: nextAssignment.type, newUserAssignment: true}, function(err, res){
-            if(err){
-                console.log(err);
-            } else {
-                if(nextAssignment.type == "assessment"){
-                    Router.go(target);
-                } else {
-                    target = "/postAssessmentPrompt";
-                    Router.go(target);
-                }
-            }
-        });
+        //check if next assignment is a module
+        if(nextAssignment.type == "module"){
+            target = '/postAssessmentPrompt';
+        } else {
+            target = `/${nextAssignment.type}/${nextAssignment.assignment}`;
+        }
+        Router.go(target);
     }
 })
 

@@ -1,12 +1,22 @@
 <template name="module">
     <div class="px-4 py-5 my-5 text-center">
        {{#if this.pageId}}
-       {{#if completed}}
+       <h3>
+       {{#if page.header}}
+            {{page.header}}
+        {{/if}}
+        {{#if page.subheader}}
+            <br>
+            {{page.subheader}}
+        {{/if}}
+        </h3>
+        {{#if completed}}
             <p>You have completed this module! A certificate will be awarded to you after your supervisor reviews the results.</p>
             {{#if isNewUserAssignment}}
-            <button class="btn btn-primary" id="startNextAssignment">Continue your journey</button>    
+            <button class="btn btn-primary" id="continueJourney">Continue your journey</button>    
+            {{else}}
+                <button class="btn btn-primary" id="goBack">Return to My Profile</button>    
             {{/if}}
-            <button class="btn btn-primary" id="goBack">Return to My Profile</button>    
         {{else}}
         {{#if page.typeText}}
         <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
@@ -61,7 +71,7 @@
             <br>
             {{/if}}
             {{#if question.typeCombo}}
-            <h5 class="text-left">{{{question.prompt}}}</h5><br>
+            <h3 class="text-center">{{{question.prompt}}}</h3><br>
                 <form>
                 {{#each question.fields}}
                     {{#if this.typeDisplayText}}
@@ -79,7 +89,7 @@
                     <br>
                    {{/if}}
                     {{#if this.typeMultiChoice}}
-                    <h3>{{this.text}}</h3>
+                    <h4>{{this.text}}</h4>
                         {{#each this.answers}}
                         {{#if this.image}}
                         <button  class="btn btn-secondary  text-nowrap btn-lg btn-block multichoice combo" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{@index}}" name="">
@@ -99,10 +109,10 @@
             {{/if}}
         {{else}}
         {{#if page.typeActivity}}
-
+        <h3>Instructions</h3>
         <p>{{page.instructions}}</p>
         {{#if isFurthestPage}}
-            <button class="btn btn-primary btn-wide" id="startActivity"><h3><b>Activity: {{page.header}}</b></h3></button>
+            <button class="btn btn-primary btn-wide" id="startActivity"><h3><b>Continue</b></h3></button>
         {{else}}
             <p>You have already completed this activity.</p>
         {{/if}}

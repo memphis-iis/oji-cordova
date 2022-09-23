@@ -1,6 +1,6 @@
 import { Template }    from 'meteor/templating';
 
-Template.postAssesmentPrompt.helpers({
+Template.postAssessmentPrompt.helpers({
     'assignment': function(){
         const user = Meteor.user();
         if(user){
@@ -27,31 +27,40 @@ Template.postAssesmentPrompt.helpers({
     }
 })
 
-Template.postAssesmentPrompt.events({
+Template.postAssessmentPrompt.events({
     'click #startJourney': function(){
-        const user = Meteor.user();
-        const org = Orgs.findOne();
-        if(user && org){
-            const assignment = org.newUserAssignments[0];
-            if(assignment){
-                const target = `/${assignment.type}/` + assignment.assignment;
-                Meteor.call('setCurrentAssignment', {id: assignment.assignment, type: assignment.type, newUserAssignment: true}, function(err, res){
-                    if(err){
-                        console.log(err);
-                    } else {
-                        Router.go(target);
-                    }
-                });
-            }
+        //get user assignments
+        const user = Meteor.user().assigned;
+        //if the length of the assignments array is greater than 1
+        if(user.length >= 1){
+            //get first assignment
+            const assignment = user[0];
+            Meteor.call('setCurrentAssignment', assignment.assignment);
+            const target = `/${assignment.type}/` + assignment.assignment;
+            Router.go(target);
+        } else{
+            Meteor.call('userFinishedOrientation');
+            Router.go('/');
         }
     },
     'click #continueJourney': function(){
-        //pending implementation
+        //get user assignments
+        const user = Meteor.user().assigned;
+        //if the length of the assignments array is greater than 1
+        if(user.length >= 1){
+            //get first assignment
+            const assignment = user[0];
+            Meteor.call('setCurrentAssignment', assignment.assignment);
+            const target = `/${assignment.type}/` + assignment.assignment;
+            Router.go(target);
+        } else{
+            Router.go('/');
+        }
     }
 })
 
 
-Template.postAssesmentPrompt.onCreated(function() {
+Template.postAssessmentPrompt.onCreated(function() {
     Meteor.subscribe('assessments');
     Meteor.subscribe('modules');
     Meteor.subscribe('files.images.all');
