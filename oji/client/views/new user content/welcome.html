@@ -7,7 +7,11 @@
     <p>You will not be able to move onto any other program content or app features until you complete each of the four assessment tools. Once you begin an assessment you must finish it in one sitting. However, you may come back and complete the remaining assessments later. <b>You should complete all assessment questions by yourself and in a quiet place.</b></p>
     <div class="assessment" style="margin-top:5px;">
         <hr>
-        <button id="startJourney" class="startJourney btn btn-primary startAssessment">Start Your Journey</button>
+        {{#if startedJourney}}
+            <button id="startJourney" class="startJourney btn btn-primary startAssessment">Continue Your Journey</button>
+        {{else}}
+            <button id="startJourney" class="startJourney btn btn-primary startAssessment">Start Your Journey</button>
+        {{/if}}
     </div>
     <br>
     <p>This application contains copyrighted materials. To learn more about the Abenaki Tribe, visit: <a>http://www.native-languages.org/abenaki.htm</a></p>
