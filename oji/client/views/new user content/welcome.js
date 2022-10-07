@@ -25,6 +25,12 @@ Template.welcome.helpers({
             }
             return assignment;
         }
+    },
+    'startedJourney': function(){
+        const user = Meteor.user();
+        if(user){
+            return user.startedJourney;
+        }
     }
 })
 
@@ -32,6 +38,8 @@ Template.welcome.events({
     'click #startJourney': function(){
         const user = Meteor.user();
         const org = Orgs.findOne();
+        //set user's startedJourney to true
+        Meteor.call('startedJourney', user._id);
         if(user && org){
             //get user assignments
             assignments = user.assigned;

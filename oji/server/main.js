@@ -216,6 +216,7 @@ Meteor.startup(() => {
                             sex: user.sex,
                             assigned: user.assigned,
                             hasCompletedFirstAssessment: false,
+                            startedJourney: false,
                             nextModule: 0,
                             author: true
                         }
@@ -741,6 +742,17 @@ Meteor.methods({
             }
         }
         Modules.upsert(moduleId, {$set: curModule});
+    },
+    hasStartedJourney: function(userId){
+        user = Meteor.users.findOne({_id: userId});
+        if(user.journeyStarted){
+            return true;
+        } else {
+            return false;
+        }
+    },
+    startJourney: function(userId){
+        Meteor.users.update(userId, {$set: {journeyStarted: true}});
     },
     //assessment data collection
     saveAssessmentData: function(newData){
