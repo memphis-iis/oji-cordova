@@ -18,8 +18,8 @@
                 <button class="btn btn-primary" id="goBack">Return to My Profile</button>    
             {{/if}}
         {{else}}
-        {{#if page.typeText}}
         <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
+        {{#if page.typeText}}
         <h3><b>{{page.header}}</b></h3>
         {{#if page.imageAbove}}
             <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
@@ -36,7 +36,6 @@
         <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
         {{/if}}
         {{#if this.questionId}}
-            <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
             {{#if question.promptImg}}
             <img src="{{question.promptImg}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             {{/if}}
