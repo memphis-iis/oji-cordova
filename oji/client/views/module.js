@@ -289,12 +289,12 @@ Template.module.events({
         if(moduleData.nextPage >= curModule.pages.length){
             moduleData.nextPage = "completed";
             moduleData.nextQuestion = "completed";
-            index = curUser.assigned.findIndex(x => x.assignmentId === moduleId);
-            if(index != -1){
-                curUser.assigned.splice(index, 1);
-            }
-            curUser.assigned.splice(index, 1);
-            Meteor.call('changeAssignmentOneUser', Meteor.userId(),  curUser.assigned);
+            //update the user's assignments
+            curAssignments = curUser.assigned;
+            //remove the first assignment
+            curAssignments.shift();
+            //update the user's assignments
+            Meteor.call('changeAssignmentOneUser', Meteor.userId(),  curAssignments);
             target = "/module/" + curModule._id + "/completed";
         } 
         $('textArea').val("");
