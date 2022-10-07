@@ -36,7 +36,7 @@ const restrictedRoutes = [
   'certifcates',
   'goals',
   'messages',
-  'askSupervisor',
+  'information',
   'modulesAdmin',
   'usersAdmin',
   'relaxationTechniques',

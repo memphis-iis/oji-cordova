@@ -1,7 +1,7 @@
-Template.askSupervisor.helpers({
+Template.information.helpers({
 })
 
-Template.askSupervisor.events({
+Template.information.events({
     'click #newMessage': function(event){
         event.preventDefault();
         supervisor = Meteor.user().supervisor;
