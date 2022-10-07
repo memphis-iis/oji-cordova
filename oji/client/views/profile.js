@@ -64,6 +64,7 @@ Template.profile.events({
     'click #startModule': function(){
         assignment = $(event.target).data("assessmentId");
         target = "/module/" + assignment
+        Router.go(target);
     },
     'click #assessmentCenter': function(){
         target = "/assessmentCenter/";
