@@ -29,7 +29,7 @@ Template.welcome.helpers({
     'startedJourney': function(){
         const user = Meteor.user();
         if(user){
-            return user.startedJourney;
+            return user.journeyStarted;
         }
     }
 })

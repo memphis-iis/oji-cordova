@@ -11,9 +11,6 @@ module.exports = {
       path: '../',
       docker: {
         image: 'zodern/meteor:root',
-        args:[
-          '--storage-opt dm.basesize=30G'
-        ]
       },
       servers: {
         one: {}
