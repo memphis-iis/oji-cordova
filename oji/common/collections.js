@@ -11,6 +11,7 @@ Events = new Mongo.Collection('events');
 Journals = new Mongo.Collection('journals');
 Exercises =  new Mongo.Collection('exercises');
 Chats = new Mongo.Collection('chats');
+Emails = new Mongo.Collection('emails');
 
 //Init DynamicAssets Collection
 Files = new FilesCollection({
