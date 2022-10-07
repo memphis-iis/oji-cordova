@@ -85,6 +85,21 @@ Meteor.startup(() => {
     importDefaultUsers = true;
     importDefaultAssessments = true;
 
+    //start synchron job to send notification emails
+    SyncedCron.add(
+        {
+            name: 'Send Notification Emails',
+            schedule: function(parser) {
+                // parser is a later.parse object
+                return parser.text('every 10 minutes');
+            },
+            job: function() {
+                Meteor.call('sendNotificationEmails');
+            }
+        }
+    );
+    SyncedCron.start();
+    
     //Iron Router Api
     Router.route('/api',{
     where: "server",
@@ -349,6 +364,26 @@ Meteor.methods({
             }
         });
         return link;
+    },
+    sendNotificationEmails: function(){
+        if(Meteor.settings.public.sendEmails){
+            var Emails = Emails.find.fetch();
+            for(i=0; i<Emails.length; i++){
+                var email = Emails[i];
+                var emailAddr = email.email;
+                var subject = email.subject;
+                var message = email.message;
+                var emailData = {
+                    to: emailAddr,
+                    from: 'Oji',
+                    subject: subject,
+                    text: message
+                };
+                Email.send(emailData);
+                //remove email from database
+                Emails.remove({_id: email._id});
+            }
+        }
     },
     destroyUser: function(userID) {
         if(Roles.userIsInRole(this.userId, ['admin'])){
@@ -1055,7 +1090,27 @@ Meteor.methods({
             time: new Date(),
             dateReadable: dateReadable,
             status: "unread"
-        })
+        });
+        if(Meteor.settings.public.sendEmails){
+            //get the user's email
+            var toUser = Meteor.users.findOne({_id: to});
+            var toEmail = toUser.emails[0].address;
+            var fromUser = Meteor.users.findOne({_id: Meteor.userId()});
+            var fromEmail = fromUser.emails[0].address;
+            var fromName = fromUser.firstname + " " + fromUser.lastname;
+            var subject = "New message from " + fromName;
+            var message = "You have a new message from " + fromName + ". Log in to your account to view it.";
+            var html = "<p>You have a new message from " + fromName + ". Log in to your account to view it.</p>";
+            var text = "You have a new message from " + fromName + ". Log in to your account to view it.";
+            var email = {
+                to: toEmail,
+                from: fromEmail,
+                subject: subject,
+                text: text,
+                html: html
+            };
+            Emails.insert(email);
+        }
     },
     updateMessageStatus: function(messageId, status){
         Chats.update({_id: messageId}, {$set: {status: status}})
