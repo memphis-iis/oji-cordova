@@ -36,6 +36,7 @@
         <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
         {{/if}}
         {{#if this.questionId}}
+            <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
             {{#if question.promptImg}}
             <img src="{{question.promptImg}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             {{/if}}
