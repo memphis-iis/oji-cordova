@@ -8,6 +8,7 @@ Template.moduleCenter.events({
     'click .startModule': function(event){
         event.preventDefault();
         target = "/module/" + event.currentTarget.id;
+        Router.go(target);
     },
 })
 Template.moduleCenter.onCreated(function() {
