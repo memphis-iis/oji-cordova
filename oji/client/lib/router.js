@@ -213,13 +213,17 @@ Router.route('/module/:_id', {
     return Meteor.subscribe('curModule', this.params._id);
   },
   action: function(){
+    if(this.ready){
     this.render('module', {
       data:{
         moduleId: this.params._id,
-      }
-    });
+      }});
+    } else {
+      this.render('loading');
+    } 
   }
 });
+
 //module page id
 Router.route('/module/:_id/:_pageid', {
   subscriptions: function(){
@@ -299,12 +303,16 @@ Router.route('/assessmentReport/:_id', {
     return subs;
   },
   action: function(){
-    if(Meteor.user()){
-      if (Roles.userIsInRole(Meteor.user(), 'admin') || Roles.userIsInRole(Meteor.user(), 'supervisor')  ) {
-        this.render('assessmentReport');
+    if(this.ready){
+      if(Meteor.user()){
+        if (Roles.userIsInRole(Meteor.user(), 'admin') || Roles.userIsInRole(Meteor.user(), 'supervisor')  ) {
+          this.render('assessmentReport');
+        }
+      } else {
+        this.render('/');
       }
     } else {
-      this.render('/');
+      this.render('loading');
     }
   }
 });

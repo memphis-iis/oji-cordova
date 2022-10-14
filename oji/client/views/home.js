@@ -7,3 +7,10 @@ Template.home.helpers({
 
 Template.home.events({
 })
+
+Template.home.rendered = function() {
+    //if user is logged in, route to profile
+    if(Meteor.userId()){
+        Router.go('/profile');
+    }
+};

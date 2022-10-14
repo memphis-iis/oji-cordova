@@ -39,7 +39,7 @@ Template.welcome.events({
         const user = Meteor.user();
         const org = Orgs.findOne();
         //set user's startedJourney to true
-        Meteor.call('startedJourney', user._id);
+        Meteor.call('startJourney', user._id);
         if(user && org){
             //get user assignments
             assignments = user.assigned;

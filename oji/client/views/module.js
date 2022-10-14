@@ -18,6 +18,19 @@ Template.module.helpers({
     },
     'completed' : function(){
         if(Meteor.user().curModule.pageId == "completed"){
+            //get user assignments
+            const assignments = Meteor.user().assigned;
+            //remove the assignment matching the current assignment
+            const newAssignments = assignments.filter(function(assignment){
+                return assignment.assignment !== Meteor.user().curAssignment.id;
+            });
+            //check if this is the last assignment
+            if(newAssignments.length == 0){
+                //call userFinishedOrientation
+                Meteor.call('userFinishedOrientation');
+            }
+            //update the user's assigned array
+            Meteor.call('changeAssignmentOneUser', Meteor.userId(), newAssignments);
             return true;
         } else {
             return false;
@@ -25,15 +38,8 @@ Template.module.helpers({
     },
     'isNewUserAssignment': function(){
         if(!Meteor.user().hasCompletedFirstAssessment){
-            let newUserAssignments = Orgs.findOne().newUserAssignments;
-            const curAssignment = Meteor.user().curAssignment;
-            const newUserAssignmentsRemaining = newUserAssignments.filter(assignment => assignment.assignmentId !== curAssignment.id);
-            if(newUserAssignmentsRemaining.length == 0){
-                Meteor.call('userFinishedOrientation');
-                return false;
-            } else {
-                return true;
-            }
+           //check if user has completed the first assessment
+           return true;
         } else {
             return false;
         }
