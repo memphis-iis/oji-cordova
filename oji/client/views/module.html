@@ -1,17 +1,18 @@
 <template name="module">
+    <br>
     <div class="px-4 py-5 my-5 text-center">
        {{#if this.pageId}}
        <h3>
        {{#if page.header}}
-            {{page.header}}
+            <p class="lead mb-4">{{page.header}}</p>
         {{/if}}
         {{#if page.subheader}}
-            <br>
-            {{page.subheader}}
+            <p class="lead mb-4">{{page.subheader}}</p>
         {{/if}}
         </h3>
         {{#if completed}}
-            <p>You have completed this module! A certificate will be awarded to you after your supervisor reviews the results.</p>
+            <p class="lead mb-4">{{module.title}}</p>
+            <p class="lead mb-4">You have completed this module! A certificate will be awarded to you after your supervisor reviews the results.</p>
             {{#if isNewUserAssignment}}
             <button class="btn btn-primary" id="continueJourney">Continue your journey</button>    
             {{else}}
@@ -19,18 +20,18 @@
             {{/if}}
         {{else}}
         <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
+        <br>
         {{#if page.typeText}}
-        <h3><b>{{page.header}}</b></h3>
         {{#if page.imageAbove}}
             <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             <br>
         {{/if}}
-        <br>
-        <p id="pageText" class="text-left">{{{page.text}}}</p>
+        <p class="lead mb-4">{{{page.text}}}</p>
         <br>
         <br>
         {{#if page.imageBelow}}
             <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+            <br>
             <br>
         {{/if}}
         <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
@@ -40,7 +41,7 @@
             <img src="{{question.promptImg}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             {{/if}}
             {{#if question.typeBlank}}
-                <h3>{{{question.prompt}}}</h3><br>
+                <p class="lead mb-4">{{{question.prompt}}}</p><br>
                 <form>
                     <input type="text" class="textInput">
                 </form>
@@ -48,7 +49,7 @@
                 <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
             {{/if}}
             {{#if question.typeLongText}}
-                <h3>{{question.prompt}}</h3><br>
+                <p class="lead mb-4">{{{question.prompt}}}</p><br>
                 <form>
                     <textarea style="height:100px; width:100%;" class="textareaInput"></textarea>
                 </form>
@@ -56,7 +57,7 @@
                 <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
             {{/if}}
             {{#if question.typeMultiChoice}}
-            <h3>{{{question.prompt}}}</h3><br>
+            <p class="lead mb-4">{{{question.prompt}}}</p><br>
             <form>
                 {{#each question.answers}}
                     {{#if this.image}}
@@ -71,32 +72,33 @@
             <br>
             {{/if}}
             {{#if question.typeCombo}}
-            <h3 class="text-center">{{{question.prompt}}}</h3><br>
+            <p class="lead mb-4">{{{question.prompt}}}</p>
                 <form>
+                    <br>
                 {{#each question.fields}}
                     {{#if this.typeDisplayText}}
-                        <h4>{{this.text}}</h4>
+               <p class="lead mb-4">{{this.text}}</p>
                     {{/if}}
                     {{#if this.typeBlank}}
-                        <h4>{{this.text}}</h4>
+               <p class="lead mb-4">{{this.text}}</p>
                             <input class="combo" type="text">
                     {{/if}}
                     {{#if this.typeLongText}}
-                    <h4>{{this.text}}</h4><br>
+           <p class="lead mb-4">{{this.text}}</p><br>
                     <form>
                         <textarea style="height:50px; font-size: 20px; width:100%;" class="combo"></textarea>
                     </form>
                     <br>
                    {{/if}}
                     {{#if this.typeMultiChoice}}
-                    <h4>{{this.text}}</h4>
+           <p class="lead mb-4">{{this.text}}</p>
                         {{#each this.answers}}
                         {{#if this.image}}
                         <button  class="btn btn-secondary  text-nowrap btn-lg btn-block multichoice combo" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{@index}}" name="">
                             <img class="img-responsive center-block" src="{{this.image}}" alt="Your Alt Text">
                         </button>
                         {{else}}
-                        <button  class="btn btn-secondary  text-nowrap btn-lg btn-block multichoice combo" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{@index}}" name="">{{this.answer}}</button>
+                        <button  class="btn btn-secondary  text-nowrap btn-lg btn-block multichoice btn-color-{{this.color}} combo" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{@index}}" name="">{{this.answer}}</button>
                         {{/if}}
                         {{/each}}
                     {{/if}}
@@ -120,16 +122,14 @@
         {{/if}}
         {{/if}}
        {{else}}
-            {{#if resume}}
-            <h3>{{module.title}}</h3>
-            <p>{{module.description}}</p>
+            <p class="lead mb-4">{{module.title}}</p>
             <br>
+            <p class="lead mb-4">{{module.description}}</p>
+            <br>
+            {{#if resume}}
             <button class="btn btn-primary btn-wide" id="resumeModule">Lets Continue!</button>
             <button class="btn btn-caution btn-wide" id="goBack">Return to Welcome Page.</button>
             {{else}}
-            <h3>{{module.title}}</h3>
-            <p>{{module.description}}</p>
-            <br>
             <button class="btn btn-primary btn-wide" id="startModule">Lets Begin!</button>
             <button class="btn btn-caution btn-wide" id="goBack">Return to Welcome Page.</button>
             {{/if}}

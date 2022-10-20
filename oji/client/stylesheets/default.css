@@ -70,6 +70,21 @@ select {
     background-color: #22847f;
 
 }
+.btn-color-red{
+    background-color:  	#cc3232;
+}
+.btn-color-green{
+    background-color:  	#99c140;
+    color: black;
+}
+.btn-color-yellow{
+    background-color: #e7b416;
+    color: black;
+}
+p ul{
+    margin-left: 20px;
+    text-align: left;
+}
 .btn-info{
     border-color: #e26b4d;
     border-width: 5px;

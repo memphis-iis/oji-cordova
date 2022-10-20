@@ -1,10 +1,10 @@
 Template.module.helpers({
-    'module': () => Modules.findOne({_id: Meteor.user().curAssignment?.id}),
+    'module': () => Modules.findOne(),
     'pageid': function() {return parseInt(this.pageId) + 1;},
     'questionid': function() {return parseInt(this.questionId) + 1;},
     'totalpages': function(){
         if(Meteor.user().curAssignment){
-            return Modules.findOne({_id: Meteor.user().curAssignment.id}).pages.length;
+            return Modules.findOne().pages.length;
         }
     },
     'resume': function(){
@@ -66,7 +66,7 @@ Template.module.helpers({
     'page': function(){
         const user = Meteor.user();
         if(user && user.curAssignment){
-            page = Modules.findOne({_id: Meteor.user().curAssignment.id}).pages[parseInt(this.pageId)];
+            page = Modules.findOne().pages[parseInt(this.pageId)];
             if(page) {
                 const t = Template.instance();
                 $('.continue').show();
@@ -98,7 +98,7 @@ Template.module.helpers({
         }
     },
     'question': function(){
-        page = Modules.findOne({_id: Meteor.user().curAssignment.id}).pages[parseInt(this.pageId)];
+        page = Modules.findOne().pages[parseInt(this.pageId)];
         question = page.questions[parseInt(this.questionId)];
         const t = Template.instance();
         $('#continue').prop('disabled', false);
@@ -134,6 +134,14 @@ Template.module.helpers({
                     fields[i].typeMultiChoice = true;
                     for(j = 0; j < fields[i].answers.length; j++){
                         fields[i].answers[j].group = i;
+                        //check if answers[j].answer is a red, yellow, or green
+                        if(fields[i].answers[j].answer == "Red"){
+                            fields[i].answers[j].color = "red";
+                        } else if(fields[i].answers[j].answer == "Yellow"){
+                            fields[i].answers[j].color = "yellow";
+                        } else if(fields[i].answers[j].answer == "Green"){
+                            fields[i].answers[j].color = "green";
+                        }
                     }
                 };
                 
@@ -149,7 +157,7 @@ Template.module.helpers({
     'percentDone': function(){
         const user = Meteor.user();
         if(user && user.curAssignment){
-            const length = Modules.findOne({_id: Meteor.user().curAssignment.id}).pages.length;
+            const length = Modules.findOne().pages.length;
             percent = parseInt(this.pageId) / length * 100;
             return percent.toFixed(0);
         }
@@ -159,7 +167,7 @@ Template.module.helpers({
 Template.module.events({
     'click .continue': function(event) {
         event.preventDefault();
-        const curModule = Modules.findOne({_id: Meteor.user().curAssignment.id});
+        const curModule = Modules.findOne();
         const curUser = Meteor.user();
         const t = Template.instance();
         let target = "";
@@ -328,7 +336,7 @@ Template.module.events({
     },
     'click #startModule': function(event){
         event.preventDefault();
-        module = Modules.findOne({_id: Meteor.user().curAssignment.id});
+        module = Modules.findOne();
         console.log("start module " + this._id);
         data = {
             moduleId: module._id,
@@ -371,10 +379,13 @@ Template.module.events({
         let newUserAssignments = Orgs.findOne().newUserAssignments;
         const curAssignment = Meteor.user().curAssignment;
         let curAssignmentIndex = newUserAssignments.map(i => i.assignment).findIndex((element) => element == curAssignment.id)
-        const nextAssignment = newUserAssignments[curAssignmentIndex + 1];
+        const nextAssignment = newUserAssignments[curAssignmentIndex];
         if(nextAssignment){
-            const target = `/${nextAssignment.type}/` + nextAssignment.assignment;
-            Router.go(target);
+            //get user assigned
+            let curUser = Meteor.user();
+            let curAssignments = curUser.assigned;
+            const target = "/" + curAssignments[0].type + "/" + curAssignments[0].assignment;
+            window.location.href = target;
         } else {
             Meteor.call('userFinishedOrientation');
             Router.go("/profile");
