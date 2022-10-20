@@ -7,7 +7,7 @@
                 <p class="lead mb-4">Please continue your last assessment.</p>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <button class="btn btn-primary resume">Let's Continue!</button>
-                    <button class="btn btn-caution return">Return to Profile.</button>
+                    <button class="btn btn-caution return">Return to Weclome Page.</button>
             </div>
             {{else}}
             <p class="lead mb-4">{{assessment.description}}</p>
@@ -20,11 +20,11 @@
         {{else}}
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             {{#if completed}}
-            <p class>
+            <p class="lead mb-4">
                 Your answers have been recorded. Results for this assessment will be available in the Assessment Center after you’ve completed all assessments.
             </p>
             {{#if isNewUserAssignment}}
-                <button class="btn btn-primary" id="startNextAssignment">Continue your assessment</button>
+                <button class="btn btn-primary" id="startNextAssignment">Continue Your Assessment</button>
             {{else}}
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                     <button class="btn btn-primary return">Return to My Profile</button>
