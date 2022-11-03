@@ -81,6 +81,9 @@ select {
     background-color: #e7b416;
     color: black;
 }
+.btn-color-selected{
+    border: 5px solid white;
+}
 p ul{
     margin-left: 20px;
     text-align: left;

@@ -330,9 +330,14 @@ Template.module.events({
         for (let i = 0; i < collection.length; i++){
             if(collection[i].dataset.group == $(event.target).data("group")){
                 collection[i].classList.remove("btn-info");
+                collection[i].classList.remove("btn-color-selected");
             }
         }
         event.target.classList.toggle('btn-info');
+        //check if class contains Red, Yellow, or Green
+        if($(event.target).hasClass("btn-color-red") || $(event.target).hasClass("btn-color-green") || $(event.target).hasClass("btn-color-yellow")){
+            event.target.classList.toggle('btn-color-selected');
+        }
     },
     'click #startModule': function(event){
         event.preventDefault();
