@@ -172,7 +172,7 @@ Template.assessment.onCreated(function() {
 });
 
 
-ffunction readTTS(template, message){
+function readTTS(template, message){
     console.log("readTTS", message);
     //remove quotes from message
     message = message.replace(/"/g, "");
