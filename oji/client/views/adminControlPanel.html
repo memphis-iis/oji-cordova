@@ -51,6 +51,12 @@
             </div>
             {{/if}}
             <hr>
+            <h3>Google API Key:</h3>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="googleAPIKey" value="{{googleAPIKey}}">
+                <button class="btn btn-caution" type="button" id="googleAPIKeyButton">Save</button>
+                <button class="btn btn-caution" type="button" id="testGoogleVoice">Test</button>
+            </div>
             <h3>Invite Code and Link</h3>
             <p>This code invites a new user to your organization and becomes supervised by you: 
             <h4>{{orgCode}}</h4>
