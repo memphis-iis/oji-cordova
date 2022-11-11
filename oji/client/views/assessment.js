@@ -166,6 +166,67 @@ Template.assessment.events({
 
 Template.assessment.onCreated(function() {
     Meteor.subscribe('usertrials');
+    this.TTSTracPlaying = new ReactiveVar(0);
+    this.audioActive = new ReactiveVar(false);
+    this.audioObjects = new ReactiveVar([]);
 });
 
 
+function readTTS(template, message){
+    console.log("readTTS", message);
+    //remove quotes from message
+    message = message.replace(/"/g, "");
+    let audioActive = template.audioActive.get();
+    template.audioActive.set(true);
+    let audioObj = new Audio();
+    let audioObjects = template.audioObjects.get();
+    audioObjects.push({obj:audioObj});
+    let order = audioObjects.length;
+    template.audioObjects.set(audioObjects);
+    voice = "en-US-Standard-C";
+    Meteor.call('makeGoogleTTSApiCall', message, voice, function(err, res) {
+        if(err){
+            console.log("Something went wrong with TTS, ", err)
+        }
+        if(res != undefined){
+            let audioObjects = template.audioObjects.get();
+            audioObjects[order - 1].obj.src = "data:audio/ogg;base64," + res;
+            template.audioObjects.set(audioObjects)
+            if(!audioActive){
+                $('.continue').prop('disabled', true); 
+                $('.continue').prop('hidden', true); 
+                template.audioActive.set(true);
+                playAudio(template);
+            }
+        }
+    });
+}
+
+async function playAudio(template){
+    let TTSTracPlaying = template.TTSTracPlaying.get();
+    let audioObjs = template.audioObjects.get();
+    const audioObj = audioObjs[TTSTracPlaying].obj;
+    template.TTSTracPlaying.set(TTSTracPlaying + 1);
+    window.currentAudioObj = audioObj;
+    window.currentAudioObj.addEventListener('ended', function(){
+        TTSTracPlaying++;
+        template.TTSTracPlaying.set(TTSTracPlaying);
+        if(audioObjs.length > TTSTracPlaying){
+            sleep(1000).then(function(){
+                playAudio(template);       
+            });
+        }
+        else{
+            var curTime = new Date().getTime();
+            sleep(1000).then(function(){
+                template.audioActive.set(false);
+            }
+            );
+        }
+    });
+    window.currentAudioObj.play();
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}

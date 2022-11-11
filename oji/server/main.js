@@ -1208,6 +1208,42 @@ Meteor.methods({
         orgFiles.splice(index, 1);
         Orgs.update({_id: Meteor.user().organization}, {$set: {files: orgFiles} })
     },
+    makeGoogleTTSApiCall: async function(message, voice) {
+        //get googleApiKey from Organization
+        var org = Orgs.findOne({_id: Meteor.user().organization});
+        console.log("org", org);
+        var ttsAPIKey = org.googleAPIKey;
+        console.log("ttsAPIKey", ttsAPIKey);
+        voiceOptions = {languageCode:"en-US", name:voice, ssmlGender:"FEMALE"};
+        const request = JSON.stringify({
+            input: {text: message},
+            voice: voiceOptions,
+            audioConfig: {audioEncoding: 'MP3', speakingRate: 1, volumeGainDb: .5},
+        });
+        const options = {
+            hostname: 'texttospeech.googleapis.com',
+            path: '/v1/text:synthesize?key=' + ttsAPIKey,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+            }
+        }
+        console.log("request", request);
+        return await makeHTTPSrequest(options, request).then(data => {
+            response = JSON.parse(data.toString('utf-8'))
+            const audioDataEncoded = response.audioContent;
+            return audioDataEncoded;
+        });
+    },
+    setGoogleAPIKey: function(key){
+        organization = Orgs.findOne({_id: Meteor.user().organization});
+        organization.googleAPIKey = key;
+        Orgs.update({_id: Meteor.user().organization}, {$set: {googleAPIKey: key}})
+        //get org again
+        organization = Orgs.findOne({_id: Meteor.user().organization});
+        //print organization googleAPIKey
+        console.log("organization.googleAPIKey", organization.googleAPIKey);
+    },
     generateCertificate: async function(moduleId=false){
         user = Meteor.user().firstName + " " + Meteor.user().lastName;
         let page = 0;
@@ -1455,3 +1491,25 @@ Meteor.publish('events', function() {
         return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]},{type:this.userId}]}, {sort: {year:1 , month:1, day:1, time:1}})
     }
 });
+
+async function makeHTTPSrequest(options, request){
+    const https = require('https');
+    return new Promise((resolve, reject) => {
+        let chunks = []
+        const req = https.request(options, res => {        
+            res.on('data', d => {
+                chunks.push(d);
+            })
+            res.on('end', function() {
+                resolve(Buffer.concat(chunks));
+            })
+        })
+        
+        req.on('error', (e) => {
+            reject(e.message);
+        });
+    
+        req.write(request)
+        req.end()
+    });
+}

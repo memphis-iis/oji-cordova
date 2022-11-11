@@ -5,6 +5,15 @@ Template.calendar.helpers({
 
     'exerciseview': () => Template.instance().exerciseview.get(),
 
+    'viewselected': function(){
+        thoughtlogview  = Template.instance().thoughtlogview.get();
+        exerciseview = Template.instance().thoughtlogview.get();
+        if(thoughtlogview || exerciseview){
+            return true;
+        } 
+        return false;
+    },
+
     'calendar': function(){
         mode = this.agendaView;
         if(mode == true){
