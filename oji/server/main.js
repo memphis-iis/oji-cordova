@@ -510,26 +510,52 @@ Meteor.methods({
         }
         Modules.insert(newModule);
     },
-    uploadModule: function(path,user, data=false){
+    uploadJson: function(path,user, data=false){
         if(data){
             console.log("uploading module from data");
-            var newModule = JSON.parse(data);
-            newModule.owner = user;
-            newModule.orgOwnedBy = Meteor.users.findOne({_id: user}).organization;
-            newModule.createdBy = user;
-            delete newModule._id;
-            Modules.insert(newModule);
+            //check if Json is a module or assessment
+            if(data.pages){
+                console.log("uploading module");
+                var newModule = JSON.parse(data);
+                newModule.owner = user;
+                newModule.orgOwnedBy = Meteor.users.findOne({_id: user}).organization;
+                newModule.createdBy = user;
+                delete newModule._id;
+                Modules.insert(newModule);
+            } else if(data.questions){
+                console.log("uploading assessment");
+                var newAssessment = JSON.parse(data);
+                newAssessment.owner = user;
+                newAssessment.orgOwnedBy = Meteor.users.findOne({_id: user}).organization;
+                delete newAssessment._id;
+                Assessments.insert(newAssessment);
+            }
         } else {
-            const fs = Npm.require('fs');
-            var newModule = JSON.parse(fs.readFileSync(path, 'utf8'));
-            newModule.owner = user;
-            newModule.orgOwnedBy = Meteor.users.findOne({_id: user}).organization;
-            newModule.createdBy = user;
-            delete newModule._id;
-            Modules.insert(newModule);
+            //check if Json is a module or assessment
+            //open path 
+            var fs = Npm.require('fs');
+            var data = fs.readFileSync(path, 'utf8');
+            //convert to json
+            var json = JSON.parse(data);
+            if(json.pages){
+                console.log("uploading module");
+                var newModule = JSON.parse(data);
+                newModule.owner = user;
+                newModule.orgOwnedBy = Meteor.users.findOne({_id: user}).organization;
+                newModule.createdBy = user;
+                delete newModule._id;
+                Modules.insert(newModule);
+            }
+            if(json.questions){
+                console.log("uploading assessment");
+                var newAssessment = JSON.parse(data);
+                newAssessment.owner = user;
+                newAssessment.orgOwnedBy = Meteor.users.findOne({_id: user}).organization;
+                delete newAssessment._id;
+                Assessments.insert(newAssessment);
+            }
         }
     },
-
     processPackageUpload: function(path, owner){
         const fs = Npm.require('fs');
         const unzip = Npm.require('unzipper');
@@ -601,11 +627,19 @@ Meteor.methods({
                     newContents = theSplit.join(referenceFile.replacePath);
                   } 
                 }
-                console.log("new contents: " + newContents);
                 // show the new contents
                 newContents = JSON.parse(newContents);
                 newContentsString = JSON.stringify(newContents);
-                Meteor.call("uploadModule",path, owner, newContentsString);
+                //chck if it is a module or an assessment
+                if(newContentsString.includes("pages")){
+                    // it is a module
+                    console.log("uploading module");
+                    Meteor.call("uploadModule",path, owner, newContentsString);
+                } else {
+                    console.log("uploading assessment");
+                    // it is an assessment
+                    Meteor.call("uploadAssessment",path, owner, newContentsString);
+                }
             }
           });
           assets = Files.find({}).fetch();
@@ -640,6 +674,16 @@ Meteor.methods({
         var module = Modules.findOne({_id: moduleId});
         //export as json pretty print
         var json = JSON.stringify(module, null, 2);
+        return json;
+    },
+    exportAssessment: function(assessmentId){
+        //get module by moduleId and return it as a json string
+        const fs = Npm.require('fs');
+        const bound = Meteor.bindEnvironment((callback) => {callback();});
+        var assessment = Assessments.findOne({_id: assessmentId});
+        //export as json pretty print
+        var json = JSON.stringify(assessment, null, 2);
+        console.log(json);
         return json;
     },
     changeModule(input){
