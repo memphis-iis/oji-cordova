@@ -370,7 +370,7 @@ Template.adminControlPanel.events({
                 type = fileObj.type;
                 Meteor.call('addFileToOrg',  link, fileName, type);
                 if(fileObj.extension == "json"){
-                  Meteor.call('uploadModule',fileObj.path,Meteor.userId(),function(err,res){
+                  Meteor.call('uploadJson',fileObj.path,Meteor.userId(),function(err,res){
                       if(err){
                           alert("package failed");
                       } else {

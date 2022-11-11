@@ -165,6 +165,24 @@ Template.modulesAdmin.events({
         target = "/assessment/" + testModule;
         window.location.href = target;
     },
+    'click #export-assessment': function (event){
+        event.preventDefault();
+        console.log("exporting assessment");
+        assessment = $(event.target).data("assessment-id");
+        //get module
+        Meteor.call('exportAssessment', assessment, function(err,res){
+            if(err){
+                alert("export failed");
+            } else {
+                //download return json
+                var blob = new Blob([res], {type: "application/json"});
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = "assessment.json";
+                link.click();
+            }
+        });
+    },
     'click #supervisorsDestroyButton': function(event){
         event.preventDefault();
         if (window.confirm(`Are you sure you want to delete user ${event.currentTarget.getAttribute("data-lastname")}, ${event.currentTarget.getAttribute("data-firstname")}? This cannot be undone.`)){
