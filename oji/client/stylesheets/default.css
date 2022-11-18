@@ -92,6 +92,13 @@ p ul{
     border-color: #e26b4d;
     border-width: 5px;
 }
+.answer, .resume, .return, .begin{
+    width:80%
+}
+.readTTS{
+    background-color: transparent;
+    border: 1px solid #e26b4d;
+}
 .calendar-today-true {
     background-color: #22847f;
 }

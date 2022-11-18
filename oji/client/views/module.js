@@ -8,33 +8,33 @@ Template.module.helpers({
         }
     },
     'resume': function(){
-        curPage = Meteor.user().curModule.pageId || 0;
-        curQuestion = Meteor.user().curModule.questionId || 0;
-        console.log(curPage, curQuestion);
-        if(curPage > 0){
-            return true;
-        }
-        return false;
-    },
-    'completed' : function(){
-        if(Meteor.user().curModule.pageId == "completed"){
-            //get user assignments
-            const assignments = Meteor.user().assigned;
-            //remove the assignment matching the current assignment
-            const newAssignments = assignments.filter(function(assignment){
-                return assignment.assignment !== Meteor.user().curAssignment.id;
-            });
-            //check if this is the last assignment
-            if(newAssignments.length == 0){
-                //call userFinishedOrientation
-                Meteor.call('userFinishedOrientation');
+            curPage = Meteor.user().curModule.pageId || 0;
+            curQuestion = Meteor.user().curModule.questionId || 0;
+            console.log(curPage, curQuestion);
+            if(curPage > 0){
+                return true;
             }
-            //update the user's assigned array
-            Meteor.call('changeAssignmentOneUser', Meteor.userId(), newAssignments);
-            return true;
-        } else {
             return false;
-        }
+        },
+    'completed' : function(){
+            if(Meteor.user().curModule.pageId == "completed"){
+                //get user assignments
+                const assignments = Meteor.user().assigned;
+                //remove the assignment matching the current assignment
+                const newAssignments = assignments.filter(function(assignment){
+                    return assignment.assignment !== Meteor.user().curAssignment.id;
+                });
+                //check if this is the last assignment
+                if(newAssignments.length == 0){
+                    //call userFinishedOrientation
+                    Meteor.call('userFinishedOrientation');
+                }
+                //update the user's assigned array
+                Meteor.call('changeAssignmentOneUser', Meteor.userId(), newAssignments);
+                return true;
+            } else {
+                return false;
+            }
     },
     'isNewUserAssignment': function(){
         if(!Meteor.user().hasCompletedFirstAssessment){
@@ -395,6 +395,24 @@ Template.module.events({
             Meteor.call('userFinishedOrientation');
             Router.go("/profile");
         }
+    },
+    'click .readTTS': function(event){
+        event.preventDefault();
+        //disable all buttons
+        $('.continue').prop('disabled', true);
+        $('.readTTS').prop('disabled', true);
+        //get data-text attribute from button
+        let text = $(event.target).attr('data-text');
+        console.log(text);
+        //get template instance
+        let instance = Template.instance();
+        //read text using readTTS function
+        readTTS(instance, text);
+    },
+    'click .glyphicon-bullhorn': function(event){
+        event.preventDefault();
+        //click parent button
+        $(event.target).parent().click();
     }
     
 })
@@ -457,6 +475,9 @@ async function playAudio(template){
             var curTime = new Date().getTime();
             sleep(1000).then(function(){
                 template.audioActive.set(false);
+                //enable all buttons
+                $('.continue').prop('disabled', false);
+                $('.readTTS').prop('disabled', false);
             }
             );
         }

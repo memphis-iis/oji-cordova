@@ -160,6 +160,24 @@ Template.assessment.events({
             target = `/${nextAssignment.type}/${nextAssignment.assignment}`;
         }
         Router.go(target);
+    },
+    'click .readTTS': function(event){
+        event.preventDefault();
+        //disable all buttons
+        $('.continue').prop('disabled', true);
+        $('.readTTS').prop('disabled', true);
+        //get data-text attribute from button
+        let text = $(event.target).attr('data-text');
+        console.log(text);
+        //get template instance
+        let instance = Template.instance();
+        //read text using readTTS function
+        readTTS(instance, text);
+    },
+    'click .glyphicon-bullhorn': function(event){
+        event.preventDefault();
+        //click parent button
+        $(event.target).parent().click();
     }
 })
 
@@ -220,6 +238,9 @@ async function playAudio(template){
             var curTime = new Date().getTime();
             sleep(1000).then(function(){
                 template.audioActive.set(false);
+                //enable all buttons
+                $('.continue').prop('disabled', false);
+                $('.readTTS').prop('disabled', false);
             }
             );
         }
