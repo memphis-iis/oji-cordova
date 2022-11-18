@@ -4,10 +4,10 @@
        {{#if this.pageId}}
        <h3>
        {{#if page.header}}
-            <h3>{{page.header}}</h3>
+            <h3>{{page.header}}<button class="btn btn-primary readTTS" data-text="{{page.header}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button></h3>
         {{/if}}
         {{#if page.subheader}}
-            <p class="lead mb-4">{{page.subheader}}</p>
+            <p class="lead mb-4">{{page.subheader}}<button class="btn btn-primary readTTS" data-text="{{module.subheader}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button></p>
         {{/if}}
         </h3>
         {{#if completed}}
@@ -36,7 +36,8 @@
             <br>
             <br>
         {{/if}}
-        <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
+        <button id="contine" class="btn btn-primary continue answer">Save and Continue</button>
+        <button class="btn btn-primary readTTS" data-text="Save and Continue"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
         {{/if}}
         {{#if this.questionId}}
             {{#if question.promptImg}}
@@ -44,19 +45,23 @@
             {{/if}}
             {{#if question.typeBlank}}
                 <p class="lead mb-4">{{{question.prompt}}}</p><br>
+                <button class="btn btn-primary readTTS" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                 <form>
                     <input type="text" class="textInput">
                 </form>
                 <br>
-                <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
+                <button id="contine" class="btn btn-primary continue answer">Save and Continue</button>
+                <button class="btn btn-primary readTTS" data-text="Save and Continue"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             {{/if}}
             {{#if question.typeLongText}}
                 <p class="lead mb-4">{{{question.prompt}}}</p><br>
+                <button class="btn btn-primary readTTS" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                 <form>
                     <textarea style="height:100px; width:100%;" class="textareaInput"></textarea>
                 </form>
                 <br>
-                <button id="contine" class="btn btn-primary continue btn-wide">Save and Continue</button>
+                <button id="contine" class="btn btn-primary continue answer">Save and Continue</button>
+                <button class="btn btn-primary readTTS" data-text="Save and Continue"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             {{/if}}
             {{#if question.typeMultiChoice}}
             <p class="lead mb-4">{{{question.prompt}}}</p><br>
@@ -87,6 +92,7 @@
                     {{/if}}
                     {{#if this.typeBlank}}
                <p class="lead mb-4">{{this.text}}</p>
+               <button class="btn btn-primary readTTS" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                             <input class="combo" type="text">
                     {{/if}}
                     {{#if this.typeLongText}}
