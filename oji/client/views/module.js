@@ -89,6 +89,10 @@ Template.module.helpers({
                     page.typeActivity = true;
                     t.pageType.set("activity");
                 };
+                if(page.type == "quiz"){
+                    page.typeActivity = true;
+                    t.pageType.set("quiz");
+                };
                 if(!page.imgStyle){
                     page.imgStyle = "max-width:50%; height:auto; margin:10px;"
                 }
@@ -289,15 +293,17 @@ Template.module.events({
         } else {
             moduleData.nextPage = parseInt(thisPage) + 1;
             moduleData.nextQuestion = 0;
-            if(curModule.pages[moduleData.nextPage]?.type == "activity" && curModule.pages[moduleData.nextPage]?.questions.length > 0){
+            if((curModule.pages[moduleData.nextPage]?.type == "activity" || curModule.pages[moduleData.nextPage]?.type == "quiz")  && curModule.pages[moduleData.nextPage]?.questions.length > 0){
                 target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
             } else {
                 target = "/module/" + curModule._id + "/" + moduleData.nextPage;
             }
+            pageType = curModule.pages[thisPage].type;
             data = {
                 pageId: thisPage,
                 response: "read",
-                responseTimeStamp: Date.now().toString()
+                responseTimeStamp: Date.now().toString(),
+                type: questionData.questionType
             }
         }
         if(moduleData.nextPage >= curModule.pages.length){
@@ -309,6 +315,7 @@ Template.module.events({
             curAssignments.shift();
             //update the user's assignments
             Meteor.call('changeAssignmentOneUser', Meteor.userId(),  curAssignments);
+            Meteor.call('evaluateModule', curModule._id, moduleData);
             target = "/module/" + curModule._id + "/completed";
         } 
         $('textArea').val("");

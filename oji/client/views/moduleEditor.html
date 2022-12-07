@@ -46,6 +46,7 @@
                             <option >{{this.type}}</option>
                             <option>text</option>
                             <option>activity</option>
+                            <option>quiz</option>
                         </select>
                     </div>
                     </td>
@@ -82,6 +83,70 @@
               </tr>
             </tbody>
         </table>
+        {{#if this.isQuiz}}
+        {{#each questions}}
+        <a data-bs-toggle="collapse" href="#collapse-page-{{this.parent}}-question{{@index}}" role="button" aria-expanded="false" aria-controls="collapseExample"><h4>Question {{@index}}</h4></a>
+        <div class="collapse" id="collapse-page-{{this.parent}}-question{{@index}}">
+        <table class="table" id="questionList">
+            <thead>
+                <th scope="col" width="10%">Type</th>
+                <th scope="col" width="50%">Prompt/Text/Answer</th>
+                <th scope="col" width="20%">Image</th>
+                <th scope="col" width="20%">Actions</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div id="pages[{{this.parent}}]-questions[{{@index}}]-type">
+                            <select id="type" class="combo-save" data-field="pages[{{this.parent}}].questions[{{@index}}].type">
+                                <option >{{this.type}}</option>
+                                <option>multiChoice</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        Prompt: {{this.prompt}}<a id="open-editor" data-field="pages[{{this.parent}}].questions[{{@index}}].prompt" data-value="{{this.prompt}}"> Edit</a><br>
+                        Correct: <select id="correct" class="combo-save" data-field="pages[{{this.parent}}].questions[{{@index}}].correctAnswer">
+                            <option >{{this.correct}}</option>
+                            {{#each this.answers}}
+                            <option>{{this.answer}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td>
+                        {{this.image}}<a id="open-editor" data-field="pages[{{this.parent}}].questions[{{@index}}].image" data-value="{{this.image}}"> Edit</a><br>
+                    </td>
+                    <td>
+                        <a id="delete-item" data-field="pages[{{this.parent}}].questions[{{@index}}]">Delete</a>
+                        <br> <a id="add-item" data-field="pages[{{this.parent}}].questions[{{@index}}].answers">Add Choice</a>
+                    </td>
+                </tr>
+                     {{#if this.isMultiChoice}}
+                    {{#each this.answers}}
+                    <tr>
+                        <td>
+                            Answer -->
+                        </td>
+                        <td>
+                            {{this.answer}}<a id="open-editor" data-field="pages[{{this.page}}].questions[{{this.parent}}].answers[{{@index}}].answer" data-value="{{this.answer}}"> Edit</a><br>
+                        </td>
+                        <td>
+                            <img src="{{this.image}}" style="max-width:40px;"><a id="open-editor" data-field="pages[{{this.page}}].questions[{{this.parent}}].answers[{{@index}}].image" data-value="{{this.image}}"> Edit</a><br>
+                        </td>
+                        <td>
+                            <a id="delete-item" data-field="pages[{{this.page}}].questions[{{this.parent}}].answers[{{@index}}]">Delete</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                {{/if}}
+            </tbody>
+        </table>
+        </div>
+        {{/each}}
+        <br>
+        <br>
+        <a id="add-item" data-field="pages[{{@index}}].questions">Add Question</a>
+        {{/if}}
         {{#if this.isActivity}}
         {{#each questions}}
         <a data-bs-toggle="collapse" href="#collapse-page-{{this.parent}}-question{{@index}}" role="button" aria-expanded="false" aria-controls="collapseExample"><h4>Question {{@index}}</h4></a>
