@@ -11,6 +11,7 @@ Template.moduleEditor.helpers({
                 pages[i].isLast = true;
             }
             pages[i].isActivity = false;
+            pages[i].isQuiz = false;
             if(pages[i].type == "activity"){
                 pages[i].isActivity = true;
                 if(typeof pages[i].questions !== "undefined"){
@@ -43,6 +44,28 @@ Template.moduleEditor.helpers({
                         } 
                         if(questions[j].type == "multiChoice"){
                             answers = questions[j].answers;
+                            questions[j].isMultiChoice = true;
+                            if(typeof answers !== "undefined"){
+                                for(k = 0; k < answers.length; k++){
+                                    answers[k].parent = j;
+                                    answers[k].page = i;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if(pages[i].type == "quiz"){
+                pages[i].isQuiz = true;
+                if(typeof pages[i].questions !== "undefined"){
+                    questions = pages[i].questions;
+                    for(j=0;j < questions.length; j++){
+                        questions[j].parent = i;
+                        questions[j].isCombo = false;
+                        questions[j].isMultiChoice = false;
+                        if(questions[j].type == "multiChoice"){
+                            answers = questions[j].answers;
+                            console.log("answers: " + answers);
                             questions[j].isMultiChoice = true;
                             if(typeof answers !== "undefined"){
                                 for(k = 0; k < answers.length; k++){

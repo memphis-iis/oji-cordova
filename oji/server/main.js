@@ -960,19 +960,39 @@ Meteor.methods({
             });
         return results;
     },
-    createNewAssessmentTrial: function(data){
-        Meteor.users.update(Meteor.userId(), {
-            $set: {
-                curTrial: {
-                    trialId: data._id,
-                    questionId: 0,
-                    pageId: 0
+    evaluateModule: function(curModuleId, moduleData){
+        curModule = Modules.findOne({_id: curModuleId});
+        moduleData.score = 0;
+        moduleData.maxScore = 0;
+        //get pages where the page type is a quiz
+        pages = curModule.pages;
+        for(let page of pages){
+            if(page.type == "quiz"){
+                //get the questions for the page
+                questions = page.questions;
+                for(let question of questions){
+                    //add the max score
+                    moduleData.maxScore++;
+                    //get the question id
+                    questionId = question.id;
+                    //get the correct answer
+                    correctAnswer = question.correctAnswer;
+                    //get the user's answer
+                    userAnswer = moduleData.responses[questionId];
+                    //compare the two
+                    if(correctAnswer == userAnswer){
+                        //correct
+                        moduleData.score++;
+                    }
                 }
             }
-        });
-    return data._id;
-    },
+            //calculate the percentage
+            moduleData.percentage = (moduleData.score / moduleData.maxScore) * 100;
+            //update the module results
+            ModuleResults.upsert({_id: curModuleId}, {$set: moduleData});
+        }
 
+    },
     saveModuleData: function (moduleData){
         ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
         nextModule = Meteor.user().nextModule;
