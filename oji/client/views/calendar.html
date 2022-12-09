@@ -1,20 +1,8 @@
 <template name="calendar">
-    <div class="container">
-        <div class="row">
-            <ul class="nav nav-tabs" style>
-                <li class="nav-item">
-                <a class="nav-link active" id="toggle-month-view" aria-current="page" href="#">Month View</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link toggle-agenda-view" href="#">Agenda View</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link"  id="select-today">Today</a>
-                </li>
-            </ul>
-        </div>
+        <div class="titlebar">
+        <b>{{currentUser.firstname}}'s Calendar</b>
     </div>
-    <div class="container">
+    <div class="container content">
         <div class="row text-center" id="month-view">
             <h3><a href="#" class="nav-link" id="decrement-month"><span class="glyphicon glyphicon-chevron-left"></span></a> {{calendar.Month}} / {{calendar.Year}} <a href="#" class="nav-link" id="increment-month"><span class="glyphicon glyphicon-chevron-right"></span></a></h3>
 

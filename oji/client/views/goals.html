@@ -1,18 +1,10 @@
 <template name="goals">
-    <div class="px-4 py-5 my-5 text-center container">
-        <div class="container">
-            <ul class="nav nav-tabs" style>
-                <li class="nav-item">
-                <a class="nav-link active" id="toggle-month-view" aria-current="page" href="profile">Menu</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link active" id="toggle-month-view" aria-current="page" href="goals">Goals</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link toggle-agenda-view" href="certifcates">Certificates</a>
-                </li>
-            </ul>
-        </div>
+    <div class="titlebar">
+        <h1>
+        {{currentUser.firstname}}'s Goals
+        </h1>
+    </div>
+    <div class="px-4 py-5 my-5 text-center content container">
         <!-- set new goals form -->
         <form>
             <div class="form-group">

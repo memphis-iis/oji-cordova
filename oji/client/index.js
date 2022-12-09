@@ -67,6 +67,21 @@ Template.DefaultLayout.events({
 });
 
 Template.DefaultLayout.helpers({
+  'currentUserAbrieviation': function(){
+    user = Meteor.user();
+    if(user){
+      //get abbreviated name
+      firstName = user.firstname;
+      lastName = user.lastname;
+      if(firstName && lastName){
+        user.abbreviatedName = firstName.charAt(0) + lastName.charAt(0);
+      } else {
+        user.abbreviatedName = user.username;
+      }
+      console.log("user.abbreviatedName: " + user.abbreviatedName);
+      return user.abbreviatedName;
+    }
+  },
   'organization': function () {
      orgs = Orgs.findOne();
      if(orgs){

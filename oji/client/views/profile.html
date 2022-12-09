@@ -1,5 +1,8 @@
 <template name="profile">
-    <div class="px-4 py-5 my-5 text-center container">
+    <div class="titlebar">
+        <b>{{currentUser.firstname}}'s Profile</b>
+    </div>
+    <div class="text-center content container">
     {{#if isInRole 'user'}}
         {{#if hasCompletedFistTimeAssessment}}
             {{#if assignment}}
@@ -16,22 +19,12 @@
                     <br>
                 </div>
             {{else}} 
-                <div class="container">
-                    <ul class="nav nav-tabs" style>
-                        <li class="nav-item">
-                        <a class="nav-link active" id="toggle-month-view" aria-current="page" href="profile">Menu</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link active" id="toggle-month-view" aria-current="page" href="goals">Goals</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link toggle-agenda-view" href="certifcates">Certificates</a>
-                        </li>
-                    </ul>
-                </div>
                 <br>
                 <button id="calendar" class="btn btn-primary btn-wide">
                     <h4><span class="glyphicon glyphicon-calendar"></span> Calendar</h4>
+                </button>
+                <button id="goals" class="btn btn-primary btn-wide">
+                    <h4><span class="glyphicon glyphicon-hourglass"></span> Goals</h4>
                 </button>
                 <button id="journal" class="btn btn-primary btn-wide">
                     <h4><span class="glyphicon glyphicon-pencil"></span> Add To Thought Log</h4>
@@ -44,6 +37,9 @@
                 </button>
                 <button id="moduleCenter" class="btn btn-primary btn-wide">
                     <h4><span class="glyphicon glyphicon-repeat"></span> Review Modules</h4>
+                </button>
+                <button id="goals" class="btn btn-primary btn-wide">
+                    <h4><span class="glyphicon glyphicon-ok-circle"></span> Certificates</h4>
                 </button>
             {{/if}}
         {{else}}

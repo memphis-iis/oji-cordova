@@ -1,19 +1,113 @@
 
 /* Main Elements */
 body{
+    /* gradient background */
     background-attachment:fixed;
     background-size: cover;
     background-image: url("/main-background.jpg");
     color:white;
+    color:white;
 }
 #container-yield{
-    background-color:  rgba(0, 0, 0, 0.5);
+    width:100%;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-left: 0%;
+    padding-right: 0%;
+    /* fade in background */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.5));
+}
+.titlebar{
+    width:100%;
+    padding-top:10px;
+    padding-left:20px;
+    font-optical-sizing: auto;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 800;
+    font-style: bold;
+    font-stretch: condensed;
+    font-size:30px;
+    color:#473d3a;
+}
+.titlebar{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 800;
+    font-style: bold;
+    font-stretch: condensed;
+    font-size:30px;
+    color:#473d3a;
+}
+.content{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-top-color: #e26b4d;
+    border-top-width: 5px;
+    border-top-style: solid;
+    border-top-right-radius: 10vw;
+    border-top-left-radius: 10vw;
+    min-height: 100vh;
+    width:100%;
+    /* top box shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6{
+    color:white;
+    margin-left:20px;
+    margin-right: 20px;
+}
+.btn{
+    border-radius: 20px;
+}
+.menu{
+    width: 100%;
+    margin-top: 10px;
+}
+.menu #logo-color{
     border-radius: 5px;
-    margin-top:50px;
-
+    width: 50px;
+    height: 50px;
+}
+.userBadge{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width:30vh;
+    max-width: 70px;
+    height: 100vh;
+}
+#userBadge{
+    background-image: linear-gradient(to top, #e26b4d, #22847f);
+    color:white;
+    font-size: 15px;
+    line-height: 15px;
+    border-radius: 50px;
+    margin-top:10px;
+    margin-left: 100%;
+    padding: 10px;
+    width:30px;
+    height:30px;
+    text-align: center;
+}
+#userBadge:hover{
+    background-image: linear-gradient(to top, #e26b4d, #22847f);
+}
+.menuItem{
+    background: #22847f;
+    font-size: 20px;
+    line-height: 30px;
+    border-radius: 50px, 50px, 50px, 25px;
+    color: white;
+    border:white 2px solid;
+    margin-top:10px;
+    margin-right: 10px;
+    padding: 10px;
+    width:50px;
+    height:50px;
+}
+#activateMenu{
+    color: #22847f;
+    font-size: 20px;
 }
 .navbar{
-    background-color: rgba(0, 0, 0, 0.5);
     height: 50px;
     font-size: 22px;
     margin-bottom: 50px;
