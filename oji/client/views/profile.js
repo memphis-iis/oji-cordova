@@ -93,21 +93,21 @@ Template.profile.events({
         //if the assessment schedule is postTreatment, then continue on to the next assessment
         if(schedule === "postTreatment"){
             assessment = assigned[0];
-            Meteor.call('setCurrentAssignment', assessment.assignment);
+            Meteor.call('setCurrentAssignment', assignment.assignment);
             target = "/postTreatment";
             Router.go(target);
         }
         //if the schedule is intervention, then continue on to the next assessment
         if(schedule === "intervention"){
             assignment = assigned[0];
-            Meteor.call('setCurrentAssignment', assessment.assignment);
-            target = "/${assignment.type}/" + assignment.assignment;
+            Meteor.call('setCurrentAssignment', assignment.assignment);
+            target = "postAssessmentPrompt";
             Router.go(target);
         }
         //if the schedule is preOrientation, then continue on to the next assessment
         if(schedule === "preOrientation"){
             assignment = assigned[0];
-            Meteor.call('setCurrentAssignment', assessment.assignment);
+            Meteor.call('setCurrentAssignment', assignment.assignment);
             target = "/welcome";
             Router.go(target);
         }

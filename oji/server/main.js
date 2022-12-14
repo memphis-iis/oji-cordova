@@ -1043,25 +1043,37 @@ Meteor.methods({
     },
     
     userFinishedOrientation: function(){
-        //get user org
-        const userOrg = Meteor.user().organization;
-        //get the org
-        const org = Orgs.findOne({'_id': userOrg});
-        //get the org's modules
-        const newModules = org.newUserAssignments;
-        //only get type 'assessment'
-        const newAssessments = newModules.filter(function(module){
-            return module.type == 'assessment';
-        });
-        console.log("Assigning new assessments", newAssessments, "to user" + Meteor.userId());
+        user = Meteor.user();
+        //get assessment schedule
+        assessmentSchedule = user.assessmentSchedule;
+        assigned = user.assigned;
+        //if assessment schedule is "preOrientation", set it to "intervention"
+        if(assessmentSchedule == "preOrientation"){
+            assessmentSchedule = "intervention";
+        }
+        //if assessment schedule is "intervention", set it to "postTreatment"
+        if(assessmentSchedule == "intervention"){
+            assessmentSchedule = "postTreatment";
+            //get user org
+            org = Orgs.findOne({_id: user.organization});
+            //get org's newUserAssessments
+            newUserAssessments = org.newUserAssignments;
+            //filter out the module type
+            newUserAssessments = newUserAssessments.filter(function( obj ) {
+                return obj.type !== "module";
+            }
+            );
+            //replace assigned with newUserAssessments
+            assigned = newUserAssessments;
+        }
+        
         Meteor.users.update(Meteor.userId(), {
             $set: {
                 hasCompletedFirstAssessment: true,
-                assigned: newAssessments,
-                assessmentSchedule: "postTreatment"
+                assessmentSchedule: assessmentSchedule,
+                assigned: assigned
             }
         });
-        console.log("User " + Meteor.userId() + " has completed orientation, assigned to " + JSON.stringify(Meteor.user().assigned));
     },
     getAsset: function(fileName){
         result =  Assets.absoluteFilePath(fileName);

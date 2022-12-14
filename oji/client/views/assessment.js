@@ -22,6 +22,8 @@ Template.assessment.helpers({
     'isNewUserAssignment': function(){
         if(!Meteor.user().hasCompletedFirstAssessment){
             let newUserAssignments = Orgs.findOne().newUserAssignments;
+            //fiter newUserAssignments to remove type "module"
+            newUserAssignments = newUserAssignments.filter(assignment => assignment.type !== "module");
             const curAssignment = Meteor.user().assigned;
             const newUserAssignmentsRemaining = newUserAssignments.filter(assignment => assignment.assignmentId !== curAssignment.id);
             newAssignmentLength = newUserAssignmentsRemaining.length;

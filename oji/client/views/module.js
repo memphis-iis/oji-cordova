@@ -410,7 +410,6 @@ Template.module.events({
             const target = "/" + curAssignments[0].type + "/" + curAssignments[0].assignment;
             window.location.href = target;
         } else {
-            Meteor.call('userFinishedOrientation');
             Router.go("/profile");
         }
     },
