@@ -88,16 +88,8 @@ Router.route('/logout', function(){
 // admin control panel route
 Router.route('/control-panel', function () {
   if(Meteor.user()){
-    if (Roles.userIsInRole(Meteor.user(), 'admin')) {
       this.render('adminControlPanel');
     }
-    else if (Roles.userIsInRole(Meteor.user(), 'supervisor')) {
-      this.render('supervisorControlPanel');
-    }
-    else{
-      Router.go('/');
-    }
-  }
   else{
     Router.go('/');
   }

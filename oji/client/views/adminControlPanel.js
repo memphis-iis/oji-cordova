@@ -438,14 +438,16 @@ Template.adminControlPanel.events({
     },
     'click #transferSupervisorButton': function(event){
         event.preventDefault();
-        userId = $('#transferUser').val();
+        t = Template.instance();
+        userId = t.selectedUser.get();
         newSupervisorId = $('#transferTo').val();
         Meteor.call('transferUserToOtherSupervisor', userId, newSupervisorId);
         alert("User transferred");
     },
     'click #transferOrgButton': function(event){
         event.preventDefault();
-        userId = $('#transferUser').val();
+        t = Template.instance();
+        userId = t.selectedUser.get();
         orgCode = $('#transferToOrg').val();
         Meteor.call('transferUserToOtherOrg', userId, orgCode, function(err,res){
                

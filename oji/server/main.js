@@ -522,7 +522,7 @@ Meteor.methods({
                 newModule.createdBy = user;
                 delete newModule._id;
                 Modules.insert(newModule);
-            } else if(data.questions){
+            } else if(data.assessmentReportConstants){
                 console.log("uploading assessment");
                 var newAssessment = JSON.parse(data);
                 newAssessment.owner = user;
@@ -546,7 +546,7 @@ Meteor.methods({
                 delete newModule._id;
                 Modules.insert(newModule);
             }
-            if(json.questions){
+            if(json.assessmentReportConstants){
                 console.log("uploading assessment");
                 var newAssessment = JSON.parse(data);
                 newAssessment.owner = user;
@@ -631,7 +631,7 @@ Meteor.methods({
                 newContents = JSON.parse(newContents);
                 newContentsString = JSON.stringify(newContents);
                 //chck if it is a module or an assessment
-                if(newContentsString.includes("pages")){
+                if(newContentsString.includes("assessmentReportConstants")){
                     // it is a module
                     console.log("uploading module");
                     Meteor.call("uploadModule",path, owner, newContentsString);

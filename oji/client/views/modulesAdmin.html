@@ -3,14 +3,17 @@
         <b>{{currentUser.firstname}}'s Control Panel</b>
     </div>
     <div class="container content">
+        {{> menu}}
     <div class="container profileCard">
         <ul class="nav nav-tabs" style>
             <li class="nav-item">
             <a class="nav-link active" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
             </li>
+            {{#if isInRole 'admin'}}
             <li class="nav-item">
                 <a class="nav-link active" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Modules and Assessments</a>
                 </li>
+                {{/if}}
             <li class="nav-item">
             <a class="nav-link toggle-users-view" href="/usersAdmin">Users</a>
             </li>

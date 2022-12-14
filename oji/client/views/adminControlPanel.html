@@ -3,14 +3,17 @@
         <b>{{currentUser.firstname}}'s Control Panel</b>
     </div>
     <div class="container content">
+        {{> menu}}
     <div class="container profileCard">
         <ul class="nav nav-tabs" style>
             <li class="nav-item">
             <a class="nav-link active" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
             </li>
+            {{#if isInRole 'admin'}}
             <li class="nav-item">
                 <a class="nav-link active" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Modules and Assessments</a>
                 </li>
+                {{/if}}
             <li class="nav-item">
             <a class="nav-link toggle-users-view" href="/usersAdmin">Users</a>
             </li>
@@ -26,17 +29,18 @@
             <br><button id="regen-link" class="btn btn-caution">Regenerate Link</button>
             </p>
             </div>
-            <div class="profileCard">
             {{#if isInRole 'admin'}}
+            <div class="profileCard">
             <p><h3>API Information</h3>API allows you to get raw anonymized JSON data about your organization for use in other apps.<br><br>{{#if apiKeys.expired}} is expired. {{else}} (Expires {{apiKeys.expires}}):<br>
             <b>[x-user-id]:</b> {{currentUser.username}}<br>
             <b>[x-auth-token]:</b> {{apiKeys.token}} {{/if}} <br> 
             Example CURL command:<br> <code>{{apiKeys.curlExample}}</code><br>
             </p> 
             <button id='gen-key' class="btn btn-caution">Generate New 30 Day Key</button>
+        </div>
             {{/if}}
         </div>
-        </div>
+        {{#if isInRole 'admin'}}
         <div class="profileCard">
         <h3>Assets Uploader</h3>
         <p>This uploads your assets for use in modules or JSON modules. You may use image and video files. A link will be generated for you to use in authoring.</p>
@@ -48,11 +52,14 @@
         {{/with}}
         <br>
     </div>
+    {{/if}}
+    {{#if isInRole 'admin'}}
         <div class="profileCard">
             <h3>Google API Key:</h3>
             <input type="text" class="form-control" id="googleAPIKey" value="{{googleAPIKey}}">
             <button class="btn btn-primary" type="button" id="googleAPIKeyButton">Save</button>
             <button class="btn btn-primary" type="button" id="testGoogleVoice">Test</button>
         </div>
+        {{/if}}
     </div>
 </template>

@@ -42,14 +42,12 @@
             {{#if isInRole 'supervisor,admin'}}
             <h3>Compose</h3>
             <div class="form-group">
-                <label for="msg-to">To</label>
                 <select id="msg-to">
                     {{#each usersList}}
                     <option value="{{this._id}}">{{this.firstname}} {{this.lastname}}</option>
                     {{/each}}
                 </select>
             </div>
-            <label for="msg-subject">Subject</label>
             {{#if curMessage}}
             <input type="text"  id="msg-subject" value="Re: {{curMessage.subject}}">
             {{else}}
