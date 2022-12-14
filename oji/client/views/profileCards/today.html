@@ -1,0 +1,21 @@
+<template name="today">
+    {{#if today}}
+    <div class="text-center daySelector" role="alert">
+        <table style="width:100%">
+            <tr class="">
+                <td class="eventTime-{{today.importance}}">
+                    <h2>{{today.time}}</h2>
+                </td>
+                <td class="eventTitle">
+                    <h4>{{today.title}}</h4>
+                    <h5>{{today.importance}} priorty</h5>
+                </td>
+            </tr>
+        </table>
+    </div>
+    {{else}}
+    <div class="text-center daySelector" role="alert">
+        <h3>No events are scheduled for today.</h3>
+    </div>
+    {{/if}}
+</template>

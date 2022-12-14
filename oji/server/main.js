@@ -1055,12 +1055,22 @@ Meteor.methods({
     },
     
     userFinishedOrientation: function(){
+        //get user org
+        const userOrg = Meteor.user().organization;
+        //get the org
+        const org = Orgs.findOne({'_id': userOrg});
+        //get the org's modules
+        const newModules = org.newUserAssignments;
+        //only get type 'assessment'
+        const newAssessments = newModules.filter(function(module){
+            return module.type == 'assessment';
+        });
         Meteor.users.update(Meteor.userId(), {
             $set: {
-                hasCompletedFirstAssessment: true
+                hasCompletedFirstAssessment: true,
+                assigned: newAssessments
             }
         });
-        sendSystemMessage(Meteor.userId(), "You have completed the orientation. You can now begin taking the first assessment.");
     },
     getAsset: function(fileName){
         result =  Assets.absoluteFilePath(fileName);
@@ -1502,7 +1512,7 @@ Meteor.publish(null, function() {
 });
 //get my events
 Meteor.publish(null, function() {
-    return Journals.find({createdBy: this.userId});
+    return Journals.find({createdBy: this.userId}, {sort: {unixDate: -1}});
 });
 
 //get all organization events

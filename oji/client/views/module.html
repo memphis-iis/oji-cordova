@@ -1,34 +1,35 @@
 <template name="module">
+    <div class="titlebar">
+        <b>Module</b>
+    </div>
     <br>
-    <div class="px-4 py-5 my-5 text-center">
+    <div class="text-center content">
        {{#if this.pageId}}
-       <h3>
-       {{#if page.header}}
-            <h3>{{page.header}}<button class="btn btn-primary readTTS" data-text="{{page.header}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button></h3>
-        {{/if}}
-        {{#if page.subheader}}
-            <p class="lead mb-4">{{page.subheader}}<button class="btn btn-primary readTTS" data-text="{{module.subheader}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button></p>
-        {{/if}}
-        </h3>
         {{#if completed}}
+        <div class="profileCard">
             <p class="lead mb-4">{{module.title}}</p>
             <p class="lead mb-4">You have completed this module! A certificate will be awarded to you after your supervisor reviews the results.</p>
-            <button class="btn btn-primary readTTS" data-text="You have completed this module! A certificate will be awarded to you after your supervisor reviews the results."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            <button class="btn btn-primary readTTS-solo" data-text="You have completed this module! A certificate will be awarded to you after your supervisor reviews the results."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            <br>
+            
             {{#if isNewUserAssignment}}
-            <button class="btn btn-primary begin" id="continueJourney"> Continue your journey</button><button class="btn btn-primary readTTS" data-text="Continue Your Journey"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            <button class="btn btn-primary begin answer" id="continueJourney"> Continue your journey</button><button class="btn btn-primary readTTS" data-text="Continue Your Journey"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             {{else}}
-                <button class="btn btn-primary return" id="goBack"><span class="glyphicon glyphicon-home"></span> Return to My Profile</button><button class="btn btn-primary readTTS" data-text="Return to My Profile"><span class=" glyphicon glyphicon-bullhorn" ></span></button>    
+                <button class="btn btn-primary return answer" id="goBack"><span class="glyphicon glyphicon-home"></span> Return to My Profile</button><button class="btn btn-primary readTTS" data-text="Return to My Profile"><span class=" glyphicon glyphicon-bullhorn" ></span></button>    
             {{/if}}
+            </div>
         {{else}}
-        <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
         <br>
         {{#if page.typeText}}
+        <div class="profileCard">
+        <h3>{{page.subheader}}</h3>
+        <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
         {{#if page.imageAbove}}
             <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             <br>
         {{/if}}
         <p class="lead mb-4">{{{page.text}}}</p>
-        <button class="btn btn-primary readTTS" data-text="{{page.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+        <button class="btn btn-primary readTTS-solo" data-text="{{page.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
         <br>
         <br>
         {{#if page.imageBelow}}
@@ -38,6 +39,7 @@
         {{/if}}
         <button id="contine" class="btn btn-primary continue answer">Save and Continue</button>
         <button class="btn btn-primary readTTS" data-text="Save and Continue"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+    </div>
         {{/if}}
         {{#if this.questionId}}
             {{#if question.promptImg}}
@@ -45,7 +47,7 @@
             {{/if}}
             {{#if question.typeBlank}}
                 <p class="lead mb-4">{{{question.prompt}}}</p><br>
-                <button class="btn btn-primary readTTS" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                <button class="btn btn-primary readTTS-solo" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                 <form>
                     <input type="text" class="textInput">
                 </form>
@@ -55,7 +57,7 @@
             {{/if}}
             {{#if question.typeLongText}}
                 <p class="lead mb-4">{{{question.prompt}}}</p><br>
-                <button class="btn btn-primary readTTS" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                <button class="btn btn-primary readTTS-solo" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                 <form>
                     <textarea style="height:100px; width:100%;" class="textareaInput"></textarea>
                 </form>
@@ -65,7 +67,7 @@
             {{/if}}
             {{#if question.typeMultiChoice}}
             <p class="lead mb-4">{{{question.prompt}}}</p><br>
-            <button class="btn btn-primary readTTS" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            <button class="btn btn-primary readTTS-solo" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             <form>
                 {{#each question.answers}}
                     {{#if this.image}}
@@ -81,18 +83,23 @@
             <br>
             {{/if}}
             {{#if question.typeCombo}}
+            <div class="profileCard">
+            <h3>{{page.subheader}}</h3>
+            <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
             <p class="lead mb-4">{{{question.prompt}}}</p>
-            <button class="btn btn-primary readTTS" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            <button class="btn btn-primary readTTS-solo" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            </div>
                 <form>
                     <br>
                 {{#each question.fields}}
+                <div class="profileCard">
                     {{#if this.typeDisplayText}}
                <p class="lead mb-4">{{this.text}}</p>
-               <button class="btn btn-primary readTTS" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+               <button class="btn btn-primary readTTS-solo" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                     {{/if}}
                     {{#if this.typeBlank}}
                <p class="lead mb-4">{{this.text}}</p>
-               <button class="btn btn-primary readTTS" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+               <button class="btn btn-primary readTTS-solo" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                             <input class="combo" type="text">
                     {{/if}}
                     {{#if this.typeLongText}}
@@ -104,46 +111,51 @@
                    {{/if}}
                     {{#if this.typeMultiChoice}}
            <p class="lead mb-4">{{this.text}}</p>
-           <button class="btn btn-primary readTTS" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+           <button class="btn btn-primary readTTS-solo" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+           <br>
                         {{#each this.answers}}
                         {{#if this.image}}
-                        <button  class="btn btn-secondary  text-nowrap btn-lg btn-block multichoice combo" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{@index}}" name="">
+                        <button  class="btn btn-secondary  text-nowrap btn-lg multichoice" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{@index}}" name="">
                             <img class="img-responsive center-block" src="{{this.image}}" alt="Your Alt Text">
                         </button>
                         {{else}}
-                        <button  class="btn btn-secondary  text-nowrap btn-block multichoice btn-color-{{this.color}} combo answer" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{@index}}" name="">{{this.answer}}</button>
+                        <button  class="btn btn-secondary  text-nowrap  multichoice btn-color-{{this.color}} answer" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{@index}}" name="">{{this.answer}}</button>
                         <button class="btn btn-primary readTTS" data-text="{{this.answer}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                         {{/if}}
                         {{/each}}
                     {{/if}}
                     <br>
+                    </div>
                 {{/each}}
                 </form> 
-                <br>
+                <div class="profileCard">
                 <button  class="btn btn-primary continue answer" id="continue answer" name=""><span class="glyphicon glyphicon-play"></span>  Save and Continue</button><button class="btn btn-primary readTTS" data-text="Save and Continue"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            </div>
             
             <br>
             {{/if}}
         {{else}}
         {{#if page.typeActivity}}
-        <h3>Instructions</h3>
+        <div class="profileCard">
+        <h3>{{page.subheader}}</h3>
+        <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
         <p>{{page.instructions}}</p>
         {{#if isFurthestPage}}
-            <button class="btn btn-primary btn-wide" id="startActivity"><h3><b>Continue</b></h3></button>
+            <button class="btn btn-primary" id="startActivity"><h3><b>Continue Activity</b></h3></button>
         {{else}}
             <p>You have already completed this activity.</p>
-            <button class="btn btn-primary readTTS" data-text="You have already completed this activity"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            <button class="btn btn-primary readTTS-solo" data-text="You have already completed this activity"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
         {{/if}}
+        </div>
         {{/if}}
         {{/if}}
         {{/if}}
        {{else}}
+            <div class="profileCard">
             <h3>{{module.title}}</h3>
             <p class="lead mb-4">{{module.subtitle}}</p>
-            <button class="btn btn-primary readTTS" data-text="{{module.title}}. {{module.subtitle}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
-            <br>
             <p class="lead mb-4">{{module.description}}</p>
-            <button class="btn btn-primary readTTS" data-text="{{module.description}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            <button class="btn btn-primary readTTS-solo" data-text="{{module.title}} {{module.subtitle}}. {{module.description}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             <br>
             {{#if resume}}
             <button class="btn btn-primary answer" id="resumeModule"><span class="glyphicon glyphicon-play"></span> Lets Continue!</button><button class="btn btn-primary readTTS" data-text="Let's Continue"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
@@ -152,6 +164,8 @@
             <button class="btn btn-primary answer" id="startModule"><span class="glyphicon glyphicon-play"></span> Lets Begin!</button><button class="btn btn-primary readTTS" data-text="Let's begin"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             <button class="btn btn-caution answer" id="goBack"><span class="glyphicon glyphicon-home"></span> Return to Welcome Page.</button><button class="btn btn-primary readTTS" data-text="Return to welcome page"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             {{/if}}
+        </div>
         {{/if}}
-    </div>
+        {{> menu}}
+        </div>
 </template>

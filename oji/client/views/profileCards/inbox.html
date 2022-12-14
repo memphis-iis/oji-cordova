@@ -1,0 +1,24 @@
+<template name="inbox">
+    {{#if message}}
+    <div class="profileCard">
+    <h3 class="text-left">Inbox</h3>
+    <table style="width:100%;">
+        <tbody>
+            {{#each message}}
+            <tr class="message">
+                <td class="messageDateSmall">
+                    <h2>{{this.dateReadable}}</h2>
+                </td>
+                <td class="text-left">
+                    <b>{{this.subject}}</b><br>
+                    {{this.fromName}}<br>
+                    View this in your <a href="/messages">inbox</a>.
+                </td>
+                <td><br></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    </div>
+    {{/if}}
+</template>

@@ -1,5 +1,9 @@
 <template name="usersAdmin">
-    <div class="container">
+    <div class="titlebar">
+        <b>{{currentUser.firstname}}'s Control Panel</b>
+    </div>
+    <div class="container content">
+        <div class="container profileCard">
         <ul class="nav nav-tabs" style>
             <li class="nav-item">
             <a class="nav-link active" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
@@ -12,7 +16,42 @@
             </li>
         </ul>
     </div>
-    <div class="px-4 py-5 my-5 container">
+    {{#if isInRole 'admin'}}
+    <div class="profileCard container hideOnUserSelect">
+                <h3>Supervisors</h3>
+                <table class="table" id="supervisorListTable">
+                <thead>
+                <tr>
+                    <th scope="col" width="30%">Last</th>
+                    <th scope="col" width="30%">First</th>
+                    <th scope="col" width="40%">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each supervisorsList}}
+                        <tr>
+                            <th scope="row">{{this.lastname}}</th>
+                            <td>{{this.firstname}}</td>
+                            <td>
+                                <a id="supervisorsDestroyButton" href="#" data-supervisorID="{{this._id}}" data-lastname="{{this.lastname}}" data-firstname="{{this.firstname}}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                    </svg>
+                                </a>
+                                <a id="supervisorDemoteButton" href="#" data-supervisorID="{{this._id}}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            </div>
+            {{/if}}
+    <div class="profileCard container hideOnUserSelect">
       
 
             <h3>Users</h3>
@@ -59,8 +98,7 @@
         </tbody>
     </table>
 </div>
-    <div class="px-4 py-5 my-5 container">
-        <div class="col-4">
+    <div class="profileCard container">
             
             <h3>User Select</h3>
             <select id="user-select">
@@ -69,51 +107,18 @@
                 <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
             {{/each}}
            </select><br><br>
+           </div>
            {{#if userSelected}}
+           <div class="profileCard container">
             <h3>{{userSelected.lastname}}, {{userSelected.firstname}}</h3>
-            <h4>
-                Transfers
-            </h4>
-            <p>Reversing an organizqational transfer requires contact with the other organziation.</p>
-            <form>
-                <div class="form-group">
-                    <label for="transferTo">Transfer To Supervisor:</label>
-                    <select id="transferTo">
-                        {{#each supervisorsList}}
-                            <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
-                        {{/each}}
-                    </select>
-                </div>
-                <button type="button" class="btn btn-primary" id="transferSupervisorButton">Transfer Supervisors</button>
-                <div class="form-group">
-                    <label for="transforToOrg">Transfer To supervisor at other organization by code:</label>
-                    <input type="text"  id="transferToOrg" placeholder="Organization Code">
-                </div>
-                <button type="button" class="btn btn-primary" id="transferOrgButton">Transfer to Supervisor at another organization</button>
-            </form>
+            </div>
             {{#if orgViewOn}}
                  User Flow can be seen when selecting an individual user  that you supervise.
             {{else}}
-            {{#if userSelected.editedClassList}}
-            <h4>Entrolled Classes</h4>
-            <table class="table" id="classList">
-                <thead>
-                    <th scope="col" width="50%">Classes</th>
-                    <th scope="col" width="50%">Actions</th>
-                </thead>
-                <tbody>
-                {{#each userSelected.editedClassList}}
-                    <tr>
-                        <td>{{this.name}}</td>
-                        <td>
-                            <a id="unassign-class" data-class-id="{{this.classId}}">Remove From Class</a></td>
-                    </tr>
-                {{/each}}
-                </tbody>
-            </table>
-            {{/if}}
+                
             {{#if assignments}}
-            <h4>Individual Assignments</h4>
+            <div class="profileCard container">
+                <h3>Individual Assignments</h3>
             <table class="table" id="assessmentList">
                 <thead>
                     <th scope="col" width="50%">Assignment</th>
@@ -137,25 +142,11 @@
                 {{/each}}
                 </tbody>
             </table>
+            </div>
             {{/if}}
-
-            {{#if modulesAvailable}}
-            <h4>Available Assignments</h4>
-            <table class="table" id="assessmentList">
-                <thead>
-                    <th scope="col" width="70%">Module</th>
-                    <th scope="col" width="30%">Actions</th>
-                </thead>
-                <tbody>
-                {{#each modulesAvailable}}
-                    <tr>
-                        <td>{{this.title}}</td>
-                        <td><a id="assign-module" data-module-id="{{this._id}}">Assign to User</a></td>
-                    </tr>
-                {{/each}}
-                </tbody>
-            </table>
             {{#if assessmentsAvailable}}
+            <div class="profileCard container">
+            <h3>Available Assessments</h3>
             <table class="table" id="assessmentList">
                 <thead>
                     <th scope="col" width="70%">Assessment</th>
@@ -170,10 +161,30 @@
                 {{/each}}
                 </tbody>
             </table>
+            </div>
             {{/if}}
             
             {{/if}}
-            <h4>History</h4>
+            {{#if modulesAvailable}}
+            <div class="profileCard container">
+            <h3>Available Modules</h3>
+            <table class="table" id="assessmentList">
+                <thead>
+                    <th scope="col" width="70%">Module</th>
+                    <th scope="col" width="30%">Actions</th>
+                </thead>
+                <tbody>
+                {{#each modulesAvailable}}
+                    <tr>
+                        <td>{{this.title}}</td>
+                        <td><a id="assign-module" data-module-id="{{this._id}}">Assign to User</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            </div>
+            <div class="profileCard container">
+            <h3>History</h3>
             {{#if assessments}}
                 <table class="table" id="moduleList">
                     <thead>
@@ -198,7 +209,7 @@
                     </tbody>
                 </table>
                 {{else}}
-                No assessments have been started by this user.<br>
+                <p>No assessments have been started by this user.<br></p>
                 {{/if}}
             {{#if modules}}
             <table class="table" id="moduleList">
@@ -226,8 +237,30 @@
             {{else}}
             No modules have been started by this user.
             {{/if}}
+            </div>
             {{/if}}
+            <div class="profileCard container">
+                <h3>
+                    Transfers
+                </h3>
+                <p>Reversing an organizational transfer requires contact with the other organziation.</p>
+                <form>
+                    <div class="form-group">
+                        <label for="transferTo">Transfer To Supervisor:</label>
+                        <select id="transferTo">
+                            {{#each supervisorsList}}
+                                <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="transferSupervisorButton">Transfer Supervisors</button>
+                    <div class="form-group">
+                        <label for="transforToOrg">Transfer To supervisor at other organization by code:</label>
+                        <input type="text"  id="transferToOrg" placeholder="Organization Code">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="transferOrgButton">Transfer to Supervisor at another organization</button>
+                </form>
+                </div>
             {{/if}}
-        </div>
-    </div>
+    </div> 
 </template>

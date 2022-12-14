@@ -1,24 +1,28 @@
 <template name="information">
-    <div class="px-4 py-5 my-5">    
-       <h2>Previous Content</h2>
-         <p>Here is the content you have already completed.</p>
-        <ul>
-            <li>
+    <div class="titlebar">
+        <b>Information</b>
+    </div>
+    <div class="text-center content container">  
+        <div class="text-center profileCard" role="alert">
+       <h3>Previous Content</h3>
+         <p>Here is the content you may have already completed.</p>
                 <a href="/welcome">Welcome Page</a>
-            </li>
             
-        </ul>
-
-       <h2>Ask A Question</h2>
+        </div>
+        <div class="text-center daySelector" role="alert">
+       <h3>Ask A Question</h3>
        <p class="lead mb-4">Please use a form below to send a message to your supervisor.</p>
        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <form>
                 <div class="form-group">
-                    <textarea id="question" rows="3" style="width:100%"></textarea>
+                    <textarea id="question" rows="3" style="width:90%"></textarea>
+                    <br>
                     <br>
                     <button type="submit" id="newMessage" class="btn btn-primary">Send Message</button>
                 </div>
             </form>
         </div>
     </div>
+    {{> menu}}
+</div>
 </template>

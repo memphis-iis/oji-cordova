@@ -1,10 +1,14 @@
 <template name="welcome">
-    <div class="text-center">
-        <h1>Welcome to Oji’s Journey℠!</h1>
-        <h4>[pronounced Ode-zee]</h4>
+    <div class="titlebar">
+        <b>{{currentUser.firstname}}'s Journey</b>
+    </div>
+    <div class="container content">
+    <div class="text-center profileCard">
+        <h3>Welcome to Oji’s Journey℠!</h3>
+        <h5>[pronounced <i>Ode-zee</i>]</h5>
         <br>
     </div>
-    <div class="text-left">
+    <div class="text-left profileCard">
         <p>Ojihozo (or Odzihozo) is a Native American supernatural being from the Abenaki Tribe who brought himself into this world—as the legend says, he created himself from nothing. He is the one who shaped himself. Ojihozo’s journey to self-creation wasn’t easy and he struggled at times. With persistence, he was able to form a complete self, and with his newly completed body, went on to create beautiful things like lakes, rivers, mountains, and valleys.</p>
         <p>You are completing this program because you need to make some changes in your life. These changes include new ways of thinking about you and your world as well as new ways of reacting to your world and the people in it. Like Ojihozo, you are setting off on a journey to shape yourself and, through this journey, there may be times when you struggle. Unlike Ojihozo, who rose from nothing, you are starting out with your own unique strengths and experiences. This app is designed to build on those strengths, and provide you with the tools and support you need to meet your goals, including living an offense-free life.</p>
         <p>You will start with an assessment of your treatment needs—that is, what are some of your personal areas for growth? These assessments will also help track your progress throughout the program. <b>Because your treatment and progress are informed by these assessments, it is important that you answer each question honestly.</b></p>
@@ -21,4 +25,6 @@
         </div>
         <br>
     </div>
+    {{> menu}}
+</div>
 </template>

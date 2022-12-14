@@ -1,9 +1,13 @@
 <template name="userAssessmentReport">
     <br>
-    <div class="assessment-report-container">
-        <div class="item" style="flex-grow: 2; flex-basis: 30rem;">
+    <div class="titlebar">
+        <b>{{currentUser.firstname}}'s Report</b>
+    </div>
+    <div class="assessment-report-container content">
+
+        <div class="item profileCard">
             <div class="tab">
-                <button class="tabLinks" data-linkName="Scores">Scores</button>
+                <button class="tabLinks" data-linkName="Scores">Graph</button>
                 {{#if displayCritItems}}
                 <button class="tabLinks" data-linkName="CriticalItems">Critical Items</button>
                 {{/if}}
@@ -11,6 +15,10 @@
               </div>
               
               <div id="Scores" class="tabcontent" style="display: block;">
+                <div class="trialReportChartContainer" id="trialReportChartContainer">
+                    {{chart}}
+                    <canvas id="trialReportChart"></canvas>
+                </div>
                 <table class="table" id="subscaleBreakdown">
                     <thead>
                         <tr>
@@ -62,9 +70,6 @@
                 </table>
               </div>
         </div>
-        <div class="trialReportChartContainer" id="trialReportChartContainer">
-            {{chart}}
-            <canvas id="trialReportChart"></canvas>
-        </div>
+        {{> menu}}
     </div>
 </template>

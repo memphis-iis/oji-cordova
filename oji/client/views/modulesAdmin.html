@@ -1,5 +1,9 @@
 <template name="modulesAdmin">
-    <div class="container">
+     <div class="titlebar">
+        <b>{{currentUser.firstname}}'s Control Panel</b>
+    </div>
+    <div class="container content">
+    <div class="container profileCard">
         <ul class="nav nav-tabs" style>
             <li class="nav-item">
             <a class="nav-link active" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
@@ -17,8 +21,7 @@
         Author mode activated. All editing is enabled.
     </div>
     {{/if}}
-    <div class="px-4 py-5 my-5 container">
-        <div class="col-4">
+    <div class="profileCard">
             <h3>Default Flow</h3>
             This is the flow of assignments and modules for new users.
             {{#if assignments}}
@@ -51,6 +54,8 @@
             {{else}}
             Your organization does not have a default assignment flow for new users.
             {{/if}}
+            </div>
+            <div class="profileCard">
             <h3>Assessments Available</h3>
             <div id="alert" class="alert" role="alert" hidden>
                 <span id="alert-p"></span>
@@ -129,7 +134,8 @@
                 </tr>
                 </tbody>
                 </table>
-
+                </div>
+                <div class="profileCard">
                 <h3>Modules Available</h3>
                 <div id="alert-mods" class="alert" role="alert" hidden>
                     <span id="alert-mods-p"></span>

@@ -15,6 +15,7 @@ Template.profile.helpers({
                 if(assigned[0].type == "assessment"){
                     assignment = Assessments.findOne({_id: assigned[0].assignment});
                     assignment.isAssessment = true;
+                    assignment.id = assigned[0].assignment._id;
                 }
 
                 if(assigned[0].type == "module"){
@@ -22,6 +23,7 @@ Template.profile.helpers({
                     assignment.isModule = true;
                 }
             }
+            console.log("assignment: " + JSON.stringify(assignment));
             return assignment;
         }
     },
@@ -56,14 +58,30 @@ Template.profile.helpers({
 })
 
 Template.profile.events({
-    'click #startAssessment': function(){
-        assignment = $(event.target).data("assessmentId");
-        target = "/assessment/" + assignment;
-        Router.go(target);
+    'click #startJourney': function(){
+        const user = Meteor.user();
+        const org = Orgs.findOne();
+        //set user's startedJourney to true
+        Meteor.call('startJourney', user._id);
+        if(user && org){
+            //get user assignments
+            assignments = user.assigned;
+            //if the length of the assignments array is greater than 1
+            if(assignments.length >= 1){
+                //get first assignment
+                assignment = assignments[0];
+                Meteor.call('setCurrentAssignment', assignment.assignment);
+                target = `/${assignment.type}/` + assignment.assignment;
+                Router.go(target);
+            } else {
+                Router.go('/')
+            }
+        } else {
+            Router.go('/');
+        }
     },
-    'click #startModule': function(){
-        assignment = $(event.target).data("assessmentId");
-        target = "/module/" + assignment
+    'click #welcome': function(){
+        target = "/welcome/";
         Router.go(target);
     },
     'click #assessmentCenter': function(){

@@ -4,6 +4,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet"> 
   <style>
     body {
         /* Handle fixed navbars at bottom of page */
@@ -20,12 +21,14 @@
   <div class="menu">
     <div class="container">
       <div class="row">
+        {{#if currentUser }}
         <div class="col-xs-6">
           <a href="/"><img id="logo-color" src="/logo.png" style="max-width:60px;"></a>
-      </div>
+        </div>
       <div class="col-xs-6 float-end text-end">
         <div class="badge badge-pill badge-primary" id="userBadge"><span style="text-align:center; margin-left:-5px">{{currentUserAbrieviation}}</span></div>
       </div>
+      {{/if}}
     </div>
     </div>
   </div>

@@ -171,6 +171,8 @@ Template.module.helpers({
 Template.module.events({
     'click .continue': function(event) {
         event.preventDefault();
+        //scroll to top of page
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
         const curModule = Modules.findOne();
         const curUser = Meteor.user();
         const t = Template.instance();
@@ -299,11 +301,20 @@ Template.module.events({
                 target = "/module/" + curModule._id + "/" + moduleData.nextPage;
             }
             pageType = curModule.pages[thisPage].type;
-            data = {
-                pageId: thisPage,
-                response: "read",
-                responseTimeStamp: Date.now().toString(),
-                type: questionData.questionType
+            if(typeof questionData !=="undefined"){
+                data = {
+                    pageId: thisPage,
+                    response: "read",
+                    responseTimeStamp: Date.now().toString(),
+                    type: questionData.questionType
+                }
+            } else {
+                data = {
+                    pageId: thisPage,
+                    response: "read",
+                    responseTimeStamp: Date.now().toString(),
+                    type: pageType
+                }
             }
         }
         if(moduleData.nextPage >= curModule.pages.length){

@@ -82,7 +82,7 @@ Router.route('/', function () {
 //setup logout
 Router.route('/logout', function(){
   Meteor.logout();
-  this.render('home');
+  window.location = '/';
 })
 
 // admin control panel route

@@ -2,10 +2,7 @@
 /* Main Elements */
 body{
     /* gradient background */
-    background-attachment:fixed;
-    background-size: cover;
-    background-image: url("/main-background.jpg");
-    color:white;
+    background-image: linear-gradient(to right, #b4573f, #13504d);
     color:white;
 }
 #container-yield{
@@ -26,26 +23,28 @@ body{
     font-weight: 800;
     font-style: bold;
     font-stretch: condensed;
-    font-size:30px;
-    color:#473d3a;
+    font-size:20px;
+    color:#a18d87;
 }
 .titlebar{
     font-family: 'Rubik', sans-serif;
     font-weight: 800;
     font-style: bold;
     font-stretch: condensed;
-    font-size:30px;
-    color:#473d3a;
+    font-size:20px;
+    color:white;
+    margin-bottom: 
 }
 .content{
+    background-attachment:fixed;
+    background-size: cover;
+    background-image: url("/main-background.jpg");
     background-color: rgba(0, 0, 0, 0.5);
-    border-top-color: #e26b4d;
-    border-top-width: 5px;
-    border-top-style: solid;
     border-top-right-radius: 10vw;
     border-top-left-radius: 10vw;
     min-height: 100vh;
     width:100%;
+    padding-top: 30px;
     /* top box shadow */
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
@@ -90,18 +89,155 @@ body{
 #userBadge:hover{
     background-image: linear-gradient(to top, #e26b4d, #22847f);
 }
+.menu-container{
+    padding:20px;
+    width:100%;
+    border-radius: 10px;
+    text-align: center;
+}
+.daySelector{
+    background-image: linear-gradient(to top, #110806, #061b1a);
+    color: white;
+    border-radius: 10px;
+    padding-top:30px;
+    padding-bottom: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top:20px;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    /* box shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    font-family: 'Arvo', serif;
+}
+.message{
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    font-family: 'Arvo', serif;
+    border-radius: 30px;
+
+
+}
+.messageDate{
+    max-width: 80px;
+}
+.messageDateSmall{
+    max-width: 120px;
+}
+.messageDate h2, .messageDateSmall h2{
+    color: #e26b4d;
+    border: #061b1a 1px solid;
+    padding-left: 10px;
+    background-image: linear-gradient(to top, #e26b4d, #22847f);
+    padding: 30px;
+    color: white;
+    border-radius: 30px;
+    font-size: 15px;
+    max-width: 150px;
+
+}
+.eventTime-Critical h2{
+    color: #e26b4d;
+    border: #061b1a 1px solid;
+    padding-left: 10px;
+    background-image: linear-gradient(to top, #e24d4d, #842222);
+    padding: 30px;
+    color: white;
+    border-radius: 30px;
+}
+.eventSelector{
+    background-image: linear-gradient(to top, #421f17, #124e4b);
+    color: white;
+    border-radius: 10px;
+    padding-top:30px;
+    padding-bottom: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top:20px;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    /* box shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    font-family: 'Arvo', serif;
+    width:80%;
+    margin: auto;
+    display: block;
+
+}
+.eventTime-Low, .eventTime-Medium, .eventTime-Critical{
+    max-width: 100px;
+}
+.eventTime-Low h2, .eventTime-Medium h2{
+    color: #e26b4d;
+    border: #061b1a 1px solid;
+    padding-left: 10px;
+    background-image: linear-gradient(to top, #e26b4d, #22847f);
+    padding: 30px;
+    color: white;
+    border-radius: 30px;
+}
+.eventTitle{
+    vertical-align: middle;
+    text-align: left;
+}
+.event{
+    width:100%;
+    border: #061b1a 1px solid;
+    animation: fadeInUp 1s;
+    
+}
+.daySelect{
+    border: #22847f 1px solid;
+    font-size: 15px;
+    line-height: 30px;
+    border-radius:30x;
+    color: white;
+    padding: 10px;
+    min-width:30px;
+    min-height:30px;
+    margin-right: 5px;
+}
+.today-true{
+    border: #cc3232 1px solid;
+}
 .menuItem{
     background: #22847f;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 30px;
-    border-radius: 50px, 50px, 50px, 25px;
+    border-radius:30x;
     color: white;
-    border:white 2px solid;
-    margin-top:10px;
-    margin-right: 10px;
     padding: 10px;
-    width:50px;
-    height:50px;
+    min-width:30px;
+    min-height:30px;
+    margin-right: 10px;
+}
+.cardIcon{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 15px;
+}
+/* fade in and up  animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+/* fade out and down animation */
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
 }
 #activateMenu{
     color: #22847f;
@@ -111,6 +247,86 @@ body{
     height: 50px;
     font-size: 22px;
     margin-bottom: 50px;
+}
+.alert{
+    background-image: linear-gradient(to top, #e26b4d, #22847f);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top:20px;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    /* box shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    
+}
+.profileCard{
+    background-image: linear-gradient(to top, #492117, #0d312f);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top:20px;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    /* box shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+.profileCard p{
+    margin-left:20px;
+}
+.profileCard [hidden]{
+    animation: fadeOutDown 1s;
+
+}
+.profileCard label{
+    margin-left:20px;
+}
+.profileCard input, select{
+    margin-left:20px;
+    max-width: 80%;
+}
+.profileCard select{
+    margin-left:20px;
+}
+.profileCard button{
+    margin-left:20px;
+}
+.menuCard{
+    background-image: linear-gradient(to top, #110806, #061b1a);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top:20px;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    /* box shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+.profileCardNext{
+    background-image: linear-gradient(to top, #e26b4d, #22847f);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top:20px;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    /* box shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+.profileCard h3, .profileCardNext h3, .menuCard h3{
+    font-family: 'Arvo', serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: bold;
+    font-stretch: condensed;
+    font-size:25px;
+    margin-bottom: 20px;
 }
 a {
     color:white;
@@ -187,11 +403,23 @@ p ul{
     border-width: 5px;
 }
 .answer, .resume, .return, .begin{
-    width:80%
+    width:80%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 .readTTS{
+    margin-left: 0px !important;
     background-color: transparent;
-    border: 1px solid #e26b4d;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-image: linear-gradient(to top, #e26b4d, #22847f);
+}
+.readTTS-solo{
+    background-color: transparent;
+    border: none;
+
 }
 .calendar-today-true {
     background-color: #22847f;
@@ -203,9 +431,11 @@ input, option, textarea, select {
     color:white;
     background-color: black;
     border: none;
-    width: 100%;
+    width: 90%;
     min-height: 30px;
     font-size: 20px;
+    border-radius: 5px;
+    margin: 5px;
 }
 .tab{
     background-color: rgba(0, 0, 0, 0.5);

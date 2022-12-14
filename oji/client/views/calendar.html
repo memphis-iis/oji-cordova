@@ -1,204 +1,79 @@
 <template name="calendar">
-        <div class="titlebar">
-        <b>{{currentUser.firstname}}'s Calendar</b>
+    <div class="titlebar">
+        <b>{{currentUser.firstname}}'s Agenda</b>
     </div>
-    <div class="container content">
-        <div class="row text-center" id="month-view">
-            <h3><a href="#" class="nav-link" id="decrement-month"><span class="glyphicon glyphicon-chevron-left"></span></a> {{calendar.Month}} / {{calendar.Year}} <a href="#" class="nav-link" id="increment-month"><span class="glyphicon glyphicon-chevron-right"></span></a></h3>
-
-            <table class="table" style="width:100%">
-                <thead>
-                    <th scope="col" width="1%"></th>
-                    <th scope="col" width="14%">Sun</th>
-                    <th scope="col" width="14%">Mon</th>
-                    <th scope="col" width="14%">Tues</th>
-                    <th scope="col" width="14%">Wed</th>
-                    <th scope="col" width="14%">Thur</th>
-                    <th scope="col" width="14%">Fri</th>
-                    <th scope="col" width="14%">Sat</th>
-                    <th scope="col" width="1%"></th>
-                </thead>
-                <tbody>
-                    {{#each calendar.weeks}}
-                    <tr>
-                    <td></td>
-                        {{#each this.days}}
-                            {{#if this.display}}
-                                    <td class="text-align-top text-left calendar-today-{{today}}">
-                                    <a class="toggle-agenda-view" data-month="{{calendar.NumMonth}}" data-day="{{this.dayNum}}" data-year="{{calendar.Year}}">{{dayNum}}
-                                        <br>
-                                        {{#if hasEvents}}
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        {{/if}}   
-                                        {{#if hasEntries}}
-                                            <span class="glyphicon glyphicon-pencil"></span>
-                                        {{/if}}
-                                        {{#if hasExercises}}
-                                            <span class="glyphicon glyphicon-heart"></span>
-                                        {{/if}}
-                                    </a>
-                                    </td>
-                            {{else}}
-                            <td class="no-calendar-day">
-                            </td>
-                            {{/if}}
-                        {{/each}}
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
+    <div class="text-center content container">
+    <div class="text-center daySelector" role="alert">
+        <div class="flex-row justify-content-center">
+            <div class="flex-col">
+                <a class="daySelect today-{{calendar.relToday}}" data-date="{{calendar.relToday}}">Today</a>
+                {{#each calendar.daysOfWeek}}
+                    <a class="daySelect today-{{this.today}}" data-date="{{this.relDay}}">{{this.day}}</a>
+                {{/each}}
+            </div>
         </div>
     </div>
-    <div class="row" id="agenda-view" hidden>
-        <h3 class="text-center"><a href="#" class="nav-link"  id="decrement-day"><span class="glyphicon glyphicon-chevron-left"></span></a>&nbsp;{{agenda.monthName}} {{agenda.day}}, {{agenda.year}}             <a href="#" class="nav-link" id="increment-day"><span class="glyphicon glyphicon-chevron-right"></span></a></h3>
-
-        {{#if agenda.events}}
-        <h3 class="text-center">Events</h3>
-            <table class="table" >
-                <thead>
-                    <th scope="col" width="10%">Time</th>
-                    <th scope="col" width="20%">Importance</th>
-                    <th scope="col" width="50%">Event</th>
-                    <th scope="col" width="10%">Action</th>
-                </thead>
-                <tbody>
-                    {{#each agenda.events}}  
-                        <tr style="background-color:{{this.bgColor}};">
-                        <td>
-                            {{this.time}}
-                        </td>
-                        <td>
-                            {{this.importance}}
-                        </td>
-                        <td>
-                            {{this.title}}
-                        </td>
-                        <td>
-                            {{#if this.deleteShow}}
-                                <a href="" id="deleteEvent" data-id="{{this._id}}">Delete</a>
-                            {{/if}}
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
+    <div class="text-center daySelector" role="alert">
+            {{#if calendar.numberOfEvents}}
+            <h3>Agenda for {{calendar.selectedDayFull}}</h3>
+            <br>
+            <table style="width:100%">
+                {{#each calendar.selectedDayEvents}}
+                <tr class="event">
+                    <td class="eventTime-{{importance}}">
+                        <h2>{{time}}</h2>
+                    </td>
+                    <td class="eventTitle">
+                        <h4>{{title}}</h4>
+                        <h5>{{importance}} priorty</h5>
+                    </td>
+                    <td>
+                        <a id="deleteEvent" data-id="{{this._id}}" class="deleteEvent glyphicon glyphicon-remove"></a>
+                    </td>
+                </tr>
+                {{/each}}
             </table>
             {{else}}
-            <p class="text-center">
-                There are no events for this day.
-            </p>
-        {{/if}}
-        <div class="container">
-            <ul class="nav nav-tabs" style>
-                <li class="nav-item">
-                <a class="nav-link active" id="thoughtlog" aria-current="page">Thought Log</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link active" id="exercise" aria-current="goals">Exercies</a>
-                </li>
-            </ul>
+            <h3>No events are scheduled for {{calendar.selectedDayFull}}.</h3>
+            {{/if}}
+            <br>
+            <button class="btn btn-primary" id="openCreateEventModal">Add an event</button>
         </div>
-        <p>Please select a tab above to view thought logs and completed.</p>
-        {{#if thoughtlogview}}
-        <h3 class="text-center">Thought Log</h3>
-        {{#if agenda.entries}}
-        <div class="row" style="margin-left: 20px;">   
-                {{#each agenda.entries}}  
-                        <hr>
-                        <div class="col-xs-10 col-md-4">
-                            <div class="journal-entry">
-                            <p class="text-left"><b>
-                                Triggering Event:<br></b>
-                                {{this.triggeringEvent}}
-                                <br><br>
-                            </p>
-                            <p class="text-left"><b>
-                                Mood:<br></b>
-                                {{this.mood}}
-                                <br><br>
-                            </p>
-                            <p class="text-left"><b>
-                                Automatic Thoughts:
-                                <br></b>
-                                {{this.automaticThoughts}}
-                                <br><br>
-                            </p>
-                            <p class="text-left"><b>
-                                Evidence For Thoughts:
-                                <br></b>
-                                {{this.evidenceForThoughts}}
-                                <br><br>
-                            </p>
-                            <p class="text-left"><b>
-                                Evedence Against Thoughts:
-                                <br></b>
-                                {{this.evidenceAgainstThoughts}}
-    
-                                <br><br>
-                            </p>
-                            <p class="text-left"><b>
-                                Other Thoughts:
-                                <br></b>
-                                {{this.otherThoughts}}
-                                <br><br>
-                            </p>
-                            <p class="text-left"><b>
-                                New Mood:
-                                <br></b>
-                                {{this.newMood}}
-                                <br><br>
-                            </p>
-                        </div>
-                        <br>
-                        </div>
-                {{/each}}
-                </div>
-        {{else}}
-        <br><br>
-        <p class="text-center">
-            There are no thought logs for this day.
-        </p>
-    {{/if}}
-    {{/if}}
-    
-        
-  </div>
-  {{#if exerciseview}}
-    <h3>Exercises</h3>
-    <hr>
-    {{#if agenda.exercises}}
-    {{else}}
-    <p class="text-center">
-        There are no exercises for this day.
-    </p>
-    {{/if}}
-  {{/if}}
-   <div class="row text-center" id="create-view" hidden>
-        <h3>
-            Create Event
-        </h3>
-        <form>
-            <br><input type="text" id="title" style="height: 40px; font-size:large;" placeholder="Title"><br><br>
-            <input type=date id="date"> at <input type=time id="time"><br><br>
-            for:
-            <select id="type">
-                {{#if isInRole 'supervisor'}}
-                <option>Supervisor Group</option>
-                {{/if}}
-                {{#if isInRole 'admin'}}
-                <option>All Organization</option>
-                {{/if}}
-                <option>Personal</option>
-                {{#each usersList}}
-                <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
-                {{/each}}
-            </select><br><br>
-            Importance:
-            <select id="importance">
-                <option>Low</option>
-                <option>Medium</option>
-                <option>Critical</option>
-            </select><br><br>
-            <button class="btn btn-primary" id="createEvent">Create Event</button>
-        </form>
+        {{#each calendar.selectedDayEvents}}
+    {{/each}}
+        <div class="text-center daySelector" id="createEventModal" hidden role="alert">
+            <div class="cardIcon">
+                <a id="closeCreateEventModal"><span class="glyphicon glyphicon-remove"></span></a>
+            </div>
+            <div class="justify-content-center">
+                <h3>
+                    Create Event
+                </h3>
+                <form>
+                    <br><input type="text" id="title" style="height: 40px; font-size:large;" placeholder="Title"><br><br>
+                    <input type=date id="date" style="width:30%;"> at <input type=time id="time" style="width:30%"><br><br>
+                    <select id="type">
+                        {{#if isInRole 'supervisor'}}
+                        <option>Supervisor Group</option>
+                        {{/if}}
+                        {{#if isInRole 'admin'}}
+                        <option>All Organization</option>
+                        {{/if}}
+                        <option>Personal</option>
+                        {{#each usersList}}
+                        <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
+                        {{/each}}
+                    </select><br><br>
+                    Priority:
+                    <select id="importance">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>Critical</option>
+                    </select><br><br>
+                    <button class="btn btn-primary" id="createEvent">Create Event</button>
+                </form>
+            </div>
+            </div>
+            {{> menu}}
     </div>
 </template>
