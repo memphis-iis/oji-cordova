@@ -199,20 +199,6 @@ Meteor.startup(() => {
                         newUserAssignments: []
                     });
                     newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
-                    const d = new Date();
-                    let month = d.getMonth(); 
-                    let day = d.getDate();
-                    let year = d.getFullYear();
-                    let title = "test event";
-                    Events.insert({
-                        type: "org",
-                        org: newOrgId,
-                        month: month,
-                        day: day,
-                        year: year,
-                        title: title,
-                        createdBy: uid
-                    });
                     Meteor.call('generateInvite',uid);
                 }
 
@@ -233,7 +219,8 @@ Meteor.startup(() => {
                             hasCompletedFirstAssessment: false,
                             startedJourney: false,
                             nextModule: 0,
-                            author: true
+                            author: true,
+                            assessmentSchedule: "preOrientation"
                         }
                     }
                 );
@@ -281,7 +268,8 @@ Meteor.methods({
                             assigned: organization.newUserAssignments || [],
                             nextModule: 0,
                             author: author,
-                            goals: []
+                            goals: [],
+                            assessmentSchedule: "preOrientation"
                         }
                     });
                 if(linkId != ""){
@@ -851,7 +839,6 @@ Meteor.methods({
         questionId = newData.questionId;
         oldResults = Trials.findOne({_id: trialId});
         let identifier;
-        
         if(typeof oldResults === "undefined"){
             data = [];
             subscaleTotals = {};
@@ -913,6 +900,7 @@ Meteor.methods({
         const adjustedScores = calculateScores(trial.identifier, trial.subscaleTotals, Meteor.user().sex)
         if(adjustedScores)
             Trials.upsert({_id: trialId}, {$set: {subscaleTotals: adjustedScores, completed: "true"}});
+            
     },
     setCurrentAssignment(assignmentId){
         //set the users current assessment
@@ -1065,12 +1053,15 @@ Meteor.methods({
         const newAssessments = newModules.filter(function(module){
             return module.type == 'assessment';
         });
+        console.log("Assigning new assessments", newAssessments, "to user" + Meteor.userId());
         Meteor.users.update(Meteor.userId(), {
             $set: {
                 hasCompletedFirstAssessment: true,
-                assigned: newAssessments
+                assigned: newAssessments,
+                assessmentSchedule: "postTreatment"
             }
         });
+        console.log("User " + Meteor.userId() + " has completed orientation, assigned to " + JSON.stringify(Meteor.user().assigned));
     },
     getAsset: function(fileName){
         result =  Assets.absoluteFilePath(fileName);

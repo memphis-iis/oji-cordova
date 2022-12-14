@@ -22,8 +22,9 @@ Template.assessment.helpers({
     'isNewUserAssignment': function(){
         if(!Meteor.user().hasCompletedFirstAssessment){
             let newUserAssignments = Orgs.findOne().newUserAssignments;
-            const curAssignment = Meteor.user().curAssignment;
+            const curAssignment = Meteor.user().assigned;
             const newUserAssignmentsRemaining = newUserAssignments.filter(assignment => assignment.assignmentId !== curAssignment.id);
+            newAssignmentLength = newUserAssignmentsRemaining.length;
             if(newUserAssignmentsRemaining.length == 0){
                 Meteor.call('userFinishedOrientation');
                 return false;

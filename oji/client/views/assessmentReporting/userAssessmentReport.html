@@ -23,7 +23,10 @@
                     <thead>
                         <tr>
                             <th scope="col">Scale</th>
-                            <th scope="col">Score</th>
+                            <th scope="col">Current Score</th>
+                            {{#if comparison}}
+                                <th scope="col">Original Score</th>
+                            {{/if}}
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +34,9 @@
                             <tr>
                                 <th scope="row">{{this.subscaleName}}</th>
                                 <td>{{this.subscaleScore}}</td>
+                                {{#if comparison}}
+                                    <td>{{this.subscaleOriginalScore}}</td>
+                                {{/if}}
                             </tr>
                         {{/each}}
                     </tbody>

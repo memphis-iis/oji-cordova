@@ -11,10 +11,9 @@
     {{#if isInRole 'user'}}
         {{#if hasCompletedFistTimeAssessment}}
             <div class="profileCardNext" role="alert">
-                
                 {{#if assignment}}
-                <h3>{{currentUser.firstname}}, you have an post treatment assignment.<br><br> Let's get started.</h3>
-                <button class="btn btn-primary btn-wide" id="startJourney" data-assessmentId="{{assignment._id}}">Complete Assignment</button>
+                <h3>{{currentUser.firstname}}, you have a new assignment.<br><br> Let's get started.</h3>
+                <button class="btn btn-primary btn-wide" id="continueJourney" data-assessmentId="{{assignment._id}}">Continue your journey</button>
                 {{else}}
                 <h3>{{currentUser.firstname}}, welcome back.</h3>
                 {{/if}}
