@@ -1,4 +1,4 @@
-Template.messages.helpers({
+Template.menu.helpers({
     'message': function(){
         var chats = Chats.find({status:'unread'}, {sort: {createdAt: -1}}).fetch();
         t = Template.instance();
@@ -31,7 +31,7 @@ Template.messages.helpers({
     },
 })
 
-Template.messages.events({
+Template.menu.events({
     'click #msg-mark-read': function(e){
         e.preventDefault();
         var id = $(e.target).attr('data-id');
@@ -51,8 +51,7 @@ Template.messages.events({
         e.preventDefault();
         var message = $('#message').val();
         var subject = $('#msg-subject').val();
-        //get current user's supervisor
-        var to = $('#msg-to').val() || Meteor.users.findOne({_id: Meteor.userId()}).supervisor;
+        var to = $('#msg-to').val();
         Meteor.call('newMessage', message, to, subject, function(error, result){
             if(error){
                 alert('Message failed to send');
@@ -109,10 +108,19 @@ Template.messages.events({
         $('#message').val(curMessage.message);
         $('#msg-subject').val('RE: ' + curMessage.subject);
         $('#msg-to').val(curMessage.from);
-    }
+    },
+    'click button': function(event) {
+        event.preventDefault();
+       //go to top of page
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
+      },
+      'click a': function(event) {
+       //go to top of page
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
+      }
 })
 
-Template.messages.onCreated(function(){
+Template.menu.onCreated(function(){
     Meteor.subscribe('chats');
     Meteor.subscribe('getUsersInOrg');
     this.inbox = new ReactiveVar(true);

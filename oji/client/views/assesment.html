@@ -1,11 +1,15 @@
 <template name="assessment">
-    <div class="px-4 py-5 my-5 text-center">
-       <h1>{{assessment.title}}</h1>
+    <div class="titlebar">
+        <b>Assessment</b>
+    </div>
+    <div class="px-4 py-5 my-5 text-center content">
        {{#if this.isNotQuestion}}
+            <div class="profileCard">
+                <h3>{{assessment.title}}</h3>
             {{#if resumeableTrial}}
                 <p class="lead mb-4">{{assessment.description}}</p>
                 <p class="lead mb-4">Please continue your last assessment.</p>
-                <button class="btn btn-primary readTTS" data-text="{{assessment.description}}. Please continue your last assessment."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                <button class="btn btn-primary readTTS-solo" data-text="{{assessment.description}}. Please continue your last assessment."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                 <div class="justify-content-sm-center">
                     <button class="btn btn-primary resume"><span class="glyphicon glyphicon-play"></span>Let's Continue!</button><button class="btn btn-primary readTTS" data-text="Let's Continue"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                     <button class="btn btn-caution return"><span class="glyphicon glyphicon-home"></span> Return to Weclome Page.</button><button class="btn btn-primary readTTS" data-text="Return to Welcome Page"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
@@ -13,30 +17,38 @@
             {{else}}
             <p class="lead mb-4">{{assessment.description}}</p>
             <p class="lead mb-4">Please complete the entire assessment. If you stop using the app for more than 30 minutes, you will need to re-start this assessment from question 1.</p>
-            <button class="btn btn-primary readTTS" data-text="{{assessment.description}}. Please complete the entire assessment. If you stop using the app for more than 30 minutes, you will need to re-start this assessment from question 1."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            <button class="btn btn-primary readTTS-solo" data-text="{{assessment.description}}. Please complete the entire assessment. If you stop using the app for more than 30 minutes, you will need to re-start this assessment from question 1."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             <div class="justify-content-sm-center">
                 <button class="btn btn-primary begin" id="startAssessment"><span class="glyphicon glyphicon-play"></span> Lets Begin!</button><button class="btn btn-primary readTTS" data-text="Let's Begin"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                 <button class="btn btn-caution return" id="goBack"><span class="glyphicon glyphicon-home"></span>Return to Welcome Page.</button><button class="btn btn-primary readTTS" data-text="Return to Welcome Page"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             </div>
             {{/if}}
+            </div>
         {{else}}
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <div class="d-grid gap-2 d-sm-flex  justify-content-sm-center">
             {{#if completed}}
+            <div class="profileCard">
             <p class="lead mb-4">
-                Your answers have been recorded. Results for this assessment will be available in the Assessment Center after you’ve completed all assessments.
-                <button class="btn btn-primary readTTS" data-text="Your answers have been recorded. Results for this assessment will be available in the Assessment Center after you’ve completed all assessments."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                Your answers have been recorded. Results for this assessment will be available in the Assessment Center.<br>
+                <button class="btn btn-primary readTTS-solo" data-text="Your answers have been recorded. Results for this assessment will be available in the Assessment Center."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             </p>
             {{#if isNewUserAssignment}}
-                <button class="btn btn-primary" id="startNextAssignment"><span class="glyphicon glyphicon-play"> </span>Continue To Next Assessment</button><button class="btn btn-primary readTTS" data-text="Continue to Next Assessment"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                <button class="btn btn-primary answer" id="startNextAssignment"><span class="glyphicon glyphicon-play"> </span>Continue To Next Assessment</button><button class="btn btn-primary readTTS" data-text="Continue to Next Assessment"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             {{else}}
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button class="btn btn-primary return"><span class="glyphicon glyphicon-home"> </span>Return to My Profile</button><button class="btn btn-primary readTTS" data-text="Return to My Profile"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                    <button class="btn btn-primary return" id="returnComplete"><span class="glyphicon glyphicon-home"> </span>Return to My Profile</button><button class="btn btn-primary readTTS" data-text="Return to My Profile"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
                 </div>    
             {{/if}}
+        </div>
             {{else}}
+            <div class="profileCard">
             Question {{questionid}} of {{question.totalQuestions}}
+            </div>
+            <div class="profileCard">
             <h3>{{question.text}}</h3>
             <button class="btn btn-primary readTTS" data-text="{{question.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            </div>
+            <div class="profileCard">
             <div class="form-check">
                 {{#each question.answers}}
                 <br>
@@ -50,9 +62,10 @@
                 {{/if}}
                 {{/each}}
             </div>
+            </div>
         {{/if}}
         </div>
         {{/if}}
-
+        {{> menu}}
     </div>
 </template>

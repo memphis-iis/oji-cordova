@@ -6,6 +6,7 @@ Template.usersAdmin.helpers({
             return Meteor.users.find({ role: 'user', organization: Meteor.user().organization, supervisor: Meteor.userId()}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch();
         }
     },
+    'supervisorsList': () => Meteor.users.find({ role: 'supervisor' }, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
     'orgViewOn': function(){
         const t = Template.instance();
         userId = t.selectedUser.get();
@@ -189,9 +190,21 @@ Template.usersAdmin.events({
 }, 
 
 'change #user-select': function(event){
+    console.log("change");
     const t = Template.instance();
     t.selectedUser.set(event.target.value);
     $('#user-select').val(t.selectedUser.get())
+    if(event.target.value == "None"){
+        $('.hideOnUserSelect').each(function(){
+            //hide
+            $(this).show();
+        });
+    } else {
+        $('.hideOnUserSelect').each(function(){
+            //hide
+            $(this).hide();
+        });
+    }
 },
 'click #assign-new': function(event){
     event.preventDefault();
@@ -432,14 +445,17 @@ Template.usersAdmin.events({
 },
 'click #transferSupervisorButton': function(event){
     event.preventDefault();
-    userId = $('#transferUser').val();
+    t = Template.instance();
+    userId = t.selectedUser.get();
+    alert(userId);
     newSupervisorId = $('#transferTo').val();
     Meteor.call('transferUserToOtherSupervisor', userId, newSupervisorId);
     alert("User transferred");
 },
 'click #transferOrgButton': function(event){
     event.preventDefault();
-    userId = $('#transferUser').val();
+    t = Template.instance();
+    userId = t.selectedUser.get();
     orgCode = $('#transferToOrg').val();
     Meteor.call('transferUserToOtherOrg', userId, orgCode, function(err,res){
            
@@ -469,9 +485,21 @@ Template.usersAdmin.events({
     Meteor.call('generateInvite', Meteor.userId());
 },
 'change #user-select': function(event){
+    console.log("change2" + event.target.value);
     const t = Template.instance();
     t.selectedUser.set(event.target.value);
     $('#user-select').val(t.selectedUser.get())
+    if(event.target.value == "false"){
+        $('.hideOnUserSelect').each(function(){
+            //hide
+            $(this).show();
+        });
+    } else {
+        $('.hideOnUserSelect').each(function(){
+            //hide
+            $(this).hide();
+        });
+    }
 },
 'click #unassign-assignment': function(event){
     event.preventDefault();
@@ -575,14 +603,14 @@ Template.usersAdmin.events({
 },
 'click #transferSupervisorButton': function(event){
     event.preventDefault();
-    userId = $('#transferUser').val();
+    userId = $('#user-select').val();
     newSupervisorId = $('#transferTo').val();
     Meteor.call('transferUserToOtherSupervisor', userId, newSupervisorId);
     alert("User transferred");
 },
 'click #transferOrgButton': function(event){
     event.preventDefault();
-    userId = $('#transferUser').val();
+    userId = $('#user-select').val();
     orgCode = $('#transferToOrg').val();
     Meteor.call('transferUserToOtherOrg', userId, orgCode, function(err,res){
            

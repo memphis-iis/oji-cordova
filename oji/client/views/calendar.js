@@ -1,163 +1,77 @@
+import {moment} from 'meteor/momentjs:moment';
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
+
 Template.calendar.helpers({
-    'usersList': () => Meteor.users.find({ role: 'user', organization: Meteor.user().organization, supervisor: Meteor.userId()}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch(),
-
-    'thoughtlogview': () => Template.instance().thoughtlogview.get(),
-
-    'exerciseview': () => Template.instance().exerciseview.get(),
-
-    'viewselected': function(){
-        thoughtlogview  = Template.instance().thoughtlogview.get();
-        exerciseview = Template.instance().thoughtlogview.get();
-        if(thoughtlogview || exerciseview){
-            return true;
-        } 
-        return false;
-    },
-
     'calendar': function(){
-        mode = this.agendaView;
-        if(mode == true){
-            $('#month-view').hide();
-            $('#agenda-view').show();
-            $('#create-view').hide();
-        }
+        allEvents = Events.find({}).fetch();
+        calendar = {};
+        // get displayed day
         const t = Template.instance();
-        displayMonthName =  t.displayMonthName.get();
+        displayDay = t.displayDay.get();
         displayMonth = t.displayMonth.get();
-        displayYear =  t.displayYear.get();
-        displayDay =  t.displayDay.get();
-        displayMonth = t.displayMonth.get();
-        daysInMonth = t.daysInAMonth.get(),
-        daysStartsOnA = new Date(displayMonth, displayYear, 1).getDay(),
-        curDay = 1;
-        weeks = [];
-        monthStarted = false;
-        for(i = 0; i < 6 && curDay <= daysInAMonth; i++){
-            weekDays = []
-            for(j = 0; j < 7; j++){
-                today = false;
-                hasSomething = false;
-                hasEvents = false;
-                hasEntries = false;
-                hasCritical = false;
-                hasExercises = false;
-                events = Events.find({month: displayMonth, day: curDay, year: displayYear}).fetch();
-                entryMonth = displayMonth + 1;
-                entries = Journals.find({month: entryMonth, day: curDay, year: displayYear}).fetch(),
-                exercises = Exercises.find({month: entryMonth, day: curDay, year: displayYear}).fetch(),
-                numEvents = events.length;
-                if(curDay == new Date().getDate() && displayMonth == new Date().getMonth()){
-                    today = true;
-                }
-                if(events.length != 0){
-                    hasEvents = true;
-                    hasSomething = true;
-                }
-                if(entries.length != 0){
-                    hasEntries = true;
-                    hasSomething = true;
-                }
-                if(exercises.length != 0){
-                    hasExercises = true;
-                    hasSomething = true;
-                }
-                if (events.filter(function(e) { return e.importance === 'Critical'; }).length > 0) {
-                    hasCritical = true;
-                  }
-                if(!monthStarted && daysStartsOnA == j){
-                    data = {
-                        dayNum: curDay,
-                        display: true,
-                        today: today,
-                        hasEvents: hasEvents,
-                        numEvents: numEvents,
-                        hasCritical: hasCritical,
-                        hasEntries: hasEntries,
-                        hasExercises: hasExercises
-                    }
-                    monthStarted = true;
-                    curDay++;
-                } else {
-                    if(monthStarted && curDay <= daysInMonth){
-                        data = {
-                            dayNum: curDay,
-                            display: true,
-                            today: today,
-                            hasEvents: hasEvents,
-                            numEvents: numEvents,
-                            hasCritical: hasCritical,
-                            hasEntries, hasEntries,
-                            hasExercises: hasExercises
-                        }
-                        curDay++;
-                    } else {
-                        data = {
-                            dayNum: 0,
-                            display: false
-                        }
-                    }
-                }
-                weekDays.push(data);
-            }
-            data = {
-                days: weekDays
-            }
-            weeks.push(data);
+        // if display day is not set, set it to today's numeric day
+        if(!displayDay){
+            //get current day
+            displayDay = moment().date();
+            calendar.displayDay = displayDay;
+            calendar.displayMonth = displayMonth;
+        } else {
+            calendar.displayDay = displayDay;
+            calendar.displayMonth = displayMonth;
         }
-        calStarted = false;
-        data = {
-            Month: displayMonthName,
-            NumMonth: displayMonth,
-            Year: displayYear,
-            DaysInMonth: daysInMonth,
-            startsOn: daysStartsOnA,
-            weeks: weeks
-        };
-        return data;
-    },
-    'agenda': function(){
-        const t = Template.instance();
-        displayMonthName =  t.displayMonthName.get();
-        displayMonth = t.displayMonth.get();
-        displayYear =  t.displayYear.get();
-        displayDay =  t.displayDay.get();
-        var day = displayDay;
-        var month = displayMonth;
-        var year = displayYear;
-        var journalMonth = displayMonth + 1;
-        events = Events.find({year: year, month: month, day: day}).fetch();
-        entries = Journals.find({month: journalMonth, day: day, year: year}).fetch(),
-        exercises = Exercises.find({month: journalMonth, day: day, year: year}).fetch(),
-        events.forEach(element => {
-            element.deleteShow = true;
-            element.bgColor = "";
-            if(element.createdBy != Meteor.userId()){
-                element.deleteShow = false;
+        //get an array of this week's numeric days
+        var days = [];
+        for(var i = 0; i < 7; i++){
+            days.push(displayDay - moment().day() + i);
+        }
+        //for each day in the week, get the english name of the day
+        var dayNames = [];
+        for(var i = 0; i < 7; i++){
+            dayNameShort = moment().date(days[i]).format('ddd');
+            dayNames.push(dayNameShort);
+        }
+        //combine the day names and numeric days into an array of objects
+        var daysOfWeek = [];
+        for(var i = 0; i < 7; i++){
+            month = moment().month();
+            today = false;
+            if(days[i] == moment().date()){
+                today = true;
             }
-            if(element.importance == "Critical"){
-                element.bgColor = "lightcoral";
+            //set the date 
+            date = moment().date(days[i]).format('YYYY-MM-DD');
+            //get the date's numeric day
+            day = moment().date(days[i]).format('D');
+            daysOfWeek.push({relDay: days[i], dayName: dayNames[i], today: today, date: date, day: day});
+            //if the day is today, set today to true
+        }
+        calendar.daysOfWeek = daysOfWeek;
+        calendar.selectedDayFull = moment().date(displayDay).format('dddd, MMMM Do');
+        calendar.selectedDayEvents = [];
+        //get the events for the selected day
+        for(var i = 0; i < allEvents.length; i++){
+            //collate month, day and year fields into a single date field with moment
+            allEvents[i].date = moment().month(allEvents[i].month).date(allEvents[i].day).year(allEvents[i].year);
+            //if the event is on the selected day, add it to the selected day events array
+            if(allEvents[i].date.date() == displayDay){
+                //convert time to 12 hour local time
+                allEvents[i].time = moment(allEvents[i].time, "HH:mm").format("h:mm a");
+                calendar.selectedDayEvents.push(allEvents[i]);
             }
+        }
+        //sort the events by time
+        calendar.selectedDayEvents.sort(function(a, b){
+            return moment(a.time, "h:mm a").diff(moment(b.time, "h:mm a"));
         });
-        var agenda = {
-            monthName: displayMonthName,
-            day: day,
-            month: month + 1,
-            year: year,
-            events: events,
-            entries: entries
-        }
-        if(events.length == 0){
-            events = false;
-        }
-        return agenda;
-    }
+        //get today's numeric day
+        calendar.relToday = moment().date();
+        calendar.numberOfEvents = calendar.selectedDayEvents.length;
+        return calendar;    
+    },
 })
 
 Template.calendar.events({
-    'change #month-select': function(event){
-        const t = Template.instance();
-        t.selectedUser.set(event.target.value);
-    },
     'click #thoughtlog' : function(event){
         const t = Template.instance();
         t.thoughtlogview.set(true);
@@ -192,143 +106,20 @@ Template.calendar.events({
         eventId = $(event.target).data('id');
         Meteor.call('deleteEvent',eventId);
     },
-    'click #toggle-month-view': function(event){
-        event.preventDefault();
-        $('#month-view').show();
-        $('#agenda-view').hide();
-        $('#create-view').hide();
+    'click #openCreateEventModal': function(event){
+        $('#createEventModal').show();
+        /* fade in the modal and focus on the first input */
+        $('#createEventModal').scrollBottom();
     },
-    'click .toggle-agenda-view': function(event){
-        event.preventDefault();
-        const t = Template.instance();
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
-        if(event.target.getAttribute('data-day')){
-            newDay = parseInt(event.target.getAttribute('data-day'));
-            newMonth = parseInt(event.target.getAttribute('data-month'));
-            newYear = parseInt(event.target.getAttribute('data-year'));
-            t.displayMonthName.set(monthNames[newMonth]);
-            t.displayMonth.set(newMonth);
-            t.displayYear.set(newYear);
-            t.displayDay.set(newDay);
-        }
-        $('#month-view').hide();
-        $('#agenda-view').show();
-        $('#create-view').hide();
+    'click #closeCreateEventModal': function(event){
+        $('#createEventModal').fadeOut();
+        $('body').scrollTop(0);
     },
-    'click .toggle-create-view': function(event){
-        event.preventDefault();
+    'click .daySelect': function(event){
         const t = Template.instance();
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
-        if(event.target.getAttribute('data-day')){
-            newDay = parseInt(event.target.getAttribute('data-day'));
-            newMonth = parseInt(event.target.getAttribute('data-month'));
-            newYear = parseInt(event.target.getAttribute('data-year'));
-            t.displayMonthName.set(monthNames[newMonth]);
-            t.displayMonth.set(newMonth);
-            t.displayYear.set(newYear);
-            t.displayDay.set(newDay);
-            if(newDay < 10) newDay = "0" + newDay;
-            if(newMonth < 10) newMonth = "0" + (newMonth + 1);
-            dateString = newYear + "-" + newMonth + "-" + newDay;
-            document.getElementById("date").value = dateString;
-        }
-        event.preventDefault();
-        $('#month-view').hide();
-        $('#agenda-view').hide();
-        $('#create-view').show();
-    },
-    'click #decrement-month': function(){
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
-        const t = Template.instance();
-        newMonth = t.displayMonth.get() -1 ;
-        newYear = t.displayYear.get();
-        if(newMonth == -1){
-            newMonth = 11;
-            newYear = newYear - 1
-            t.displayYear.set(newYear);
-        }
-        t.displayMonthName.set(monthNames[newMonth]);
-        t.displayMonth.set(newMonth);
-        newDaysInAMonth = new Date(newYear, newMonth + 1, 0).getDate()
-        t.daysInAMonth.set(newDaysInAMonth);
-    },
-    'click #increment-month': function(){
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
-        const t = Template.instance();
-        newMonth = t.displayMonth.get() + 1 ;
-        newYear = t.displayYear.get();
-        if(newMonth == 12){
-            newMonth = 0;
-            newYear = newYear - 1
-            t.displayYear.set(newYear);
-        }
-        t.displayMonthName.set(monthNames[newMonth]);
-        t.displayMonth.set(newMonth);
-        newDaysInAMonth = new Date(newYear, newMonth + 1, 0).getDate()
-        t.daysInAMonth.set(newDaysInAMonth);
-    },
-    'click #decrement-day': function(){
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
-        const t = Template.instance();
-        newDay = t.displayDay.get() - 1 ;
-        newMonth = t.displayMonth.get();
-        newYear = t.displayYear.get();
-        newDaysInAMonth = new Date(newYear, newMonth + 1, 0).getDate();
-        if(newDay < 1){
-            newMonth = newMonth - 1;
-            if(newMonth == -1){
-                newMonth = 11;
-                newYear = newYear - 1
-                t.displayYear.set(newYear);
-            }
-          
-            newDaysInAMonth = new Date(newYear, newMonth + 1, 0).getDate();
-            t.displayMonthName.set(monthNames[newMonth]);
-            t.displayMonth.set(newMonth);
-            newDay = newDaysInAMonth;
-        }
+        //get data-relDay attribute from the clicked element
+        newDay = $(event.target).attr('data-date');
         t.displayDay.set(newDay);
-    },
-    'click #increment-day': function(){
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
-        const t = Template.instance();
-        newDay = t.displayDay.get() + 1 ;
-        newMonth = t.displayMonth.get();
-        newYear = t.displayYear.get();
-        newDaysInAMonth = new Date(newYear, newMonth + 1, 0).getDate();
-        if(newDay > newDaysInAMonth){
-            newMonth = newMonth + 1;
-            newDay = 1;
-            if(newMonth == 12){
-                newMonth = 0;
-                newYear = newYear + 1
-                t.displayYear.set(newYear);
-            }
-            newDaysInAMonth = new Date(newYear, newMonth, 0).getDate();
-            t.displayMonthName.set(monthNames[newMonth]);
-            t.displayMonth.set(newMonth);
-        }
-        t.displayDay.set(newDay);
-    },
-    'click #select-today': function(){
-        const t = Template.instance();
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
-        unixDate = new Date();
-        curMonthName = monthNames[unixDate.getMonth()];
-        curYear = unixDate.getFullYear();
-        curDay = unixDate.getDate();
-        curMonth = unixDate.getMonth();
-        t.displayYear.set(curYear);
-        t.displayMonth.set(curMonth);
-        t.displayDay.set(curDay);
-        t.displayMonthName.set(curMonthName);
     }
 })
 
@@ -339,11 +130,11 @@ Template.calendar.onCreated(function() {
     unixDate = new Date();
     curMonthName = monthNames[unixDate.getMonth()];
     curYear = unixDate.getFullYear();
-    this.displayMonth = new ReactiveVar(unixDate.getMonth());
+    this.displayMonth = new ReactiveVar(false);
     this.displayMonthName = new ReactiveVar(curMonthName);
     daysInAMonth = new Date(unixDate.getMonth() + 1, curYear, 0).getDate();
     this.displayYear = new ReactiveVar(curYear);
-    this.displayDay = new ReactiveVar(unixDate.getDate());
+    this.displayDay = new ReactiveVar(false);
     this.daysInAMonth = new ReactiveVar(daysInAMonth)
     this.thoughtlogview = new ReactiveVar(false);
     this.exerciseview = new ReactiveVar(false);

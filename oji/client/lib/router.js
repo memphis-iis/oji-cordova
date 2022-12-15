@@ -40,7 +40,8 @@ const restrictedRoutes = [
   'modulesAdmin',
   'usersAdmin',
   'relaxationTechniques',
-  'welcome'
+  'welcome',
+  'postTreatment'
 ]
 
 
@@ -82,22 +83,14 @@ Router.route('/', function () {
 //setup logout
 Router.route('/logout', function(){
   Meteor.logout();
-  this.render('home');
+  window.location = '/';
 })
 
 // admin control panel route
 Router.route('/control-panel', function () {
   if(Meteor.user()){
-    if (Roles.userIsInRole(Meteor.user(), 'admin')) {
       this.render('adminControlPanel');
     }
-    else if (Roles.userIsInRole(Meteor.user(), 'supervisor')) {
-      this.render('supervisorControlPanel');
-    }
-    else{
-      Router.go('/');
-    }
-  }
   else{
     Router.go('/');
   }

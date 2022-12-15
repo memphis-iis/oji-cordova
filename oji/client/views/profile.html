@@ -1,63 +1,37 @@
 <template name="profile">
-    <div class="px-4 py-5 my-5 text-center container">
+    <div class="titlebar">
+        <b>{{currentUser.firstname}}'s Profile</b>
+    </div>
+    <div class="text-center content container">
+    {{#if isInRole 'admin,supervisor'}}
+    <div class="profileCardNext" role="alert">
+        <h3>{{currentUser.firstname}}, welcome back.</h3>
+    </div>
+    {{/if}}
     {{#if isInRole 'user'}}
         {{#if hasCompletedFistTimeAssessment}}
-            {{#if assignment}}
-                <br>
-                <h4>Hello, {{currentUser.firstname}}. Let's continue on your journey.</h4>
-                <div class="assessment" style="margin-top:5px;">
-                    <br>
-                    {{#if assignment.isAssessment}}
-                    <button id="startAssessment" data-assessment-id="{{assignment._id}}" class="startAssessment btn btn-primary startAssessment">{{assignment.title}}</button>
+            <div class="profileCardNext" role="alert">
+                {{#if assignment}}
+                    {{#if hasCompletedIntervention}}
+                        <h3>{{currentUser.firstname}}, let's see how you've changed.</h3>
+                    {{else}}
+                        <h3>{{currentUser.firstname}}, let's continue yuur journey.</h3>
                     {{/if}}
-                    {{#if assignment.isModule}}
-                    <button id="startModule" data-assessment-id="{{assignment._id}}" class="startModule btn btn-primary startAssessment">{{assignment.title}}</button>
-                    {{/if}}
-                    <br>
-                </div>
-            {{else}} 
-                <div class="container">
-                    <ul class="nav nav-tabs" style>
-                        <li class="nav-item">
-                        <a class="nav-link active" id="toggle-month-view" aria-current="page" href="profile">Menu</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link active" id="toggle-month-view" aria-current="page" href="goals">Goals</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link toggle-agenda-view" href="certifcates">Certificates</a>
-                        </li>
-                    </ul>
-                </div>
-                <br>
-                <button id="calendar" class="btn btn-primary btn-wide">
-                    <h4><span class="glyphicon glyphicon-calendar"></span> Calendar</h4>
-                </button>
-                <button id="journal" class="btn btn-primary btn-wide">
-                    <h4><span class="glyphicon glyphicon-pencil"></span> Add To Thought Log</h4>
-                </button>
-                <button id="exercises" class="btn btn-primary btn-wide">
-                    <h4><span class="glyphicon glyphicon-leaf"></span> Mindfulness Exercises</h4>
-                </button>
-                <button id="dashboard" class="btn btn-primary btn-wide">
-                    <h4><span class="glyphicon glyphicon-stats"></span> Assessment Dashboard</h4>
-                </button>
-                <button id="moduleCenter" class="btn btn-primary btn-wide">
-                    <h4><span class="glyphicon glyphicon-repeat"></span> Review Modules</h4>
-                </button>
-            {{/if}}
+                <button class="btn btn-primary btn-wide" id="continueJourney" data-assessmentId="{{assignment._id}}">Continue your journey</button>
+                {{else}}
+                <h3>{{currentUser.firstname}}, welcome back.</h3>
+                {{/if}}
+            </div>
         {{else}}
-            {{> welcome}}
+            <div class="profileCardNext" role="alert">
+                <h3>{{currentUser.firstname}}, let's start here today:</h3>
+                <button class="btn btn-primary btn-wide" id="welcome">Continue your Journey</button>
+            </div>
         {{/if}}
-    {{else}}
-    <h4>{{currentUser.firstname}}'s Dashboard</h4>
-    <br>
-        <button id="controlPanel" class="btn btn-primary btn-wide">
-            <h4><span class="glyphicon glyphicon-cog"></span> Control Panel</h4>
-        </button>
-        <button id="calendar" class="btn btn-primary btn-wide">
-            <h4><span class="glyphicon glyphicon-calendar"></span> Calendar</h4>
-        </button>
     {{/if}}
+    {{> prompt}}
+    {{> today}}
+    {{> inbox}}
+    {{> menu}}
     </div>
 </template>

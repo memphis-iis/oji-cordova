@@ -199,20 +199,6 @@ Meteor.startup(() => {
                         newUserAssignments: []
                     });
                     newOrgId = Orgs.findOne({orgOwnerId: uid})._id;
-                    const d = new Date();
-                    let month = d.getMonth(); 
-                    let day = d.getDate();
-                    let year = d.getFullYear();
-                    let title = "test event";
-                    Events.insert({
-                        type: "org",
-                        org: newOrgId,
-                        month: month,
-                        day: day,
-                        year: year,
-                        title: title,
-                        createdBy: uid
-                    });
                     Meteor.call('generateInvite',uid);
                 }
 
@@ -233,7 +219,8 @@ Meteor.startup(() => {
                             hasCompletedFirstAssessment: false,
                             startedJourney: false,
                             nextModule: 0,
-                            author: true
+                            author: true,
+                            assessmentSchedule: "preOrientation"
                         }
                     }
                 );
@@ -281,7 +268,8 @@ Meteor.methods({
                             assigned: organization.newUserAssignments || [],
                             nextModule: 0,
                             author: author,
-                            goals: []
+                            goals: [],
+                            assessmentSchedule: "preOrientation"
                         }
                     });
                 if(linkId != ""){
@@ -522,7 +510,7 @@ Meteor.methods({
                 newModule.createdBy = user;
                 delete newModule._id;
                 Modules.insert(newModule);
-            } else if(data.questions){
+            } else if(data.assessmentReportConstants){
                 console.log("uploading assessment");
                 var newAssessment = JSON.parse(data);
                 newAssessment.owner = user;
@@ -546,7 +534,7 @@ Meteor.methods({
                 delete newModule._id;
                 Modules.insert(newModule);
             }
-            if(json.questions){
+            if(json.assessmentReportConstants){
                 console.log("uploading assessment");
                 var newAssessment = JSON.parse(data);
                 newAssessment.owner = user;
@@ -631,7 +619,7 @@ Meteor.methods({
                 newContents = JSON.parse(newContents);
                 newContentsString = JSON.stringify(newContents);
                 //chck if it is a module or an assessment
-                if(newContentsString.includes("pages")){
+                if(newContentsString.includes("assessmentReportConstants")){
                     // it is a module
                     console.log("uploading module");
                     Meteor.call("uploadModule",path, owner, newContentsString);
@@ -851,7 +839,6 @@ Meteor.methods({
         questionId = newData.questionId;
         oldResults = Trials.findOne({_id: trialId});
         let identifier;
-        
         if(typeof oldResults === "undefined"){
             data = [];
             subscaleTotals = {};
@@ -913,6 +900,7 @@ Meteor.methods({
         const adjustedScores = calculateScores(trial.identifier, trial.subscaleTotals, Meteor.user().sex)
         if(adjustedScores)
             Trials.upsert({_id: trialId}, {$set: {subscaleTotals: adjustedScores, completed: "true"}});
+            
     },
     setCurrentAssignment(assignmentId){
         //set the users current assessment
@@ -1055,12 +1043,36 @@ Meteor.methods({
     },
     
     userFinishedOrientation: function(){
+        user = Meteor.user();
+        //get assessment schedule
+        assessmentSchedule = user.assessmentSchedule;
+        assigned = user.assigned;
+         //if assessment schedule is "intervention", set it to "postTreatment"
+         if(assessmentSchedule == "intervention"){
+            assessmentSchedule = "postTreatment";
+            //get user org
+            org = Orgs.findOne({_id: user.organization});
+            //get org's newUserAssessments
+            newUserAssessments = org.newUserAssignments;
+            //filter out the module type
+            newUserAssessments = newUserAssessments.filter(function( obj ) {
+                return obj.type !== "module";
+            }
+            );
+            //replace assigned with newUserAssessments
+            assigned = newUserAssessments;
+        }
+        //if assessment schedule is "preOrientation", set it to "intervention"
+        if(assessmentSchedule == "preOrientation"){
+            assessmentSchedule = "intervention";
+        }
         Meteor.users.update(Meteor.userId(), {
             $set: {
-                hasCompletedFirstAssessment: true
+                hasCompletedFirstAssessment: true,
+                assessmentSchedule: assessmentSchedule,
+                assigned: assigned
             }
         });
-        sendSystemMessage(Meteor.userId(), "You have completed the orientation. You can now begin taking the first assessment.");
     },
     getAsset: function(fileName){
         result =  Assets.absoluteFilePath(fileName);
@@ -1502,7 +1514,7 @@ Meteor.publish(null, function() {
 });
 //get my events
 Meteor.publish(null, function() {
-    return Journals.find({createdBy: this.userId});
+    return Journals.find({createdBy: this.userId}, {sort: {unixDate: -1}});
 });
 
 //get all organization events

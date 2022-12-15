@@ -1,12 +1,11 @@
 <template name="signup">
-  <h1>Step 1:<br>Create your account.</h1>
+  <div class="profileCard">
+  <h3>Step 1:<br>Create your account.</h3>
   {{#if orgName}}
     <p>You were invited to {{orgName}} by {{supervisorName}}. To continue, we need you to create an account.</p>
   {{else}}
     <p>Welcome to Oji&#8480;. This sign up form is for new Administrators. We'll have you create an organization after your account is created.</p>
   {{/if}}
-    <form >
-      <div class="form-floating mb-3">
         <label htmlFor="username">User Name</label>
 
         <input
@@ -92,7 +91,6 @@
         
 
     <button class="btn btn-primary" id="signup-submit">Sign Up</button>
-  </div>
-    </form>
     <a id="home-route" class="btn btn-caution">Go Back</a>
+    </div>
 </template>

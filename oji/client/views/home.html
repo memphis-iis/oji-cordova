@@ -1,10 +1,10 @@
 <template name="home">
     {{#if message}}
-    <div class="alert alert-{{alert}}" role="alert">
+    <div class="alert" role="alert">
       Message: {{message}}
     </div>
     {{/if}}
-    <div class="px-4 py-5 my-5 text-center">
+    <div class="text-center">
         <img id="large-logo-color" src="/logo.png">
         <p id="mark">
             &#8480;
@@ -24,7 +24,7 @@
                 </div>
             {{/if}}
         {{else}}
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <div class="justify-content-sm-center">
                 {{>login}}
             </div>
         {{/if}}

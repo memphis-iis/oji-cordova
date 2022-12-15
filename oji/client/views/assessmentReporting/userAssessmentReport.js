@@ -2,7 +2,7 @@ import Chart from 'chart.js/auto'
 
 Template.userAssessmentReport.helpers({
     'subscaleScores': function() {
-        const curTrial = getCurrentTrial();
+        const [firstTrial, curTrial] = getCurrentTrial();
         const assessment = getCurrentAssessment();
         if(assessment && curTrial){
             const subscales = Object.keys(assessment.assessmentReportConstants.subscaleTitles);
@@ -11,12 +11,20 @@ Template.userAssessmentReport.helpers({
             for(let subscale of subscales){
                 scales.push({
                     'subscaleName': assessment.assessmentReportConstants.subscaleTitles[subscale],
-                    'subscaleScore': curTrial.subscaleTotals[subscale]
+                    'subscaleScore': curTrial.subscaleTotals[subscale],
+                    'subscaleOriginalScore': firstTrial.subscaleTotals[subscale]
                 })
             }
             return scales;
         }
     }, 
+    'comparison': function() {
+        const [firstTrial, curTrial] = getCurrentTrial();
+        if(firstTrial._id == curTrial._id){
+            return false;
+        }
+        return true;
+    },
     'chart': function() {
         if(!document.getElementById("trialReportChart")){
             Meteor.setTimeout(function() {
@@ -38,7 +46,7 @@ Template.userAssessmentReport.helpers({
     },
     'criticalItems': function() {
         const assessment = getCurrentAssessment();
-        const curTrial = getCurrentTrial();
+        const [firstTrial, curTrial] = getCurrentTrial();
         if(assessment && curTrial){
             const criticalItems = assessment.assessmentReportConstants.criticalItems;
             const subscales = Object.keys(assessment.assessmentReportConstants.criticalItems);
@@ -79,14 +87,17 @@ Template.userAssessmentReport.onCreated(function() {
 });
 
 function drawChart(){
-    const curTrial = getCurrentTrial();
+    const [firstTrial, curTrial] = getCurrentTrial();
     const assessment = getCurrentAssessment();
     if(assessment){
         const subscales = Object.keys(assessment.assessmentReportConstants.subscaleTitles)
         let scales = {}
     
         for(let subscale of subscales){
-            scales[subscale] = curTrial.subscaleTotals[subscale]
+            scales[subscale] = curTrial.subscaleTotals[subscale];
+            if(firstTrial._id != curTrial._id){
+                scales[subscale + " Original"] = firstTrial.subscaleTotals[subscale];
+            }
         }
         const ctx = document.getElementById("trialReportChart").getContext('2d');
         const data = {
@@ -149,5 +160,7 @@ function getCurrentTrial(){
     if(Roles.userIsInRole(Meteor.userId(), 'supervisor')){
         userid = Router.current().params._userid;
     }
-    return Trials.find({'userId': userid, 'identifier': identifier}, {sort: {_id:-1}}).fetch()[0];
+    firstTrial = Trials.find({'userId': userid, 'identifier': identifier}, {sort: {_id:-1}}).fetch()[0];
+    lastTrial = Trials.find({'userId': userid, 'identifier': identifier}, {sort: {_id:1}}).fetch()[0];
+    return [firstTrial, lastTrial];
 }

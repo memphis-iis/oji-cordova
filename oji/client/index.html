@@ -1,6 +1,10 @@
 <head>
   <meta charset="utf-8">
   <title>oji_app&#8480;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet"> 
   <style>
     body {
         /* Handle fixed navbars at bottom of page */
@@ -14,9 +18,23 @@
 </body>
 
 <template name="DefaultLayout">
+  <div class="menu">
+    <div class="container">
+      <div class="row">
+        {{#if currentUser }}
+        <div class="col-xs-6">
+          <a href="/"><img id="logo-color" src="/logo.png" style="max-width:60px;"></a>
+        </div>
+      <div class="col-xs-6 float-end text-end">
+        <div class="badge badge-pill badge-primary" id="userBadge"><span style="text-align:center; margin-left:-5px">{{currentUserAbrieviation}}</span></div>
+      </div>
+      {{/if}}
+    </div>
+    </div>
+  </div>
   <div>
     {{#if currentUser }}
-  <nav class="navbar navbar-light bg-light navbar-fixed-top">
+  <nav class="navbar navbar-light bg-light navbar-fixed-top" hidden>
     <div class="container">
       <ul class="nav nav-pills nav-fill justify-content-right">
         <li class="nav-item">
@@ -65,8 +83,6 @@
       </ul>
     </div>
   </nav>
-  <br>
-  <br>
   {{/if}}
   <div class="container" id="container-yield">
     {{> yield}}

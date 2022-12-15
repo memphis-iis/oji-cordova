@@ -1,98 +1,10 @@
 <template name="messages">
-    <div class="px-4 py-5 my-5 container">
-        <div class="container">
-            <ul class="nav nav-tabs" style>
-                <li class="nav-item">
-                <a class="nav-link active" id="inbox" aria-current="page">Inbox</a>
-                </li>
-                {{#if isInRole 'supervisor,admin'}}
-                <li class="nav-item">
-                <a class="nav-link active" id="newMessage" aria-current="goals">Compose</a>
-                </li>
-                {{else}}
-                {{#if compose}}
-                <li class="nav-item">
-                <a class="nav-link active" id="compose" aria-current="goals">Compose</a>
-                </li>
-                {{/if}}
-                {{#if curMessage}}
-
-                <li class="nav-item">
-                <a class="nav-link active" id="message" aria-current="goals">{{curMessage.title}}</a>
-                </li>
-                {{/if}}
-                {{/if}}
-            </ul>
-        </div>
-        {{#if inbox}}
-            <h1>Inbox</h1>
-            <hr>
-            {{#if message}}
-            <table style="width:100%;">
-                <thead>
-                    <tr style="border-bottom: 1px white;">
-                        <th scope="col" width="20%">Date</th>
-                        <th scope="col" width="20%">From</th>
-                        <th scope="col" width="40%">Subject</th>
-                        <th scope="col" width="20%">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each message}}
-                    <tr class="messageView">
-                        <td>{{this.dateReadable}}</td>
-                        <td>{{this.fromName }}</td>
-                        <td><a id="display-message" data-id="{{this._id}}">{{this.subject}}</a></td>
-                        <td><br><a id="msg-mark-read" data-id="{{this._id}}">Mark Read</a>
-                    </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-            {{else}}
-            <p>Your inbox is empty.</p>
-            {{/if}}
-        {{/if}}
-        {{#if compose}}
-        <form id="msg-reply-display">
-            <h2>Compose</h2>
-            {{#if isInRole 'supervisor,admin'}}
-            <div class="form-group">
-                <label for="msg-to">To</label>
-                <select id="msg-to">
-                    {{#each usersList}}
-                    <option value="{{this._id}}">{{this.firstname}} {{this.lastname}}</option>
-                    {{/each}}
-                </select>
-            </div>
-            <label for="msg-subject">Subject</label>
-            {{#if curMessage}}
-            <input type="text"  id="msg-subject" value="Re: {{curMessage.subject}}">
-            {{else}}
-                <input type="text" id="msg-subject" placeholder="Subject">
-            {{/if}}
-            {{else}}
-            {{#if curMessage}}
-                <label for="msg-to">To</label>
-                <input type="text" class="form-control" id="msg-to" value="{{curMessage.from}}" readonly style="display: none;">
-                <input type="text" id="msg-to-name" value="{{curMessage.fromName}}" readonly>
-                <label for="msg-subject">Subject</label>
-                <input type="text" id="msg-subject" value="{{curMessage.subject}}">
-            {{else}}
-                <label for="msg-to">To</label>
-                <input type="text" class="form-control" id="msg-to" value="{{supervisor}}" readonly>
-                <label for="msg-subject">Subject</label>
-                <input type="text" id="msg-subject" placeholder="Subject">
-            {{/if}}
-            {{/if}}
-            <label for="msg-body">Message</label>
-            <textarea id="message" rows="3" style="width:100%" placeholder="Message"></textarea>
-            <br>
-            <button type="Send" class="btn btn-primary" id="msg-send">Send</button>
-        </form>
-        {{/if}}
+    <div class="titlebar">
+        <b>{{currentUser.firstname}}'s Messages</b>
+    </div>
+    <div class="content container">
         {{#if displayMessage}}
-            <div class="messageDisplay">
+            <div class="profileCard">
             <h2>{{curMessage.subject}}</h2>
             <p>{{curMessage.message}}</p>
             <p>Sent on {{curMessage.dateReadable}}</p>
@@ -100,5 +12,62 @@
             <button class="btn btn-primary" data-id="{{curMessage._id}}" id="msg-mark-read">Mark Read</button>
             </div>
         {{/if}}
+        <div class="profileCard">
+            <h3>Inbox</h3>
+
+            {{#if message}}
+            <table style="width:100%;">
+                <tbody>
+                    {{#each message}}
+                    <tr class="message">
+                        <td class="messageDate">
+                            <h2>{{this.dateReadable}}</h2>
+                        </td>
+                        <td class="text-left">
+                            <a id="display-message" data-id="{{this._id}}"><b>{{this.subject}}</b><br>
+                            {{this.fromName}}
+                            </a>
+                        </td>
+                        <td><br><a id="msg-mark-read" data-id="{{this._id}}" ><span class="glyphicon glyphicon-remove"></span></a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+            <p>Your inbox is empty.</p>
+            {{/if}}
+        </div>
+        <div class="profileCard">
+        <form id="msg-reply-display">
+            {{#if isInRole 'supervisor,admin'}}
+            <h3>Compose</h3>
+            <div class="form-group">
+                <select id="msg-to">
+                    {{#each usersList}}
+                    <option value="{{this._id}}">{{this.firstname}} {{this.lastname}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            {{#if curMessage}}
+            <input type="text"  id="msg-subject" value="Re: {{curMessage.subject}}">
+            {{else}}
+                <input type="text" id="msg-subject" placeholder="Subject">
+            {{/if}}
+            {{else}}
+            <h3>Message Supervisor</h3>
+            {{#if curMessage}}
+                <input type="text" id="msg-subject" value="{{curMessage.subject}}">
+            {{else}}
+
+                <input type="text" id="msg-subject" placeholder="Subject">
+            {{/if}}
+            {{/if}}
+            <textarea id="message" rows="3" style="width:90%" placeholder="Message"></textarea>
+            <br>
+            <button type="Send" class="btn btn-primary" id="msg-send">Send</button>
+        </form>
+        </div>
+        {{> menu}}
+        
     </div>
 </template>

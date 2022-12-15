@@ -20,18 +20,10 @@ Template.assessment.helpers({
         }
     },
     'isNewUserAssignment': function(){
-        if(!Meteor.user().hasCompletedFirstAssessment){
-            let newUserAssignments = Orgs.findOne().newUserAssignments;
-            const curAssignment = Meteor.user().curAssignment;
-            const newUserAssignmentsRemaining = newUserAssignments.filter(assignment => assignment.assignmentId !== curAssignment.id);
-            if(newUserAssignmentsRemaining.length == 0){
-                Meteor.call('userFinishedOrientation');
-                return false;
-            } else {
-                return true;
-            }
-        } else {
+    if(Meteor.user().hasCompletedFirstAssessment){
             return false;
+        } else {
+            return true;
         }
     },
     'resumeableTrial': function() {
@@ -131,7 +123,8 @@ Template.assessment.events({
         target = "/assessment/" + curAssesment._id + "/" + "0";
         Router.go(target);
     },
-    'click .return': function(event) {
+    'click #returnComplete': function(event) {
+        Meteor.call('userFinishedOrientation');
         target = "/profile";
         Router.go(target);
     },

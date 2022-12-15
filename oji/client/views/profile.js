@@ -1,29 +1,7 @@
 Template.profile.helpers({
     'assignment': function(){
         const user = Meteor.user();
-        const modules = Modules.find({}).fetch();
-        const assessments = Assessments.find({}).fetch();
-        if(user && modules.length > 0 && assessments.length > 0){
-            assigned = user.assigned;
-            assignment = {};
-            if(assigned.length === 0){
-                assignment = false;
-            } else {
-                assignment.show = true;
-                assignment.isAssessment = false;
-                assignment.isModule = false;
-                if(assigned[0].type == "assessment"){
-                    assignment = Assessments.findOne({_id: assigned[0].assignment});
-                    assignment.isAssessment = true;
-                }
-
-                if(assigned[0].type == "module"){
-                    assignment = Modules.findOne({_id: assigned[0].assignment});
-                    assignment.isModule = true;
-                }
-            }
-            return assignment;
-        }
+        return user.assigned;
     },
     'certificates': function(){
         files = Files.find({"meta.user": Meteor.userId()}).fetch();
@@ -44,26 +22,39 @@ Template.profile.helpers({
     },
     'hasCompletedFistTimeAssessment': function(){
         const user = Meteor.user();
-        const org = Orgs.findOne();
-        if(user && org.newUserAssignments.length > 0){
-            if(user){
-                return user.hasCompletedFirstAssessment;
-            }
-        } else {
-            return true;
-        }
+        return user.hasCompletedFirstAssessment;
+    },
+    'hasCompletedIntervention': function(){
+        const user = Meteor.user();
+        return user.assessmentSchedule === "postTreatment";
     }
 })
 
 Template.profile.events({
-    'click #startAssessment': function(){
-        assignment = $(event.target).data("assessmentId");
-        target = "/assessment/" + assignment;
-        Router.go(target);
+    'click #startJourney': function(){
+        const user = Meteor.user();
+        const org = Orgs.findOne();
+        //set user's startedJourney to true
+        Meteor.call('startJourney', user._id);
+        if(user && org){
+            //get user assignments
+            assignments = user.assigned;
+            //if the length of the assignments array is greater than 1
+            if(assignments.length >= 1){
+                //get first assignment
+                assignment = assignments[0];
+                Meteor.call('setCurrentAssignment', assignment.assignment);
+                target = `/${assignment.type}/` + assignment.assignment;
+                Router.go(target);
+            } else {
+                Router.go('/')
+            }
+        } else {
+            Router.go('/');
+        }
     },
-    'click #startModule': function(){
-        assignment = $(event.target).data("assessmentId");
-        target = "/module/" + assignment
+    'click #welcome': function(){
+        target = "/welcome/";
         Router.go(target);
     },
     'click #assessmentCenter': function(){
@@ -97,6 +88,33 @@ Template.profile.events({
     'click #logout': function(){
         Meteor.logout();
         Router.go("/");
+    },
+    'click #continueJourney': function(){
+        //get user assignments
+        const assigned = Meteor.user().assigned;
+        //get the user's current assessment Schedule
+        const schedule = Meteor.user().assessmentSchedule;
+        //if the assessment schedule is postTreatment, then continue on to the next assessment
+        if(schedule === "postTreatment"){
+            assignment = assigned[0];
+            Meteor.call('setCurrentAssignment', assignment.assignment);
+            target = "/postTreatment";
+            Router.go(target);
+        }
+        //if the schedule is intervention, then continue on to the next assessment
+        if(schedule === "intervention"){
+            assignment = assigned[0];
+            Meteor.call('setCurrentAssignment', assignment.assignment);
+            target = "postAssessmentPrompt";
+            Router.go(target);
+        }
+        //if the schedule is preOrientation, then continue on to the next assessment
+        if(schedule === "preOrientation"){
+            assignment = assigned[0];
+            Meteor.call('setCurrentAssignment', assignment.assignment);
+            target = "/welcome";
+            Router.go(target);
+        }
     },
 })
 
