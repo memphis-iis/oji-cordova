@@ -23,10 +23,15 @@
                 {{/if}}
             </div>
         {{else}}
+            {{#if assignment}}
             <div class="profileCardNext" role="alert">
                 <h3>{{currentUser.firstname}}, let's start here today:</h3>
                 <button class="btn btn-primary btn-wide" id="welcome">Continue your Journey</button>
             </div>
+            {{else}}
+            <div class="profileCardNext" role="alert">
+                <h3>{{currentUser.firstname}}, welcome to Oji. Your supervisor has not set up your journey</h3>
+                </div>
         {{/if}}
     {{/if}}
     {{> prompt}}
