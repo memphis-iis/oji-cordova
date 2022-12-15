@@ -15,14 +15,16 @@ Template.prompt.helpers({
                 if(entryDate == curDate){
                     return {
                         "text": "How are you feeling today? Let's complete a thought log.",
-                        "target": "journal"
+                        "target": "journal",
+                        "buttonText": "New Thought Log"
                     }
                 }
             }
             //if no thought log exists for today 
             return {
                 "text": "Have you done a relaxation technique today?",
-                "target": "relaxationTechniques"
+                "target": "relaxationTechniques",
+                "buttonText": "Relaxation Techniques"
             }
         } else {
             return false;

@@ -275,7 +275,6 @@ Meteor.methods({
                 if(linkId != ""){
                     addUserToRoles(uid, 'user');
                     targetOrgOwner = Orgs.findOne({_id: targetOrgId}).orgOwnerId;
-                    sendSystemMessage(targetOrgOwner, `${firstName} ${lastName} has joined ${targetOrgName}`, 'New User Added');
                     sendSystemMessage(targetSupervisorId, `${firstName} ${lastName} has joined your organization.`, "New User Added");
                 } else {
                     addUserToRoles(uid, 'admin');

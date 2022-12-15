@@ -1,7 +1,8 @@
 <template name="prompt">
     {{#if prompt}}
     <div class="text-center profileCard" role="alert">
-        <h3>{{text}}</h3>
+        <h3>{{prompt.text}}</h3>
+        <a href="/{{prompt.target}}"><button class="btn btn-primary btn-wide">{{prompt.buttonText}}</button></a>
     </div>
     {{/if}}
 </template>
