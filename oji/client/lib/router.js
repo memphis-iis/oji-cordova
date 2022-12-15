@@ -40,7 +40,8 @@ const restrictedRoutes = [
   'modulesAdmin',
   'usersAdmin',
   'relaxationTechniques',
-  'welcome'
+  'welcome',
+  'postTreatment'
 ]
 
 

@@ -1047,12 +1047,8 @@ Meteor.methods({
         //get assessment schedule
         assessmentSchedule = user.assessmentSchedule;
         assigned = user.assigned;
-        //if assessment schedule is "preOrientation", set it to "intervention"
-        if(assessmentSchedule == "preOrientation"){
-            assessmentSchedule = "intervention";
-        }
-        //if assessment schedule is "intervention", set it to "postTreatment"
-        if(assessmentSchedule == "intervention"){
+         //if assessment schedule is "intervention", set it to "postTreatment"
+         if(assessmentSchedule == "intervention"){
             assessmentSchedule = "postTreatment";
             //get user org
             org = Orgs.findOne({_id: user.organization});
@@ -1066,7 +1062,10 @@ Meteor.methods({
             //replace assigned with newUserAssessments
             assigned = newUserAssessments;
         }
-        
+        //if assessment schedule is "preOrientation", set it to "intervention"
+        if(assessmentSchedule == "preOrientation"){
+            assessmentSchedule = "intervention";
+        }
         Meteor.users.update(Meteor.userId(), {
             $set: {
                 hasCompletedFirstAssessment: true,

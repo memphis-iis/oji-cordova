@@ -23,6 +23,10 @@ Template.profile.helpers({
     'hasCompletedFistTimeAssessment': function(){
         const user = Meteor.user();
         return user.hasCompletedFirstAssessment;
+    },
+    'hasCompletedIntervention': function(){
+        const user = Meteor.user();
+        return user.assessmentSchedule === "postTreatment";
     }
 })
 
@@ -92,7 +96,7 @@ Template.profile.events({
         const schedule = Meteor.user().assessmentSchedule;
         //if the assessment schedule is postTreatment, then continue on to the next assessment
         if(schedule === "postTreatment"){
-            assessment = assigned[0];
+            assignment = assigned[0];
             Meteor.call('setCurrentAssignment', assignment.assignment);
             target = "/postTreatment";
             Router.go(target);

@@ -20,21 +20,10 @@ Template.assessment.helpers({
         }
     },
     'isNewUserAssignment': function(){
-        if(!Meteor.user().hasCompletedFirstAssessment){
-            let newUserAssignments = Orgs.findOne().newUserAssignments;
-            //fiter newUserAssignments to remove type "module"
-            newUserAssignments = newUserAssignments.filter(assignment => assignment.type !== "module");
-            const curAssignment = Meteor.user().assigned;
-            const newUserAssignmentsRemaining = newUserAssignments.filter(assignment => assignment.assignmentId !== curAssignment.id);
-            newAssignmentLength = newUserAssignmentsRemaining.length;
-            if(newUserAssignmentsRemaining.length == 0){
-                Meteor.call('userFinishedOrientation');
-                return false;
-            } else {
-                return true;
-            }
-        } else {
+    if(Meteor.user().hasCompletedFirstAssessment){
             return false;
+        } else {
+            return true;
         }
     },
     'resumeableTrial': function() {
@@ -134,7 +123,8 @@ Template.assessment.events({
         target = "/assessment/" + curAssesment._id + "/" + "0";
         Router.go(target);
     },
-    'click .return': function(event) {
+    'click #returnComplete': function(event) {
+        Meteor.call('userFinishedOrientation');
         target = "/profile";
         Router.go(target);
     },
