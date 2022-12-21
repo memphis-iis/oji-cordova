@@ -377,6 +377,29 @@ Meteor.methods({
             Meteor.users.remove(userID);
         }
     },
+    resetUserJourney: function(userID) {
+        console.log("Reset User Journey: ",userID);
+        if(Roles.userIsInRole(this.userId, ['admin'])){
+            userOrg = Meteor.users.findOne({_id: userID}).organization;
+            userOrgInfo = Orgs.findOne({_id: userOrg});
+            Meteor.users.update({
+                _id: userID
+            }, {
+                $set: {
+                    hasCompletedFirstAssessment: false,
+                    assigned: userOrgInfo.newUserAssignments || [],
+                    nextModule: 0,
+                    goals: [],
+                    assessmentSchedule: "preOrientation"
+                }
+            });
+            //remove all user trials
+            Trials.remove({userId: userID});
+            //remove each user's assessment results
+            ModuleResults.remove({userId: userID});
+            Chats.remove({userId: userID});
+        }
+    },
     transferUserToOtherSupervisor: function(userID, newSupervisorID){
         console.log("Transfer Supervisor: ",userID, newSupervisorID);
         if(Roles.userIsInRole(this.userId, ['admin'])){

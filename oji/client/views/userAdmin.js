@@ -615,8 +615,15 @@ Template.usersAdmin.events({
     Meteor.call('transferUserToOtherOrg', userId, orgCode, function(err,res){
            
     });
+},
+'click #resetJourneyButton': function(event){
+    event.preventDefault();
+    userId = $('#user-select').val();
+    Meteor.call('resetUserJourney', userId);
+    alert("User journey reset");
+
 }
-})
+});
 
 Template.usersAdmin.onCreated(function() {
 Meteor.subscribe('getUsersInOrg');

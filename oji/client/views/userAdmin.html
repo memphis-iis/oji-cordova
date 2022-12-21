@@ -11,7 +11,7 @@
                 </li>
                 {{#if isInRole 'admin'}}
                 <li class="nav-item">
-                    <a class="nav-link active" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Modules and Assessments</a>
+                    <a class="nav-link active" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Content</a>
                     </li>
                     {{/if}}
                 <li class="nav-item">
@@ -264,6 +264,13 @@
                     </div>
                     <button type="button" class="btn btn-primary" id="transferOrgButton">Transfer to Supervisor at another organization</button>
                 </form>
+                </div>
+                <div class="profileCard container">
+                <h3>
+                   Reset User's Journey
+                </h3>
+                <p>Resetting a user's journey will remove all progress and history for the user.  This action cannot be undone.</p>
+                <button type="button" class="btn btn-primary" id="resetJourneyButton">Reset User's Journey</button>
                 </div>
                 {{/if}}
             {{/if}}

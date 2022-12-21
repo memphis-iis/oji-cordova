@@ -131,7 +131,7 @@ body{
     padding: 30px;
     color: white;
     border-radius: 30px;
-    font-size: 15px;
+    font-size: 10px;
     max-width: 150px;
 
 }
@@ -143,6 +143,7 @@ body{
     padding: 30px;
     color: white;
     border-radius: 30px;
+    font-size: 15px;
 }
 .eventSelector{
     background-image: linear-gradient(to top, #421f17, #124e4b);
@@ -174,6 +175,7 @@ body{
     padding: 30px;
     color: white;
     border-radius: 30px;
+    font-size: 15px;
 }
 .eventTitle{
     vertical-align: middle;
@@ -191,7 +193,7 @@ body{
     line-height: 30px;
     border-radius:30x;
     color: white;
-    padding: 10px;
+    padding: 5px;
     min-width:30px;
     min-height:30px;
     margin-right: 5px;
@@ -205,7 +207,7 @@ body{
     line-height: 30px;
     border-radius:30x;
     color: white;
-    padding: 10px;
+    padding: 5px;
     min-width:30px;
     min-height:30px;
     margin-right: 10px;
