@@ -27,7 +27,7 @@ Template.module.helpers({
                 //check if this is the last assignment
                 if(newAssignments.length == 0){
                     //call userFinishedOrientation
-                    Meteor.call('userFinishedOrientation');
+                    Meteor.call('userFinishedIntervention');
                 }
                 //update the user's assigned array
                 Meteor.call('changeAssignmentOneUser', Meteor.userId(), newAssignments);

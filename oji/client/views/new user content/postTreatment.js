@@ -39,7 +39,6 @@ Template.postTreatment.events({
             const target = `/${assignment.type}/` + assignment.assignment;
             Router.go(target);
         } else{
-            Meteor.call('userFinishedOrientation');
             Router.go('/');
         }
     },

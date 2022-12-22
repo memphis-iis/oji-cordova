@@ -2,10 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
 import { calculateScores } from './subscaleCalculations.js';
-import { Push } from 'meteor/activitree:push';
-import { FilesCollection } from 'meteor/ostrio:files';
-import { degrees, PDFDocument, rgb, StandardFonts } from 'pdf-lib';
-import fontkit from 'fontkit';
+import { Canvas, Image } from 'canvas';
 
 const SEED_ADMIN = {
     username: 'testAdmin',
@@ -1066,28 +1063,40 @@ Meteor.methods({
     
     userFinishedOrientation: function(){
         user = Meteor.user();
+        console.log("userFinishedOrientation", user._id);
+        //get assessment schedule
+        assessmentSchedule = user.assessmentSchedule;
+        assigned = user.assigned;
+        //if assessment schedule is "preOrientation", set it to "intervention"
+        assessmentSchedule = "intervention";
+        Meteor.users.update(Meteor.userId(), {
+            $set: {
+                hasCompletedFirstAssessment: true,
+                assessmentSchedule: assessmentSchedule,
+            }
+        });
+    },
+    userFinishedIntervention: function(){
+        user = Meteor.user();
+        console.log("userFinishedIntervention: ", user._id);
         //get assessment schedule
         assessmentSchedule = user.assessmentSchedule;
         assigned = user.assigned;
          //if assessment schedule is "intervention", set it to "postTreatment"
-         if(assessmentSchedule == "intervention"){
-            assessmentSchedule = "postTreatment";
-            //get user org
-            org = Orgs.findOne({_id: user.organization});
-            //get org's newUserAssessments
-            newUserAssessments = org.newUserAssignments;
-            //filter out the module type
-            newUserAssessments = newUserAssessments.filter(function( obj ) {
-                return obj.type !== "module";
-            }
-            );
-            //replace assigned with newUserAssessments
-            assigned = newUserAssessments;
+        
+        assessmentSchedule = "postTreatment";
+        //get user org
+        org = Orgs.findOne({_id: user.organization});
+        //get org's newUserAssessments
+        newUserAssessments = org.newUserAssignments;
+        //filter out the module type
+        newUserAssessments = newUserAssessments.filter(function( obj ) {
+            return obj.type !== "module";
         }
-        //if assessment schedule is "preOrientation", set it to "intervention"
-        if(assessmentSchedule == "preOrientation"){
-            assessmentSchedule = "intervention";
-        }
+        );
+        //replace assigned with newUserAssessments
+        assigned = newUserAssessments;
+    
         Meteor.users.update(Meteor.userId(), {
             $set: {
                 hasCompletedFirstAssessment: true,
@@ -1298,80 +1307,132 @@ Meteor.methods({
         //print organization googleAPIKey
         console.log("organization.googleAPIKey", organization.googleAPIKey);
     },
-    generateCertificate: async function(moduleId=false){
-        user = Meteor.user().firstName + " " + Meteor.user().lastName;
-        let page = 0;
-        let type = "completion";
-        file = Assets.getBinary('certificates.pdf');
-        const pdfDoc = await PDFDocument.load(file);
-        const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
-        let pages = await pdfDoc.getPages();
-        const { width, height } = pages[0].getSize();
-        let nameHeightOffset = 70;
-        let dateAndSigY = 125;
-        let dateOffsetX = 100;
-        let sigOffsetX = -200;
-        if(moduleId){
-            page = 1;
-            type = Modules.findOne({_id: moduleId}).title;
-            nameHeightOffset = 0;
-        }
-        for(let i=0; i < pages.length; i++){
-            if(i != page){
-                pdfDoc.removePage(i)
+    generateModuleCertificate: async function(moduleId,userId){
+        console.log("generateModuleCertificate", moduleId, userId);
+        //get module
+        mod = Modules.findOne({_id: moduleId});
+        title = mod.title;
+        subtitle = mod.subtitle;
+        //get user
+        user = Meteor.users.findOne({_id: userId});
+        console.log("user", user.id, user.supervisor);
+        //get user's supervisor
+        supervisor = Meteor.users.findOne({_id: user.supervisor});
+        console.log("supervisor", supervisor._id);
+        //get user's firstname and lastname, concatenate
+        name = user.firstname + " " + user.lastname;
+        //get user's supervisor's firstname and lastname, concatenate
+        supervisorName = supervisor.firstname + " " + supervisor.lastname;
+        //use canvas to open certificate template
+        var canvas = new Canvas(2252, 1562);
+        var ctx = canvas.getContext('2d');
+        //load image from file
+        var img = new Image;
+        img.src = Assets.absoluteFilePath('module_completion.png');
+        console.log("img", img.src);
+        ctx.drawImage(img, 0, 0);
+        //set font
+        ctx.font = 'bold 30px Arial';
+        //set text color
+        ctx.fillStyle = '#000000';
+        //set text alignment
+        ctx.textAlign = 'center';
+        //set text baseline
+        ctx.textBaseline = 'middle';
+        //write name
+        ctx.fillText(name, 2252 / 2, 600 );
+        //write supervisor name
+        ctx.fillText(supervisorName, 788, 1079);
+        //write module title
+        ctx.fillText(title, 2252 / 2, 891);
+        //write module subtitle
+        ctx.fillText(subtitle, 2252 / 2, 950);
+        //write date
+        ctx.fillText(new Date().toISOString().slice(0, 10), 1424, 1079);
+        //get image buffer
+        var imageBuffer = canvas.toBuffer();
+        //write buffer to filescollection
+        Files.write(imageBuffer, {fileName: "module_completion.png", type: "image/png"}, function (error, fileObj) {
+            if(error){
+                console.log("error", error);
             }
-        }
-        pages = pdfDoc.getPages();
-        page = pages[0];
-        let nameText = Meteor.user().firstname + " " + Meteor.user().lastname;
-        let nameWidth = helveticaFont.widthOfTextAtSize(nameText, 30);
-        let nameX = (width - nameWidth) / 2;
-        let date = new Date(Date.now()).toLocaleString().split(",")[0];
-        orgOwnerId = Orgs.findOne({_id: Meteor.user().organization}).orgOwnerId;
-        orgOwner = Meteor.users.findOne({_id: orgOwnerId});
-        orgOwnerName = orgOwner.firstname + " " + orgOwner.lastname;
-        console.log(orgOwnerName, moduleId, type, nameText, nameX, nameHeightOffset, dateOffsetX, sigOffsetX);
-        page.drawText(nameText,{
-            x: nameX,
-            y: height / 2 + nameHeightOffset,
-            size: 30,
-            font: helveticaFont,
-            color: rgb(0,0,0)
-        });
-        page.drawText(date,{
-            x: width / 2 + dateOffsetX,
-            y: dateAndSigY,
-            size: 15,
-            font: helveticaFont,
-            color: rgb(0,0,0)
-        });
-
-        page.drawText(orgOwnerName,{
-            x: width / 2 + sigOffsetX,
-            y: dateAndSigY,
-            size: 15,
-            font: helveticaFont,
-            color: rgb(0,0,0)
-        });
-        const pdfSave = await pdfDoc.save();
-        let fileName = Meteor.user().lastname + "_" + Meteor.user().firstname + "_" + type + ".pdf";
-        supervisor = Meteor.user().supervisor;
-        await Files.write(pdfSave, {
-            fileName:  fileName,
-            meta: {
-                user: Meteor.userId(),
-                moduleId: type,
-                supervisor: supervisor
+            if(fileObj){
+                //get file url
+                var fileUrl = Files.link(fileObj);
+                console.log("fileUrl", fileUrl);
+                //add file to user's certificates
+                if(!user.certificates){
+                    user.certificates = [];
+                }
+                user.certificates.push({
+                    title: title,
+                    subtitle: subtitle,
+                    date: new Date().toISOString().slice(0, 10),
+                    file: fileUrl
+                });
+                Meteor.users.update({_id: userId}, {$set: {certificates: user.certificates}});
             }
         });
-        Meteor.user().certificates.push({
-            fileName: fileName,
-            type: type,
-            date: new Date()
+    },
+    generateCompletionCertificate: async function(userId){
+        console.log("generateCompletionCertificate",  userId);
+        //get user
+        user = Meteor.users.findOne({_id: userId});
+        console.log("user", user.id, user.supervisor);
+        //get user's organization
+        org = Orgs.findOne({_id: user.organization});
+        //get orgs owner
+        owner = Meteor.users.findOne({_id: org.orgOwnerId});
+        console.log("owner", owner._id);
+        //get user's firstname and lastname, concatenate
+        name = user.firstname + " " + user.lastname;
+        //get user's supervisor's firstname and lastname, concatenate
+        ownerName = owner.firstname + " " + owner.lastname;
+        //use canvas to open certificate template
+        var canvas = new Canvas(2224, 1570);
+        var ctx = canvas.getContext('2d');
+        //load image from file
+        var img = new Image;
+        img.src = Assets.absoluteFilePath('program_completion.png');
+        console.log("img", img.src);
+        ctx.drawImage(img, 0, 0);
+        //set font
+        ctx.font = 'bold 30px Arial';
+        //set text color
+        ctx.fillStyle = '#000000';
+        //set text alignment
+        ctx.textAlign = 'center';
+        //set text baseline
+        ctx.textBaseline = 'middle';
+        //write name
+        ctx.fillText(name, 2224 / 2, 580 );
+        //write supervisor name
+        ctx.fillText(ownerName, 716, 1270);
+        //write date
+        ctx.fillText(new Date().toISOString().slice(0, 10), 1493,1270);
+        //get image buffer
+        var imageBuffer = canvas.toBuffer();
+        //write buffer to filescollection
+        Files.write(imageBuffer, {fileName: "program_completion.png", type: "image/png"}, function (error, fileObj) {
+            if(error){
+                console.log("error", error);
+            }
+            if(fileObj){
+                //get file url
+                var fileUrl = Files.link(fileObj);
+                console.log("fileUrl", fileUrl);
+                //add file to user's certificates
+                if(!user.certificates){
+                    user.certificates = [];
+                }
+                user.certificates.push({
+                    title: "Program Completion",
+                    date: new Date().toISOString().slice(0, 10),
+                    file: fileUrl
+                });
+                Meteor.users.update({_id: userId}, {$set: {certificates: user.certificates}});
+            }
         });
-        sendSystemMessage(supervisor, "You have been issued a certificate for completing " + type + " for " + nameText + ".");
-        sendSystemMessage(Meteor.userId(), "You have been issued a certificate for completing " + type + " for " + nameText + ".");
-        return {pdfDoc: pdfSave, fileName: fileName};     
     },
     swapPageOrder: function(moduleId, pageId, swapTo){
         moduleToChange = Modules.findOne({_id: moduleId});

@@ -7,13 +7,21 @@ Template.assessment.helpers({
         if(this.questionid == "completed"){
             Meteor.call('clearAssessmentProgress');
             //get user assignments
-            const assignments = Meteor.user().assigned;
+            var assignments = Meteor.user().assigned;
             //remove the assignment matching the current assignment
             const newAssignments = assignments.filter(function(assignment){
                 return assignment.assignment !== Meteor.user().curAssignment.id;
             });
             //update the user's assigned array
             Meteor.call('changeAssignmentOneUser', Meteor.userId(), newAssignments);
+            //check if the user has completed all the assignments
+            assignments = assignments.filter(function(assignment){
+                return assignment.type !== "module";
+            });
+            //if there are no assignments left, the user has completed all the assignments
+            if(assignments.length == 0){
+                Meteor.call('userFinishedOrientation');
+            }
             return true;
         } else {
             return false;
@@ -124,7 +132,6 @@ Template.assessment.events({
         Router.go(target);
     },
     'click #returnComplete': function(event) {
-        Meteor.call('userFinishedOrientation');
         target = "/profile";
         Router.go(target);
     },

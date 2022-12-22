@@ -44,6 +44,19 @@ Template.moduleReport.events({
         target = "/control-panel/";
         window.location.href = target;
     },
+    'click #awardCertificate': function(event){
+        event.preventDefault();
+        resultsData = ModuleResults.findOne();
+        modData = Modules.findOne({_id: resultsData.moduleId})
+        Meteor.call('generateModuleCertificate',modData._id, resultsData.userId, function(error, result){
+            if(error){
+                console.log(error);
+            } else {
+                alert("Certificate generated");
+            }
+        });
+    }
+
 })
 
 

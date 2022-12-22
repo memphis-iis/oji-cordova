@@ -54,6 +54,15 @@ Template.usersAdmin.helpers({
         userId = t.selectedUser.get();
         console.log("here")
         user = Meteor.users.findOne({_id: userId});
+        if(user.assessmentSchedule == "preOrientation"){
+            user.schedule = "Pre-Orientation";
+        }
+        if(user.assessmentSchedule == "intevention"){
+            user.schedule = "Intervention / Treatment";
+        }
+        if(user.assessmentSchedule == "postTreatment"){
+            user.schedule = "Post-Treatment";
+        }
         classList = user.classList || [];
         newClassList = [];
         for(course of classList){
@@ -622,7 +631,13 @@ Template.usersAdmin.events({
     Meteor.call('resetUserJourney', userId);
     alert("User journey reset");
 
-}
+},
+'click #awardCertificateButton': function(event){
+    event.preventDefault();
+    userId = $('#user-select').val();
+    Meteor.call('generateCompletionCertificate', userId);
+    alert("Certificate awarded");
+},
 });
 
 Template.usersAdmin.onCreated(function() {

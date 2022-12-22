@@ -41,7 +41,7 @@ const restrictedRoutes = [
   'usersAdmin',
   'relaxationTechniques',
   'welcome',
-  'postTreatment'
+  'awards',
 ]
 
 

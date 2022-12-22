@@ -15,7 +15,7 @@
                     {{#if hasCompletedIntervention}}
                         <h3>{{currentUser.firstname}}, let's see how you've changed.</h3>
                     {{else}}
-                        <h3>{{currentUser.firstname}}, let's continue yuur journey.</h3>
+                        <h3>{{currentUser.firstname}}, let's continue your journey.</h3>
                     {{/if}}
                 <button class="btn btn-primary btn-wide" id="continueJourney" data-assessmentId="{{assignment._id}}">Continue your journey</button>
                 {{else}}
@@ -38,5 +38,8 @@
     {{> today}}
     {{> inbox}}
     {{> menu}}
+    {{#if isInRole 'user'}}
+    {{> awards}}
+    {{/if}}
     </div>
 </template>

@@ -114,6 +114,7 @@
            {{#if userSelected}}
            <div class="profileCard container">
             <h3>{{userSelected.lastname}}, {{userSelected.firstname}}</h3>
+            <p>Status: {{userSelected.schedule}}</p>
             </div>
             {{#if orgViewOn}}
                  User Flow can be seen when selecting an individual user  that you supervise.
@@ -265,6 +266,13 @@
                     <button type="button" class="btn btn-primary" id="transferOrgButton">Transfer to Supervisor at another organization</button>
                 </form>
                 </div>
+                <div class="profileCard container">
+                    <h3>
+                       Award Completion Certificate
+                    </h3>
+                    <p>Awarding a completion certificate will allow the user to download a certificate of completion for the course.</p>
+                    <button type="button" class="btn btn-primary" id="awardCertificateButton">Award Completion Certificate</button>
+                    </div>
                 <div class="profileCard container">
                 <h3>
                    Reset User's Journey
