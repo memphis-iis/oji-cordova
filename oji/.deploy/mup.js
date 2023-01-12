@@ -11,6 +11,8 @@ module.exports = {
       path: '../',
       docker: {
         image: 'zodern/meteor:root',
+        prepareBundle: true,
+        useBuildKit: true
       },
       servers: {
         one: {}
@@ -21,6 +23,14 @@ module.exports = {
       env: {
         ROOT_URL: 'http://54.212.187.130',
         MONGO_URL: 'mongodb://localhost/meteor'
+      },
+      proxy: {
+        domains: '54.212.187.130',
+    
+        ssl: {
+          forceSSL: true,
+          letsEncryptEmail: 'jrhaner@memphis.edu'
+        }
       }
     },
     mongo: {

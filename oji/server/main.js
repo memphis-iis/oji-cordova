@@ -119,33 +119,70 @@ Meteor.startup(() => {
         if(!user || user.api.token != loginToken || isTokenExpired == true){
             this.response.end("{sucess: false, message: 'incorrect username or expired token'}");
         } else {
-            organization = Orgs.findOne({orgOwnerId: user._id});
-            userlist = Meteor.users.find({organization: organization._id}, {
-                fields: {
-                    firstname: 0,
-                    lastname: 0,
-                    emails: 0,
-                    username: 0,
-                    role: 0,
-                    supervisorInviteCode: 0,
-                    services: 0,
-                    organization: 0,
-                    api: 0
-                },
-            }).fetch();
-            userListResponse = []
-            for(i = 0; i < userlist.length; i++){
-                userTrials = Trials.find({userId: userlist[i]._id}).fetch();
-                userModules = Modules.find({userId: userlist[i]._id}).fetch();
-                curUser = userlist[i];
-                curUser.trials = JSON.parse(JSON.stringify(userTrials));
-                curUser.modules = JSON.parse(JSON.stringify(userModules));
-                userListResponse.push(curUser);
+            //check if user is an author
+            if(user.author){
+                console.log('author request from API, user: ' + user.username);
+                //get all users in organization
+                organizationUsers = Meteor.users.find({}).fetch();
+                //for each user, get their data
+                organizationData = [];
+                //console.log count of users
+                for(let user of organizationUsers){
+                    //get user data
+                    data = getAllDataFromUser(user._id);
+                    organizationData.push(data);
+                }
+                returnData = {
+                    success: true,
+                    note: "Author request, all users returned.",
+                    data: organizationData
+                }
+                //return data
+                this.response.end(JSON.stringify(returnData));
+                return;
             }
-            organization.users = userListResponse;
-            this.response.end(JSON.stringify(organization));
+            //check if user is an admin
+            if(Roles.userIsInRole(user, 'admin')){
+                console.log('admin request from API, user: ' + user.username);
+                //get all users in organization
+                organizationUsers = Meteor.users.find({organization: user.organization}).fetch();
+                //for each user, get their data
+                organizationData = [];
+                //console.log count of users
+                for(let user of organizationUsers){
+                    //get user data
+                    data = getAllDataFromUser(user._id);
+                    organizationData.push(data);
+                }
+                returnData = {
+                    success: true,
+                    data: organizationData
+                }
+                //return data
+                this.response.end(JSON.stringify(returnData));
+                return;
+            } else {
+                console.log('supervisor request from API, user: ' + user.username);
+                //get user data of everyone supervised by user
+                organizationUsers = Meteor.users.find({supervisorID: user._id}).fetch();
+                //for each user, get their data
+                organizationData = [];
+                for(let user of organizationUsers){
+                    //get user data
+                    data = getAllDataFromUser(user._id);
+                    organizationData.push(data);
+                }
+                //return data
+                returnData = {
+                    success: true,
+                    data: organizationData
+                }
+                //return data
+                this.response.end(JSON.stringify(returnData));
+                return;
             }
-        }
+        } 
+    }
   });
 
     //load default JSON assessment into mongo collection
@@ -1627,4 +1664,27 @@ async function makeHTTPSrequest(options, request){
         req.write(request)
         req.end()
     });
+}
+
+function getAllDataFromUser(userId){
+    //user data
+    user = Meteor.users.findOne({_id: userId});
+    console.log(user);
+    //get all trials of user
+    trials = Trials.find({userId: userId}).fetch();
+    //get all module results of user
+    moduleResults = ModuleResults.find({userId: userId}).fetch();
+    //get all journal entries of user
+    journals = Journals.find({createdBy: userId}).fetch();
+    //return all data
+    return {
+        userId: userId,
+        organization: user.organization,
+        supervisor: user.supervisor,
+        gender: user.gender,
+        assessmentResults: trials,
+        moduleResults: moduleResults,
+        journals: journals,
+        goals: user.goals
+    }
 }
