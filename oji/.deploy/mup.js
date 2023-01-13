@@ -23,20 +23,20 @@ module.exports = {
       env: {
         ROOT_URL: 'http://54.212.187.130',
         MONGO_URL: 'mongodb://localhost/meteor'
-      },
-      proxy: {
-        domains: '54.212.187.130',
-    
-        ssl: {
-          forceSSL: true,
-          letsEncryptEmail: 'jrhaner@memphis.edu'
-        }
       }
     },
     mongo: {
       version: '3.6.23',
       servers: {
         one: {}
+      }
+    },
+    proxy: {
+      domains: '54.212.187.130',
+  
+      ssl: {
+        forceSSL: true,
+        letsEncryptEmail: 'jrhaner@memphis.edu'
       }
     }
   }

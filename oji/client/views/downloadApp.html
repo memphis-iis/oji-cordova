@@ -1,0 +1,53 @@
+<template name="downloadApp">
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="/"><img id="logo-color" src="/logo.png" style="max-width:60px;"></a>
+                <h1>Download the App</h1>
+                <p>Download the app to get started.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Android</h3>
+                <ul>
+                    <li>Enable Unknown Sources: Settings > Security > Unknown Sources</li>
+                    <li>Install the app</li>
+                </ul>
+                <button class="btn btn-primary" id="downloadAndroid">Download Android APK</button>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>WebView for the Development Team</h3>
+                <form class="login webview">
+                <div class="form-floating mb-3">
+                    <input
+                    id="usernameLogin"
+                    type="text"
+                    placeholder="Username"
+                    name="username"
+                    required
+                    class="form-control"
+                    />
+                    <br>
+
+            
+                    <input
+                    id="passwordLogin"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    required
+                    class="form-control"
+                    />
+                    <div style="margin-top:10px;">
+                    <button id="login-submit" class="btn btn-primary">Log In</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

@@ -472,6 +472,9 @@ Meteor.methods({
             removeUserFromRoles(userId, 'supervisor');
         }
     },
+    getAsset: function(assetId){
+        return Assets.getBinary(assetId);
+    },
     editSupervisor: function(supervisorID) {
         if(Roles.userIsInRole(this.userId, ['admin'])){
 

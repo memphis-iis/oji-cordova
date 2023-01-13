@@ -11,9 +11,23 @@ in Chrome with certain versions of Iron Router (they routing engine we use).
 
 
 //Set Default Template
-Router.configure({
-  layoutTemplate: 'DefaultLayout'
-});
+if(Meteor.isCordova || Session.get('overrideCordova')){
+  Router.configure({
+    layoutTemplate: 'DefaultLayout'
+  });
+} else {
+  //if not logged in, then render downloadApp
+  if(!Meteor.userId()){
+    Router.configure({
+      layoutTemplate: 'DefaultLayout-Web'
+    });
+  } else {
+    //if logged in, then render home
+    Router.configure({
+      layoutTemplate: 'DefaultLayout'
+    });
+  }
+}
 
 //Set Up Default Router Actions
 const defaultBehaviorRoutes = [
@@ -47,7 +61,7 @@ const restrictedRoutes = [
 
 const getDefaultRouteAction = function(routeName) {
   return function() {
-    this.render(routeName);
+      this.render('routeName');
   };
 };
 
@@ -77,12 +91,31 @@ for (const route of restrictedRoutes) {
 
 // setup home route
 Router.route('/', function () {
-  this.render('home');
+  //if cordova, then render home
+  console.log("isCordova: " + Meteor.isCordova);
+  console.log("overrideCordova: " + Session.get('overrideCordova'));
+  if(Meteor.isCordova){
+    console.log("isCordova");
+    this.render('home');
+  } else {
+    //if not cordova, then render downloadApp if not logged in
+    if(!Meteor.userId()){
+      console.log("not logged in");
+      this.render('downloadApp');
+    } else {
+      console.log("logged in");
+      //if not cordova and logged in, then render home
+      this.render('home');
+    }
+  }
+
 });
 
 //setup logout
 Router.route('/logout', function(){
   Meteor.logout();
+  //set overrideCordova to false
+  Session.set('overrideCordova', false);
   window.location = '/';
 })
 

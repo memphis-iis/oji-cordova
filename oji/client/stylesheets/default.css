@@ -5,6 +5,16 @@ body{
     background-image: linear-gradient(to right, #b4573f, #13504d);
     color:white;
 }
+.clear{
+    /* clear all background colors */
+    background-color: white !important;
+    height:100%;
+}
+.clear p, h1, h2, h3, h4, h5, h6, ul, li, a{
+    /* clear all text colors */
+    color: black !important;
+    
+}
 #container-yield{
     width:100%;
     margin-left: 0px !important;
@@ -94,6 +104,11 @@ body{
     width:100%;
     border-radius: 10px;
     text-align: center;
+}
+.webview input{
+    background-color: white;
+    width:50%;
+    border-radius: 0px;
 }
 .daySelector{
     background-image: linear-gradient(to top, #110806, #061b1a);
