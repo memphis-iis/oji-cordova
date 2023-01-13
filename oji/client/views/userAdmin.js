@@ -33,7 +33,7 @@ Template.usersAdmin.helpers({
             token: keys.token,
             expires: expDate,
             expired: isExpired,
-            curlExample: "curl " + window.location.protocol + "//" + window.location.host + "/api -H \"x-user-id:" + Meteor.user().username +"\" -H \"x-auth-token:" + keys.token + "\""
+            curlExample: "curl " + window.location.protocol + "//" + window.location.host + "/api -o output.json -H \"x-user-id:" + Meteor.user().username +"\" -H \"x-auth-token:" + keys.token + "\""
         }
 
         return api;
