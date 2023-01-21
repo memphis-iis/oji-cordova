@@ -36,6 +36,22 @@ Template.module.helpers({
                 return false;
             }
     },
+    'passed': function(){
+        score = Meteor.call('getModuleQuizScore', Modules.findOne()._id);
+        if(score >= 70){
+            return true;
+        } else {
+            //reassign this module
+            const assignments = Meteor.user().assigned;
+            const newAssignment  = Modules.findOne();
+            newAssignment.id = newAssignment._id;
+            //prepend the new assignment to the array
+            assignments.unshift(newAssignment);
+            //update the user's assigned array
+            Meteor.call('changeAssignmentOneUser', Meteor.userId(), assignments);
+            return false;
+        }
+    },
     'isNewUserAssignment': function(){
         if(!Meteor.user().hasCompletedFirstAssessment){
            //check if user has completed the first assessment

@@ -5,11 +5,25 @@
     <br>
     <div class="text-center content">
        {{#if this.pageId}}
-        {{#if completed}}
+       {{#if completed}}
+        {{#if passed}}
+            <div class="profileCard">
+                <p class="lead mb-4">{{module.title}}</p>
+                <p class="lead mb-4">You have completed this module! A certificate will be awarded to you after your supervisor reviews the results.</p>
+                <button class="btn btn-primary readTTS-solo" data-text="You have completed this module! A certificate will be awarded to you after your supervisor reviews the results."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                <br>
+                
+                {{#if isNewUserAssignment}}
+                <button class="btn btn-primary begin answer" id="continueJourney"> Continue your journey</button><button class="btn btn-primary readTTS" data-text="Continue Your Journey"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                {{else}}
+                    <button class="btn btn-primary return answer" id="goBack"><span class="glyphicon glyphicon-home"></span> Return to My Profile</button><button class="btn btn-primary readTTS" data-text="Return to My Profile"><span class=" glyphicon glyphicon-bullhorn" ></span></button>    
+                {{/if}}
+                </div>
+        {{else}}
         <div class="profileCard">
             <p class="lead mb-4">{{module.title}}</p>
-            <p class="lead mb-4">You have completed this module! A certificate will be awarded to you after your supervisor reviews the results.</p>
-            <button class="btn btn-primary readTTS-solo" data-text="You have completed this module! A certificate will be awarded to you after your supervisor reviews the results."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            <p class="lead mb-4">You have not passed this module. Please review the module and try again.</p>
+            <button class="btn btn-primary readTTS-solo" data-text="You have not passed this module. Please review the module and try again."><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             <br>
             
             {{#if isNewUserAssignment}}
@@ -18,7 +32,8 @@
                 <button class="btn btn-primary return answer" id="goBack"><span class="glyphicon glyphicon-home"></span> Return to My Profile</button><button class="btn btn-primary readTTS" data-text="Return to My Profile"><span class=" glyphicon glyphicon-bullhorn" ></span></button>    
             {{/if}}
             </div>
-        {{else}}
+        {{/if}}
+       {{else}}
         <br>
         {{#if page.typeText}}
         <div class="profileCard">
