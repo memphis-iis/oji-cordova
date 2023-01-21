@@ -55,7 +55,11 @@ Template.postAssessmentPrompt.events({
         } else{
             Router.go('/');
         }
-    }
+    },
+    'click #view-transcript': function(){
+        //show transcript div
+          $('#transcript').show();
+     }
 })
 
 
