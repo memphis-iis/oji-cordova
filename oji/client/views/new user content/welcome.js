@@ -59,6 +59,10 @@ Template.welcome.events({
     },
     'click #continueJourney': function(){
         //pending implementation
+    },
+    'click #view-transcript': function(){
+       //show transcript div
+         $('#transcript').show();
     }
 })
 
