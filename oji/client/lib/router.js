@@ -11,7 +11,7 @@ in Chrome with certain versions of Iron Router (they routing engine we use).
 
 
 //Set Default Template
-if(Meteor.isCordova || Session.get('overrideCordova')){
+if(Meteor.isCordova || Meteor.userId){
   Router.configure({
     layoutTemplate: 'DefaultLayout'
   });
@@ -56,6 +56,8 @@ const restrictedRoutes = [
   'relaxationTechniques',
   'welcome',
   'awards',
+  'congrats',
+  'postTreatment'
 ]
 
 

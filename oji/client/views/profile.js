@@ -116,6 +116,9 @@ Template.profile.events({
             Router.go(target);
         }
     },
+    'click #celebrate': function(){
+        Router.go('/congrats');
+    },
 })
 
 

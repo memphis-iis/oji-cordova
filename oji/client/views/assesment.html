@@ -35,9 +35,15 @@
             {{#if isNewUserAssignment}}
                 <button class="btn btn-primary answer" id="startNextAssignment"><span class="glyphicon glyphicon-play"> </span>Continue To Next Assessment</button><button class="btn btn-primary readTTS" data-text="Continue to Next Assessment"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             {{else}}
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <button class="btn btn-primary return" id="returnComplete"><span class="glyphicon glyphicon-home"> </span>Return to My Profile</button><button class="btn btn-primary readTTS" data-text="Return to My Profile"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
-                </div>    
+                {{#if postTreatment}}
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <button class="btn btn-primary return" id="congrats"><span class="glyphicon glyphicon-home"> </span>Continue</button><button class="btn btn-primary readTTS" data-text="Return to My Profile"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                    </div>    
+                {{else}}
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <button class="btn btn-primary return" id="returnComplete"><span class="glyphicon glyphicon-home"> </span> Return to My Profile</button><button class="btn btn-primary readTTS" data-text="Return to My Profile"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                    </div>    
+                {{/if}}
             {{/if}}
         </div>
             {{else}}
@@ -46,7 +52,7 @@
             </div>
             <div class="profileCard">
             <h3>{{question.text}}</h3>
-            <button class="btn btn-primary readTTS" data-text="{{question.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+            <button class="btn btn-primary readTTS-solo" data-text="{{question.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             </div>
             <div class="profileCard">
             <div class="form-check">

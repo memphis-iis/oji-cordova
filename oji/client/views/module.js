@@ -18,37 +18,47 @@ Template.module.helpers({
         },
     'completed' : function(){
             if(Meteor.user().curModule.pageId == "completed"){
-                //get user assignments
-                const assignments = Meteor.user().assigned;
-                //remove the assignment matching the current assignment
-                const newAssignments = assignments.filter(function(assignment){
-                    return assignment.assignment !== Meteor.user().curAssignment.id;
-                });
-                //check if this is the last assignment
-                if(newAssignments.length == 0){
-                    //call userFinishedOrientation
-                    Meteor.call('userFinishedIntervention');
-                }
-                //update the user's assigned array
-                Meteor.call('changeAssignmentOneUser', Meteor.userId(), newAssignments);
                 return true;
             } else {
                 return false;
             }
+            
     },
     'passed': function(){
-        score = Meteor.call('getModuleQuizScore', Modules.findOne()._id);
-        if(score >= 70){
+        //calc quiz score
+        Meteor.call('calcQuizScore', Modules.findOne()._id);
+        passed = Meteor.user().curModule.passed;
+        if(passed){
+            //get user assignments
+            const assignments = Meteor.user().assigned;
+            //remove the assignment matching the current assignment
+            newAssignments = assignments.filter(function(assignment){
+                return assignment.assignment !== Meteor.user().curAssignment.id;
+            })
+            //get user schedule
+            const schedule = Meteor.user().assessmentSchedule;
+            //
+            newModules = newAssignments.filter(function(assignment){
+                return assignment.type !== "module";
+            });
+            //check if this is the last assignment
+            if(newAssignments.length == 0 && schedule == "intervention"){
+                //call userFinishedOrientation
+                Meteor.call('userFinishedIntervention');
+                //clear the user's assigned array
+                Meteor.call('changeAssignmentOneUser', Meteor.userId(), []);
+            } 
+            if(newAssignments.length == 0 && schedule == "preOrientation"){
+                //call userFinishedOrientation
+                Meteor.call('userFinishedOrientation');
+            }
+            //if there are no assignments left, the user has completed all the assignments
+            if(newAssignments.length == 0){
+                //update the user's assigned array
+                Meteor.call('changeAssignmentOneUser', Meteor.userId(), newAssignments);
+            }
             return true;
         } else {
-            //reassign this module
-            const assignments = Meteor.user().assigned;
-            const newAssignment  = Modules.findOne();
-            newAssignment.id = newAssignment._id;
-            //prepend the new assignment to the array
-            assignments.unshift(newAssignment);
-            //update the user's assigned array
-            Meteor.call('changeAssignmentOneUser', Meteor.userId(), assignments);
             return false;
         }
     },

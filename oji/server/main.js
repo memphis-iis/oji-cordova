@@ -1007,10 +1007,37 @@ Meteor.methods({
             });
         return results;
     },
+    calcQuizScore: function(moduleId){
+        userId = Meteor.userId();
+        trial = ModuleResults.find({userId: userId, moduleId: moduleId});
+        score = trial.score;
+        maxScore = trial.maxScore;
+        if(!score || !maxScore){
+            score = 1;
+            maxScore = 1;
+        }
+        percentage = score/maxScore;
+        if( percentage >= .70){
+            passed = true;
+        } else {
+            passed = false;
+        }
+        //set users curModule.score to the score
+        user = Meteor.users.findOne({_id: userId});
+        user.curModule.score = score;
+        user.curModule.maxScore = maxScore;
+        user.curModule.percentage = percentage;
+        user.curModule.passed = passed;
+        Meteor.users.update(userId, {$set: {curModule: user.curModule}});
+    },
+
     evaluateModule: function(curModuleId, moduleData){
         curModule = Modules.findOne({_id: curModuleId});
         moduleData.score = 0;
         moduleData.maxScore = 0;
+        moduleDataID = moduleData._id;
+        //delete the _id field
+        delete moduleData._id;
         //get pages where the page type is a quiz
         pages = curModule.pages;
         for(let page of pages){
@@ -1033,10 +1060,8 @@ Meteor.methods({
                     }
                 }
             }
-            //calculate the percentage
-            moduleData.percentage = (moduleData.score / moduleData.maxScore) * 100;
             //update the module results
-            ModuleResults.upsert({_id: curModuleId}, {$set: moduleData});
+            ModuleResults.upsert({_id: moduleDataID}, {$set: moduleData});
         }
 
     },
@@ -1103,18 +1128,21 @@ Meteor.methods({
     
     userFinishedOrientation: function(){
         user = Meteor.user();
-        console.log("userFinishedOrientation", user._id);
-        //get assessment schedule
-        assessmentSchedule = user.assessmentSchedule;
-        assigned = user.assigned;
-        //if assessment schedule is "preOrientation", set it to "intervention"
-        assessmentSchedule = "intervention";
+        if(user.assessmentSchedule == "preOrientation"){
+            user.assessmentSchedule = "intervention";
+        }
+        if(user.assessmentSchedule == "intervention"){
+            user.assessmentSchedule = "postTreatment";
+        }
+
+        
+        //update the user
         Meteor.users.update(Meteor.userId(), {
             $set: {
-                hasCompletedFirstAssessment: true,
-                assessmentSchedule: assessmentSchedule,
+                assessmentSchedule: user.assessmentSchedule
             }
         });
+        console.log("userFinishedOrientation: ", user._id, user.assessmentSchedule);
     },
     userFinishedIntervention: function(){
         user = Meteor.user();
@@ -1132,8 +1160,15 @@ Meteor.methods({
         //filter out the module type
         newUserAssessments = newUserAssessments.filter(function( obj ) {
             return obj.type !== "module";
-        }
+            }
         );
+        //get all the new user assessments as {id, type}
+        for (let assessment of newUserAssessments){
+            assessment.assignment = assessment._id;
+            assessment.type = "assessment";
+            delete assessment._id;
+        }
+        
         //replace assigned with newUserAssessments
         assigned = newUserAssessments;
     

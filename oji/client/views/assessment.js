@@ -59,6 +59,14 @@ Template.assessment.helpers({
         }
         return data;
     },
+    'postTreatment': function(){
+        const schedule = Meteor.user().assessmentSchedule;
+        if(schedule === "postTreatment"){
+            return true;
+        } else {
+            return false;
+        }
+    },
 })
 
 Template.assessment.events({
@@ -124,6 +132,10 @@ Template.assessment.events({
         });
         Router.go(target);
 
+    },
+    'click #congrats': function(event) {
+        target = "/congrats";
+        Router.go(target);
     },
     'click .begin': function(event) {
         curAssesment = Assessments.findOne({_id: Meteor.user().curAssignment.id});

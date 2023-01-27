@@ -29,10 +29,17 @@
                 <button class="btn btn-primary btn-wide" id="welcome">Start your Journey</button>
             </div>
             {{else}}
+            {{#if hasCompletedIntervention}}
+            <div class="profileCardNext" role="alert">
+                <h3>{{currentUser.firstname}}, let's celebrate!</h3>
+                <button class="btn btn-primary btn-wide" id="celebrate">Continue</button>
+            </div>
+            {{else}}
             <div class="profileCardNext" role="alert">
                 <h3>{{currentUser.firstname}}, welcome to Oji. Your supervisor has not set up your journey</h3>
-                </div>
-                {{/if}}
+            </div>
+            {{/if}}
+            {{/if}}
         {{/if}}
     {{/if}}
     {{> today}}

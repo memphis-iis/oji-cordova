@@ -1,6 +1,6 @@
 import { Template }    from 'meteor/templating';
 
-Template.postTreatment.helpers({
+Template.congrats.helpers({
     'assignment': function(){
         const user = Meteor.user();
         if(user){
@@ -27,20 +27,9 @@ Template.postTreatment.helpers({
     }
 })
 
-Template.postTreatment.events({
+Template.congrats.events({
     'click #startJourney': function(){
-        //get user assignments
-        const user = Meteor.user().assigned;
-        //if the length of the assignments array is greater than 1
-        if(user.length >= 1){
-            //get first assignment
-            const assignment = user[0];
-            Meteor.call('setCurrentAssignment', assignment.assignment);
-            const target = `/${assignment.type}/` + assignment.assignment;
-            Router.go(target);
-        } else{
             Router.go('/');
-        }
     },
     'click #continueJourney': function(){
         //get user assignments
@@ -63,7 +52,7 @@ Template.postTreatment.events({
 })
 
 
-Template.postTreatment.onCreated(function() {
+Template.congrats.onCreated(function() {
     Meteor.subscribe('assessments');
     Meteor.subscribe('modules');
     Meteor.subscribe('files.images.all');
