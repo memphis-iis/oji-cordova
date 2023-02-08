@@ -1,1 +1,8 @@
 node_modules/
+server/private/
+public/sw.js
+public/firebase-messaging-sw.js
+cordova-build-override/
+/settings.json
+/.meteor/local/
+/.vscode/

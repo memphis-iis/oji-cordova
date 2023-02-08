@@ -1,7 +1,7 @@
 module.exports = {
     servers: {
       one: {
-        host: '54.212.187.130',
+        host: '52.89.69.112',
         username: 'ubuntu',
         pem: '~/oji/oji-staging.pem'
       }
@@ -21,7 +21,7 @@ module.exports = {
         serverOnly: true
       },
       env: {
-        ROOT_URL: 'http://54.212.187.130',
+        ROOT_URL: 'http://ojis-journey.com',
         MONGO_URL: 'mongodb://localhost/meteor'
       }
     },
@@ -32,7 +32,7 @@ module.exports = {
       }
     },
     proxy: {
-      domains: '54.212.187.130',
+      domains: 'ojis-journey.com',
   
       ssl: {
         forceSSL: true,

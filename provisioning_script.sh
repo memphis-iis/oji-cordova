@@ -115,13 +115,21 @@ mkdir ~/node_modules
 ln -s ~/node_modules
 npm install
 
-
-
 # Remove Ubuntu's landscape stuff and clear login messages
 sudo apt-get purge -y landscape-client landscape-common
 sudo rm -f /etc/update-motd/*
 sudo rm -f /etc/motd
 sudo touch /etc/motd
+
+#install openjdk-8-jdk-headless
+sudo apt-get install -y openjdk-8-jdk-headless
+
+#install android sdk, accept licenses, and install platform tools, build tools, and emulator for android 30
+yes | sdkmanager --licenses
+sdkmanager "platforms;android-30" "build-tools;30.0.3" "emulator"
+
+#install meteor up
+npm install -g mup
 
 # Spit out some messages for the user - to do this we'll need to create a message
 # of the day (motd) file, and change the sshd_config file

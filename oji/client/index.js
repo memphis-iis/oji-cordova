@@ -1,52 +1,49 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import WebPush, { CordovaPush } from 'meteor/activitree:push';
+import { firebase } from 'meteor/activitree:push';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getMessaging, getToken } from "firebase/messaging";
+import { Session } from 'meteor/session';
+import { CordovaPush } from 'meteor/activitree:push';
 
-Template.DefaultLayout.onCreated(function() {
-
-})
 
 Meteor.startup(() => {
+  //get firebase config from meteor call and return result to firebaseConfig session variable
+  Meteor.call('getFirebaseConfig', function(error, result){
+      //initialize firebase
+      const app = initializeApp(result);    
+      //get firebase analytics object
+      const analytics = getAnalytics(app);
+      //ask user for permission to send notifications
+      Notification.requestPermission().then(function(permission) {
+        if(permission === 'granted'){
+          console.log("Permission Granted");
+          //get firebase messaging object
+          const messaging = getMessaging(app);
+          //get token
+          getToken(messaging,
+            {
+              vapidKey: result.publicVapidKey
+            }
+          ).then((currentToken) => {
+            console.log("currentToken: " + currentToken);
+            if (currentToken) {
+              //send token to server
+              Meteor.call('sendTokenToServer', currentToken);
+            }
+          }).catch((err) => {
+            console.log('An error occurred while retrieving token. ', err);
+          });
+        } else {
+          console.log("Permission Denied");
+        }
+      });
+  });
   Meteor.subscribe('files.images.all');
-  if (Meteor.isCordova) {
-    // Check cordova-push-plugin for all options supported.
-    // The configuration object is used to initialize Cordova Push on the device.
-    CordovaPush.Configure({
-      appName: 'Oji',
-      debug: true, // Turns on various console messages in the Cordova console.
-      android: {
-        alert: true,
-        badge: true,
-        sound: true,
-        vibrate: true,
-        clearNotifications: true,
-        icon: 'statusbaricon',
-        iconColor: '#337FAE',
-        forceShow: true
-      },
-      ios: {
-        alert: true,
-        badge: true,
-        sound: true,
-        clearBadge: true,
-        topic: 'com.your_app_id' // your IOS app id.
-      }
-    })
-  } else {
-    WebPush.Configure({
-      appName: 'Oji', // required
-      debug: true, 
-      firebase: {
-        apiKey: '________',
-        authDomain: '_______',
-        projectId: '________________',
-        messagingSenderId: '_________________',
-        appId: '_______________',
-      },
-      publicVapidKey: '____________'
-    })
-  }
 })
+
+
 Template.DefaultLayout.helpers({
   'footer': function(){
       footer.copyright = "Copyright 2022";

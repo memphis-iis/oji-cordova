@@ -3,6 +3,17 @@ import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
 import { calculateScores } from './subscaleCalculations.js';
 import { Canvas, Image } from 'canvas';
+import { serviceAccountData } from '/server/private/serviceAccount.js';
+import { firebaseConfig } from '/server/private/firebaseConfig.js';
+import { Push } from 'meteor/activitree:push';
+
+var admin = require("firebase-admin");
+
+var serviceAccount = serviceAccountData;
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
 
 const SEED_ADMIN = {
     username: 'testAdmin',
@@ -65,10 +76,31 @@ const SEED_USER2 = {
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
 
-//Configure Push Notifications
-serviceAccountData = null;
-//Public Dynamic Assets
-
+//Configure Push Notifications using meteor-push
+Push.Debug = true;
+Push.Configure({
+    firebaseAdmin:{
+        serviceAccountData,
+        databaseURL: firebaseConfig.databaseURL
+    },
+    android: {
+        senderID: firebaseConfig.senderID,
+        alert: true,
+        badge: true,
+        sound: true,
+        vibrate: true,
+        clearNotifications: true,
+        icon: 'ic_stat_ic_notification',
+        iconColor: '#FF0000',
+        forceShow: true,
+        topics: ['global']
+    },
+    sendBatchSize: 1,
+    sendInterval: 15000,
+    keepNotifications: false,
+    delayUntil: null,
+    sendTimeout: 10000
+});
 
 Meteor.startup(() => {
     if (Meteor.isServer) {
@@ -386,6 +418,20 @@ Meteor.methods({
         });
         return link;
     },
+    sendTokenToServer: function(token){
+        //add token to user
+        if(Meteor.userId()){
+            Meteor.users.update({ _id: Meteor.userId() },
+                {   $set:
+                    {
+                        token: token
+                    }
+                });
+            console.log("Token added to user " + Meteor.userId());
+        } else {
+            console.log("No user logged in for token");
+        }
+    },
     sendNotificationEmails: function(){
         if(Meteor.settings.public.sendEmails){
             var Emails = Emails.find.fetch();
@@ -424,7 +470,8 @@ Meteor.methods({
                     assigned: userOrgInfo.newUserAssignments || [],
                     nextModule: 0,
                     goals: [],
-                    assessmentSchedule: "preOrientation"
+                    assessmentSchedule: "preOrientation",
+                    certificates: []
                 }
             });
             //remove all user trials
@@ -432,6 +479,9 @@ Meteor.methods({
             //remove each user's assessment results
             ModuleResults.remove({userId: userID});
             Chats.remove({userId: userID});
+            //remove certificates
+            user 
+
         }
     },
     transferUserToOtherSupervisor: function(userID, newSupervisorID){
@@ -692,11 +742,13 @@ Meteor.methods({
           assets = Files.find({}).fetch();
           return assets;
       },
-
+    getFirebaseConfig: function(){
+        return firebaseConfig;
+    },
     changeAssessment(input){
         assessmentId = input.assessmentId;
         field = input.field;
-        result = input.result
+        result = input.result;
         assessment = Assessments.findOne({_id: assessmentId});
         if(field == "reversedQuestions"){
             result = parseInt(result);
