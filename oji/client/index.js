@@ -7,6 +7,31 @@ import { getMessaging, getToken } from "firebase/messaging";
 import { Session } from 'meteor/session';
 import { CordovaPush } from 'meteor/activitree:push';
 
+// onlogin
+Accounts.onLogin(function(){
+  if(Meteor.isCordova){
+    CordovaPush.Configure({
+      appName: 'Oji',
+      debug: true,
+      android: {
+        alert: true,
+        badge: true,
+        sound: true,
+        vibrate: true,
+        clearNotifications: true,
+        icon: 'icon',
+        iconColor: 'blue'
+      }
+    });
+    CordovaPush.push().on('registration', function(data) {
+      console.log('registration event: ' + data.registrationId);
+      Meteor.call('sendTokenToServer', data.registrationId);
+    });
+    CordovaPush.push().on('notification', function(data) {
+      console.log('notification event');
+    });
+  }
+});
 
 Meteor.startup(() => {
   //get firebase config from meteor call and return result to firebaseConfig session variable
@@ -42,26 +67,7 @@ Meteor.startup(() => {
           }
         });
       } else {
-        CordovaPush.Configure({
-          appName: 'Oji',
-          debug: true,
-          android: {
-            alert: true,
-            badge: true,
-            sound: true,
-            vibrate: true,
-            clearNotifications: true,
-            icon: 'icon',
-            iconColor: 'blue'
-          }
-        });
-        CordovaPush.push().on('registration', function(data) {
-          console.log('registration event: ' + data.registrationId);
-          Meteor.call('sendTokenToServer', data.registrationId);
-        });
-        CordovaPush.push().on('notification', function(data) {
-          console.log('notification event');
-        });
+
       }
   });
   Meteor.subscribe('files.images.all');
