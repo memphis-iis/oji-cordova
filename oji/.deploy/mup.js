@@ -21,7 +21,7 @@ module.exports = {
         serverOnly: true
       },
       env: {
-        ROOT_URL: 'http://ojis-journey.com',
+        ROOT_URL: 'https://ojis-journey.com:443',
         MONGO_URL: 'mongodb://localhost/meteor'
       }
     },

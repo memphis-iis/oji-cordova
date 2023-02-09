@@ -1,7 +1,7 @@
 Template.usersAdmin.helpers({
     'usersList': function() {
         if(Roles.userIsInRole(Meteor.userId(), 'admin')) {
-            return Meteor.users.find({ role: 'user', organization: Meteor.user().organization}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch();
+            return Meteor.users.find({ organization: Meteor.user().organization}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch();
         } else {
             return Meteor.users.find({ role: 'user', organization: Meteor.user().organization, supervisor: Meteor.userId()}, { sort: {lastname: 1, firstname: 1, _id: 1}}).fetch();
         }
@@ -47,8 +47,18 @@ Template.usersAdmin.helpers({
 
     'classes':function(){
         return Classes.find().fetch();
-    },
+    },  
 
+
+    'userFirebaseToken': function(){
+        const t = Template.instance();
+        userId = t.selectedUser.get();
+        if(userId == false){
+            return false;
+        } else {
+            return Meteor.users.findOne({_id: userId}).token;
+        }
+    },
     'userSelected': function(){
         const t = Template.instance();
         userId = t.selectedUser.get();

@@ -11,34 +11,58 @@ import { CordovaPush } from 'meteor/activitree:push';
 Meteor.startup(() => {
   //get firebase config from meteor call and return result to firebaseConfig session variable
   Meteor.call('getFirebaseConfig', function(error, result){
-      //initialize firebase
-      const app = initializeApp(result);    
-      //get firebase analytics object
-      const analytics = getAnalytics(app);
-      //ask user for permission to send notifications
-      Notification.requestPermission().then(function(permission) {
-        if(permission === 'granted'){
-          console.log("Permission Granted");
-          //get firebase messaging object
-          const messaging = getMessaging(app);
-          //get token
-          getToken(messaging,
-            {
-              vapidKey: result.publicVapidKey
-            }
-          ).then((currentToken) => {
-            console.log("currentToken: " + currentToken);
-            if (currentToken) {
-              //send token to server
-              Meteor.call('sendTokenToServer', currentToken);
-            }
-          }).catch((err) => {
-            console.log('An error occurred while retrieving token. ', err);
-          });
-        } else {
-          console.log("Permission Denied");
-        }
-      });
+      //if not cordova
+      if(!Meteor.isCordova){
+        //initialize firebase
+        const app = initializeApp(result);    
+        //get firebase analytics object
+        const analytics = getAnalytics(app);
+        //ask user for permission to send notifications
+        Notification.requestPermission().then(function(permission) {
+          if(permission === 'granted'){
+            console.log("Permission Granted");
+            //get firebase messaging object
+            const messaging = getMessaging(app);
+            //get token
+            getToken(messaging,
+              {
+                vapidKey: result.publicVapidKey
+              }
+            ).then((currentToken) => {
+              console.log("currentToken: " + currentToken);
+              if (currentToken) {
+                //send token to server
+                Meteor.call('sendTokenToServer', currentToken);
+              }
+            }).catch((err) => {
+              console.log('An error occurred while retrieving token. ', err);
+            });
+          } else {
+            console.log("Permission Denied");
+          }
+        });
+      } else {
+        CordovaPush.Configure({
+          appName: 'Oji',
+          debug: true,
+          android: {
+            alert: true,
+            badge: true,
+            sound: true,
+            vibrate: true,
+            clearNotifications: true,
+            icon: 'icon',
+            iconColor: 'blue'
+          }
+        });
+        CordovaPush.push().on('registration', function(data) {
+          console.log('registration event: ' + data.registrationId);
+          Meteor.call('sendTokenToServer', data.registrationId);
+        });
+        CordovaPush.push().on('notification', function(data) {
+          console.log('notification event');
+        });
+      }
   });
   Meteor.subscribe('files.images.all');
 })
