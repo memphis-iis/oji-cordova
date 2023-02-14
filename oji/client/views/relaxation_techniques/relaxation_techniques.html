@@ -3,7 +3,6 @@
         <b>Relaxation</b>
     </div>
     <div class="container content">
-    {{> menu}}
     {{#if selectedTechnique}}
         <div class="profileCard">
         {{#Template.dynamic template=selectedTechnique}}
@@ -14,6 +13,7 @@
         {{> relaxationTechniqueMenu}}
         </div>
     {{/if}}
+    {{> menu}}
     </div>
 </template>
 

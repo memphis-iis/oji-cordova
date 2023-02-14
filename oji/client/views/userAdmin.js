@@ -45,10 +45,6 @@ Template.usersAdmin.helpers({
 
     'orgCode': () => Meteor.user().supervisorInviteCode,
 
-    'classes':function(){
-        return Classes.find().fetch();
-    },  
-
 
     'userFirebaseToken': function(){
         const t = Template.instance();
@@ -153,6 +149,8 @@ Template.usersAdmin.helpers({
         console.log('test');
         const t = Template.instance();
         userId = t.selectedUser.get();
+        //get user data
+        userData = Meteor.users.findOne({_id: userId});
         data = Trials.find({userId: userId}).fetch();
         console.log(data.length);
         results = [];

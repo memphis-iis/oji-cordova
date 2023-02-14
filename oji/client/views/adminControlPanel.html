@@ -1,7 +1,4 @@
 <template name="adminControlPanel">
-    <div class="titlebar">
-        <b>{{currentUser.firstname}}'s Control Panel</b>
-    </div>
     <div class="container content">
         {{> menu}}
     <div class="container profileCard">
@@ -22,11 +19,10 @@
     <div id="organization">
             <div class="profileCard">
             <h3>Invite Code and Link</h3>
-            <p>This code invites a new user to your organization and becomes supervised by you: 
+            <p>This code invites a new user to your organization and becomes supervised by you: </p>
             <h4>{{orgCode}}</h4>
-            <a href="{{orgLink}}">{{orgLink}}</a> </p> 
             <p>
-            <br><button id="regen-link" class="btn btn-caution">Regenerate Link</button>
+            <br><button id="regen-link" class="btn btn-caution">Regenerate Code</button>
             </p>
             </div>
             {{#if isInRole 'admin'}}

@@ -5,6 +5,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 Template.calendar.helpers({
     'calendar': function(){
         allEvents = Events.find({}).fetch();
+        console.log(allEvents);
         calendar = {};
         // get displayed day
         const t = Template.instance();
@@ -124,7 +125,6 @@ Template.calendar.events({
 })
 
 Template.calendar.onCreated(function() {
-    Meteor.subscribe('events');
     const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
     unixDate = new Date();

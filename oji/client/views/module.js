@@ -1,10 +1,10 @@
 Template.module.helpers({
-    'module': () => Modules.findOne(),
+    'module': () => Modules.findOne({_id: this.moduleId}),
     'pageid': function() {return parseInt(this.pageId) + 1;},
     'questionid': function() {return parseInt(this.questionId) + 1;},
     'totalpages': function(){
         if(Meteor.user().curAssignment){
-            return Modules.findOne().pages.length;
+            return Modules.findOne({_id: this.moduleId}).pages.length;
         }
     },
     'resume': function(){
@@ -26,7 +26,7 @@ Template.module.helpers({
     },
     'passed': function(){
         //calc quiz score
-        Meteor.call('calcQuizScore', Modules.findOne()._id);
+        Meteor.call('calcQuizScore', Modules.findOne({_id: this.moduleId})._id);
         passed = Meteor.user().curModule.passed;
         if(passed){
             //get user assignments
@@ -92,7 +92,7 @@ Template.module.helpers({
     'page': function(){
         const user = Meteor.user();
         if(user && user.curAssignment){
-            page = Modules.findOne().pages[parseInt(this.pageId)];
+            page = Modules.findOne({_id: this.moduleId}).pages[parseInt(this.pageId)];
             if(page) {
                 const t = Template.instance();
                 $('.continue').show();
@@ -128,7 +128,7 @@ Template.module.helpers({
         }
     },
     'question': function(){
-        page = Modules.findOne().pages[parseInt(this.pageId)];
+        page = Modules.findOne({_id: this.moduleId}).pages[parseInt(this.pageId)];
         question = page.questions[parseInt(this.questionId)];
         const t = Template.instance();
         $('#continue').prop('disabled', false);
@@ -187,7 +187,7 @@ Template.module.helpers({
     'percentDone': function(){
         const user = Meteor.user();
         if(user && user.curAssignment){
-            const length = Modules.findOne().pages.length;
+            const length = Modules.findOne({_id: this.moduleId}).pages.length;
             percent = parseInt(this.pageId) / length * 100;
             return percent.toFixed(0);
         }
@@ -199,7 +199,7 @@ Template.module.events({
         event.preventDefault();
         //scroll to top of page
         $('html, body').animate({ scrollTop: 0 }, 'fast');
-        const curModule = Modules.findOne();
+        const curModule = Modules.findOne({_id: this.moduleId});
         const curUser = Meteor.user();
         const t = Template.instance();
         let target = "";
@@ -385,7 +385,7 @@ Template.module.events({
     },
     'click #startModule': function(event){
         event.preventDefault();
-        module = Modules.findOne();
+        module = Modules.findOne({_id: this.moduleId});
         console.log("start module " + this._id);
         data = {
             moduleId: module._id,
@@ -462,6 +462,7 @@ Template.module.events({
 
 Template.module.onCreated(function(){
     Meteor.subscribe('getUserModuleResults');
+    console.log(this.moduleId);
     this.questionType = new ReactiveVar("");
     this.pageType = new ReactiveVar("");
     this.pageId = new ReactiveVar("");

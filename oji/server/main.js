@@ -3,17 +3,8 @@ import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
 import { calculateScores } from './subscaleCalculations.js';
 import { Canvas, Image } from 'canvas';
-import { serviceAccountData } from '/server/private/serviceAccount.js';
-import { firebaseConfig } from '/server/private/firebaseConfig.js';
-import { Push } from 'meteor/activitree:push';
 
-var admin = require("firebase-admin");
-
-var serviceAccount = serviceAccountData;
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
+var fs = Npm.require('fs');
 
 const SEED_ADMIN = {
     username: 'testAdmin',
@@ -76,31 +67,10 @@ const SEED_USER2 = {
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
 const SEED_ROLES = ['user', 'supervisor', 'admin']
 
-//Configure Push Notifications using meteor-push
-Push.Debug = true;
-Push.Configure({
-    firebaseAdmin:{
-        serviceAccountData,
-        databaseURL: firebaseConfig.databaseURL
-    },
-    android: {
-        senderID: firebaseConfig.senderID,
-        alert: true,
-        badge: true,
-        sound: true,
-        vibrate: true,
-        clearNotifications: true,
-        icon: 'ic_stat_ic_notification',
-        iconColor: '#FF0000',
-        forceShow: true,
-        topics: ['global']
-    },
-    sendBatchSize: 1,
-    sendInterval: 15000,
-    keepNotifications: false,
-    delayUntil: null,
-    sendTimeout: 10000
-});
+//Configure Push Notifications
+serviceAccountData = null;
+//Public Dynamic Assets
+
 
 Meteor.startup(() => {
     if (Meteor.isServer) {
@@ -298,7 +268,7 @@ Meteor.startup(() => {
 //Global Methods
 Meteor.methods({
     getInviteInfo,
-    createNewUser: function(user, pass, emailAddr, firstName, lastName, sex, gender, linkId=""){
+    createNewUser: function(user, pass, emailAddr, firstName, lastName, sex, gender ,acceptedTermsTimestamp, linkId=""){
         if(linkId){
             var {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName} = getInviteInfo(linkId);    
             var organization = Orgs.findOne({_id: targetOrgId});          
@@ -335,7 +305,8 @@ Meteor.methods({
                             nextModule: 0,
                             author: author,
                             goals: [],
-                            assessmentSchedule: "preOrientation"
+                            assessmentSchedule: "preOrientation",
+                            acceptedTermsTimestamp: acceptedTermsTimestamp
                         }
                     });
                 if(linkId != ""){
@@ -418,20 +389,6 @@ Meteor.methods({
         });
         return link;
     },
-    sendTokenToServer: function(token){
-        //add token to user
-        if(Meteor.userId()){
-            Meteor.users.update({ _id: Meteor.userId() },
-                {   $set:
-                    {
-                        token: token
-                    }
-                });
-            console.log("Token added to user " + Meteor.userId());
-        } else {
-            console.log("No user logged in for token");
-        }
-    },
     sendNotificationEmails: function(){
         if(Meteor.settings.public.sendEmails){
             var Emails = Emails.find.fetch();
@@ -471,7 +428,8 @@ Meteor.methods({
                     nextModule: 0,
                     goals: [],
                     assessmentSchedule: "preOrientation",
-                    certificates: []
+                    curModule: null,
+                    curAssessment: null
                 }
             });
             //remove all user trials
@@ -479,9 +437,6 @@ Meteor.methods({
             //remove each user's assessment results
             ModuleResults.remove({userId: userID});
             Chats.remove({userId: userID});
-            //remove certificates
-            user 
-
         }
     },
     transferUserToOtherSupervisor: function(userID, newSupervisorID){
@@ -606,6 +561,118 @@ Meteor.methods({
             createdBy: Meteor.userId()
         }
         Modules.insert(newModule);
+    },
+    saveModuleToDefaults: function(module){
+        //get the module from the Modules collection
+        thisModule = Module.findOne({_id: module});
+        //get the defaultModules asset location
+        defaultModulesLocation = Assets.absoluteFilePath("defaultModules.json");
+        //remove the _id field
+        delete thisModule._id;
+        //get the defaultModules asset
+        defaultModules = JSON.parse(Assets.getText("defaultModules.json")).modules;
+        //check for a module with the same identifier
+        for(i = 0; i < defaultModules.length; i++){
+            if(defaultModules[i].identifier == thisModule.identifier){
+                //if found, replace it with thisModule
+                defaultModules[i] = thisModule;
+                break;
+            }
+        }
+        //if not found, add thisModule to the end of the array
+        if(i == defaultModules.length){
+            defaultModules.push(thisModule);
+        }
+        newModuleFile = {
+            modules: defaultModules
+        }
+        //save the new defaultModules as a json file to the defaultModules asset location
+        fs.writeFile(defaultModulesLocation, JSON.stringify(newModuleFile), function(err){
+            if(err){
+                console.log(err);
+            } else {    
+                console.log("Module saved to defaults");
+            }
+        });
+    },
+    saveAssessmentToDefaults: function(assessment){
+        //get the assessment from the Assessments collection
+        thisAssessment = Assessments.findOne({_id: assessment});
+        //get the defaultAssessments asset location
+        defaultAssessmentsLocation = Assets.absoluteFilePath("defaultAssessments.json");
+        //get the defaultAssessments asset
+        defaultAssessments = JSON.parse(Assets.getText("defaultAssessments.json")).assessments;
+        //remove the _id field from thisAssessment
+        delete thisAssessment._id;
+        //check for an assessment with the same identifier
+        for(i = 0; i < defaultAssessments.length; i++){
+            if(defaultAssessments[i].identifier == thisAssessment.identifier){
+                //if found, replace it with thisAssessment
+                defaultAssessments[i] = thisAssessment;
+                break;
+            }
+        }
+        //if not found, add thisAssessment to the end of the array
+        if(i == defaultAssessments.length){
+            defaultAssessments.push(thisAssessment);
+        }
+        newAssessmentFile = {
+            assessments: defaultAssessments
+        }
+        //save the new defaultAssessments as a json file to the defaultAssessments asset location
+        fs.writeFile(defaultAssessmentsLocation, JSON.stringify(newAssessmentFile), function(err){
+            if(err){
+                console.log(err);
+            } else {
+                console.log("Added assessment to default assessments");
+            }
+        });
+    },
+    reloadDefaults: function(){
+        //get the defaultModules asset location
+        defaultModulesLocation = Assets.absoluteFilePath("defaultModules.json");
+        //get the defaultModules asset
+        defaultModules = JSON.parse(Assets.getText("defaultModules.json")).modules;
+        //get the defaultAssessments asset location
+        defaultAssessmentsLocation = Assets.absoluteFilePath("defaultAssessments.json");
+        //get the defaultAssessments asset
+        defaultAssessments = JSON.parse(Assets.getText("defaultAssessments.json")).assessments;
+        //get the current modules
+        currentModules = Modules.find({}).fetch();
+        //get the current assessments
+        currentAssessments = Assessments.find({}).fetch();
+        //iterate through the current modules, checking for a match in the defaultModules.modules array by identifier
+        for(i = 0; i < currentModules.length; i++){
+            for(j = 0; j < defaultModules.length; j++){
+                if(currentModules[i].identifier == defaultModules[j].module.identifier){
+                    //if found, replace the current module with the default module
+                    Modules.update({_id: currentModules[i]._id}, {$set: defaultModules[j]});
+                    console.log("updated module " + currentModules[i].identifier + " with default module " + defaultModules[j].module.identifier);
+                    break;
+                }
+            }
+            //if not found, delete the current module
+            if(j == defaultModules.length){
+                Modules.remove({_id: currentModules[i]._id});
+                console.log("deleted module " + currentModules[i].identifier);
+            }
+        }   
+        //iterate through the current assessments, checking for a match in the defaultAssessments.assessments array by identifier
+        for(i = 0; i < currentAssessments.length; i++){
+            for(j = 0; j < defaultAssessments.length; j++){
+                if(currentAssessments[i].identifier == defaultAssessments[j].assessment.identifier){
+                    //if found, replace the current assessment with the default assessment
+                    Assessments.update({_id: currentAssessments[i]._id}, {$set: defaultAssessments[j]});
+                    console.log("updated assessment " + currentAssessments[i].identifier + " with default assessment " + defaultAssessments[j].assessment.identifier);
+                    break;
+                }
+            }
+            //if not found, delete the current assessment
+            if(j == defaultAssessments.length){
+                Assessments.remove({_id: currentAssessments[i]._id});
+                console.log("deleted assessment " + currentAssessments[i].identifier);
+            }
+        }
     },
     uploadJson: function(path,user, data=false){
         if(data){
@@ -742,13 +809,11 @@ Meteor.methods({
           assets = Files.find({}).fetch();
           return assets;
       },
-    getFirebaseConfig: function(){
-        return firebaseConfig;
-    },
+
     changeAssessment(input){
         assessmentId = input.assessmentId;
         field = input.field;
-        result = input.result;
+        result = input.result
         assessment = Assessments.findOne({_id: assessmentId});
         if(field == "reversedQuestions"){
             result = parseInt(result);
@@ -1059,37 +1124,10 @@ Meteor.methods({
             });
         return results;
     },
-    calcQuizScore: function(moduleId){
-        userId = Meteor.userId();
-        trial = ModuleResults.find({userId: userId, moduleId: moduleId});
-        score = trial.score;
-        maxScore = trial.maxScore;
-        if(!score || !maxScore){
-            score = 1;
-            maxScore = 1;
-        }
-        percentage = score/maxScore;
-        if( percentage >= .70){
-            passed = true;
-        } else {
-            passed = false;
-        }
-        //set users curModule.score to the score
-        user = Meteor.users.findOne({_id: userId});
-        user.curModule.score = score;
-        user.curModule.maxScore = maxScore;
-        user.curModule.percentage = percentage;
-        user.curModule.passed = passed;
-        Meteor.users.update(userId, {$set: {curModule: user.curModule}});
-    },
-
     evaluateModule: function(curModuleId, moduleData){
         curModule = Modules.findOne({_id: curModuleId});
         moduleData.score = 0;
         moduleData.maxScore = 0;
-        moduleDataID = moduleData._id;
-        //delete the _id field
-        delete moduleData._id;
         //get pages where the page type is a quiz
         pages = curModule.pages;
         for(let page of pages){
@@ -1112,10 +1150,17 @@ Meteor.methods({
                     }
                 }
             }
+            //calculate the percentage
+            moduleData.percentage = (moduleData.score / moduleData.maxScore) * 100;
             //update the module results
-            ModuleResults.upsert({_id: moduleDataID}, {$set: moduleData});
+            ModuleResults.upsert({_id: curModuleId}, {$set: moduleData});
         }
 
+    },
+    getModuleQuizScore: function(moduleId){
+        //get ModuleResults for user with moduleId
+        moduleData = ModuleResults.findOne({userId: Meteor.userId(), moduleId: moduleId});
+        return moduleData.score;
     },
     saveModuleData: function (moduleData){
         ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
@@ -1180,21 +1225,18 @@ Meteor.methods({
     
     userFinishedOrientation: function(){
         user = Meteor.user();
-        if(user.assessmentSchedule == "preOrientation"){
-            user.assessmentSchedule = "intervention";
-        }
-        if(user.assessmentSchedule == "intervention"){
-            user.assessmentSchedule = "postTreatment";
-        }
-
-        
-        //update the user
+        console.log("userFinishedOrientation", user._id);
+        //get assessment schedule
+        assessmentSchedule = user.assessmentSchedule;
+        assigned = user.assigned;
+        //if assessment schedule is "preOrientation", set it to "intervention"
+        assessmentSchedule = "intervention";
         Meteor.users.update(Meteor.userId(), {
             $set: {
-                assessmentSchedule: user.assessmentSchedule
+                hasCompletedFirstAssessment: true,
+                assessmentSchedule: assessmentSchedule,
             }
         });
-        console.log("userFinishedOrientation: ", user._id, user.assessmentSchedule);
     },
     userFinishedIntervention: function(){
         user = Meteor.user();
@@ -1212,15 +1254,8 @@ Meteor.methods({
         //filter out the module type
         newUserAssessments = newUserAssessments.filter(function( obj ) {
             return obj.type !== "module";
-            }
-        );
-        //get all the new user assessments as {id, type}
-        for (let assessment of newUserAssessments){
-            assessment.assignment = assessment._id;
-            assessment.type = "assessment";
-            delete assessment._id;
         }
-        
+        );
         //replace assigned with newUserAssessments
         assigned = newUserAssessments;
     
@@ -1639,22 +1674,22 @@ Meteor.publish(null, function() {
 });
 
 //Publish all user chats that include the current user
-Meteor.publish('chats', function() {
+Meteor.publish(null, function() {
     return Chats.find({'to': this.userId});
 } );
 
 // Publish all of users exercises
-Meteor.publish('exercises', function() {
+Meteor.publish(null, function() {
     return Exercises.find({'userId': this.userId});
 })
 
 //Publish current assessment information
-Meteor.publish('curAssessment', function(id) {
+Meteor.publish(null, function(id) {
     return Assessments.find({_id: id});
 });
 
 //allow admins to see all users of org, Can only see emails of users. Can See full data of supervisors
-Meteor.publish('getUsersInOrg', function() {
+Meteor.publish(null, function() {
     if(Roles.userIsInRole(this.userId, 'admin' )){ 
         return Meteor.users.find({ organization: Meteor.user().organization, role: 'user' });
     }
@@ -1663,7 +1698,7 @@ Meteor.publish('getUsersInOrg', function() {
     }
 });
 
-Meteor.publish('getSupervisorsInOrg', function() {
+Meteor.publish(null, function() {
     if(Roles.userIsInRole(this.userId, 'admin')){
         return Meteor.users.find({ organization: Meteor.user().organization, role: 'supervisor' });
     }
@@ -1686,36 +1721,41 @@ Meteor.publish(null, function () {
     }
 });
 //allow assessments to be published
-Meteor.publish('assessments', function () {
+Meteor.publish(null, function () {
     return Assessments.find({});
 });
 
 //allow current users trial data to be published
-Meteor.publish('usertrials', function () {
+Meteor.publish(null, function () {
     if(Roles.userIsInRole(this.userId, ['admin', 'supervisor']))
         return Trials.find();
     return Trials.find({'userId': this.userId});
 });
 
-//allow cur
 //allow current module pages to be published
-Meteor.publish('curModule', function (id) {
-    return Modules.find({_id: id});
+Meteor.publish(null, function (){
+    return Modules.find({});
 });
 //allow all modules to be seen
-Meteor.publish('modules', function () {
+Meteor.publish(null, function () {
     return Modules.find({});
 });
 //get module results
-Meteor.publish('getUserModuleResults', function (id) {
-    return ModuleResults.find({});
+Meteor.publish(null, function () {
+    if(Roles.userIsInRole(this.userId, ['admin', 'supervisor']))
+        return ModuleResults.find({});
+    return ModuleResults.find({userId: Meteor.userId()});
 });
 
-Meteor.publish('getModuleResultsByTrialId', function (id) {
-    return ModuleResults.find({_id: id});
+Meteor.publish(null, function () {
+    if(Roles.userIsInRole(this.userId, ['admin', 'supervisor']))
+        return ModuleResults.find({});
+    return
 });
-Meteor.publish('getAssessmentsResultsByTrialId', function (id) {
-    return Trials.find({_id: id});
+Meteor.publish(null, function () {
+    if(Roles.userIsInRole(this.userId, ['admin', 'supervisor']))
+        return ModuleResults.find({});
+    return Trials.find({userId: Meteor.userId()});
 });
 
 //get my events
@@ -1728,7 +1768,7 @@ Meteor.publish(null, function() {
 });
 
 //get all organization events
-Meteor.publish('events', function() {
+Meteor.publish(null, function() {
     if(Meteor.user()){
         return Events.find({$or: [{ $and: [{org: Meteor.user().organization},{createdBy: this.userId}]},{$and:[{createdBy: Meteor.user().supervisor},{type:"Supervisor Group"}]},{$and: [{org: Meteor.user().organization},{type: "All Organization"}]},{type:this.userId}]}, {sort: {year:1 , month:1, day:1, time:1}})
     }

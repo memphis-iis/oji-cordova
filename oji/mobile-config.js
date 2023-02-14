@@ -1,7 +1,7 @@
 // This section sets up some basic app metadata, the entire section is optional.
 App.info({
     id: 'com.uofmiis.ojicordova',
-    name: 'Oji',
+    name: 'Oji Debug Main',
     description: 'Mental Health Assessment App',
     author: 'UofM Institute for Intelligent Systems'
   });

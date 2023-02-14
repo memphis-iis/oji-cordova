@@ -9,6 +9,10 @@ module.exports = {
     app: {
       name: 'Oji',
       path: '../',
+      volumes: {
+        '/public': '/opt/oji/public',
+        '/private': '/opt/oji/private'
+      },
       docker: {
         image: 'zodern/meteor:root',
         prepareBundle: true,
@@ -36,7 +40,7 @@ module.exports = {
         serverOnly: true
       },
       env: {
-        ROOT_URL: 'https://ojis-journey.com',
+        ROOT_URL: 'http://ojis-journey.com',
         MONGO_URL: 'mongodb://localhost/meteor'
       }
     },
@@ -48,7 +52,6 @@ module.exports = {
     },
     proxy: {
       domains: 'ojis-journey.com',
-  
       ssl: {
         forceSSL: true,
         letsEncryptEmail: 'jrhaner@memphis.edu'

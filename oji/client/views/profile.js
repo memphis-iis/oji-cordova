@@ -105,7 +105,7 @@ Template.profile.events({
         if(schedule === "intervention"){
             assignment = assigned[0];
             Meteor.call('setCurrentAssignment', assignment.assignment);
-            target = "postAssessmentPrompt";
+            target = "/postAssessmentPrompt";
             Router.go(target);
         }
         //if the schedule is preOrientation, then continue on to the next assessment

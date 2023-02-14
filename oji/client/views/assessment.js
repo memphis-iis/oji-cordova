@@ -195,6 +195,7 @@ Template.assessment.events({
 
 
 Template.assessment.onCreated(function() {
+    console.log("Meteor.user", Meteor.user());
     Meteor.subscribe('usertrials');
     this.TTSTracPlaying = new ReactiveVar(0);
     this.audioActive = new ReactiveVar(false);

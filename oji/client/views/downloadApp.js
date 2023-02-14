@@ -10,7 +10,7 @@ Template.downloadApp.events({
     'click #downloadAndroid': function(event) {
         event.preventDefault();
         //get the asset url from meteor
-        Meteor.call('getAsset', 'release4.apk', function(err, url) {
+        Meteor.call('getAsset', 'release.apk', function(err, url) {
             var asset = url;
             //create a blob from the asset
             var blob = new Blob([asset], {type: 'application/vnd.android.package-archive'});

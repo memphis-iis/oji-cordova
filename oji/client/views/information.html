@@ -3,12 +3,6 @@
         <b>Information</b>
     </div>
     <div class="text-center content container">  
-        <div class="text-center profileCard" role="alert">
-       <h3>Previous Content</h3>
-         <p>Here is the content you may have already completed.</p>
-                <a href="/welcome">Welcome Page</a>
-            
-        </div>
         <div class="text-center daySelector" role="alert">
        <h3>Ask A Question</h3>
        <p class="lead mb-4">Please use a form below to send a message to your supervisor.</p>
@@ -23,6 +17,19 @@
             </form>
         </div>
     </div>
-    {{> menu}}
-</div>
+    <div class="text-center profileCard" role="alert">
+        <h3>Content</h3>
+          <p>Here is the content you may have already completed.</p>
+                 <a href="/welcome">Welcome Page</a>             
+         </div>
+         <div class="text-center profileCard">
+            <h3>About Oji's Journey</h3>
+            <p>
+                Oji was developed at the University of Memphis and the University of Southern Mississippi by a team of researchers and developers.
+                The application was designed and developed by the Institute of Intelligent Systems, University of Memphis. 
+                The App and it's content are copyright © 2023. 
+            </p>
+        </div>
+        {{> menu}}
+    </div>
 </template>

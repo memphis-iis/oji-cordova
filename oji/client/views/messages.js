@@ -113,7 +113,6 @@ Template.messages.events({
 })
 
 Template.messages.onCreated(function(){
-    Meteor.subscribe('chats');
     Meteor.subscribe('getUsersInOrg');
     this.inbox = new ReactiveVar(true);
     this.compose = new ReactiveVar(false);

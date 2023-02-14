@@ -63,7 +63,7 @@ const restrictedRoutes = [
 
 const getDefaultRouteAction = function(routeName) {
   return function() {
-      this.render('routeName');
+      this.render(routeName);
   };
 };
 
@@ -77,10 +77,18 @@ for (const route of defaultBehaviorRoutes) {
 
 // set up all routes with restricted to login behavior
 for (const route of restrictedRoutes) {
-  Router.route('/' + route, function() {
-    if(Meteor.userId()){
-      this.render(route);
-      }else{
+  Router.route('/' + route, {
+    name: 'client.' + route,
+    subscriptions: function(){
+      return [
+
+
+      ]
+    },
+    action: function() {
+       if(Meteor.userId()){
+         this.render(route);
+       }else{
         this.render('home', {
           data: {
             message: "That area is not accessible to users who haven't logged in. Please sign in.",
@@ -88,8 +96,9 @@ for (const route of restrictedRoutes) {
           }
         });
       }
-    });
-  }
+    }
+  });
+}
 
 // setup home route
 Router.route('/', function () {
@@ -134,9 +143,6 @@ Router.route('/control-panel', function () {
 // route assessment engine
 //intro
 Router.route('/assessment/:_id', {
-  subscriptions: function(){
-    return Meteor.subscribe('curAssessment', this.params._id);
-  },
   action: function(){
     this.render('assessment', {
       data:{
@@ -158,17 +164,25 @@ Router.route('/calendar/agenda', {
 });
 
 Router.route('/userAssessmentReport/', {
+  subcriptions: function(){
+    //subscribe to all assessments and modules
+    return [
+      Meteor.subscribe('usertrials'),
+      Meteor.subscribe('assessments')
+    ]
+  },
   action: function(){
-    this.render('userAssessmentReportLanding', {
-      params: {
-        assessmentIdentifier: this.params._identifier
-      }
-    });
-
+    this.render('userAssessmentReportLanding')
   }
 });
 
 Router.route('/userAssessmentReport/:_identifier', {
+  subcriptions: function(){
+    return [
+      Meteor.subscribe('usertrials'),
+      Meteor.subscribe('assessments')
+    ]
+  },
   action: function(){
     this.render('userAssessmentReport', {
       params: {
@@ -179,6 +193,12 @@ Router.route('/userAssessmentReport/:_identifier', {
 });
 
 Router.route('/userAssessmentReport/supervisor/:_userid/', {
+  subcriptions: function(){
+    return [
+      Meteor.subscribe('usertrials'),
+      Meteor.subscribe('assessments')
+    ]
+  },
   action: function(){
     this.render('userAssessmentReportLanding', {
       params: {
@@ -189,6 +209,12 @@ Router.route('/userAssessmentReport/supervisor/:_userid/', {
 });
 
 Router.route('/userAssessmentReport/supervisor/:_userid/:_identifier', {
+  subcriptions: function(){
+    return [
+      Meteor.subscribe('usertrials'),
+      Meteor.subscribe('assessments')
+    ]
+  },
   action: function(){
     this.render('userAssessmentReport', {
       params: {
@@ -201,9 +227,6 @@ Router.route('/userAssessmentReport/supervisor/:_userid/:_identifier', {
 
 //question
 Router.route('/assessment/:_id/:_questionid', {
-  subscriptions: function(){
-    return Meteor.subscribe('curAssessment', this.params._id);
-  },
   action: function(){
     this.render('assessment', {
       data:{
@@ -237,9 +260,6 @@ Router.route('/moduleEditor/:_moduleId', {
 // route module engine
 //intro
 Router.route('/module/:_id', {
-  subscriptions: function(){
-    return Meteor.subscribe('curModule', this.params._id);
-  },
   action: function(){
     if(this.ready){
     this.render('module', {
@@ -254,12 +274,10 @@ Router.route('/module/:_id', {
 
 //module page id
 Router.route('/module/:_id/:_pageid', {
-  subscriptions: function(){
-    return Meteor.subscribe('curModule', this.params._id);
-  },
   action: function(){
     this.render('module', {
       data:{
+        moduleId: this.params._id,
         pageId: this.params._pageid,
       }
     });
@@ -268,15 +286,10 @@ Router.route('/module/:_id/:_pageid', {
 
 //module quiz page question id
 Router.route('/module/:_id/:_pageid/:_questionid', {
-  subscriptions: function(){
-    subs = [];
-    subs.push(Meteor.subscribe('curModule', this.params._id));
-    subs.push(Meteor.subscribe('getUserModuleResults'));
-    return subs;
-  },
   action: function(){
     this.render('module', {
       data:{
+        moduleId: this.params._id,
         pageId: this.params._pageid,
         questionId: this.params._questionid,
       }
@@ -325,23 +338,19 @@ Router.route('/moduleReport/:_id', {
 });
 // route assessments results report
 Router.route('/assessmentReport/:_id', {
-  subscriptions: function(){
-    subs = [];
-    subs.push(Meteor.subscribe('getAssessmentsResultsByTrialId', this.params._id));
-    return subs;
-  },
   action: function(){
-    if(this.ready){
-      if(Meteor.user()){
+    if(Meteor.user()){
         if (Roles.userIsInRole(Meteor.user(), 'admin') || Roles.userIsInRole(Meteor.user(), 'supervisor')  ) {
-          this.render('assessmentReport');
+          this.render('assessmentReport', {
+            data:{
+              assessmentId: this.params._id,
+            }
+          });
+        } else {
+          this.render('/');
         }
-      } else {
-        this.render('/');
-      }
     } else {
       this.render('loading');
     }
   }
 });
-//Route Static Assets

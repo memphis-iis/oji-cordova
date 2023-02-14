@@ -318,6 +318,20 @@ Template.modulesAdmin.events({
         $('#alert-confirm').attr('data-assessment-id', deletedAssessment);
         $('#alert-confirm').addClass("confirm-delete-assessment");
     },
+    'click #backup-defaults-assessment': function (event){
+        event.preventDefault();
+        assessment = $(event.target).data("assessment-id");
+        Meteor.call('saveAssessmentToDefaults', assessment);
+    },
+    'click #backup-defaults-module': function (event){
+        event.preventDefault();
+        moduleId = $(event.target).data("module-id");
+        Meteor.call('saveModuleToDefaults', moduleId);
+    },
+    'click #reload-defaults': function (event){
+        event.preventDefault();
+        Meteor.call('reloadDefaults');
+    },
     'click #copy-module': function (event){
         newModule = $(event.target).data("module-id");
         newOwner = Meteor.user().organization;

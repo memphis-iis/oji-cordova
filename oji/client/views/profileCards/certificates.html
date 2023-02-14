@@ -1,16 +1,19 @@
 <template name="awards">
     {{#if certificates}}
     <div class="profileCard">
-    <h3 class="text-left">Certificates</h3>
+    <h3 class="text-left ">Certificates</h3>
+    <div class="certificates-container">
             {{#each certificates}}
-          
-                        <a href="{{this.file}}">
-                        {{this.title}}</a>
-                        <br><br>
+            <div class="certificate-container2">
+                        <img src="{{this.file}}" class="certificate">
+                        <br>
+                        <a href="{{this.file}}" download="{{this.file}}.png" class="btn btn-primary">Download</a>
+            </div>
                     
             
             {{/each}}
 
+    </div>
     </div>
     {{/if}}
 </template>

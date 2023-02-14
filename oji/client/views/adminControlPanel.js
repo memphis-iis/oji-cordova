@@ -470,11 +470,6 @@ Template.adminControlPanel.events({
 })
 
 Template.adminControlPanel.onCreated(function() {
-    Meteor.subscribe('getUsersInOrg');
-    Meteor.subscribe('getSupervisorsInOrg');
-    Meteor.subscribe('assessments');
-    Meteor.subscribe('getUserModuleResults');
-    Meteor.subscribe('modules');
     this.selectedUser = new ReactiveVar("org");
     this.currentUpload = new ReactiveVar(false);
     this.TTSTracPlaying = new ReactiveVar(0);

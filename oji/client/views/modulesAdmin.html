@@ -58,6 +58,13 @@
             Your organization does not have a default assignment flow for new users.
             {{/if}}
             </div>
+            {{#if author}}
+            <div class="profileCard">
+            <h3>Reload Default Content</h3>
+            <button id="reload-defaults" class="btn btn-caution">Reload Default Content</button>
+            <p>This will delete all current content and reload default content. This cannot be undone.</p>
+            </div>
+            {{/if}}
             <div class="profileCard">
             <h3>Assessments Available</h3>
             <div id="alert" class="alert" role="alert" hidden>
@@ -124,6 +131,9 @@
                                     <br>
                                     <a data-assessment-id="{{this._id}}" id="export-assessment">
                                         <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Export Assessment
+                                    </a>
+                                    <a data-assessment-id="{{this._id}}" id="backup-defaults-assessment">
+                                        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Backup to Defaults
                                     </a>
                                 {{/if}}
                                 {{/if}}

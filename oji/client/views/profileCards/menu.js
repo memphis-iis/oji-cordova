@@ -1,3 +1,8 @@
+//load hammer.js from npm
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
+import { Meteor } from 'meteor/meteor'; 
+
 Template.menu.helpers({
     'message': function(){
         var chats = Chats.find({status:'unread'}, {sort: {createdAt: -1}}).fetch();
@@ -129,3 +134,16 @@ Template.menu.onCreated(function(){
     this.displayMessage = new ReactiveVar(false);
     this.allMessages = new ReactiveVar(false);
 })
+
+Template.menu.rendered = function(){
+    //initialize hammer.js to detect swipe left and right on menu to load different views
+    Hammer = require('hammerjs');
+    var menu = document.getElementById('menu');
+    var mc = new Hammer(menu-container);
+    mc.on("swipeleft", function(ev) {
+        console.log('swipe left');
+    });
+    mc.on("swiperight", function(ev) {
+        console.log('swipe right');
+    });
+}
