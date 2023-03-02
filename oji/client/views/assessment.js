@@ -19,7 +19,7 @@ Template.assessment.helpers({
                 return assignment.type !== "module";
             });
             //if there are no assignments left, the user has completed all the assignments
-            if(assignments.length == 0){
+            if(assignments.length == 0 && Meteor.user().assessmentSchedule == "preOrientation"){
                 Meteor.call('userFinishedOrientation');
             }
             return true;
@@ -62,6 +62,8 @@ Template.assessment.helpers({
     'postTreatment': function(){
         const schedule = Meteor.user().assessmentSchedule;
         if(schedule === "postTreatment"){
+            //change the user's assessment schedule to finished
+            Meteor.call('userFinishedPostTreatment');
             return true;
         } else {
             return false;

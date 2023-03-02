@@ -153,13 +153,6 @@ Template.modulesAdmin.events({
     'click #supervisorsEditButton': function(){
         alert("edit click")
     },
-
-    'click #test-module': function (event){
-        testModule = $(event.target).data("module-id");
-        Meteor.call('createModuleStorageforUser',testModule);
-        target = "/module/" + testModule;
-        window.location.href = target;
-    },
     'click #test-assessment': function (event){
         testModule = $(event.target).data("module-id");
         target = "/assessment/" + testModule;
@@ -549,6 +542,8 @@ Template.modulesAdmin.events({
     },
     'click #test-module': function (event){
         testModule = $(event.target).data("module-id");
+        Meteor.call("createModuleStorageforUser", testModule);
+        Meteor.call("setCurrentAssignment", testModule);
         target = "/module/" + testModule;
         window.location.href = target;
     },

@@ -60,15 +60,7 @@ Template.usersAdmin.helpers({
         userId = t.selectedUser.get();
         console.log("here")
         user = Meteor.users.findOne({_id: userId});
-        if(user.assessmentSchedule == "preOrientation"){
-            user.schedule = "Pre-Orientation";
-        }
-        if(user.assessmentSchedule == "intevention"){
-            user.schedule = "Intervention / Treatment";
-        }
-        if(user.assessmentSchedule == "postTreatment"){
-            user.schedule = "Post-Treatment";
-        }
+        user.schedule = user.assessmentSchedule;
         classList = user.classList || [];
         newClassList = [];
         for(course of classList){
@@ -182,8 +174,7 @@ Template.usersAdmin.helpers({
     'assessmentsAvailable': function() {
         data = Assessments.find().fetch();
         return data
-    }
-    
+    },
 });
 
 
@@ -205,7 +196,15 @@ Template.usersAdmin.events({
 'click #supervisorDemoteButton': function(event){
     Meteor.call('removeSupervisor', event.currentTarget.getAttribute("data-supervisorID"));
 }, 
-
+'change #user-status': function(event){
+    console.log("change");
+    newStatus = event.target.value;
+    const t = Template.instance();
+    user = t.selectedUser.get();
+    //change the user's schedule to the new status
+    Meteor.call('changeUserSchedule', user, newStatus);
+    alert("User schedule changed to " + newStatus);
+},
 'change #user-select': function(event){
     console.log("change");
     const t = Template.instance();

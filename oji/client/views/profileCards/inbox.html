@@ -6,15 +6,14 @@
         <tbody>
             {{#each message}}
             <tr class="message">
-                <td class="messageDateSmall">
-                    <h2>{{this.dateReadable}}</h2>
+                <td class="display-message-icon">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                 </td>
-                <td class="text-left">
-                    <b>{{this.subject}}</b><br>
-                    {{this.fromName}}<br>
-                    View this in your <a href="/messages">inbox</a>.
+                <td class="text-left display-message" data-id="{{this._id}}">
+                    <a id="display-message" data-id="{{this._id}}"><b>{{this.subject}}</b><br>
+                    {{this.fromName}}
+                    </a>
                 </td>
-                <td><br></td>
             </tr>
             {{/each}}
         </tbody>

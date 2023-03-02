@@ -16,6 +16,7 @@ Emails = new Mongo.Collection('emails');
 //Init DynamicAssets Collection
 Files = new FilesCollection({
     collectionName: 'Images',
+    storagePath: '/ojidocs',
     allowClientCode: false, // Disallow remove files from Client
     onBeforeUpload(file) {
       // Allow upload files under 10MB, and only in png/jpg/jpeg formats

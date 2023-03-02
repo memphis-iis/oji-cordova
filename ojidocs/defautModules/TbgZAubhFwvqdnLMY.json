@@ -1,0 +1,2339 @@
+{
+  "_id": "pWq7i3nMAGSh48p8Z",
+  "title": "MODULE 4",
+  "subtitle": "Understanding My Emotions: Identifying and Dealing with Anger, Fear, and Other Frustrating Feelings",
+  "identifier": "New",
+  "display": true,
+  "description": "People who become involved in the criminal justice system often have difficulty controlling strong, negative emotional reactions, which can lead to less helpful choices including violence or other behaviors that could put you at-risk for re-incarceration. This module will help you recognize your triggers for aggression and impulsivity and guide you through specific methods to deal with emotions that can be hard to manage.",
+  "pages": [
+    {
+      "type": "text",
+      "text": "After being in jail or prison, you must feel like you’ve seen, or even used, aggressive behaviors a lot recently. Inmates act out for a number of reasons, such as expressing an emotion (anger, fear, anxiety), seeking revenge, getting something they want, or feeling powerful. Now that you are out of jail or prison and under community supervision, you may have the same feelings. Acting aggressively can have immediate benefits, but those benefits are neverworth the serious consequences. Violence is a poor way to handle problems, but, if youdo not learn better ways, youwill resort to what youknow. Violent behavior can be influenced by the environment – your family, friends, neighborhood, or being in prisonat some point. Many people learn how to think, act, and feel from their parents or caregivers during childhood. For example, children whose parents hugged them and expressed their feelings are likely to be warm and affectionate adults. Other types of family experiences encourage aggression and violence that can carry over into adulthood.",
+      "header": "Roots of Aggression and Violence"
+    },
+    {
+      "type": "activity",
+      "text": "Take a moment to talk about how difference emotions were expressed in your family.",
+      "header": "",
+      "subheader": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Take a moment to talk about how different emotions were expressed in your family. ",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "How was happiness expressed in your family?"
+            },
+            {
+              "type": "longtext",
+              "text": "How was sadness expressed in your family?"
+            },
+            {
+              "type": "longtext",
+              "text": "How was pride expressed in your family?"
+            },
+            {
+              "type": "longtext",
+              "text": "How was anger expressed in your family?"
+            },
+            {
+              "type": "longtext",
+              "text": "How was fear expressed in your family?"
+            },
+            {
+              "type": "longtext",
+              "text": "How were you disciplined as a child?"
+            },
+            {
+              "type": "longtext",
+              "text": "What was that like for you?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do these experiences in childhood help explain how you interact with other people today?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Although experiencing violence and aggression at a young age can affect how you respond to problems as an adult, your life history is only one explanation for your current behaviors. Aggression can also be a symptom or side effect of brain damage, medications you may be taking, or mental illness. BUT THIS IS NOT AN EXCUSE. In other words, these factors do not give you the right to abuse, violate, harm, or offend another person. You are now responsible for learning more productive ways of expressing your anger, frustration, and other upsetting emotions without being physically, verbally, or sexually violent. Just like you learned to use violence, you can learn to use other methods.",
+      "header": ""
+    },
+    {
+      "type": "activity",
+      "text": "<ul><li><b>Aggression and Violence are Inherited</b> - While you can learn to act violently from the people you grow up with or hang around, including your parents, you do not inherit this behavior like you inherit eye color, skin color, or height. Things that are inherited cannot be changed; you either have it or you don't. You CAN change your actions. </li><li><b> Anger Always Leads to Aggression </b> - You might think this is true if the only way you know how to express anger is through aggression. But, there are better and healthier ways of dealing with anger. For example, you can learn to control the escalation of anger by using relaxation techniques (like PMR), changing negative and hostile thoughts, and practicing assertiveness skills (coming up later in this program). </li><li><b> The Only Way to Get What you Want is to Be Aggressive </b> - Wrong again. A better way to get what you want is to be assertive, not aggressive. The goal of aggression is to intimidate, dominate, show power, injure, or harm another person. But, the goal of assertiveness is to express anger while also being respectful of others. Being assertive does not mean blaming or bullying other people; you can get what you want without causing physical or emotional harm. This IS possible. You will learn how to be assertive in another activity. </li><li><b> Venting Anger is Always Helpful </b> - Many people used to believe that screaming into or beating on pillows, smashing objects, or pounding a punching bag were healthy ways of blowing off steam. Now, researchers know that people who vent their anger aggressively, even if they are not harming another person, just get better at being angry. That is, when you vent your anger in this way, all you're doing is encouraging more aggression. It feels good to vent, so you come to learn that it feels good to be aggressive. </li></ul> ",
+      "header": "",
+      "subheader": "Myths about Aggression and Violence",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What myths about aggression and violence did you believe before reading this?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Anger is a feeling or emotion that can be experienced as mild irritation to intense fury and rage. You completed the Anger Meter in Module 2; this was a check for your level of anger. Many people confuse anger and aggression (see the \"Anger Always Leads to Aggression\" myth on the previous page). Aggression is meant to cause harm or injury to a person or their belongings. Anger can be handled in ways that do not get you into trouble and are not dangerous to others. The diagram below shows how anger can turn into aggression. The escalation phase is the beginning of the cycle –this is where you see the first signs of anger. If you allow theescalation phase tocontinue, you will soon lose control. Uncontrollable anger leads to verbal and physical aggression – this is the explosion phase. The anger episode eventually ends, and there are negative consequences – this is the post-explosion phase.",
+      "header": "",
+      "image": "mod4phase.png",
+      "imageBelow": "true",
+      "subheader": "Anger vs. Aggression"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "When Anger Is a Problem",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Anger is a problem when it is felt too intensely, too often, or is expressed poorly (such as through violence). As discussed earlier, intense anger has some payoffs, like releasing tension or controlling others. But, as you know by now, these payoffs are far out-weighed by the negative consequences. Intense or inappropriate anger can cause problems for you or for other people. List some payoffs and consequences below. Think about ways in which intense anger can affect your community supervision as well as beliefs, actions, environment, relationships, and body ",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What is one payoff of anger for YOU?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another payoff of anger for YOU?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is one payoff of anger for OTHERS?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another payoff of anger for OTHERS?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is a negative consequence of anger for YOU?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another negative consequence of anger for YOU?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is a negative consequence of anger for OTHERS?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another negative consequence of anger for OTHERS?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Anger as a Habit ",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Think back to THE Circle of Change. “H” stands for Habit. If anger is a habit of yours, it probably played a role in where you are right now –community supervision. Your thoughts can lead to anger. Very hostile and negative thoughts can then turn anger into aggression. Habits are behaviors that we perform so often that they become natural to us; we do them without thinking. Habits become routine and familiar. Some people have a habit of going to the gym. Others have a habit of brushing their teeth before bedtime. Still others have a habit of smoking cigarettes, drinking alcohol, or using drugs. Anger that is expressed often and aggressively can become a habit, too. You can break this habit by making changes to how you think or interpret situations, how you act, where you go, and who you hang around. But, remember, change is hard. It took Oji a really long time to make his changes, and he’s a supernatural being! Think about how difficult it is for people to quit smoking or stay sober. Be prepared to work for it. The payoffs for learning to control your anger will be worth it.",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "Is anger a habit for you?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do you know?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You may be asking yourself how you will break the cycle of anger and aggression. The first step is uncovering the clues to your anger. What triggers your anger? What warning signs should you pay attention to? Anger is often provoked by an event in your life. Your mind then tells you negative or hostile things about that event. Your habit is to respond in an aggressive way. Now, picture yourself standing in the ocean. You have your feet planted in the sand where the water just hits your ankles. You see a shark in the waters ahead. All you have to do is take a few steps back, and you are onshore. Now, imagine being further out and spotting the shark. Instead of just a few steps, you have to move your arms and legs harder, battling the waves and currents to get out. The deeper you are, the harder it is to get back to shore safely. Similarly, the longer you let your anger go on, the more difficult it will be to calm yourself down. So, focus on preventing escalation of anger so it doesn’t becomean explosion of anger. Stopping it early requires you to be aware of the early clues. ",
+      "header": "",
+      "subheader": "First Steps "
+    },
+    {
+      "type": "activity",
+      "text": "There can be many events that trigger anger and aggression. You can also learn clues from your body’s reaction to anger before you become aggressive. There are 4 categories of clues: (1) Physical (how your body reacts), (2) Behavioral (what you do), (3) Emotional (other emotions that go along with anger), and (4) Cognitive (what you think).Below are some common examples. After reading the examples, you will be asked to think of more personal examples. This is a chance for you to use your mental traffic light. ",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Common Events that Trigger Anger and Aggression: <ul><li> Long waits to see the doctor</li><li>Being wrong accused </li><li> Having to clean up someone's mess</li><li>Loud noises</li><li>Being given wrong directions</li><li>Having money or property stolen from you</li><li>A friend joking about a sensitive topic</li><li>Rumors being spread about you</li></ul>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Personal event #1 that triggers anger and aggression:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal event #2 that triggers anger and aggression:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal event #3 that triggers anger and aggression:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal event #4 that triggers anger and aggression: "
+            },
+            {
+              "type": "longtext",
+              "text": "Personal event #5 that triggers anger and aggression:"
+            },
+            {
+              "type": "displayText",
+              "text": "Common Physical Clues: <ul><li> Tightness in chest </li><li> Increased heart rate </li><li> Feeling hot or flushed </li><li>Shaky hands</li></ul>"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal physical clue #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal physical clue #2:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal physical clue #3:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal physical clue #4:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal physical clue #5:"
+            },
+            {
+              "type": "displayText",
+              "text": "Common Behavior Clues: <ul><li> Clenching your fists </li><li> Raising your voice </li><li> Staring at others </li><li> Pacing back and forth</li></ul>"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal behavior clue #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal behavior clue #2:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal behavior clue #3:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal behavior clue #4:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal behavior clue #5:"
+            },
+            {
+              "type": "displayText",
+              "text": "Common Emotional Clues: <ul><li> Disrespect </li><li> Hurt </li><li> Depression </li><li> Frustration </li><li> Jealousy </li><li> Fear </li><li> Anxiety </li></ul>"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal emotional clue #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal emotion clue #2:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal emotion clue #3:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal emotion clue #4:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal emotion clue #5:"
+            },
+            {
+              "type": "displayText",
+              "text": "Common Cognitive Clues: <ul><li> \"I want revenge\"</li><li> \"He meant to hurt me\"</li><li> \"I look weak\"</li><li>\"My manhood is threatened\"</li><li> \"I see red\"</li><li>\"I want to beat her\"</li></ul>"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal cognitive clue #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal cognitive clue #2:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal cognitive clue #3:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal cognitive clue #4:"
+            },
+            {
+              "type": "longtext",
+              "text": "Personal cognitive clue #5:"
+            }
+          ]
+        }
+      ],
+      "subheader": "Detecting the Clues"
+    },
+    {
+      "type": "text",
+      "text": "<ul><li> Take a time out or walk away from the situation - come back to it once you've calmed down </li><li> Take deep breaths or use Progressive Muscle Relaxation (PMR) </li><li> Talk to someone you trust - your counselor, doctor, case manager </li><li> Exercise - go to the gym or do push-ups and sit ups in your room </li><li> Focus on your community supervision plan - practice new strategies you've learned and <u>remember your goals </u></li><li> Explore what's hiding under the anger - are you actually feeling sad, afraid, hurt, annoyed, bored...?</li></ul>",
+      "header": "",
+      "subheader": "Quick Tips for Controlling Anger"
+    },
+    {
+      "type": "activity",
+      "text": "Record your aggression episodes using the calendar function in the app. ",
+      "header": "Agression Log For The Week",
+      "image": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Use the Anger Meter to rate the highest number you reached each day:",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "Monday:"
+            },
+            {
+              "type": "blank",
+              "text": "Tuesday:"
+            },
+            {
+              "type": "blank",
+              "text": "Wednesday:"
+            },
+            {
+              "type": "blank",
+              "text": "Thursday:"
+            },
+            {
+              "type": "blank",
+              "text": "Friday:"
+            },
+            {
+              "type": "blank",
+              "text": "Saturday:"
+            },
+            {
+              "type": "blank",
+              "text": "Sunday:"
+            }
+          ],
+          "image": "mod2angermeter.png"
+        }
+      ],
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "As you read, anger can be triggered by certain events in your life, but it’s really about how your mind understands or explains these events to you that takes you to the explosion phase –the point where you experience aggression or an outburst of anger. In other words, how you think about an event may cause you to behave in ways that are against your goals. One method for stopping anger before it gets the best of you is to challenge or dispute the thoughts your mind comes up with. This method is called Cognitive Restructuring. “Cognitive” is another word to explain the things that go on in your mind. “Restructuring” is a word that means you are going to change something about what goes on in your mind. So, cognitive restructuring is one way you could change your thoughts about an anger-triggering event. The idea is to replace your negative thoughts with thoughts that are more helpful and tell a better story of the situation. Here's an example: <i>\"Tony has been working at a fast food restaurant as a cook for about 6 months now. Another cook, Jeff, is new to the kitchen and doesn’t know his way around just yet. The crew is preparing food for the lunch rush that day. Tony asks Jeff to make the restaurant’s signature sauce. Jeff doesn’t know what he’s doing, so he asks Tony where the bowls are...then, he asks for the ingredients...then, he needs to know how much salt to use. Tony is frustrated that Jeff is being such a pain in the ass and thinks that he might as well make everything himself! Then, just as Tony begins to walk away to prepare another food dish, Jeff splashes Tony with the sauce while mixing everything together. That’s it! Tony turns around, shoves Jeff and yells “What the fuck, man?! Can’t you do ANYTHING right??” Jeff pushes back at Tony, and, before you know it, the two of them are in a physical fight. The lunch shift supervisor shows up, and both men get suspended from their jobs. The supervisor called the police to diffuse the situation. Tony has to explain his incident of police contact to his community supervisor.\"</i>",
+      "header": "",
+      "subheader": "Cognitive Restructuring",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What were some of Tony's thoughts that led to his anger and aggression?"
+            },
+            {
+              "type": "longtext",
+              "text": "What was the consequence of Tony's thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "Do you think Tony's thoughts were helpful/justified in this situation? Why or why not?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are some other ways Tony could have thought about the situation to prevent anger?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do you think these other thoughts would have helped Tony in this situation?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Another way to prevent anger from escalating is to just stop the thought. Here, rather than changing the thoughts that make you angry, what you are doing is talking yourself out of having the thoughts that make you angry. You don’t dispute the thoughts; you simply command yourself to stop thinking those thoughts. Here are some examples of things that you can tell yourself: <ul><li> \"Don't go there\"</li><li> \"I need to stop thinking these thoughts or I will get in trouble\"</li><li> \"Don't buy into this situation\"</li><li> \"These thoughts aren't worth it\"</li></ul>",
+      "header": "",
+      "subheader": "Thought Stopping",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What other self-commands can you think of to stop anger?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Yet another way to change difficult emotions, like anger, is to act the opposite of what you are feeling. But,you should ONLY do this if the emotion is not helpful. To know when it’s ok to act opposite, you first need to remind yourself of your goals. Got ‘em? Good... here’s what you do:",
+      "header": "",
+      "image": "mod4angerdecision.png",
+      "imageBelow": "true",
+      "subheader": "Acting Opposite",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What emotions or behaviors are OPPOSITE of being angry?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "This may seem like a strange thing to do, but acting opposite of how you are feeling, even if you don’t start out feeling that way, can change your attitude. Don’t believe it? Smile right now. Did you do it? Even if you weren’t happy before you smiled, you probably feel at least a little bit happier after you smiled. That’s the idea here. ",
+      "header": "",
+      "subheader": "Thought Stopping",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Talk about how controlling anger with Cognitive Restructuring, Thought Stopping, and Acting Opposite will help you reach your goals.",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "How will you use Cognitive Restructuring to reach your goals? Reference your goals and be specific!"
+            },
+            {
+              "type": "longtext",
+              "text": "How will you use Thought Stopping to reach your goals? Reference your goals and be specific!"
+            },
+            {
+              "type": "longtext",
+              "text": "How will you use Acting Opposite to reach your goals? Reference your goals and be specific!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "To get more practice changing your thoughts, come up with two NEW and more helpful ways of thinking for each of the following statements: ",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "\"I am always right\"",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "New thought #1: "
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            },
+            {
+              "type": "displayText",
+              "text": "\"That guy meant to disrespect me\""
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            },
+            {
+              "type": "New",
+              "text": "\"That's unfair - I have been wronged\""
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            },
+            {
+              "type": "displayText",
+              "text": "\"This situation has ruined my day\""
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            },
+            {
+              "type": "displayText",
+              "text": "\"It's all his fault!\""
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            },
+            {
+              "type": "displayText",
+              "text": "\"I should have gotten what I wanted\""
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            },
+            {
+              "type": "displayText",
+              "text": "\"It's not my responsibility to fix other people's mistakes\""
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            },
+            {
+              "type": "displayText",
+              "text": "\"That idiot knows better than that!\""
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            },
+            {
+              "type": "displayText",
+              "text": "\"He needs to be set straight\""
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            },
+            {
+              "type": "displayText",
+              "text": "\"My community supervisor knows that shit pisses me off\""
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            },
+            {
+              "type": "displayText",
+              "text": "Now, think of a common thought you have that leads to anger. "
+            },
+            {
+              "type": "longtext",
+              "text": "Common thought that leads to anger:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "New thought #2:"
+            }
+          ]
+        }
+      ],
+      "subheader": "Highlighting Helpful Thoughts"
+    },
+    {
+      "type": "text",
+      "text": "As you know, one apparent benefit of aggression and violence is getting control over others or getting what you want from others. Aggression can also be used to solve problems or deal with conflicts between people. When you feel that someone has violated your rights or well-being, your first reaction might be to fight back or retaliate. You want revenge. Aggression sends the message that “my feelings, thoughts, and opinions are very important, but your feelings, thoughts, and opinions are not important.” People don’t like to feel less-than or worthless. So, a few consequences of aggression may include losing close relationships or putting yourself at risk for a physical altercation. But there is a better way to express your feelings and still get what you want... without hurting others or getting yourself in trouble. The opposite of acting aggressively is to act passively. Being passive isn’t helpful either. By acting in a passive way, you allow others to violate your rights and take advantage of you. You’re a doormat for people to walk on. You may come to despise the person who is violating your rights or be upset with yourself for not standing for your rights. Passivity sends the message that “your feelings, thoughts, and opinions are very important, but my feelings, thoughts, and opinions are not important.” People who are passive generally do not feel good about themselves. They may have low self-esteem and feel inferior to other people. They are also likely to be disrespected and treated unfairly by others. The BEST way to resolve conflicts with other people or to express your negative feelings (like anger, frustration, sadness, pain) is by acting assertively. Assertiveness involves standing up for your rights while also showing respect for other people. Assertive behavior sends the message that “my feelings, thoughts, and opinions are just as important as your feelings, thoughts, and opinions.” It’s ok...and even normal...for people to disagree with you. That doesn’t mean their beliefs are more important or less important. You can still be respectful. Assertiveness allows you to share your feelings and reactions to the person who offended or hurt you without suffering the negative consequence of aggression or passivity.",
+      "header": "",
+      "subheader": "\t Moving from Aggressive to Assertive"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Match the story to the behavior used.",
+          "image": "",
+          "answers": [
+            {
+              "answer": "A. Passive"
+            },
+            {
+              "answer": "B. Aggressive"
+            },
+            {
+              "answer": "C. Assertive"
+            }
+          ],
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": " “One of David’s friends called him a ‘bitch’ for not participating in a gambling ring with his old friends after work. David hid outside his friend’s house and stabbed him when he came outside as payback.” ",
+              "answers": [
+                {
+                  "answer": "Passive"
+                },
+                {
+                  "answer": "Aggressive"
+                },
+                {
+                  "answer": "Assertive"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": " “Mary is a young, attractive woman. As she’s walking down the street, she hears a man yell something sexual about her body. Mary tells the man in a calm voice that she is offended by his words and would have appreciated it more if he started a nice conversation with her instead.”",
+              "answers": [
+                {
+                  "answer": "Passive"
+                },
+                {
+                  "answer": "Aggressive"
+                },
+                {
+                  "answer": "Assertive"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "“Robert is on community supervision for the first time. He’s scared and refuses to take the city bus, his only mode of transportation, to the community supervision office. His supervising officer sees this behavior as defiant and threatens him with more frequent required visits. Robert takes the additional requirements, without talking about his fears, and hides in his room the rest of the day.”",
+              "answers": [
+                {
+                  "answer": "Passive"
+                },
+                {
+                  "answer": "Aggressive"
+                },
+                {
+                  "answer": "Assertive"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "The conflict resolution model is a method for acting more assertively. There are 5 steps.",
+      "header": "",
+      "image": "problemflowchart.png",
+      "imageBelow": "true",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are the advantages of this model?"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you get by doing this?"
+            },
+            {
+              "type": "longtext",
+              "text": "How will other people react or respond to you if you follow this model?"
+            }
+          ]
+        }
+      ],
+      "subheader": "The Conflict Resolution Mode"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Think of a conflict you had with someone in the past that didn’t turn out well –either because you were too aggressive or too passive. Use the Conflict Resolution Model to rethink how you would handle the situation assertively.",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Describe what happened (who was involved, where were you, what were you doing?)"
+            },
+            {
+              "type": "longtext",
+              "text": "What was the big problem or disagreement that led to the conflict?"
+            },
+            {
+              "type": "longtext",
+              "text": "How did the original problem and the resulting conflict make you feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "What consequence or overall impact did the problem have on your life at the time?"
+            },
+            {
+              "type": "longtext",
+              "text": "Was the conflict worth receiving or letting go (the intensity of your feelings and the consequences of the problem are clues)?"
+            },
+            {
+              "type": "longtext",
+              "text": "What could you have said or done differently?"
+            },
+            {
+              "type": "longtext",
+              "text": "What solutions could have solved the conflict more peacefully?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Calm the Conflict"
+    },
+    {
+      "type": "text",
+      "text": "So far, you have been reading a lot about feelings and how you should openly talk about them –either with yourself or with someone you trust. You may be thinking that tough people don’t share their feelings or that feelings are for weak people. This is a common belief. You may have gotten this message from your family, friends, neighborhood, or the prison environment. Especially while in prison, you may have been teased or called hurtful names for trying to express feelings. Anger, aggression, violence, and bad behavior in general are so common there that other inmates may haveput you down for not behaving like they were. Remember, they are stuck in a negative cycle that keeps them in trouble, and they want you to be stuck with them. Believe it or not, Oji was not the first being to complete a journey and grow into a new person that could accomplish great things. There was a supernatural being before him, and he had many expectations for Oji. He made Oji feel like he couldn’t feel bad about his journey, no matter how hard it got, and that he always had to “tough it out” by himself. No matter how hard Oji tried to ignore his feelings, he couldn’t hold them back –and the harder he tried to hold his feelings back, the longer his journey became. Oji eventually realized that when he lets himself feel his emotions and deal with them assertively, that his journey went better than before! He did not have to “be tough” like the supernatural being before him to reach his goal. Aggressive anger may seem like the manly or tough thing to do because it shows power and control. It’s common for people who have been to jail or prison to feel powerful, tough, and in control, for both men and women. But, the truth is, anger is the easy way out. It’s easier to let anger escalate and to bully people into getting what you want than it is to manage your anger and to solve your problems pro-socially. You may scare and intimidate other people, but they don’t see you as superior, like you would want them to. Even though your victims may step aside when you walk in the room, they do not see you as the better person. Instead, they see you as an asshole who is out of control, crazy, and irresponsible. You do not gain respect this way –at least not from the people who matter. You may be respected by other violent peopleor gang members but remember where they are and where you don’t want to be. Aggression is cowardly and lazy –it doesn’t require any real work to get things, and the things you do get are shallow and not meaningful. Tough peoplearen’t lazy. They work hard for what’s important, even if it means they have to think and act in ways that are challenging or uncomfortable. Tough peoplewill push through and make it happen.",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "Tough Guys Do It"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What do you GAIN by being aggressive?"
+            },
+            {
+              "type": "longtext",
+              "text": "What MORE do you GAIN by being assertive? "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You learned how to resolve conflicts more peacefully by being assertive (not aggressive or passive). But, the reality is you are living in a societywhere many peopledo not know or do not practice this skill. You may meet people at work, required classes, the community supervision office, or even old friends and family that do not know how to be assertive and handle their anger. So, when you try to be assertive,they may not respond well. They may yell at you, call you names, tell you to “fuck off,” or threaten to harm you. Understand that this is THEIR problem. They are being lazy and feel more comfortable handling problems the only way they know how –through aggression. They wrongly believe that being tough means bullying others. Don’t get upset by these people, it will only make you lose sight of your goals. You are stronger and capable of controlling your anger. You are responsible for successfully completingyourcommunity supervision,so younever need it again. When other people resist your attempts to be assertive and to solve the problem peacefully, you may just need to walk away. It’s not worth the fight. Tell yourself it is their loss. Don’t let them keep you stuck.",
+      "header": "",
+      "subheader": "Rolling with Resistance"
+    },
+    {
+      "type": "activity",
+      "text": "Read the short stories below and determine who is acting more tough. Discuss how you see each person and how other people, like their community supervisor, would see them. Then guess the likely result of his behavior (what do they get or what do they lose).",
+      "header": "",
+      "subheader": "Tougher Than Nails?",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "<i>Troy is cooking out on the grill. He has a beer or two and plays catch with his son in the yard.</i>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What do you think about Troy?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might others think about Troy?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might happen because of Troy's actions?"
+            },
+            {
+              "type": "blank",
+              "text": "How tough is Troy? (not at all, a little bit, or very much)"
+            },
+            {
+              "type": "displayText",
+              "text": "<i> Whitney keys her community supervisor's car after hours because she's angry about being on supervision. </i>"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you think about Whitney?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might others think about Whitney?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might happen because of Whitney's actions?"
+            },
+            {
+              "type": "blank",
+              "text": "How tough is Whitney? (not at all, a little bit, or very much)"
+            },
+            {
+              "type": "displayText",
+              "text": "<i> Rudy is threatening his roommate, yelling that he should just kill himself. </i> "
+            },
+            {
+              "type": "longtext",
+              "text": "What do you think about Rudy?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might others think about Rudy?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might happen because of Rudy's actions?"
+            },
+            {
+              "type": "blank",
+              "text": "How tough is Rudy? (not at all, a little bit, or very much)."
+            },
+            {
+              "type": "displayText",
+              "text": "<i> Joe's co-worker is always late getting things done, so Joe tells him he's \"a lazy slob\" and threatens to fire him. </i> "
+            },
+            {
+              "type": "longtext",
+              "text": "What do you think about Joe? "
+            },
+            {
+              "type": "longtext",
+              "text": "What might others think about Joe?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might happen because of Joe's actions?"
+            },
+            {
+              "type": "blank",
+              "text": "How tough is Joe? (not at all, a little bit, or very much)."
+            },
+            {
+              "type": "displayText",
+              "text": "<i> Lisa is at the gym and accidentally hits another person with a volleyball. Lisa asks the guy if he's okay and invites him to play a game.</i>"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you think about Lisa?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might others think about Lisa? "
+            },
+            {
+              "type": "longtext",
+              "text": "What might happen because of Lisa's actions? "
+            },
+            {
+              "type": "blank",
+              "text": "How tough is Lisa? (not al all, a little bit, or very much). "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "You learned about being aggressive, being passive, and being assertive previously. But, what about passive-aggression? People who are passive-aggressive are more likely to get more restrictions on their community supervision. So, it’s another important behavior to learn about and get control over. People who are uncomfortable being openly aggressive will often use passive- aggression to get what they want by indirectly saying or doing something that makes others feel bad, guilty, embarrassed, or ashamed. It allows people to have things their way and still be liked. Passive-aggression is sneaky; instead of being verbally abusive or physically assaultive, you are hiding your aggression under a sly comment or behavior. Passive-aggression doesn’t always appear as angry or resentful. It can sometimes sound polite, friendly, or well-meaning. Sometimes people don’t realize they’ve been victims of passive-aggression until later. But, the more you behave this way, the more people will see the truth – that you are using this strategy to manipulate them or your situation. Community supervisors knows this behavior well and see it as a reason for disciplinary action. To them, you are showing non-compliance and an overall bad attitude. Just because you are not verbally threatening or physically hurting someone doesn’t mean you aren’t causing harm. Here's an example:",
+      "header": "",
+      "subheader": "What is Passive-Aggression?",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "<i>\"Harry and his co-worker, Greg, went out for a beer at the corner bar after work. It was a Tuesday night, and both men had to get up early for a job the next morning. Greg asked Harry to drive that night because he ‘had a rough day’ and needed to distract himself. Harry agreed, but on the condition that they leave around 10:00 pm. Harry wanted to be rested for work in the morning. It was 9:45 pm and Harry warned Greg that it was almost time to go. At 9:55 pm, Harry asked Greg to grab his coat and pay his tab. By 10:00 pm, Harry announced, ‘Alright, Greg, it’s time to go, I need to get home.’ Greg had just purchased another beer and said ‘Oh...okay...well...um...I guess we can leave.’ Harry responded, ‘Did you want to stay? Is that what you’re getting at?’ Greg replied, ‘Huh? Oh, no. We can leave if you want to. It’s just that I have all this beer left,’ Greg said. Harry agreed to stay for one more round, which turned into three. He was tired the next day and showed up late for work.\"</i>",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "Who was being passive-aggressive in this story?"
+            },
+            {
+              "type": "blank",
+              "text": "Who was the victim in this story?"
+            },
+            {
+              "type": "longtext",
+              "text": "What did Harry get?"
+            },
+            {
+              "type": "longtext",
+              "text": "What did Greg get?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do you think their relationship will be affected?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Yes, passive-aggression can hurt your reputation and relationships over the long term. Here are some things that could happen: <ul><li>Cover up real issues</li><li>Create poor self-image</li><li>Create tension between people</li><li>Create resentment</li><li>Create confusion</li><li>Problems build up</li></ul>",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "Is it <i>That</i> Bad? What Are the Consequences?"
+    },
+    {
+      "type": "text",
+      "text": "Use assertiveness! Be clear about what you want and understand that other people may want something different. Here are some other tips: <ul><li>Explore the feelings that are causing your behavior (are you pissed off, hurt, jealous?)</li><li>Remember how your behaviors affect other people - trying to defeat someone else, get back at them, or annoy them creates even more discomfort in the relationship</li><li> Take responsibility! Show others that you are the bigger person by acknowledging your role in the situation. It will only make people like you more if you are honest and can admit your mistakes.</li><li> Don't feel attacked when a problem comes up - problems happen in life and you just have to deal with them</li></ul> When other people are being passive-aggressive, use your assertiveness skills to talk about how their behaviors are making you feel. If they don't want to hear it, ask to talk when the person has calmed down, or you might have to let it go and know their behaviors are not really about you.",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "What Can I Do Instead?"
+    },
+    {
+      "type": "activity",
+      "text": "Below are some other examples of passive-aggression. Talk about a time when you did this to someone and a time when you were the victim of this by someone else.",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": " Not communicating something when there really is a problem.",
+          "answers": [],
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else."
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this."
+            },
+            {
+              "type": "displayText",
+              "text": "Avoiding or ignoring when you feel angry; putting up a wall to your feelings. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this."
+            },
+            {
+              "type": "displayText",
+              "text": "Intentionally putting off important tasks. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this. "
+            },
+            {
+              "type": "displayText",
+              "text": "Avoiding situations where someone else will be seen as better at something."
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this."
+            },
+            {
+              "type": "displayText",
+              "text": "Always being late and making others wait on you. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this."
+            },
+            {
+              "type": "displayText",
+              "text": "Always coming up with reasons for not doing something. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this. "
+            },
+            {
+              "type": "displayText",
+              "text": "Sulking to get attention."
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this."
+            },
+            {
+              "type": "displayText",
+              "text": "Not getting too attached to other people. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else."
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this. "
+            },
+            {
+              "type": "displayText",
+              "text": "Self-pity; feeling \"poor me.\""
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this. "
+            },
+            {
+              "type": "displayText",
+              "text": "Blaming other people for things you are responsible for."
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else."
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this."
+            },
+            {
+              "type": "displayText",
+              "text": "Withholding things like sex, money, or love from other people."
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this."
+            },
+            {
+              "type": "displayText",
+              "text": "Acting like you can't help yourself and need others to do a task for you."
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this."
+            },
+            {
+              "type": "displayText",
+              "text": "Rolling your eyes or giving angry looks at someone. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you have done this to someone else. "
+            },
+            {
+              "type": "longtext",
+              "text": "Explain a time when you were a victim of this."
+            }
+          ]
+        }
+      ],
+      "subheader": "Pinpointing Passive-Aggression"
+    },
+    {
+      "type": "text",
+      "text": "Anger can mean that someone is simply frustrated or pissed off (like someone cutting you in line at the grocery store). But, most of the time, anger is covering up something more serious. As noted earlier, anger can be a sign that someone is really feeling emotional pain – like sadness, shame, guilt, or fear. Just like an iceberg, anger is on the surface. It’s what other people can see, and it only shows a small part of the problem. All those other emotions are hiding beneath the surface. That’s where the danger lies – <u>IF</u> you don’t watch out for them. But, knowing that there is more to anger than meets the eye, you can begin to focus on these other emotions. Understanding what your anger is covering up will help you get to the real root of the problem so you can start to come up with solutions that work. By doing this, you will feel less angry and act less aggressively. ",
+      "header": "Digging Deeper into Anger",
+      "image": "mod4iceberg.png",
+      "imageBelow": "true"
+    },
+    {
+      "type": "text",
+      "text": "As you read earlier, anger is a lazy way to express yourself. It can be challenging and uneasy to think about all these other emotions –you may have to bring back old memories and go outside of your comfort zone. But, you can handle it. Anger is also more accepted, especially among men. It sends the message of power and superiority. As you now know, this is just a front. Anger makespeople look out of control. ",
+      "header": "",
+      "subheader": "So, why is anger the go-to emotion when it’s not the emotion you are really feeling?"
+    },
+    {
+      "type": "text",
+      "text": "Because the payoff will be worth it. At first, it will feel strange to talk about shame, sadness, hurt, fear, guilt, humiliation, or any other negative emotion. This may be because you’ve never talked about it before because you are worried about trusting other people, because you’re afraid your manhood will be questioned, because youdon’t want to think about something bad that happened to you in the past, or because youdon’t want to admit that you sometimes need help. But, being able to overcome difficult challenges makes you stronger and smarter in the end. Eventually, you will be able to recognize these other emotions and work through them rather than relying on anger to solve your problems (which it hardly ever does). In the process, you will learn more about who you are. Knowing yourself can help you develop better goals –you will know what you want and what you need to do to get it. In addition, when people finally let down their guard and talk about these deeper emotions, they say things like “a weight has been lifted.” It feels good to be able to see what is really going on.",
+      "header": "",
+      "subheader": "\t If these other emotions are so uncomfortable, why should I put myself through that?"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Having a misunderstanding about the emotions hiding underneath your anger can stop you from exploring any further. Below are some myths about emotions. In the blank, write a counter-statement – a more accurate belief.",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "There is a right way to feel in every situation."
+            },
+            {
+              "type": "longtext",
+              "text": "Letting others know that I'm feeling bad is a weakness."
+            },
+            {
+              "type": "longtext",
+              "text": "All negative feelings are bad and destructive."
+            },
+            {
+              "type": "longtext",
+              "text": "Being emotional means being out of control."
+            },
+            {
+              "type": "longtext",
+              "text": "Emotions can happen for no reason."
+            },
+            {
+              "type": "longtext",
+              "text": "Talking or thinking about emotions doesn't help anything."
+            },
+            {
+              "type": "longtext",
+              "text": "All painful emotions are the result of a bad attitude. "
+            },
+            {
+              "type": "longtext",
+              "text": "If others don't like my feelings, then I shouldn't feel the way i do. "
+            },
+            {
+              "type": "longtext",
+              "text": "Other people are the best judges of how I am feeling. "
+            },
+            {
+              "type": "longtext",
+              "text": "Painful emotions are not really important and should be ignored."
+            },
+            {
+              "type": "longtext",
+              "text": "What's another misunderstanding you had about emotions?"
+            },
+            {
+              "type": "longtext",
+              "text": "Challenge that here:"
+            }
+          ]
+        }
+      ],
+      "subheader": "Emotional Fact or Fiction"
+    },
+    {
+      "type": "activity",
+      "text": "Fear is common for people on community supervision. It’s not a pleasant or happy experience. Remember that community supervisionis for people who have been incarcerated in the past and still need supervision to follow the law and be acontributing member to society until they have shown that they can do these things alone. It’s scary having so many rules to follow while being back on the outside, with more freedom and more temptations to make bad choices.Fear may even be a reason why it’s hard to follow the rules of community supervision: you are expected to work with new people, participate in new things like educational classes, counseling, and maybe even regular drug testing. Fear is often expressed as anger because, on the streets, people who look scared become victims of bullying and violence. This may be something you learned before, during, or even after going to jail or prison. However, you need to face your fears so you can reduce your risk for mental health problems and consequences from your supervising officer.",
+      "header": "",
+      "subheader": "Fighting with Fear",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What fears do you have about being on community supervision?"
+            },
+            {
+              "type": "multiChoice",
+              "text": "Have you been threatened with consequences by your supervising officer? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                },
+                {
+                  "answer": "Unsure"
+                }
+              ]
+            },
+            {
+              "type": "longtext",
+              "text": "If so, what were they? (If not, just type \"N/A\")"
+            },
+            {
+              "type": "longtext",
+              "text": "If so, how did this make you feel? (if not, just type \"N/A\")"
+            },
+            {
+              "type": "longtext",
+              "text": "What threats have you made to other people? "
+            },
+            {
+              "type": "longtext",
+              "text": "How do you think this made them feel?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "There are many ways to describe fear. Listed below are other fear-related words: <ul><li>Apprehension</li><li>Anxiety</li><li>Anxiety</li><li>Distress</li><li>Dread</li><li>Edginess</li><li>Horror</li><li>Hysteria</li><li>Jumpy</li><li>Nervousness</li><li>Overwhelmed</li><li>Shock</li><li>Tenseness</li><li>Terror</li><li>Uneasy</li><li>Worry</li></ul> ",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "List the words below that could have described how you felt at one time or another:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Just like anger, fear is caused by an event in your life. Your mind then tries to explain or understand the event. Depending upon what explanation your mind comes to, your body reacts to it. You will then experience some type of aftermath or consequence of your reaction. Here are some examples of this process might look like: <ul><li><b><u>Triggering Event:</b></u> Being alone in a new or unfamiliar situation, being alone, being in a situation where you have been hurt or threatened in the past, being on community supervision</li><li><b><u>Mind's Explanations:</u></b> Believing someone will reject, criticize, dislike, or disapprove of you, believing that you will fail, believing that you will not get the help you want or need, believing you might be harmed or might lose something of value</li><li><b><u>Physical Experience:</b></u> Sweating, feeling nervous, jumpy, or jittery, shaking, trembling, choking feeling, lump in throat</li><li><b><u>Emotional Expression:</b></u> Crying, screaming or yelling, hiding from or avoiding what you fear, frozen stare</li><li><b><u>Aftermath:</b></u> Losing focus or becoming disoriented, losing control, numbness or shock, intense anger, shame, or guilt </li><ul>",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Now, assess where your feelings of fear come from and how you experience it.",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are some of your triggering events?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are some of your mind's explanations?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are some of your physical experiences?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are some ways that you engage in emotional expression?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is the aftermath of your fear?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "When you’re scared, some people, like people you meet in classes, on the street, or even people from your past, might try to be your friend... but, be careful. These people might have a hidden motive. If they have a bad reputation, are getting into trouble a lot, are on community supervision themselves, or are in a gang, do not associate with them, even if they offer you resources, protection or safety. These guys want something in return and will take you away from your goals! Instead, try to find people who are pro-social, such as people in class or in group counseling sessions who follow the rules, your counselor, or a trusted community member. Remember how your thinking can cause problems for you? Well, sometimes your mind can make you feel like danger is real when it’s really imagined. Just because someone is threatening to harm you doesn’t mean he can or will harm you. Sometimes threats are only words. When you’re scared, figure out if the danger is real or perceived... ask yourself: how likely am I to REALLY be hurt? Look at the evidence. Have you been hurt in the past? Does the person have the capability of hurting you? Is there anything or anyone to keep you safe? If the danger is real, you need to <b>know how to report serious threats of violence</b>. Your counselor and community supervisor can help you.",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "When I feel scared, I will tell myself..."
+            },
+            {
+              "type": "longtext",
+              "text": "When I feel like I am in REAL danger, I can..."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Sometimes fear is caused when other peoplecall you nasty names to try to provoke you and make you feel bad. But, these are just words. Here is a strategy you can use to reduce the meaning of these words and how much of an impact they have on you. You can even use this strategy with the negative words you use to put yourself down (such as “bad” or “loser”). This may seem silly but stick with it! After this exercise, mostpeople find that the word or phrase becomes meaningless within 30 seconds. Then you can see the word for what it really is: a strange sound, a vibration, a movement of your mouth and tongue. But, when you hear that very same word from someone else or it pops into your head, you connect with it and it can be very hurtful. Remember, it’s just a sound. ",
+      "header": "",
+      "subheader": "Lemons, Lemons, Lemons...",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Say the word \"lemon\" out loud one or two times.",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "what are your <b><u><i>thoughts</b></u></i> about the word?"
+            },
+            {
+              "type": "longtext",
+              "text": "What <b><u><i>images</b></u></i>come to mind?"
+            },
+            {
+              "type": "longtext",
+              "text": "What <b><u><i>smells</b></u></i> come to mind?"
+            },
+            {
+              "type": "longtext",
+              "text": "What <b><u><i>tastes</b></u></i> come to mind?"
+            },
+            {
+              "type": "displayText",
+              "text": "Now, repeat the word \"lemon\" over and over out loud as fast as you can for 30 seconds until it's just a meaningless sound. You must do it out loud for it to be effective."
+            },
+            {
+              "type": "longtext",
+              "text": "Next, think of a word that causes you to feel afraid, scared, or fearful. It could also be a two-word phrase. Write the word(s) here:"
+            },
+            {
+              "type": "displayText",
+              "text": "Say the word(s) you wrote down above out loud one or two times. "
+            },
+            {
+              "type": "longtext",
+              "text": "What are your <b><u><i>thoughts</b></u></i> about the word(s)?"
+            },
+            {
+              "type": "longtext",
+              "text": "what <b><u><i>feelings</b></u></i> are you experiencing?"
+            },
+            {
+              "type": "longtext",
+              "text": "What <b><u><i>images</b></u></i> come to mind?"
+            },
+            {
+              "type": "longtext",
+              "text": "What <b><u><i>urges</b></u></i> do you have after saying the word?"
+            },
+            {
+              "type": "displayText",
+              "text": "Now, repeat the word(s) you wrote down above over and over out loud as fast as you can for 30 seconds until it’s just a meaningless sound. You must do it out loud for it to be effective."
+            },
+            {
+              "type": "longtext",
+              "text": "What are your <b><u><i>thoughts</b></u></i> about the word right now?"
+            },
+            {
+              "type": "longtext",
+              "text": "\t what <b><u><i>feelings</b></u></i> are you experiencing right now?"
+            },
+            {
+              "type": "longtext",
+              "text": "What <b><u><i>images</b></u></i> come to mind now?"
+            },
+            {
+              "type": "longtext",
+              "text": "What <b><u><i>urges</b></u></i> do you have now?"
+            },
+            {
+              "type": "multiChoice",
+              "text": "Have your reactions to the word changed the more you said it? Select the answer that best fits you.",
+              "answers": [
+                {
+                  "answer": "More fearful "
+                },
+                {
+                  "answer": "Less fearful "
+                },
+                {
+                  "answer": "My level of fear stayed the same "
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Close your eyes and...<ul><li>Imagine the word on a cloud in the sky...watch it drift away</li><li>Imagine the word in a bubble rising to the surface of a pond</li><li>Imagine the word in the mouth of a bird flying across the sky</li><li>Imagine the word on a leaf blowing lightly in the wind</li><li>Imagine the word in a car driving away</li></ul>",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "Other Ways to Let Go of Negative Words That Are Hurtful or Scary"
+    },
+    {
+      "type": "activity",
+      "text": "Shame and sadness are two other common emotions that are often felt while on community supervision. You may feel ashamed or sad because of the behaviors that got you here, because otherpeoplewon’t leave you alone, or because of many other reasons. They are difficult emotions to deal with, but if you ignore them, they can lead to anger, aggression, or mental health problems. ",
+      "header": "",
+      "subheader": "Stopping Shame and Sadness",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Do you have any feelings of shame and sadness about being on community supervision?"
+            },
+            {
+              "type": "longtext",
+              "text": "Why or why not?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "There are many ways to describe shame. Listed below are other shame-related words: <ul><li>Culpability</li><li>Insult</li><li>Invalidation</li><li>Mortified</li><li>Demeaned</li><li>Guilt</li><li>Embarrassment</li><li>Disgraced</li><li>Humiliation</li><li>Blameworthy</li><li>Regret</li><li>Remorse</li><li>Self-disgust</li><li>Dejected</li><li>Stigmatized</li></ul>",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What words could describe how you felt at one time or another?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "And here are some other sadness-related words: <ul><li>Grief</li><li>Hurt</li><li>Rejection</li><li>Melancholy</li><li>Neglected</li><li>Misery</li><li>Woe</li><li>Gloomy</li><li>Lonely</li><li>Defeated</li><li>Sorrow</li><li>Suffering</li><li>Depression</li><li>Agony</li><li>Despair</li><li>Unhappy</li></ul>",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "\t What words could describe how you felt at one time or another?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Just like anger and fear, shame and sadness are caused by an event in your life. Your mind then tries to explain or understand the event. Depending upon what explanation your mind goes to, your body reacts to it. You will then experience some typeof aftermath or consequence of your reaction. Here are some examples of what this process might look like:",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Shame: <ul><li><b><u>Triggering Event:</b></u> Doing something you believe is wrong or immoral, someone knowing something private about you, being laughed at or made fun of, being betrayed by someone</li><li><b><u>Mind's Explanation:</b></u>Thinking you are bad or immoral, judging yourself as \"not good enough\", thinking you are a loser, thinking that your feelings or behaviors are stupid</li><li><b><u>Physical Experience:</b></u> Crying; tears, wanting to hide or cover your face, blushing or red face, pain in the pit of your stomach</li><li><b><u>Emotional Expression:</b></u> Withdrawing or hiding, saying you're sorry, eyes down, keeping your head down</li><li><b><u>Aftermath:</b></u> Blocking all emotions; shutting down, anger, sadness, or fear, impulsive behaviors to distract yourself, isolation</li></ul> Now, assess where your feelings of shame come from and how you experience it.",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are some of your triggering events for shame?"
+            },
+            {
+              "type": "longtext",
+              "text": "How does your mind explain the shame?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is your physical experience of shame?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do you emotionally express shame?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is the aftermath of feeling shame?"
+            },
+            {
+              "type": "displayText",
+              "text": "Sadness: <ul><li><b><u>Triggering Event:</b></u> things turn out badly, you got something you didn't want, losing a relationship or remembering a loss, being disapproved of or disliked</li><li><b><u>Mind's Explanation:</b></u> Believing you are worthless or not valuable, feeling hopeless, believing you will not get what you need in life, believing you won't meet your goals</li><li><b><u>Physical Experience:</b></u>Crying; tears, feeling empty, feeling tired, dizziness or out of breath</li><li><b><u>Emotional Expression:</b></u> Frowning; not smiling, saying sad things, eye moving slowly, not trying to meeting goals</li><li><b><u>Aftermath:</b></u>Nightmares or trouble sleeping, not being able to remember things, eating too much or too little, feeling angry or irritable</li></ul> Now, assess where your feelings of sadness come from and how your experience it."
+            },
+            {
+              "type": "longtext",
+              "text": "What are some of your triggering events for sadness? "
+            },
+            {
+              "type": "longtext",
+              "text": "How does your mind explain your sadness? "
+            },
+            {
+              "type": "longtext",
+              "text": "What is your physical experience of sadness?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do you emotionally express sadness?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is the aftermath of feeling sadness?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Shame and sadness can also lead to thoughts of suicide. If you are experiencing suicidal thoughts, go back to Module 3 and review your Suicide Prevention Plan.",
+      "header": ""
+    },
+    {
+      "type": "activity",
+      "text": "You know by now that thoughts are often aproblem. You can’t always trust the first thought that comes to mind, especially thoughts that are unhelpful. Think of two thoughts you have about yourself or about being on community supervisionthat cause you to feel shame or sadness. Answer the questions that follow. ",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Thought #1:"
+            },
+            {
+              "type": "blank",
+              "text": "Is this thought useful or helpful in anyway? "
+            },
+            {
+              "type": "blank",
+              "text": "Is this an old story? Have I heard this thought before?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would I get for buying into this story?"
+            },
+            {
+              "type": "blank",
+              "text": "Could this be helpful or is my mind just babbling on? "
+            },
+            {
+              "type": "blank",
+              "text": "Does this thought help me take positive action? "
+            },
+            {
+              "type": "longtext",
+              "text": "If I let this thought guide my actions, where will I go? Toward my goals or toward struggle?"
+            },
+            {
+              "type": "blank",
+              "text": "Does this thought help me be who I want to be?"
+            },
+            {
+              "type": "longtext",
+              "text": "<b><u>New</b></u> thought #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "Thought #2:"
+            },
+            {
+              "type": "blank",
+              "text": "\t Is this thought useful or helpful in anyway?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this an old story? Have I heard this thought before?"
+            },
+            {
+              "type": "longtext",
+              "text": "\t What would I get for buying into this story?"
+            },
+            {
+              "type": "blank",
+              "text": "\t Could this be helpful or is my mind just babbling on?"
+            },
+            {
+              "type": "blank",
+              "text": "\t Does this thought help me take positive action? "
+            },
+            {
+              "type": "longtext",
+              "text": "\t If I let this thought guide my actions, where will I go? Toward my goals or toward struggle?"
+            },
+            {
+              "type": "blank",
+              "text": "\t Does this thought help me be who I want to be?"
+            },
+            {
+              "type": "longtext",
+              "text": "\t <b><u>New</b></u> thought #2:"
+            },
+            {
+              "type": "longtext",
+              "text": "How do your NEW thoughts make you feel? Do they reduce shame or sadness?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Thought Interrogation"
+    },
+    {
+      "type": "activity",
+      "text": "In this module you learned about: <ul><li>The difference between anger and aggression, and where they come from</li><li>Your own level of anger and aggression</li><li>Reducing your level of anger - as well as your feelings of fear, shame, and sadness</li><li>Resolving conflicts with others peacefully</li><li>The role of anger and aggression in being tough</li><li>Feelings that are often hidden underneath anger</li></ul>",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "\t Module 4: Re-Cap",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": " Which of the goals that you learned about in this module are you going to focus on this week?"
+            },
+            {
+              "type": "longtext",
+              "text": "How will you accomplish your goal?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might get in your way of accomplishing it?"
+            },
+            {
+              "type": "longtext",
+              "text": "What skills will you use to move past your road block?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "text": "Now let's see what you learned! This quiz has 12 questions. Select the BEST possible answer to each question. Remember, you need to earn a score of 75% or above to move on to the next module! ",
+      "header": "",
+      "questions": [
+        {
+          "type": "multiChoice",
+          "prompt": "1. Aggression is...",
+          "image": "",
+          "answers": [
+            {
+              "answer": "a. Learned in childhood"
+            },
+            {
+              "answer": "b. Inherited from your parents"
+            },
+            {
+              "answer": "c. Never your fault "
+            },
+            {
+              "answer": "d. Permanent - you can never change it "
+            }
+          ],
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "1. Aggression is...",
+              "answers": [
+                {
+                  "answer": "a. Learned in childhood"
+                },
+                {
+                  "answer": "b. inherited from your parents"
+                },
+                {
+                  "answer": "c. Never your fault"
+                },
+                {
+                  "answer": "d. Permanent - you can never change it"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "2. When you feel angry, you should let it all out.",
+              "answers": [
+                {
+                  "answer": "a. True"
+                },
+                {
+                  "answer": "b. False"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "3. Anger and aggression mean the same thing.",
+              "answers": [
+                {
+                  "answer": "a. True"
+                },
+                {
+                  "answer": "b. False"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "4. The \"Escalation Phase\" of anger is characterized by...",
+              "answers": [
+                {
+                  "answer": "a. Increasing feelings of anger"
+                },
+                {
+                  "answer": "b. Hostile or mean talk "
+                },
+                {
+                  "answer": "c. Destruction of property "
+                },
+                {
+                  "answer": "d. A and B are both correct"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "5. Warning signs for anger can come from all of the following except...",
+              "answers": [
+                {
+                  "answer": "a. Experiencing certain events"
+                },
+                {
+                  "answer": "b. Your body's reactions"
+                },
+                {
+                  "answer": "c. Your thoughts "
+                },
+                {
+                  "answer": "d. How poorly you slept the night before"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "6. Cognitive Restructuring is used to...",
+              "answers": [
+                {
+                  "answer": "a. Remove damaged parts of your brain"
+                },
+                {
+                  "answer": "b. Erase your memory"
+                },
+                {
+                  "answer": "c. Replace negative thoughts with more truthful thoughts"
+                },
+                {
+                  "answer": "d. Implant evil thoughts into your mind"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "7. Which of the following are methods for reducing the impact of negative thoughts that lead to anger?",
+              "answers": [
+                {
+                  "answer": "a. Acting opposite"
+                },
+                {
+                  "answer": "b. Thought stopping "
+                },
+                {
+                  "answer": "c. Cognitive restructuring "
+                },
+                {
+                  "answer": "d. All of the above"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "8. The Conflict Resolution Model is about...",
+              "answers": [
+                {
+                  "answer": "a. Beating up punks"
+                },
+                {
+                  "answer": "b. Communicating and solving problems with others peacefully"
+                },
+                {
+                  "answer": "c. Snitching"
+                },
+                {
+                  "answer": "d. Getting what you want no matter the cost"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "9. Being assertive means that you...",
+              "answers": [
+                {
+                  "answer": "a. Yell at others to get what you want"
+                },
+                {
+                  "answer": "b. Stand up for your rights while respecting other people"
+                },
+                {
+                  "answer": "c. Don't care about other people's feelings"
+                },
+                {
+                  "answer": "d. Will get reprimanded by your supervising officer"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "10. Being tough is about...",
+              "answers": [
+                {
+                  "answer": "a. Taking what you want when you want it "
+                },
+                {
+                  "answer": "b. Being aggressive and showing power"
+                },
+                {
+                  "answer": "c. Working hard and not being lazy "
+                },
+                {
+                  "answer": "d. Using passive-aggression to get control"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "11. When you feel scared you should NEVER...",
+              "answers": [
+                {
+                  "answer": "a. Seek help from someone you trust"
+                },
+                {
+                  "answer": "b. Make safety a priority "
+                },
+                {
+                  "answer": "c. Accept someone’s friendship without knowing their intentions"
+                },
+                {
+                  "answer": "d. Try to understand why you are feeling that way"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "12. Fear, shame, sadness are likely to...",
+              "answers": [
+                {
+                  "answer": "a. Cause mental health problems or make them worse"
+                },
+                {
+                  "answer": "b. Help you focus on your goals"
+                },
+                {
+                  "answer": "c. Make you less of a man "
+                },
+                {
+                  "answer": "d. Make community supervision last longer"
+                }
+              ]
+            }
+          ],
+          "correctAnswer": "a. Learned in childhood"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "2. When you feel angry, you should let it all out. ",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. True"
+            },
+            {
+              "answer": "b. False"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. False"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "3. Anger and aggression mean the same thing.",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. True"
+            },
+            {
+              "answer": "b. False"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. False"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "4. The \"Escalation Phase\" of anger is characterized by...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Increasing feelings of anger "
+            },
+            {
+              "answer": "b. Hostile or mean talk"
+            },
+            {
+              "answer": "c. Destruction of property"
+            },
+            {
+              "answer": "d. A and B are both correct"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "d. A and B are both correct"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "5. Warning signs for anger can come from all of the following <u>except</u>...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Experiencing certain events"
+            },
+            {
+              "answer": "b. Your body's reactions"
+            },
+            {
+              "answer": "c. Your thoughts"
+            },
+            {
+              "answer": "d. How poorly you slept the night before"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "d. How poorly you slept the night before"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "6. Cognitive Restructuring is used to...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Remove damaged parts of your brain"
+            },
+            {
+              "answer": "b. Erase your memory"
+            },
+            {
+              "answer": "c. Replace negative thoughts with more truthful thoughts"
+            },
+            {
+              "answer": "d. Implant evil thoughts into your mind"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. Replace negative thoughts with more truthful thoughts"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "7. Which of the following are methods for reducing the impact of negative thoughts that lead to anger?",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Acting opposite"
+            },
+            {
+              "answer": "b. Thought stopping "
+            },
+            {
+              "answer": "c. Cognitive restructuring "
+            },
+            {
+              "answer": "d. All of the above"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "d. All of the above"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "8. The Conflict Resolution Model is about...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Beating up punks"
+            },
+            {
+              "answer": "b. Communicating and solving problems with others peacefully"
+            },
+            {
+              "answer": "c. Snitching"
+            },
+            {
+              "answer": "d. Getting what you want no matter the cost"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. Communicating and solving problems with others peacefully"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "9. Being assertive means that you...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Yell at others to get what you want"
+            },
+            {
+              "answer": "b. Stand up for your rights while respecting other people"
+            },
+            {
+              "answer": "c. Don't care about other people's feelings"
+            },
+            {
+              "answer": "d. Will get reprimanded by your supervising officer"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. Stand up for your rights while respecting other people"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "10. Being tough is about...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Taking what you want when you want it"
+            },
+            {
+              "answer": "b. Being aggressive and showing power"
+            },
+            {
+              "answer": "c. Working hard and not being lazy"
+            },
+            {
+              "answer": "d. Using passive-aggression to get control"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. Working hard and not being lazy"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "11. When you feel scared you should NEVER...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Seek help from someone you trust"
+            },
+            {
+              "answer": "b. Make safety a priority "
+            },
+            {
+              "answer": "c. Accept someone's friendship without knowing their intentions"
+            },
+            {
+              "answer": "d. Try to understand why you are feeling that way"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. Accept someone's friendship without knowing their intentions"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "12. Fear, shame, and sadness are likely to...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Cause mental health problems or make them worse"
+            },
+            {
+              "answer": "b. Help you focus on your goals "
+            },
+            {
+              "answer": "c. Make you less of a man"
+            },
+            {
+              "answer": "d. Make community supervision last longer"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "a. Cause mental health problems or make them worse"
+        }
+      ],
+      "subheader": "\t Module 4 Quiz"
+    },
+    {
+      "type": "text",
+      "text": "Great work! You finished Module 4. Your supervision officer may need to review your work before you can move on to the next module and award your certificate.",
+      "header": ""
+    }
+  ],
+  "questions": [
+    {
+      "type": "combo",
+      "prompt": "Shame: <ul><li><b><u>Triggering Event:</b></u> Doing something you believe is wrong or immoral, someone knowing something private about you, being laughed at or made fun of, being betrayed by someone</li><li><b><u>Mind's Explanation:</b></u>Thinking you are bad or immoral, judging yourself as \"not good enough\", thinking you are a loser, thinking that your feelings or behaviors are stupid</li><li><b><u>Physical Experience:</b></u> Crying; tears, wanting to hide or cover your face, blushing or red face, pain in the pit of your stomach</li><li><b><u>Emotional Expression:</b></u> Withdrawing or hiding, saying you're sorry, eyes down, keeping your head down</li><li><b><u>Aftermath:</b></u> Blocking all emotions; shutting down, anger, sadness, or fear, impulsive behaviors to distract yourself, isolation</li></ul> Now, assess where your feelings of shame come from and how you experience it.",
+      "fields": [
+        {
+          "type": "longtext",
+          "text": "What are some of your triggering events for shame?"
+        },
+        {
+          "type": "longtext",
+          "text": "How does your mind explain the shame?"
+        },
+        {
+          "type": "longtext",
+          "text": "What is your physical experience of shame?"
+        },
+        {
+          "type": "longtext",
+          "text": "How do you emotionally express shame?"
+        },
+        {
+          "type": "longtext",
+          "text": "What is the aftermath of feeling shame?"
+        },
+        {
+          "type": "displayText",
+          "text": "Sadness: <ul><li><b><u>Triggering Event:</b></u> things turn out badly, you got something you didn't want, losing a relationship or remembering a loss, being disapproved of or disliked</li><li><b><u>Mind's Explanation:</b></u> Believing you are worthless or not valuable, feeling hopeless, believing you will not get what you need in life, believing you won't meet your goals</li><li><b><u>Physical Experience:</b></u>Crying; tears, feeling empty, feeling tired, dizziness or out of breath</li><li><b><u>Emotional Expression:</b></u> Frowning; not smiling, saying sad things, eye moving slowly, not trying to meeting goals</li><li><b><u>Aftermath:</b></u>Nightmares or trouble sleeping, not being able to remember things, eating too much or too little, feeling angry or irritable</li></ul> Now, assess where your feelings of sadness come from and how your experience it."
+        },
+        {
+          "type": "longtext",
+          "text": "What are some of your triggering events for sadness? "
+        },
+        {
+          "type": "longtext",
+          "text": "How does your mind explain your sadness? "
+        },
+        {
+          "type": "longtext",
+          "text": "What is your physical experience of sadness?"
+        },
+        {
+          "type": "longtext",
+          "text": "How do you emotionally express sadness?"
+        },
+        {
+          "type": "longtext",
+          "text": "What is the aftermath of feeling sadness?"
+        }
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else."
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this."
+    },
+    {
+      "type": "displayText",
+      "text": "Avoiding or ignoring when you feel angry; putting up a wall to your feelings. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this."
+    },
+    {
+      "type": "displayText",
+      "text": "Intentionally putting off important tasks. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this. "
+    },
+    {
+      "type": "displayText",
+      "text": "Avoiding situations where someone else will be seen as better at something."
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this."
+    },
+    {
+      "type": "displayText",
+      "text": "Always being late and making others wait on you. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this."
+    },
+    {
+      "type": "displayText",
+      "text": "Always coming up with reasons for not doing something. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this. "
+    },
+    {
+      "type": "displayText",
+      "text": "Sulking to get attention."
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this."
+    },
+    {
+      "type": "displayText",
+      "text": "Not getting too attached to other people. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else."
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this. "
+    },
+    {
+      "type": "displayText",
+      "text": "Self-pity; feeling \"poor me.\""
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this. "
+    },
+    {
+      "type": "displayText",
+      "text": "Blaming other people for things you are responsible for."
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else."
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this."
+    },
+    {
+      "type": "displayText",
+      "text": "Withholding things like sex, money, or love from other people."
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this."
+    },
+    {
+      "type": "displayText",
+      "text": "Acting like you can't help yourself and need others to do a task for you."
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you have done this to someone else. "
+    },
+    {
+      "type": "longtext",
+      "text": "Explain a time when you were a victim of this."
+    },
+    {
+      "type": "displayText",
+      "text": "Rolling your eyes or giving angry looks at someone. "
+    },
+    {
+      "type": "longtext",
+      "text": "New"
+    },
+    {
+      "type": "longtext",
+      "text": "New"
+    }
+  ],
+  "answers": [
+    {
+      "answer": "New"
+    },
+    {
+      "answer": "New"
+    },
+    {
+      "answer": "New"
+    }
+  ],
+  "owner": "3SebTnspPovZbhnxE",
+  "orgOwnedBy": "5bSekKF3Rkcodk8Gf",
+  "createdBy": "3SebTnspPovZbhnxE"
+}

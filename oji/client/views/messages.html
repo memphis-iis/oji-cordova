@@ -5,11 +5,17 @@
     <div class="content container">
         {{#if displayMessage}}
             <div class="profileCard">
-            <h2>{{curMessage.subject}}</h2>
-            <p>{{curMessage.message}}</p>
-            <p>Sent on {{curMessage.dateReadable}}</p>
-            <button class="btn btn-primary" id="msg-reply">Reply</button>
-            <button class="btn btn-primary" data-id="{{curMessage._id}}" id="msg-mark-read">Mark Read</button>
+                <div class="message-header">
+                    <h2>{{curMessage.subject}}</h2>
+                    <h4>From: {{curMessage.fromName}}</h4>
+                </div>
+                <div class="message-content">
+                    <p>{{curMessage.message}}</p>
+                    <br>
+                    <h6>Sent on {{curMessage.dateReadable}}</h6>
+                    <button class="btn btn-primary" id="msg-reply">Reply</button>
+                    <button class="btn btn-primary" data-id="{{curMessage._id}}" id="msg-mark-read">Mark Read</button>
+                </div>
             </div>
         {{/if}}
         <div class="profileCard">
@@ -19,16 +25,29 @@
             <table style="width:100%;">
                 <tbody>
                     {{#each message}}
-                    <tr class="message">
-                        <td class="messageDate">
-                            <h2>{{this.dateReadable}}</h2>
-                        </td>
-                        <td class="text-left">
-                            <a id="display-message" data-id="{{this._id}}"><b>{{this.subject}}</b><br>
-                            {{this.fromName}}
-                            </a>
-                        </td>
-                    </tr>
+                        {{#if this.isRead}}
+                        <tr class="message">
+                            <td class="display-message-icon">
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            </td>
+                            <td class="text-left display-message" data-id="{{this._id}}">
+                                <a id="display-message" data-id="{{this._id}}"><b>{{this.subject}}</b><br>
+                                {{this.fromName}}
+                                </a>
+                            </td>
+                        </tr>
+                        {{else}}
+                        <tr class="message">
+                            <td class="display-message-icon">
+                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                            </td>
+                            <td class="text-left display-message" data-id="{{this._id}}">
+                                <a id="display-message" data-id="{{this._id}}"><b>{{this.subject}}</b><br>
+                                {{this.fromName}}
+                                </a>
+                            </td>
+                        </tr>
+                        {{/if}}
                     {{/each}}
                 </tbody>
             </table>

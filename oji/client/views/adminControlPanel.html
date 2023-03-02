@@ -2,6 +2,9 @@
     <div class="container content">
         {{> menu}}
     <div class="container profileCard">
+        <h3>Organization: {{organization.orgName}}</h3>
+    </div>
+    <div class="container profileCard">
         <ul class="nav nav-tabs" style>
             <li class="nav-item">
             <a class="nav-link active" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
@@ -47,6 +50,16 @@
         <input id="fileInput" style="display:block;" type="file" />
         {{/with}}
         <br>
+        {{#if organization.files}}
+        <h4>Uploaded Files</h4>
+        <ul>
+            {{#each organization.files}}
+            <li><a href="{{this.filePath}}">{{this.name}}</a></li>
+            {{/each}}
+        </ul>
+        <!-- delete all files -->
+        <button id="deleteAllFiles" class="btn btn-caution delete-all-files">Delete All Files</button>
+        {{/if}}
     </div>
     {{/if}}
     {{#if isInRole 'admin'}}

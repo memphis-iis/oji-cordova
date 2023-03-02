@@ -1,13 +1,17 @@
 // This section sets up some basic app metadata, the entire section is optional.
 App.info({
     id: 'com.uofmiis.ojicordova',
-    name: 'Oji Debug Main',
+    name: 'Oji',
     description: 'Mental Health Assessment App',
     author: 'UofM Institute for Intelligent Systems'
   });
   
 
   // Set PhoneGap/Cordova preferences.
+  App.configurePlugin('phonegap-plugin-push', {
+    SENDER_ID: '1019382444274'
+  })
+
   App.accessRule('*');
   App.appendToConfig(`
   <platform name="android">
@@ -15,4 +19,4 @@ App.info({
      <application android:usesCleartextTraffic="true" />
     </edit-config>
   </platform>
-  `)
+  `);

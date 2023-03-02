@@ -114,8 +114,15 @@
            {{#if userSelected}}
            <div class="profileCard container">
             <h3>{{userSelected.lastname}}, {{userSelected.firstname}}</h3>
-            <p>Status: {{userSelected.schedule}}</p>
-            <p>Firebase Token: {{userFirebaseToken}}</p>
+            <p>Status: 
+                <select id="user-status">
+                    <option value="{{userSelected.schedule}}">{{userSelected.schedule}}</option>
+                    <option value="preOrientation">preOrientation</option>
+                    <option value="intervention">intervention</option>
+                    <option value="postTreatment">postTreatment</option>
+                    <option value="finished">finished</option>
+                </select>   
+                </p>
             </div>
             {{#if orgViewOn}}
                  User Flow can be seen when selecting an individual user  that you supervise.

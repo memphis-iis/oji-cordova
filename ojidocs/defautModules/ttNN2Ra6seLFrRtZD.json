@@ -1,0 +1,732 @@
+{
+  "_id": "8FQrmkLnremRNJKwg",
+  "title": "MODULE 3",
+  "subtitle": " Protecting You from You: Suicide and Self-Injurious Behavior",
+  "identifier": "New",
+  "display": true,
+  "description": "If you are completing this next module, it likely means you experienced some form of suicidal thinking or behavior before. This module can be mentally difficult for some people because it asks about troubling ideas. If you experience any thoughts about hurting yourself, call a trusted friend, your supervision officer, or dial 988 for a 24-hour crisis hotline. If you’re nervous, it’s ok. Start whenever you’re ready. ",
+  "pages": [
+    {
+      "type": "text",
+      "text": "People think about suicide (the purposeful act of killing oneself) when they feel unbearable emotional pain in their minds or conscience. This feeling is called Psychache (like a headache or heartache causes pain to your head or heart). There are things about your history (even your family history), your mood, and the ways you handle stress that put you at greater risk for suicide. There are also things about your environment – such as being back in the community after being in jail or prison – that can add to your risk. In fact, in 2014 more than 13% of probationers in one state alone were at high risk for suicide, and women were twice as likely to experience suicidal ideations. People who have a strong intent to commit suicide and who have easy access to materials that can be lethal (guns, sharp objects, rope, drugs) are likely to succeed at dying.",
+      "header": "Knowing Your Suicide RIsk ",
+      "questions": [],
+      "subheader": "The Basics of Suicide Risk",
+      "image": "mod3risk.png",
+      "imageBelow": "true"
+    },
+    {
+      "type": "text",
+      "text": "<ul><li>Why does the past matter? Because it shows that you have the capacity to tolerate pain and a lower fear of death. It also means that you've had practice, and practice makes people better at doing things. </li><li>Men are more likely to succeed at killing themselves with fewer attempts, but women will try more often. </li></ul> Tell someone immediately if you are thinking about suicide. ",
+      "header": "",
+      "questions": [],
+      "subheader": "Other Facts That Could Increase Your Risk:",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "\t Before Oji was able to create his final self, he struggled a lot. Making life changes – like you are – can cause a lot of different emotions. Some emotions are enjoyable and will motivate you. Some emotions are not enjoyable and can make it hard to keep working toward your new self. Have you experienced any of these negative feelings since starting community supervision? Name some of these feelings, as well as other risk factors for suicide based off of what you just learned in the space below.",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Name some of your specific risk factors. ",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are some thoughts or feelings that you have experienced that you can identify as risk factors?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are some behaviors that you can identify as risk factors for yourself?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are some things in your environment that you can identify as risk factors for yourself?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are some traits that you have that are risk factors?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Remember Oji?"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "answers": [],
+          "fields": [
+            {
+              "type": "blank",
+              "text": "Navigate to the Assessment Center to see your score for the Assessment of Current Mood. This will give you a better idea of your risk level. What is your score/risk level?"
+            },
+            {
+              "type": "multiChoice",
+              "text": "Do you have a previous diagnosis of Depression?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Do you know others who have committed suicide?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "longtext",
+              "text": "What are some thoughts that you should look out for?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are some feelings that you should look out for?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are some behaviors that you should look out for?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Where Am I?"
+    },
+    {
+      "type": "text",
+      "text": "Suicide is serious. People who attempt suicide want to end their lives and have a clear plan to do so. You read a little bit about suicide in Worksheet #1. Your level of suicide risk depends not only on the number of risk factors – such as having a suicide history, negative emotions, environmental stress, or access to sharp objects – but also on the severity of these factors (how bad are they?). There are two specific categories of feelings that, along with some of the risk factors mentioned earlier, are believed to increase the likelihood of suicidal behavior. Researchers have fancy names for these feelings: (1) Thwarted Belongingness and (2) Perceived Burdensomeness. See the figure below. Remember: There is hope. You can take charge of your life and make positive changes, even if you are under community supervision.",
+      "header": "",
+      "questions": [],
+      "subheader": "Understanding Suicide",
+      "image": "mod3tbpb.png",
+      "imageBelow": "true"
+    },
+    {
+      "type": "text",
+      "text": "SIB is a broad definition that may or may not include the desire to die. Self-harm is anything a person does to intentionally cause injury to himself, such as cutting or burning the skin (arms, wrist, legs), choking the neck area, pulling out hair, or head-banging. There are many different reasons why people engage in SIB. For example, someone who causes self-injury, but does not want to die, may be trying to seek help for his struggles, punish or get back at others, fit in/belong to a group, or gain attention. This is called non-suicidal self injury. It can be stressful getting used to the outside world again, so wanting help, being angry with other people, or trying to fit in are common feelings. But, you have other skills you can use that don’t involve hurting yourself. Self-injury can be dangerous whether you intend to kill yourself or not – it can result in physical disability, disfigurement, scars, brain damage, or accidental death.",
+      "header": "",
+      "questions": [],
+      "subheader": "Understanding Self-Injurious Behavior (SIB)"
+    },
+    {
+      "type": "text",
+      "text": "The word Morbid means gloomy, unhealthy, or gruesome, and Rumination means to think about something. Morbid rumination includes thoughts about death or dying that do not convey a true desire to end one’s life. Examples of morbid rumination are: “I should have never been born,” “I wish my parents never met,” “Things would be easier if I were dead,” and “No one would care if I died.” These thoughts may eventually lead to suicidal thinking, but not always. People might have these thoughts because they feel depressed, anxious, afraid, hopeless, lonely, or frustrated. But, counselors and supervisors will take these words seriously; so do not use them freely or as a joke. ",
+      "header": "",
+      "questions": [],
+      "subheader": "Understanding Morbid Rumination"
+    },
+    {
+      "type": "text",
+      "text": "You have the power to reverse the type of thinking that supports suicidal or self-injurious behavior. What’s better, the power is in your words. When Oji ran into a challenge in his self-creation journey, he told himself things like “this is tough, but I can make it” and “just a few more steps, and I’ll get past this.” Most importantly, he reminded himself why his journey was so important: “I deserve to be happy, I deserve to live a good life.”",
+      "header": "",
+      "questions": [],
+      "subheader": "Understanding Positive Self-Talk"
+    },
+    {
+      "type": "activity",
+      "text": "Could you imagine talking to yourself the way Oji talked to himself? Oji’s positive self-talk helped him overcome struggles so he could create rivers and mountains. What are you capable of doing when you use positive self-talk? What would you tell yourself?",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Example: \"I have the strength to cope with the challenges of community supervision.\" Now, think of a few more statements on your own.",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Positive self-talk statement #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "Positive self-talk statement #2:"
+            },
+            {
+              "type": "longtext",
+              "text": "Positive self-talk statement #3:"
+            },
+            {
+              "type": "longtext",
+              "text": "Positive self-talk statement #4:"
+            },
+            {
+              "type": "longtext",
+              "text": "Positive self-talk statement #5:"
+            },
+            {
+              "type": "longtext",
+              "text": "If you use positive self-talk throughout your journey the same way Oji did, you can make your own miracles. What do you see in your future after using positive self-talk?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Understanding Positive Self-Talk"
+    },
+    {
+      "type": "activity",
+      "text": "Having a plan in place for when you experience suicidal thoughts allows you to take immediate action to prevent deadly future behaviors – you don’t have to feel stuck when those feelings happen or take the time to think of a plan because you will already have one.",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Know how to recognize your warning signs:",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "List your warning signs for suicidal thinking/behavior (for example, thinking negatively about self or future, being awake in the middle of the night, asking for potentially lethal objects, like pencils). Be specific!"
+            },
+            {
+              "type": "displayText",
+              "text": "Communicate your warning signs to others: "
+            },
+            {
+              "type": "longtext",
+              "text": "List people you will tell when you notice your warning signs. "
+            },
+            {
+              "type": "displayText",
+              "text": "Find out what resources are available to you:"
+            },
+            {
+              "type": "longtext",
+              "text": "List the sources of help (could be people or things) that are available to you when you feel suicidal. Take advantage of these resources! "
+            },
+            {
+              "type": "longtext",
+              "text": "What are the procedures for getting these sources?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Creating Your Suicide Prevention Plan "
+    },
+    {
+      "type": "text",
+      "text": "Suicide and self-injurious behaviors (SIB) are typically considered serious concerns and should be treated as such. But, sometimes people use these behaviors to manipulate other people or their situation. For example, talking about committing suicide could get you special attention, sympathy, or other rewards, such as more lenient rules from your community supervisor. These benefits may seem nice but using suicide to get what you want will get you into trouble. In fact, community supervision members use suicidal intent and SIB to manipulate supervisors so often that community supervisors may not appear to take it seriously or even ignore it. This can be frustrating to people who are under community supervision and really need help for serious suicidal intent or SIB.",
+      "header": "False Suicidal Intent and SIB as Manipulation",
+      "questions": []
+    },
+    {
+      "type": "activity",
+      "text": "Can you tell which person is experiencing serious suicidal intent/SIB and which one is using it for personal gain? You'll read about two people and then be asked questions about their behaviors and intentions.",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Janet's Example: <i> \"Janet is 35 years old. She is currently incarcerated for selling heroin on the streets – this is her 3rd offense. She not only sold drugs, but she also used them frequently. She often robbed people to support her habit, including her mother and brother. When she needed money for drugs, she often told her family that she needed to pay her bills or school-related expenses. Once, Janet even convinced her mother to drive her to buy a new supply of heroin. She said she needed a ride to a job interview – that was a lie. Janet was arrested when she sold $500 worth of heroin to an undercover cop. She was booked into the prison and began experiencing withdrawal symptoms from her heroin use. Janet felt frustrated by her situation and decided to smuggle in a pencil from the intake process. She dug the pencil point deep into her arms, causing bleeding. She made sure the nursing staff saw her wounds, and they did. She was soon transferred to a psychiatric hospital to get help. Janet escaped from the hospital. The police put a warrant out for her arrest and she is now being prosecuted to the fullest extent of the law for her behaviors...in addition to her original sentence.\"</i>",
+          "image": "",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "Real or fake?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is Janet's motive for her SIB?"
+            },
+            {
+              "type": "longtext",
+              "text": "What did Janet get as a result of her SIB?"
+            },
+            {
+              "type": "displayText",
+              "text": "Peter's Example: <i> \"Peter is a 42-year-old man. He has been on community supervision for over a year after being incarcerated for 3 years for attempted murder. He tried to rob a grocery store clerk at gunpoint and ended up shooting the clerk in the neck, causing paralysis. Peter has Bipolar Disorder, which sometimes makes him feel sad and sometimes makes him feel hyper and on-top-of-the-world. One time when he was feeling hopeless and alone, Peter tried to hurt himself by stabbing his chest with a letter opener. He survived and was hospitalized; he now has difficulty breathing. Peter also had an uncle who shot himself to death when Peter was 10 years old. Sometimes, Peter stays up most of the night thinking of ways to kill himself. He also knows that if he commits suicide at night, his roommates will be asleep and will not notice him and be able to stop him. He has been known to say things like, “There is nothing left for me in this world.” Peter’s roommate found a kitchen knife sitting on the bathroom counter after Peter took a shower a few minutes before. Peter’s roommate called Peter’s mom to tell her about their concerns. Peter’s counselor was called. Peter and his counselor had a long conversation about his suicidal feelings. Being able to talk and come up with a prevention plan reduced Peter’s depression.\"</i>"
+            },
+            {
+              "type": "blank",
+              "text": "Real or fake? "
+            },
+            {
+              "type": "longtext",
+              "text": "What is Peter's motive for his suicidal intent?"
+            },
+            {
+              "type": "longtext",
+              "text": "What did Peter get as a result of his suicidal intent?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Spot the Snake",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "List Pros and Cons of using suicidal intent/SIB as a manipulation tool. Then, think of better, less criminal ways to achieve a similar “Pro” without using suicidal/SIB intent. ",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Pros (benefits) of using suicidal intent/SIB as a manipulation tool:",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Benefit #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "Benefit #2:"
+            },
+            {
+              "type": "longtext",
+              "text": "Benefit #3:"
+            },
+            {
+              "type": "longtext",
+              "text": "Benefit #4:"
+            },
+            {
+              "type": "displayText",
+              "text": "Cons (consequences) of using suicidal intent/SIB as a manipulation tool:"
+            },
+            {
+              "type": "longtext",
+              "text": "Consequence #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "Consequence #2:"
+            },
+            {
+              "type": "longtext",
+              "text": "Consequence #3:"
+            },
+            {
+              "type": "longtext",
+              "text": "Consequence #4:"
+            },
+            {
+              "type": "displayText",
+              "text": "Better, less criminal ways to achieve similar \"pros\" without using suicidal/SIB intent:"
+            },
+            {
+              "type": "New",
+              "text": "Better Method #1: "
+            },
+            {
+              "type": "New",
+              "text": " Better Method #2:"
+            },
+            {
+              "type": "New",
+              "text": "Better Method #3: "
+            },
+            {
+              "type": "New",
+              "text": "Better Method #4: "
+            }
+          ]
+        }
+      ],
+      "subheader": "Pros vs. Cons"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "<b> In this Module you learned about: </b><ul><li>Common factors that increase suicide risk </li><li>Your personal risk for suicide</li><li>The differences between suicidal intent, self-injurious behavior, and morbid ruminations</li><li>Using positive self-talk and warning signs to reduce your suicide risk</li></ul>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Which of the goals that you learned about in this module are you going to focus on this week?"
+            },
+            {
+              "type": "longtext",
+              "text": "How will you accomplish your goal?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might get in your way of accomplishing it?"
+            },
+            {
+              "type": "longtext",
+              "text": "What skills will you use to move past your road block?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Module 3: Re-Cap",
+      "image": ""
+    },
+    {
+      "type": "quiz",
+      "text": "Now let's see what you learned! This quiz has 8 questions. Select the BEST possible answer to each question. Remember, you need to earn a score of 75% or above to move on to the next module! ",
+      "header": "",
+      "questions": [
+        {
+          "type": "multiChoice",
+          "prompt": "1. Which of the following is <u>NOT</u> a fact about suicide...",
+          "image": "",
+          "answers": [
+            {
+              "answer": "a. Men are more likely to succeed at killing themselves than women"
+            },
+            {
+              "answer": "b. Women hardly ever attempt suicide"
+            },
+            {
+              "answer": "c. Having a history of past suicidal behavior is a risk factor for future suicidal behavior",
+              "image": ""
+            },
+            {
+              "answer": "d. Having negative thoughts, such as loneliness, can put someone at greater risk for suicidal behavior"
+            }
+          ],
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "1. Which of the following is NOT a fact about suicide?",
+              "answers": [
+                {
+                  "answer": "a. Men are more likely to succeed at killing themselves than women"
+                },
+                {
+                  "answer": "b. Women hardly ever attempt suicide"
+                },
+                {
+                  "answer": "c. Having a history of past suicidal behavior is a risk factor for future suicidal behavior"
+                },
+                {
+                  "answer": "d. Having negative thoughts, such as loneliness, can put someone at greater risk for suicidal behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "2. Psychache is...",
+              "answers": [
+                {
+                  "answer": "a. A pain in your chest"
+                },
+                {
+                  "answer": "b. A mental illness"
+                },
+                {
+                  "answer": "c. Unbearable emotional pain in your mind"
+                },
+                {
+                  "answer": "d. A pain in your heart"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "3. The feeling that you are alone in this world without the care of others is an example of...",
+              "answers": [
+                {
+                  "answer": "a. Thwarted belongingness"
+                },
+                {
+                  "answer": "b. Experiencing a traumatic event"
+                },
+                {
+                  "answer": "c. Perceived burdensomeness"
+                },
+                {
+                  "answer": "d. Bipolar disorder"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "4. Liability and self-hate are features of...",
+              "answers": [
+                {
+                  "answer": "a. Thwarted belongingness"
+                },
+                {
+                  "answer": "b. Experiencing a traumatic event"
+                },
+                {
+                  "answer": "c. Perceived burdensomeness"
+                },
+                {
+                  "answer": "d. Schizophrenia"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "5. Someone who burns his own skin but does not have a desire to die is...",
+              "answers": [
+                {
+                  "answer": "a. Not intelligent"
+                },
+                {
+                  "answer": "b. Engaging in non-suicidal self-injury"
+                },
+                {
+                  "answer": "c. Attempting suicide"
+                },
+                {
+                  "answer": "d. Crazy"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "6. Morbid ruminations are gloomy, negative thoughts that always lead to suicidal behavior.",
+              "answers": [
+                {
+                  "answer": "a. True"
+                },
+                {
+                  "answer": "b. False"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "7. Some people may fake suicidal intent or self-injurious behavior to...",
+              "answers": [
+                {
+                  "answer": "a. Get attention or sympathy"
+                },
+                {
+                  "answer": "b. Make their supervising officer be more lenient with them"
+                },
+                {
+                  "answer": "c. Ask for help"
+                },
+                {
+                  "answer": "d. A through C are all correct"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "8. Using suicidal intent and self-injurious behavior rarely happen while on community supervision. ",
+              "answers": [
+                {
+                  "answer": "a. True "
+                },
+                {
+                  "answer": "b. False"
+                }
+              ]
+            }
+          ],
+          "correctAnswer": "b. Women hardly ever attempt suicide"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "2. Psychache is...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. A pain in your chest"
+            },
+            {
+              "answer": "b. A mental illness"
+            },
+            {
+              "answer": "c. Unbearable emotional pain in your mind "
+            },
+            {
+              "answer": "d. A pain in your heart"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. Unbearable emotional pain in your mind"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "3. The feeling that you are alone in this world without the car of others is an example of...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Thwarted belongingness"
+            },
+            {
+              "answer": "b. Experiencing a traumatic event"
+            },
+            {
+              "answer": "c. Perceived burdensomeness"
+            },
+            {
+              "answer": "d. Bipolar disorder "
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "a. Thwarted belongingness"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "4. Liability and self-hate are features of...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Thwarted belongingness"
+            },
+            {
+              "answer": "b. Experiencing a traumatic event"
+            },
+            {
+              "answer": "c. Perceived burdensomeness"
+            },
+            {
+              "answer": "d. Schizophrenia"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. Perceived burdensomeness"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "5. Someone who burns his own skin but does not have a desire to die is…",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Not intelligent"
+            },
+            {
+              "answer": "b. Engaging in non-suicidal self-injury"
+            },
+            {
+              "answer": "c. Attempting suicide"
+            },
+            {
+              "answer": "d. Crazy"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. Engaging in non-suicidal self-injury"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "6. Morbid ruminations are gloomy, negative thoughts that always lead to suicidal behavior.",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. True"
+            },
+            {
+              "answer": "b. False"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. False"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "7. Some people may fake suicidal intent or self-injurious behavior to...",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. Get attention or sympathy "
+            },
+            {
+              "answer": "b. Make their supervising officer be more lenient with them"
+            },
+            {
+              "answer": "c. Ask for help"
+            },
+            {
+              "answer": "d. A through C are all correct "
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "d. A through C are all correct"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "8. Using suicidal intent and self-injurious behavior rarely happen while on community supervision. ",
+          "image": "New",
+          "answers": [
+            {
+              "answer": "a. True"
+            },
+            {
+              "answer": "b. False"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. False"
+        }
+      ],
+      "subheader": "Module 3 Quiz"
+    },
+    {
+      "type": "text",
+      "text": "Great work! You finished Module 3. Your supervision officer may need to review your work before you can move on to the next module and award your certificate.",
+      "header": "",
+      "questions": []
+    }
+  ],
+  "questions": [
+    {
+      "type": "combo",
+      "prompt": "Know how to recognize your warning signs:",
+      "fields": [
+        {
+          "type": "longtext",
+          "text": "List your warning signs for suicidal thinking/behavior (for example, thinking negatively about self or future, being awake in the middle of the night, asking for potentially lethal objects, like pencils). Be specific!"
+        },
+        {
+          "type": "displayText",
+          "text": "Communicate your warning signs to others: "
+        },
+        {
+          "type": "longtext",
+          "text": "List people you will tell when you notice your warning signs. "
+        },
+        {
+          "type": "displayText",
+          "text": "Find out what resources are available to you:"
+        },
+        {
+          "type": "longtext",
+          "text": "List the sources of help (could be people or things) that are available to you when you feel suicidal. Take advantage of these resources! "
+        },
+        {
+          "type": "longtext",
+          "text": "What are the procedures for getting these sources?"
+        }
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "type": "New",
+      "text": "New"
+    },
+    {
+      "type": "New",
+      "text": "New"
+    },
+    {
+      "type": "New",
+      "text": "New"
+    }
+  ],
+  "owner": "3SebTnspPovZbhnxE",
+  "orgOwnedBy": "5bSekKF3Rkcodk8Gf",
+  "createdBy": "3SebTnspPovZbhnxE",
+  "answers": [
+    {
+      "answer": "New"
+    },
+    {
+      "answer": "New"
+    }
+  ]
+}

@@ -47,6 +47,72 @@ body{
     max-height: 300px;
     display: inline-flex;
 }
+td.display-message{
+    width: 100%;
+    padding: 10px;
+    /* border radius, flat left */;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.5);
+    margin: 10px;
+    font-family: 'Arvo', serif;
+    font-size: 15px;
+    color: white;
+    text-align: left;
+    /* box shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+.message-header{
+    font-family: 'Arvo', serif;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    padding: 10px;
+    border: 10px solid rgba(0, 0, 0, 0.0);
+    background-color: #22847f;
+    /* box shadow */
+}
+.message-content{
+    font-family: 'Arvo', serif;
+    font-size: 15px;
+    color: white;
+    text-align: left;
+    padding: 10px;
+    /* no top border */
+    border-top: 0px;
+    ;
+    /* box shadow */
+}
+td.display-message-icon{
+    width: 10%;
+    padding: 10px;
+    /* border radius, flat right */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #e26b4d;
+    margin: 10px;
+    font-family: 'Arvo', serif;
+    font-size: 15px;
+    color: white;
+    text-align: left;
+    /* box shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+td.display-message-icon-readFalse{
+    width: 10%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(110, 9, 9, 0.5);
+    margin: 10px;
+    font-family: 'Arvo', serif;
+    font-size: 15px;
+    color: white;
+    text-align: left;
+    /* box shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
 .certificates-container2{
     overflow: hidden;
     white-space: nowrap;
@@ -346,6 +412,12 @@ body{
 .profileCard input, .profileCard textarea, select{
     margin-left:20px;
     max-width: 80%;
+    color:white;
+    background-color: black;
+    border: none;
+    min-height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
 }
 .profileCard select{
     margin-left:20px;

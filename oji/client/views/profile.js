@@ -27,6 +27,10 @@ Template.profile.helpers({
     'hasCompletedIntervention': function(){
         const user = Meteor.user();
         return user.assessmentSchedule === "postTreatment";
+    },
+    'hasCompletedJourney': function(){
+        const user = Meteor.user();
+        return user.assessmentSchedule === "finished";
     }
 })
 

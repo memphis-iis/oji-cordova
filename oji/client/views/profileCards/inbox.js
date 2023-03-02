@@ -5,3 +5,9 @@ Template.inbox.helpers({
         return chats;
     },
 });
+
+Template.inbox.events({
+    'click .display-message': function(e){
+        Router.go('/messages/');
+    },
+});

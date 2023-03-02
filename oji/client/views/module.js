@@ -1,5 +1,5 @@
 Template.module.helpers({
-    'module': () => Modules.findOne({_id: this.moduleId}),
+    'module': () => Modules.findOne({_id: Meteor.user().curAssignment.id}),
     'pageid': function() {return parseInt(this.pageId) + 1;},
     'questionid': function() {return parseInt(this.questionId) + 1;},
     'totalpages': function(){
@@ -26,8 +26,10 @@ Template.module.helpers({
     },
     'passed': function(){
         //calc quiz score
-        Meteor.call('calcQuizScore', Modules.findOne({_id: this.moduleId})._id);
-        passed = Meteor.user().curModule.passed;
+        //get the most recent ModuleResults for this user
+        passed = Meteor.user().lastPass;
+        console.log("User: " + JSON.stringify(Meteor.user().lastPass));
+        console.log("User has passed: " + passed);
         if(passed){
             //get user assignments
             const assignments = Meteor.user().assigned;
@@ -35,6 +37,11 @@ Template.module.helpers({
             newAssignments = assignments.filter(function(assignment){
                 return assignment.assignment !== Meteor.user().curAssignment.id;
             })
+            defaultAssignments = Orgs.findOne({_id: Meteor.user().organization}).newUserAssignments;
+            //filter out assessments
+            defaultAssignments = defaultAssignments.filter(function(assignment){
+                return assignment.type !== "assessment";
+            });
             //get user schedule
             const schedule = Meteor.user().assessmentSchedule;
             //
@@ -46,17 +53,17 @@ Template.module.helpers({
                 //call userFinishedOrientation
                 Meteor.call('userFinishedIntervention');
                 //clear the user's assigned array
-                Meteor.call('changeAssignmentOneUser', Meteor.userId(), []);
             } 
             if(newAssignments.length == 0 && schedule == "preOrientation"){
                 //call userFinishedOrientation
                 Meteor.call('userFinishedOrientation');
             }
             //if there are no assignments left, the user has completed all the assignments
-            if(newAssignments.length == 0){
-                //update the user's assigned array
+            if(newAssignments.length == 0 && schedule == "postTreatment"){
+                //update the user's assigned array to be the default assignments
                 Meteor.call('changeAssignmentOneUser', Meteor.userId(), newAssignments);
             }
+            //if there are no assignments left, the user has completed all the assignments
             return true;
         } else {
             return false;
@@ -106,11 +113,20 @@ Template.module.helpers({
                 //check if page image is url or file
                 if(page.image && page.image.startsWith("http")){
                     page.image = page.image;
+                    console.log("image is url");
                 } else if(page.image){
-                    //add full url
-                    page.image = window.location.origin + "/" + page.image;
-                }
+                    //check if image is in the Files collection using the filename
+                    file = Files.findOne({filename: page.image});
+                    if(file){
+                        console.log("image is file");
+                        page.image = file.url();
+                    } else {
+                        console.log("image is file but not in Files collection");
+                        //append root url to image
+                        page.image = "https://ojis-journey.com/" + page.image;
+                    }
 
+                }
                 if(page.type == "activity"){
                     page.typeActivity = true;
                     t.pageType.set("activity");
@@ -346,18 +362,12 @@ Template.module.events({
         if(moduleData.nextPage >= curModule.pages.length){
             moduleData.nextPage = "completed";
             moduleData.nextQuestion = "completed";
-            //update the user's assignments
-            curAssignments = curUser.assigned;
-            //remove the first assignment
-            curAssignments.shift();
-            //update the user's assignments
-            Meteor.call('changeAssignmentOneUser', Meteor.userId(),  curAssignments);
             Meteor.call('evaluateModule', curModule._id, moduleData);
             target = "/module/" + curModule._id + "/completed";
         } 
-        $('textArea').val("");
         //if allowContinue is false, do not redirect
         if(allowContinue){
+            $('textArea').val("");
             Meteor.call("saveModuleData", moduleData);
             Router.go(target);
         } else {

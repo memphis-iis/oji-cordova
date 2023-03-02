@@ -3,7 +3,68 @@ import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles'; // https://github.com/Meteor-Community-Packages/meteor-roles
 import { calculateScores } from './subscaleCalculations.js';
 import { Canvas, Image } from 'canvas';
+import { firebaseConfig } from './private/firebaseConfig.js';
+import { Push } from 'meteor/activitree:push';
+import { serviceAccountData } from './private/serviceAccount.js';
+import Papa from 'papaparse';
 
+Push.debug = true;
+
+Push.Configure({
+    // appName: 'Activitree',
+    firebaseAdmin: {
+      serviceAccountData,
+      databaseURL: firebaseConfig.databaseURL,
+    },
+    defaults: {
+      // ******** Meteor Push Messaging Processor *******
+      sendBatchSize: 5,          // Configurable number of notifications to send per batch
+      sendInterval: 3000,
+      keepNotifications: false,  // the following keeps the notifications in the DB
+      delayUntil: null,          // Date
+      sendTimeout: 60000,        // miliseconds 60 x 1000 = 1 min
+  
+      // ******** Global Message *******
+      appName: 'Oji',        // Serve it as a 'from' default for IOS notifications
+      sound: 'note',             // String (file has to exist in app/src/res/... or default on the mobile will be used). For Android no extension, for IOS add '.caf'
+      data: null,                // Global Data object - applies to all vendors if specific vendor data object does not exist.
+      imageUrl: 'https://ojis-journey.com/logo.png', // String - URL to an image to be displayed in the notification
+      badge: 1,                  // Integer
+      vibrate: 1,                // Boolean // TODO see if I really use this.
+      requireInteraction: false, // TODO Implement this and move it to where it belongs
+      action: '', // Android, WebPush - on notification click follows this URL
+      analyticsLabel: 'ojis-journey',   // Android, IOS: Label associated with the message's analytics data.
+  
+      // ******* IOS Specifics ******
+      apnsPriority: '10',
+      topic: 'com.uomiis.ojicordova',   // String = the IOS App id
+      launchImage: '',           // IOS: String
+      iosData: null,             // Data object targeted to the IOS notification
+      // category: null,         // IOS: IOS - not in user
+  
+      // ******* Android Specificas *******
+      icon: 'statusbaricon',     // String (name of icon for Android has to exist in app/src/res/....)
+      color: '#337FAE',          // String e.g 3 rrggbb
+      ttl: '86400s',             // if not set, use default max of 4 weeks
+      priority: 'HIGH',          // Android: one of NORMAL or HIGH
+      notificationPriority: 'PRIORITY_DEFAULT', // Android: one of none, or PRIORITY_MIN, PRIORITY_LOW, PRIORITY_DEFAULT, PRIORITY_HIGH, PRIORITY_MAX
+      collapseKey: 1,            // String/ Integer??, Android:  A maximum of 4 different collapse keys is allowed at any given time.
+      androidData: null,           // Data object targeted to the Android notiffication
+      visibility: 'PRIVATE', // Android: One of 'PRIVATE', 'PUBLIC', 'SECRET'. Default is 'PRIVATE',
+      // silent: false,             // Not implemented
+      // sticky: false,             // Not implemented
+      // localOnly: false,          // Not implemented: Some notifications can be bridged to other devices for remote display, such as a Wear OS watch.
+      // defaultSound: false,       // Not implemented: If set to true, use the Android framework's default sound for the notification.
+      // defaultVibrateTimings: false, // Not implemented: If set to true, use the Android framework's default vibrate pattern for the notification.
+      // defaultLightSettings: true, // Not implemented: If set to true, use the Android framework's default LED light settings for the notification.
+      // vibrateTimings: ['3.5s'],  // Not implemented: Set the vibration pattern to use.
+  
+      // ******* Web Specifics *******
+      webIcon: 'https://ojis-journey.com/logo.png',
+      webData: null,                 // Data object targeted to the Web notification
+      webTTL: `${3600 * 1000}`       // Number of seconds as a string
+    }
+})
 var fs = Npm.require('fs');
 
 const SEED_ADMIN = {
@@ -65,7 +126,8 @@ const SEED_USER2 = {
     nextModule: 0
 };
 const SEED_USERS = [SEED_ADMIN, SEED_SUPERVISOR, SEED_USER, SEED_USER2];
-const SEED_ROLES = ['user', 'supervisor', 'admin']
+const SEED_ROLES = ['user', 'supervisor', 'admin'];
+
 
 //Configure Push Notifications
 serviceAccountData = null;
@@ -80,20 +142,21 @@ Meteor.startup(() => {
     }
 
     //Change for defaults
-    importDefaultModules = false;
-    importDefaultUsers = true;
-    importDefaultAssessments = true;
+    importDefaultContent = Meteor.settings.importDefaultContent;
+    importDefaultUsers = Meteor.settings.importDefaultUsers;
+    importOutsideSeedUsers = Meteor.settings.importOutsideSeedUsers;
 
     //start synchron job to send notification emails
     SyncedCron.add(
         {
-            name: 'Send Notification Emails',
+            name: 'Send Notification Emails/Mobile Push Notifications',
             schedule: function(parser) {
                 // parser is a later.parse object
-                return parser.text('every 10 minutes');
+                return parser.text('every 1 minutes');
             },
             job: function() {
                 Meteor.call('sendNotificationEmails');
+                sendPushNotifications();
             }
         }
     );
@@ -187,27 +250,13 @@ Meteor.startup(() => {
     }
   });
 
+
     //load default JSON assessment into mongo collection
-    if(Assessments.find().count() === 0 && importDefaultAssessments){
-        console.log('Importing Default Assessments into Mongo.')
-        var data = JSON.parse(Assets.getText('defaultAssessments.json'));
-        for (var i =0; i < data['assessments'].length; i++){
-            assessment = data['assessments'][i]['assessment'];
-            assessment.owner = false;
-            Assessments.insert(assessment);
-        };
+    if(Assessments.find().count() === 0 || Modules.find().count() === 0 && importDefaultContent){
+        console.log('Importing Default Content');
+        Meteor.call('reloadDefaults');
     }
 
-    //load default JSON modules into mongo collection
-    if(Modules.find().count() === 0 && importDefaultModules){
-        console.log('Importing Default Modules into Mongo.')
-        var data = JSON.parse(Assets.getText('defaultModules.json'));
-        for (var i =0; i < data['modules'].length; i++){
-            newModule = data['modules'][i]['module'];
-            newModule.owner = false;
-            Modules.insert(newModule);
-        };
-    }
 
     //create seed roles
     for(let role of SEED_ROLES){
@@ -215,6 +264,201 @@ Meteor.startup(() => {
             Roles.createRole(role);
         }
     }
+
+        //check for seed users in /ojifiles/seedUsers.json
+        if (importOutsideSeedUsers){
+        newSeedUsers = [];
+        //get a list of all assessments ids
+        assessmentIDs = Assessments.find({}).map(function(assessment){return assessment._id});
+        //get a list of all module ids
+        moduleIDs = Modules.find({}).map(function(module){return module._id});
+        console.log("Assessment IDs: " + assessmentIDs);
+        console.log("Module IDs: " + moduleIDs);
+        fs = Npm.require('fs');
+            var data = fs.readFileSync('/ojidocs/testusers.json', 'utf8');
+            newSeedUsers = JSON.parse(data);
+            console.log("Imported seed users from /ojifiles/seedUsers.json");
+            //get a list of all admin users in newSeedUsers
+            newAdminUsers = newSeedUsers.admins || [];
+            //iterate through newAdminUsers, checking if they exist in the database, if so, drop them from the array
+            for (var i = 0; i < newAdminUsers.length; i++) {
+               //filter out existing users
+                if (Meteor.users.findOne({username: newAdminUsers[i].username})) {
+                    console.log("User " + newAdminUsers[i].username + " already exists, removing from newAdminUsers array.");
+                    newAdminUsers.splice(i, 1);
+                    i--;
+                }
+            }
+            console.log("There are " + newAdminUsers.length + " new admin users to create.")
+            //create a user for each admin user
+            for (var i = 0; i < newAdminUsers.length; i++) {
+                console.log("Creating user " + newAdminUsers[i].username);
+                const uid = Accounts.createUser({
+                    username: newAdminUsers[i].username,
+                    password: newAdminUsers[i].password,
+                    email: newAdminUsers[i].email,
+                });
+                //set the user's role to admin
+                Roles.addUsersToRoles(uid, 'admin');
+                //increment the index of the assessment and module arrays, set to 0 if they are at the end
+                assindex = newAdminUsers[i].AssessmentIndex || 0;
+                modindex = newAdminUsers[i].ModuleIndex || 0;
+                //make an array containing an assessment and a module
+                assignments = [];
+                if(assessmentIDs[i]){
+                    assignments.push({type: "assessment", id: assessmentIDs[i]});
+                }
+                if(moduleIDs[i]){
+                    assignments.push({type: "module", id: moduleIDs[i]});
+                }
+                console.log("Assignments: " + assignments.length);
+                //remove the first assessment and the first module from their respective arrays
+                assessmentIDs.splice(0,1);
+                moduleIDs.splice(0,1);
+                //create an organization for the user
+                ordId = Orgs.insert({
+                    orgName: newAdminUsers[i].org,
+                    orgOwnerId: uid,
+                    orgDesc: "Testing",
+                    newUserAssignments: assignments,
+                });
+                //set the user's first and last name
+                Meteor.users.update({_id: uid}, {
+                    $set: {
+                        "firstname": newAdminUsers[i].firstname,
+                        "lastname": newAdminUsers[i].lastname,
+                        "organization" : ordId,
+                        "supervisorID": "",
+                        "role": "user",
+                        "supervisorInviteCode": null,
+                        "supervisorID": "",
+                        "role": "admin",
+                        "supervisorInviteCode": null,
+                        "sex": "male",
+                        "assigned": [],
+                        "hasCompletedFirstAssessment": false,
+                        "nextModule": 0
+                    }
+                });
+                //generate a supervisor invite code for the user
+                Meteor.call('generateInvite',uid);
+                  //export all orgs to a flat csv file
+                  allOrgs = Orgs.find({}).fetch();
+                  //remove the _id field from all orgs
+                  for (var j = 0; j < allOrgs.length; j++) {
+                      delete allOrgs[j]._id;
+                      //replace the orgOwnerId with the supervisorInviteCode of the owner
+                      allOrgs[j].inviteCode = Meteor.users.findOne({_id: allOrgs[j].orgOwnerId}).supervisorInviteCode;
+                      //delete the orgOwnerId field
+                      delete allOrgs[j].orgOwnerId;
+                      //delete the orgDesc and newUserAssignments fields
+                      delete allOrgs[j].orgDesc;
+                      delete allOrgs[j].newUserAssignments;
+                  }
+                  csv = Papa.unparse(allOrgs);
+                  //write to file in /ojifiles
+                  fs.writeFileSync('/ojidocs/orgs.csv', csv);
+            }
+            //get a list of all supervisor users in newSeedUsers
+            newSupervisorUsers = newSeedUsers.supervisors || [];
+            //filter out existing users
+            //iterate through newSupervisorUsers, checking if they exist in the database, if so, drop them from the array
+            for (var i = 0; i < newSupervisorUsers.length; i++) {
+                //filter out existing users
+                    if (Meteor.users.findOne({username: newSupervisorUsers[i].username})) {
+                        console.log("User " + newSupervisorUsers[i].username + " already exists, removing from newAdminUsers array.");
+                        newSupervisorUsers.splice(i, 1);
+                        i--;
+                    }
+                }
+                console.log("There are " + newSupervisorUsers.length + " new supervisor users to create.")
+            //create a user for each supervisor user
+            for (var i = 0; i < newSupervisorUsers.length; i++) {
+                //get the organization id for the supervisor's organization
+                Orgs.find({orgName: newSupervisorUsers[i].org}).forEach(function(org){
+                    ordId = org._id;
+                }
+                );
+                //match the supervisor's organization to an existing organization
+                orgId = Orgs.findOne({orgName: newSupervisorUsers[i].org})._id;
+                //create the user
+                const uid = Accounts.createUser({
+                    username: newSupervisorUsers[i].username,
+                    password: newSupervisorUsers[i].password,
+                    email: newSupervisorUsers[i].email,
+                });
+                //set the user's role to supervisor
+                Roles.addUsersToRoles(uid, 'supervisor');
+                //set the user's first and last name
+                Meteor.users.update({_id: uid}, {
+                    $set: {
+                        "firstname": newSupervisorUsers[i].firstname,
+                        "lastname": newSupervisorUsers[i].lastname,
+                        "organization" : ordId,
+                        "supervisorID": "",
+                        "role": "user",
+                        "supervisorInviteCode": null,
+                        "supervisorID": "",
+                        "role": "supervisor",
+                        "supervisorInviteCode": null,
+                        "sex": "male",
+                        "assigned": [],
+                        "hasCompletedFirstAssessment": false,
+                        "nextModule": 0
+                    }
+                });
+                //generate a supervisor invite code for the user
+                Meteor.call('generateInvite',uid);
+            }
+            //get a list of all user users in newSeedUsers
+            newUserUsers = newSeedUsers.users || [];
+            //iterate through newUserUsers, checking if they exist in the database, if so, drop them from the array
+            for (var i = 0; i < newUserUsers.length; i++) {
+                //filter out existing users
+                    if (Meteor.users.findOne({username: newUserUsers[i].username})) {
+                        console.log("User " + newUserUsers[i].username + " already exists, removing from newAdminUsers array.");
+                        newSupervisorUsers.splice(i, 1);
+                        i--;
+                    }
+                }
+                console.log("There are " + newUserUsers.length + " new users to create.")
+            //create a user for each user user
+            for (var i = 0; i < newUserUsers.length; i++) {
+                //get the organization id for the user's organization
+                Orgs.find({orgName: newUserUsers[i].org}).forEach(function(org){
+                    ordId = org._id;
+                    supervisorId = org.orgOwnerId;
+                }
+                );
+                //create the user
+                const uid = Accounts.createUser({
+                    username: newUserUsers[i].username,
+                    password: newUserUsers[i].password,
+                    email: newUserUsers[i].email,
+                });
+                //set the user's role to user
+                Roles.addUsersToRoles(uid, 'user');
+                //set the user's first and last name
+                Meteor.users.update({_id: uid}, {
+                    $set: {
+                        "firstname": newUserUsers[i].firstname,
+                        "lastname": newUserUsers[i].lastname,
+                        "organization" : ordId,
+                        "supervisorID": "",
+                        "role": "user",
+                        "supervisorInviteCode": null,
+                        "supervisor": supervisorId,
+                        "role": "user",
+                        "supervisorInviteCode": null,
+                        "sex": "male",
+                        "assigned": [],
+                        "hasCompletedFirstAssessment": false,
+                        "nextModule": 0
+                    }
+                });
+            }           
+        }
+        
     let newOrgId;
     //create seed user
     if(importDefaultUsers){
@@ -404,7 +648,6 @@ Meteor.methods({
                     text: message
                 };
                 Email.send(emailData);
-                //remove email from database
                 Emails.remove({_id: email._id});
             }
         }
@@ -429,14 +672,15 @@ Meteor.methods({
                     goals: [],
                     assessmentSchedule: "preOrientation",
                     curModule: null,
-                    curAssessment: null
+                    curAssessment: null,
+                    curAssingment: null,
+                    certificates: []
                 }
             });
             //remove all user trials
             Trials.remove({userId: userID});
             //remove each user's assessment results
             ModuleResults.remove({userId: userID});
-            Chats.remove({userId: userID});
         }
     },
     transferUserToOtherSupervisor: function(userID, newSupervisorID){
@@ -566,113 +810,60 @@ Meteor.methods({
         //get the module from the Modules collection
         thisModule = Module.findOne({_id: module});
         //get the defaultModules asset location
-        defaultModulesLocation = Assets.absoluteFilePath("defaultModules.json");
-        //remove the _id field
-        delete thisModule._id;
-        //get the defaultModules asset
-        defaultModules = JSON.parse(Assets.getText("defaultModules.json")).modules;
-        //check for a module with the same identifier
-        for(i = 0; i < defaultModules.length; i++){
-            if(defaultModules[i].identifier == thisModule.identifier){
-                //if found, replace it with thisModule
-                defaultModules[i] = thisModule;
-                break;
-            }
-        }
-        //if not found, add thisModule to the end of the array
-        if(i == defaultModules.length){
-            defaultModules.push(thisModule);
-        }
-        newModuleFile = {
-            modules: defaultModules
-        }
-        //save the new defaultModules as a json file to the defaultModules asset location
-        fs.writeFile(defaultModulesLocation, JSON.stringify(newModuleFile), function(err){
-            if(err){
-                console.log(err);
-            } else {    
-                console.log("Module saved to defaults");
-            }
-        });
+        defaultModulesLocation = "/ojidocs/defaultModules";
+        //save the module to the defaultModules location as _id.json
+        require('fs').writeFileSync(defaultModulesLocation + "/" + module + ".json", JSON.stringify(thisModule));
+        console.log("Saved module" + module + " to defaultModules");
     },
     saveAssessmentToDefaults: function(assessment){
-        //get the assessment from the Assessments collection
-        thisAssessment = Assessments.findOne({_id: assessment});
-        //get the defaultAssessments asset location
-        defaultAssessmentsLocation = Assets.absoluteFilePath("defaultAssessments.json");
-        //get the defaultAssessments asset
-        defaultAssessments = JSON.parse(Assets.getText("defaultAssessments.json")).assessments;
-        //remove the _id field from thisAssessment
-        delete thisAssessment._id;
-        //check for an assessment with the same identifier
-        for(i = 0; i < defaultAssessments.length; i++){
-            if(defaultAssessments[i].identifier == thisAssessment.identifier){
-                //if found, replace it with thisAssessment
-                defaultAssessments[i] = thisAssessment;
-                break;
-            }
-        }
-        //if not found, add thisAssessment to the end of the array
-        if(i == defaultAssessments.length){
-            defaultAssessments.push(thisAssessment);
-        }
-        newAssessmentFile = {
-            assessments: defaultAssessments
-        }
-        //save the new defaultAssessments as a json file to the defaultAssessments asset location
-        fs.writeFile(defaultAssessmentsLocation, JSON.stringify(newAssessmentFile), function(err){
-            if(err){
-                console.log(err);
-            } else {
-                console.log("Added assessment to default assessments");
-            }
-        });
+       //get the assessment from the Assessments collection
+       thisAssessment = Assessments.findOne({_id: assessment});
+       //get the defaultAssessments asset location
+         defaultAssessmentsLocation = "/ojidocs/defaultAssessments";
+         //save the assessment to the defaultAssessments location as _id.json
+            require('fs').writeFileSync(defaultAssessmentsLocation + "/" + assessment + ".json", JSON.stringify(thisAssessment));
+            console.log("Saved assessment" + assessment + " to defaultAssessments");
     },
     reloadDefaults: function(){
-        //get the defaultModules asset location
-        defaultModulesLocation = Assets.absoluteFilePath("defaultModules.json");
-        //get the defaultModules asset
-        defaultModules = JSON.parse(Assets.getText("defaultModules.json")).modules;
-        //get the defaultAssessments asset location
-        defaultAssessmentsLocation = Assets.absoluteFilePath("defaultAssessments.json");
-        //get the defaultAssessments asset
-        defaultAssessments = JSON.parse(Assets.getText("defaultAssessments.json")).assessments;
-        //get the current modules
-        currentModules = Modules.find({}).fetch();
-        //get the current assessments
-        currentAssessments = Assessments.find({}).fetch();
-        //iterate through the current modules, checking for a match in the defaultModules.modules array by identifier
-        for(i = 0; i < currentModules.length; i++){
-            for(j = 0; j < defaultModules.length; j++){
-                if(currentModules[i].identifier == defaultModules[j].module.identifier){
-                    //if found, replace the current module with the default module
-                    Modules.update({_id: currentModules[i]._id}, {$set: defaultModules[j]});
-                    console.log("updated module " + currentModules[i].identifier + " with default module " + defaultModules[j].module.identifier);
-                    break;
-                }
-            }
-            //if not found, delete the current module
-            if(j == defaultModules.length){
-                Modules.remove({_id: currentModules[i]._id});
-                console.log("deleted module " + currentModules[i].identifier);
-            }
-        }   
-        //iterate through the current assessments, checking for a match in the defaultAssessments.assessments array by identifier
-        for(i = 0; i < currentAssessments.length; i++){
-            for(j = 0; j < defaultAssessments.length; j++){
-                if(currentAssessments[i].identifier == defaultAssessments[j].assessment.identifier){
-                    //if found, replace the current assessment with the default assessment
-                    Assessments.update({_id: currentAssessments[i]._id}, {$set: defaultAssessments[j]});
-                    console.log("updated assessment " + currentAssessments[i].identifier + " with default assessment " + defaultAssessments[j].assessment.identifier);
-                    break;
-                }
-            }
-            //if not found, delete the current assessment
-            if(j == defaultAssessments.length){
-                Assessments.remove({_id: currentAssessments[i]._id});
-                console.log("deleted assessment " + currentAssessments[i].identifier);
-            }
-        }
+       //use fs to read the directory of the defaultModules and defaultAssessments assets
+    defaultModulesDir = "/ojidocs/defaultModules/"
+    defaultAssessmentsDir = "/ojidocs/defaultAssessments/"
+    //get a list of the files in the defaultModules directory
+    defaultModuleFiles = fs.readdirSync(defaultModulesDir);
+    //iterate through the list of files and read them into a variable called defaultModules
+    defaultModules = [];
+    for(i = 0; i < defaultModuleFiles.length; i++){
+        defaultModules.push(JSON.parse(fs.readFileSync(defaultModulesDir + defaultModuleFiles[i], "utf8")));
+    }
+    //delete all modules
+    Modules.remove({});
+    //insert each module into the Modules collection
+    for(i = 0; i < defaultModules.length; i++){
+        delete defaultModules[i]._id;
+        //set owner to false
+        defaultModules[i].owner = false;
+        Modules.insert(defaultModules[i]);
+    }
+    //get a list of the files in the defaultAssessments directory
+    defaultAssessmentFiles = fs.readdirSync(defaultAssessmentsDir);
+    //iterate through the list of files and read them into a variable called defaultAssessments
+    defaultAssessments = [];
+    //delete all assessments
+    Assessments.remove({});
+    for(i = 0; i < defaultAssessmentFiles.length; i++){
+        //load defaultAssessments files into variable
+        thisAssessment = JSON.parse(fs.readFileSync(defaultAssessmentsDir + defaultAssessmentFiles[i], "utf8"));
+        //set owner to false
+        thisAssessment.owner = false;
+        //remove _id
+        delete thisAssessment._id;
+        //insert into Assessments collection
+        defaultAssessments.push(thisAssessment);
+    }
+    //insert each assessment into the Assessments collection
+    for(i = 0; i < defaultAssessments.length; i++){
+        Assessments.insert(defaultAssessments[i]);
+    }
     },
     uploadJson: function(path,user, data=false){
         if(data){
@@ -1108,7 +1299,8 @@ Meteor.methods({
                 moduleId: moduleId,
                 pageId: 0,
                 questionId: 0
-            }
+            },
+
         });
     },
     createNewModuleTrial: function(data){
@@ -1128,6 +1320,7 @@ Meteor.methods({
         curModule = Modules.findOne({_id: curModuleId});
         moduleData.score = 0;
         moduleData.maxScore = 0;
+        moduleData.passed = true;
         //get pages where the page type is a quiz
         pages = curModule.pages;
         for(let page of pages){
@@ -1152,8 +1345,33 @@ Meteor.methods({
             }
             //calculate the percentage
             moduleData.percentage = (moduleData.score / moduleData.maxScore) * 100;
-            //update the module results
-            ModuleResults.upsert({_id: curModuleId}, {$set: moduleData});
+            //set the user's curModule.passed to true or false based on the percentage
+            //if the number is NaN, set it to true 
+            if(isNaN(moduleData.percentage)){
+                moduleData.passed = true;
+                console.log("passed grade of", moduleData.percentage);
+            } else {
+                if(moduleData.percentage >= 70){
+                    moduleData.passed = true;
+                    console.log("passed grade of", moduleData.percentage);
+                } else {
+                    moduleData.passed = false;
+                    console.log("failed grade of", moduleData.percentage);
+                }
+            }
+            Meteor.users.update(Meteor.userId(), {
+                $set: {
+                    curModule: {
+                        moduleId: curModuleId,
+                        pageId: 0,
+                        questionId: 0,
+                        passed: moduleData.passed
+                    },
+                    lastModule: moduleData._id,
+                    lastPass: moduleData.passed
+                }
+            });
+            ModuleResults.upsert(moduleData);
         }
 
     },
@@ -1168,7 +1386,8 @@ Meteor.methods({
         console.log("nextModule", nextModule, typeof nextModule);
         if(moduleData.nextPage == 'completed'){
             nextModule++;
-            const supervisor = Meteor.users.findOne({'_id': Meteor.userId()}).supervisor;
+            supervisor = Meteor.user().supervisor;
+            console.log("sending message to supervisor", supervisor);
             sendSystemMessage(supervisor, "The module " + moduleData.name + " has been completed by " + Meteor.user().firstname + " " + Meteor.user().lastname + ". Please review the results.", "Module Completed");
         }
         Meteor.users.upsert(Meteor.userId(), {
@@ -1238,6 +1457,16 @@ Meteor.methods({
             }
         });
     },
+    changeUserSchedule: function(schedule, userId){
+        Meteor.users.update({_id: userId}, {
+            $set: {
+                assessmentSchedule: schedule
+            }
+        });
+        console.log("changeUserSchedule: ", userId, schedule);
+        //console log the user's schedule
+        console.log("user's schedule: ", Meteor.users.findOne({_id: userId}).assessmentSchedule);
+    },
     userFinishedIntervention: function(){
         user = Meteor.user();
         console.log("userFinishedIntervention: ", user._id);
@@ -1267,9 +1496,50 @@ Meteor.methods({
             }
         });
     },
-    getAsset: function(fileName){
-        result =  Assets.absoluteFilePath(fileName);
+    userFinishedPostTreatment: function(){
+        user = Meteor.user();
+        console.log("userFinishedPostTreatment: ", user._id);
+        //get assessment schedule
+        assessmentSchedule = user.assessmentSchedule;
+        assigned = user.assigned;
+         //if assessment schedule is "intervention", set it to "postTreatment"
+        
+        assessmentSchedule = "finished";
+
+        //replace assigned with newUserAssessments
+        assigned = [];
+    
+        Meteor.users.update(Meteor.userId(), {
+            $set: {
+                hasCompletedFirstAssessment: true,
+                assessmentSchedule: assessmentSchedule,
+                assigned: assigned
+            }
+        });
+    },
+    getAPKUrl: function(){
+        //if the apkUrl is not set, get the file from the server at /opt/oji-release-location
+        console.log("getting apk location from server");
+        //require the fs module
+        try{
+            var fs = Npm.require('fs');
+            //read the file as text and parse it as JSON
+            var file = fs.readFileSync('/ojidocs/oji-release-location.json', 'utf8');
+        } catch (e){
+            console.log("error reading file", e);
+        }
+        var json = JSON.parse(file);
+        //get the url from the JSON
+        result = json.apkUrl;
+        if(!result){
+            result =  Meteor.settings.public.apkUrl;
+            console.log("using default apkUrl", result);
+        }
+        console.log("apkUrl", result);
         return result;
+    },
+    getFirebaseConfig: function(){
+        return firebaseConfig;
     },
     generateApiToken: function(userId){
         var newToken = "";
@@ -1367,7 +1637,8 @@ Meteor.methods({
             subject: subject,
             time: new Date(),
             dateReadable: dateReadable,
-            status: "unread"
+            status: "unread",
+            notified: false
         });
         if(Meteor.settings.public.sendEmails){
             //get the user's email
@@ -1410,7 +1681,7 @@ Meteor.methods({
     },
     addFileToOrg: function(filePath, fileName,type){
         org = Orgs.findOne({_id: Meteor.user().organization});
-        console.log("org", org.orgName, "file", fileName);
+        console.log("organization", org.orgName, "file", fileName);
         if(typeof org.files === "undefined"){
             org.files = [];
         }
@@ -1433,10 +1704,18 @@ Meteor.methods({
         orgFiles.splice(index, 1);
         Orgs.update({_id: Meteor.user().organization}, {$set: {files: orgFiles} })
     },
+    deleteAllFilesFromOrg: function(){
+        org = Orgs.findOne({_id: Meteor.user().organization});
+        orgFiles = org.files
+        for(i=0;i<orgFiles.length;i++){
+            Files.remove({name: orgFiles[i].name})
+        }
+        Orgs.update({_id: Meteor.user().organization}, {$set: {files: []} })
+    },
     makeGoogleTTSApiCall: async function(message, voice) {
         //get googleApiKey from Organization
         var org = Orgs.findOne({_id: Meteor.user().organization});
-        console.log("org", org);
+        console.log("organization", org);
         var ttsAPIKey = org.googleAPIKey;
         console.log("ttsAPIKey", ttsAPIKey);
         voiceOptions = {languageCode:"en-US", name:voice, ssmlGender:"FEMALE"};
@@ -1636,9 +1915,11 @@ function serverConsole(...args) {
 }
 
 function getInviteInfo(inviteCode) {
+    console.log("getInviteInfo", inviteCode);
     supervisor = Meteor.users.findOne({supervisorInviteCode: inviteCode});
+    console.log("supervisor", supervisor);
     targetSupervisorId = supervisor._id;
-    organization = Orgs.findOne({_id: supervisor.organization});
+    organization = Orgs.findOne({_id: supervisor.org});
     targetSupervisorName = supervisor.firstname + " " + supervisor.lastname;
     targetOrgId = supervisor.organization;
     targetOrgName = organization.orgName;
@@ -1646,15 +1927,15 @@ function getInviteInfo(inviteCode) {
     return {targetOrgId, targetOrgName, targetSupervisorId, targetSupervisorName};
 }
 
-function sendSystemMessage(userId, message, subject) {
+function sendSystemMessage(to, message, subject) {
     dateReadable = new Date().toLocaleDateString();
     Chats.insert({
-        from: "00000000-0000-0000-0000-000000000000",
-        fromName: "System",
-        subject: subject,
-        to: userId,
         message: message,
-        date: Date.now(),
+        from: "system",
+        fromName: "System Notification",
+        to: to,
+        subject: subject,
+        time: new Date(),
         dateReadable: dateReadable,
         status: "unread"
     });
@@ -1680,7 +1961,7 @@ Meteor.publish(null, function() {
 
 // Publish all of users exercises
 Meteor.publish(null, function() {
-    return Exercises.find({'userId': this.userId});
+    return Exercises.find({'user': this.userId});
 })
 
 //Publish current assessment information
@@ -1691,16 +1972,10 @@ Meteor.publish(null, function(id) {
 //allow admins to see all users of org, Can only see emails of users. Can See full data of supervisors
 Meteor.publish(null, function() {
     if(Roles.userIsInRole(this.userId, 'admin' )){ 
-        return Meteor.users.find({ organization: Meteor.user().organization, role: 'user' });
+        return Meteor.users.find({ organization: Meteor.user().organization});
     }
     else if(Roles.userIsInRole(this.userId, 'supervisor')){
         return Meteor.users.find({ organization: Meteor.user().organization, role: 'user', supervisor: this.userId})
-    }
-});
-
-Meteor.publish(null, function() {
-    if(Roles.userIsInRole(this.userId, 'admin')){
-        return Meteor.users.find({ organization: Meteor.user().organization, role: 'supervisor' });
     }
 });
 
@@ -1817,4 +2092,19 @@ function getAllDataFromUser(userId){
         journals: journals,
         goals: user.goals
     }
+}
+
+function sendPushNotifications(){
+    //get all chats where notified is false
+    chats = Chats.find({notified: false}).fetch();
+    //loop through chats, send push notification, and set notified to true
+    chats.forEach(chat => {
+        Meteor.call('userPushNotification',{
+            title: chat.subject,
+            body: chat.message,
+            userId: chat.to,
+            badge: 1,
+        });
+        Chats.update({_id: chat._id}, {$set: {notified: true}});
+    });
 }

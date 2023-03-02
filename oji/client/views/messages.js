@@ -2,6 +2,14 @@ Template.messages.helpers({
     'message': function(){
         var chats = Chats.find({status:'unread'}, {sort: {createdAt: -1}}).fetch();
         t = Template.instance();
+        //iterate through chats, if status is read, set isRead to true
+        for(let chat of chats){
+            if(chat.status === 'read'){
+                chat.isRead = true;
+            } else {
+                chat.isRead = false;
+            }
+        }
         t.allMessages.set(chats);
         return chats;
     },
@@ -84,7 +92,7 @@ Template.messages.events({
         template.compose.set(false);
         template.curMessage.set(false);
     },
-    'click #display-message': function(e){
+    'click .display-message': function(e){
         e.preventDefault();
         template = Template.instance();
         selectedMessageId = $(e.target).attr('data-id');

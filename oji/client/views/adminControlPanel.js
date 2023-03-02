@@ -139,7 +139,7 @@ Template.adminControlPanel.helpers({
             token: keys.token,
             expires: expDate,
             expired: isExpired,
-            curlExample: "curl " + window.location.protocol + "//" + window.location.host + "/api -H \"x-user-id:" + Meteor.user().username +"\" -H \"x-auth-token:" + keys.token + "\""
+            curlExample: "curl " + window.location.protocol + "//" + window.location.host + "/api -o output.json -H \"x-user-id:" + Meteor.user().username +"\" -H \"x-auth-token:" + keys.token + "\""
         }
 
         return api;
@@ -416,6 +416,9 @@ Template.adminControlPanel.events({
         $('#alert-files-confirm').removeAttr('module-id');
         $('#alert-files').hide();
     },
+    'click .delete-all-files': function (event){
+        Meteor.call('deleteAllFilesFromOrg');
+    },
     'click #moveup-assignment': function(event){
         org = Orgs.findOne({_id: Meteor.user().organization});
         index = $(event.target).data("index");
@@ -470,6 +473,11 @@ Template.adminControlPanel.events({
 })
 
 Template.adminControlPanel.onCreated(function() {
+    Meteor.subscribe('getUsersInOrg');
+    Meteor.subscribe('getSupervisorsInOrg');
+    Meteor.subscribe('assessments');
+    Meteor.subscribe('getUserModuleResults');
+    Meteor.subscribe('modules');
     this.selectedUser = new ReactiveVar("org");
     this.currentUpload = new ReactiveVar(false);
     this.TTSTracPlaying = new ReactiveVar(0);

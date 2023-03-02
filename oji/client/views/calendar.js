@@ -58,6 +58,11 @@ Template.calendar.helpers({
             if(allEvents[i].date.date() == displayDay){
                 //convert time to 12 hour local time
                 allEvents[i].time = moment(allEvents[i].time, "HH:mm").format("h:mm a");
+                //if the event is not createdBy the user, set delete to false
+                allEvents[i].delete = true;
+                if(allEvents[i].createdBy !== Meteor.userId()){
+                    allEvents[i].delete = false;
+                }
                 calendar.selectedDayEvents.push(allEvents[i]);
             }
         }

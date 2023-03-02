@@ -8,11 +8,13 @@
             <div class="selectDate profileCard text-center">
                 <select id="dateSelect" class="form-select" aria-label="Default select example">
                     {{#each entries}}
+                    <option value="" class="text-center">Select a log</option>
                     <option value="{{this._id}}" class="text-center">{{this.shortDate}}: {{this.truncatedTriggeringEvent}}</option>
                     {{/each}}
                 </select>
             </div>
             <div class="text-center profileCard entries"  id="prompt" role="alert">
+                <h5>Today's Entry:</h5>
                 <h3>{{entries.mostRecentEntry.triggeringEvent}}</h3>
                 <p class="">
                     Mood: {{entries.mostRecentEntry.mood}}<br>
@@ -44,14 +46,14 @@
                 <div class="text-center profileCard" hidden id="card0" role="alert">
                <h3>Triggering Event</h3>
                <h5>Who? What? When? Where?</h5>
-                <textarea style="width: 100%; min-height: 300px;" id="triggeringEvent"></textarea>
+                <textarea style="width: 100%; min-height: 300px;" id="triggeringEvent"></textarea><br>
                 <button type="button" id="next" class="btn btn-primary">Next</button>
                 <button type="button" id="stopLog" class="btn btn-primary">Cancel</button>
                 </div>
                 <div class="text-center profileCard" id="card1" hidden>
                 <h3>Mood</h3>
                 <h5>What are you feeling? Rate how much you’re feeling this feeling (0-100&percnt;).</h5>
-                <textarea style="width: 100%; min-height: 300px;" id="mood"></textarea>
+                <textarea style="width: 100%; min-height: 300px;" id="mood"></textarea><br>
                 <button type="button" id="prev" class="btn btn-primary">Back</button>
                 <button type="button" id="next" class="btn btn-primary">Next</button>
                 <button type="button" id="stopLog" class="btn btn-primary">Cancel</button>
@@ -59,7 +61,7 @@
                 <div class="text-center profileCard" id="card2" hidden>
                 <h3>Automatic Thoughts</h3>
                <h5> What was your mind saying  before you started feeling this way? What criminal thinking style is this?</h5>
-                <textarea style="width: 100%; min-height: 300px;" id="automaticThoughts"></textarea>
+                <textarea style="width: 100%; min-height: 300px;" id="automaticThoughts"></textarea><br>
                 <button type="button" id="prev" class="btn btn-primary">Back</button>
                 <button type="button" id="next" class="btn btn-primary">Next</button>
                 <button type="button" id="stopLog" class="btn btn-primary">Cancel</button>
@@ -67,7 +69,7 @@
                 <div class="text-center profileCard" id="card3" hidden>
                 <h3>Evidence <u>FOR</u> Thoughts:</h3>
                 <h5>What information supports your thoughts?</h5>
-                <textarea style="width: 100%; min-height: 300px;" id="evidenceForThoughts"></textarea>
+                <textarea style="width: 100%; min-height: 300px;" id="evidenceForThoughts"></textarea><br>
                 <button type="button" id="prev" class="btn btn-primary">Back</button>
                 <button type="button" id="next" class="btn btn-primary">Next</button>
                 <button type="button" id="stopLog" class="btn btn-primary">Cancel</button>
@@ -75,7 +77,7 @@
                 <div class="text-center profileCard" id="card4" hidden>
                 <h3>Evidence <u>AGAINST</u> Thoughts:</h3>
                 <h5>What information does NOT support your thoughts?</h5>
-                <textarea style="width: 100%; min-height: 300px;" id="evidenceAgainstThoughts"></textarea>
+                <textarea style="width: 100%; min-height: 300px;" id="evidenceAgainstThoughts"></textarea><br>
                 <button type="button" id="prev" class="btn btn-primary">Back</button>
                 <button type="button" id="next" class="btn btn-primary">Next</button>
                 <button type="button" id="stopLog" class="btn btn-primary">Cancel</button>
@@ -83,7 +85,7 @@
                 <div class="text-center profileCard" id="card5" hidden>
                <h3>Other Thoughts</h3>
                <h5>Write more helpful thoughts. How much do you believe in these thoughts (0-100&percnt;)?</h5>
-                <textarea style="width: 100%; min-height: 300px;" id="otherThoughts"></textarea>
+                <textarea style="width: 100%; min-height: 300px;" id="otherThoughts"></textarea><br>
                 <button type="button" id="prev" class="btn btn-primary">Back</button>
                 <button type="button" id="next" class="btn btn-primary">Next</button>
                 <button type="button" id="stopLog" class="btn btn-primary">Cancel</button>
@@ -91,7 +93,7 @@
                 <div class="text-center profileCard" id="card6" hidden>
                <h3>New Mood</h3>
                <h5>Re-rate your feelings from earlier AND any new feelings that you now have (0-100&percnt;) Are your feelings more helpful now?</h5>
-                <textarea style="width: 100%; min-height: 300px;" id="newMood"></textarea>
+                <textarea style="width: 100%; min-height: 300px;" id="newMood"></textarea><br>
                 <button type="button" id="prev" class="btn btn-primary">Back</button>
                 <button class="btn btn-primary" id="createEntry">Create Log</button>
                 <button type="button" id="stopLog" class="btn btn-primary">Cancel</button>

@@ -1,0 +1,1402 @@
+{
+  "_id": "QS3nfpcxwj7qNvnAT",
+  "title": "MODULE 8",
+  "subtitle": "Seeking Supportive Allies: Finding Helpful Others Among the Crowd",
+  "identifier": "New",
+  "display": true,
+  "description": "We like to think we are free from the influence of others, but the way we think, how we act, and what we value is often a reflection of those around us. This module talks about the role other people play in your life. They can either help or hinder your goals. You will learn how to move away from the people who bring you down, including family or close friends, and toward people who lift you up. Remember, sometimes love and support means holding you accountable!",
+  "pages": [
+    {
+      "type": "activity",
+      "text": "Remember THE Circle of Change? Part of that circle was your environment. And, part of your environment is the people you are around. Review the diagram in the box below: <br> We like to think that we are our own person; that we can make our own decisions and act without the influence of other people. But, this is not true. We often act a lot like the people we hang around. We share similar beliefs and do similar things. Imagine being at a neighborhood party where everyone is drinking beer, smoking, and having a great time. How would you feel going to that party and not drinking beer? You are likely to fee out of place, strange, awkward, or unwanted. So, you are more likely to drink and smoke, too. If you think other people do not or cannot impact how you think and act, you could be in trouble for relapse! Many people make the mistake of believing that they can say \"no\" when a yellow- or red-light event comes up without help (think back to your criminal thinking styles — is \"Superoptimism\" one of yours? If so, beware of this!). <br> Here's an example: <br> <i>\"Howie is 22 years old and this is his first time on probation. In his neighborhood growing up, he didn’t have many friends and kept to himself. Howie is smaller in size than a lot of the other guys on the block and he doesn’t talk very much. Growing up, he felt alone and scared. His fears got worse when other kids started bullying him and threatening to hurt him. Howie was even beat up in the school yard on several occasions by older boys. One time he suffered three broken ribs. This event was very embarrassing for Howie and he stopped going to school. When Howie should have been in 9th grade, his cousin Mitchell asked Howie if he wanted to make some \"fast cash\" and never be afraid of low-life punks again. He told Howie about this group of guys who could help protect him from danger. Mitchell said he just wanted to help Howie because they’re family. Everything was great at first. Howie could go to the basketball courts again because Mitchell and his buddies were always close by. And now, Howie had people to go to parties with and chill. He didn’t feel alone anymore, he felt safe. But, after a while, things started to change. Howie was doing drug runs for Mitchell and his crew but used some product for himself. To pay his debts, Howie started robbing houses and stores in nice neighborhoods for petty items. He was arrested one night after a shop clerk caught him with cigarettes and a bottle of gin tucked in his jacket. Now that Howie is on probation for these crimes, he’s been required to participant in treatment. He was talking to Mitchell about the new treatment program and Mitchell says, \"Man, you don't need that shit, you got us! We'll help you out, homie. In fact, I need you to do something for me — we're about to take out some motherfuckers who screwed us over on a stash. We can't let them get away with that!\" Mitchell goes over the details of what he wants Howie to do. It doesn't seem right, but Mitchell tells Howie that he's \"in too far to back out\" and that he will be \"as good as dead\" if he does. Mitchell reminds Howie that his crew supported him when he was a nobody—a total loser—so Howie feels he has to carry out the plan to keep his cousin happy. Howie gets caught, arrested and his probation is revoked. He will be serving prison time on theft and aggravated assault.\" </i>",
+      "header": "",
+      "image": "mod1teh.png",
+      "imageBelow": "true",
+      "subheader": "Separating the Good from the Bad",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "How did Howie's new friends influence his THOUGHTS?"
+            },
+            {
+              "type": "longtext",
+              "text": "How did Howie's new friends influence his HABITS (how he acts)?"
+            },
+            {
+              "type": "longtext",
+              "text": "How did Howie's new friends influence his ENVIRONMENT (where he is now)?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Now think about the people you spend the most time with. It can be a friend, your mom, or a cousin. Don’t include small children if you have them. Here, we’re just talking about the adults you share your free time within the community. Consider the 4 adults you spend the most time with and answer the questions below with these 4people in mind. You do not have to include the namesof the people you are referring to. Then answer the questions to the best of your knowledge. ",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "1. Thinking of person #1...",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "A. How much of your free time do you spend with person #1?",
+              "answers": [
+                {
+                  "answer": "Less than 25%"
+                },
+                {
+                  "answer": "25% - 50%"
+                },
+                {
+                  "answer": "50% - 75%"
+                },
+                {
+                  "answer": "75% - 100%"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "B. Has person #1 ever committed a crime?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "C. Does person #1 have a criminal record?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "D. Has person #1 ever been to jail?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "E. Has person #1 tried to involve you in a crime?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "displayText",
+              "text": "2. Thinking of person #2...",
+              "answers": []
+            },
+            {
+              "type": "multiChoice",
+              "text": "A. How much of your free time do you spend with person #2? ",
+              "answers": [
+                {
+                  "answer": "less than 25% "
+                },
+                {
+                  "answer": "25%-50%"
+                },
+                {
+                  "answer": "50%-75%"
+                },
+                {
+                  "answer": "75%-100%"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "B. Has person #2 ever committed a crime? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "C. Does person #2 have a criminal record? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "D. Has person #2 ever been to jail? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "E. Has person #2 tried to involve you in a crime? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "displayText",
+              "text": "Thinking of person #3...",
+              "answers": []
+            },
+            {
+              "type": "multiChoice",
+              "text": "\t A. How much of your free time do you spend with person #3?",
+              "answers": [
+                {
+                  "answer": "Less than 25%"
+                },
+                {
+                  "answer": "25%-50%"
+                },
+                {
+                  "answer": "50%-75%"
+                },
+                {
+                  "answer": "75%-100%"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "B. Has person #3 ever committed a crime? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "C. Does person #3 have a criminal record? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "D. Has person #3 ever been to jail? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "E. Has person #3 tried to involve you in a crime? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "displayText",
+              "text": "4. Thinking of person #4...",
+              "answers": []
+            },
+            {
+              "type": "multiChoice",
+              "text": "A. How much of your free time do you spend with person #4?",
+              "answers": [
+                {
+                  "answer": "Less than 25%"
+                },
+                {
+                  "answer": "25%-50%"
+                },
+                {
+                  "answer": "50%-75%"
+                },
+                {
+                  "answer": "75%-100%"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "B. Has person #4 ever committed a crime? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "C. Does person #4 have a criminal record?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "D. Has person #4 ever been to jail? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "E. Has person #4 tried to involve you in a crime? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "displayText",
+              "text": "Looking at your answers to this exercise, what kinds of people do you hang out with most? Do they typically involve you in illegal activities? We learned earlier that the people we spend time with influence our thoughts and actions, whether we like it or not. How do you think these people have influenced your thoughts and actions? ",
+              "answers": []
+            },
+            {
+              "type": "longtext",
+              "text": "What do YOU think about when you spend time with your #1 person?",
+              "answers": []
+            },
+            {
+              "type": "longtext",
+              "text": "How do you spend YOUR time when you are with your #1 person?",
+              "answers": []
+            },
+            {
+              "type": "displayText",
+              "text": "If the people you spend time with make you think about - or do - illegal things, drink or do drugs, or encourage you to stop getting treatment, then they are not good people to hang out with. They will make it harder for you to finish community supervision, or worse, will tempt you to do things that could violate your supervision terms. <br> Now, if you think you should work on your recovery alone without spending time with ANYONE, you could also be in trouble. Finding the right people – people who are doing well and have similar goals as you – will help you stay on track. Consider this: is it easier to stick to a workout routine by yourself or with a partner? Most people will say it is easier with a partner because someone else is counting on them to show up! This works for your recovery, also. But first, think about the people you were hanging around in the past. Who was in your life when you got into legal trouble? You may still be associating with some of these people. This will help you figure out who you should be hanging around and who you should avoid in the future.",
+              "answers": []
+            },
+            {
+              "type": "longtext",
+              "text": "Who did you hang out with BEFORE you got into legal trouble? Think back as far as childhood.",
+              "answers": []
+            },
+            {
+              "type": "longtext",
+              "text": "What did you DO with these people?",
+              "answers": []
+            },
+            {
+              "type": "longtext",
+              "text": "Who did you hang out with while you were engaging in criminal behavior? ",
+              "answers": []
+            },
+            {
+              "type": "longtext",
+              "text": "What did you DO with these people? ",
+              "answers": []
+            },
+            {
+              "type": "longtext",
+              "text": "How have these people led you to where you are now?",
+              "answers": []
+            },
+            {
+              "type": "blank",
+              "text": "Are any of these people listed in the \"Where My Friends At?\" exercise?",
+              "answers": []
+            },
+            {
+              "type": "displayText",
+              "text": "It’s time for you to start changing WHO you are spending your time with so you can finish community supervision without revocations and not get into further trouble. This is where you can again use your mental traffic light to decide who will be helpful in meeting your goals (green light) and who will not be helpful (yellow and red lights). ",
+              "answers": []
+            }
+          ],
+          "image": ""
+        }
+      ],
+      "subheader": "Where My Friends At?"
+    },
+    {
+      "type": "activity",
+      "text": "How can you tell if someone is going to help you? How can you tell if someone is NOT going to help you? Think about the qualities, features, or characteristics that distinguish these two types of people. Keep these in mind when you evaluate the people in your life. Remember: good guys have good goals (and will support you with yours). Think about the “good guys” and “bad guys” you’ll find in the neighborhood, at work, at your community supervision office, or even in your family.",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Good Guys: What do they look like? "
+            },
+            {
+              "type": "longtext",
+              "text": "Good Guys: How do they act?"
+            },
+            {
+              "type": "longtext",
+              "text": "Good Guys: What do they do/say?"
+            },
+            {
+              "type": "longtext",
+              "text": "Good Guys: Where do they go? "
+            },
+            {
+              "type": "longtext",
+              "text": "Bad Guys: What do they look like? "
+            },
+            {
+              "type": "longtext",
+              "text": "Bad Guys: How do they act? "
+            },
+            {
+              "type": "longtext",
+              "text": "Bad Guys: What do they do/say? "
+            },
+            {
+              "type": "longtext",
+              "text": "Bad Guys: Where do they go? "
+            },
+            {
+              "type": "longtext",
+              "text": "Which of the things listed could also describe you? "
+            },
+            {
+              "type": "blank",
+              "text": "Which side (good guys or bad guys) has more things that describe you?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Getting the Good Guys, Banning the Bad Guys"
+    },
+    {
+      "type": "activity",
+      "text": "Remember that antisocial associates (friends, family, co-workers) are people you hang around with who are not doing positive things with their lives. They get into trouble with the law, have a lot of disciplinary problems, are offensive to other people, and generally don’t care how their behaviors effect other people. So, why do people hang out with antisocial associates? There must be some benefits. You might have these kinds of people in your life because youfeel comfortable around them, because you can relate to them, because they seem like the “in-group” (especially while you were in prison), or because they give you a sense of who you are (that is, you can be someone specific and people know who you are asthis person).",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "Why Do People Have Antisocial Associates in the First Place?",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What benefits have you experienced from being around antisocial people or by being antisocial yourself?"
+            },
+            {
+              "type": "displayText",
+              "text": "Here's more information about why people seek out antisocial associates: <br><ul><li><b>1. Belonging</b>- We want to feel that we belong and do not want to feel left out. Everyone wants to feel a part of a group. The more we want to be accepted, the more likely we are to do whatever it takes to belong, even if that means belonging with the wrong crowd. </li><li><b>2. Security</b>- We want to be around others who share similar values and attitudes because they provide a sense of security and safety. We want to feel protected and being part of a group often gives us this feeling. </li><li><b>3. Sense of Purpose</b>- The benefits of criminal or antisocial behavior often include money, excitement, or status (power, authority, control over others). These things can boost our self-confidence and give us a sense of accomplishment. When we are around other people who are also committing crime or not following the rules, it makes antisocial behavior seem ok and even normal because it’s accepted. But, ultimately, the standard of what’s acceptable gets lower, and our behaviors move farther up on the criminalness meter. In other words, antisocial others encourage these criminal benefits and give your behaviors meaning, so we continue them. </li><li><b>4. Mentoring</b>- We see the benefits of others’ behavior such as money, excitement, or status. We often envy our friends' lifestyle, so we imitate what they are doing. In other words, we see the benefits of what they do and we try the same things to get the same benefits. But, remember that antisocial associates often think of the immediate benefits and not the long-term consequences. Fast money and wild parties may seem like a great time, but they can get people into big trouble down the road. And these kinds of behaviors will catch the attention of your supervising officer – and not their good attention. Pissing off your community supervisor or other officers (police) may get you a tough reputation among other people, including other probationers, but will likely win you extra restrictions...or worse, a community supervision violation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Now, here are some tips for avoiding the pull of antisocial associates: Commit to trying these by saying out loud, \"I will do this!\" ",
+      "header": "New",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "displayText",
+              "text": "1. Remember your identity pre-crime – think about the positive qualities that made you who you were before you got into legal trouble and don’t get too tangled up with your badass or thug identity (that is, who you became as a person who did illegal things); that one is not real. It will also help you to remember your goals and think about the person you WANT to be in the future. Anyone who makes you feel more comfortable with your criminal or probationer identity than with your real (or desired) identity should be avoided."
+            },
+            {
+              "type": "longtext",
+              "text": "What are some positive qualities you had before you became involved in the criminal justice system?"
+            },
+            {
+              "type": "displayText",
+              "text": "2. . Keep busy! Fill your schedule with activities like finding a job, taking a college class, doing puzzles, reading, attending treatment groups or classes, going to spiritual services, working, exercising, or taking advantage of other programs that are available to you. By staying active, you won’t have much time to be bored. So, when someone asks you to do something that could get you into trouble, you have an excuse to say “no, I'm busy.” Although some activities may be hard to do or achieve, such as landing a job or affording a college class, start thinking now about how you can work toward making those bigger goals happen, and fill your schedule with positive, pro-social activities. Review the steps to making good goals."
+            },
+            {
+              "type": "displayText",
+              "text": "3. Learn as much as you can about a person before you hangout with him or her. This will help you evaluate whether or not this person is a red/yellow light or a green light for your personal goals. Does he or she have a bad reputation around town? Are they in a gang? Are they on community supervision themselves? Do they bully or take advantage of other people? Are they often in trouble with the law? Do they disrespect your family, supervising officer, or other important people? Do they have drugs or weapons with them? What do they do in their free time? Have you talked to them about your status on community supervision or in treatment? Have you heard them say things that are in line with criminal thinking like, “Fuck it,” “Treatment is bullshit,” “I don’t owe society nothing!” or “I’m going to do what I want, and nobody can do anything about it.”"
+            },
+            {
+              "type": "displayText",
+              "text": "4. Use cognitive restructuring, thought stopping, or positive self-talk to help you move away from antisocial associates. Tell yourself that you don’t need those types of people bringing you down. Tell yourself that the immediate benefits, such as belonging to a group, aren’t worth the long-term consequences of getting into trouble. Or, tell yourself that you are more likely to stay out of trouble if you can learn to avoid these people now. There are lots of other thoughts you could tell yourself."
+            },
+            {
+              "type": "longtext",
+              "text": "List other things you can say to yourself that will help you want to stay away from antisocial associates:"
+            },
+            {
+              "type": "displayText",
+              "text": "5. Avoid places where antisocial people hang out. Don’t be in the same area with people who are known to cause trouble. Go to another part of town to grocery shop or wash laundry, ask to be sat at a table farther away from them at a restaurant. Instead, surround yourself with people who have similar goals as you. Find some common ground with these people. You can also get a feeling of belonging with pro-social people. This is where a treatment group would be helpful. If you live in a neighborhood where a lot of dangerous or criminal activity is going on, talk to your supervising officer about joining treatment or support groups to meet other supportive people you can relate to. If you run into old friends or antisocial people at your community supervision office, or if the office is in a bad part of town, talk to your supervising officer about meeting at a different location and explain your reasoning for wanting to meet there."
+            },
+            {
+              "type": "displayText",
+              "text": "6. Make it part of your treatment plan to find positive social supports. As you know, this will help you stay in line with your goals and give you a better chance for recovery. Tell your counselor and other staff about your plan so they can hold you accountable."
+            },
+            {
+              "type": "displayText",
+              "text": "7. Keep in touch with positive people, even if you haven't talked to them in years or they are far away, like family, good friends, and neighbors. Call or write letters when you can. These are the people you should look up to – people who are being responsible for themselves, going to work/school, obeying the law, and treating others with respect."
+            },
+            {
+              "type": "displayText",
+              "text": "8. Think about whether you would want a loved one to hang around these people. If the answer is“no,”then they probably aren’t good for you either! For example, if your son or daughter, mother, or girlfriend were in your position, who would you want them to associate with?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "As you work to build a more fulfilling life like Oji, your best bet is to seek out model citizens–citizens who are working on positive goals. How can you spot them among the crowd? You should have thought of some of these qualities in a previous activity of this Module (in the exercise under “Good Guys”), but people who have some of these good habits are usually model citizens, too: <br><ul><li> Stay in contact with family </li><li> Stay in contact with family </li><li> Involved in treatment or monitor their mental health </li><li> Don't pick on, hurt, or abuse other people who have mental health problems or are in legal trouble (they may even stand up for them) </li><li> Other people on community supervision who have few restrictions or violations </li><li> Can control anger and remain calm under stress </li><li> More likely to be older, have less serious criminal histories, have less serious supervision requirements </li><li> Volunteer, have jobs, eat healthy, exercise </li><li> Spend less time alone just \"hanging around\" or feeling bored </li><li> Involved in religious or spiritual activities </li><li> Don't call off work for minor or dishonest reasons (playing sick) </li><li> Take responsibility for their actions, even mistakes </li><li> Respect other community members, from bank tellers to police officers (not cussing, arguing, or threatening when things don't go your way) </li></ul>",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Which of these qualities do you have?"
+            }
+          ]
+        }
+      ],
+      "subheader": "What Do Model Citizens Do?"
+    },
+    {
+      "type": "activity",
+      "text": "Are these kinds of people really all that bad? Yes! Your current situation shouldn’t be blamed on other people, but remember that they do influence how you think, how you feel, how you act, and the places you go or situations you find yourself in. They canalso influence your chances of finishing community supervisionwithout violations and staying out of trouble later on. Antisocial or criminal associates are a major risk factor for returning to crime. Don’t buy it yet? Research has shown that if you hang around just ONE other person who is engaging in crime or rule-breaking behaviors, your chances of doing the same thing dramatically increase. <br> Look at these facts from inmates who were released from prison: <br> So, it's not how many antisocial associates you hang around, it's if you hang around any at all!",
+      "header": "",
+      "image": "likelihood of returning ",
+      "imageBelow": "true",
+      "subheader": "Why Move Away from Antisocial Associates?",
+      "questions": []
+    },
+    {
+      "type": "text",
+      "text": "Community supervision can change different parts of your life. Some changes are required by the judge and will certainly have consequences if you don’t make them. Some changes are your personal choices and will be a big help in finishing community supervision incident-free. These personal changes may include the way you keep a schedule or manage your time. These changes are easier to make because you don’t have to give up things that you really enjoy or want to have in your life. Other personal changes, like who you spend time with and where you live or work, are much harder because theyusually include giving up something you really wantor someone you really like.",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "Making Changes for Supervision"
+    },
+    {
+      "type": "text",
+      "text": "Other people who are also antisocial or get into trouble take up time that you could be using to look for a job, spend time with your kids, or pick up an old hobby. <br> You put a lot of things at risk by keeping these people around—this includes relapse, not completing treatment, breaking rules on probation, running into the police, committing new crimes, possibly jail time or prison time, supervision violation. In other words, they make change more difficult because they are doing things that don’t match your personal goals. Being around them puts you on a slippery slope. Think about it this way—is it worth putting your life on the line and losing precious time with the people who truly support you for someone who has dragged you down in the past? <br> Cutting contact with people who have been part of your life is very difficult. They may not understand why you need to stop including them and may see you as treating them with disrespect. Or you may feel some sense of duty to help them out of their own troubled times. It takes careful planning. You have to be honest with yourself and pick out your friends or family members who are no good for you. Then, you have to pick out the places that you shouldn't visit anymore. Once you pick out your antisocial associates and places, you have to find ways to stick with your plan to avoid them.",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "How Antisocial Associates Impact Change"
+    },
+    {
+      "type": "activity",
+      "text": "While on community supervision, it helps to avoid friends (and family) with whom you used to commit crimes, use drugs,or drink. In fact, you are not allowed to associate with people who are also on community supervision. Even people who are not involved in the justice system can create problems. You also want tostay away from people who don’t think you’ll succeed on community supervision, people who think you shouldn’t follow the rules, and people who remind you of why you're on community supervision in the first place. Distancing yourself from the unhelpful people in your life in turn helps you avoid 'yellow' and 'red' events on your traffic light and makes it easier to be honest with your supervisor about how you spend your time. Sadly, this will probably mean you won't be able to see some of your closest friends. This might even mean you can't see some family members -- people you love and care about. This is one of the hardest parts of community supervision, so talk about it with your supervising officer or counselor using Module 1. ",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "Changing Your Social Circle",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": " What thoughts or worries do you have about distancing yourself from unhelpful people in your life?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Imagine you have a giant filter –an air or water filter. These filters are designed to let the good, clean water and air pass through, but traps the dirt, grime, dust, and chemicals that can be harmful if people breathe or drink too much of it. If you were to put your friends and family through a “Risky Filter,” who would make it to the other side of the filter? Think about your top 4 people from the previous activity.",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "New",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "List your closest friends and family on the left side of the filter:"
+            },
+            {
+              "type": "displayText",
+              "text": "Now imagine The Risky Filter. The Risky Filter traps: people who commit crimes, people who drink, people who use drugs, people who remind me of my past, people who live near my old stomping grounds, people who don't think I'll succeed."
+            },
+            {
+              "type": "longtext",
+              "text": "Now, list the friends and family who would make it to the other side of the risky filter:"
+            }
+          ]
+        }
+      ],
+      "subheader": "Filtering Out Negativity and Risk"
+    },
+    {
+      "type": "text",
+      "text": "In the same way it helps to avoid people who do illegal things or make you feel like treatment and supervision aren’t important, it helps to avoid places that remind you of old friends, illegal activities, or tempt you to do things that are against supervision rules. <br> This can include places where you used to commit crimes, use drugs, drink, or get into trouble with friends. Think of bars, old neighborhoods, and even parks that you would visit to get in to trouble or where trouble could easily find you! Sometimes, all it takes is driving through your “old stomping grounds” to remind you of your past and convince you to stop off at an old friend's who probably has beers in the fridge or some dope on the way. Even when you think to yourself \"I won't stay long, I just want to say hi and see how they're doing,\" the situation could easily turn from a <b>yellow</b> light to a <b>red light</b> and should just be avoided altogether. Do your best to stay away from old neighborhoods, places you used to go with friends, or your old dealer’s house. This will make things easier on yourself and not risk your good standing with your supervising officer.",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "Changing Your Environment"
+    },
+    {
+      "type": "activity",
+      "text": "Take an inventory of the places you should avoid and theplaces you should seek out while you are on community supervision.",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are some places that you may avoid? These would be places where you might find antisocial or unhelpful people and activities:"
+            },
+            {
+              "type": "longtext",
+              "text": " What are some places that you may seek out? These would be places where you might find pro-social or helpful people and activities:"
+            }
+          ]
+        }
+      ],
+      "subheader": "Be Aware of Your Surroundings"
+    },
+    {
+      "type": "text",
+      "text": "Now that you have identified the people and places that are no good for you, you have to come up with a routine (daily or weekly) that keeps you busy. Having too much free time will open you up for wandering thoughts like 'I wonder how my ex-boyfriend is doing' or 'do my cousins still live in that one neighborhood?' Having too much free time leaves your schedule wide open for trouble. So when you DO check up on that ex-boyfriend or those cousins of yours, and they say, 'we should catch up, it's been too long!' you are more likely to join in because you have nothing else that you should be doing. You make it easier to say, 'well, okay but just this one time.' That one time will definitely be a yellow light situation, and like you learning earlier, can quickly turn into a red-light situation! To use up any free time you have in your schedule, plan out your week. Using the following guides to fill up your schedule as much as you can. <br><b>Things you should definitely have on your schedule </b>: <ul><li> Supervising officer visits </li><li> Planned drug tests </li><li> Group therapy appointments </li><li> Work schedule </li><li> School schedule </li><li> Doctor's appointments </li><li> Medication refill dates </li><li> Family events </li></ul> <br><b>Things you can have on your schedule if you have too much free time:</b> <ul><li> Visit the public library to research jobs, schools, find books to read </li><li> Go to the community center to swim, play games, socialize with other prosocial people </li><li> Set a 2-hour block of time each day of the week to exercise </li><li> Set aside one night a week to visit with supportive family members </li><li> Schedule one morning a week to have coffee with a prosocial friend </li><li> Pick two nights a week to spend on hobbies or things you enjoy on your own </li></ul>",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "Reinforcing My Plan to Avoid Antisocial Associates"
+    },
+    {
+      "type": "text",
+      "text": "The consequences of not avoiding antisocialpeople can be big. But, it's never too late to change your mind even ifyou agree to go to an old stomping ground or meet up with an old drug dealer.You can still make the choice to avoid them, cancel plans,and keep yourself safe. It might be uncomfortable when you change your mind, but that's why you created a nice, busy schedule, so you had a backup plan in case you got into a risky situation. Let’s practice:",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "What If I Don't Avoid Antisocial People or Places?"
+    },
+    {
+      "type": "activity",
+      "text": "With all this talk about avoiding people and places, you may be wondering \"how do I actually do that?\" What will you do when actually faced with the person you should avoid? Read the following 4 statements and plan your escape route—how would you respond in each situation to get out of it? This will give you an ideawhat to saywhen something similar happens in real life. ",
+      "header": "The Escape Route ",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "1. <b><u>Friend:</b></u> Are we still on to hang out tonight? Everyone wants to meet up at our bar, then we'll head out from there. <br><b><u><i>You:</b></u></i>"
+            },
+            {
+              "type": "longtext",
+              "text": "2. <b><u>Friend:</b></u>Dude, it's been FOREVER since we've seen each other. Now that you're finally out of the big house, we gotta get into some shit! My buddy has some new stuff in, let's go check it! <br><b><u><i>You:</b></u></i> "
+            },
+            {
+              "type": "displayText",
+              "text": "<i>Now, what if someone confronts you? Would you tell them that you are on community supervision? It is your personal decision to tell people that you are on community supervision. There is no right or wrong answer to this question and there is no right or wrong way to tell someone. But before you tell someone that you are on community supervision, consider the consequences. Will this person be understanding and supportive? Or will they bully you or make me feel bad about yourself? If someone is going to make you feel badly about being on community supervision, or encourage you to do antisocial things (to throw a middle finger to the system), you might want to consider not telling that person until you are ready to stand your ground and resist the urge to go along with what they say or tell you to do. </i> <br> First, practice how you would tell someone about your legal status."
+            },
+            {
+              "type": "longtext",
+              "text": "3. <b><u>Friend:</b></u>Alright, give it up. We all know you've been avoiding us. Your cousin even said something's weird. What's the deal? <br><b><u><i>You:</b></u></i>"
+            },
+            {
+              "type": "longtext",
+              "text": "<i>What if you were confronted, and you <u>did not</u> want to tell hem about community supervision? What would you say instead? Hint: it's okay to tell a friend or family member a white lie if it avoids a risky situation and keeps you on track for community supervision.</i> <br> 4.<b><u>Friend:</b></u> Alright, give it up. We all know you've been avoiding us. Your cousin even said something's weird. What's the deal? <br><b><u><i>You:</b></u></i>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "New situations can make people feel nervous, anxious, or afraid. This is because we often worry about how other people will see us, if we will fit in, if we will say or do something stupid, or if others will hurt us (abandon us, threaten us, or physically harm us). And, it’s extremely difficult to make new friends or integrate into a new group of people as an adult...let alone an adult with a criminal history. Butyou need to work through your anxiety to build new, positive relationships with others. These connections will ultimately make your journey much easier and more enjoyable. ",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "Making the First Move",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "displayText",
+              "text": "Think back to when you were first arrested, put on supervision, or went to prison. "
+            },
+            {
+              "type": "longtext",
+              "text": "What were your thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "How did you feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "How did your body respond (for example, shaky, sweating, fast heart rate)?"
+            },
+            {
+              "type": "longtext",
+              "text": "How did this impact your mental health or criminalness?"
+            },
+            {
+              "type": "displayText",
+              "text": "Now, think about your feats or anxieties about being in the community as a supervisee."
+            },
+            {
+              "type": "longtext",
+              "text": "What are your thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do you feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "How is your body responding (for example, shaky, sweating, fast heart rate)?"
+            },
+            {
+              "type": "longtext",
+              "text": "How does this impact your mental health or criminalness?"
+            },
+            {
+              "type": "displayText",
+              "text": "Remember to use your new skills to challenge any automatic thoughts you have about being in new social situations, like returning to the community after being incarcerated or having to live with the label of being an “offender.” By challenging these thoughts, you will improve your mood and your actions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "One reason why some people get anxious in new social situations where they are meeting new people is because they don’t have very good social and communication skills, and all this technology and social media don’t make any easier! It’s ok to admit you may not be good at this. These skills have become a lost art, but if you can learn them, they can take you a long way. Think about how many times you have been in a conversation with someone and things got weird! Maybe the other person didn’t look you in the eye when talking to you, or maybe he answered questions with one-word responses, or maybe she shared too much personal information. Being able tocommunicate builds self-confidence in social situations and reduces anxiety. Next, you’re going to read about some easy steps for meeting pro-social people who can help you with your goals. ",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "Social Skills and Communication"
+    },
+    {
+      "type": "text",
+      "text": "<u>Ready, Introduce, Talk, Exit (RITE)</u> - think of RITE as a ritual or routine for communicating <br><b>1. Ready</b>— this is the step where you prepare yourself for the conversation <ul><li> Start to think positively — se yourself meeting new people and making a good impression. Positive thoughts like \"This is good for me\" or \"I can do this\" are essential. </li><li> Get your \"game face on.\" Smile. Have an open posture with your arms relaxed. Approaching people with your arms crossed or folded is threatening. If you feel awkward with your hands at your side, put your hands in your pocket. </li><li> Remember that shyness can be interpreted by others as arrogance or disinterest. Showing fear can also cause your trouble because antisocial people feed off of fear. So, it's better to be open to conversations with people and feel confident in doing so. </li><li> Don't forget that there are other people in your community, neighborhood, treatment group, or at work who are nervous and talking with them might put them at ease. If you relieve their anxiety and they feel good, this leaves them with a good impression of you. </li></ul><br> <b> 2. Introduce Yourself</b>— this is the step where you make the first move and start the conversation <ul><li> Don't wait for someone to come to you, just go to them. </li><li> Look for someone who is not involved in conversation, they may be having some social anxiety, too. </li><li> Give something before you ask for something. For example, it's more polite and less threatening to say, \"My name is ________. What's yours?\" than to say, \"Who are you?\" Here, you are giving your name before you ask for theirs. </li><li> If you don't catch someone's name the first time, ask them to repeat it. People are usually not offended by this if you ask politely. It shows that are you are interested in remembering who they are. Saying the other person's name in the conversation will also help you remember it. </li><li> Shaking hands is always acceptable when you meet someone for the first time. </li><li> Smile, keep positive thoughts, and look the person in the eyes (but don't stare at them!). </li></ul> <br> <b> 3. Small Talk</b>— this is the step where you keep the conversation going <ul><li> You assume the burden of conversation. This means that you are ready to talk even if the other person isn't. </li><li> Have several \"go to\" topics in your head that you can use to get a conversation started or to keep one going. The best topics are ones that most people know something about. That's why most people talk about the weather because it is a common experience. Your \"Go To\" topics should be general and something you know about. For example, something current in sports or world news. </li><li> You should never have a strong opinion on a topic, just act like an interested observer. When you're meeting someone for the first time, you don't want to overwhelm them! So, don't talk about things like politics or religion. Neutral topics are always best — like a recent natural disaster. Once you get to know a person better, then you can have more meaningful conversations. </li><li> Never agree with strong negative statements about others. Politely nodding your head means you agree with the statement in the other peoples' eyes. You can politely say \"I have never seen/heard of that before\" or \"That has not been my experience.\" You don't want to get mixed up in someone else's drama or problems </li><li> If the person you are talking to does not know anything about topic number 1 then go to your next topic. </li></ul> <br><b> Wrap Up and Exit</b>— this is the step where you evaluate how the conversation is going and end it appropriately <ul><li> Figure out how the conversation is going. You don't want to waste someone's time, or yours for that matter. If the other person looks bored or disinterested, notice it and politely excuse yourself. If you want to move on, you can also excuse yourself by saying something like, \"Alright, well I'll let you go. It was nice talking with you.\" </li><li> If the conversation is going well, leave with an opening like \"Alright, man, well it was good meeting you, maybe I'll see you here again.\" </li></ul> <br> These 4 steps can be helpful in a number of situations besides meeting new friends. You can use these steps when applying for a job or meeting a new community supervision officer for the first time. People will be impressed with your skills. And, if you ever get stuck in a social situation, just think about how you would like to feel when the conversation is over. Or, if you were the other person, how would you like to be spoken to or treated while in a conversation? ",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "Ready, Introduce, Talk, Exit (RITE)"
+    },
+    {
+      "type": "activity",
+      "text": "Start thinking about what you could do or say at each step of the RITE Model.",
+      "header": "Conversation Corner",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "1. Positive thoughts before conversation (what you tell yourself): "
+            },
+            {
+              "type": "longtext",
+              "text": "2. Statements to introduce yourself (saying \"hi\"):"
+            },
+            {
+              "type": "longtext",
+              "text": "3. Go-to conversation starters (specific topics): "
+            },
+            {
+              "type": "longtext",
+              "text": "4. Statements to exit the conversation (saying \"bye\"):"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "There are some people who are not only antisocial associates, but manipulative and abusive. These types of people, let's call them 'bullies,' are only talking or hanging out with you because they want something. They want your money, your drugs, your car - anything they could use that they don't already have. ",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "Avoiding Gangs & Bullies as Social Support"
+    },
+    {
+      "type": "activity",
+      "text": "When you think of the word \"bullying,\" what comes to mind? Many people will think of school bullies who give the little kids swirlies in the bathroom and take their lunch money. Bullying may seem like a childish thing to do, but it is a big problem in the community, at work, and even in jailsand prisons. Unfortunately, bullying doesn’t stop in adulthood, even though you may not call it bullyinganymore. Adults bully and get bullied, too. Bullying may be direct violence (physical abuse, assault), indirect aggression (talking down to you, spreading rumors), or non-consensual sexual violence or coercion (rape, molestation, fondling). Sometimes, bullies just want to control someone. They want to feel like they have power over someone else. Sadly, many people end up doing exactly what the bully wants them to dobecause it’s better than the alternative! There are many reasons why people let bullies take advantage of them—you will learn about some of the reasons later in this Module. <br> People can bully others on their own or as part of a group. Groups of people, like biker gangs or party groups, bully people together. Sometimes, if you're part of a group that is manipulative, it's more difficult to tell you are being bullied because you feel like it's all part of the fun or initiation. You may even join in on bullying others within the group. Regardless of whether it is one person or a group that is the bully, the damage they cause to other people is just as harmful. People who take advantage of you or threaten you can also be called <b><i>manipulative</b></i> or <b><i>abusive</b></i>. These words all reger to the same kinds of hurtful actions and ways of mistreating you. Manipulation and abuse can be more indirect and can involve people convincing you to do things you don't want to do. Some manipulators and abusers are so good, you won't even realize you're falling victim. You yourself may be good at taking advantage of other people. ",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "Bullying Isn't Just for Kids",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Can you think of people in your life who act or have acted like a bully? "
+            },
+            {
+              "type": "longtext",
+              "text": "Can you think of people in your life who YOU have acted like a bully towards? Think about whether you used any of the criminal thinking styles to justify your actions. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "A gang is a close-knit group of disruptive citizenswho share a common connection or affiliation. This connection could be based on race, ethnicity, a particular belief system (religion, politics...), family ties, or geographic location (where people grew up or livecurrently). Gangsform both in and out of prisons. Gangs can have several purposes including (1) providing protection and caretaking, (2) unity and fellowship, and (3) profit-making criminal activity (for example, gambling, loan-sharking, selling street drugs, contract murder, and prostitution). Gangs have a hierarchy of command –in other words, people hold varying ranks of power or authority within the gang. These gangs also work through a code of conduct, meaning that there are certain expectations and rules to follow. Not following these rulescould get you into trouble, hurt, or even killed. <br> At worst, gangs are violent social networks. They use violence as a way to bond with each other, defend themselves, establish social status, obtain money or things of value, and control others. At best, gangs are manipulative and controlling. Whether violent or not, gangs hold you to a set of beliefs and isolate you from other, supportive people. ",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "subheader": "What is a Gang?"
+    },
+    {
+      "type": "activity",
+      "text": "Gangs, especially prison gangs,are common because they serve a purpose. They benefit people in some ways. Here are some of the ways gangs seem attractive and helpful to people: <ul><li> Gangs help people cope with highly stressful living conditions, such as the restrictive conditions in a prison (living without independence, sexual contact, or safety) or the hard conditions of poor neighborhoods (living without parental support, stable food, or shelter). Gangs are a way for people to feel safe and get access to what they need, including contraband or even a new place to call home. </li><li> Gangs can help people feel comfortable because their ways of life are familiar. For prison gangs, the rules, attitudes, beliefs, and behaviors that gangs follow inside the prison walls are similar to the rules, attitudes, beliefs, and behaviors that people followed outside the prison walls. Outside prison, gang members bond over growing up in the same poor neighborhood or with similar feelings of being uncared for and selecting a new, preferred family. Handling problems with violence is a way of life for some people. You read about this in the first activity: Understanding My Emotions. </li></ul><br><b>Don't Be Fooled...</b><br>Gangs may seem like a good option if you are feeling lonely or scared, but the problems caused by gangs <b><i>far</b></i> outweigh their benefits. Here are some of the ways gangs can harm people: <ul><li> Gang members are at greater risk of violating their community supervision terms, additional criminal convictions, and possibly more time in prison. Getting in trouble so much distracts you from your personal goals. As a gang member, you may not even be allowed to participate in certain programs that would help you reach your goals because of your violent tendencies or rule-breaking behaviors. This means you may not get the help you really need. </li><li> Gang members are also at greater risk of being the victims of violence. In fact, gang membership is just as strongly related to being a victim of crime as it is to being a perpetrator of crime. For example, inmates who are in prison gangs are 4x more likely than inmates who are not in prison gangs to be victimized. This is because gangs are not well liked by other inmates or community members, and especially not by other gangs in or out of prison. If you gang puts out a murder hit on another gang, that gang is going to seek revenge and retaliate. Getting caught in the middle of gang wars can get you seriously hurt or killed. So, even though people turn to gangs for protection, they actually put you in more harm! </li><li> Gang membership is not good for your mental health or criminalness.Although being in a gang may seem secure and safe at first, you soon need to constantly watch your back for danger. This can increase anxiety, fear, depression, paranoia, and other mental health symptoms. In addition, gang activities are usually illegal, thus automatically putting you high on the criminalness meter. The gang mentality encourages criminal thinking and makes criminal conduct seem ok and normal. </li><li> Gangs threaten the overall safety of the community. Gang activity leads to a breakdown of safety and security controls. Gangs create a lot of disorder and violent activity that reduce police and family's ability to keep community and family members safe. This leads to increased assaults on both police officers and innocent bystanders, who were never meant to be hurt. </li></ul><br> Stay away from gangs! Once you get involved in one, you may never be able to get out. The people you meet in a gang are not your friends; they will put your life on the line to save their own. You are disposable and replaceable to them.  ",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "What is the Purpose of Gangs?",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "The Gang Game",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are the common gangs in your neighborhood or city?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are their attitudes and behaviors life?"
+            },
+            {
+              "type": "longtext",
+              "text": "What effect has it had on your neighborhood or city? "
+            },
+            {
+              "type": "displayText",
+              "text": "Avoid these gangs. Figure out where they hang out and don't go to those places whenever possible. But, be careful when finding out information about gangs, you don't want anyone to think you are interested in becoming a member. It may be best to ask your counselor or a trusted community supervision officer for help. "
+            }
+          ],
+          "image": ""
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Gangs aren't the only group of bullies that you may encounter. You might have some old friends from high school or college that you used to party with. When you were younger, it seemed harmless to go out to bars together or to meet up at someone's house and drink till the sun came up -it was fun! -but now that you are on community supervision, these people may try to take advantage of your situation or make you feel bad for following the rules. <br> When your old party crew finds out that you are on supervision or participating in treatment, they will make you feel guilty: <br> \"There's nothing wrong with drinking a little every now and then, everyone does it. Are you saying that we're alcoholics?\" <br> They may even take advantage of the fact that you are staying sober: <br> \"Well, in that case, you can DD (be the designated driver) - the least you could do is save us money on a cab.\" <br> These friends will not understand when you are uncomfortable in a certain place, or want to leave the bar early: <br> \"What's your fuckin' problem? You used to beg us to come here - and now you don't even want to stay. I should have never invited you.\" <br> And when you decide to take care of yourself by leaving a risky situation instead of driving everyone home, they will say things to make you feel bad for making the right choice: <br> \"I always knew you were a pussy. You can't go anywhere without dragging everyone down with you. Don't even think about coming to my party next weekend—and I want those shoes you borrowed back!\" <br> Cliques and crews can be hard to break away from because they act like they are your friends—they will make you feel good, compliment you, help you get into exclusive parties or concerts, and rally with you when someone treats your poorly. But as soon as you choose to take care of yourself, rather than the crew, they turn on you. They see that as a sign of treason, that taking care of yourself is bad for the group. As a result, they will exclude you, talk badly about you, and make you feel like you are nothing without them. This is unhealthy for you because you need to prioritize taking care of yourself, staying out of risky situations, and surrounding yourself with people who will support you. This is especially true because you are on community supervision. These cliques or crews will do the complete opposite as soon as you don't do what they want you to do. <br> This isn't to say you can't have a group of friends. But you now have to be more aware and careful about who is in this group. You have to be more exclusive about who you let in. When you talk about following rules, doing right, and being in treatment, who are the people who show support> When you tell people that you won't serve as DD every time just because you stopped drinking so much, who are the ones saying, \"That's cool, man, we get it.\" Who are the people who don't give you shit when you try to care for yourself instead of them?",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "Cliques or Crews",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Cancel Your Clique",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Who among your so-called friends are bullies? Or who are the people who take offense when you don't cater to their wants or needs? Feel free to use their initials."
+            },
+            {
+              "type": "longtext",
+              "text": "What are their attitudes and behaviors?"
+            },
+            {
+              "type": "longtext",
+              "text": "What effect have these people, their attitudes, and behaviors had on you?"
+            },
+            {
+              "type": "displayText",
+              "text": "Avoid these people. They aren't your real friends. Keep your schedule busy and come with go-to statements when you see these people or when they ask you to do something. For example, you could say, \"I appreciate the invitation, but I have plans already. Good seeing you.\" Don't leave any doors open by saying, \"Maybe another time?\" Just say goodbye and walk away. There won't be another time!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<ul><li> <u>Never forget your personal goals</u>. Being involved with abusive people is completely opposite of your goals. </li><li> Remember that model citizens don't need violence, threats, or mean words to solve their problems; successful men and women use better ways (even though these better ways may seem harder at first) to get what they need and want in life. </li><li> There are other people on community supervision who want to better their lives too and have goals for doing so. These people can give you the same sense of belonging, safety, and comfort that a gang would without the added dangers. </li><li> Use cognitive restructuring, thought stopping, and positive self-talk to tell yourself that you don't need gangs to help you feel better. You are above all that. You are learning more helpful ways of getting bak into the community that will benefit you for a long time. </li></ul>",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "Some Other Things to Keep in Mind to Keep Away from Manipulative People: "
+    },
+    {
+      "type": "text",
+      "text": "There are a number of reasons why people might take advantage of someone. Here are a few: <ul><li> To gain social status as a \"badass bitch\" or \"tough guy,\" to be seen as strong, powerful, or superior; to keep up with the \"dog eat dog\" world... but research shows they are not always respected by other citizens! </li><li> To get material objects or things of value (money, food); they usually don't have good problem-solving skills, so manipulation is the best way they know how to get what they want. </li><li> To feel pleasure and excitement; they feed off the thrill of scaring or controlling other people. </li><li> To deal with a lack of excitement (limited activities and social contacts) they experience while on community supervision, in prisons, or in their home life. </li></ul>",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "Why Do People Bully, Manipulate, and Abuse?"
+    },
+    {
+      "type": "text",
+      "text": "Master Manipulators can be hard to spot sometimes. This is because they often hide their intention by being friendly, or they might start out with less serious forms of bullying that you may not pick up on right away (such as gossiping behind your back, posting messages on social media). Here are some warning signs that you might be dealing with a bully: <ul><li> Bullies often groom their victims, meaning that they manipulate their victims over time. For example, they may be-friend you first by saying they share some of your interests. They try to reel you in and get you to trust them before they take advantage of you. Victims are usually unaware that they are being groomed! </li><li> Bullies create an imbalance of power between themselves and their victims. Again, they may achieve this slowly over time. If you don’t feel like an equal when you are around this person (for example, they make all the decisions, boss you around, use your belongings, call you mean names, make you feel less-than), then you may be a victim of bullying. </li><li> Bullies are often younger (under 35 years old), have a more serious criminal history, such as more violent offenses than their victims, have drug or alcohol problems, are not involved in treatment programs, are not following the rules of community supervision, are more physically aggressive, have a larger and stronger physical appearance than their victims, and express pro-criminal attitudes (that is, beliefs that support criminal activity and reject rule-following behaviors). They may also be members of gangs. </li><li> For women especially, bullies take over a relationship with their own needs which, again, creates an imbalance of power. They may even convince others to turn against you if you don’t put the bully or group first. When you go against the group, you could be put on blast or ousted. This is called \"relational aggression.\" Women tend to be less violent than men—but they use relational aggression and verbal aggression more than men. So their bullying usually looks more like insults, excluding you from activities, or gossiping. </li></ul><br> Remember that it only takes one time — one act of aggression — to be considered bullying!",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "How to Spot a Master Manipulator"
+    },
+    {
+      "type": "text",
+      "text": "There are some ways that you can avoid being a victim of bullying. This involves knowing yourself and being aware of the situations you put yourself in. <ul><li> Your mental illness puts you at higher risk for bullying. Bullies target people who they see as weak. Even though mental illness is not a weakness – it is a chemical imbalance triggered by stressful events – many people who bully will see your symptoms as a sign that you are easily controllable. This is because they don’t know as much about mental illness as they think. Therefore, it is essential that you manage your mental health symptoms; use the techniques that you have learned to reduce your depression, anxiety, fear, and psychotic symptoms so you do not attract bullies. You don’t want to look out of control. </li><li> Walk and stand with confidence. If you look weak and timid, someone will try to take advantage of that. Portray an image of strength and courage (try the technique of acting opposite if you have trouble feeling confident). But, be careful not to appear too arrogant or as if you are more important than others. This will make people angry and make you a target for violence. Don’t become the bully yourself! </li><li> Be aware of people who try to corner you or lead you to a secluded area away from treatment providers or community supervision offices, from family or friends, in alleyways, or abandoned parts of town. If you find yourself in an isolated area with another person, leave the area right away and talk about it with your counselor or community supervision officer. </li><li> <b>NOTHING IN LIFE IS FREE!</b> If someone offers you something for free, they usually expect to be re-paid somehow. Do not indebt yourself to <b><i>anyone</b></i> for <b><i>anything</b></i>, including food, drugs, bus passes, or other resources! You don't need to be paranoid of everyone you know or meet. But, think hard about who is offering it and why they are offering it. Can this person be trusted? Be especially concerned if the thing they want to give you is of high value. Someone giving you a candy bar could be trying to be nice and make a friend. But someone giving you a car will probably want another vehicle or the money paid back eventually. </li><li> You are more likely to be a victim of bullying if you are younger, smaller in physical size, White, gay, new to community supervision, are smart or intellectual, lack street-smarts, are \"passive\" (see <u>Understanding My Emotions</u>), or have been convicted of a sexual offense. You may not be able to do much to change these characteristics, but they can help you become more aware of your risk for bullying. Men are more likely to be a victim of bullying if they have \"feminine\" characteristics such as long hair or a high voice. Women are more likely to be a victim of bullying if they are nice to other people, are \"passive,\" and look like they can be overpowered, taken advantage of, or manipulated. </li><li> Do not provoke known bullies. Don't try to \"win out\" over them or give them \"a taste of their own medicine.\" They will eventually get in trouble for their behaviors or push people away. Provoking bullies will only make the situation worse and possibly get you into trouble as well. When bullies are really getting to you, use some of the strategies you have learned like positive self-talk, cognitive restructuring, thought stopping, or relaxation techniques (PMR, deep breathing, guided imagery) to block them out. </li></ul><br> It's important to avoid being the victim of bullying because you can experience a number of negative effects including increased risk for suicide and self-injury, worsening mental health problems, and continued victimization. ",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "How to Avoid Being a Victim "
+    },
+    {
+      "type": "activity",
+      "text": "Can you tell when someone is bullying you and when someone is really trying to be a friend? In an effort to find positive social supports –people who will help you reach your goals –you must weed out the people who are only trying to play nice so they can take advantage of you. Read the following stories and determine which ones are bullied relationships and which was are buddy relationships.",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "displayText",
+              "text": "<i>\"This is William’s first time on community supervision. He’s a 21-year old heroin user and dealer. William is thin and frail looking (mostly from using too much dope), he’s White, and has long stringy hair. He keeps to himself a lot and never makes much eye contact with other people. Some of the other people in the community supervision treatment group call him “weird,” “a fag,” and “a loser.” One day after the treatment group meeting ended, another supervisee named Sully starts talking to William. Sully’s on parole after serving prison time for aggravated robbery. This is his second time on parole, so he knows the ropes. Sully boasts about how well he knows the small town, and about the people he knows – people who will do things for him. Sully tells William that he used to be just like him, scared, hopeless, and at the bottom of the barrel. Sully offers to help William with his problems. Soon, the name-calling stops, and William is relieved; he feels safe. Sully seems like a cool guy, he even brought William a pack of cigarettes to the next group meeting. But, a few weeks later, Sully and William were walking back from the laundry mat late at night. Sully steers William into a dark alley and tries to touch William inappropriately. When William backs away, Sully says, “No one takes from me without giving back.\"</i>"
+            },
+            {
+              "type": "blank",
+              "text": "Are Sully and William buddies or bully-and-victim?"
+            },
+            {
+              "type": "longtext",
+              "text": "What information in the story supports your answer?"
+            },
+            {
+              "type": "longtext",
+              "text": "What effect will this relationship have on William?"
+            },
+            {
+              "type": "displayText",
+              "text": "<i>\"Shawn has Bipolar Disorder, where he experiences cycles of high moods and low moods. He’s only ever been on probation once before for stealing a watch from a department store. This time, he’s finishing his sentence for burglarizing a home and stealing high-priced valuables. Shawn has the urge to steal most often when he is manic. Doing something exciting like that is what helps him cope with his high moods. While on probation, he manages his mania by riding the city bus and shouting at other passengers, pacing about the bus while in motion, and hitting the bus windows. The police are often called, and Shawn has to explain his actions to his supervising officer or other police officers who don't know him well. Shawn has had several restrictions and required treatment groups because of his actions. Ivy also has Bipolar Disorder and notices that Shawn has been getting into trouble a lot for his behaviors. Before a treatment group meeting, Ivy approaches Shawn and tells him that she shares some of the same symptoms and that she’s been spending time at the public library and parks, taking medications, and doing her best to follow his supervision terms. Ivy tells Shawn that she’s “sick of this shit” and wants to finish probation so she can make a real life for herself. Shawn asks Ivy how she started seeing a doctor for medications so he can make an appointment for himself. After a few weeks, Shawn and Ivy begin attending group together and exercising at the park. Sometimes, Shawn and Ivy work on their treatment group assignments together.\"</i>"
+            },
+            {
+              "type": "blank",
+              "text": "Are Shawn and Ivy buddies or bully-and-victim?"
+            },
+            {
+              "type": "longtext",
+              "text": "What information in the story supports your answer?"
+            },
+            {
+              "type": "longtext",
+              "text": "What effect will this relationship have on Shawn?"
+            },
+            {
+              "type": "displayText",
+              "text": "<i>\"Marcel is good at getting things done. He’s been in and out of prisons for the last 15 years. He knows a lot of people, both on and off parole, who are willing to take risks for him. Marcel has a reputation on the streets as a ‘baron’ – meaning that he can get people whatever they want for a price. Drugs, weapons, intel, women, just about anything. Marcel is on parole after spending time in prison for yet another supervision violation, but these violations haven’t stopped him. Working with Marcel is great: he’s friendly, delivers on time, and he doesn’t ask for the money up front. But Marcel makes a lot of money doing this because he charges customers a high interest rate. If you can’t pay up, Marcel knows people to take care of you. Eric is a petty thief and an addict. He has a long criminal history starting as a juvenile. He’s been on parole and house arrest this time for aggravated assault – a theft gone wrong. Eric is not the most street savvy guy (he keeps getting caught!). After not leaving the house for weeks, he’s starting to feel withdrawal from meth and seeks Marcel’s help. Marcel gets Eric what he needs but charges him twice what it would cost him to go out and find it himself. Eric is desperate, so he doesn’t care. After a while, Eric becomes a primary customer and begins racking up debt with Marcel. Marcel doesn’t seem to make a big fuss about the money…yet.\"</i>"
+            },
+            {
+              "type": "blank",
+              "text": "Are Eric and Marcel buddies or bully-and-victim?"
+            },
+            {
+              "type": "longtext",
+              "text": "What information in the story supports your answer? "
+            },
+            {
+              "type": "longtext",
+              "text": "What effect will this relationship have on Eric?"
+            },
+            {
+              "type": "displayText",
+              "text": "<i>\"Rochelle has been on probation for two years now and has gotten to know her way around. She has a good relationship with her supervising officer and is really smart. She helps other group members in treatment and volunteers to help new supervisees get adjusted to the community again or life on supervision. She has quite a few friends now and a good-paying job. Amber transferred to Rochelle’s supervising office from a different county after she was evicted from her apartment. She is still trying to find a place to live and can’t seem to hold a job longer than a few weeks. Amber notices Rochelle talking with some people in a restitution group one day and starts talking to her about her nice shoes. After a few weeks of being really nice to Rochelle and making her feel good, Amber asks Rochelle if she can move in with her to save a few bucks. Rochelle agrees, wanting to do something nice for Amber. After living with Rochelle for a few weeks, Amber starts taking some things from Rochelle’s room – a ring one day, her phone charger the next day – and Rochelle quickly catches on. Rochelle confronts Amber about taking her things, and Amber looks at Rochelle, saying 'unless you want to be kicked out of this place, you'll drop it. I can make your life hell. I know who your officer is — it would take just one phone call to get you revoked.' Amber is left without knowing what to do – who does she talk to? Will she ever get her stuff back? She goes to the corner bar and gets drunk with some friends to try and forget about what is happening.\"</i>"
+            },
+            {
+              "type": "blank",
+              "text": "Are Rochelle and Amber buddies or bully-and-victim?"
+            },
+            {
+              "type": "longtext",
+              "text": "What information in the story supports your answer?"
+            },
+            {
+              "type": "longtext",
+              "text": "What effect will this relationship have on Rochelle?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Bully or Buddy?"
+    },
+    {
+      "type": "activity",
+      "text": "In this Module you learned about: <ul><li> Antisocial associates — how they influence you, why people hang around them, and how to avoid them </li><li> Social and communication skills </li><li> Gangs and cliques — benefits and consequences </li><li> Bullying and abuse — how to spot a master manipulator and how to avoid being a victim </li><ul>",
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Which of the goals that you learned about in this module are you going to focus on this week? "
+            },
+            {
+              "type": "longtext",
+              "text": "How will you accomplish your goal?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might get in your way of accomplishing it?"
+            },
+            {
+              "type": "longtext",
+              "text": "What skills will you use to move past your road block?"
+            }
+          ]
+        }
+      ],
+      "subheader": "Module 8: Re-Cap"
+    },
+    {
+      "type": "quiz",
+      "text": "Now let's see what you learned! This quiz has 10 questions. Select the BEST possible answer to each question. Remember, you need to earn a score of 75% or above to move on to the next module! ",
+      "header": "",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "multiChoice",
+          "prompt": "1. The people around you...",
+          "answers": [
+            {
+              "answer": "a. Cannot influence how you think, feel, act, or where you go"
+            },
+            {
+              "answer": "b. Are part of the THE Circle of Change"
+            },
+            {
+              "answer": "c. Are completely responsible for the person you are today"
+            },
+            {
+              "answer": "d. Must leave you alone so you can reach your goals"
+            }
+          ],
+          "correctAnswer": "b. Are part of the THE Circle of Change"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "2. One reason people seek out antisocial friends or associates is…",
+          "answers": [
+            {
+              "answer": "a. To be part of the \"out-group\""
+            },
+            {
+              "answer": "b. To go to prison"
+            },
+            {
+              "answer": "c. To have a sense of purpose"
+            },
+            {
+              "answer": "d. To get a good job"
+            }
+          ],
+          "correctAnswer": "c. To have a sense of purpose"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "3. Research shows that having ___ criminal friends can have a large impact on whether inmates return to prison once released.",
+          "answers": [
+            {
+              "answer": "a. Zero"
+            },
+            {
+              "answer": "b. Just 1"
+            },
+            {
+              "answer": "c. At least 2"
+            },
+            {
+              "answer": "d. 3 or more "
+            }
+          ],
+          "correctAnswer": "b. Just 1"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "4. Model supervisees...",
+          "answers": [
+            {
+              "answer": "a. Participate in treatment or educational programs"
+            },
+            {
+              "answer": "b. Disrespect community supervisors and other authority figures (like police)"
+            },
+            {
+              "answer": "c. Have a reputation as a \"bad boy\" or \"tough guy\""
+            },
+            {
+              "answer": "d. Have a lot of restrictions in their supervision terms"
+            }
+          ],
+          "correctAnswer": "a. Participate in treatment or educational programs"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "5. RITE is a method for...",
+          "answers": [
+            {
+              "answer": "a. Making conversation with another person"
+            },
+            {
+              "answer": "b. Getting your restrictions removed"
+            },
+            {
+              "answer": "c. Obeying community supervision terms "
+            },
+            {
+              "answer": "d. Paying restitution to the victims of your crimes "
+            }
+          ],
+          "correctAnswer": "a. Making conversation with another person"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "6. The best conversation starters...",
+          "answers": [
+            {
+              "answer": "a. Are neutral topics that most people know about "
+            },
+            {
+              "answer": "b. Are controversial topics that most people have strong opinions about"
+            },
+            {
+              "answer": "c. Are topics that you know a lot about, but the other person knows very little "
+            },
+            {
+              "answer": "d. Are topics that you know very little about, but the other person knows a lot"
+            }
+          ],
+          "correctAnswer": "a. Are neutral topics that most people know about"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "7. Being a member of a gang can have some immediate benefits for people. ",
+          "answers": [
+            {
+              "answer": "a. True"
+            },
+            {
+              "answer": "b. False"
+            }
+          ],
+          "correctAnswer": "a. True"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "8. Being a member of a gang puts you at greater risk for...",
+          "answers": [
+            {
+              "answer": "a. Being a victim of violence"
+            },
+            {
+              "answer": "b. Being involved in a criminal act"
+            },
+            {
+              "answer": "c. Both A and B are correct"
+            },
+            {
+              "answer": "d. Violating terms of supervision"
+            }
+          ],
+          "correctAnswer": "c. Both A and B are correct"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "9. Which of the following is <u>NOT</u> a form of bullying or abuse...",
+          "answers": [
+            {
+              "answer": "a. Physical assault"
+            },
+            {
+              "answer": "b. Forcing someone into sexual activity "
+            },
+            {
+              "answer": "c. Sharing personal struggles with mental illness"
+            },
+            {
+              "answer": "d. Being in a relationship in which one person is more powerful than the other"
+            }
+          ],
+          "correctAnswer": "c. Sharing personal struggles with mental illness"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "10. Victims of bullying or abuse are typically people who...",
+          "answers": [
+            {
+              "answer": "a. Are confident when they walk and stand "
+            },
+            {
+              "answer": "b. Are not managing their mental illness well "
+            },
+            {
+              "answer": "c. Have been in prison many times "
+            },
+            {
+              "answer": "d. Are higher-order members of gangs"
+            }
+          ],
+          "correctAnswer": "b. Are not managing their mental illness well"
+        }
+      ],
+      "subheader": "Module 8: Content Quiz"
+    },
+    {
+      "type": "text",
+      "text": "Great work! You finished Module 8. Your supervision officer may need to review your work before you can move on to the next module and award your certificate.",
+      "header": "New",
+      "image": "New",
+      "imageBelow": "New"
+    }
+  ],
+  "owner": "3SebTnspPovZbhnxE",
+  "questions": [
+    {
+      "type": "multiChoice",
+      "prompt": "1. The people around you...",
+      "answers": [
+        {
+          "answer": "a. Cannot influence how you think, feel, act, or where you go"
+        },
+        {
+          "answer": "b. Are part of the THE Circle of Change"
+        },
+        {
+          "answer": "c. Are completely responsible for the person you are today"
+        },
+        {
+          "answer": "d. Must leave you alone so you can reach your goals"
+        }
+      ],
+      "correctAnswer": "b. Are part of the THE Circle of Change"
+    },
+    {
+      "type": "multiChoice",
+      "prompt": "2. One reason people seek out antisocial friends or associates is…",
+      "answers": [
+        {
+          "answer": "a. To be part of the \"out-group\""
+        },
+        {
+          "answer": "b. To go to prison"
+        },
+        {
+          "answer": "c. To have a sense of purpose"
+        },
+        {
+          "answer": "d. To get a good job"
+        }
+      ],
+      "correctAnswer": "c. To have a sense of purpose"
+    },
+    {
+      "type": "multiChoice",
+      "prompt": "3. Research shows that having ___ criminal friends can have a large impact on whether inmates return to prison once released.",
+      "answers": [
+        {
+          "answer": "a. Zero"
+        },
+        {
+          "answer": "b. Just 1"
+        },
+        {
+          "answer": "c. At least 2"
+        },
+        {
+          "answer": "d. 3 or more "
+        }
+      ],
+      "correctAnswer": "b. Just 1"
+    }
+  ],
+  "answers": [
+    {
+      "answer": "New"
+    },
+    {
+      "answer": "New"
+    }
+  ],
+  "fields": [
+    {
+      "type": "displayText",
+      "text": "<i>\"This is William’s first time on community supervision. He’s a 21-year old heroin user and dealer. William is thin and frail looking (mostly from using too much dope), he’s White, and has long stringy hair. He keeps to himself a lot and never makes much eye contact with other people. Some of the other people in the community supervision treatment group call him “weird,” “a fag,” and “a loser.” One day after the treatment group meeting ended, another supervisee named Sully starts talking to William. Sully’s on parole after serving prison time for aggravated robbery. This is his second time on parole, so he knows the ropes. Sully boasts about how well he knows the small town, and about the people he knows – people who will do things for him. Sully tells William that he used to be just like him, scared, hopeless, and at the bottom of the barrel. Sully offers to help William with his problems. Soon, the name-calling stops, and William is relieved; he feels safe. Sully seems like a cool guy, he even brought William a pack of cigarettes to the next group meeting. But, a few weeks later, Sully and William were walking back from the laundry mat late at night. Sully steers William into a dark alley and tries to touch William inappropriately. When William backs away, Sully says, “No one takes from me without giving back.\"</i>"
+    },
+    {
+      "type": "blank",
+      "text": "Are Sully and William buddies or bully-and-victim?"
+    },
+    {
+      "type": "longtext",
+      "text": "What information in the story supports your answer?"
+    },
+    {
+      "type": "longtext",
+      "text": "What effect will this relationship have on William?"
+    },
+    {
+      "type": "displayText",
+      "text": "<i>\"Shawn has Bipolar Disorder, where he experiences cycles of high moods and low moods. He’s only ever been on probation once before for stealing a watch from a department store. This time, he’s finishing his sentence for burglarizing a home and stealing high-priced valuables. Shawn has the urge to steal most often when he is manic. Doing something exciting like that is what helps him cope with his high moods. While on probation, he manages his mania by riding the city bus and shouting at other passengers, pacing about the bus while in motion, and hitting the bus windows. The police are often called, and Shawn has to explain his actions to his supervising officer or other police officers who don't know him well. Shawn has had several restrictions and required treatment groups because of his actions. Ivy also has Bipolar Disorder and notices that Shawn has been getting into trouble a lot for his behaviors. Before a treatment group meeting, Ivy approaches Shawn and tells him that she shares some of the same symptoms and that she’s been spending time at the public library and parks, taking medications, and doing her best to follow his supervision terms. Ivy tells Shawn that she’s “sick of this shit” and wants to finish probation so she can make a real life for herself. Shawn asks Ivy how she started seeing a doctor for medications so he can make an appointment for himself. After a few weeks, Shawn and Ivy begin attending group together and exercising at the park. Sometimes, Shawn and Ivy work on their treatment group assignments together.\"</i>"
+    },
+    {
+      "type": "blank",
+      "text": "Are Shawn and Ivy buddies or bully-and-victim?"
+    },
+    {
+      "type": "longtext",
+      "text": "What information in the story supports your answer?"
+    },
+    {
+      "type": "longtext",
+      "text": "What effect will this relationship have on Shawn?"
+    },
+    {
+      "type": "displayText",
+      "text": "<i>\"Marcel is good at getting things done. He’s been in and out of prisons for the last 15 years. He knows a lot of people, both on and off parole, who are willing to take risks for him. Marcel has a reputation on the streets as a ‘baron’ – meaning that he can get people whatever they want for a price. Drugs, weapons, intel, women, just about anything. Marcel is on parole after spending time in prison for yet another supervision violation, but these violations haven’t stopped him. Working with Marcel is great: he’s friendly, delivers on time, and he doesn’t ask for the money up front. But Marcel makes a lot of money doing this because he charges customers a high interest rate. If you can’t pay up, Marcel knows people to take care of you. Eric is a petty thief and an addict. He has a long criminal history starting as a juvenile. He’s been on parole and house arrest this time for aggravated assault – a theft gone wrong. Eric is not the most street savvy guy (he keeps getting caught!). After not leaving the house for weeks, he’s starting to feel withdrawal from meth and seeks Marcel’s help. Marcel gets Eric what he needs but charges him twice what it would cost him to go out and find it himself. Eric is desperate, so he doesn’t care. After a while, Eric becomes a primary customer and begins racking up debt with Marcel. Marcel doesn’t seem to make a big fuss about the money…yet.\"</i>"
+    },
+    {
+      "type": "blank",
+      "text": "Are Eric and Marcel buddies or bully-and-victim?"
+    },
+    {
+      "type": "longtext",
+      "text": "What information in the story supports your answer? "
+    },
+    {
+      "type": "longtext",
+      "text": "What effect will this relationship have on Eric?"
+    },
+    {
+      "type": "New",
+      "text": "New"
+    },
+    {
+      "type": "New",
+      "text": "New"
+    },
+    {
+      "type": "New",
+      "text": "New"
+    },
+    {
+      "type": "New",
+      "text": "New"
+    }
+  ],
+  "orgOwnedBy": "5bSekKF3Rkcodk8Gf",
+  "createdBy": "3SebTnspPovZbhnxE"
+}

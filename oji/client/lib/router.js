@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import Chart from 'chart.js/auto'
+import { Session } from 'meteor/session';
 /* router.js - the routing logic we use for the application.
 
 If you need to create a new route, note that you should specify a name and an
@@ -11,23 +12,10 @@ in Chrome with certain versions of Iron Router (they routing engine we use).
 
 
 //Set Default Template
-if(Meteor.isCordova || Meteor.userId){
-  Router.configure({
-    layoutTemplate: 'DefaultLayout'
-  });
-} else {
-  //if not logged in, then render downloadApp
-  if(!Meteor.userId()){
-    Router.configure({
-      layoutTemplate: 'DefaultLayout-Web'
-    });
-  } else {
-    //if logged in, then render home
-    Router.configure({
-      layoutTemplate: 'DefaultLayout'
-    });
-  }
-}
+Router.configure({
+  layoutTemplate: 'DefaultLayout'
+});
+
 
 //Set Up Default Router Actions
 const defaultBehaviorRoutes = [
@@ -89,25 +77,27 @@ for (const route of restrictedRoutes) {
        if(Meteor.userId()){
          this.render(route);
        }else{
-        this.render('home', {
+        Router.render('home', {
           data: {
             message: "That area is not accessible to users who haven't logged in. Please sign in.",
             alert: "danger"
           }
         });
       }
-    }
+    },
   });
 }
 
 // setup home route
 Router.route('/', function () {
-  //if cordova, then render home
-  console.log("isCordova: " + Meteor.isCordova);
-  console.log("overrideCordova: " + Session.get('overrideCordova'));
-  if(Meteor.isCordova){
-    console.log("isCordova");
-    this.render('home');
+  //get session variable overrideCordova
+  var overrideCordova = Session.get('overrideCordova');
+  if(Meteor.isCordova || overrideCordova){
+    if(Meteor.userId()){
+      this.render('profile');
+    } else {
+      this.render('home');
+    }
   } else {
     //if not cordova, then render downloadApp if not logged in
     if(!Meteor.userId()){
@@ -116,10 +106,14 @@ Router.route('/', function () {
     } else {
       console.log("logged in");
       //if not cordova and logged in, then render home
-      this.render('home');
+      this.render('profile');
     }
   }
+});
 
+//setup alternate home route
+Router.route('/web', function () {
+  this.render('home');
 });
 
 //setup logout
@@ -354,3 +348,241 @@ Router.route('/assessmentReport/:_id', {
     }
   }
 });
+
+//routing for REST API for organizational data, user data, and assessment data, and module data
+//only accessible to authors and admins
+Router.route('/api/organizations', {
+
+  action: function(){
+   if(Meteor.user()){
+    if(Roles.userIsInRole(Meteor.user(), 'admin')){
+      //only return organization that the user is the owner of
+      var org = Meteor.user().organization;
+      var data = Organizations.find({_id: org}).fetch();
+      //log the data to colsole as prettefiy json string
+      console.log(data);
+    } 
+    //if user is an author, return all organizations
+    else if(Meteor.user().author){
+      var data = Organizations.find().fetch();
+      console.log(data);
+    }
+    else {
+      console.log(data);
+    }
+    } else {
+      console.log(data);
+    }
+  }
+});
+
+Router.route('/api/assessments', {
+
+  action: function(){
+    if(Meteor.user()){
+      if(Roles.userIsInRole(Meteor.user(), 'admin')){
+        //get all users in the organization
+        var org = Meteor.user().organization;
+        var users = Meteor.users.find({'organization': org}).fetch();
+        var userIds = [];
+        for(var i = 0; i < users.length; i++){
+          userIds.push(users[i]._id);
+        }
+        //get all trials for the users
+        var trials = Trials.find({'userId': {$in: userIds}}).fetch();
+        //return all trials to response
+        //log to console as pretty json string
+        console.log(trials);
+      } 
+      //if user is an author, return all
+      else if(Meteor.user().author){
+        var trials = Trials.find().fetch();
+          //log to console as pretty json string
+          console.log(trials);
+      }
+      else {
+        //log to console as unauthroized
+        console.log('unauthorized');
+      }
+    } else {
+        //log to console as unauthroized
+        console.log('unauthorized');
+    }
+  }
+});
+
+Router.route('/api/modules', {
+
+  action: function(){
+    if(Meteor.user()){
+      //if user is an admin, return all modules for users in the organization
+      if(Roles.userIsInRole(Meteor.user(), 'admin')){
+        //get all users in the organization
+        var org = Meteor.user().organization;
+        var users = Meteor.users.find({'organization': org}).fetch();
+        var userIds = [];
+        for(var i = 0; i < users.length; i++){
+          userIds.push(users[i]._id);
+        }
+        //get all modules for the users
+        var modules = ModuleResults.find({'userId': {$in: userIds}}).fetch();
+        //return all modules to response
+        console.log(modules);
+      }
+      //if user is an author, return all modules
+      else if(Meteor.user().author){
+        var modules = ModuleResults.find().fetch();
+        console.log(modules);
+      }
+      else {
+                //log to console as unauthroized
+                console.log('unauthorized');
+      }
+    } else {
+           //log to console as unauthroized
+           console.log('unauthorized');
+    }
+  }
+});
+
+Router.route('/api/users', {
+
+  action: function(){
+    if(Meteor.user()){
+      //if user is an admin, return all users in the organization, except for firstname, lastname, and email
+      if(Roles.userIsInRole(Meteor.user(), 'admin')){
+        //get all users in the organization
+        var org = Meteor.user().organization;
+        var users = Meteor.users.find({'organization': org}).fetch();
+        var userIds = [];
+        for(var i = 0; i < users.length; i++){
+          userIds.push(users[i]._id);
+        }
+        //get all users for the organization
+        var users = Meteor.users.find({'_id': {$in: userIds}}).fetch();
+        //remove firstname, lastname, and email from the users
+        for(var i = 0; i < users.length; i++){
+          delete users[i].firstname;
+          delete users[i].lastname;
+          delete users[i].emails[0].address;
+          //also remove username and password
+          delete users[i].username;
+          delete users[i].services.password;
+        }
+        //return all users to response
+        console.log(users);
+    }
+    //if user is an author, return all users
+    else if(Meteor.user().author){
+      var users = Meteor.users.find().fetch();
+      //remove firstname, lastname, and email from the users
+      for(var i = 0; i < users.length; i++){
+        delete users[i].firstname;
+        delete users[i].lastname;
+        delete users[i].emails[0].address;
+        //also remove username and password
+        delete users[i].username;
+        delete users[i].services.password;
+      }
+      //return all users to response
+      console.log(users);
+    }
+    else {
+        //log to console as unauthroized
+        console.log('unauthorized');
+    }
+    } else {
+        //log to console as unauthroized
+        console.log('unauthorized');
+    }
+  }
+});
+//statistical summary
+Router.route('/api/all', {
+
+  action: function(){
+    if(Meteor.user()){
+      //if user is an admin, get all users in the organization
+      if(Roles.userIsInRole(Meteor.user(), 'admin')){
+        //get all users in the organization
+        var org = Meteor.user().organization;
+        var users = Meteor.users.find({'organization': org}).fetch();
+        var userIds = [];
+        for(var i = 0; i < users.length; i++){
+          userIds.push(users[i]._id);
+        }
+        //remove firstname, lastname, and email from the users
+        for(var i = 0; i < users.length; i++){
+          delete users[i].firstname;
+          delete users[i].lastname;
+          delete users[i].emails[0].address;
+          //also remove username and password
+          delete users[i].username;
+          delete users[i].services.password;
+        }
+        //get all trials for the users
+        var trials = Trials.find({'userId': {$in: userIds}}).fetch();
+        //join trials and users on userId
+        for(var i = 0; i < trials.length; i++){
+          for(var j = 0; j < users.length; j++){
+            if(trials[i].userId == users[j]._id){
+              trials[i].user = users[j];
+            }
+          }
+        }
+        //for each trial set field type to 'assessment'
+        for(var i = 0; i < trials.length; i++){
+          trials[i].type = 'assessment';
+        }
+        questionIndex = 0;
+        //get all modules for the users
+        var modules = ModuleResults.find({'userId': {$in: userIds}}).fetch();
+        //get a list of all module ids
+        var allModules = [];
+        for(var i = 0; i < modules.length; i++){
+          thisModule = {
+            id: modules[i].moduleId,
+            userId: modules[i].userId
+          }
+            //for each response, flatten into thisModule
+            for(var j = 0; j < modules[i].responses.length; j++){
+              thisModule['page' + modules[i].responses[j].pageId + 'question' + modules[i].responses[j].questionId] = modules[i].responses[j].response;
+              thisModule['page' + modules[i].responses[j].pageId + 'question' + modules[i].responses[j].questionId + 'time'] = modules[i].responses[j].responseTimeStamp;
+            }
+          }
+          //add thisModule to allModules
+          allModules.push(thisModule);
+        }
+        //join modules and users on userId
+        for(var i = 0; i < allModules.length; i++){
+          for(var j = 0; j < users.length; j++){
+            if(allModules[i].userId == users[j]._id){
+              allModules[i].user = users[j];
+            }
+          }
+        }
+        //for each module set field type to 'module'
+        for(var i = 0; i < allModules.length; i++){
+          allModules[i].type = 'module';
+        }
+        //join trials and modules
+        var all = {
+          assessments: trials,
+          modules: allModules
+        }
+        //return all to response
+        console.log(all);
+      } else {
+        //if user is an author, get all trials
+        if(Meteor.user().author){
+          var assessments = Trials.find().fetch();
+          var modules = ModuleResults.find().fetch();
+          //return all to response
+          console.log(assessments);
+          console.log(modules);
+        } else {
+             //log to console as unauthroized
+             console.log('unauthorized');
+        }
+      }
+}});

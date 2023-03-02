@@ -1,5 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import { Meteor } from 'meteor/meteor'
+import { FilesCollection } from 'meteor/ostrio:files';
 
 Orgs = new Mongo.Collection('organizations');
 Assessments  = new Mongo.Collection('assessments');
@@ -11,3 +12,17 @@ Journals = new Mongo.Collection('journals');
 Exercises =  new Mongo.Collection('exercises');
 Chats = new Mongo.Collection('chats');
 Emails = new Mongo.Collection('emails');
+
+
+//Init DynamicAssets Collection
+Files = new FilesCollection({
+    collectionName: 'Images',
+    allowClientCode: false, // Disallow remove files from Client
+    onBeforeUpload(file) {
+      // Allow upload files under 10MB, and only in png/jpg/jpeg formats
+      if (file.size <= 10485760 && /png|jpg|jpeg|json|zip/i.test(file.extension)) {
+        return true;
+      }
+      return 'Please upload image, zip package, or json file only with size less than 10MB';
+    }
+  });

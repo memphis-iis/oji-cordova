@@ -90,7 +90,7 @@ Template.journal.events({
         data.otherThoughts =  $('#otherThoughts').val();
         data.newMood = $('#newMood').val();
         Meteor.call('addEntry',data);
-        $('#card7').show();
+        $('#card6').hide();
         $('#prompt').show();
         $('#prompt2').show();
         $('.selectDate').show();

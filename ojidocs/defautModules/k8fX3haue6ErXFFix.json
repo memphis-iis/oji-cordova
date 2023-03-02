@@ -1,0 +1,2879 @@
+{
+  "_id": "pHNDbnWBkxQhDsDMD",
+  "title": "MODULE 5",
+  "subtitle": "Understanding and Managing My Criminalness: Improving Functioning and Preventing Relapse",
+  "identifier": "New",
+  "display": true,
+  "description": "This module introduces the term “criminalness” which includes thoughts, feelings, behaviors, and factors in your environment that put you at risk for offending. Criminalness is something everyone experiences from time to time, but too much can get us in serious trouble. You’ll learn about your individual risks and what you can do about them.",
+  "pages": [
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Defining \"Criminalness\": What Is It?",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Crime is about breaking a law for which you could be punished. That’s why you are on community supervision. You broke a state or federal law, and your time under supervisionis part of your punishment. Criminalnessis more than doing crime or thinking about crime; it is any behavior that shows irresponsibility and does not consider the rights, well-being, or welfare of other people or yourself. Some types of criminalness cannot be punished by the courts but they still have consequences for you and those around you. Criminalness is offensive, whether it is legal or not.It could range from calling off sick from work when you aren’t really sick (therefore, putting more responsibility on others) to committing a very serious felony.",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What other types of behaviors would fall under \"criminalness\"?"
+            },
+            {
+              "type": "blank",
+              "text": "Now, rate yourself on the Criminalness Meter above - where are you?"
+            }
+          ],
+          "image": "mod5crimmeter.png"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "As someone with a criminal history, you are higher on criminalness than people without criminal histories(yes –other people think this way sometimes, too, but to a lesser degree and less often). Havingengaged in crime and continuingto be involved in the criminal justice systemis irresponsible. Through this program, you are learning skillsto becomea more meaningful member of your community.",
+      "header": "",
+      "subheader": "",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "",
+      "image": "criminalness meter",
+      "imageBelow": "true",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Here are some other examples of criminalness. Rate where you think each behavior would fall on the Criminalness Meter.",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "Cheating at a game of poker"
+            },
+            {
+              "type": "blank",
+              "text": "Robbing a thrift shop owner at gunpoint"
+            },
+            {
+              "type": "blank",
+              "text": "Driving while drunk or high"
+            },
+            {
+              "type": "blank",
+              "text": "Calling in sick for work when you aren't really sick"
+            },
+            {
+              "type": "blank",
+              "text": "Making sexual comments to a woman about her body"
+            },
+            {
+              "type": "blank",
+              "text": "Killing someone as initiation into a gang"
+            },
+            {
+              "type": "blank",
+              "text": "Spitting in an officer's face"
+            },
+            {
+              "type": "blank",
+              "text": "Lying to your counselor about why you didn't do your homework"
+            },
+            {
+              "type": "blank",
+              "text": "Rolling your eyes when someone is talking to you"
+            },
+            {
+              "type": "blank",
+              "text": "Hiding drug supplies in your house"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Criminalness, no matter where it lies on the meter, is negative because it puts you on a pathway of trouble. While minor forms of criminalness are normal and happen to everyday people, the more often you think and behave this way, the further up you will slide on the meter. More criminalness helps you justify criminal behavior or think crime is ok. You will likely never get off the Criminalness Meter completely. That would be unrealistic – you’re only human. But, you need to work hard at bringing your criminalness down to a point where it is not your primary way of thinking and behaving. Monitoring your criminalness will help keep you out of trouble and from returning to jail or prison.",
+      "header": "",
+      "subheader": "Why Is Criminalness a Bad Thing?",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Criminalness Mini Survey: Answer the following questions about your own criminalness. Youdon’t needto share specific detailslike when it happened or who you were with. This is to give you a general sense of how serious your criminalness is, not to add more charges",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "List the FELONIES (more severe crimes) you have been FOUND GUILTY of:"
+            },
+            {
+              "type": "longtext",
+              "text": "List the FELONIES you have gotten away with:"
+            },
+            {
+              "type": "longtext",
+              "text": "List the MISDEMEANORS (less severe crimes) you have been CONVICTED of:"
+            },
+            {
+              "type": "longtext",
+              "text": "List the MISDEMEANORS you have gotten away with:"
+            },
+            {
+              "type": "longtext",
+              "text": "List examples of things you have done in the past that violated the rights or well-being of others, but were not against the law (that is, you could not be charged with a crime, but the behavior was still irresponsible and offensive). "
+            },
+            {
+              "type": "blank",
+              "text": "Now that you have a more complete picture of your criminalness, rate yourself again using the Criminal Meter below:"
+            },
+            {
+              "type": "multiChoice",
+              "text": "Did your rating change from the first time you did this?",
+              "answers": [
+                {
+                  "answer": "I rated myself higher this time"
+                },
+                {
+                  "answer": "I rated myself lower this time"
+                },
+                {
+                  "answer": "I rated myself the same"
+                }
+              ]
+            }
+          ],
+          "image": "mod5crimmeter.png"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<ul><li> 1. Seek out supportive people when you need help, like other rule-abiding friends, your counselor, doctor, or supervision officer</li><li>2. Develop a plan of action for when you think about something offensive or criminal - what will you do? (use thought stopping, cognitive restructuring, or acting opposite strategies that you learning in module 4).</li><li>3. Re-focus on your goals - remember what you need to do to finish and stay off of supervision. </li><li> 4. If you have any mental health issues, take any medications as prescribed. They can help with symptoms like aggression or paranoia</li><li>5. Avoid using drugs or alcohol. They lead to impulsivity and poor decision-making.</li></ul>",
+      "header": "",
+      "subheader": "Quick Tips for Reducing Criminalness",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "There are several factors that put people at risk for high criminalness and continuedcriminal behavior. A return to criminal conduct is called Criminal Recidivism(think of “recidivism” as a return –it could be a return to jail, prison, or to supervision). Criminal recidivism is a big problem; about 70% of all offenders commit more crimes once released from a correctional facility. This is because they don’t manage their criminalness(and for some people, symptoms of mental illness). Having an awareness of what thoughts, feelings, and behaviors build up to or contribute to your criminalnessallows you tocreate and followa clear plan to recognize them when they happen and stop them from causing problems and distracting you from your goals",
+      "header": "",
+      "subheader": "Signs of Criminalness",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "These factors have been identified by researchers as the most likely to lead to higher levels of criminalness and further involvement in crime or rule-violating behaviors. <ul><li><b>Criminal Thinking:</b> There are different ways of thinking about your world and the people in it. Criminals are more likely to think in ways that support negative behaviors than the average person. As you can guess, criminal thinking is very common in prisons and for people on community supervision. But, it's this kind of thinking that keeps you in trouble. At the beginning of Oji's Journey, you were assessed on your go-to styles of criminal thinking. Once you know yours, you can challenge them with more helpful ways of thinking. Ask your counselor or supervising officer about your results of the Psychological Inventory of Criminal Thinking Style (or the PICTS). </li><li><b>Criminal Associates:</b>Criminals who talk to and hang around other criminals are at a high risk for crime. This is a problem in parole and probation because EVERYONE is a criminal. So, who <i>can</i> you associate with? Find friends, neighbors, or co-workers who are following the rules. They exist! You will learn more about forming new relationships in Module 7.</li><li><b>Family or Relationship Problems:</b> If you have family members in your circle who are supportive and willing to help with your goals, use them as a resource. Talking to your family about your goals helps you remember what you're working towards. In addition, other people can keep you in-check and challenge you when you do something that's against your goals. On the other hand, if you have family who do not support you or who are engaging in crime, staying in touch with them could increase your risk for bad behavior. Is it worth it to patch things up or simply move on? More on this in Module 7.</li><li><b>Poor School and Work Achievement:</b> People with academic and legitimate (legal) work interests are less likely to be involved in crime. School and work increase productivity and give you something helpful to focus on, so you are not tempted to behave poorly. in the community, you can enroll in GED classes, community college, or other training programs, or apply for jobs that might interest you. We'll talk about work issues in Module 8.</li><li><b>Lack of Prosocial Free Time and Recreational Activities:</b> You heard in Module 2 that free time, or unplanned leisure time, is bad news. When you get bored, you try to stir up some excitement. That excitement get you into trouble. Just like school and work, staying active and using your spare time wisely will keep you occupied. This will give you less time to think about breaking the rules. You have already identified some things you can do in the community to stay busy. This may seem less important, but don't skip it!</li><li><b>Substance Abuse:</b> Using drugs leads to high criminalness and crime in several ways. First, using drugs or alcoholic substances is a violation of your supervision terms. And, drug use in general is often illegal. So, being caught with drugs will likely add time to your supervision or earn you a free ticket to jail. Second, using these substances reduced your ability to think clearly or make good decisions. They make you more impulsive and lose sight of your goals. Go to AA or NA if this is a problem for you and find people who are actually working the program. </li><li><b>Failing to Cope with Mental Illness or Negative Emotions: </b> Some people experience symptoms of mental illness. If this is true for you, you'll learn about this in a separate module. Uncontrolled symptoms of mental illness or negative emotions can place people at a greater risk for crime and rule-violating behaviors. This is because mental illness that is not treated can lead to bad decisions, impulsivity, anger and aggression, suicidal intent, or a loss of interest in accomplishing healthy goals. All of these things can lead to behaviors that threaten your safety or the safety of others. So, if you take medication for this purpose, take them as prescribed and continue working hard in this program (even when things feel difficult). Please be aware, people with mental illnesses are NOT dangerous - this is a myth. However, when people have mental illnesses <i>and</i> are prone to criminalness, both parts need to be a focus of treatment. </li></ul> ",
+      "header": "",
+      "subheader": "Risk Factors for Criminalness and Criminal Recidivism",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "Listed below are some common symptoms of criminalness. These are signs that you may be inching up the Criminalness Meter and that you are closer to rule-breaking behaviors. On a scale of 1-10 rate how much of a problem you think each risk factor is for you (1 = not a risk factor; 10 = a very serious risk factor; if the symptom does not apply to you, put a 0 in the blank). Then, come up with a few more on your own. ",
+      "header": "",
+      "subheader": "Criminalness Checklist",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Criminal Thinking: ",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "I think impulsively without considering what will happen later:"
+            },
+            {
+              "type": "blank",
+              "text": "People are out to get me or take advantage of me: "
+            },
+            {
+              "type": "blank",
+              "text": "Everyone else does bad things. I'm just the one who gets caught:"
+            },
+            {
+              "type": "blank",
+              "text": "I get a rush or high when I commit a crime or do something bad: "
+            },
+            {
+              "type": "blank",
+              "text": "I have thoughts of breaking the rules (hitting another person, using drugs, taking something that doesn't belong to me):"
+            },
+            {
+              "type": "longtext",
+              "text": "Other signs of my criminal thinking: "
+            },
+            {
+              "type": "displayText",
+              "text": "Criminal Associates: "
+            },
+            {
+              "type": "blank",
+              "text": "Most of my friends have been convicted of a crime:"
+            },
+            {
+              "type": "blank",
+              "text": "People I hang out with talk about doing drugs or breaking the rules:"
+            },
+            {
+              "type": "blank",
+              "text": "I have more in common with criminals than with people who don't do crime: "
+            },
+            {
+              "type": "blank",
+              "text": "I seem to wind up where all the bad guys are hanging out:"
+            },
+            {
+              "type": "blank",
+              "text": "My family likes to party and have a good time; most of them have also been involved in the criminal justice system in one form or another:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other signs that I spend time with criminal associates:"
+            },
+            {
+              "type": "displayText",
+              "text": "Family and Relationship Problems: "
+            },
+            {
+              "type": "blank",
+              "text": "I usually argue and yell when I have an issue with someone:"
+            },
+            {
+              "type": "blank",
+              "text": "I have kids by several different people:"
+            },
+            {
+              "type": "blank",
+              "text": "I don't need anyone to be happy: "
+            },
+            {
+              "type": "blank",
+              "text": "I don't have a lot of contact with my family (kids, parents, brothers/sisters):"
+            },
+            {
+              "type": "blank",
+              "text": "I feel uncomfortable in social situations: "
+            },
+            {
+              "type": "longtext",
+              "text": "Other signs of family and relationship problems: "
+            },
+            {
+              "type": "displayText",
+              "text": "Poor School and Work Achievement: "
+            },
+            {
+              "type": "blank",
+              "text": "I have no job training or real work skills: "
+            },
+            {
+              "type": "blank",
+              "text": "I never finished high school:"
+            },
+            {
+              "type": "blank",
+              "text": "There is no point in getting an education: "
+            },
+            {
+              "type": "blank",
+              "text": "I get money by doing illegal things, like selling dope or booking:"
+            },
+            {
+              "type": "blank",
+              "text": "I won't be caught dead working at McDonald's:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other signs of poor school and work achievement:"
+            },
+            {
+              "type": "displayText",
+              "text": "Lack of Prosocial Leisure and Recreational Activities: "
+            },
+            {
+              "type": "blank",
+              "text": "I don't like being around other people: "
+            },
+            {
+              "type": "blank",
+              "text": "I often skip the gym or other physical activities: "
+            },
+            {
+              "type": "blank",
+              "text": "I listen to music during most of my free time: "
+            },
+            {
+              "type": "blank",
+              "text": "I feel bored a lot:"
+            },
+            {
+              "type": "blank",
+              "text": "Acting out helps me pass the time away:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other signs that I'm lacking prosocial leisure and recreational activities:"
+            },
+            {
+              "type": "displayText",
+              "text": "Substance Abuse: "
+            },
+            {
+              "type": "blank",
+              "text": "Drug treatment can't help me: "
+            },
+            {
+              "type": "blank",
+              "text": "I really miss getting high: "
+            },
+            {
+              "type": "blank",
+              "text": "I like to hang out at the corner bar:"
+            },
+            {
+              "type": "blank",
+              "text": "If someone can get me drugs, I will take them: "
+            },
+            {
+              "type": "blank",
+              "text": "Alcohol or drugs help me relax:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other signs of substance abuse: "
+            },
+            {
+              "type": "displayText",
+              "text": "Failing to Cope with Mental Illness or Negative Emotions:"
+            },
+            {
+              "type": "blank",
+              "text": "I feel depressed a lot: "
+            },
+            {
+              "type": "blank",
+              "text": "I keep to myself and don't want to be bothered: "
+            },
+            {
+              "type": "blank",
+              "text": "I make decisions based on what mood I'm in: "
+            },
+            {
+              "type": "blank",
+              "text": "Anger is one way that I like to deal with my problems:"
+            },
+            {
+              "type": "blank",
+              "text": "I don't think treatment programs can help me: "
+            },
+            {
+              "type": "longtext",
+              "text": "Other signs that I'm not coping with mental illness:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Offenders think differently than non-offenders. You think like other criminals and, as a result, you are high on criminalness. Criminal thinking does not mean that you think about crime all the time. Rather, you have a set of core thoughts, attitudes, and beliefs that support criminalness and rule-breaking behavior. Below is a list of the 8 styles of thinking that are likely to place you at high risk for criminal recidivism and returning to jail. <ul><li><b>Mollification</b>: is a tendency to blame others or your situation (e.g., family, poverty, discrimination) for your criminalness without thinking about your role. Examples include “I wouldn’t have to resort to crime if people like me were treated fairly,” or “if my mom wasn’t so crazy, I wouldn’t be like this.” This doesn’t mean other things in your life aren’t contributing to your problems, but it’s irresponsible not to consider your own choices. People often use mollification to avoid feeling guilty about irresponsible actions. </li><li>     <b>Cutoff:</b> is a style of thinking that supports acting impulsively to get what you want regardless of the consequences to you or others. People under community supervision often do what they want, when they want, and how they want. Statements such as “to hell with it,” “this is not worth my time,” or “fuck it,” suggest a refusal to do what is right or best. </li><li>     <b>Entitlement: </b> occurs when you give yourself permission to break the law, harm others, or avoid other responsible behavior because of a sense of ownership, privilege, or uniqueness. For example, someone who was fired from their job might believe they are “owed” a debt rather than considering what behaviors led to their firing. People high on entitlement believe they should be allowed to do and take what they want (e.g., drugs, women, money). </li><li>      <b>Power Orientation:</b> is a craving for power and control to boost your own standing. This can include outward displays of aggression to manipulate others. If you have ever put someone else down to feel better about yourself, you have used power orientation. Behavior rooted in this type of thinking is intended to avoid negative feelings about yourself. </li><li>     <b>Sentimentality:</b> is the belief that doing something good or nice makes up for doing something bad or harmful. Bringing flowers to your partner after giving them a black eye is an example of sentimentality. People engage in this thinking style to avoid feeling bad about their past behaviors or recognizing the scope of harm that is caused when their criminalness is not properly managed. </li><li>     <b>Superoptimism:</b> is the belief you will be able to avoid negative outcomes of your criminalness. The notion that you are “too smart to get caught again” or “are better able to manage mental health symptoms without medication” are examples of superoptimism. Eventually this type of thinking will derail your recovery or re-entry. </li><li>     <b>Cognitive Indolence:</b> is a fancy word for taking a lazy approach to dealing with your problems. Rather than effectively working through problems, people who think like this look for the easy way around problems. Examples include selling stolen property during a time of financial need, getting high when faced with life stressors, or skipping a therapy session because it’s an inconvenience. Sometimes people work harder to get out of something than they would if they simply worked to solve the problem! </li><li>      <b>Discontinuity:</b> is the tendency to lose sight of your personal goals by focusing on more immediate rewards or gratification. People on community supervision may say things like, “I got side-tracked” or “I thought I could handle one beer.” This loss of focus can have significant long-term consequences for you recovery and re-entry. If you stick to your goals, you will experience even bigger rewards in good time.</li></ul> ",
+      "header": "",
+      "subheader": "PICTS: Understanding Your Criminal Thinking Styles",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Now, navigate to the Assessment Center and review your PICTS. Note the following and make sure to discuss these with your supervising officer:",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "My top 3 go-to styles of criminal thinking are:"
+            },
+            {
+              "type": "multiChoice",
+              "text": "My criminal thinking tends to be more...",
+              "answers": [
+                {
+                  "answer": "Unplanned, impulsive, and spontaneous (reactive)"
+                },
+                {
+                  "answer": "Planned, organized, and purposeful (proactive)"
+                }
+              ]
+            },
+            {
+              "type": "blank",
+              "text": "My scores on the PICTS make sense for me (Y/N?):"
+            },
+            {
+              "type": "longtext",
+              "text": "Why or why not? "
+            },
+            {
+              "type": "longtext",
+              "text": "An example of when I used Mollification: "
+            },
+            {
+              "type": "longtext",
+              "text": "An example of when I used Cutoff:"
+            },
+            {
+              "type": "longtext",
+              "text": "An example of when I used Entitlement: "
+            },
+            {
+              "type": "longtext",
+              "text": "An example of when I used Power Orientation: "
+            },
+            {
+              "type": "longtext",
+              "text": "An example of when I used Sentimentality: "
+            },
+            {
+              "type": "longtext",
+              "text": "An example of when I used Superoptimism: "
+            },
+            {
+              "type": "longtext",
+              "text": "An example of when I used Cognitive Idolence:"
+            },
+            {
+              "type": "longtext",
+              "text": "An example of when I used Discontinuity: "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Recovery can mean a lot of different things depending on the problem you are trying to recover from. Recovering from the flu, for example, means that you are working to stop your symptoms completely; you take medications, eat soup, and rest easy so you canbe cured of the disease. Recovery from criminalness is different. You are not working to cure it or make it go away forever. It is about controlling parts of your life that are not good for you or lead you to trouble.You must ALWAYS work toward recovery;if you stop, you will likely go back to where you started in the first place. This is true even if you are starting to have more successes in your life. Improvement does not mean you stop working on your recovery; it just means that you are doing all the right things and that you must continueto do those things. Don’t stop! Your goals will help you figure out what recovery means for you. For example, if Sally’s goal is to have more close and supportive relationships with other people, then recovery for her is when she is able to find and hold on to those kinds of relationships. Recovery is an ongoing journey no matter what you’re recovering from.",
+      "header": "",
+      "subheader": "What is Recovery?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "Recovery is not easy. This road has many bumps and detours along the way. So, you may be asking yourself if it’s worth the trouble. It may not seem like it at first because you will be challenged and asked to do things that are uncomfortable, and maybe even, scary. But, as you learn new ways to cope with your signs of criminalness, you will: <ul><li>Be in a better mood and feel happier</li><li>Have stronger and more meaningful relationships with other people</li><li>Get into trouble less often </li></ul> So, don’t stop when things get tough. Sometimes,you have to feel uncomfortable or challengedto feel better. This is part of the process. And, even when you feel solid in your recovery (like you can tackle any problem head-on), there are always obstacles to watch out for. You’re never completely safe from the things that put your recovery at risk (such as bad influences or drugs); this is why you must always work towards recovery. It is your responsibility to learn how to prevent the negative effects of criminalrisk factors when you do come across them (remember the yellow and red zones from your mental traffic light; see Module 1).",
+      "header": "",
+      "subheader": "Why Travel the Road to Recovery?",
+      "image": "",
+      "imageBelow": "yes"
+    },
+    {
+      "type": "text",
+      "text": "Some people are more likely than others to do well in their criminalness recovery. Here are some tips that help people meet their recovery goals: <ul><li><b>Believing that goals - whether big or small - are very important. </b> Make it a priority to achieve your goals. Don't be embarrassed, ashamed, or afraid of your goals. They're yours, so own them. </li><li><b> Writing down goals to keep you on track. </b> Having goals written down somewhere serves as a constant reminder. You can look at them when you need a boost. You can also write down some motivational statements to keep you going. </li><li><b> Keeping in mind what is really important to you, like completing community supervision without further problems.</b> Reminding yourself about the good things you can have by changing, pushes you to move forward. </li><li><b> Becoming involved in treatment or self-help groups. </b> This may actually be mandated for you, but even if it's not, see what's out there and get involved. Talking to other people with similar problems or concerns makes you feel more comfortable talking about your own struggles as a returning citizen. The more you talk about it, the more you learn about yourself. Groups also help you to improve your social skills and give you the change to help others in need. </li><li><b> Staying active, like working out. </b> Physical activity makes your body produce natural chemicals that make you feel good. It's always a way to fill up free time so you don't get bored or do something unproductive. </li><li><b> Finding social supports - people who are following the rules and doing pro-social things. </b> Support systems can include family, doctors, counselors. supervision officers, your lawyer, a religious person, or anyone else you trust. Share your challenges and goals with these people so they can keep an eye on you. Sometimes other people are able to notice things you can't see. Give them permission to tell you when you're getting distracted from your goals. </li><li><b> Being aware of your warning signs (yellow) and triggers (red) - things that threaten your recovery. </b> Knowing what these risk factors are helps you to avoid them in the future of prepare to handle them better when you can't avoid them. What makes you angry? Sad? Violent? Out of control? </li><li><b> Using creativity to express yourself. </b> Sometimes you may feel that no one understands you or that you can't put how you really feel into words. Instead of letting it bottle up and explode later, get creative! Act it out, write a poem, or draw scribbles and doodles. This will help you get your emotions out there and will give you a unique way to talk about it later. </li><li><b> Following through with a plan of action! </b> This is SO important. Treatment is no help at all if you don't continue to use the skills you learn. Make a plan. Decide for yourself what you need to do on your road to recovery, such as (1) what risks do you need to take, (2) what challenges should you be aware of, (3) how will you deal with those challenges when they come up, and (4) who can you count on to help you? Stick to it! This is something you can have control over. </li></ul>",
+      "header": "",
+      "subheader": "What Kinds of People are Good at Their Recovery?",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "You just read about some simple ways people can begin to play an active role in your recovery. Brainstorm how you can improve your chances of a smoother road to recovery, starting right now. How can you use each strategy NOW and how can you continue to use it LATER when you have some other things in place first like steady income or housing. ",
+      "header": "",
+      "subheader": "Cruising Down Recovery Road",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Strategy: Make goals a priority",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Stay on track with goals "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Keep in mind what's important"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Get involved in a treatment group"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Stay active"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW: "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Find social supports "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW: "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Be aware of warning signs and triggers"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW: "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Use creativity "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW: "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Follow through with your plan"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW: "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER: "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "As you read earlier, recovery is hard sometimes. There are lots of things that can get in your way, slow you down, or make you take a wrong turn. Luckily, if you’re aware of these things, you can plan for them. Then, you will be prepared and will have a better shot at winning out. But, even when you’re working hard in your recovery, there is a chance you will take a few steps back or be mis-directed. This is called a <b>relapse</b>. Relapsing means that you’ve slipped up and fell back into the old thinking and old behavior that got you into trouble. While relapsing is not encouraged, it does happen. If you relapse, it’s important to see it as a learning experience and not as an excuse to give up on your goals. What can you learn from the relapse, so you can avoid another one in the future? Maybe you missed one of your warning signs or triggers.Relapsing may eventually lead to reoffending (or recidivism) if you don’t take it seriously and act fast.",
+      "header": "",
+      "subheader": "Watching for Warnings and Tackling the Triggers of Crime and Criminalness",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "Relapse if more likely to happen if you...<ul><li> Hang out with other rule-breaking people or other parolee/probationers</li><li> Don't seek help from other people when you need it</li><li> Refuse help from people who offer it to you</li><li> Don't use your free time wisely</li><li> Refuse to take responsibility for yourself or blaming others</li><li> Not being aware of or challenging your criminalness</li><li> Using drugs of alcohol </li></ul>",
+      "header": "",
+      "subheader": "What are Some Common Signs of Relapse?",
+      "image": "mod5.2.png",
+      "imageBelow": "true"
+    },
+    {
+      "type": "text",
+      "text": "Usually relapses don’t just happen overnight; they take a while to unfold. This is a good thing because it gives you some time to recognize that youare at risk for relapse. Once you see that you are at risk, you can actright away. So, what you need to do is trace the steps that will lead to your relapse if you stop working on your recovery. That is, what people, places, environments, behaviors, feelings, or thoughts will likely come BEFORE your relapseinto crime or further criminalness? These are the things you need to avoid or learn to deal with if you encounter them. Think back to your history–what path originally led you to the behaviors you’ve been trying to change now? The earlier you can catch your risks,the more likely you will be to prevent it from becoming a full relapse. It’s easier to escape a shark attack if you are in the shallow part of the ocean; it becomes a lot more difficult to get out the deeper you go. <br>Here's an example of what the path to relapse might look like:</br><ul><li><b>Warning Sign: </b> You start to feel like life isn't fair</li><li><b>Trigger:</b> Someone cuts you off at an intersection</li><li><b>Relapse:</b> You get into a physical altercation</li></ul> Triggers come directly before a relapse. Think of a trigger on a gun - if you pull it, the action happens immediately: BOOM. Warning signs come before the trigger. In other words, warning signs are like the shallow part of the ocean; triggers are the deeper part. So, it is easier to stop relapse at the warning signs but not impossible at the triggers. It's also important to know that everyone has different warning signs and triggers. For example, a beer commercial showing sexy women and a fun party might be a trigger for one man, who walks immediately to the corner store and relapses with a 12-pack. For another man, this commercial may be a warning sign that gets him to think about how relaxing a cold beer would be right now. For other people, this commercial may be neither a warning sign nor a trigger. ",
+      "header": "",
+      "subheader": "How Can I Stop Relapse?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Practicing the Mental Traffic Light",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Here’s your chance to use your mental traffic light. Evaluate people, places, environments, thoughts, feelings, and behaviors. GREEN= good for your recovery; YELLOW= warning sign that you’re headed into relapse; RED= trigger that relapse is next. Label the things in your life with these colors. Think about warning signs and triggers for your criminalness. Here are a few other examples of possible warning signs and triggers (mark whether they've ever been an issue for you either as a warning sign or trigger): ",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "Thought or Behavior: Using drugs or getting drunk",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign "
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Thought or Behavior: Think you're \"the shit\"",
+              "answers": [
+                {
+                  "answer": "\t Yellow warning sign"
+                },
+                {
+                  "answer": "\t Red trigger "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Thought or Behavior: Feeling like others have it better than you",
+              "answers": [
+                {
+                  "answer": "\t Yellow warning sign"
+                },
+                {
+                  "answer": "\t Red trigger "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Thought or Behavior: Arguing with officers or family",
+              "answers": [
+                {
+                  "answer": "\t Yellow warning sign"
+                },
+                {
+                  "answer": "\t Red trigger "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Thought or Behavior: Talking with law-breaking supervisees",
+              "answers": [
+                {
+                  "answer": "\t Yellow warning sign"
+                },
+                {
+                  "answer": "\t Red trigger "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Thought or Behavior: Saying \"screw it\" to treatment",
+              "answers": [
+                {
+                  "answer": "\t Yellow warning sign"
+                },
+                {
+                  "answer": "\t Red trigger "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Thought or Behavior: Blaming other people for your problems",
+              "answers": [
+                {
+                  "answer": "\t Yellow warning sign"
+                },
+                {
+                  "answer": "\t Red trigger "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Thought or Behavior: Being bored",
+              "answers": [
+                {
+                  "answer": "\t Yellow warning sign"
+                },
+                {
+                  "answer": "\t Red trigger "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Thought or Behavior: Using anger to deal with problems",
+              "answers": [
+                {
+                  "answer": "\t Yellow warning sign"
+                },
+                {
+                  "answer": "\t Red trigger "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Thought or Behavior: Being passive-aggressive or putting others down",
+              "answers": [
+                {
+                  "answer": "\t Yellow warning sign"
+                },
+                {
+                  "answer": "\t Red trigger "
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Reversing Relapse",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Write down your warning signs and triggers for crime and criminalness. Then, remind yourself what the relapse behavior would be (that is, the behavior you are trying to avoid or stop). <i>HINT: ask others to help you identify signs and triggers—sometimes they’re the ones who see them first.</i>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are your warning signs for engaging in criminalness?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are your triggers for engaging in criminalness?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would your relapse behavior be?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Your mind sometimes tells you things that are not helpful to you. The way you think about yourself, other people, or situations can affect how you feel (orwhat your mood is), how you behave, and where you go. This should sound familiar to you because it’s part of THECircle of Change. You were also askedto be more aware of your thoughts as they relate to anger, fear, shame, sadness, and criminalness –remember cognitive restructuring, thought stopping, and acting opposite? Now, you will learn more about how your thinking can really get in the way of yourgoals as they relate to staying out of the criminal justice system. You will then learn how to recognize your problematic thinking and come up with more helpful ways of looking at different situations.This will help you stay on track with your goals. Until now, you may have feltas if your mind has used you like a puppet on strings. But, it’s time to cut those strings and take back control!",
+      "header": "",
+      "subheader": "Awareness of Automatic Thoughts",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "The word automaticmeans instinctive –like a reflex. Things that are automatic happenvery quickly, often without you realizing they are happening. So, automatic thoughts are your go-to thoughts; they are what immediately come to mind when you think about yourself, a particular person, or situation. Here are two different examples of how automatic thoughts can be driven by criminalness.",
+      "header": "",
+      "subheader": "What Are Automatic Thoughts?",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "<i>\"Roger is pulled over by a police officer for speeding. He was driving 85 miles per hour in a 65 mile per hour zone, clearly over the legal limit. Roger is also driving under a suspended license. As the officer approaches Roger's car, he begins thinking to himself, 'that fucking jackass is about to slam me with another ticket! These dirty cops never leave me alone! All they want is power and money.\"</i>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What were Roger's automatic thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "How might these thoughts make him feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "How might these thoughts cause him to act?"
+            },
+            {
+              "type": "longtext",
+              "text": "What OTHER thoughts would be more helpful?"
+            },
+            {
+              "type": "displayText",
+              "text": "<i>\"Melissa is walking out of the grocery store with a few bags. Another woman turns the corner very quickly and bumps into Melissa causing her to drop one of the bags and spilling a carton of milk. Melissa's first thought is, \"Is this bitch trying to test me? I won't be disrespected like that. She has to have seen me!\"</i> "
+            },
+            {
+              "type": "longtext",
+              "text": "What were Melissa's automatic thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "How might these thoughts maker her feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "How might these thoughts cause her to act?"
+            },
+            {
+              "type": "longtext",
+              "text": "What OTHER thoughts would be more helpful?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Yes, you can! But, be warned; it will not be easy. Your thoughts become automatic because you have, over time,trainedyour brain to think a certain way. For example, if you tend to see people in a negative light, your brain comes to learn that “people are no good”is the go-to responsewhen things don’t go your way. You get yourself caught up in a destructive cycleof criminal thinking. Now, you have to re-train your brain. Improve your mind’s ability to think clearly and accurately. Changing your thoughts will help you stay out of trouble. Again, use your mental traffic light to evaluate how helpful ornot helpful your thoughts are. If your thoughts are green, keep them going! If they are red or yellow, go back and consider other possible thoughtsthat might better explain the situation you’re in. ",
+      "header": "",
+      "subheader": "Can I Change My Automatic Thoughts?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "Because thoughts can often happen without you knowing it, pay attention to how you begin to feel. Your emotions can be clues to how you are thinking about something around you. The key is to stop these feelings before they become too intense. Let’s look at an example. <br><i>\"Randy is at the ER waiting for the doctor to examine a rash on his arm. The doctor comes in, asks a few short questions, quickly gives Randy a special lotion, and sends him back to the reception area. Randy begins to feel frustrated. He recognizes that this frustration is a yellow warning sign for him and decides to evaluate his thoughts. Randy realizes that he thought the doctor was purposefully being rude and that the doctor must not really case about his patients. These thoughts explain Randy's anger feelings! So, to prevent his frustration from becoming a problem (for example, causing him to go have an angry outburst), Randy thinks of more helpful thoughts. Perhaps the doctor had a lot of other patients to attend to with more serious symptoms. Or, maybe the doctor didn't need any more information to successfully treat Randy. Or, maybe the previous patient pissed him off. After all, he's only human! These new thoughts don't necessarily take away Randy's frustration entirely or let the doctor off the hook, but they help reduce the intensity of Randy's feelings and prevent him from behavior poorly.\"</i>",
+      "header": "",
+      "subheader": "Feelings as Clues for Criminalness",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "You may think that thinking positively is the answer to negative moods and behaviors. But, this is not alwaysthe case. First, many people find it difficult to simply think positive thoughtsall the time. Second, thinking only positive thoughts when youhave a strong emotion may cause youto miss important signals that something is wrong. What you want to do is start looking at a problem frommany different angles, including positive, negative, and neutral. Developing a numberof perspectives helps youfindmore accurate solutions. The first step in this process is learning to be aware of the connections between yourthoughts, your feelings, and your actions.Once you are aware, you can start to investigate how true or false your thoughts really are. This activity is more about awareness. The next one will be about <i>how</i> you can go about investigating your thoughts.",
+      "header": "",
+      "subheader": "What Should I Do about All These Thoughts?",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Making the Connection: For each of the events below, write down what your automatic thoughts might be, how these thoughts might make you feel, and what you might have done as a result of how you felt. Be honest! Then, talk about how your responses support your criminalness. <br>Event #1: You are waiting for you SO to call you back for your check-in. It's taking a long time and you are hungry.",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are your automatic thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do those thoughts make you feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might you have done as a result of those feelings?"
+            },
+            {
+              "type": "longtext",
+              "text": "How are your answers above related to your criminalness?"
+            },
+            {
+              "type": "displayText",
+              "text": "Event #2: You need to sleep because you have work in the morning. But, the neighbors are arguing loudly outside. "
+            },
+            {
+              "type": "longtext",
+              "text": "What are your automatic thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do those thoughts make you feel? "
+            },
+            {
+              "type": "longtext",
+              "text": "What might you have done as a result of those feelings?"
+            },
+            {
+              "type": "longtext",
+              "text": "How are your answers above related to your criminalness?"
+            },
+            {
+              "type": "displayText",
+              "text": "Event #3: Your SO decides to give you a random drug test. He made you do one the last time, too. "
+            },
+            {
+              "type": "longtext",
+              "text": "What are your automatic thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do those thoughts make you feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might you have done as a result of those feelings?"
+            },
+            {
+              "type": "longtext",
+              "text": "How are your answers above related to your criminalness? "
+            },
+            {
+              "type": "displayText",
+              "text": "For event #4, you will create your own example. "
+            },
+            {
+              "type": "longtext",
+              "text": "Event #4 (your own event): "
+            },
+            {
+              "type": "longtext",
+              "text": "What are your automatic thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do those thoughts make you feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might you have done as a result of those feelings?"
+            },
+            {
+              "type": "longtext",
+              "text": "How are your answers above related to your criminalness?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You’ve already had some practice altering problematic thoughts that lead to trouble. But, because changing your automatic thoughts is so difficult, you need more practice. In this worksheet, weare concerned about all kinds of thoughts that lead to lots ofdifferent emotions (anger, sadness, fear, depression, anxiety, paranoia, etc.) and behaviors (aggression, social isolation, panic attacks, criminal activity, staying awake all night, refusing medication, etc.). ",
+      "header": "",
+      "subheader": "Altering Automatic Thoughts Related to Criminalness",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Why Should I Change My Problem Thoughts?",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Everyone has automatic thoughts, not just people in the criminal justice system. But, not everyone acts badly because of their automatic thoughts. In fact, it’s very natural to feel annoyed if someone bumps into you. Most people, though, would not let this bother them to the point of aggression, violence, or any other intense emotion or behavior. For you to reachyour personal goals (and to work towardrecovery), you must begin to confrontyourautomatic thoughts that lead tonegative feelings and behavingin harmful ways(that is, harm you cause yourself or others when you lose sight of your personal goals).",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "How will changing YOUR problematic thoughts related to criminalness be helpful to you?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "It’s not easy! The first step is recognizing your thoughts (like we worked on in the last worksheet). The next step is to challenge them. Question them. Interrogate them. Put them on the spot. Look for pieces of evidence that support or do not support your thoughts. Have a little debate with yourself either in your head or on a piece of paper. Some thoughts are true, but many thoughts are not trueor not completely true. Your job is to decide how truthful (or accurate) your thinking is. Sometimes additional information is needed to figure out the extent to which your thoughts are true. <br> Here are some questions you can ask yourself when you are evaluating the accuracy of your thoughts. Use ALL of them to be the most effective: <ul><li>Is this thought useful or helpful to me? Does it help me reach my goals? Does it help me take positive action? Use your mental traffic light!</li><li> Is this thought familiar? Has my mind told me this before? If so, how did things turn out before? </li><li> What would I get for burying into this thought? That is, if my thought is true, what is the <u>worst</u> thing that could happen? What is the <u>best</u> thing that could happen? What is <u> likely</u> to happen?</li><li>What is the evidence for this thought? What information do I have in favor of my idea? What information do I have that is against my idea? (<i>Remember, there may be evidence in both directions, just like a trial you might see in a courtroom. But, you are looking for the side of the argument that is the <u>most</u> accurate</i>)</li><li>What will happen if I let this automatic thought impact my feelings and behavior? What will happen to my feelings and behavior if I change this thought?</li><li> Is there a different explanation for what's going on? Are there other ways of looking at the situation?</li><li> What should I do about this? What do I want to do about this? </li><li> What would I tell a friend if he or she were in the same situation?</li></ul> When you have an automatic thought that stirs up criminalness, check your answers to these questions. Then, rate how truthful your original thought was using a the Thought Accuracy Meter below. As a general rule, any rating below about a 10 suggests the possibility that you need to change or alter the thought (at least to some degree). You want to be thinking as clearly as possible, so if there is any room on the meter to move up, think about how you do so!",
+      "header": "",
+      "subheader": "\t How Do I Change My Problem Thoughts?",
+      "image": "mod5thoughtmeter.png",
+      "imageBelow": "true"
+    },
+    {
+      "type": "activity",
+      "text": "In the last exercise, you had to come up with automatic thoughts to a made-up situation and map out how the event would affect your thoughts, feelings, and behaviors as related to your criminalness. Now, use the same 4 events and come up with more accurate thoughts using the 8 questions above. Then, map out how your feelings and behaviors might be different and more helpful. ",
+      "header": "",
+      "subheader": "Making the Connection - Remix",
+      "image": "yes",
+      "imageBelow": "yes but above questions",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Event #1: You are waiting for your SO to call you back for your check-in. It's taking a long time and you are hungry. ",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What is a more accurate thought? "
+            },
+            {
+              "type": "longtext",
+              "text": "Based on the more accurate thought, what are your feelings? "
+            },
+            {
+              "type": "longtext",
+              "text": "What would your actions be? "
+            },
+            {
+              "type": "longtext",
+              "text": "How are your answers above related to your criminalness?"
+            }
+          ]
+        },
+        {
+          "type": "combo",
+          "prompt": "Event #2: You need to sleep because you have work in the morning. But the neighbors are arguing loudly outside. ",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What is a more accurate thought?"
+            },
+            {
+              "type": "longtext",
+              "text": "Based on the more accurate thought, what are your feelings?"
+            },
+            {
+              "type": "longtext",
+              "text": "\t What would your actions be?"
+            },
+            {
+              "type": "longtext",
+              "text": "\t How are your answers above related to your criminalness?"
+            }
+          ]
+        },
+        {
+          "type": "combo",
+          "prompt": "Event #3: Your SO decides to give you a random drug test. He made you do one the last time, too.",
+          "image": "More accurate actions:",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What is a more accurate thought?"
+            },
+            {
+              "type": "longtext",
+              "text": "Based on the more accurate thought, what are your feelings?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would your actions be? "
+            },
+            {
+              "type": "longtext",
+              "text": "\t How are your answers above related to your criminalness?"
+            }
+          ]
+        },
+        {
+          "type": "combo",
+          "prompt": "Event #4: Copy your example from the previous exercise. ",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Put your previous example here: "
+            },
+            {
+              "type": "longtext",
+              "text": "\t What is a more accurate thought?"
+            },
+            {
+              "type": "longtext",
+              "text": "Based on the more accurate thought, what are your feelings?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would your actions be?"
+            },
+            {
+              "type": "longtext",
+              "text": "How are your answers above related to your criminalness?"
+            }
+          ]
+        },
+        {
+          "type": "combo",
+          "prompt": "Before you see your counselor or supervision officer again, go through the ENTIRE process using a new even that you recently experienced (one you haven't talked about before): ",
+          "image": "New",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Put a new example of an event here: "
+            },
+            {
+              "type": "longtext",
+              "text": "What were your automatic thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "Evaluate your thoughts here: "
+            },
+            {
+              "type": "blank",
+              "text": "Evalaute your thoughts using the Thought Accuracy Meter: "
+            },
+            {
+              "type": "longtext",
+              "text": "Now come up with new thoughts:"
+            },
+            {
+              "type": "longtext",
+              "text": "What feelings are associated with these new thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would your actions be?"
+            },
+            {
+              "type": "longtext",
+              "text": "How was it helpful to stop and evaluate your thoughts?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Now, navigate to the journal tab and complete a thought log. ",
+      "header": "",
+      "subheader": "Automatic Thought Log for the Week",
+      "image": "yes",
+      "imageBelow": "yes"
+    },
+    {
+      "type": "activity",
+      "text": "Change is hard! It takes time, dedication, and patience. But, that’s what you need to do to reach your goals. Sports teams have to practice hard and play hard to win, and so do you! Let’s take a moment to celebrate what you’ve done so far to make positive changes and to reach your goals. ",
+      "header": "",
+      "subheader": "Progress Checkpoint",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Make a list of things that were difficult for you, or things that you did not want to do, but did them anyway because you knew you had to (example: completed an assignment that I did not want to complete; Talked to my supervising officer about problems I am having following the rules). ",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Example 1: "
+            },
+            {
+              "type": "longtext",
+              "text": "Example 2: "
+            },
+            {
+              "type": "longtext",
+              "text": "Example 3: "
+            },
+            {
+              "type": "longtext",
+              "text": "Example 4: "
+            },
+            {
+              "type": "longtext",
+              "text": "Example 5: "
+            },
+            {
+              "type": "longtext",
+              "text": "Example 6:"
+            },
+            {
+              "type": "longtext",
+              "text": "Example 7: "
+            },
+            {
+              "type": "longtext",
+              "text": "Example 8: "
+            },
+            {
+              "type": "longtext",
+              "text": "Example 9:"
+            },
+            {
+              "type": "longtext",
+              "text": "Example 10: "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Signs of Stress",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Dealing with your mental illness and criminalness means more than being aware of and challenging your problematic thoughts. People with mental illnesses and people who are high on criminalness have a hard time responding to stress. Stressis a feeling of pressure, strain, or tension. Stress can be good for you or bad for you. It can come from a negative event or situation (like losing a job, being incarcerated) or from a positive event or situation (being released from prison, starting a new relationship). Stress happens to everyone, but it’s all about how you deal with it that matters. For example, it’s normal to feel stressed out about being in restricted housing because it is not a pleasant or fun place to be. But, if your mental illness or criminalness gets in the way of your ability to cope with stress, you will feel out of control, and your symptoms will get worse. You will move away from your goals and will be at risk for relapse. So, stress is a RED light for both your mental illness and your criminalness. You need to learn better ways of dealing with stress.",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What happens when you feel stressed? "
+            },
+            {
+              "type": "longtext",
+              "text": "What are your thoughts like when you are stressed?"
+            },
+            {
+              "type": "longtext",
+              "text": "How does your body react when you are stressed?"
+            }
+          ]
+        },
+        {
+          "type": "combo",
+          "prompt": "Here are some signs of stress: <ul><li>Headaches</li><li>Sweating</li><li>Increased heart rate</li><li>Back pain</li><li>Change in appetite</li><li>Difficulty falling asleep</li><li>Increased need for sleep</li><li>Trembling or shaking</li><li>Digestion problems</li><li>Forgetful</li><li>Prone to accidents</li><li>Stomach aches</li><li>Dry mouth</li><li>Problems concentrating</li><li>Anger over minor things</li><li>Anxious</li><li>Feeling restless or \"keyed up\"</li><li>Tearful</li><li>Feeling like you need something to take the edge off </li></ul>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Which of the above signs of stress apply to you? "
+            },
+            {
+              "type": "longtext",
+              "text": "What are some other signs of stress for you?"
+            },
+            {
+              "type": "multiChoice",
+              "text": "These signs of stress are your yellow lights. They help stop you from going into full-blown, red light stress. Being able to successfully reduce your stress is a green light for your recovery. <br> Bigger life events (i.e. being incarcerated, homelessness, hospitalization, money problems) and daily hassles (small stresses that happen every say such as being in a crowded place, arguing with a loved one, feeling rushed or hurried) can both cause stress. Again, it is how you manage these events and hassles that count. Part of being able to deal with stress is not only about knowing what stress looks like for you (see the signs you checked above), but also about knowing what kinds of events and hassles cause you stress in the first place."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Under Pressure",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Here are some examples of life events and daily hassles that you may have encountered while on supervision. Indicate the ones you have experienced, and then list other stressors that you have personally experienced.",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "How did the stress of being incarcerated make you feel? Think? Act? If you have not experienced incarceration, please type \"N/A\""
+            },
+            {
+              "type": "multiChoice",
+              "text": "How did the stress of being a victim of a crime make you feel? Think? Act? If you have not experienced being the victim of a crime, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of being quitting smoking or using drugs make you feel? Think? Act? If you have not experienced quitting smoking or using drugs, please type \"N/A\""
+            },
+            {
+              "type": "New",
+              "text": "How did the stress of divorcing or separating from a romantic partner make you feel? Think? Act? If you have not experienced divorce or separation from a romantic partner, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of having a medical illness make you feel? Think? Act? If you have not experienced medical illness, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of changing supervising officers make you feel? Think? Act? If you have not experienced changing supervising officers, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of entering a treatment program make you feel? Think? Act? If you have not experienced entering a treatment program, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of not having enough privacy make you feel? Think? Act? If you have not experienced not having enough privacy, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of things being out of order make you feel? Think? Act? If you have not experienced things being out of order, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of a noisy environment make you feel? Think? Act? If you have not experienced a noisy environment, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of having to do unpleasant chores or tasks make you feel? Think? Act? If you have not experienced having to do unpleasant chores or tasks, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of interacting with people who are rude, controlling, or scary make you feel? Think? Act? If you have not experienced interacting with people who are rude, controlling, or scary, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of being bored make you feel? Think? Act? If you have not experienced being bored, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "How did the stress of living in a dangerous neighborhood make you feel? Think? Act? If you have not experienced living in a dangerous neighborhood, please type \"N/A\""
+            },
+            {
+              "type": "longtext",
+              "text": "Now, think of a personal example of a stressor. What is it? How did it make you feel? Think? Act?"
+            },
+            {
+              "type": "longtext",
+              "text": "Think of another personal example of a stressor. What is it? How did it make you feel? Think? Act?"
+            },
+            {
+              "type": "longtext",
+              "text": "Think of another personal example of a stressor. What is it? How did it make you feel? Think? Act?"
+            },
+            {
+              "type": "longtext",
+              "text": "Think of another personal example of a stressor. What is it? How did it make you feel? Think? Act?"
+            },
+            {
+              "type": "longtext",
+              "text": "Think of another personal example of a stressor. What is it? How did it make you feel? Think? Act?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Alright, so now you know about what leads to your stress and how you react to stress. But, what can you do about it? This part is very important for your recovery! The better you get at lessening your stress, the more you increase your chances of reaching your personal goals. You are responsible for actively coping with stress. Don’t wait for someone else to tell you to do it. <br> What can you do to deal with your stress? These actions may help stop you from getting stressed out and moving away from your goals. Try them all at least once: <ul><li><b>Being aware of situations that cause you stress. </b> Check this one off because you've already started doing this. Knowing about these situations ahead of time allows you to plan out different ways for handling the situation when it comes up again. You can better prepare for it. Or, do your best to avoid the situation altogether.</li><li><b> Do things you like to do (whenever possible).</b> To the best of your ability, do activities that you enjoy like writing, drawing, reading, or meditating. Go back to your activities log for help. But, make sure these activities don't get in the way of other important responsibilities, such as going your homework for this program or attending meetings with your SO</li><li><b> Relax.</b> You have a lot of stress and pressure on you right now, so relaxing may sound near impossible. But, give it a go anyway. Go back and review Progressive Muscle Relaxation steps and Guided Imagery. These strategies can help you calm down. </li><li><b>Build a social support system. </b> This is not a new idea; you've heard this already. But again, find people who will listen to you when you're stressed and help you work through your problems. These people could be your counselor, other supervisees who are doing well, family members who you can spend time with, a treatment group, or a religious/spiritual leader. Do not ask for help from people who will you down or criticize you, who get into trouble or break the law, or who are not focused on their own recovery. This will only make your stress worse. </li><li><b> Take care of your health. </b> When your body is healthy, you have more strength to deal with stress. So, don't skip meals, don't skip time at the gym (even if you feel rushed), don't skip you medications if needed, don't skip showers, and keep a regular sleep schedule. </li><li><b> Talk about your feelings somehow. </b> Most people don't like to talk about their feelings. Although holding in feelings is the common code among inmates and then supervisees (you might have said, \"It's nobody's business\" or \"I'm going to do it on my own time\"), it is very stressful to keep things bottled in. It's like blowing up a balloon. If you keep filling it with hot air, it will soon burst, and all the air will come gushing out - quickly and out of control. Talk to your social support network. Or, if you're not comfortable yet talking about your feelings or don't know how to talk about your feelings, get creative (write them down or draw them out). Other supervisees or treatment group members may try to make you feel bad or stupid for talking about your feelings but remember where they are!</li><li><b> Know that you will make mistakes and be ok with that. </b> You are human. You will goof up every now and then; that's all part of the process So, don't get too bent out of shape. The important part is that you LEARN from the mistake, so you can avoid making it in the future. Don't just say, \"oh well\" and forget about it. Trace your steps; how did you get to the mistake? What should you do differently next time? Mistakes could be failing to take your medications as prescribed, engaging in criminalness (but, let's hope not illegal stuff), or not working in your treatment program. Commit to doing better the next time around. </li></ul>",
+      "header": "",
+      "subheader": "\t Stopping Stress the Green Light Way ",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Keeping Your Inner Peace",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "First, talk about how you typically handle stressful situations (think back to the events and hassles you listed). Then, decide which of the actions described above you will commit to doing. State what you will do specifically (for example, don’t just write “relax,” say what you will do to relax) to keep the peace within you. ",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Old action #1: "
+            },
+            {
+              "type": "longtext",
+              "text": "New action #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "Old action #2: "
+            },
+            {
+              "type": "longtext",
+              "text": "New action #2:"
+            },
+            {
+              "type": "longtext",
+              "text": "Old action #3:"
+            },
+            {
+              "type": "longtext",
+              "text": "New action #3:"
+            },
+            {
+              "type": "longtext",
+              "text": "Old action #4:"
+            },
+            {
+              "type": "longtext",
+              "text": "New action #4:"
+            },
+            {
+              "type": "longtext",
+              "text": "Old action #5:"
+            },
+            {
+              "type": "longtext",
+              "text": "New action #5:"
+            },
+            {
+              "type": "longtext",
+              "text": "Old action #6:"
+            },
+            {
+              "type": "longtext",
+              "text": "New action #6:"
+            },
+            {
+              "type": "longtext",
+              "text": "Old action #7: "
+            },
+            {
+              "type": "longtext",
+              "text": "New action #7:"
+            },
+            {
+              "type": "longtext",
+              "text": "Which of your old actions may still be helpful? List the number(s) associated with the action(s)."
+            },
+            {
+              "type": "longtext",
+              "text": "Which of your old actions were NOT helpful? List the number(s) associated with the action(s)."
+            },
+            {
+              "type": "longtext",
+              "text": "Which of the NEW actions are you willing to commit to? List the number(s) associated with the action(s). "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "This is similar to what you learned in Module 2 but presented in a slightly different way to give you more variety in the strategies you use. Not all exercises will work as well for you as they do for some other people but try them all a few times so you can decide which ones work best for you. <br><b> Deep Breathing </b><ul><li> Lie down on your bed or on the floor. Bend your knees and move your feet about eight inches apart with your toes turner slightly outward. Make sure that your spine is straight and flat. </li><li> Check your body for tension. Feel where the tension is in your body. </li><li> Put one hand on your stomach and one hand on your chest. </li><li> Breathe in slowly and deeply through your nose into your stomach to push up your hand as much as feels comfortable. Your chest should move only a little and only with your stomach. </li><li> When you feel comfortable with the previous step, smile slightly and breathe in through your nose and breathe out through your mouth, making a quiet, relaxing, whooshing sound like the wind as you blow gently out. Your mouth, tongue, and jaw will be relaxed. Take long, slow, deep breaths that raise and lower your stomach. Focus on the sound and feeling of your breathing as you become more and more relaxed. </li><li> Continue this deep breathing for about five or ten minutes at a time, once or twice a day. Then, if you like, gradually extend this period to twenty minutes as you practice more. </li><li> At the end of each deep-breathing session, take a little time to once again check your body for tension. Compare the tension you feel at the conclusion of the exercise with that which you experienced when you began. </li><li> When you become comfortable with breathing into your stomach, practice it any time during the day when you feel like it while sitting down or standing still. Focus on your stomach moving up and down, the air moving in and out of your lungs, and the feelings of relaxation that deep breathing gives you. </li></ul><br><b>Counting Your Breaths</b><ul><li> Sit or lie in a comfortable position with your arms and legs uncrossed and your spine straight and flat. </li><li> Breathe deeply into your stomach. Let yourself pause for a few seconds before you breathe out. </li><li> As you breathe out, count \"one\" to yourself. As you continue to breathe in and out, count each time you release your breath: \"Two...Three...Four.\" Continue this for about 10 minutes. </li><li> Notice your breathing, your body relaxing, and your mind calming as you practice this exercise. </li></ul><br><b> Letting Go of Tension <ul><li> Sit comfortably with your feet on the floor. </li><li> Breathe in deeply into your stomach and say silently to yourself, \"Breathe in relaxation.\" Let yourself pause before you let go of your breath. </li><li> Breathe out from your stomach and say silently to yourself, \"Breathe out tension.\" Pause before you breathe in again. </li><li> Each time you breathe in, use this as a moment to become aware of any tension in your body. </li><li> Each time you breathe out, use this as an opportunity to let go of tension. </li><li> You may find it helpful to use your imagination to see or feel the relaxation entering and the tension leaving your body. </li></ul>",
+      "header": "",
+      "subheader": "Extra Relaxation Technique: Using Your Breathing",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Using Your Breath Log",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Record your use of these strategies throughout the next week! ",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "Strategy used: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened):"
+            },
+            {
+              "type": "longtext",
+              "text": "Strategy used: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes):"
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "Strategy used: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes):"
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "Strategy used:"
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes):"
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no):"
+            },
+            {
+              "type": "blank",
+              "text": "Date and TIme:"
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "Strategy used: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes):"
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no):"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You may want to go through and read all of the instructions first so you can have an idea on what to expect. <br><b>Basic Procedure</b><ul><li> Get into a comfortable position. Try to block out other noises the best you can. </li><li> You may want to loosen your clothing and remove your shoes. </li><li> Begin to relax as you take a few slow, deep breaths. </li><li> Now, as you let the rest of your body relax, clench your fists and bend them back at the wrists...Tighter and tighter. Feel the tension in your firsts and forearms...Now relax. Feel the looseness in your hands and forearms...Notice how this differs from the tension...(If you have time, repeat this, and all succeeding procedures, at least one more time). </li><li> Now, bend your elbows and tense your biceps...Tense them as hard as you can and observe the feeling of tightness. Let your hands drop down and relax...Feel the difference. </li><li> Turn your attention to your head and wrinkle your forehead as tight as you can...Feel the tension in your forehead and scalp. Now, relax and let your forehead smooth out. Imagine your entire forehead and scalp becoming smooth and at rest. </li><li> Now, frown and notice the strain spreading throughout your forehead. Let go...Allow your brow to become smooth again. Squeeze throughout your forehead...Tighter...Relax your eyes. Let them remain closed - gently and comfortably. </li><li> Now, open your mouth wide and feel the tension in your jaw...Relax your jaw...When the jaw is relaxed, your lips will be slightly open. Notice the contrast between tension and relaxation. </li><li> Now, press your tongue against the roof of your mouth. Experience the ache in the back of your mouth...Relax...Press your lips together now, purse them into an \"O\"...Relax your lips...Feel the relaxation in your forehead, scalp, eyes, jaw, tongue, and lips. </li><li> Roll your head slowly around your neck, feeling the point of tension shifting as your head moves...and then slowly roll your head the other way. Relax...Allowing your head to return to a comfortable upright position. </li><li> Now, shrug your shoulders; bring your shoulders up toward your ears...Hold it for a few seconds...Drop your shoulders back down and feel the relaxation spreading through your neck, throat, and shoulders...Pure relaxation, deeper and deeper...</li><li> Now, breathe in and fill your lungs completely. Hold your breath for a few seconds. Experience the tension...Now exhale and let your chest become loose...Continue relaxing, let your breath come freely and gently...Notice the tension draining out of your muscles each time you breathe out. </li><li> Next, tighten your stomach and hold. Feel the tension...Relax...Now place your hand on your stomach. Breathe deeply into your stomach, pushing your hand up. Hold...And relax. Feel the contrast of relaxation as the air rushes out...Now arch your back, without hurting yourself. Keep the rest of your body as relaxed as possible. Focus on the tension in your lower back...Now relax...Let the tension float away. </li><li> Tighten your buttocks and thighs...Relax and feel the difference...Now straighten and tense your legs and curl your toes downward. Experience the tension...Relax...Straighten and tense your legs and bend your toes toward your face...Hold a few seconds and relax. </li><li> Feel the comfortable warmth and heaviness of deep relaxation throughout your entire body as you continue to breathe slowly and deeply...You can relax even more as you move up through your body, letting go of the last bit of tension in your body. Relax your knees...Relax your thighs...Relax your buttocks...Let the relaxation spread to your stomach...To your lower back...To your chest...Let go more and more. Feel the relaxation deepening in your shoulders...In your arms...Deeper and deeper. Notice the feelings of looseness and relaxation in your neck...Your jaw...Your face...And your scalp. Continue to breathe slowly and deeply. Your entire body is comfortable, loose and relaxed, calm and rested. </li></ul><br> The more you practice PMR, the more easily you will be able to do it. For the first few times, you may need to read the instructions again. But, you will get the hang of it eventually. You will be able to relax better once you can do PMR on your own. So, stick with it. <br><b>Quick Procedure</b><br> Once you have mastered the basic procedure, use the following procedure to relax your muscles quickly. Whole muscle groups are simultaneously tensed and then relaxed. As before, repeat each procedure at lease once, tensing each muscle group from 5 to 7 seconds and then relaxing them form fifteen to thirty seconds. Remember to notice the differences between the sensations of tension and relaxation. <ul><li> Curl both fists, tightening biceps and forearms. Relax. </li><li> Roll your head around on your neck in a complete circle, and then reverse directions. Relax. </li><li> Wrinkle up the muscles of your face like a walnut: forehead wrinkled, eyes squinted, mouth open. and shoulders hunched. Relax. </li><li> Arch your shoulder back as you take a deep breath into your chest. Hold it for a few seconds. Relax. take a deep breath, pressing out the stomach. Hold again. Relax again. </li><li> Straighten your legs and point your toes back toward your face, tightening your shins. Hold it for a few seconds. Relax. Straighten your legs and curl your toes, simultaneously tightening your calves, thighs. and buttocks. Hold it again. Relax again. </li></ul>",
+      "header": "",
+      "subheader": "Extra Relaxation Technique: Progressive Muscle Relaxation",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Using Your Muscle Relaxation Log",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Record your use of these strategies over the next week!",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened):"
+            },
+            {
+              "type": "longtext",
+              "text": "Muscle groups worked: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and TIme:"
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "Muscle groups worked: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "\t I was relaxed (yes or no):"
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time:"
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "Muscle groups worked: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "\t I was relaxed (yes or no):"
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "Muscle groups worked: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes):"
+            },
+            {
+              "type": "blank",
+              "text": "\t I was relaxed (yes or no):"
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "Muscle groups worked: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes):"
+            },
+            {
+              "type": "blank",
+              "text": "\t I was relaxed (yes or no):"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "This is another strategy you are familiar with. Here is another way to think about it in more detail. <b>Creating an Imaginary Special Place</b><br> In creating your special place, you will make an imaginary retreat for relaxation and guidance. This place may be indoors or out. In structuring your place, follow a few guidelines: <ul><li> Make your place peaceful, comfortable, and safe.</li><li>Fill you place with lots of different sensations. Create a mid-ground, foreground, and a background n your place. <br> Your special place might be at the end of a path that leads to a pond. Grass is under your feet, the pond is about thirty feet away, and mountains are in the distance. You can feel the coolness of the air in this shady spot. A bird is singing. The sun is bright on the pond. The flower's pungent odor attracts the bee buzzing over the flower with its sweet nectar. <br> Or, your special place might be a sparkling-clean kitchen, where there are cinnamon buns baking in the oven. Through the kitchen window you can see fields of yellow wheat. Fresh laundry flutters in the breeze. At the table is a cup of tea for your guest. <li> Allow room for an inner guide or other person to comfortably be with you. </li><b> Going to Your Special Place</b><li>To go to your safe place, lie down and be totally comfortable.</li><li> Close your eyes and walk slowly to a quiet place in your mind. Your place can be inside or outside; it just needs to be peaceful and safe. </li><li> Picture yourself unloading your anxieties and worries. </li><li> Notice the view in the distance...What do you smell?...What do you hear?...Notice what is before you...Reach out and touch it...How does it feel?...Smell it...Hear it...Make the temperature comfortable...Be safe here. </li><li>Look around for a special spot, a private spot...Find the path to this place...Feel the ground with your feet...Look above you...What do you see?...Hear?...Smell?...Walk down this path until you can enter your own quiet, comfortable, safe place. </li><li> You have arrived at your special place...What is under your feet?...How does it feel?...Take several steps...What do you see above you?...What do you hear?...Do you hear something else?</li><li> Reach out and touch something...What is the texture? Are there pens, paper, paints nearby, or is there sand to draw in, clay to work? Go to them, handle them, smell them. These are your special tools, or tools for your inner guide to reveal ideas or feelings to you. </li><li> Look as far as you can see...What do you see? What do you hear? What aromas do you notice? </li><li> Sit or lie in your special place...Notice its smells, sounds, sights...This is your place, and nothing can harm you here...If danger is here, tell it to leave. </li><li> Spend three to five minutes realizing you are relaxed, safe, and comfortable. </li><li> Memorize this place's smells, tastes, sights, sounds...You can come back and relax here whenever you want...Leave by the same path or entrance...Notice the ground, touch the things near you...Look far away and appreciate the view...Remind yourself this special place you created can be entered whenever you want wish. Say an affirmation such as, \"I can relax here\" or \"This is my special place. I can come here whenever I wish.\" </li><li> Now open your eyes and spend a few minutes appreciating your relaxation. </li></ul>",
+      "header": "",
+      "subheader": "Extra Relaxation Technique: Guided Imagery",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Using Guided Imagery Log ",
+      "image": "yes",
+      "imageBelow": "yes",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Record your use of these strategies over the next week!",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "Date and TIme: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "The place I went: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and TIme:"
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "The place I went: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "The place I went: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no):"
+            },
+            {
+              "type": "blank",
+              "text": "Date and TIme: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "The place I went: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "The place I went: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spend doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Sometimes when you are stressed, your mind will start to get worked up and wander all over the place.That is, you have negative automatic thoughts in response to a stressful situation. Many people feel that they are much worse at things than they really are or that their situation is much worse than it really is. So, people will make themselves feel bad. This is called negative self-talk. And it’s not helpful. One way to deal with this kind of stress is to start talking yourself back down to reality again using positive self-talk. Have a conversation with yourself. It helps to think about what you might say to yourself when negative self-talk happens to you. You’ve had some practice with positive self-talk before. But, here are some other ideas. <br><b> Steps for Positive Self-Talk</b><ul><li> Notice when you are becoming tense. </li><li> Pay attention to what you are currently thinking. Decide if these thoughts are good and true or if they are negative self-talk such as \"I am not good at anything\" or \"Nobody that I know likes me.\" </li><li> Clear your mind of these thoughts and replace them with thoughts from the list below. </li><li> Repeat these thoughts until you start to feel better. </ul></li> <b> List of Positive Self-Talk Thoughts </b> <ul><li> Take a deep breath and relax. </li><li> Getting upset won't help.</li><li> Just as long as I keep my cool, I'm in control. </li><li> Easy does it...There's nothing to be gained from getting mad. </li><li> I'm not going to let him/her get to me. </li><li> I can't change him/her with anger or by freaking out; I'll just upset myself. </li><li> I can find a way to say what I want without anger. </li><li> Stay calm - no sarcasm, no verbal attacks. </li><li> His/her opinion isn't important. I won't be pushed into losing my cool. </li><li> It's just a hassle. Nothing more, nothing less. I can deal with hassles. </li><li> Break the problem down. Anger often comes from lumping things together. </li><li> Just because someone said \"no\" to my request doesn't mean I should not have asked in the first place. </li><li> I'm getting better at this anger management stuff. </li><li> I got angry but kept the lid on saying stupid things. That's progress. </li><li> Stress means that it's time to relax and cope. </li><li> I can manage this; I'm in control. </li><li> No one is right; no one is wrong. We just have different needs or ideas. </li><li> I don't like when people judge me, so I shouldn't judge them. </li><li> No matter what is said, I know I'm a good person. </li><li> I'll stay rational; anger won't solve anything. </li><li> Let them look foolish and upset. I can stay cool and calm. </li><li> I can stand it if I don't get what I need or want. </li><li> If they want me to get angry (or stressed out), I'm going to disappoint them. </li><li> There is no law that says other peoples' opinions are more correct than mine. </li><li> I can't expect people to act the way I want them to. </li><li> I can still feel OK with myself even if someone else is upset with me (as long as I did not hurt them on purpose). </li><li> I don't have to take this so seriously. </li><li> I have a plan to relax and cope. </li><li> This is funny if you look at it that way. </li><li> I'd rather stick to my goals than stress out. </li></ul> ",
+      "header": "",
+      "subheader": "Positive Self-Talk ",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Think of a few more examples of positive self-talk. ",
+          "image": "Other:",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Other: "
+            },
+            {
+              "type": "longtext",
+              "text": "Other:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other:"
+            },
+            {
+              "type": "longtext",
+              "text": "Other:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Positive Self-Talk Log ",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Record your use of these strategies for the next week!",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "What I said to myself: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "What I said to myself: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time:"
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "What I said to myself: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "What I said to myself: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this (in minutes): "
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            },
+            {
+              "type": "blank",
+              "text": "Date and Time: "
+            },
+            {
+              "type": "longtext",
+              "text": "Situation (what happened): "
+            },
+            {
+              "type": "longtext",
+              "text": "What I said to myself: "
+            },
+            {
+              "type": "blank",
+              "text": "How long I spent doing this:"
+            },
+            {
+              "type": "blank",
+              "text": "I was relaxed (yes or no): "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "As you know, criminalness distracts you from achieving your goals. It means any way of thinking or behaving that violates the rights or well-being of other people...including yourself. Criminalness can include anything from less serious offenses such as cheating at a card game, cutting someone off in line, or calling someone a bad name to more serious offenses such as hiding contraband, fighting with someone, or sexual assault. Being high on criminalness means you are not taking responsibility for yourself and, consequently, not working toward your goals. If you find that you don’t like to follow the rules, are getting into trouble frequently (e.g. disciplinary write-ups, more time in “the hole”), or are arguing a lot with other people, then thisWorksheetis designed to help you.Commit to trying each strategy by saying out loud, “I will do this!” <br><b> Strategies to Try for Boredom or Restlessness</b><br> When people get bored and restless, they look for things to do. Sometimes, this often means people will create their own excitement by doing non- productive or rule-breaking things. When you feel bored or restless, it is time to get busy, but busy in ways that will actually help you achieve your goals. <ul><li> Exercise when you can. Do push-ups or go to the gym when you can. Make sure you break a sweat. Get to the point of exhaustion. You should be tired afterwards. You will release your built-up energy and will exhaust all physical restlessness. A positive side effect is that you will feel healthier. </li><li> Try a new hobby like drawing, writing, reading, singing/rapping, or arts and crafts (make something of your own!). Check your activities log for things you can do now. </li><li> Callonyoursocialsupportnetworkforhelp.Whenyoucan,findotherpeopletotalktoorengageinsome other social activity, like playing basketball or going to the library. Remember to find other supervisees who are following the rules. You will learn more about this in the next module. </li><li> Look for opportunities to work or volunteer your time in meaningful ways. For example, you may be able to run an AA or NA meeting, participate in group therapy, help a religious or spiritual leader, enroll in classes, or find employment. Using your time this way will also look good to your supervising officer.</ul></li> <br><b>Strategies to Try for Self-Injurious Behavior (SIB)</b><br> Some people find that harming themselves (e.g., cutting, burning, scarring) is a way to release built up pain and frustration. Many mental health professionals view harming oneself as a psychiatric symptom. But, as you’ve heard before, it can also be a sign of criminalness. Remember that some people use SIB to manipulate other people or their situation because it can give them special rewards like attention. And, because inmates and supervisees use SIB to manipulate people so often, public safety staff usually see it as a behavioral problem. Consequently, you may receive consequences for it. Although injuring yourself is not criminal, it is an irresponsible, non-helpful way of dealing with emotional pain. If you find that hurting yourself relieves emotional pain, you need to develop alternate coping strategies. Some of these strategies may be helpful. <ul><li> Again, try a good, hard exercise. Working your body to the max can feel painful, but it is a much healthier way of releasing your emotional pain. </li><li> Use the relaxation exercises you previously learned. </li><li> Talkwithsomeonewhocaresaboutyouandthatyoucanconfidein(thesepeopleshouldbeidentifiedin your suicide prevention plan). Talk to your counselor or talk to people who support you. </li><li> Meetwithyourdoctororcounselor.Ifit’sanemergency,gotothehospitalandcallyourSO.Ifyoudoneed to go to the hospital, it might be helpful to share your mental illness with the nurses and doctors so that they can understand your SIB is a symptom not an attempt to manipulate them. If you don’t do this, then they will handle the situation much differently. </li><li> If you must engage in behavior that physically hurts in order for you to \"feel,\" choose less harmful options. For example, rather than cutting or burning yourself, try squeezing your fist tightly and then releasing, taking a very cold shower, eating something aversive (but that you can actually eat) like pepper, or wear a rubber band you can snap on your wrist. </li></ul> <b> Strategies to Try for Poor Motivation to Do Good Things<br> Sometimes people don't have the desire or energy to do \"the right thing,\" to be responsible, or to be prosocial. It is hard work being responsible. Essentially, you don’t get to do what you want, when you want, and how you want to do things all the time. When you are losing the motivation to stay away from crime or rule violations, and you find that you are less and less motivated to be responsible, you need to take immediate steps to increase your motivation to remain responsible as you work towards your goals. <ul><li> Take time to review the personal goals you have developed in this program. Think about the importance of these goals, why you have them in the first place, and use this as motivation to stay responsible.</li><li> Talkwithotherpeopleyouadmireandrespectaboutwhatisimportantinlife.Thiscouldbeyourcounselor, family or friend, supervising officer, or model supervisees or treatment group members who are following the rules and doing well for themselves. If you can’t talk or visit, think about the people you look up to...What do they do right in their lives? What good things do they have because of it? What can you learn from their behaviors? </li><li> Attendareligiousorspiritualserviceandremindyourselfthattherearemoreimportantthingsinlifethan your own wants and desires. </li><li> Remind yourself how bad and terrible being in prison really is and that you don’t want to go back. Look at how other inmates’ criminalness keeps them stuck here and take note of what they get for behaving that way. Tell yourself that you won’t be like them; you can reach your goals. </li><li> Create a small list of necessary things you must get done to remain responsible that particular day. Keep the list realistic and focus on getting those things done. For example, you might include eating all meals, exercising, or keeping your cool when your supervising officer gives you direction. When your motivation returns, you will be able to increase your focus beyond the day-to-day items. </li><li> Committodoingonenicethingforsomeoneelsebeforeyoudoanythingforyourself.Themereactof being friendly or helping another person is prosocial and reinforces a responsible life style. For example, you might say, “thank you” when someone holds the door open for you. Plus, you will hopefully be reminded of how good it feels to do nice things for others rather than always focusing on yourself. </li><li> Contactyourdoctororcounselorandaskforhelpwithyourrecovery.Justbeingabletorecognizeyour criminalness and knowing when to ask for help is a step toward achieving your goals and doing what’s right. </li></ul>",
+      "header": "",
+      "subheader": "Learning to Cope with Criminalness",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Exercise: Recovery Rescue - Criminalness",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Read the following story and write down how you can offer help to this person using the strategies discussed above.<br><i> “Jarrod has a diagnosis of Bipolar Disorder, so he goes through periods of really low moods (depression) and really high moods (mania). Jarrod is taking medication for his mental illness and has been working with a counselor, who he meets with briefly one time a week. He started out with a lot of motivation and drive for getting better. He was sick of feeling so bad about himself during his depression, and he didn’t want to get in trouble anymore because of his mania. When Jarrod is depressed, he likes to stay in his apartment alone. He is also easily frustrated and will refuse to comply with his supervising officer’s orders. When Jarrod is manic, he will cut himself with the edge of a piece of paper until he bleeds. Jarrod’s mania also gives him a lot of energy that he doesn’t know what to do with, so he tries to find ways to stir up some excitement. The last time Jarrod was manic, he went to his apartment complex’s parking lotduring a thunderstorm, rolled around on the wet ground, and started banging on front doors yelling about the weather. He even pulled and rattled the railing on the stairs untilit broke. With treatment, Jarrod has been able to manage his symptoms, but lately he has been finding that it is very difficult to keep doing this. Change is harder than he thought, and he doesn’t feel like doing the homework his counselor gave him. He started missing the feeling of being manic and stopped taking his medications. He’s getting restless and is beginning to think there is no real point to changing his behaviors. He is starting to believe that maybe it’s not even possible for him to change.” </i> ",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Describe Jarrod’s criminalness associated with his Bipolar Disorder."
+            },
+            {
+              "type": "longtext",
+              "text": "What do you think will or could happen in the long run if Jarrod does NOT work on his criminalness?"
+            },
+            {
+              "type": "longtext",
+              "text": "If Jarrod asked you for help in the situations he recently experienced, what would you suggest he do about his criminalness?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would have been different if Jarrod followed your advice?"
+            },
+            {
+              "type": "longtext",
+              "text": "How can YOU relate to Jarrod? That is, what do you have in common with him?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Module 5: Recap",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "<b> In this Module you learned about: </b> <ul><li> Criminalness - what it is and how to recognize it </li><li> Your go-to criminal thinking styles that support criminalness </li><li> The process of recovering from criminalness </li><li> Your warning signs and triggers for criminal relapse </li><li> Automatic thoughts related to criminalness - how to be aware and challenge them </li><li> Recognizing signs of general stress and how to reduce it </li><li> Different strategies for dealing with your criminalness </li></ul>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Which of the goals that you learned about in this module are you going to focus on this week? "
+            },
+            {
+              "type": "longtext",
+              "text": "How will you accomplish your goal? "
+            },
+            {
+              "type": "longtext",
+              "text": "What might get in your way of accomplishing it? "
+            },
+            {
+              "type": "longtext",
+              "text": "What skills will you use to move past your road block? "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "text": "Now let's see what you learned! This quiz has 9 questions. Select the BEST possible answer to each question. Remember, you need to earn a score of 75% or above to move on to the next module! ",
+      "header": "",
+      "subheader": "Module 5: Content Quiz",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "multiChoice",
+          "prompt": "1. Criminalness means...",
+          "answers": [
+            {
+              "answer": "a. Thinking about committing a crime"
+            },
+            {
+              "answer": "b. Doing something illegal"
+            },
+            {
+              "answer": "c. Being convicted of a crime"
+            },
+            {
+              "answer": "d. Violating the rights or well-being of another person whether it is against the law or not"
+            }
+          ],
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "Criminalness means...",
+              "answers": [
+                {
+                  "answer": "Thinking about committing a crime"
+                },
+                {
+                  "answer": "Doing something illegal "
+                },
+                {
+                  "answer": "Being convicted of a crime "
+                },
+                {
+                  "answer": "Violating the rights or well-being of another person whether it is against the law or not"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Blaming others for your problems and not taking responsibility for your own actions best describes this criminal thinking style...",
+              "answers": [
+                {
+                  "answer": "Cutoff"
+                },
+                {
+                  "answer": "Power orientation "
+                },
+                {
+                  "answer": "Mollification "
+                },
+                {
+                  "answer": "Superoptimism "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Which of the following is <u>NOT</u> a risk factor for criminalness or criminal recidivism? ",
+              "answers": [
+                {
+                  "answer": "Criminal thinking "
+                },
+                {
+                  "answer": "Staying aware from people who are in trouble with the law"
+                },
+                {
+                  "answer": "Being bored"
+                },
+                {
+                  "answer": "Having family members who are also involved in crime"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Working to reduce your criminalness is...",
+              "answers": [
+                {
+                  "answer": "Done after you complete this program "
+                },
+                {
+                  "answer": "Not important for reaching your goals "
+                },
+                {
+                  "answer": "An on-going process that takes time "
+                },
+                {
+                  "answer": "Is not something to worry about "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Warning signs for criminalness are initial thoughts, feelings, or behaviors that usually appear immediately BEFORE...",
+              "answers": [
+                {
+                  "answer": "You actually commit a crime or violate rules"
+                },
+                {
+                  "answer": "Your triggers to committing a crime or violating rules "
+                },
+                {
+                  "answer": "You are revoked from supervision "
+                },
+                {
+                  "answer": "Your supervision sentence ends"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Automatic thoughts are...",
+              "answers": [
+                {
+                  "answer": "Instinctive thoughts about yourself or your situation"
+                },
+                {
+                  "answer": "Always negative"
+                },
+                {
+                  "answer": "Have nothing to do with your feelings or behaviors"
+                },
+                {
+                  "answer": "Permanent"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Automatic thoughts can be changed by...",
+              "answers": [
+                {
+                  "answer": "Nothing; automatic thoughts cannot be changed"
+                },
+                {
+                  "answer": "Looking at all the evidence and evaluating how true the thoughts really are"
+                },
+                {
+                  "answer": "Ignoring them"
+                },
+                {
+                  "answer": "Changing your emotions first"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Being stressed out can...",
+              "answers": [
+                {
+                  "answer": "Help you make good decisions "
+                },
+                {
+                  "answer": "Causes you to feel tired so you can sleep better"
+                },
+                {
+                  "answer": "Be a warning sign for criminalness"
+                },
+                {
+                  "answer": "Not be managed easily "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "All of the following are good ways to reduce stress <u>EXCEPT</u>...",
+              "answers": [
+                {
+                  "answer": "Progressive Muscle Relaxation "
+                },
+                {
+                  "answer": "Hiding away from other people "
+                },
+                {
+                  "answer": "Positive Self-Talk "
+                },
+                {
+                  "answer": "Guided imagery "
+                }
+              ]
+            },
+            {
+              "type": "longtext",
+              "text": "Name one thing you can do when you get bored or restless:"
+            }
+          ],
+          "correctAnswer": "d. Violating the rights or well-being of another person whether it is against the law or not"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "2. Blaming others for your problems and not taking responsibility best describes this criminal thinking style...",
+          "answers": [
+            {
+              "answer": "a. Cutoff"
+            },
+            {
+              "answer": "b. Power orientation"
+            },
+            {
+              "answer": "c. Mollification"
+            },
+            {
+              "answer": "d. Superoptimism"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. Mollification"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "3. Which of the following is <u>NOT</u> a risk factor for criminalness or criminal recidivism? ",
+          "answers": [
+            {
+              "answer": "a. Criminal thinking "
+            },
+            {
+              "answer": "b. Staying away from people who are in trouble with the law "
+            },
+            {
+              "answer": "c. Being bored"
+            },
+            {
+              "answer": "d. Having family members who are also involved in crime"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. Staying away from people who are in trouble with the law"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "4. Working to reduce your criminalness is...",
+          "answers": [
+            {
+              "answer": "a. Done after your complete this program"
+            },
+            {
+              "answer": "b. Not important for reaching your goals"
+            },
+            {
+              "answer": "c. An on-going process that takes time"
+            },
+            {
+              "answer": "d. Is not something to worry about"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. An on-going process that takes time"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "5. Warning signs for criminalness are initial thoughts, feelings, or behaviors that usually appear immediately BEFORE…",
+          "answers": [
+            {
+              "answer": "a. You actually commit a crime or violate rules"
+            },
+            {
+              "answer": "b. Your triggers to committing a crime or violating rules"
+            },
+            {
+              "answer": "c. You are revoked from supervision"
+            },
+            {
+              "answer": "d. Your supervision sentence ends"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. Your triggers to committing a crime or violating rules"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "6. Automatic thoughts are...",
+          "answers": [
+            {
+              "answer": "a. Instinctive thoughts about yourself or your situation"
+            },
+            {
+              "answer": "b. Always negative"
+            },
+            {
+              "answer": "c. Have nothing to do with your feelings or behaviors"
+            },
+            {
+              "answer": "d. Permanent "
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "a. Instinctive thoughts about yourself or your situation"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "7. Automatic thoughts can be changed by...",
+          "answers": [
+            {
+              "answer": "a. Nothing; automatic thoughts cannot be changed"
+            },
+            {
+              "answer": "b. Looking at all the evidence and evaluating how true the thoughts really are"
+            },
+            {
+              "answer": "c. Ignoring them"
+            },
+            {
+              "answer": "d. Changing your emotions first"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "New"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "8. Being stressed out can...",
+          "answers": [
+            {
+              "answer": "a. Help you make good decisions"
+            },
+            {
+              "answer": "b. Cause you to feel tired so you can sleep better"
+            },
+            {
+              "answer": "c. Be a warning sign for criminalness"
+            },
+            {
+              "answer": "d. Not be managed easily"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. Be a warning sign for criminalness"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "9. All of the following are good ways to reduce stress <u>EXCEPT</u>...",
+          "answers": [
+            {
+              "answer": "a. Progressive muscle relaxation"
+            },
+            {
+              "answer": "b. Hiding away from other people "
+            },
+            {
+              "answer": "c. Positive self-talk"
+            },
+            {
+              "answer": "d. Guided imagery"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. Hiding away from other people"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Great work! You finished Module 5. Your supervision officer may need to review your work before you can move on to the next module and award your certificate.",
+      "header": "",
+      "subheader": "",
+      "image": "New",
+      "imageBelow": "New"
+    }
+  ],
+  "owner": "3SebTnspPovZbhnxE",
+  "questions": [
+    {
+      "type": "multiChoice",
+      "prompt": "1. Criminalness means...",
+      "answers": [
+        {
+          "answer": "a. Thinking about committing a crime"
+        },
+        {
+          "answer": "b. Doing something illegal"
+        },
+        {
+          "answer": "c. Being convicted of a crime"
+        },
+        {
+          "answer": "d. Violating the rights or well-being of another person whether it is against the law or not"
+        }
+      ],
+      "fields": [
+        {
+          "type": "multiChoice",
+          "text": "Criminalness means...",
+          "answers": [
+            {
+              "answer": "Thinking about committing a crime"
+            },
+            {
+              "answer": "Doing something illegal "
+            },
+            {
+              "answer": "Being convicted of a crime "
+            },
+            {
+              "answer": "Violating the rights or well-being of another person whether it is against the law or not"
+            }
+          ]
+        },
+        {
+          "type": "multiChoice",
+          "text": "Blaming others for your problems and not taking responsibility for your own actions best describes this criminal thinking style...",
+          "answers": [
+            {
+              "answer": "Cutoff"
+            },
+            {
+              "answer": "Power orientation "
+            },
+            {
+              "answer": "Mollification "
+            },
+            {
+              "answer": "Superoptimism "
+            }
+          ]
+        },
+        {
+          "type": "multiChoice",
+          "text": "Which of the following is <u>NOT</u> a risk factor for criminalness or criminal recidivism? ",
+          "answers": [
+            {
+              "answer": "Criminal thinking "
+            },
+            {
+              "answer": "Staying aware from people who are in trouble with the law"
+            },
+            {
+              "answer": "Being bored"
+            },
+            {
+              "answer": "Having family members who are also involved in crime"
+            }
+          ]
+        },
+        {
+          "type": "multiChoice",
+          "text": "Working to reduce your criminalness is...",
+          "answers": [
+            {
+              "answer": "Done after you complete this program "
+            },
+            {
+              "answer": "Not important for reaching your goals "
+            },
+            {
+              "answer": "An on-going process that takes time "
+            },
+            {
+              "answer": "Is not something to worry about "
+            }
+          ]
+        },
+        {
+          "type": "multiChoice",
+          "text": "Warning signs for criminalness are initial thoughts, feelings, or behaviors that usually appear immediately BEFORE...",
+          "answers": [
+            {
+              "answer": "You actually commit a crime or violate rules"
+            },
+            {
+              "answer": "Your triggers to committing a crime or violating rules "
+            },
+            {
+              "answer": "You are revoked from supervision "
+            },
+            {
+              "answer": "Your supervision sentence ends"
+            }
+          ]
+        },
+        {
+          "type": "multiChoice",
+          "text": "Automatic thoughts are...",
+          "answers": [
+            {
+              "answer": "Instinctive thoughts about yourself or your situation"
+            },
+            {
+              "answer": "Always negative"
+            },
+            {
+              "answer": "Have nothing to do with your feelings or behaviors"
+            },
+            {
+              "answer": "Permanent"
+            }
+          ]
+        },
+        {
+          "type": "multiChoice",
+          "text": "Automatic thoughts can be changed by...",
+          "answers": [
+            {
+              "answer": "Nothing; automatic thoughts cannot be changed"
+            },
+            {
+              "answer": "Looking at all the evidence and evaluating how true the thoughts really are"
+            },
+            {
+              "answer": "Ignoring them"
+            },
+            {
+              "answer": "Changing your emotions first"
+            }
+          ]
+        },
+        {
+          "type": "multiChoice",
+          "text": "Being stressed out can...",
+          "answers": [
+            {
+              "answer": "Help you make good decisions "
+            },
+            {
+              "answer": "Causes you to feel tired so you can sleep better"
+            },
+            {
+              "answer": "Be a warning sign for criminalness"
+            },
+            {
+              "answer": "Not be managed easily "
+            }
+          ]
+        },
+        {
+          "type": "multiChoice",
+          "text": "All of the following are good ways to reduce stress <u>EXCEPT</u>...",
+          "answers": [
+            {
+              "answer": "Progressive Muscle Relaxation "
+            },
+            {
+              "answer": "Hiding away from other people "
+            },
+            {
+              "answer": "Positive Self-Talk "
+            },
+            {
+              "answer": "Guided imagery "
+            }
+          ]
+        },
+        {
+          "type": "longtext",
+          "text": "Name one thing you can do when you get bored or restless:"
+        }
+      ],
+      "correctAnswer": "d. Violating the rights or well-being of another person whether it is against the law or not"
+    },
+    {
+      "type": "multiChoice",
+      "prompt": "2. Blaming others for your problems and not taking responsibility best describes this criminal thinking style...",
+      "answers": [
+        {
+          "answer": "a. Cutoff"
+        },
+        {
+          "answer": "b. Power orientation"
+        },
+        {
+          "answer": "c. Mollification"
+        },
+        {
+          "answer": "d. Superoptimism"
+        }
+      ],
+      "fields": [],
+      "correctAnswer": "c. Mollification"
+    },
+    {
+      "type": "multiChoice",
+      "prompt": "3. Which of the following is <u>NOT</u> a risk factor for criminalness or criminal recidivism? ",
+      "answers": [
+        {
+          "answer": "a. Criminal thinking "
+        },
+        {
+          "answer": "b. Staying away from people who are in trouble with the law "
+        },
+        {
+          "answer": "c. Being bored"
+        },
+        {
+          "answer": "d. Having family members who are also involved in crime"
+        }
+      ],
+      "fields": [],
+      "correctAnswer": "b. Staying away from people who are in trouble with the law"
+    },
+    {
+      "type": "multiChoice",
+      "prompt": "4. Working to reduce your criminalness is...",
+      "answers": [
+        {
+          "answer": "a. Done after your complete this program"
+        },
+        {
+          "answer": "b. Not important for reaching your goals"
+        },
+        {
+          "answer": "c. An on-going process that takes time"
+        },
+        {
+          "answer": "d. Is not something to worry about"
+        }
+      ],
+      "fields": [],
+      "correctAnswer": "c. An on-going process that takes time"
+    },
+    {
+      "type": "multiChoice",
+      "prompt": "5. Warning signs for criminalness are initial thoughts, feelings, or behaviors that usually appear immediately BEFORE…",
+      "answers": [
+        {
+          "answer": "a. You actually commit a crime or violate rules"
+        },
+        {
+          "answer": "b. Your triggers to committing a crime or violating rules"
+        },
+        {
+          "answer": "c. You are revoked from supervision"
+        },
+        {
+          "answer": "d. Your supervision sentence ends"
+        }
+      ],
+      "fields": [],
+      "correctAnswer": "b. Your triggers to committing a crime or violating rules"
+    },
+    {
+      "type": "multiChoice",
+      "prompt": "6. Automatic thoughts are...",
+      "answers": [
+        {
+          "answer": "a. Instinctive thoughts about yourself or your situation"
+        },
+        {
+          "answer": "b. Always negative"
+        },
+        {
+          "answer": "c. Have nothing to do with your feelings or behaviors"
+        },
+        {
+          "answer": "d. Permanent "
+        }
+      ],
+      "fields": [],
+      "correctAnswer": "a. Instinctive thoughts about yourself or your situation"
+    },
+    {
+      "type": "multiChoice",
+      "prompt": "7. Automatic thoughts can be changed by...",
+      "answers": [
+        {
+          "answer": "a. Nothing; automatic thoughts cannot be changed"
+        },
+        {
+          "answer": "b. Looking at all the evidence and evaluating how true the thoughts really are"
+        },
+        {
+          "answer": "c. Ignoring them"
+        },
+        {
+          "answer": "d. Changing your emotions first"
+        }
+      ],
+      "fields": [],
+      "correctAnswer": "New"
+    },
+    {
+      "type": "multiChoice",
+      "prompt": "8. Being stressed out can...",
+      "answers": [
+        {
+          "answer": "a. Help you make good decisions"
+        },
+        {
+          "answer": "b. Cause you to feel tired so you can sleep better"
+        },
+        {
+          "answer": "c. Be a warning sign for criminalness"
+        },
+        {
+          "answer": "d. Not be managed easily"
+        }
+      ],
+      "fields": [],
+      "correctAnswer": "c. Be a warning sign for criminalness"
+    },
+    {
+      "type": "multiChoice",
+      "prompt": "9. All of the following are good ways to reduce stress <u>EXCEPT</u>...",
+      "answers": [
+        {
+          "answer": "a. Progressive muscle relaxation"
+        },
+        {
+          "answer": "b. Hiding away from other people "
+        },
+        {
+          "answer": "c. Positive self-talk"
+        },
+        {
+          "answer": "d. Guided imagery"
+        }
+      ],
+      "fields": [],
+      "correctAnswer": "b. Hiding away from other people"
+    }
+  ],
+  "answers": [],
+  "fields": [
+    {
+      "type": "longtext",
+      "text": "What are your automatic thoughts?"
+    },
+    {
+      "type": "longtext",
+      "text": "How do those thoughts make you feel?"
+    },
+    {
+      "type": "longtext",
+      "text": "What might you have done as a result of those feelings?"
+    },
+    {
+      "type": "longtext",
+      "text": "How are your answers above related to your criminalness?"
+    },
+    {
+      "type": "displayText",
+      "text": "Event #2: You need to sleep because you have work in the morning. But, the neighbors are arguing loudly outside. "
+    },
+    {
+      "type": "longtext",
+      "text": "What are your automatic thoughts?"
+    },
+    {
+      "type": "longtext",
+      "text": "How do those thoughts make you feel? "
+    },
+    {
+      "type": "longtext",
+      "text": "What might you have done as a result of those feelings?"
+    },
+    {
+      "type": "longtext",
+      "text": "How are your answers above related to your criminalness?"
+    },
+    {
+      "type": "displayText",
+      "text": "Event #3: Your SO decides to give you a random drug test. He made you do one the last time, too. "
+    },
+    {
+      "type": "longtext",
+      "text": "What are your automatic thoughts?"
+    },
+    {
+      "type": "longtext",
+      "text": "How do those thoughts make you feel?"
+    },
+    {
+      "type": "longtext",
+      "text": "What might you have done as a result of those feelings?"
+    },
+    {
+      "type": "longtext",
+      "text": "How are your answers above related to your criminalness? "
+    },
+    {
+      "type": "displayText",
+      "text": "For event #4, you will create your own example. "
+    },
+    {
+      "type": "longtext",
+      "text": "Event #4 (your own event): "
+    },
+    {
+      "type": "longtext",
+      "text": "What are your automatic thoughts?"
+    },
+    {
+      "type": "longtext",
+      "text": "How do those thoughts make you feel?"
+    },
+    {
+      "type": "longtext",
+      "text": "What might you have done as a result of those feelings?"
+    },
+    {
+      "type": "longtext",
+      "text": "How are your answers above related to your criminalness?"
+    }
+  ],
+  "orgOwnedBy": "5bSekKF3Rkcodk8Gf",
+  "createdBy": "3SebTnspPovZbhnxE"
+}

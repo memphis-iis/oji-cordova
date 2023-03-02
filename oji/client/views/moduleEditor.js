@@ -170,7 +170,6 @@ Template.moduleEditor.events({
 })
 
 Template.moduleEditor.onCreated(function() {
-    Meteor.subscribe('modules');
 
 })
 

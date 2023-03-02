@@ -1,75 +1,66 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import { firebase } from 'meteor/activitree:push';
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getMessaging, getToken } from "firebase/messaging";
-import { Session } from 'meteor/session';
-import { CordovaPush } from 'meteor/activitree:push';
+import WebPush, { CordovaPush } from 'meteor/activitree:push';
+import { webPushSubscribe } from 'meteor/activitree:push';
 
-// onlogin
+const cordovaConfig ={
+  appName: 'Oji',
+  debug: true, // Turns on various console messages in the Cordova console.
+  android: {
+    alert: true,
+    badge: true,
+    sound: true,
+    vibrate: true,
+    clearNotifications: true,
+    icon: 'statusbaricon',
+    iconColor: '#337FAE',
+    forceShow: true
+    // clearBadge: false,
+    // topics: ['messages', 'notifications'],
+    // messageKey: 'message',
+    // titleKey: 'title'
+    // topics: ['messages', 'notifications']
+  },
+  ios: {
+    alert: true,
+    badge: true,
+    sound: true,
+    clearBadge: true,
+    topic: 'com.uofmiis.ojicordova' // your IOS app id.
+  }
+};
+
 Accounts.onLogin(function(){
-  if(Meteor.isCordova){
-    CordovaPush.Configure({
-      appName: 'Oji',
-      debug: true,
-      android: {
-        alert: true,
-        badge: true,
-        sound: true,
-        vibrate: true,
-        clearNotifications: true,
-        icon: 'icon',
-        iconColor: 'blue'
-      }
+  if(!Meteor.isCordova){
+    Notification.requestPermission(function(status) {
+      console.log('Notification permission status:', status);
+      Meteor.call('getFirebaseConfig', function(err, webPushConfig){
+        if(err){
+          console.log(err);
+        } else {
+          WebPush.Configure({
+            appName: 'Oji',
+            firebase: webPushConfig,
+            debug: true,
+            publicVapidKey: webPushConfig.publicVapidKey  
+          });
+          webPushSubscribe();
+        }
+      });
     });
-    CordovaPush.push().on('registration', function(data) {
-      console.log('registration event: ' + data.registrationId);
-      Meteor.call('sendTokenToServer', data.registrationId);
-    });
-    CordovaPush.push().on('notification', function(data) {
-      console.log('notification event');
+  } else {
+    CordovaPush.Configure(cordovaConfig);
+    //create android channel
+    CordovaPush.createChannel({
+      id: Meteor.userId(),
+      description: 'Oji Notifications',
+      importance: 4,
+      vibration: true
     });
   }
 });
 
 Meteor.startup(() => {
-  //get firebase config from meteor call and return result to firebaseConfig session variable
-  Meteor.call('getFirebaseConfig', function(error, result){
-      //if not cordova
-      if(!Meteor.isCordova){
-        //initialize firebase
-        const app = initializeApp(result);    
-        //get firebase analytics object
-        const analytics = getAnalytics(app);
-        //ask user for permission to send notifications
-        Notification.requestPermission().then(function(permission) {
-          if(permission === 'granted'){
-            console.log("Permission Granted");
-            //get firebase messaging object
-            const messaging = getMessaging(app);
-            //get token
-            getToken(messaging,
-              {
-                vapidKey: result.publicVapidKey
-              }
-            ).then((currentToken) => {
-              console.log("currentToken: " + currentToken);
-              if (currentToken) {
-                //send token to server
-                Meteor.call('sendTokenToServer', currentToken);
-              }
-            }).catch((err) => {
-              console.log('An error occurred while retrieving token. ', err);
-            });
-          } else {
-            console.log("Permission Denied");
-          }
-        });
-      } else {
-
-      }
-  });
   Meteor.subscribe('files.images.all');
 })
 

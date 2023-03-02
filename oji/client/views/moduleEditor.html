@@ -1,5 +1,5 @@
 <template name="moduleEditor">
-    <div class="px-4 py-5 my-5">
+    <div class="px-4 py-5 my-5 profileCard">
         <h2><a href="/control-panel">Control Panel</a> / Module Editor / {{module.title}}</h2>
         <p>All changes are made instantly.</p>
         <hr>
@@ -106,8 +106,8 @@
                     </td>
                     <td>
                         Prompt: {{this.prompt}}<a id="open-editor" data-field="pages[{{this.parent}}].questions[{{@index}}].prompt" data-value="{{this.prompt}}"> Edit</a><br>
-                        Correct: <select id="correct" class="combo-save" data-field="pages[{{this.parent}}].questions[{{@index}}].correctAnswer">
-                            <option >{{this.correct}}</option>
+                        Correct: <select id="correctAnswer" class="combo-save" data-field="pages[{{this.parent}}].questions[{{@index}}].correctAnswer">
+                            <option >{{this.correctAnswer}}</option>
                             {{#each this.answers}}
                             <option>{{this.answer}}</option>
                             {{/each}}

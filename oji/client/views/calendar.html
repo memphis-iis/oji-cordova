@@ -28,7 +28,9 @@
                         <h5>{{importance}} priorty</h5>
                     </td>
                     <td>
-                        <a id="deleteEvent" data-id="{{this._id}}" class="deleteEvent glyphicon glyphicon-remove"></a>
+                        {{#if this.delete}}
+                            <a id="deleteEvent" data-id="{{this._id}}" class="deleteEvent glyphicon glyphicon-remove"></a>
+                        {{/if}}
                     </td>
                 </tr>
                 {{/each}}

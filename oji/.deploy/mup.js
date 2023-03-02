@@ -1,7 +1,7 @@
 module.exports = {
     servers: {
       one: {
-        host: '52.89.69.112',
+        host: 'ojis-journey.com',
         username: 'ubuntu',
         pem: '~/oji/oji-staging.pem'
       }
@@ -10,13 +10,13 @@ module.exports = {
       name: 'Oji',
       path: '../',
       volumes: {
-        '/public': '/opt/oji/public',
-        '/private': '/opt/oji/private'
+        '/ojidocs' : '/ojidocs',
       },
       docker: {
         image: 'zodern/meteor:root',
         prepareBundle: true,
-        useBuildKit: true
+        useBuildKit: true,
+
       },
       buildOptions: {
         debug: true,

@@ -1,0 +1,2749 @@
+{
+  "_id": "LZMNdaRwPEFLmhrKn",
+  "title": "MODULE 6",
+  "subtitle": " Understanding and Managing My Mental Illness: Improving Functioning and Preventing Relapse",
+  "identifier": "New",
+  "display": true,
+  "description": "You’re taking this next module because you have a history of mental health symptoms. Your symptoms may be very serious and cause a lot of problems or they may be minor and relatively easy to control. No matter what kind of symptoms you have, this module will help you better understand mental illness generally and how it may impact you specifically. You’ll also learn several new coping skills to try out and how best to track the effects of any medications you may be taking.",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Mental illness happens when your mind is not working right. There are two factors that cause your mind to do things that are not normal for you: <b>(1) Biology</b> and <b>(2) Environment</b>. Biology means the stuff already inside of you, like your genetics or chemicals in your brain. Mental illness is sometimes inherited from people in your family. You may know other family members who have a mental illness quite similar to the one you have. There are also chemicals in your brain that send messages to other parts of your brain –these messages tell your mind how to think and act. These chemicals are called neurotransmitters(neuro = brain; transmitter = sending messages). When your neurotransmitters are not working correctly, the wrong messages get sent to the different parts of your brain. This is called a chemical imbalance. There are many different types of neurotransmitters in your brain; the symptoms you experience depend on which ones stop functioning properly. But, biology isn’t enough. You also need to experience stress in your environment (for example, death of a loved one, loss of a job, childhood abuse, or incarceration). When your biology AND your environment areworking against you, it increases your chances of having a mental illness (it’s no guarantee, just very likely).",
+      "header": "",
+      "subheader": "Defining \"Mental Illness\": What Is It?",
+      "image": "mod6bioenv.png",
+      "imageBelow": "true"
+    },
+    {
+      "type": "text",
+      "text": "<ul><li>Mental illness is usually experienced as a thought or behavior that causes stress or emotional (andeven physical) pain to you or the people around you. These thoughts and behaviors may look different for different people, even if they have the same mental illness that you have. </li><li> Mental illness is not simply a reaction to stress. What makes something a mental illness is when the thought or behavior is not typical (or abnormal) for other people in your culture. Take anxiety for example. Anxiety is normal sometimes. You may have felt anxious or nervous about coming to this restricted housing unit. That’s understandable; it’s an uncomfortable and sometimes scary place to be. But, when your anxiety is so high that you can’t eat, can’t sleep, can’t communicate with other people, or can’t bring yourself to shower or exercise, your anxiety could be a symptom of mental illness. Those behaviors are not normal and could cause a lot of problems for you. </li><li> A doctor or counselor who went to school to learn about mental illness determines the type of mental illness that you have. What these professionals look for is a specific group of symptoms that happen at the same time. These clusters of symptoms make up a diagnosis (diagnosis simply means the label or name used to describe each cluster of symptoms). Diagnosis helps professionals communicate about a person’s mental illness quickly and easily. It can also give people some relief that there is a name for what they are going through. </li><li> To have a mental illness, you don’t have to experience ALL symptoms which make up that particular diagnosis, and not everyone will express these symptoms in the same way. To make a correct diagnosis, your doctor or counselor needs very specific information about you. This is why it is important to be honest with them when they ask you about your mental health. If you lie to them, they cannot help you get better. They have more knowledge about this stuff than you might think. If you have not told the truth to your doctor or counselor in the past, go back and tell them what’s really going on. They understand that it can be difficult to talk about mental illness. </li><li> Many people have a mental illness. Mental health problems are especially common in prisons and in disciplinary units. Nearly 16% of people who are incarcerated are believed to have a mental illness. </li><li> You often cannot tell just by looking at a person if they have a mental illness or not. Lots of people with mental illnesses look like they hold it together on the outside, but, on the inside, they are hurting. Your cellmate or neighbor may have a mental illness, and you just don’t know it. </li><li> It is <b><u>NOT</b></u> your fault that you have a mental illness. But, this isn’t an excuse for your behavior. You are responsible for managing your symptoms so they don’t end up getting the best of you and take you away from your goals. </ul></li>",
+      "header": "",
+      "subheader": "Basic Facts about Mental Illness ",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "The fact is – you may never get over your mental illness for good. Many people must work for therest of their lives to manage symptoms of their mental illness. It doesn’t go away forever. But, this doesn’t mean you have to suffer forever. Imagine being sick with a cold (fever, chills, headache). What do you need to do to get better again? Take medicine, get lots of rest, drink plenty of water, and eat soup. Once the symptoms are gone, the cold is over. There is no need to continue taking medicine, resting, guzzling water, or eating soup. This is not true with mental illness. Yes, there are things youcan do to feel better, but you can never give up working on it. The good news is –the more you practice new skills, the easier your work will become. It may not even feel like work after a while. <br> You are going to start breaking the old habits that keptyour symptoms going and develop new habits that keep your symptoms under control. And if you’re wondering whether treatment programs like this one can work, the answer is YES. Many times, people also need medication to help with their symptoms (medications can correct your neurotransmitters). So, it’s important that you take these if the doctor tells you to; remember he or she is trained about this stuff. You always have the right to ask questions about your medications if you are confused. For many mentalillnesses, there is a 70-80% chance that people will see improvements in their lives if they take the necessary steps. But you must be an active participant. If you sit there and wait for change to happen, you will be sitting and waiting for a long time. <u><i><b>YOU</u></i></b> HAVE TO DO SOMETHING! ",
+      "header": "",
+      "subheader": "How Do I Get Over Mental Illness?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Exercise: Mental Illness Mini Survey",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Answer the following questions. Some questions ask about mental illness more generally, and some questions ask about your specific mental illness (you can still talk about your symptoms/experiences even if you do not know your diagnosis). ",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What did you think/know about mental illness BEFORE this module?"
+            },
+            {
+              "type": "longtext",
+              "text": "What new information did you learn about mental illness from this module? "
+            },
+            {
+              "type": "longtext",
+              "text": "Do you know anyone else (family member, friend) who has a mental illness?"
+            },
+            {
+              "type": "longtext",
+              "text": "How are their symptoms similar and/or different than yours?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are some biological factors that you think caused your mental illness? "
+            },
+            {
+              "type": "longtext",
+              "text": "What are some environmental factors that you think caused your mental illness?"
+            },
+            {
+              "type": "longtext",
+              "text": "When are your symptoms at their worst?"
+            },
+            {
+              "type": "longtext",
+              "text": "What ways have you tried in the past to reduce your mental health symptoms?"
+            },
+            {
+              "type": "longtext",
+              "text": "How well did they work for you? "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Acute Clinical Disorders vs. Personality Disorders: Professionals who know a lot about mental illnesses and how to diagnose them, typically separate them into two main categories: <b>(1) Acute Clinical Disorders</b> and <b>(2) Personality Disorders</b>. Acute clinical disorders are generally thought to be less stable over time and their symptoms are usually easier to manage than personality disorders. People with acute clinical disorders often recognize or understand that there is something not quite right with them, and they are likely to ask for help. People with personality disorders often need other people to point out their problems, and they don’t like when this happens! They are less likely to ask for help on their own. Having a personality disorder can severely impact how you relate to other people and can be very damaging to your personal relationships. ",
+      "header": "",
+      "subheader": "Common Diagnosis: Part 1",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "<b>Depression </b> <ul><li> Depression is one of the most common mental disorders. About 15-20% of people in the U.S. will experience depression in their lives. </li><li> It causes people to have low moods in which they feel sad, blue, and down. </li><li> It can impact you social life, your work, your health...</li><li> The good news is that people with depression can learn to manage their symptoms and lead happy, productive lives. </li><li> Most people develop depression as teenagers or young adults, typically around the ages of 16 and 30. </li><li> Some people only have symptoms a few times in their lives, but other people have more extreme symptoms that can lead to suicidal thoughts and/or hospitalization. </li><li> Symptoms tends to come in episodes - this means that people will have symptoms for a period of time, and then their symptoms go away for a bit. These episodes may continue throughout a person's life if they do not get help. <b>Major Depressive Disorder</b> is characterized by several symptoms happening at the same time for two weeks or more. </li></ul>",
+      "header": "",
+      "subheader": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Symptoms of Depression",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "indicate whether you have experienced something similar in your life.",
+          "image": "",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Sad Mood <br><b>Example</b>: \"There is nothing good in my life.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Eating a lot or a little <br><b>Example</b>: \"The last time I was depressed, I gained over 10 pounds.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Sleeping a lot or a little <br><b>Example</b>: \"I slept over 11 hours. When I woke up, I laid in bed for another few hours because I didn't have the energy to get up.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Feeling tired/low energy <br><b>Example</b>: \"The other day I skipped the gym because I didn't have the motivation to go.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Feeling helpless, worthless, or hopeless <br><b>Example</b>: \"Everyone is better than me; I just hold people back\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Feeling guilty for things that aren't your fault <br><b>Example</b>: \"Maybe if I wasn't depressed, the officer wouldn't be in such a bad mood and that other guy wouldn't be getting yelled at.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Suicidal thoughts or actions <br><b>Example</b>: \"The best thing for me to do is leave this world.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Trouble thinking or making decisions <br><b>Example</b>: \"One day, when I was cooking, I couldn't focus on reading the recipe and I couldn't decide whether I wanted to double the recipe or not\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Loss of interest in enjoyable activities <br><b>Example</b>: \"I used to draw in my room to reduce stress, but, now I just don't feel like it anymore.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<b>Bipolar:</b> <br><ul><li> Bipolar disorder happens to about 1 in every 100 people at some point in their lives. </li><li> Bipolar used to be called \"manic depression\" - this is because it has a lot in common with depression. But, there is an extra part to it: the mania. Depression, as you know, causes people to be in a low or sad mood. Mania, on the other hand, causes people to be in very high moods (without using substances). Bipolar (bi = two, polar = sides) is characterized by BOTH high and low moods. People feel on top of the world for a while (sometimes as long as a week or more) and then come way back down for a while (sometimes as long as a month or more). </li><li> Like depression, bipolar can impact your social life, your work, your health, and other important things. </li><li> People with bipolar disorder can learn to manage their symptoms and lead happy, productive lives. </li><li> Most people develop bipolar disorder as teenagers or young adults, typically around the ages of 16 and 30. </li><li> Some people only have symptoms a few times in their lives, but other people have more extreme symptoms that can lead to suicidal thoughts and/or hospitalization. </li><li> Symptoms tend to come in episodes - this means that people will have symptoms for a period of time, and then their symptoms go away for a bit. Manic episodes usually do not last as long as the depression episodes. People tend to like feeling manic, but dislike feeling depressed. These episodes of mania and depression may continue throughout a person's life if they do not get help. </li><li> Mania can be dangerous because it blocks people from seeing the consequences of their behaviors. Spending money you don't have, having sex with a lot of partners, or taking illegal drugs are examples of these. Mania can also lead to psychotic symptoms (hallucinations, delusions) that are similar to Schizophrenia (see the following pages for more information). </li></ul>",
+      "header": "",
+      "subheader": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Symptoms of Mania",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "indicate whether you have experienced something similar in your life.",
+          "image": "",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Mania <br><b>Example</b>: \"I'm so happy that I feel like I've never done anything wrong.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Irritability <br><b>Example</b>: \"I can't believe those people questioned my great ideas.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Unrealistic self-confidence <br><b>Example</b>: \"I'm sure that I'm one of the smartest people alive.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Need for less sleep <br><b>Example</b>: \"I'm so excited for tomorrow that I only slept 2 hours last night.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Talking a lot <br><b>Example</b>: \"I felt like I was talking faster than normal, and the person I was talking to could hardly understand what I was saying.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Racing thoughts <br><b>Example</b>: \"I was thinking so fast that I couldn't think clearly.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Easily distracted <br><b>Example</b>: \"I was working on my homework, but every noise that I heard made me look up.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Extreme over activity <br><b>Example</b>: \"I lifted weights at the gym for 5 hours straight just because I was feeling up for it.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Bad judgement <br><b>Example</b>: \"I knew my friend would make me a lot of money betting on the race, so I gave him all the money I had. I was swindled when he didn't show up with my winnings.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Note: the symptoms of depression that go along with Bipolar Disorder are the same as those listed in the first symptoms of depression exercise. ",
+              "answers": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<b>Schizophrenia: </b> <br><ul><li> About 1 in every 100 people will have schizophrenia (schizo = split; phrenia = mind) at some point in their lives. </li><li> Symptoms of Schizophrenia can get in the way of important things in your life and can make it difficult for you to tell what is real and what is not real. It may feel like you are dreaming when you are really awake. Sometimes, people have a hard time understanding when their feelings or beliefs aren't real. So, even when someone tries to prove them wrong, they still think those things are real when, in fact, they are not. This makes it hard for some people to realize when they have Schizophrenia. </li><li> Schizophrenia is considered one of the most severe mental disorders, but that doesn't mean there isn't help. Many people with this disorder can be happy, healthy, and productive. </li><li> Most people develop Schizophrenia as teenagers or young adults, typically around the ages of 16 and 30. </li><li> Some people only have symptoms a few times in their lives, but other people have more extreme symptoms that can lead to suicidal thoughts and/or hospitalization. </li><li> Symptoms tend to come in episodes - this means that people will have symptoms for a period of time, and then their symptoms go away for a bit. These episodes may continue throughout a person's life if they do not get help. </li></ul> ",
+      "header": "New",
+      "subheader": "New",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Symptoms of Schizophrenia",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": " combo indicate whether you have experienced something similar in your life.",
+          "image": "",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Hallucinations (seeing, hearing, smelling, or feeling something that is not real) <br><b>Example</b>: \"I hear a voice telling me that I'm not good, that I should just kill myself.\" or \"Sometimes I hear a radio playing when there isn't a radio near me.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Delusions (extreme false beliefs) <br><b>Example</b>: \"I am God.\" or \"The government is poisoning me.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Confused thinking <br><b>Example</b>: \"People keep saying that I'm using made up words.\" or \"I forgot what I was saying halfway through a sentence.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Cognitive problems <br><b>Example</b>: \"I couldn't understand my officer's instructions.\" or \"I don't remember what I ate for lunch today.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Problems with other people or work <br><b>Example</b>: \"I avoid other people because I might hurt them by accident.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Disorganized behavior <br><b>Example</b>: \"When I walk around, I make sure my hand is always touching the wall.\" or \"I sat perfectly still for hours on my bed.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Lack of enjoyment or emotion <br><b>Example</b>: \"The thought of playing cards with the guys doesn't seem like fun anymore.\" or \"Some guy called me a 'bitch' today at the bus stop, but I didn't seem to care one way or the other.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "<b>Anxiety: </b> <br><ul><li> Remember that the type of anxiety discussed here is extreme and disproportionate to the situation. Anxiety becomes a problem when you are worrying so much about something that it causes serious impairment to your life (like work, exercise, or relationships). </li><li> Some people worry a lot about many things (this is called Generalized Anxiety) or one specific thing (this is called a phobia; examples include being in public or fearing closed spaces). Anxiety disorders can also develop from a past traumatic event in which your mind keep remembering the event and triggers you to worry about future trauma (this is called Post-Traumatic Stress Disorder [PTSD]). </li><li> About 5% of people will experience Generalized Anxiety Disorder in their lifetime, about 8% of adults will experience PTSD, and up to 13% of people will experience social phobia. </li><li> Many people with anxiety disorders can be happy, healthy, and productive. </li><li> Most people develop anxiety disorders as teenagers or young adults, typically around the ages of 16 and 30. </li><li> Some people only have symptoms a few times in their lives, but other people have more extreme symptoms that can lead to suicidal thoughts and/or hospitalization. </li><li> Symptoms tend to come in episodes - this means that people will have symptoms for a period of time, and then their symptoms go away for a bit. These episodes may continue throughout a person's life if they do not get help. </li></ul> ",
+      "header": "",
+      "subheader": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Symptoms of Anxiety ",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Indicate whether you have experienced something similar in your life. ",
+          "image": "",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Intense fear or worry <br><b>Example</b>: \"If I don't get out of here, I will die.\" or \"What if I say something stupid and everyone laughs at me?\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Physical complaints <br><b>Example</b>: \"I get so nervous that my chest starts hurting, my hands sweat, my heart races, and I feel dizzy.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Avoidance of social events <br><b>Example</b>: \"I refused to go to my sister's birthday party because I didn't want other people to look at me.\" or \"I skipped a meeting with my counselor because I felt her would criticize me if I told him my problems.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Compulsions <br><b>Example</b>: \"I feel the need to wash my hands 5 times after every meal to stop something bad from happening.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Nightmares <br><b>Example</b>: \"I had a bad dream that my father was beating me again for not taking out the trash when I was a kid.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Increased arousal <br><b>Example</b>: \"I am always looking over my shoulder for danger.\" or \"I get jumpy and angry when someone calls for my attention.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "You did not read about every possible acute clinical disorder out there. Just because you said you experienced some of the symptoms that make up each disorder does not mean you fit one of the diagnoses. Only your doctor or counselor can help you figure outwhat is going on for you. You may have a disorder that is not discussed here. If that’s the case, your counselor can tell you more about your specific disorder and help you understand the symptoms you experience. Many disorders share similar symptoms. So,even if you do have another disorder, you may still experience symptoms like the ones listed in this worksheet. It is also common for people to have more than one diagnosis. ",
+      "header": "",
+      "subheader": "What Do These Disorders Say about Me?",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Explore the <b>acute clinical disorders</b> that you have. You may need to ask your counselor what your specific diagnoses are. Fill in the boxes below.",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "My acute clinical diagnoses are:"
+            },
+            {
+              "type": "longtext",
+              "text": "These are my most problematic symptoms: "
+            },
+            {
+              "type": "longtext",
+              "text": "I have been dealing with this disorder since:"
+            },
+            {
+              "type": "longtext",
+              "text": "My pattern of symptoms is like this: "
+            },
+            {
+              "type": "longtext",
+              "text": "What I didn't know about this disorder BEFORE was: "
+            },
+            {
+              "type": "longtext",
+              "text": "My experience with treatment in the past has been:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "The next few pages discuss personality disorders that are particularly common in prisons. Personality disorders are only diagnosed in adults because doctors need to know that the symptoms have been around a long time. Remember that personality disorders are stable over time and become part of who a person is. These disorders are especially problematic for people’s relationships with others. People with personality disorders often think, “it’s not me, it’s everyone else!” But the truth is, it really is YOU. ",
+      "header": "",
+      "subheader": "Common Diagnoses: Part 2",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "Borderline: <ul><li> About 2 in every 100 people have Borderline Personality Disorder. </li><li> Borderline personality begins to appear in adolescence and continues into adulthood. </li><li> The biggest issue with this disorder is unstable relationships. People with this disorder experience very rocky relationships with others, where one minute they love the other person and the next minute they hate that person.</li><li>Your intimate relationship history will give you hints as to whether you may be Borderline. </li><li>If you are Borderline, other people are likely to see you as unpredictable, short-tempered, irrational, or out of control.</li><li>Thegoodnewsis,oncepeoplebecomeawarethattheyareBorderline,theycanlearnto manage their symptoms and lead happy, productive lives. </li><li>Borderline often gets confused with Bipolar Disorder, but they are not the same. In people with Borderline, changes in mood or attitude come quickly, sometimes minute by minute, and they usually happen in response to an interaction with another person. People with Bipolar Disorder experience slower changes in mood, staying in their manic or depressive episodes for several days (or more) at a time. Bipolar is also not as commonly triggered by interactions with other people as Borderline. Ask your doctor or counselor if you are still confused by the differences between Borderline and Bipolar. </li></ul>",
+      "header": "",
+      "subheader": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "Symptoms of Borderline:",
+      "header": "",
+      "subheader": "New",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "\tIndicate whether you have experienced something similar in your life.",
+          "image": "",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "\t <b>Symptom</b>: Low self-worth <br><b>Example</b>: \"My counselor had to cancel today. That must mean that I am a bad person.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "\t <b>Symptom</b>: Low self-worth <br><b>Example</b>: Pattern of unstable relationships <br><b>Example</b>: \"My husband and I have a history of arguing. Every time he would do something I didn’t like, I would threaten to leave him.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "\t <b>Symptom</b>: Impulsive or reckless behavior<br><b>Example</b>: \"I was so upset that I got fired from my job that I drove my car into a tree\" or \"I had sex with 3 different people in one night because I wanted to feel loved.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Identity problems <br><b>Example</b>: \"I don't even know who I am anymore; sometimes I wonder what I'm doing with my life.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Feeling empty or alone <br><b>Example</b>: \"I have a lot of people would call me their friend, but they don't really care about me.\" <br>Have your experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Anger outbursts or irritability <br><b>Example</b>: \"I got so angry when my girlfriend came home late one night. I grabbed her and pushed her to the floor because I thought she was cheating on me.\" <br> Have you experienced something similar? ",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Antisocial: <ul><li> In the community, about 3% of men and 1% of women have Antisocial Personality Disorder. In prisons, this number is as high as 30%. </li><li> Antisocial personality begins to appear in adolescence and continues into adulthood. </li><li> The biggest issue with this disorder is a disregard for, and violation of, the rights and well being of other people. Being antisocial does not mean that you don't like being around other people; it means that you break the moral and legal rules of society. Just like any other disorder, this is NOT an excuse for bad behavior. </li><li> Your juvenile and adult criminal history will give you hints as to whether you may be Antisocial. </li><li> If you are Antisocial, other people are likely to see you as irritable, irresponsible, manipulative, and deceptive. </li><li> The good news is, once people become aware that they are Antisocial, they can learn to manage their symptoms and lead happy productive lives. </li></ul>",
+      "header": "",
+      "subheader": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "Symptoms of Antisocial: ",
+      "header": "New",
+      "subheader": "New",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Indicate whether you have experienced something similar in your life. ",
+          "image": "",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Failing to respect social norms or laws <br><b>Example</b>: \"I've spent my childhood in and out of juvenile detention because I was robbing people and selling the stolen property.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Disregard for others' safety <br><b>Example</b>: \"I've been arrested 3 times for drunk driving; once my daughter was in the car with me.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Aggression <br><b>Example</b>: \"I punched that motherfucker in the gut for cutting me in line at the gas station.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Lack of remorse for harm caused <br><b>Example</b>: \"I didn't even care that she had a black eye, as long as that kid knows not to talk back to me.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Failure to plan ahead or impulsivity <br><b>Example</b>: \"I knew I would need money to pay my rent. Instead of saving up for it, I sold some dope at the last minute to get the cash.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Lying or conning other people <br><b>Example</b>: \"This girl was really sexy and I wanted to take her on a date. She wouldn't go for a guy like me, so I told her I was a marketing executive.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Narcissistic: <ul><li> In the community, about 1 in every 100 people have Narcissistic Personality Disorder. Most (50-75%) of these people are men. </li><li> Narcissistic personality begins to appear in adolescence and continues into adulthood. </li><li> The biggest issues with this disorder is a grandiose sense of self (meaning that you believe you are wonderful, superior, unique, and can do no wrong), need for admiration (meaning that you want others to praise you and look up to you), and lack of empathy for other people (meaning that you don't care how you treat other people to get to the top). </li><li> Your relationships with friends, romantic partners, and co-workers will give you hints as to whether you may be Narcissistic. </li><li> If you are Narcissistic, other people are likely to see you as sensitive to criticism, entitled, demanding, and arrogant. </li><li> The good news is, once people become aware that they are Narcissistic, they can learn to manage their symptoms and lead happy, productive lives. </li></ul>",
+      "header": "",
+      "subheader": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "Symptoms of Narcissistic:",
+      "header": "New",
+      "subheader": "New",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Indicate whether you have experienced something similar in your life. ",
+          "image": "",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Grandiose sense of self <br><b>Example</b>: \"That report I wrote for my boss was perfect. I'm the best damn employee they've got.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Thinking a lot about success, power, beauty, ideal love <br><b>Example</b>: \"My ultimate goal in life is to have a multi-million dollar home and a collection of luxury cars to show off.\" or \"Money is power.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Believing oneself to be unique or special <br><b>Example</b>: \"I felt I was just too smart for people to really get me; no one understood how talented I really was.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Sense of entitlement <br><b>Example</b>: \"I always get what I want, even if it means I have to take it from someone else. They probably didn't deserve it anyway.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Need for attention <br><b>Example</b>: \"I enjoy being the center of attention. In school I was a real jokester. I wanted people to look at me and want to be me.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Little empathy for others <br><b>Example</b>: \"It was me and another lady up for a promotion at my last job; so, I told my supervisor that she tries to pocket money from the company. She was fired.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Believing others are envious of achievements <br><b>Example</b>: \"My boyfriend's just jealous because I could get whatever guy I want; I'm so good looking and successful, guys would be stupid not to date me.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Schizotypal: <br> <ul><li>About 3% of people have Schizotypal Personality Disorder. </li><li> Schizotypal personality begins to appear in adolescence and continues into adulthood. A few people with this disorder will also develop Schizophrenia or another psychotic disorder in their lifetime. </li><li> The biggest issue with this disorder is poor social and interpersonal (this simply means how you relate to other people) skills. People with this disorder have difficulty forming close relationships and generally feel like they don't fit in with other people. </li><li> Your intimate relationship history will give you hints as to whether you may be schizotypal. </li><li> Unlike people with Borderline, where relationships are chaotic and dramatic, people with Schizotypal have relationships that are distant and shallow. </li><li> If you are schizotypal, other people are likely to see you as strange, bizarre, odd, and social awkward. </li><li> The good news is, once people become aware that they are Schizotypal, they can learn to manage their symptoms and lead happy, productive lives. </li></ul>",
+      "header": "",
+      "subheader": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "Symptoms of Schizotypal: ",
+      "header": "",
+      "subheader": "",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Indicate whether you have experienced something similar in your life.",
+          "image": "",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Thinking a lot about superstitions or paranormal activities <br><b>Example</b>: \"There was a black cat that always walked around my neighborhood. I think he knew I was up to no good.\" or \"I felt I could hear other people's thoughts.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Unusual bodily experiences <br><b>Example</b>: \"I think I've been to heaven before; I've felt my spirit leave my body.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Odd thinking or speech <br><b>Example</b>: \"Other people say that I take too long to communicate my thoughts.\" or \"I used the word 'talkable' the other day, but someone told me to say 'talkative' instead.\"<br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Odd behavior or appearance <br><b>Example</b>: \"I sometimes walk down the street with a shopping cart in case I find something I want to keep.\" or \"My clothes don't match most of the time.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Suspicious or paranoid beliefs <br><b>Example</b>: \"I wore a pair of striped socks whenever I left the house so I would feel safe.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Fears about being around other people <br><b>Example</b>: \"I really don't want to go to my little nephew's birthday party. What if someone tries to steal my new hat?\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "<b>Symptom</b>: Few close friends <br><b>Example</b>: \"I like to keep to myself because I don't fit in with a lot of other people.\" or \"My mom is really the only person who I can talk to about my problems.\" <br> Have you experienced something similar?",
+              "answers": [
+                {
+                  "answer": "Yes"
+                },
+                {
+                  "answer": "No"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You did not read about every possible personality disorder out there. Just because you said you experienced some of the symptoms that make up each disorder does not mean you fit the diagnosis. Only your doctor or counselor can help you figure out what is going on for you. You may have a disorder that is not discussed here. If that’s the case, your counselor can tell you more about your specific disorder and help you understand the symptoms you experience. Many disorders share similar symptoms. So, even if you do have another disorder, you may still experience symptoms like the ones listed in this worksheet. It is also common for people to have features or traits of more than one personality disorder. <br>Even though help is available, treating the symptoms of a personality disorder is often more challenging than treating acute clinical disorders. This is because people with personality disorders don’t always realize that they are part of the problem and that they need to change some things about themselves. They will often blame other people or their environment for their problems so they can make themselves feel better. In reality, the way they react to stress and the way they treat other people are the root causes of their problems. ",
+      "header": "",
+      "subheader": "What Do These Disorders Say about Me?",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Know Thy Self",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Explore the Personality Disorders or features that you have. You may need to ask your counselor what your specific diagnoses are. Answer the prompts below.",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "My personality diagnoses: "
+            },
+            {
+              "type": "longtext",
+              "text": "These are my most problematic symptoms:"
+            },
+            {
+              "type": "longtext",
+              "text": "I have been dealing with this disorder since:"
+            },
+            {
+              "type": "longtext",
+              "text": "My pattern of symptoms are like this:"
+            },
+            {
+              "type": "longtext",
+              "text": "What I didn't know about this disorder BEFORE was:"
+            },
+            {
+              "type": "longtext",
+              "text": "My experience with treatment in the past has been:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "What is Stigma?",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "You have probably been a victim of stigma and not even realized it. Stigmais a negative opinion or feeling that someone has about another person (or group of people) who they don’t know a lot about. It happens when people don’t understand something. So, they base their opinion on what little information they do have. Stigmatizing beliefs can come from many sources –seeing a movie, watching the news, hearing a story, social stereotypes, or having short interactions with only a few people who belong to a particular group. All of these sources can lead to negative and, often, incorrect judgments about people. You can be stigmatized by people in the general public (“Everyone with mental problems is just crazy and weird”) or by your own attitudes (“Having to goto therapy is embarrassing; it must mean that I’m a weak person”). Stigma can make it difficult for you to cope with your mental illness, integrate back into society, hold a job, or secure housing. Luckily, when people learn more about mental illness and meet people who have mental illnesses, their stigmas begin to go away. This is true for other stigmas as well (e.g. “Criminals are always bad people,” “Lawyers are nothing but liars and cheats,” “Gays are dirty”). ",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are some groups of people that might be the targets of stigma?"
+            },
+            {
+              "type": "longtext",
+              "text": "Which groups listed above do you belong to? Give examples of how you experienced stigma as someone in this group."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "So, should you just accept stigma as a normal part of life? NO. You can play a role in changing how people think. Here are some ways to do this: <br> Educate yourself about mental disorders <ul><li>Learn as much about your own mental disorders as you can. This helps reduce your own self-stigma (thoughts that make you feel bad about your mental illness) and helps you learn more about who you are. Knowing about your mental illness will also help you to educate other people about your symptoms and your need for help or special accommodations. You already started to do this with these worksheets. </li><li> Becoming part of a group can also help you learn more about different mental illnesses. So, take advantage of opportunities to talk with other inmates who have similar problems, and ask to join mental health groups if they are offered on your unit and once you return to the general population. </li></ul> <br> Confront other people who have incorrect thoughts about mental illness <ul><li> For example, if another inmate says that mentally ill people are violent, you can tell him that only a very small number are actually dangerous and that most mentally ill people are not a threat at all. His opinion may have come from news reports or because he is in a prison and has no other experience to base his opinion. </li><li> Don’t buy into jokes about mental illness (i.e. mocking or making fun of someone for their mental problems). This only encourages stigma. Use your knowledge to educate the jokesters. Don’t worry if this puts you in bad favor with those people. They’re probably not going to be helpful to you in reaching your goals anyway. If it would be physically dangerous to confront someone, just walk away. The important thing is that you do not participate in behaviors that support stigma. </li><li> You don’t ever have to tell people about your mental illness. You can simply be a teacher and help people learn. </li></ul> <br>Tell people about your mental illness when it can help you <ul><li> Sometimes it is better to tell people about your mental illness. But, give it some thought first. Ask yourself: how will this benefit me? For example, let’s say Todd has a job as a salesman that requires him to go door-to-door. The problem is that Todd has social anxiety. He gets nervous talking to other people and that hurts his sales performance. Todd tells his boss about this problem and asks for 1 hour off each week so he can attend counseling and learn to cope with his anxiety. In this case, Todd told his boss because he needed special accommodations to be better at this job. </li></ul> <br> Stigma is a barrier to your health and well-being, but you CAN do things to soften the impact for yourself and other people with mental illness. ",
+      "header": "",
+      "subheader": "Responding to Stigma",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Stopping Stigma",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Think of 4 different times that you experienced stigma because of yourmental illness. Talk about your response at the time. Then, come up with a better way to respond based on the points discussed earlier. Be specific! ",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Event #1:"
+            },
+            {
+              "type": "longtext",
+              "text": "Response then:"
+            },
+            {
+              "type": "longtext",
+              "text": "Better response:"
+            },
+            {
+              "type": "longtext",
+              "text": "Event #2:"
+            },
+            {
+              "type": "longtext",
+              "text": "Response then:"
+            },
+            {
+              "type": "longtext",
+              "text": "Better response:"
+            },
+            {
+              "type": "longtext",
+              "text": "Event #3:"
+            },
+            {
+              "type": "longtext",
+              "text": "Response then:"
+            },
+            {
+              "type": "longtext",
+              "text": "Better response:"
+            },
+            {
+              "type": "longtext",
+              "text": "Event #4:"
+            },
+            {
+              "type": "longtext",
+              "text": "Response then:"
+            },
+            {
+              "type": "longtext",
+              "text": "Better response:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You learned what recovery means in <u>Understanding and Coping with Criminalness</u> when we talked about your criminalness. To recap, recovery looks different depending on what it is you’re recovering from. And, not everyone’s road to recovery will be the same. To use the example we saw before, to recover from a medical illness like a cold or the flu, you might take medications, eat soup, and rest easy. You stop this routine once you feel better. Like with your criminalness, recovery from mental illness is different than a cold or the flu. You are not working to cure it or make it go away forever. It is about <b>controlling parts of your life that cause distress and emotional difficulty.</b> Remember you must ALWAYS work toward recovery; if you stop, you will likely go back to where you started in the first place. This is true even if you are starting to feel better. Feeling better does not mean you stop working on your recovery; it just means that you are doing all the right things and that you must <u>continue</u> to do those things. <br> Your goals will help you figure out what recovery means for you. For example, if Tom’s goal is to reduce anxiety so he can do a better job at work, then recovery for him is when he is able to feel more comfortable and less stressed at work. With mental illnesses, it is also important to remember two things. First, that you may feel a little worse before you feel better. This is because it is often difficult to look inward at yourself and finally begin to challenge the barriers you’ve faced. We sometimes have to break down barriers that we, ourselves, were responsible for building! Second, for most people, they don’t ever get over their mental illness, they simply learn to have more positive days than negative ones. So, again, you shouldn’t expect that your symptoms to stop. But they should become less intense and more manageable. ",
+      "header": "",
+      "subheader": "What Is Recovery?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "Recovery is, of course, not easy. This road also has many bumps and detours along the way. So, you may be asking yourself if it’s worth the trouble. It may not seem like it at first because you will be challenged and asked to do things that are uncomfortable, and maybe even, scary. But, as you learn new ways to cope with your symptoms of mental illness, you will: <ul><li> Be in a better mood and feel happier </li><li> Have stronger and more meaningful relationships with other people </li><li> Get into trouble less often </ul></li> <br> Don’t stop when things get tough. And, even when you feel solid in your recovery (like you can tackle any problem head-on), there are always obstacles to watch out for. For many people who have a criminal history and a mental diagnosis, these two things interact. That is, managing you symptoms of mental illness may be necessary to manage your criminalness. For example, some people take medications to help reduce aggression and agitation. Not taking those medications could place them at risk for acting out in aggressive ways that could get them in trouble. While mental illness is never your fault, it is your responsibility to learn how to cope with it and be aware of your warning signs and triggers of relapse (remember the yellow and red zones from your mental traffic light; <u>Re-Creating the Self: Making Change Happen</u>). Think about how your own mental illness could be connected to your criminalness.",
+      "header": "",
+      "subheader": "Why Travel the Road to Recovery?",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "Some people are more likely than others to do well in their mental illness recovery. You’ll notice that these tips are pretty similar to what you read about in <u>Understanding and Coping with Criminalness</u>. <ul><li> Believing that goals –whether big or small– are very important. Make it a priority to achieve your goals. Don’t be embarrassed, ashamed, or afraid of your goals. They’re yours, so own them. </li><li> Writing down goals to keep you on track. Having goals written down somewhere serves as a constant reminder. You can look at them when you need a boost. You can also write down some motivational statements to keep you going. </li><li> Keeping in mind what is really important to you, like staying out of segregation. Reminding yourself about the good things that you could get by changing pushes you to move forward. </li><li> Becoming involved in a treatment or self-help group. This may or may not already be mandated for you, but it’s not, see what’s out there and get involved. Talking to other people with similar problems makes you feel more comfortable talking about your own mental health problems. The more you talk about it, the more you learn about yourself. Groups also help you practice new skills and give you the chance to help others in need. </li><li> Staying active, like working out. Physical activity makes your body produce natural chemicals that make you feel good. Exercise is commonly recommended to people with mental illnesses to improve mood. </li><li> Finding social supports – people who are following the rules and doing pro-social things. Support systems can include family, doctors, counselors, model inmates, your lawyer, a religious person, or anyone else you trust. Share your symptoms and goals with these people so they can keep an eye on you. Sometimes other people are able to notice things you can’t see. Give them permission to tell you when you’re getting distracted from your goals. </li><li> Being aware of your warning signs (yellow) and triggers (red) – things that threaten your recovery. Knowing what these risk factors are helps you to avoid them in the future or prepare to handle them better when you can’t avoid them. What makes you anxious? Depressed? Out of control? </li><li> Using creativity to express yourself. Sometimes you may feel that no one understands you or that you can’t put how you really feel into words. Instead of letting it bottle up and explode later, get creative! Act it out, write a poem, or draw scribbles and doodles. This will help you get your emotions out there and will give you some guidance for talking about it later. </li><li> Following through with your treatment plan! Make a plan and follow it. Decide for yourself what you need to do on your road to recovery, such as what risks do you need to take, what challenges should you be aware of, how will you deal with those challenges when they come up, and who can you count on to help you? Stick to it! This is something you can have control over. And, don’t forget to reward yourself for a job well done. </ul></li>",
+      "header": "",
+      "subheader": "What Kinds of People are Good at Their Recovery?",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "header": "",
+      "subheader": "Cruising Down Recovery Road",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "You just read about some simple ways people can begin to play an active role in their recovery. Just like you did in <u>Understanding and Coping with Criminalness</u>, brainstorm how you can improve your chances of a smoother road to recovery, starting right now. What can you do NOW and what can you continue to do LATER after you have some other important boxes in your life checked off. Keep in mind, this exercise is specific to mental illness recovery.",
+          "fields": [
+            {
+              "type": "displayText",
+              "text": "Strategy: Make goals a priority"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Stay on track with goals"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Keep in mind what's important"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Get involved in treatment group"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Stay active"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Find social supports"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Be aware of warning signs and triggers"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW:"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Use creativity "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW: "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            },
+            {
+              "type": "displayText",
+              "text": "Strategy: Follow through with your plan"
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this NOW: "
+            },
+            {
+              "type": "longtext",
+              "text": "How I will use this LATER:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "We can’t say it enough, recovery is hard sometimes. There are lots of things that can get in your way, slow you down, or make you take a wrong turn. From <u>Understanding and Coping with Criminalness</u>, you already know what it means to <b>relapse</b>. As a reminder, relapsing means that you’ve slipped up and fell back into the old thinking and old behavior that keeps you stuck in your mental health symptoms. While relapsing is not encouraged, it does happen. We’re human! If you relapse and your symptoms begin to get worse, it’s important to see it as a learning experience and not as an excuse to giveup on your goals. What can you learn from the relapse, so you can avoid another one in the future? Maybe you missed one of your warning signs or triggers. ",
+      "header": "",
+      "subheader": "Watching for Warnings and Tackling the Triggers of Mental Illness",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "Relapse is more likely to happen if you...<ul><li> Hang out with other people who enable you or don't support your goals (that is, toxic relationships) </li><li> Don't take your medications as prescribed </li><li> Don't seek help from other people when you need it </li><li> Refuse help from people who offer it to you </li><li> Refuse to take responsibility for yourself </li><li> Don't control your mental health symptoms </li><li> Use drugs or alcohol to cope with your symptoms </li></ul>",
+      "header": "",
+      "subheader": "Why Do People Relapse?",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "Just as with criminalness, relapse can take a while to unfold. This is a good thing because it gives you some time to recognize that you are at risk for relapse. Once you see that you are at risk, you can act right away. So, what you need to do is trace the steps that will likely lead to your relapse if you stop working on your recovery. That is, what people, places, environments, behaviors, feelings, or thoughts will likely come BEFORE your let your symptoms get worse? These are the things you need to avoid or learn to deal with if you encounter them. Think back to your history–what path originally led to the feelings and behaviors you’ve been trying to change now? The earlier you can catch your risks, the more likely you will be to prevent it from becoming a full relapse. By now, you should know that it’s easiest to escape a shark attack if you are in the shallowest part of the ocean! <br> Always remember that triggers come directly before a relapse and warning signs come before the trigger. It is easier to stop relapse at the warning signs but not impossible at the triggers. It’s also important to know that everyone has different warning signs and triggers. For example, a trailer for a movie about the government taking over people's lives might be a trigger for one man, who then thinks that the government is watching him through televisions and becomes paranoid and violent. For another man, this trailer may be a warning sign that gets him to think about how scary that would be and how he would respond if he were faced with the same situation. For yet another man, this commercial may be neither a warning sign nor a trigger. ",
+      "header": "",
+      "subheader": "How Can I Stop Relapse?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "Here’s your chance to use your mental traffic light. Evaluate people, places, environments,thoughts, feelings, and behaviors. GREEN= good for your recovery; YELLOW= warning sign that you’re headed into relapse; RED= trigger that relapse is next. Label the things in your life with these colors. Think about warning signs and triggers for your mental illness.",
+      "header": "",
+      "subheader": "Practicing the Mental Traffic Light",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": " Here are some other examples of possible warning signs and triggers (indicate whether they’ve ever been an issue for you either as a warning sign or trigger):",
+          "image": "",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "Getting \"fed up\" with medication side effects",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign"
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Starting to think people are against you",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign"
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Having no energy to do things",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign"
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Not getting along with other people",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign"
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Having thoughts that don't make any sense",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign"
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Feeling sad, depressed, or suicidal ",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign "
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Feeling overly excited or not needing sleep",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign"
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Not participating in your treatment ",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign"
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Avoiding people ",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign"
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Having difficulty sleeping",
+              "answers": [
+                {
+                  "answer": "Yellow warning sign"
+                },
+                {
+                  "answer": "Red trigger"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Write down your warning signs and triggers for when your mental health symptoms get worse. Then, remind yourself what the relapse behavior would be (that is, the behavior you are trying to avoid or stop).HINT: ask others to help you identify signs and triggers—sometimes they’re the ones who see them first.",
+      "header": "",
+      "subheader": "Reversing Relapse ",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are your warning signs?"
+            },
+            {
+              "type": "longtext",
+              "text": "What are your triggers?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would the relapse behavior be? "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "By now, you know that your mind is pretty powerful. Remember <b><u>THE</u> Circle of Change</b>. Well, sometimes your thoughts can be driven by your criminalness (as you learned in <u>Understanding and Coping with Criminalness</u>)) and sometimes they can be driven by symptoms of your mental illness.In this Module, you will learn more about how your thinking canget in the way of your goals as they relate to reducing the impact of your mental illness. You will then learn how to recognize your negative or faultythinking and come up with more helpful ways of looking at different situations. This will help you stay on track with your goals. Don’t letyour mind keep you attachedlike a puppet on strings. Let’s break free.",
+      "header": "",
+      "subheader": "Awareness of Automatic Thoughts",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "To refresh your memory, <b>automatic thoughts</b> are instinctive–they’re like a reflex. These thoughts happen very quickly, often without you realizing you are thinking them. They are your go-to thoughts; they are what immediately come to mind when you think about yourself, a particular person, or situation. The next two pages provide different examples of how automatic thoughts can be driven by symptoms of a mental illness. <br> <i>\"Mary is on probation and regularly attends NA meetings at her local church. She likes to sit in the same chair during every meeting because it makes her feel more comfortable. Everyone at the meeting knows this about Mary. A new member joins NA and unknowingly sits in Mary’s chair. Mary immediately begins to think that the new group member is plotting against her and trying to steal her good ideas.\"</i>",
+      "header": "",
+      "subheader": "What Are Automatic Thoughts?",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What were Mary's automatic thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "How might these thoughts make her feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "How might these thoughts cause her to act?"
+            },
+            {
+              "type": "longtext",
+              "text": "What OTHER thoughts would be more helpful?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "In this next example, Lawrence's thoughts relate both to his mental illness and criminalness. <br> <i>\"Lawrence has been diagnosed with bipolar disorder, meaning that he has really high highs followed by really low lows. Lawrence’s prescription for his medication ran out and he needed a refill. Lawrence starts thinking, ‘I could really use the extra money for this month and I’d have to get a ride to the drug store anyway, and probably have to chip in for gas. Plus, I’m feeling pretty good right now and those pills make me tired.\"</i> ",
+      "header": "",
+      "subheader": "",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What were Lawrence's automatic thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "How might these thoughts make him feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "How might these thoughts cause him to act?"
+            },
+            {
+              "type": "longtext",
+              "text": "In what way is his thinking also related to criminalness?"
+            },
+            {
+              "type": "longtext",
+              "text": "What OTHER thoughts would be more helpful? "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Yes! But, you already know that. Not only because you already learned about this in <u>Understanding and Coping with Criminalness</u>, but also because you should be practicing this regularly. If you’ve been practicing, you know it’s not always easy to change how you tend to think about things. For example, if you tend to see yourself in a negative light, your brain learns that “it’s because you’re a screw-up” is the go-to reason for why things didn’t go your way. You get yourself caught up in a destructive cycle of disordered thinking. Like with criminalness, you have to retrain your brain. Improve your mind’s ability to think clearly and accurately. Changing your thoughts will put you in a better mood. Remember to use your mental traffic light to evaluate how helpful or not helpful your thoughts are. Green thoughts are helpful, so keep them going! If they are red or yellow, take some time to consider other possible thoughts that might better explain the situation you’re in. ",
+      "header": "",
+      "subheader": "Can I Change My Automatic Thoughts?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "Because thoughts can often happen withoutyou knowing it, pay attention to how you begin to feel. Your emotions can be clues to how you are thinking about something around you. The key is to stop these feelings before they become too intense. Let’s look at an example. <br> <i> \"Rita has recently been released from prison and needs to find a job within the next 3 months. She finally has an interview lined up and needs to find some nice clothes to wear. She asks her sister, Susan, to take her shopping the weekend before the interview. At first, Susan agreed, but later called to tell Rita she couldn’t take her anymore. Rita begins to feel upset. Her heart sinks, her palms get sweaty, and her mind begins to race. She recognizes that this reaction is a yellow warning sign for her and she decides to evaluate her thoughts. Rita realizes that she thought Susan was purposefully trying to mess up her chances of finding a job and was beginning to think about all the horrible things that would go wrong if she didn’t have new clothes for the interview. These thoughts explain Rita’s anxious feelings! So, to prevent her anxiety from becoming a problem (for example, causing her to hit the bar for a drink and ruin 2 months of sobriety, skipping the job interview), Rita thinks of more helpful thoughts. Perhaps Susan had an emergency with one of her kids. Or, maybe she was having car trouble. And, maybe she can borrow something nice from her neighbor—they’re nearly the same size! These new thoughts don’t necessarily take away Rita’s anxiety entirely or let Susan off the hook for bailing, but they help reduce the intensity of her feelings and prevent her from making a poor choice.\"</i>",
+      "header": "",
+      "subheader": "Feelings as Clues for Mental Illness",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "You already practiced some skills to re-train your brain when it thinks or tells you things that may not be true or lead you to bad behavior. Next, we’re going to use some other example as they relate to your mental illness. You already know it’s not smart to simply think positive all the time. Rose-colored glasses aren’t helpful. Remember to look at a problem from many different angles, including positive, negative, and neutral. Developing a number of perspectives helps you find more accurate solutions. Like <u>Understanding and Coping with Criminalness</u>, this worksheet will help you learn to be aware of the connections between your thoughts, your feelings, and your actions. is more about awareness, while the next one will be about howyou can go about investigating your thoughts.",
+      "header": "",
+      "subheader": "What Should I Do about All These Thoughts?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "For each of the events on the next few pages, write down what your automatic thoughts might be, how these thoughts might make you feel, and what you might have done as a result of how you felt. Then, talk about how your responses relate to your own mental illness.",
+      "header": "",
+      "subheader": "Making the Connection",
+      "image": "",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "New",
+          "fields": [
+            {
+              "type": "displayText",
+              "text": "You’re waiting for the bus and it’s raining. As it stops for you, the driver hits a puddle covering you in water. "
+            },
+            {
+              "type": "longtext",
+              "text": "What would your automatic thoughts be? "
+            },
+            {
+              "type": "longtext",
+              "text": "How would these thoughts make you feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might you have done as a result of how you felt?"
+            },
+            {
+              "type": "displayText",
+              "text": "Your boss asks to see you right away. You just remembered you were supposed to clean the restrooms."
+            },
+            {
+              "type": "longtext",
+              "text": "What would your automatic thoughts be?"
+            },
+            {
+              "type": "longtext",
+              "text": "How would these thoughts make you feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might you have done as a result of how you felt?"
+            },
+            {
+              "type": "displayText",
+              "text": "You're at a cook-out with a new friend. No one is really talking to you and you feel out of place there. "
+            },
+            {
+              "type": "longtext",
+              "text": "What would your automatic thoughts be?"
+            },
+            {
+              "type": "longtext",
+              "text": "How would these thoughts make you feel?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might you have done as a result of how you felt? "
+            },
+            {
+              "type": "longtext",
+              "text": "Write down your own example here: "
+            },
+            {
+              "type": "longtext",
+              "text": "What would your automatic thoughts be?"
+            },
+            {
+              "type": "longtext",
+              "text": "How would these thoughts make you feel? "
+            },
+            {
+              "type": "longtext",
+              "text": "What might you have down as a result of how you felt? "
+            },
+            {
+              "type": "longtext",
+              "text": "How are your answers above related to your mental illness?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You’ve already had some practice altering problematic thoughts that lead to trouble. But, because changing your automatic thoughts is so difficult, you need more practice. And, this time, you are concerned about all kinds of thoughts that lead to lots of different emotions (anger, sadness, fear, depression, anxiety, paranoia, etc.) and behaviors (aggression, social isolation, panic attacks, criminal activity, staying awake all night, refusing medication, etc.). ",
+      "header": "",
+      "subheader": "Altering Automatic Thoughts Related to Mental Illness",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "Of course you know everyone has automatic thoughts, not just people in the criminal justice system or who have mental illnesses. But, not everyone experiences psychological or emotional distress becauseof their automatic thoughts. It’snatural to feel nervous in new social situations, for example. Most people, though, would not let this bother them to the point of avoiding all social interactions, falling into a depression, or any other intense emotion or behavior. For you to reachyour personal goals (and to work towardrecovery), you must begin to confrontyourautomatic thoughts that lead tonegative feelings and behavingin ways that are harmful to you or those around you.",
+      "header": "",
+      "subheader": "Why Should I Change My Problem Thoughts?",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "How will changing YOUR problematic thoughts related to your mental illness be helpful to you?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You practiced this in <u>Understanding and Coping with Criminalness</u> when we talked about your criminalness thoughts. In the last activity you built some awareness around your problem thoughts stemming from symptoms of mental illness. Now, we will talk about challenging them. Remember that your job is to decide how truthful your thinking is. Sometimes additional information is needed to figure out the extent to which your thoughts are true. <br> To remind you, here are some questions you can ask yourself when evaluating the accuracy of your thoughts. Use ALL of them to be the most effective: <ul><li> Is this thought useful or helpful to me? Does it help me reach my goals? Does it help me take positive action? Use your mental traffic light! </li><li> Is this thought familiar? Has my mind told me this before? If so, how did things turn out before? </li><li> What would I get for buying into this thought? That is, if my thought is true, what is the worst thing that could happen? What is the best thing that could happen? What is likely to happen? </li><li> What is the evidence for this thought?  What information do I have in favor of my idea? What information do I have that is against my idea? (Remember, there may be evidence in both directions, just like a trial you might see in a courtroom. But, you are looking for the side of the argument that is the most accurate) </li><li> What will happen if I let this automatic thought impact my feelings and behavior?  What will happen to my feelings and behavior if I change this thought? </li><li> Is there a different explanation for what’s going on?  Are there other ways of looking at the situation? </li><li> What should I do about this?  What do I want to do about this? </li><li> What would I tell a friend if he or she were in the same situation? </li></ul> <br> When you have an automatic thought that stirs up negative feelings that are linked to your mental illness, check your answers to these questions. Then, rate how truthful your original thought was. <br> As a general rule, any rating below about a 10 suggests the possibility that you need to change or alter the thought (at least to some degree). You want to be thinking as clearly as possible, so if there is any room on the meter to move up, think about how you can do so! ",
+      "header": "",
+      "subheader": "How Do I Change MyProblem Thoughts—A Refresher",
+      "image": "mod5thoughtmeter.png",
+      "imageBelow": "true"
+    },
+    {
+      "type": "activity",
+      "text": "In the last activity, you had to come up with automatic thoughts to a made-up situationand map out how the event would affect your thoughts, feelings, and behaviors as related to your mental illness. Now, use the same 4 events and come up with more accurate thoughts using the 8 questions above. ",
+      "header": "",
+      "subheader": "Making the Connection - Remix",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "displayText",
+              "text": "You're waiting for the bus and it's raining. As it stops for you, the driver hits a puddle covering you in water. "
+            },
+            {
+              "type": "longtext",
+              "text": "What is a more accurate thought compared to the ones that you had previously?"
+            },
+            {
+              "type": "displayText",
+              "text": "Your boss asks to see you right away. You just remembered you were supposed to clean the restrooms. "
+            },
+            {
+              "type": "longtext",
+              "text": "What is a more accurate thought compared to the ones that you had previously?"
+            },
+            {
+              "type": "displayText",
+              "text": "You're at a cook-out with a new friend. No one is really talking to you and you feel out of place there. "
+            },
+            {
+              "type": "longtext",
+              "text": "What is a more accurate thought compared to the ones that you had previously?"
+            },
+            {
+              "type": "longtext",
+              "text": "Copy your example from the previous exercise: "
+            },
+            {
+              "type": "longtext",
+              "text": "What is a more accurate thought compared to the ones that you had previously?"
+            },
+            {
+              "type": "displayText",
+              "text": "Before you see your counselor or supervision officer again, go through the ENTIRE process using a brand new event that you recently experienced (one you haven’t talked about before):"
+            },
+            {
+              "type": "longtext",
+              "text": "Event #5:"
+            },
+            {
+              "type": "longtext",
+              "text": "What are your automatic thoughts?"
+            },
+            {
+              "type": "longtext",
+              "text": "Evaluate your thoughts and rate them using the Thought Accuracy Meter:"
+            },
+            {
+              "type": "longtext",
+              "text": "Now, come up with new thoughts:"
+            },
+            {
+              "type": "longtext",
+              "text": "New feelings:"
+            },
+            {
+              "type": "longtext",
+              "text": "New actions:"
+            },
+            {
+              "type": "longtext",
+              "text": "How was it helpful to stop and evaluate your thoughts?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Remember that the word “cognitive” means what or how you think. But, the thought problems described in this worksheet are not about inaccurate ways of thinking about yourself or your situation. These thought problems have to do with your inability to focus, concentrate, or attend to what’s going on around you. Cognitive problems can be a symptom of many different mental health disorders, including depression, anxiety, bipolar, and schizophrenia. If you are easily distracted, lose focus on tasks, or have trouble paying attention to what other people are saying to you, then you likely have cognitive problems. <br> The words “concentration” and “attention” mean having the ability to focus on one specific thing (for example, your homework, reading these worksheets, listening to someone talk) for an extended period of time. If you have a hard time doing that, these strategies might be helpful for you. Commit to trying each one by saying out loud, “I will do this!” <br> Strategies to try: <ul><li> Minimize distractions to the best of your ability such that there is only one thing to concentrate on. For example, if you are trying to concentrate on your homework, make sure the radio and TV are off. If it’s noisy where you are and you cannot move, try a meditation technique (PMR, deep breathing, guided imagery, positive self-talk) to help you block out distractions and refocus. </li><li> Nicely ask the person who is talking to you to slow down or repeat things if you missed what he/she said or did not follow along the first time. So, you could ask, “I’m sorry, but could you repeat that for me? I just want to make sure I understand.” Most people do not mind doing this for you. </li><li> Check to make sure you understand what someone is saying to you by summarizing what you heard. For example, you can say something like, “Let me see if I’m following you; are you saying ________?” </li><li> Break down activities or tasks into smaller parts, and take frequent breaks. For example, if you have trouble with these worksheets, read a few sentences, then stop, do a few deep breaths, and then read a few more sentences. You can do this with other things you need to do, too. </li><li> A similar strategy is to start out an activity by spending a brief time on the activity and gradually increasing the amount of time you spend. For example, if you are having difficulty paying attention when reading, you could start by reading a few sentences of an article in a newspaper or a magazine. When you feel comfortable with that, you could try reading a few paragraphs. After that, you could select a short article and read it entirely. Then you could gradually build up to reading chapters in a book. The important thing is to progress at a pace that is comfortable for you. </li><li> When you can, ask someone to join you in an activity that requires attention, such as a board game, card game, a jigsaw puzzle, or doing work for a support group. Many people find that doing something with others helps them to focus better. </li></ul>",
+      "header": "",
+      "subheader": "Learning to Cope with Cognitive Problems",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "Read the following story and write down how you can offer help to this person using the strategies discussed above. <br><i> “Calvin has been diagnosed with Major Depressive Disorder. His mental illness sometimes causes him to think negatively about himself or the situations that he experiences. His depression also puts him in a sad mood most of the time. Sometimes Calvin’s sad mood and negative thoughts distract him and prevent him from focusing on what’s going on. Yesterday, the correctional officers decided to do a surprise cell search because it was rumored that an inmate on the pod had drug contraband. The officers came to Calvin’s cell and told him that his cell was being searched. They then asked him to cuff up, wait for his cell door to open, and step out toward the right of his cell where he would be detained and strip searched by another officer. Calvin was again distracted by his thoughts and did not understand what the officer said. Calvin didn’t do anything about these thoughts. So, he went through the whole procedure feeling nervous, scared, and confused.  Then, another incident happened today. Calvin was sitting in his cell trying to complete his homework, but he kept losing focus. He would look away every time someone or something on the pod made a loud noise. He also worried that his counselor was going to get on his case about his homework because he felt he was too stupid to do a good job. Calvin got frustrated and stopped doing his homework altogether.”</i> ",
+      "header": "",
+      "subheader": "Recovery Rescue - Cognitive Problems",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What cognitive problems does Calvin have as a result of his depression?"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you think will or could happen in the long run if Calvin does NOT work on his cognitive problems?"
+            },
+            {
+              "type": "longtext",
+              "text": "If Calvin asked you for help in the situations he recently experienced, what would you suggest he do about his cognitive problems?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would have been different if Calvin followed your advice?"
+            },
+            {
+              "type": "longtext",
+              "text": "How can YOU relate to Calvin? That is, what do you have in common with him?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Negative moods and feelings happen to all kinds of people, but they can be a big problem for people with mental illnesses like depression, anxiety, bipolar, and schizophrenia among others. For these people, their mood frequently gets in the way of their daily activities and their ability to achieve goals. If you often feel worried, scared, nervous, sad, hopeless, or tired and you don’t show a lot of emotion or prefer to be alone, this worksheet is designed to offer you some help. Commit to trying each strategy by saying out loud, “I will do this!”",
+      "header": "",
+      "subheader": "Learning to Cope with Negative Moods",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "People who have anxiety feel worried, nervous, afraid, or tense. They think a lot about what could go wrong in a situation and often feel that they don’t have the skills to deal with things. It may feel like your mind won’t shut off. People worry about many different things; some people worry about being in social situations, some people worry about germs or heights, and some people worry about almost everything. As you read before, sometimes there are physical signs of anxiety such as a headache, racing heart, sweating, or breathing problems. Many people will do very extreme things to avoid the stuff that makes them anxious. But, here are some tips. <ul><li> Talk with someone in your support system to let him or her know about your feelings. </li><li> Use relaxation techniques, such as deep breathing, PMR, or guided imagery to stay calm. </li><li> Identify situations that tend to make you anxious and make a plan to do something about them. For example, if you are anxious about an upcoming progress meeting on your pod, practice how you will act and what you might say to staff. Rehearse it like a play or movie. </li><li> If it is safe to do so, gradually expose yourself to situations that make you feel anxious. For example, if someone is anxious about talking to other inmates on the pod, he might start by sitting alone in the common area and seeing how other people get along. After becoming more comfortable with that, he might try introducing himself to one or two people. The idea is to feel comfortable before moving on to the next step. </li></ul>",
+      "header": "",
+      "subheader": "Strategies to Try for Anxiety",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What situations make you nervous?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "When people are depressed, they often feel bad about themselves, stop doing things they enjoy, sleep too much or not enough, have little energy, don’t eat right,or have trouble making good decisions. People with very severe depression might think about hurting themselves or ending their lives. If this happens to you, go back and read your Suicide Prevention Plan. Here are some strategies to help with your depression. <ul><li> Set goals for daily activities. Start with one or two activities and gradually build up to a full schedule. Review your activities log. </li><li> Identify things that you still enjoy (for example, reading, drawing, or writing) and build your strengths in those areas. Tell yourself what your strengths are! </li><li> Schedule something pleasant (like relaxation, reading, or a TV show) to do each day, even if it’s a small thing. This will give you something to look forward to. </li><li>  Talk to someone in your support system to let him or her know how you are feeling. Sometimes, they have good ideas you can try. Also, finding other people with similar problems as you can help you feel like you’re not alone. </li><li> When you can, ask people to join you in activities. You may be more likely to do your plans when someone else is involved. </li><li> If you’re not eating well, start by eating small portions of food and taking your time. </li><li> Practice relaxation (PMR, deep breathing, guided imagery) on a regular basis. </li><li> Remind yourself of all the things you have accomplished toward your goals and don’t focus on past mistakes. </li><li> Use positive self-talk, even if you don’t 100% believe in what you’re saying right away. The more you pump yourself up, the more you will really start to believe in yourself and your abilities. </li></ul>",
+      "header": "",
+      "subheader": "Strategies to Try for Depression",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What strengths do you have? "
+            },
+            {
+              "type": "longtext",
+              "text": "What are you good at? "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Some people lose interest in activities when they feel worried or sad. And, it’s hard to stay active when you don’t feel like it. But, as you know, more activity is good for you because it helps you deal with your situation better and reach your goals. Remember that you have to DO something to change. So, it’s important that you improve this area. Here are some ways you can begin to do that. <ul><li> Be patient with yourself. Remember that change is hard, but it will happen slowly. </li><li> Start with an activity that you used to enjoy. Check your activity log for some ideas. Think of something brief that you could do that is related to that activity. For example, if you used to enjoy exercising, you could try doing a few push-ups (5-10 reps) in your cell. Be attentive to what you experience as you work out…How do your muscles feel? Do you feel more relaxed after doing this? As you get more comfortable with brief activities, gradually plan longer activities. For example, after doing a few push-ups you could try doing a few more reps. </li><li> Check out new interests such as: computers, arts and crafts, reading about different topics like the news, science, or pop culture (remember to pick topics that are pro-social, not violent), telling jokes, listening to music, writing, yoga, observing nature, singing, word games, trivia, puzzles, or many other things. When you get back into the general population, explore what else there is to do and learn about. This opportunity for greater privileges can give you something to look forward to and a reason to keep at your goals. <br> Be willing to try something a few times to get familiar with it. Don’t give up the first time you try something new. The more familiar and comfortable you feel with an activity, the more likely you will enjoy it. If you still don't like the activity, then move on to something else. </li></ul>",
+      "header": "",
+      "subheader": "Strategies to Try for Loss of Interest",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "If other people tell you that they cannot read your facial expressions or that it is hard to tell what you are thinking or feeling by the expression on your face or your tone of voice, you may have a problem expressing your emotions. This can create misunderstandings. For example, when you are interested in something, other people may think you are bored or not paying attention. The following strategies may help you avoid this kind of misunderstanding. <ul><li> Say out loud what you are feeling or thinking. Make clear comments about your reactions to conversations or activities. </li><li> When trying to say how you feel, make “I” statements such as the following: “I am enjoying talking to you today;” “I was a little nervous about playing basketball today, but I’m happy I did because it was fun;” “I liked that movie. It was funny;” or “I’m feeling a little discouraged today.” </li></ul>",
+      "header": "",
+      "subheader": "Strategies to Try for Poor Emotional Expression",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "Everyone needs time alone, and you are told to spend lots of time alone in your cell as part of being in restricted housing. But, if you find that you are purposefully withdrawing from people and avoiding contact with others even when you get the chance to do so, it may create problems for you and for your relationships. The following strategies may be helpful in coping with social withdrawal. <ul><li> Join a support group like AA/NA or attend a spiritual meeting or a therapy group if one is available to you. </li><li> Explore jobs at the facility (for example, in the kitchen) or volunteer work that involves contact with other people. </li><li> Schedule contact with someone every day, even if it is for a short time. This could be something as simple as saying “thank you” to the staff member who brings you your meal. </li><li> If you find it stressful to be with people, practice relaxation techniques (see extra worksheets) before and/or after you talk with them. </li><li> If it’s too stressful to have personal contact, write letters or call people on your phone list when you get the chance and talk for at least a few minutes. </li><li> Make a list of people in your support system you feel most comfortable with, like your counselor. Talk to these people when you are starting to withdraw. If possible, make a plan to meet with them. </li><li> Sometimes, it’s more comfortable to spend time with people when you are engaging in an activity together. When you can, try planning activities with someone, such as playing a card game, or putting together a puzzle. </li></ul>",
+      "header": "",
+      "subheader": "Strategies to Try for Social Withdrawal",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "Read the following story and write down how you can offer help to this person using the strategies discussed above. <br><i> “Luke has been diagnosed with Posttraumatic Stress Disorder (PTSD) – a type of anxiety disorder that is caused by some very bad things that once happened to Luke. Luke used to live in a dangerous neighborhood. While there, he saw two of his cousins get shot to death on the streets. Also, he suffered several gunshot wounds himself. As a result of this trauma, Luke is always afraid of being hurt again. He worries a lot about his safety and feels helpless about his ability to protect himself. Sometimes the terror gets so bad that he thinks about killing himself to make it go away. Luke is housed on a general population pod within the prison, but he does not like to talk to many people. He usually keeps to himself and stays in his cell even when he is allowed to be in the common area. He doesn’t eat or sleep very well either; he barely picks at his meals and both the noises on the unit and the worried thoughts in his head keep him awake all night. Luke is also scared to use the shower area and the rec yard. Sometimes he will refuse to shower because believes bad things will happen to him there. Luke has a counselor who tries to work with him on his problems, but Luke often confuses the counselor. The counselor doesn’t know if Luke is interested in getting help or if he is even paying attention to their conversations at all. Luke never shows any emotion during their meetings (even though he actually likes being in therapy) and often seems bored. The counselor is thinking about stopping treatment with Luke until he seems ready to move forward.\"",
+      "header": "",
+      "subheader": "Recovery Rescue - Negative Mood",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What mood problems does Luke have as a result of his PTSD?"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you think will or could happen in the long run if Luke does NOT work on his mood problems?"
+            },
+            {
+              "type": "longtext",
+              "text": "If Luke asked you for help in the situations he recently experienced, what would you suggest he do about his mood problems?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would have been different if Luke followed your advice?"
+            },
+            {
+              "type": "longtext",
+              "text": "How can YOU relate to Luke? That is, what do you have in common with him?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You remember from earlier in the module that psychotic symptoms often happen with mental illnesses like bipolar disorder and schizophrenia. Two psychotic symptoms are hallucinations and delusions. Hallucinations are sensations (hear, touch, smell, taste, see) that are not real; you may experience them even though nothing is really there. This can make life confusing because you cannot tell what is real and what it not real.  Delusions, on the other hand, are strong ideas that are not real or even impossible, such as believing that aliens are putting thoughts into your head. So, if other people often tell you that they cannot see, hear, smell, taste, or touch the same things can, or if other people tell you that your beliefs are “crazy” or strange, then this worksheet could be helpful to you. <br>  Commit to trying each strategy by saying out loud, \"I will do this!\"",
+      "header": "",
+      "subheader": "Learning to Cope with Psychotic Symptoms",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "Again, hallucinations are “false perceptions;” your mind is playing tricks on you. Hallucinations sometimes come in episodes, meaning that they go away for some time and then come back again. If your hallucinations come in episodes like this, then the return of hallucinations is a warning sign for relapse. For other people, their hallucinations do not go away between episodes. If you experience hallucinations on a regular basis, you can still learn to manage your symptoms. But, if the hallucinations get worse (for example, voices tell you to do harmful things), then you should talk to a doctor or your counselor. Here are some things you can try to control your hallucinations. <ul><li> Distract yourself by doing something that uses your attention such as having a conversation with someone, reading, or exercising. Some people who hear voices hum to themselves or listen to music to drown out the voices. </li><li> Check out your experiences with someone you trust. For example, one man who thought he heard voices outside his window asked his brother to listen and give an opinion. </li><li> Use positive self-talk. Some people tell themselves things like, “I’m not going to listen to these voices,” “I’m not going to let these voices get to me,” or “I’m just going to stay cool, and the situation will pass.” </li><li> Don’t take your hallucinations seriously or as absolute truths. Instead, try to see your hallucinations as your mind’s way of telling you that you need to start paying closer attention to your thoughts, feelings, and needs. This gives you a better understanding about why the hallucinations are happening to you. For example, one woman heard voices telling her not to go outside. Instead of listening to the voices, she took the command as a sign that she was afraid of something. She then started to think about where her fear was coming from and challenged it. So, look for a symbolic meaning not an exact meaning. </li><li> If you can’t figure out helpful meanings for your hallucinations, just ignore them as much as possible. Some people say that it helps to focus on other things instead. </li><li> Put the hallucinations “in the background.” Some people acknowledge what they are hearing or seeing, but don’t pay any further attention to it. For example, they might tell themselves, “There’s that critical voice again. I’m just going to let it happen and go about my business. I’m not going to let it bother me or affect what I’m doing.” </li><li> Use relaxation techniques. Oftentimes hearing or seeing hallucinations will get worse when people are under stress. Doing some deep breathing or PMR reduces the stress and lessens the intensity of the hallucination. </li><li> If the voices start to tell you to do something to hurt yourself or someone else, and you think you might act on this, talk to a doctor or counselor immediately! If you can’t reach your counselor, tell a staff member on duty. If you do need to involve staff, it might be helpful to share your mental illness with them so they understand that the hallucination is a symptom. If you don’t do this and only tell them that you might hurt yourself (or whatever you are thinking about doing), then they will handle the situation much differently. Consequently, you could find yourself with a disciplinary sanction. </li></ul>",
+      "header": "",
+      "subheader": "Strategies to Try for Hallucinations",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "Sometimes, people have beliefs that are firmly held even when there is no clear evidence to supportthem. For example, they might start to believe that the FBI is monitoring their phone calls even though there is no evidence of this. Or, they might believe that people are talking about them or staring at them. Delusions sometimes come in episodes, meaning that they go away for some time and then come back again. If your delusions come in episodes like this, then their return is a warning sign for relapse. For other people, these beliefs do not go away. If you experience delusions on a regular basis, you can still learn to manage your symptoms. But, if the delusions get worse or more bizarre, then you should talk to a doctor or your counselor. Here are some things you can try to control your delusions. <ul><li> Distract yourself from the disturbing belief by doing something that takes your mental attention, such as doing a puzzle or adding up rows of numbers. You can also try one of your relaxation techniques like deep breathing, PMR, or guided imagery. </li><li> Check out your beliefs by talking to someone you trust. For example, you might ask your counselor to help you look at the evidence for and against your belief. Ask for his or her point of view. If your beliefs cause you to worry about safety, for example, you might ask, /“What is the evidence that supports that I am in danger, and what is the evidence that does not support I am in danger?” This is very similar to cognitive restructuring and changing automatic thoughts. </li><li> Distract yourself with a physical activity, such as doing a few push-ups. </li><li> Keep in mind that you should contact your doctor or counselor if you become so convinced of your belief that you are thinking of acting on it. For example, if you become convinced that someone means you harm, you might start thinking of defending yourself, which could possibly lead you to harm someone else. If you can’t reach your counselor, tell a staff member on duty. If you do need to involve staff, it might be helpful to share your mental illness with them so they understand that the delusion is a symptom. If you don’t do this and only tell them that you might hurt someone (or whatever you are thinking about doing), then they will handle the situation much differently and you could find yourself with a disciplinary sanction. </li></ul>",
+      "header": "",
+      "subheader": "Strategies to Try for Delusions",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "Read the following story and write down how you canoffer help to this person using the strategies discussed above. <br> “Andy started hearing voices when he was about 20 years old. The first voice he ever heard was friendly; it would just make comments about what Andy was doing throughout the day, such as “he is going for a walk.” But, after a while, the voices got mean and would tell Andy that he was a bad person. They would call him a failure and laugh at him. Andy started using heroin to deal with the voices and to shut them up. Andy also sold large amounts of heroin for which resulted in his incarceration. In prison, Andy still hears the voices sometimes. When Andy is stressed out, his symptoms get worse and the voices will warn him of dangers that aren’t really there. They say things like, “Don’t go out there, you’re going to die” or “Make a shank and hurt yourself.” Andy is at a point where he thinks others are plotting to kill him. Whenever he is in the common area with other inmates, he always thinks they are looking at him and talking bad about him. This agitates Andy. He sometimes has angry outbursts where he will yell and scream at the people he believes are planning to cause him harm. Other inmates and staff don’t know what to do about Andy because he is sometimes very unpredictable.” ",
+      "header": "",
+      "subheader": "Recovery Rescue - Psychotic Symptoms",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What psychotic symptoms does Andy have as a result of his Schizophrenia?"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you think will or could happen in the long run if Andy does NOT work on his psychotic symptoms?"
+            },
+            {
+              "type": "longtext",
+              "text": "If Andy asked you for help in the situations he recently experienced, what would you suggest he do about his psychotic symptoms?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would have been different if Andy followed your advice?"
+            },
+            {
+              "type": "longtext",
+              "text": "How can YOU relate to Andy? That is, what do you have in common with him?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Remember that interpersonal problems means that you have difficulty talking to or interacting with other people; these are problems related to your social relationships. Such relationships may be between you and family or friends, your counselor, facility staff, your lawyer, other inmates, doctors, or anyone else. Interpersonal problems are very common in people who have personality disorders, such as Borderline, Antisocial, Narcissistic, and Schizotypal. If you tend to have rocky or unstable relationships, don’t get along well with others, or find that you don’t fit in well with others, this worksheetmay be helpful for you. <br> Commit to trying each strategy by saying out loud, “I will do this!” <br> Strategies to Try: <br> Deal with interpersonal problems ahead of time. Think about upcoming social situations that are likely to make you feel anxious or awkward. Imagine the situation clearly in your mind and rehearse how you will handle the situation. Ask yourself these questions: <ul><li> What will you say? </li><li> What is the other person likely to try? </li><li> What is likely to happen? </li><li> What would you want to happen? </li><li> How would you like the other person to feel about you when the interaction is over? </li><li> How would you like to feel about yourself when the interaction is over? </li><li> What can you do to make the interaction better? </li></ul> This way you will be prepared when a similar situation comes up. <br> Remember, your assertiveness and conflict resolution skills. Don’t be aggressive or passive; this won’t get you what you really want or need. You can still be respectful even if you disagree with someone. <br> Think about your own goals, values, and beliefs. Keeping these in mind will help you act in ways that make you feel proud – including dealing with other people. <br> Be aware of your common criminal thinking styles, as many of these styles involve blaming other people (inmates, staff, doctors) for things or putting other people down (“That job was easy…Any idiot could have done that.”). People don’t like this very much, so it doesn’t help you make good relationships. <br> Practice good communication skills. Give someone some information about you before you ask something of him or her. For example, you can say something like, “Hi, my name is _____. What’s your name?” Here, you gave the person your name before asking for theirs. That sounds much better than saying, “Who are you?” But, don’t always talk about yourself! <br> Be aware of your body language. Don’t stand in a threatening manner; don’t clench your fists, cross your arms, or stand over people. Especially in prison, this type of body language can lead to trouble. <br> Prepare topics of conversation and use them when you need to start a conversation or keep a conversation going. But, don’t use topics that get people all worked up like politics, religion, abortion, gay rights, etc. This doesn’t leave a very good impression because it pushes people’s buttons. When you get to know a person better, then you can talk about deeper issues. <br> Sometimes, people are worried about how good they will be in social situations. For example, they might think, “They won’t like me;” “I won’t do it right;” or “I’ll probably fall apart.” People can also worry about asking others for something (i.e. to be treated differently in a relationship, to ask for more information about their medications). These people may think things like, “If they say ‘no’, it will kill me;” “I have to know that a person will say ‘yes’ before I ask them to do something;” “If I make a request, I will seem like a weak person;” or “I don’t like when people are upset with me.” And yet, some people are worried about how to say ‘no’ when others ask for something (for example, if someone asks you to do something you don’t want to do). They might think, “Saying ‘no’ is selfish;” “I can’t say ‘no’ because this person is more powerful than I am;” or “They won’t like me anymore if I don’t do this.” <br> You guessed it… Challenging automatic thoughts and using positive self-talk can help you here, too. <br> Use “I” statements to express your feelings and opinions. Don’t assume people know how you feel. Instead, tell the person exactly what you’re reacting to. Hinting at the problem or beating around the bush only confuses people. <br> When making a request, use phrases such as, “I would like” or “I don’t want” instead of saying, “you should” or “I need.” For example, saying something like, “I need you to tell me about the side effects of these medications” will sound pushy and demanding. Rather, you might say, “I would like more information about the side effects of the medication I’m taking.” This way, you still get what you wanted, but keeps a healthy relationship. And, be confident when asking! Even if someone says ‘no,’ it doesn’t mean that you shouldn’t have asked. <br> If you want to say ‘no’ to someone, be firm and confident (use eye contact, don’t stammer or whisper, or say “I’m not sure”). Having a clear reason for saying ‘no’ may help you express your opinion or emotions. <br> If you can’t come to an agreement with someone (either because you don’t want to fulfill their request, or because they don’t want to fulfill yours), you can try to negotiate or make a compromise. Offer alternative solutions to the problem or reduce your request. Focus on what will work to solve the issue. You may even turn the tables by saying, “What do you think we should do here?” <br> Don’t respond when people try to verbally threaten or attack you. Don’t let that distract you from making your point. Walk away if you have to. <br> Practice interpersonal interactions. It’s the only way to get better at reacting and responding to other people. For example, while talking with someone, change the subject. You could also try asking your counselor for a favor, respectfully disagree with someone’s opinion, or ask a person to stop doing something that bothers you. <br> Don’t be afraid to use a little humor. Smile. Be light-hearted. But, make sure you don’t use offending humor that would upset people, like anything related to race, homosexuality, mental illness, etc.",
+      "header": "",
+      "subheader": "Learning to Cope with Interpersonal Problems",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What topics could you talk about in a conversation?"
+            },
+            {
+              "type": "longtext",
+              "text": "Think of some thoughts that challenge the ones listed above (e.g., \"saying no is selfish\")"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Read the following story and write down how you can offer help to this person using the strategies discussed above. <br><i>\"Stephen was recently diagnosed with Borderline Personality Disorder. He has a long history of bad relationships that quickly go from love to hate. He got married at an early age. Stephen and his wife argued a lot. As a result, he would often move in and out of their home depending on how bad things got until they finally divorced. He married again not long after that, and the same pattern unfolded. Stephen gets jealous easily and needs a lot of attention to feel loved. But, he never spoke about his jealousy problems or need for attention. He felt that his romantic partners should just know when something was wrong with him. It made him feel weak and stupid to have to tell people about his emotions. Stephen is incarcerated for domestic violence. He got so upset with his current wife for having lunch with a male co-worker to discuss a possible promotion that he let his anger get out of control. He beat her, breaking several ribs and causing bruises all over her body. His wife filed for divorce. Stephen is now in a treatment group for inmates with domestic violence convictions. The other group members don’t like Stephen because he’s very frustrating and confusing. One minute he’s praising the other group members and the counselor for their hard work (usually when Stephen is the focus of attention), and the next minute he is on a tangent about how much of an idiot everyone is (usually when he is not the center of attention). He never seems to share any deeper emotions or clearly communicate how he’s feeling. Stephen makes other people feel like they need to walk on eggshells. He keeps coming to the group, but he is afraid to ask the other members for help with his real problems.\" </i>",
+      "header": "",
+      "subheader": "Recovery Rescue - Interpersonal Problems",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What interpersonal problems does Stephen have as a result of his Borderline Personality?"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you think will or could happen in the long run if Stephen does NOT work on his interpersonal problems?"
+            },
+            {
+              "type": "longtext",
+              "text": "If Stephen asked you for help in the situations he recently experienced, what would you suggest he do about his interpersonal problems?"
+            },
+            {
+              "type": "longtext",
+              "text": "What would have been different if Stephen followed your advice?"
+            },
+            {
+              "type": "longtext",
+              "text": "How can YOU relate to Stephen? That is, what do you have in common with him?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "You learned earlier that mental illnesses are partially caused by biology. Your brain has neurotransmitters that help communicate messages between different parts of it. Sometimes, these chemicals get a little disorganized and become imbalanced, so your brain doesn’t get the appropriate messages anymore. It’s kind of like losing the signal on your TV set, and the images don’t come in clear. These wrong messages result in certain symptoms (depression, anxiety, hallucinations, delusions, loss of focus). This is where some medications can be helpful because they try toput your neurotransmitters back in order so they communicate the right messages again. As a result, you can think more clearly. If you are taking medications for your mental illness, it is probably because your symptoms have a lot to do with these imbalanced neurotransmitters. ",
+      "header": "",
+      "subheader": "Why Do I Take Medications?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "People with serious mental illnesses must take medications to help reset the chemicals in their brain. The more consistently a person takes their medications, the better the result. People with mental illnesses can’t simply take their medications whenever they feel like it and expect to reduce their symptoms. This would be like a person with diabetes who chooses to take their insulin some days, but not others. Although medication alone is not likely to result in your recovery, it is an important part. For example, antidepressants (used to treat symptoms of depression) can help a person feel motivated enough to actually participate in treatment and do the required work. Therefore, to recover andsuccessfully reach your goals, you must have an effective medication treatment plan and stick to that plan. Taking your medications along with practicing the skills you learned in this module will substantially increase your chances of doing well and staying out of restricted housing. ",
+      "header": "",
+      "subheader": "Why Should I Keep Taking My Medications?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "text",
+      "text": "The bad part about taking medications is that they almost always involve some negative side effects. This is true no matter what the reason or condition for which you are taking medications. To have the best outcomes with your medications,it is important to know what side effects your medications can have and to tellyour doctor whatside effects you experience. Before each time you visit or check-in with the doctor, you should takea personal surveyand make a list of your experiencesand reactionsto the medications that you have taken since your last doctor visit. <br> Below is an example of what you might say to your doctor: <br> “I am taking ____________ to treat my depression, but it does not seem to be working as I still feel ____________ and ____________. I wonder if the dosage should be increased or if there is something else you can give me to help with my depression?” <br> And, here are some common side effects and tips for dealing with them: <br> Drowsiness: <ul><li> Take a brief nap during the day, but don’t sleep all day </li><li> Take advantage of time outside; be mindful of what you see, notice the feeling of the air, and the sun on your face </li><li>Ask your doctor about changing your medication to the evening </li><li> Stand during activities (e.g., therapy sessions); you may need to explain to staff why you are standing so they do not see it as a safety threat </li> <br> Weight Gain <li> Eat healthy foods that are available to you such as fruits and vegetables</li><li> Limit how much you eat sugary or fatty foods like soda and candy you eat (when you get commissary, for example, use it to buy food low in fat or calories)</li><li> Exercise regularly </li> <br> Restlessness <li> Tire yourself out with exercise; do push-ups in your cell for example </li><li> Go to your relaxation techniques like deep breathing, PMR, or guided imagery </li> <br> Muscle Stiffness <li> Stretch your muscles regularly </li><li> Do more PMR </li> <br> Dizziness <li>Try not to stand up too quickly from sitting or lying down; when you get up in the morning, for example, rise slowly </li><li> Ask the doctor if there are other medications you could take to reduce this effect </li> <br> Blurry Vision <li> Ask to have your eyes checked as your problem may not be related to the medication</li><li> Ask if you can have eye drops to increase the moisture in your eyes </li><li> Ask if you can try a pair of reading glasses</li><br> Dry Mouth <li> Make sure you always have water to sip on</li><li> Don’t let yourself get dehydrated; drink plenty of liquids</li><li> Suck on ice cubes</li><li> Ask the doctor for special mouthwash designed to reduce dry mouth</li><br> Shakiness or Tremors <li> Don’t fill cups or glasses of fluids to the very top</li><li> Ask the doctor if there are other medications you could take to reduce this effect </li><li> Use your stress management techniques, including deep breathing or PMR</li><br> Constipation <li> Drink lots of water every day (6-8 glasses)</li><li> Try to eat foods that have a lot of fiber in them like whole grains, bran cereals, vegetables, and fruits</li><li> Keep exercising when you can</li><li> Ask the doctor if there are other medications you could take to reduce this effect </li><br> Sensitivity to the Sun <li> When you do get more time outdoors, try to stay in the shade as much as possible</li><li> Keep your shirt on when outside to protect yourself from the sun’s UV rays</li><li> Whenever possible, exercise outside in the morning or evenings when the sun isn’t as hot</li></ul>",
+      "header": "",
+      "subheader": "What About Side Effects?",
+      "image": "New",
+      "imageBelow": "New"
+    },
+    {
+      "type": "activity",
+      "text": "Time to use your mental traffic light again! Just as you do with everything else, you must evaluate your thoughts, feelings, and behaviors related to your medication use. There are clues you can look for to help you recognize when you are doing well with your medication treatment plan and when you are headed toward relapse. <br> GREEN LIGHT = Monitor <ul><li> A helpful treatment regimen includes monitoring your side effects and taking your medications as prescribed. Remember to review your experiences and reactions since your last doctor visit and plan to tell your doctor about any negative side effects. Don’t argue, fight, or refuse medications when staff gives them to you. If you have questions, just ask. You have a right to know what they are giving you, why they are giving it to you, and what experiences you can expect to have. </li></ul> YELLOW LIGHT = Identify early warning signs of non-compliance <ul><li> Non-compliance occurs when you stop taking or refuse your medications. Early warning signs of medication non-compliance include thoughts, feelings, or beliefs that you no longer need your medication or that you can function as well (or better) without your medications. Examples of early warning signs include: thinking you are better off with your symptoms than the side effects, thinking your symptoms weren’t really all that bad before, thinking you’ve “out grown” your illness, or believing the side effects are “not worth it.” </li></ul> RED LIGHT = Stops triggers of non-compliance <u><li> Triggers are events or situations that have led to your non-compliance in the past. Everyone has different triggers, so you must learn to recognize your triggers. Triggers to medication non-compliance include not discussing your side effects with your doctor and other mental health care professionals, cheeking or selling your medications, or using alcohol or drugs. Triggers here are actual behaviors that you do (or don’t do) in response to taking (or not taking) your meds properly. </li></ul>",
+      "header": "",
+      "subheader": "Red, Yellow, and Green of Medication Compliance",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What YELLOW warning signs do you need to  look out for regarding your medication compliance?"
+            },
+            {
+              "type": "longtext",
+              "text": "What RED triggers do you need to look out for regarding your medication compliance?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "text": "Answer the following questions so you know exactly what medications you are taking, why you are taking them, and what the risks and benefits of taking them are. Note: you may need to ASK your doctor or counselor for some of this information.  ",
+      "header": "",
+      "subheader": "Mapping my Meds",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What medications do you take?"
+            },
+            {
+              "type": "longtext",
+              "text": "What symptoms do each of the medications treat?"
+            },
+            {
+              "type": "longtext",
+              "text": "What benefits do the medications give you?"
+            },
+            {
+              "type": "longtext",
+              "text": "What side effects do the medications give you? "
+            },
+            {
+              "type": "longtext",
+              "text": "If you didn't take your medications, how would you feel?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Make note of the following things so that you can talk about them the next time you see your doctor or mental health professional: <ul><li> The last time you saw the doctor </li><li> The reason you are seeing the doctor now </li><li> A current list of your medications </li><li> A list of the side effects that you are currently experiencing </li><li> Which side effects are unbearable? </li><li> Questions that you want to ask your doctor. </li></ul>",
+      "header": "",
+      "subheader": "Medication Monitoring",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "In this Module you learned about: <ul><li> Mental Illness – how it develops and what it looks like </li><li> Stigma and how to reduce it </li><li> The process of recovery from mental illness </li><li> Your warning signs and triggers for mental illness relapse </li><li> Automatic thoughts related to mental illness - how to be aware and challenge them </li><li> Different strategies for dealing with your specific symptoms including cognitive problems, negative moods, psychotic symptoms, and interpersonal problem </li><li> Medications for mental illnesses - why you are taking them, how to monitor your side effects, and how to look for signs of non-compliance </li></ul> ",
+      "header": "",
+      "subheader": "Module 6: Recap",
+      "image": "",
+      "imageBelow": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "image": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Which of the goals that you learned about in this module are you going to focus on this week?"
+            },
+            {
+              "type": "longtext",
+              "text": "How will you accomplish your goal?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might get in your way of accomplishing it?"
+            },
+            {
+              "type": "longtext",
+              "text": "What skills will you use to move past your road block?     "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "text": "Now let's see what you learned! This quiz has 12 questions. Select the BEST possible answer to each question. Remember, you need to earn a score of 75% or above to move on to the next module! ",
+      "header": "",
+      "subheader": "Module 6: Content Quiz",
+      "image": "New",
+      "imageBelow": "New",
+      "questions": [
+        {
+          "type": "multiChoice",
+          "prompt": "1. Mental illness is caused by...",
+          "answers": [
+            {
+              "answer": "a. Being stressed"
+            },
+            {
+              "answer": "b. Brain injury"
+            },
+            {
+              "answer": "c. A chemical imbalance in the brain and environmental stressors"
+            },
+            {
+              "answer": "d. How you were treated by your mother"
+            }
+          ],
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "Mental illness is caused by…",
+              "answers": [
+                {
+                  "answer": "Being stressed"
+                },
+                {
+                  "answer": "Brain injury"
+                },
+                {
+                  "answer": "A chemical imbalance in the brain and environmental stressors "
+                },
+                {
+                  "answer": "How you were treated by your mother"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Which of the follow best describes Bipolar Disorder?",
+              "answers": [
+                {
+                  "answer": "Minute by minute mood swings"
+                },
+                {
+                  "answer": "Really high moods that can last days and really low moods that can last weeks"
+                },
+                {
+                  "answer": "A history of rocky relationships with other people"
+                },
+                {
+                  "answer": "Seeing things that aren’t really there"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "People with Schizophrenia…",
+              "answers": [
+                {
+                  "answer": "Have multiple personalities "
+                },
+                {
+                  "answer": "Are crazy"
+                },
+                {
+                  "answer": "Can never get better "
+                },
+                {
+                  "answer": "Often cannot tell what is real and what is not real"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Personality disorders are…",
+              "answers": [
+                {
+                  "answer": "More stable over time than other mental health disorders"
+                },
+                {
+                  "answer": "Very easy to treat"
+                },
+                {
+                  "answer": "A good excuse for behavior"
+                },
+                {
+                  "answer": "Not very common in people who have criminal records"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "When people have negative opinions about a person, but don’t know very much about that person, this is called…",
+              "answers": [
+                {
+                  "answer": "Stigma"
+                },
+                {
+                  "answer": "Hatred"
+                },
+                {
+                  "answer": "A phobia "
+                },
+                {
+                  "answer": "Being stupid"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Recovering from mental illness is…",
+              "answers": [
+                {
+                  "answer": "Finished once you start feeling better "
+                },
+                {
+                  "answer": "Not important for reaching your goals "
+                },
+                {
+                  "answer": "An on-going process that takes time"
+                },
+                {
+                  "answer": "The same as recovering from the flu or a cold"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Which of the following is a cognitive problem that can be a symptom of many mental illnesses?",
+              "answers": [
+                {
+                  "answer": "Low intelligence"
+                },
+                {
+                  "answer": "Thinking thoughts that are wrong"
+                },
+                {
+                  "answer": "Not being able to focus on what's going on around you"
+                },
+                {
+                  "answer": "Having beliefs that aren't true"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Clearly expressing how you are feeling using “I” statements is a strategy for coping with…",
+              "answers": [
+                {
+                  "answer": "Interpersonal and emotional expression problems "
+                },
+                {
+                  "answer": "Anxiety"
+                },
+                {
+                  "answer": "Hallucinations"
+                },
+                {
+                  "answer": "Delusions "
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "People who are depressed may find it helpful to…",
+              "answers": [
+                {
+                  "answer": "Sleep it off"
+                },
+                {
+                  "answer": "Stay away from people for a while"
+                },
+                {
+                  "answer": "Pray for sadness to go away "
+                },
+                {
+                  "answer": "Use positive self-talk statements"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Medications for mental illness work by…",
+              "answers": [
+                {
+                  "answer": "Improving the chemical imbalance in your brain"
+                },
+                {
+                  "answer": "Increasing your confidence "
+                },
+                {
+                  "answer": "Stopping the mental illness from spreading in your body"
+                },
+                {
+                  "answer": "Clearing your mind of bad thoughts"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Which of the following is NOT a common side effect of medications used to treat mental illnesses?",
+              "answers": [
+                {
+                  "answer": "Dizziness "
+                },
+                {
+                  "answer": "False memories"
+                },
+                {
+                  "answer": "Weight gain"
+                },
+                {
+                  "answer": "Sensitivity to light or the sun"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "To improve your chances of successfully coping with your mental illness and reaching your goals, you should…",
+              "answers": [
+                {
+                  "answer": "Stop taking your medications immediately if you experience side effects"
+                },
+                {
+                  "answer": "Only take medications and wait for them to work "
+                },
+                {
+                  "answer": "Take your medications as prescribed and get involved in therapy "
+                },
+                {
+                  "answer": "Take a break from working on your recovery when you feel unmotivated"
+                }
+              ]
+            }
+          ],
+          "correctAnswer": "c. A chemical imbalance in the brain and environmental stressors"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "2. Which of the follow best describes Bipolar Disorder?",
+          "answers": [
+            {
+              "answer": "a. Minute by minute mood swings"
+            },
+            {
+              "answer": "b. Really high moods that can last days and really low moods that can last weeks "
+            },
+            {
+              "answer": "c. A history of rocky relationships with other people"
+            },
+            {
+              "answer": "d. Seeing things that aren't really there"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. Really high moods that can last days and really low moods that can last weeks"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "3. People with Schizophrenia...",
+          "answers": [
+            {
+              "answer": "a. Have multiple personalities "
+            },
+            {
+              "answer": "b. Are crazy"
+            },
+            {
+              "answer": "c. Can never get better"
+            },
+            {
+              "answer": "d. Often cannot tell what is real and what is not real"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "d. Often cannot tell what is real and what is not real"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "4. Personality disorders are...",
+          "answers": [
+            {
+              "answer": "a. More stable over time than other mental health disorders"
+            },
+            {
+              "answer": "b. Very easy to treat"
+            },
+            {
+              "answer": "c. A good excuse for bad behavior"
+            },
+            {
+              "answer": "d. Not very common in people who have criminal records"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "a. More stable over time than other mental health disorders"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "5. When people have negative opinions about a person, but don't know very much about that person, this is called...",
+          "answers": [
+            {
+              "answer": "a. Stigma"
+            },
+            {
+              "answer": "b. Hatred"
+            },
+            {
+              "answer": "c. A phobia "
+            },
+            {
+              "answer": "d. Being stupid"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "a. Stigma"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "6. Recovering from mental illness is...",
+          "answers": [
+            {
+              "answer": "a. Finished once you start feeling better"
+            },
+            {
+              "answer": "b. Not important for reaching your goals"
+            },
+            {
+              "answer": "c. An on-going process that takes time"
+            },
+            {
+              "answer": "d. The same as recovering from the flu or a cold"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. An on-going process that takes time"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "7. Which of the following is a cognitive problem that can be a symptom of many mental illnesses? ",
+          "answers": [
+            {
+              "answer": "a. Low intelligence"
+            },
+            {
+              "answer": "b. Thinking thoughts that are wrong"
+            },
+            {
+              "answer": "c. Not being able to focus on what's going on around you"
+            },
+            {
+              "answer": "d. Having beliefs that aren't true"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. Not being able to focus on what's going on around you"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "8. Clearly expressing how you are feeling using \"I\" statements is a strategy for coping with...",
+          "answers": [
+            {
+              "answer": "a. Interpersonal and emotional expression problems "
+            },
+            {
+              "answer": "b. Anxiety"
+            },
+            {
+              "answer": "c. Hallucinations"
+            },
+            {
+              "answer": "d. Delusions"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "a. Interpersonal and emotional expression problems"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "9. People who are depressed may find it helpful to...",
+          "answers": [
+            {
+              "answer": "a. Sleep it off"
+            },
+            {
+              "answer": "b. Stay away from people for a while"
+            },
+            {
+              "answer": "c. Pray for the sadness to go away"
+            },
+            {
+              "answer": "d. Use positive self-talk statements "
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "d. Use positive self-talk statements"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "10. Medications for mental illness work by...",
+          "answers": [
+            {
+              "answer": "a. Improving the chemical imbalance in your brain"
+            },
+            {
+              "answer": "b. Increasing your confidence"
+            },
+            {
+              "answer": "c. Stopping the mental illness from spreading in your body"
+            },
+            {
+              "answer": "d. Clearing your mind of bad thoughts"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "a. Improving the chemical imbalance in your brain"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "11. Which of the following is <u>NOT</u> a common side effect of medications used to treat mental illnesses?",
+          "answers": [
+            {
+              "answer": "a. Dizziness"
+            },
+            {
+              "answer": "b. False memories"
+            },
+            {
+              "answer": "c. Weight gain"
+            },
+            {
+              "answer": "d. Sensitivity to light or the sun"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "b. False memories"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "12. To improve your chances of successfully coping with your mental illness and reaching your goals, you should...",
+          "answers": [
+            {
+              "answer": "a. Stop taking your medications immediately if you experience side effects"
+            },
+            {
+              "answer": "b. Only take medications and wait for them to work"
+            },
+            {
+              "answer": "c. Take your medications as prescribed and get involved in therapy "
+            },
+            {
+              "answer": "d. Take a break from working on your recovery when you feel unmotivated"
+            }
+          ],
+          "fields": [],
+          "correctAnswer": "c. Take your medications as prescribed and get involved in therapy"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Great work! You finished Module 6. Your supervision officer may need to review your work before you can move on to the next module and award your certificate.",
+      "header": "",
+      "subheader": "",
+      "image": "New",
+      "imageBelow": "New"
+    }
+  ],
+  "owner": "3SebTnspPovZbhnxE",
+  "questions": [
+    {
+      "type": "multiChoice",
+      "prompt": "1. Mental illness is caused by...",
+      "answers": [
+        {
+          "answer": "a. Being stressed"
+        },
+        {
+          "answer": "b. Brain injury"
+        },
+        {
+          "answer": "c. A chemical imbalance in the brain and environmental stressors"
+        },
+        {
+          "answer": "d. How you were treated by your mother"
+        }
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "type": "longtext",
+      "text": "Which of the goals that you learned about in this module are you going to focus on this week?"
+    },
+    {
+      "type": "longtext",
+      "text": "How will you accomplish your goal?"
+    },
+    {
+      "type": "longtext",
+      "text": "What might get in your way of accomplishing it?"
+    },
+    {
+      "type": "longtext",
+      "text": "What skills will you use to move past your road block?     "
+    }
+  ],
+  "orgOwnedBy": "5bSekKF3Rkcodk8Gf",
+  "createdBy": "3SebTnspPovZbhnxE",
+  "answers": [
+    {
+      "answer": "New"
+    },
+    {
+      "answer": "New"
+    }
+  ]
+}

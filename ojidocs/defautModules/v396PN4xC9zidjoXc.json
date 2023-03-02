@@ -1,0 +1,1241 @@
+{
+  "_id": "fv8mZY85PYC7WkE3D",
+  "title": "MODULE 2",
+  "identifier": "New",
+  "display": true,
+  "description": "This module is designed to prepare you for, and help you cope with, challenges you may experience while under community supervision, whether you’re on probation, parole, or diversion court. The module reviews common rules of supervision and talks about how to get organized. If you aren’t new to supervision, some information may be familiar but keep an open mind about what else you could learn. ",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Because of your illegal actions, you are being placed under community supervision to monitor your behavior and help you get back on track. Your placement is meant to be a consequence for how you chose to behave in the community and a way for you to make needed changes like get off drugs or find a job. According to the Bureau of Justice Statistics—a government agency that collects data on people in the criminal justice system—about 4.6 million people are being supervised by community corrections departments like the one you report to. If you aren’t new to supervision, some of the information in this section will be a no-brainer (duh!). But, some information is helpful whether you’re a rookie or have been around the block a few times.",
+      "questions": [],
+      "subheader": "Why am I Here?",
+      "header": ""
+    },
+    {
+      "type": "text",
+      "text": "People are placed on supervision for various reasons; some are sentenced to probation instead of serving jail time. Others may be on parole because they were released early from prison. The terms of your supervision period may depend on the reason for your placement. The rules also vary from county to county or even from person to person.",
+      "questions": [],
+      "header": "",
+      "subheader": "Know the Rules"
+    },
+    {
+      "type": "activity",
+      "text": "Community supervision requirements are stringent and typically include the following: <ul> <li> <b> Pay supervision fees</b> - yes, it costs money to be supervised. Try to pay these fees on time so you don't get behind on what you owe or get charged with late fees.</li> <li> <b> Avoid illegal conduct </b> - it seems pretty obvious that you shouldn't commit crime while you're facing the consequences for one. </li> <li> <b> Avoid contact with other people on supervision</b> - don't hang out with other people who engage in crime or who are in trouble for committing a crime. We will talk more about this in a later module. </li><li><b> Report any arrests or police contact</b> to your officer. </li><li> Find stable <b> employment</b> and <b>housing</b>. </li><li> Report for <b> mandatory check-ins</b> with supervision officers. </li><li><b>Avoid drug use</b> and submit to random <b>drug screenings.</b></li><li> Be available for <b> unscheduled home and work visitations </b> from officers. </li><li> Comply with <b> mandated treatment programming.</b></li><li> Obtain <b> permission to travel </b> outside a designated location or change your residence. </li></ul> ",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "If people don’t follow the rules of their supervision sentence, they may be required to pay fines, or be sent to jail or return to prison. Check with your supervision officer if you are not clear about the rules of your sentence or if you're having trouble meeting the requirements. List the rules you are required to follow below:"
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "subheader": "Know the Rules",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "The consequences of violating your terms (often called a technical violation) also varies depending on the severity of the crime you’ve been convicted of, the type of supervision you are on, and whether you have any previous violations. Breaking the rules could mean a fine, an extension of your supervision sentence, or incarceration. If you’re on parole, violations usually mean a revocation of your release and return to prison. Always remember that one minor misstep could have a MASSIVE consequence for you and your family. Don’t be the person who fails to report one day and gets 2-years behind bars for it! It feels unfair, but the best way to save yourself from frustration and lost time is to just do what’s asked of you.",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "You should be aware of the potential legal consequences of violating your terms. IT IS YOUR RIGHT TO KNOW. If you do not know, you must ask your officer or your lawyer.",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What types of consequences (legal or otherwise) COULD you be facing if you violate the terms of your sentence?"
+            },
+            {
+              "type": "longtext",
+              "text": "What consequences (legal or otherwise) HAVE you already experienced for violating the terms of your sentence? And, what rules did you break?"
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "subheader": "What Happens If I Don't Follow the Rules?"
+    },
+    {
+      "type": "activity",
+      "text": "Complying with community supervision is tough for most people. It will take a lot of patience and persistence to make it through. People with criminal histories, like you, face a ton of barriers to crime-free futures while in the community for many reasons. You may live in or be returning to neighborhoods where other people are involved in crime. Or you may be learning to adjust to an unfamiliar world. Also consider how your thinking, behaviors, and environment (from THE Circle of Change) may make it difficult for you to stop doing crime. On top of that, you have now lost some of your right to privacy and many of the things you enjoy doing are no longer allowed. You may even feel like you whole life revolves around supervision and what you can and cannot do. Like most adults, you also probably have a lot going on right now and having to follow so many rules is going to test your sanity. No matter what type of person you are, it will be difficult to deal with supervision at some point or another. So, it is important that you expect and prepare yourself for challenges.",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Take a moment to write down how you expect your time on supervision will affect you personally and/or how it has affected you in the past, if you’ve been sentenced before. This could be related to particular feelings or barriers you may encounter. ",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "\t How do you expect your time on supervision will affect you personally? "
+            },
+            {
+              "type": "longtext",
+              "text": "If you have been sentenced before, how has supervision affected you in the past? "
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "subheader": "What Effects Will Supervision Have on Me and My Life?"
+    },
+    {
+      "type": "text",
+      "text": "If you have any questions about being placed on community supervision, use the chat function in the app to communicate with your officer. Your officer will be able to help you find the answers to your questions.",
+      "questions": [],
+      "header": "",
+      "subheader": "Other Questions, Comments, or Concerns?"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "It’s understandable that you might feel angry about being placed on community supervision. Your anger may be because you feel scared or nervous about being able to successfully complete your terms, because you feel your sentence is unjust or unfair, or because you are frustrated with your own behaviors. ",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Briefly talk about your own feelings of anger or frustration about being on supervision:"
+            },
+            {
+              "type": "longtext",
+              "text": "Where do you think these feelings come from?"
+            },
+            {
+              "type": "blank",
+              "text": "Looking at the Anger Meter, what level of anger are you right now?"
+            }
+          ],
+          "image": "mod2angermeter.png"
+        }
+      ],
+      "header": "",
+      "subheader": "Accepting Your Anger"
+    },
+    {
+      "type": "text",
+      "text": "Anger is useful sometimes. It can help release tension, control other people and get what you want, or trigger positive actions (consider people who protest in Washington D.C. to make changes to our laws or economy). But, many of these apparent payoffs can have serious long-term consequences. Read the below story about dealing with anger: <i> Now, imagine that you are in a tug-of-war with a huge, ugly anger monster. You have one end of the rope and the monster has the other end. In between the two of you is a dark, bottomless pit. If you fall in, you will die. You’re pulling and fighting as hard as you can, but the monster keeps pulling you closer and closer to certain doom. What’s the best thing you can do in this situation? Your first guess might be to pull even harder. That’s the natural choice. But, the monster will also pull harder. What’s another option? Drop the rope. When you drop the rope, the monster is still there, but you’re no longer mixed up in a struggle with him. Your body and mind are free to do something more helpful for solving your challenges. </i> <br> Just like in the story, if you keep fighting with your feelings of anger, you are not only going to become physically tired, but you’re also putting yourself at risk of getting into trouble. For example, uncontrolled anger could lead you to violate your supervision or avoid activities, and in turn, add time to your sentence or a trip back to prison. Acceptance, on the other hand, means opening up and acknowledging your feelings. This is what happens when you give up the fight. By doing this, you can make room for anger-related emotions, urges, and sensations while also having the energy to focus on what you need to do to complete your sentence without further struggles. In other words, you can realize that anger is a normal response to a frustrating situation without letting your anger take over and stop you from accomplishing your goals. DON’T LET THAT ANGER MONSTER PULL YOU DOWN. We will revisit anger again in more detail later in the program.",
+      "questions": [],
+      "header": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "One strategy for reducing your anger is to make an active decision to focus on something else, like doing things that are in line with your goals. Try this exercise to release tension and begin re-focusing yourself away from anger. Stick with it! <ul><li> First, get ready by taking 2 slow, deep breaths. Focus on breathing all the way in through your nose and breathing out of your mouth as slowly as possible until your lungs are completely empty - then let them refill by themselves. </li><li> Next, take a seat and plant your feet firmly onto the floor. </li><li> Push your feet down - notice the feeling of the floor beneath you, supporting you. </li><li> Notice the muscle tension in your legs as your push your feet down. </li><li> Notice your entire body - and the feeling of gravity flowing down through your head, back, and legs into your feet. </li><li> Now look around you and notice the things you see - look at their texture and shape. </li><li> Notice the things you can feel in contact with your body (for example, the air on your face, you shirt against your shoulders, your back against the chair). </li></ul>",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Now, use the Anger Meter again.",
+          "fields": [
+            {
+              "type": "blank",
+              "text": "What level of anger are you right now?"
+            },
+            {
+              "type": "longtext",
+              "text": "Recall your level of anger from the beginning of the module, has it changed?"
+            }
+          ],
+          "image": "mod2angermeter.png"
+        }
+      ],
+      "header": "",
+      "subheader": "Dropping the Anchor",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "As you already know, you have a lot of rules to follow. Which means, you have a lot of different things to do, places to go, and appointments to keep track of. Being organized is key to staying compliant with your supervision. Organization usually involves planning, scheduling, and setting reminders ahead of time. As soon as you are asked to complete a task or attend a meeting, you should immediately plan for it—mark it on your calendar in this app! Your supervision officer can also help you by adding events and reminders to your calendar. Do not rely on your memory or someone else. It is your responsibility to do what’s asked and be where you need to be.",
+      "questions": [],
+      "header": "",
+      "subheader": "Why is Organization Important?"
+    },
+    {
+      "type": "text",
+      "text": "The first step to getting organized is knowing what makes sense and what works for you. No two people have the same way of organizing things, but many people have suggestions on how to stay organized. You should try everything at least once—you never know what will work if you don’t try it! If you decide something isn’t right for you, you can always stop doing it and try something else. Finding what works for you to stay organized is trial and error, so don’t get frustrated if the first thing (or first couple things) do not work out. Remember, being on supervision requires patience and persistence. ",
+      "questions": [],
+      "header": "",
+      "subheader": "Get Yourself Together!"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Below are some general ideas for improving your organization: <ul><li> Use a calendar on your phone and make sure your notifications are turned on! Look at your calendar every morning and before you go to bed. Be sure it's updated. </li><li> Buy a low-cost planner (try Wal-Mart or a dollar store) </li><li> Make a \"top 3\" list for the day - things you REALLY must get done </li><li> Separate items by how important or urgent they are (must be done today vs. must be done by the end of the month) -- a calendar can help you do this! </li><li> Make any changes to your schedule immediately - if an appointment is re-scheduled, edit your calendar or planner right away; don't risk forgetting </li><li> Buy low-cost folders or drawers to organize important papers - then label each one clearly. </li><li> Keep any important papers in a place where you can easily find them, but where no one (or pets) will mess with your stuff </li><li> Spend the first 5 minutes after you get home to put papers and belongings away </li><li> Get into a routine - this includes your sleep schedule </li><li> Devote 10 minutes of every day to planning and organization - make sure you know what's coming up, discard or dispose of things you don't need anymore, clean up or put things away that have been sitting out</li><li> When you can, ask other people for help - can your kids fold laundry while you search for job openings? </li><li> Build in rewards for getting tasks done, especially ones you don't like - maybe grab some McDonald's fries after your supervision check in</li><li> Remind yourself about your goals and why it's important to be organized everyday</li><li> Share your plans with someone you trust so they can hold you accountable </li><li> Use relaxation techniques when you feel overwhelmed by your schedule (we'll practice some of these later) </li></ul>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Which of the tips stand out to you as something you would be willing to try?"
+            },
+            {
+              "type": "longtext",
+              "text": "What other things can you use, or have you used, to stay organized?"
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "subheader": "Tips for Getting Organized and Managing Your Time",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "<b>AVOID</b> doing the following: <ul><li> Writing down every single detail - dates, addresses, and what you need to bring are important, but don't overwhelm yourself</li><li> Making very long lists of things to do - you'll only stress yourself out and make it harder to achieve everything</li><li>Throwing papers or items in random places or letting things pile up</li><li> Being perfect - be reasonable with your time and how much you can really get done in a given time period</li><li>Multi-tasking or doing several things at one time - studies show that this is actually unproductive and will take you longer to finish something because your attention is divided</li></ul>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What barriers do you see in your own ability to stay organized?"
+            },
+            {
+              "type": "longtext",
+              "text": "What makes it hard for you to be organized in your life?"
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "subheader": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "The Oji app provides you with a calendar to track your activities and events. Use it as often as you need and set up your notifications, so you get reminders! And don’t forget to update it if your plans change, as soon as they change. Also, ask for help when you need it. First, it may help to organize your tasks by category. The calendar allows you to label events as a supervision task, a work task, or a leisure task and to set the priority level (high, medium, low). Supervision tasks are those directly related to your community supervision; work tasks are related to your job or home; leisure tasks are social or “for fun” activities that help you relax and stay happy. Planning “me time” and pro-social activities is just as important as planning supervision appointments. By sorting activities this way, you can better prioritize. Below are some examples of each: <ul><li><b>Supervision:</b> Check-in, home visit, complete change of address form, attend AA/NA meeting</li><li><b>Work/Home:</b>Job interview, submit report to boss, pick up groceries, pay rent</li><li><b>Leisure:</b> Movie night with the kids, intramural football game, church bake sale, outlet shopping </li></ul>",
+      "questions": [],
+      "header": "",
+      "subheader": "Using Your Oji Calendar",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "To help you make the best use of your calendar, let’s practice some organization skills. Read the case of Dani, then help her organize her week: <i>\"Dani is a 28-year-old single mom of a 2-year-old girl and a 7-month old boy. She’s on supervision for a number of shoplifting charges and has a lot going on. It’s Sunday night and she’s thinking about everything going on for the week but is so overwhelmed she can’t think straight. She doesn’t have a job, so she needs to go to the job center to ask for a temp position and start looking for more permanent jobs to apply to. She knows she has a supervision reporting date on Tuesday at 3:00 and she really can’t miss it! Of course, her car broken down, so she doesn’t have a ride and will need to make time (and find the cash) to get it fixed soon. Her 2-year-old, Sklyar, has a dance recital Friday night and Dani still needs to finish her costume, but is running out of money for the week and desperately needs groceries. Not only that, but her 7-month old, Jax, has been coughing a lot and is starting to feel warm; Dani thinks he caught a cold at his babysitter’s house. She also has a nail appointment with her mom on Thursday, a child support hearing on Monday. Rent and the electric bill are due Wednesday, and she needs to attend two AA/NA meets as part of her supervision requirements.\"</i>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What is one task that Dani has to do?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this a supervision, work/home, or leisure task?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this task high, medium, or low priority?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another task that Dani has to do?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this a supervision, work/home, or leisure task?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this task high, medium, or low priority?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another task that Dani has to do?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this a supervision, work/home, or leisure task?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this task high, medium, or low priority? "
+            },
+            {
+              "type": "longtext",
+              "text": "What is another task that Dani has to do?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this a supervision, work/home, or leisure task?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this task high, medium, or low priority?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another task that Dani has to do?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this a supervision, work/home, or leisure activity?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this task high, medium, or low priority?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another task that Dani has to do?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this a supervision, work/home, or leisure task?"
+            },
+            {
+              "type": "blank",
+              "text": "Is this task high, medium, or low priority?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is the first task that Dani should prioritize?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is the second task that Dani should prioritize?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is the third task that Dani should prioritize?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is one resource that Dani might use to help her? In other words, what or who does Dani need? Think of things that would most likely be available to her (for example, just saying “get more money” isn’t a very helpful solution)."
+            },
+            {
+              "type": "longtext",
+              "text": "What is another resource that Dani may use to help her?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is a final resource that Dani may use to help her?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is one piece of advice you would give Dani to help her focus and get organized?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another piece of advice you would give Dani?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is a final piece of advice you would give Dani?"
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "subheader": "Practice Makes Perfect",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Part of finishing community supervision is using a lot of different, new skills to reach your goals. Believe it or not, supervision officers and counselors notice the people who are doing well. It may feel like they don’t notice you as much because they spend less time with you, but that’s exactly how they notice your success! They don’t have extra paperwork or meetings related to you breaking the rules, which goes a long way. For some community supervision departments, there are even rewards for following the rules and doing well. When your supervising officer is able to give examples of your good and compliant behavior, you are more likely to earn additional resources and good favor from the judge overseeing your case. You want them to be on your side because their decisions directly impact you and your sentence, but you have to give them clear reasons to help and support you. Not to mention, being in good favor means you avoid negative consequences like fines, being revoked, or time added, which can lead to time away from your family, lost wages, and your freedom.",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What behaviors ARE NOT helpful for your goal of completing and staying off supervision? "
+            },
+            {
+              "type": "blank",
+              "text": "Using your mental traffic light, what color are these unhelpful actions?"
+            },
+            {
+              "type": "longtext",
+              "text": "What behaviors ARE helpful for your goal of completing and staying off supervision?"
+            },
+            {
+              "type": "blank",
+              "text": "Using your mental traffic light, what color are these helpful actions? "
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "subheader": "Being in Good Favor"
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Indicate whether the behaviors below are healthy (okay) behaviors or unhealthy (not okay) behaviors.",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "Lie about who I was with last night.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Participate in other services/treatment.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Yell at an officer when I'm angry about the rules.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Call my officer when I don't have a ride to an appointment.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Use someone else's urine to pass drug tests. ",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Spend money that should be used for supervision fees. ",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Skip town without telling your officer.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Save up to buy a used car. ",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Pay supervision fees on time.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Show up to supervision appointments on time. ",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Ignore my officer's calls or home visits.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Hide weapons in the house.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Not tell my officer about a speeding ticket.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Avoid people who are also on supervision.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Go to an AA/NA meeting.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Ask for help to find a job.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Refuse a drug test.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Hang with friends who are smoking weed.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Drive without a valid license.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "Take a class at community college.",
+              "answers": [
+                {
+                  "answer": "Healthy Behavior"
+                },
+                {
+                  "answer": "Unhealthy Behavior"
+                }
+              ]
+            },
+            {
+              "type": "longtext",
+              "text": "What are some other healthy behaviors that you can think of?",
+              "answers": []
+            },
+            {
+              "type": "longtext",
+              "text": "What are some other unhealthy behaviors that you can think of?",
+              "answers": []
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "subheader": "Supervision Scramble"
+    },
+    {
+      "type": "activity",
+      "text": "When people don’t know what to do with their time or when they use their time poorly, they can often find themselves in trouble. What happens when you have too much time on your hands? Chances are, you get bored. And, how do you solve the struggle of being bored? You stir up some excitement! Sometimes this excitement leads to behaviors that break the rules of community supervision or society. <br> ",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Briefly describe a time when you felt bored, or didn't know what to do, and you ended up doing something that you should not have done:"
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "subheader": "Occupying the Mind and Body"
+    },
+    {
+      "type": "text",
+      "text": "Researchers have shown that unplanned leisure time (leisure time is your free time to do things of your choosing; it does not include work or other required tasks such as school or household chores) is a risk factor for returning to criminal behavior. In other words, people who are on community supervision and do not learn to plan out or schedule leisure activities are likely to occupy their time with activities that could get them in trouble with the law again. Doing activities that you enjoy is important for your health, but you must use that time wisely! Pro-social activities are helpful for keeping you occupied and out of trouble. If you are already engaged in a positive activity, it is much easier to say “no” when an opportunity to violate the rules comes along. In addition, your mind and body will grow stronger if you participate in activities regularly and in ways that are consistent with your goals. Let’s look at an example: <i>\"Billy used to sit in his house watching television most of the day, only leaving to go to work and visit his officer once a month. Over time, he started to feel tired. He spent a lot of time thinking about his life before community supervision. His muscles felt weak, he began to forget things easily, and he even thought about suicide. His counselor recommended that he take advantage of free memberships at the local library. Billy selected a book about meditation that helped him to relax. At first, it was difficult for him to read again; he had to sound the words out loud to himself and it took him a while to finish the book. But soon, his reading and comprehension skills increased, and Billy was completing most books in no time. He liked how some of the books taught him new things, while other books allowed him to escape his world for a little while and dive into the world of the characters in the story. Billy was also careful in his book choices – he did not read books about violence or crime because he knew they might trigger bad behavior. He read books that were interesting, but ones that carried a positive message. He also liked being in the library around other people who shared his interests. Sometimes he attended community events at the library, like movie night or poetry readings. He even met a few friends there and the staff know his name. Billy also discovered that he could use the computers there to find other events going on in his neighborhood.\"</i>",
+      "questions": [],
+      "header": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "Complete the prompts below. Don’t be afraid to ask for help or do some extra research; there may be more options and resources than you think. List all available possibilities, even if they don’t interest you right away. Use this opportunity to explore your own imagination and creativity. But, focus on what you have easy access to, not on what you don’t. For example, it may not be helpful right now to talk about visiting your child who lives outside your restricted travel area, unless you can get permission. Pick things that won’t get you in trouble. First, here is an example: <ul><li><b>Activities that are available to me right now:</b> <i> Learning how to draw</i></li><li><b><u>How</u> do I get access to this activity?:</b> <i> Take a class at the local community college or watch YouTube videos about drawing </i></li><li><b><u>What</u> do I need to complete this activity?:</b> <i> Drawing supplies - sketch paper, colored pencils, pencil sharpener, eraser </i></li><li><b><u>When</u> can I try this activity?:</b> <i> In the fall when classes start, or what tutorials on Youtube this evening after work</i></li></ul>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What is an activity that is available to you right now?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do you get access to this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you need to complete this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "When can you try this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another activity that is available to you right now?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do you get access to this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you need to complete this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "When can you try this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another activity that is available to you right now?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do you get access to this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you need to complete this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "When can you try this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "What is another activity that is available to you right now?"
+            },
+            {
+              "type": "longtext",
+              "text": "How do you get access to this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "What do you need to complete this activity?"
+            },
+            {
+              "type": "longtext",
+              "text": "When can you try this activity?"
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "subheader": "Activities Inventory",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "Did you know that there is a calendar that you can use in this app? Navigate to the icon that looks like a monthly calendar and enter <b> 3 activities </b> that you have coming up in the next week (example: getting lunch with a friend, attending an AA/NA meeting, taking your kids to the park). ",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "What are some activities that you could have participated in or planned to participate in, but chose not to, throughout this week?"
+            },
+            {
+              "type": "longtext",
+              "text": "What held you back?"
+            }
+          ],
+          "image": ""
+        }
+      ],
+      "header": "",
+      "subheader": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "Sleep can be a difficult task when you’re stressed and have a lot going on in your life. The amount of sleep you get and how well you sleep each night can be complicated by your mood/emotions, being in a new place (sleeping in your bedroom after sleeping in jail, for example) or noise from the city streets and the feeling that someone is always watching you. Over time, your mind and body will start to get used to all this stuff. It’s also important to know that some types of medication cause poor sleep as a side effect; you may want to ask if this is true for any of the medications you are taking. Sleep disturbances can lead to emotional and physical struggles, such as anxiety, depression, irritability, fatigue, and poor memory and concentration. Your brain and body need good, quality sleep to be healthy and to function properly. In fact, if you go too long without sleep, your mind can start to play tricks on you – you may even see or hear things that aren’t really there. Good sleep and a regular sleep schedule can also help you stay organized!",
+      "questions": [],
+      "header": "Catching Some Zzz's"
+    },
+    {
+      "type": "text",
+      "text": "If you’re having serious difficulty with sleep, you might want to talk to a doctor. But, there are some techniques that you can do on your own to help you sleep better. Here are a few tips to start with: <ul><li><b> Don't nap during the day </b> - it's tempting to sleep all day when there isn't a lot to do, but don't forget about your Activity Log! Sleeping during the day makes your brain feel like it doesn't need to rest at night.</li><li><b>Try exercising<b> - physical activity gives your body a reason to energize, which is what sleep does. But, do not exercise too close to bedtime or you will feel hyperactive. </li><li><b>Manage stress </b> - stress causes worry and racing thoughts, which can keep you up at night. Before you go to bed, write down what's on your mind to get it out of your head. Even thinking of a funny joke can relax you. </li><li><b>Stick to a sleep schedule</b> - try to go to bed and get up at the same time everyday. Being consistent helps your mind and body learn when to shut off each night.</li><li><b>Create a bedtime ritual or routine</b> - again, doing the same things at night lets your mind and body know when it's time to wind down. This could include reading a book, doodling a picture, writing down what's on your mind, quietly humming a song, stretching your muscles, or doing deep breathing exercises. </li><li><b>Use imagery</b> - when you close your eyes, think of something comforting, like a pleasant memory. Imagine that you are somewhere else, and that the noises you hear belong to something else. Immersing yourself in a relaxing mental story is like starting your own dream. </li></ul>",
+      "questions": [],
+      "header": "",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "text",
+      "text": "PMR has been around since the 1930s. Researchers have shown that PMR can be more effective than medication in reducing a number of struggles including anxiety, headaches, chronic pain, arthritis, and…poor sleep. It is even used to help patients who are diagnosed with cancer. PMR is a method of stress management that helps you to relax and quiet your mind. It requires you to alternate between tensing and relaxing groups of muscles. You have already practiced some aspects of PMR. ",
+      "questions": [],
+      "header": "",
+      "subheader": "Progressive Muscle Relaxation (PMR)"
+    },
+    {
+      "type": "activity",
+      "text": "This is a series of self-guided PMR exercises. The first time you try it, it may seem strange or silly. With practice, you will likely find this exercise enjoyable. Allow yourself about 20-30 minutes before going to bed to complete the exercise. And make sure it is the LAST thing you do before going to sleep. Read ALL the instructions first so you have an idea how to do it and can focus more of your attention on relaxing. When you read the steps to yourself, talk in a slow, soothing voice. <b> Sit upright on your bed or in a chair with your legs hanging over the edge.</b> 1. Arms <ul><li> Clasp both hands into fists and roll your wrist with your knuckles pointing upward. Hold the tightness for 10 seconds and notice the tension in your muscles. Now let go of the tightness and let your arms relax onto the bed/chair. Notice the change in how your muscles feel. Repeat by making fists again for 10 seconds and then relaxing for 20 seconds (be sure to count quietly to yourself)</li><li> Next, bend both your elbows and flex your biceps like a body-builder. Hold this pose for 10 seconds then let go of the tension for 20 seconds. Repeat. </li><li> Now, lock your elbows straight and stretch your arms toward the floor. Feel the tension up and down your arms. Release after 10 seconds and relax for 20 seconds. Repeat. </li></ul> 2. Legs <ul><li> Flex your toes by bringing them toward your head while you tighten your shin and calf muscles. Hold for 10 seconds then release for 20 seconds by letting your feet hang loosely. Repeat. </li><li> Tighten your lower legs while pointing your toes outward. Hold the position for 10 seconds then return your toes to their natural place for 20 seconds. Repeat. </li><li> Tense your inner thigh muscles by pressing your knees together as hard as you can without causing pain for 10 seconds. Release and feel the sense of ease spread throughout your legs. Repeat. </li><li>Tighten your buttocks and thighs. Increase the tension by straightening your legs and pushing down hard through your heels. Hold this position for 10 seconds then let go. Repeat. </li></ul> 3. Mid-section <ul><li> Gently arch your back. Hold the tension for 10 seconds, then relax by letting your back be flat against the wall or chair. Repeat. </li><li>Take a deep breath and fill your lungs with air. Tighten all the muscles in your chest and abs. Hold your breath, then breathe out and release the air. Repeat. </li><li>Stretch your shoulders backward as though you were trying to touch your ears. Hold for 10 seconds then let your shoulders droop toward the floor. Repeat. </li></ul> 4. Head <ul><li>Tilt your head backward and stretch your chin toward the ceiling. Hold for 10 seconds then release and bring your chin to rest on your chest. Repeat.</li><li>Clench your jaw and push your tongue up to the roof of your mouth. Hold then release. Notice the relaxation of your lips. Repeat. </li><li>Close your eyes tightly and smile, stretching your mouth as wide as you can. Hold it for 10 seconds then relax. Repeat. </li><li> Raise your eyebrows as high as you can and feel the tension across the top of your head. Hold, then relax. Repeat. </li></ul> Repeat these steps as many times as you want, then slowly lower your body down into your bed and place your head gently on the pillow. Close your eyes. ",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "",
+          "fields": [
+            {
+              "type": "New",
+              "text": "\tUsing the Sleep Meter, rate your quality of sleep the next morning after you’ve tried the PMR exercises and the other tips listed previously: "
+            }
+          ],
+          "image": "mod2sleepmeter.png"
+        }
+      ],
+      "header": "",
+      "subheader": "Being Buddha",
+      "image": "",
+      "imageBelow": ""
+    },
+    {
+      "type": "activity",
+      "text": "",
+      "questions": [
+        {
+          "type": "combo",
+          "prompt": "<b>In this Module you learned about:</b><ul><li>Community supervision - its purpose, implications, and effects </li><li> Managing feelings of anger related to your placement on supervision</li><li> Being planful and organized</li><li> Keeping your mind and body active in helpful ways </li><li> Overcoming sleep problems </li></ul>",
+          "fields": [
+            {
+              "type": "longtext",
+              "text": "Which of the goals that you learned about in this module are you going to focus on this week?"
+            },
+            {
+              "type": "longtext",
+              "text": "How will you accomplish your goal?"
+            },
+            {
+              "type": "longtext",
+              "text": "What might get in your way of accomplishing it? "
+            },
+            {
+              "type": "longtext",
+              "text": "What skills will you use to move past your road block?"
+            }
+          ]
+        }
+      ],
+      "header": "",
+      "image": "",
+      "imageBelow": "",
+      "subheader": "Module 2 Summary"
+    },
+    {
+      "type": "quiz",
+      "text": "Now let's see what you learned! This quiz has 10 questions. Select the BEST possible answer to each question. Remember, you need to earn a score of 75% or above to move on to the next module!  ",
+      "questions": [
+        {
+          "type": "multiChoice",
+          "prompt": "1. You could be incarcerated if you fail to comply with community supervision.",
+          "fields": [
+            {
+              "type": "multiChoice",
+              "text": "1. You could be incarcerated if you fail to comply with community supervision. ",
+              "answers": [
+                {
+                  "answer": "a. True"
+                },
+                {
+                  "answer": "b. False"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "2. Which of the following is NOT a common rule or requirement of community supervision? ",
+              "answers": [
+                {
+                  "answer": "a. Paying supervision fees"
+                },
+                {
+                  "answer": "b. Avoiding contact with other people on supervision"
+                },
+                {
+                  "answer": "c. Going back to school "
+                },
+                {
+                  "answer": "d. Finding a job"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "3. Anger...",
+              "answers": [
+                {
+                  "answer": "a. Is something you should ignore or keep to yourself?"
+                },
+                {
+                  "answer": "b. Is never a useful or helpful emotion "
+                },
+                {
+                  "answer": "c. Is a good way to get what you want in life"
+                },
+                {
+                  "answer": "d. Is ok if you learn to handle it properly"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "4. Making a very detailed list of things you need to do is a good way to keep yourself organized:",
+              "answers": [
+                {
+                  "answer": "a. True"
+                },
+                {
+                  "answer": "b. False"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "5. Which one of the tasks below is a leisure task?",
+              "answers": [
+                {
+                  "answer": "a. Checking in with your probation officer"
+                },
+                {
+                  "answer": "b. Joining a scrimmage basketball team"
+                },
+                {
+                  "answer": "c. Interviewing for a new job"
+                },
+                {
+                  "answer": "d. Doing the laundry"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "6. Following the rules and having good behavior while on supervision will...",
+              "answers": [
+                {
+                  "answer": "a. Get you into trouble in the long-run"
+                },
+                {
+                  "answer": "b. Cause you to go un-noticed by corrections staff"
+                },
+                {
+                  "answer": "c. Give staff and the judge a reason to support you and offer help"
+                },
+                {
+                  "answer": "d. Keep you on supervision longer"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "7. NOT planning pro-social leisure activities...",
+              "answers": [
+                {
+                  "answer": "a. Is a risk factor for returning to criminal activity "
+                },
+                {
+                  "answer": "b. Is helpful for reducing stress"
+                },
+                {
+                  "answer": "c. Is something you can't do on supervision"
+                },
+                {
+                  "answer": "d. Is a common problem among law-abiding citizens"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "8. Of the people listed below, who would be \"green\"?",
+              "answers": [
+                {
+                  "answer": "a. Tyrell, who gets back out drunk on the weekends"
+                },
+                {
+                  "answer": "b. Sandy, who drives you to your supervision appointments when you don't have a ride"
+                },
+                {
+                  "answer": "c. Jimmy, your neighbor who is a nice guy but sold you week before"
+                },
+                {
+                  "answer": "d. Roger, your buddy who jokes about how you'll always be the same \"player\" he's always known"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "9. Only medication from a doctor can cure sleep problems.",
+              "answers": [
+                {
+                  "answer": "a. True"
+                },
+                {
+                  "answer": "b. False"
+                }
+              ]
+            },
+            {
+              "type": "multiChoice",
+              "text": "10. Which of the following will NOT help you sleep better at night?",
+              "answers": [
+                {
+                  "answer": "a. Sticking to a regular schedule of sleep"
+                },
+                {
+                  "answer": "b. Taking naps during the day"
+                },
+                {
+                  "answer": "c. Exercising during the day"
+                },
+                {
+                  "answer": "d. Using Progressive Muscle Relaxation (PMR)"
+                }
+              ]
+            }
+          ],
+          "answers": [
+            {
+              "answer": "a. True"
+            },
+            {
+              "answer": "b. False"
+            }
+          ],
+          "correctAnswer": "True"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "2. Which of the following is <u>NOT</u> a common rule or requirement of community supervision?",
+          "fields": [],
+          "answers": [
+            {
+              "answer": "a. Paying supervision fees"
+            },
+            {
+              "answer": "b. Avoiding contact with other people on supervision"
+            },
+            {
+              "answer": "c. Going back to school"
+            },
+            {
+              "answer": "d. Finding a job"
+            }
+          ],
+          "correctAnswer": "c. Going back to school"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "3. Anger...",
+          "fields": [],
+          "answers": [
+            {
+              "answer": "a. Is something you should ignore or keep to yourself "
+            },
+            {
+              "answer": "b. Is never a useful or helpful emotion"
+            },
+            {
+              "answer": "c. Is a good way to get what you want in life"
+            },
+            {
+              "answer": "d. Is ok if you learn to handle it properly"
+            }
+          ],
+          "correctAnswer": "d. Is ok if you learn to handle it properly"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "4. Making a very detailed list of things you need to do is a good way to keep yourself organized: ",
+          "fields": [],
+          "answers": [
+            {
+              "answer": "a. True"
+            },
+            {
+              "answer": "b. False"
+            }
+          ],
+          "correctAnswer": "a. True"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "5. Which one of the tasks below is a leisure task?",
+          "fields": [],
+          "answers": [
+            {
+              "answer": "a. Checking in with your probation officer"
+            },
+            {
+              "answer": "b. Joining a scrimmage basketball team"
+            },
+            {
+              "answer": "c. Interviewing for a new job"
+            },
+            {
+              "answer": "d. Doing the laundry"
+            }
+          ],
+          "correctAnswer": "b. Joining a scrimmage basketball team"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "6. Following the rules and having good behavior while on supervision will...",
+          "fields": [],
+          "answers": [
+            {
+              "answer": "a. Get you into trouble in the long-run"
+            },
+            {
+              "answer": "b. Cause you to go un-noticed by corrections staff"
+            },
+            {
+              "answer": "c. Give staff and the judge a reason to support you and offer help"
+            },
+            {
+              "answer": "d. Keep you on supervision longer"
+            }
+          ],
+          "correctAnswer": "c. Give staff and the judge a reason to support you and offer help"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "7. <u>NOT</u> planning pro-social leisure activities...",
+          "fields": [],
+          "answers": [
+            {
+              "answer": "a. Is a risk factor for returning to criminal activity"
+            },
+            {
+              "answer": "b. Is helpful for reducing stress"
+            },
+            {
+              "answer": "c. Is something you can't do on supervision"
+            },
+            {
+              "answer": "d. Is a common problem among law-abiding citizens"
+            }
+          ],
+          "correctAnswer": "a. Is a risk factor for returning to criminal activity"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "8. Of the people listed below, who would be \"green\"?",
+          "fields": [],
+          "answers": [
+            {
+              "answer": "a. Tyrell, who gets blackout drunk on the weekends"
+            },
+            {
+              "answer": "b. Sandy, who drives you to your supervision appointments when you don’t have a ride"
+            },
+            {
+              "answer": "c. Jimmy, your neighbor who is a nice guy but sold you weed before"
+            },
+            {
+              "answer": "d. Roger, your buddy who jokes about how you’ll always be the same “player” he’s always known"
+            }
+          ],
+          "correctAnswer": "b. Sandy, who drives you to your supervision appointments when you don’t have a ride"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "9. Only medication from a doctor can cure sleep problems.",
+          "fields": [],
+          "answers": [
+            {
+              "answer": "a. True"
+            },
+            {
+              "answer": "b. False"
+            }
+          ],
+          "correctAnswer": "b. False"
+        },
+        {
+          "type": "multiChoice",
+          "prompt": "10. Which of the following will <u>NOT</u> help you sleep better at night?",
+          "fields": [],
+          "answers": [
+            {
+              "answer": "a. Sticking to a regular schedule of sleep "
+            },
+            {
+              "answer": "b. Taking naps during the day"
+            },
+            {
+              "answer": "c. Exercising during the day"
+            },
+            {
+              "answer": "d. Using Progressive Muscle Relaxation (PMR)"
+            }
+          ],
+          "correctAnswer": "b. Taking naps during the day"
+        }
+      ],
+      "subheader": "Module 2 Content Quiz",
+      "header": ""
+    },
+    {
+      "type": "New",
+      "text": "Great work! You finished Module 2. Your supervision officer may need to review your work before you can move on to the next module and award your certificate.",
+      "questions": [],
+      "subheader": "New"
+    }
+  ],
+  "answers": [
+    {
+      "answer": "New"
+    },
+    {
+      "answer": "New"
+    }
+  ],
+  "questions": [
+    {
+      "type": "combo",
+      "prompt": "It’s understandable that you might feel angry about being placed on community supervision. Your anger may be because you feel scared or nervous about being able to successfully complete your terms, because you feel your sentence is unjust or unfair, or because you are frustrated with your own behaviors. ",
+      "fields": [
+        {
+          "type": "longtext",
+          "text": "Briefly talk about your own feelings of anger or frustration about being on supervision:"
+        },
+        {
+          "type": "longtext",
+          "text": "Where do you think these feelings come from?"
+        },
+        {
+          "type": "blank",
+          "text": "Looking at the Anger Meter, what level of anger are you right now?"
+        }
+      ],
+      "image": "angermeter.png"
+    }
+  ],
+  "fields": [],
+  "owner": "3SebTnspPovZbhnxE",
+  "orgOwnedBy": "5bSekKF3Rkcodk8Gf",
+  "createdBy": "3SebTnspPovZbhnxE",
+  "subtitle": "Preparing for Community Supervision"
+}

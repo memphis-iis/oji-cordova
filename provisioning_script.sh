@@ -3,6 +3,17 @@
 # Make a symbolic link to the sync'ed directory for more "natural" work
 ln -s /vagrant "$HOME/oji"
 
+# create a directory for ojidocs
+mkdir -p "$HOME/oji/ojidocs"
+
+# create a symbolic link to the ojidocs directory for more "natural" work
+ln -s "$HOME/oji/ojidocs" /ojidocs
+
+
+# create a symbolic link to the ojidocs directory for more "natural" work
+ln -s /ojidocs "$HOME/oji/ojidocs"
+
+
 # We will need to be able to compile some binary packages for Meteor
 sudo apt-get update
 sudo apt-get install -y build-essential
