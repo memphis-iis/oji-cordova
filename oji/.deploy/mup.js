@@ -13,7 +13,7 @@ module.exports = {
         '/ojidocs' : '/ojidocs',
       },
       docker: {
-        image: 'zodern/meteor:root',
+        image: 'zodern/meteor',
         prepareBundle: true,
         useBuildKit: true,
 

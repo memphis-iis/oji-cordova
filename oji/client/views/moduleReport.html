@@ -12,13 +12,15 @@
             <table class="table" id="moduleList">
                 <thead>
                     <th scope="col" width="50%">Question</th>
-                    <th scope="col" width="50%">Response</th>
+                    <th scope="col" width="40%">Response</th>
+                    <th scope="col" width="10%">Time Elapsed</th>
                 </thead>
                 <tbody>
                     {{#each pages}}
                         <tr>
                             <td>{{this.question}}</td>
                             <td>{{this.response}}</td>
+                            <td>{{this.timeElapsed}}</td>
                         </tr>
                     {{/each}}
                 </tbody>

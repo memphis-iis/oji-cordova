@@ -16,11 +16,14 @@ Template.moduleReport.helpers({
         resultsData = ModuleResults.findOne();
         modData = Modules.findOne({_id: resultsData.moduleId})
         responses = [];
+        //get the timestamp of the first response
+        firstTimeStamp = resultsData.responses[0].responseTimeStamp.toDate();
         for(i = 0; i < resultsData.responses.length; i++){
             if(modData.pages[resultsData.responses[i].pageId].questions[resultsData.responses[i].questionId].type != "combo"){
                 data = {
                     question: modData.pages[resultsData.responses[i].pageId].questions[resultsData.responses[i].questionId].prompt,
-                    response: resultsData.responses[i].response[0]
+                    response: resultsData.responses[i].response[0],
+                    timeElapsed: (resultsData.responses[i].responseTimeStamp.toDate() - firstTimeStamp ) / /* convert to minutes */ 60000 + " minutes"
                 }
                 responses.push(data)
             } else {
@@ -28,7 +31,8 @@ Template.moduleReport.helpers({
                 for(j = 0; j < comboQuestions.length; j++){
                     data = {
                         question: comboQuestions[j].text,
-                        response: resultsData.responses[i].response[j]
+                        response: resultsData.responses[i].response[j],
+                        timeElapsed: (resultsData.responses[i].responseTimeStamp.toDate() - firstTimeStamp ) / /* convert to minutes */ 60000 + " minutes"
                     }
                     responses.push(data);
                 }

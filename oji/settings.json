@@ -9,7 +9,7 @@
         "appId": "1:303163071032:android:f7df02da7697cd702664cd",
         "projectId":"ojiapp-85dba"
     },
-    "importDefaultContent":true,
+    "importDefaultContent":false,
     "importDefaultUsers":true,
-    "importOutsideSeedUsers":true
+    "importOutsideSeedUsers":false
 }

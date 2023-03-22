@@ -4,7 +4,7 @@ rm -rf ./*.apk
 # change directory to the root of the project
 cd ~/oji/oji
 echo "Building Android APK"
-meteor build ~/build --server=https://ojis-journey.com --mobile-settings=settings.json --packageType=apk --platforms=android --debug 
+meteor build ~/build --server=https://ojis-journey.com --mobile-settings=settings.json --packageType=apk --platforms=android --verbose --debug
 cp ~/.meteor/local/cordova-build/platforms/android/app/build/outputs/apk/debug/app-debug.apk ./
 # build a key store
 echo "Building Key Store"

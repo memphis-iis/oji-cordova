@@ -26,9 +26,24 @@ Template.signup.events({
         const sex = $('#sex').val();
         const gender = $('#gender').val();
         const linkId = $('#linkId').val();
+        const acceptedTermsTimestamp = Template.instance().acceptedTermsTimestamp.get();
+        //verify that all fields are filled out, and that password is at least 6 characters and contains at least one number, one uppercase letter, and one lowercase letter, otherwise display error message
+        if(
+            user === '' ||
+            pass === '' ||
+            emailAddr === '' ||
+            firstName === '' ||
+            lastName === '' ||
+            !pass.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/)
+        ){
+            alert('Please fill out all fields and ensure that your password is at least 6 characters and contains at least one number, one uppercase letter, and one lowercase letter.');
+            return;
+        }
+
         Meteor.call('createNewUser', user, pass, emailAddr,firstName, lastName, sex, gender, acceptedTermsTimestamp, linkId, function(error, result){
             if(error){
                 console.log(error);
+                alert("There was an error creating your accounnt: " + error);
             }
             else{
                 Meteor.loginWithPassword($('#usernameSignin').val(), $('#passwordSignin').val());

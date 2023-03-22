@@ -1,6 +1,7 @@
 <template name="createOrg">
-    <div id="step-1">
+    <div id="step-1" class="profileCard">
         <h1>Step 1: Let's create your organization.</h1>
+        <br>
         <p>We already have your information, so we've filled that in for you. We will generate a link for you to invite others.</p>
         <form>
             <label htmlFor="organization">Organization Name</label>
@@ -39,11 +40,13 @@
             <br>
             
 
-            Use Default Assignment Flow: <input type="checkbox" id="useDefaultFlow">
-        <button id="orgCreate-submit">Create</button>
+            <label htmlFor="orgdesc">Use Default Assignment Flow:</label>
+             <input type="checkbox" id="useDefaultFlow" class="text-left" style="margin:5px; width:20px;">
+             <br>
+        <button id="orgCreate-submit" class="btn btn-primary" >Create</button>
         </form>
     </div>
-    <div id="step-2" hidden>
+    <div id="step-2" class="profileCard" hidden>
         <h1>Step 2: Let's invite some people to your organization!</h1>
         <p>We have generated an invite link to send to others. You can share this with your organization members. They will be asked to create an account for your organization.</p>
         <p>That's all, you can use the Administrators Control Panel to manage your organization.</p>

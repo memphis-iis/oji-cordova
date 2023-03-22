@@ -1,0 +1,12 @@
+Log created: 2023-03-17T13:46:31.298421000Z
+Process ID:  51628 (0xc9ac)
+Parent PID:  1 (0x1)
+Executable:  /usr/lib/virtualbox/VBoxHeadless
+Arg[0]: /usr/lib/virtualbox/VBoxHeadless
+Arg[1]: --comment
+Arg[2]: oji-cordova_default_1677533494044_83753
+Arg[3]: --startvm
+Arg[4]: e098a27c-9ed1-44d6-b2f9-4e9152686592
+Arg[5]: --vrde
+Arg[6]: config
+AddRef: illegal refcnt=3221225469 state=2

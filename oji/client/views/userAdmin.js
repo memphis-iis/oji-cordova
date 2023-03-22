@@ -175,6 +175,9 @@ Template.usersAdmin.helpers({
         data = Assessments.find().fetch();
         return data
     },
+    'author': function(){
+        return Meteor.user().author;
+    },
 });
 
 

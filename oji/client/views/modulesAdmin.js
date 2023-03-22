@@ -103,12 +103,6 @@ Template.modulesAdmin.helpers({
                 data[i].status += "Created by you. ";
                 data[i].owned = true;
             }
-            if(data[i].public == false && data[i].owner != Meteor.userId() ){
-                data.slice(i,1);
-            }
-            if(data[i].public == true){
-                data[i].status += "Publically available. "
-            }
             if(data[i].owner == false){
                 data[i].status += "Uploaded by App Administrator. "
                 data[i].owned = false;

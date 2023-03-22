@@ -114,6 +114,7 @@
            {{#if userSelected}}
            <div class="profileCard container">
             <h3>{{userSelected.lastname}}, {{userSelected.firstname}}</h3>
+            {{#if author}}
             <p>Status: 
                 <select id="user-status">
                     <option value="{{userSelected.schedule}}">{{userSelected.schedule}}</option>
@@ -123,11 +124,15 @@
                     <option value="finished">finished</option>
                 </select>   
                 </p>
-            </div>
+                {{/if}}
+            <p>Last Login Verification Code: {{userSelected.verificationCode}}</p>
+            <p>Please verfiy this code matches the 2nd number of the screenshot.</p>
+            <p>Last Login screenshot:</p>
+            <img src="{{userSelected.loginScreenshot}}" alt="Last Login Screenshot" width="25%" height="auto" class="img-responsive" style="margin:auto;">
+            </div>  
             {{#if orgViewOn}}
                  User Flow can be seen when selecting an individual user  that you supervise.
             {{else}}
-                
             {{#if assignments}}
             <div class="profileCard container">
                 <h3>Individual Assignments</h3>

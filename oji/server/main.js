@@ -252,7 +252,7 @@ Meteor.startup(() => {
 
 
     //load default JSON assessment into mongo collection
-    if(Assessments.find().count() === 0 || Modules.find().count() === 0 && importDefaultContent){
+    if((Assessments.find().count() === 0 || Modules.find().count() === 0) && importDefaultContent){
         console.log('Importing Default Content');
         Meteor.call('reloadDefaults');
     }
@@ -1215,10 +1215,13 @@ Meteor.methods({
             subscaleTotals = oldResults.subscaleTotals;
             identifier = oldResults.identifier;
         }
+        //get the current date and time
+        let now = new Date();
         data[newData.questionId] = {
             response: newData.response,
             responseValue: newData.responseValue,
-            subscales: newData.subscales
+            subscales: newData.subscales,
+            timestamp: now
         }
         //sum the response values by subscale for data reporting
         if(!newData.subscales){
@@ -1540,6 +1543,35 @@ Meteor.methods({
     },
     getFirebaseConfig: function(){
         return firebaseConfig;
+    },
+    saveVerificationCode: function(code){
+        console.log("saving verification code", code);
+        //update the user's verification code
+        Meteor.users.update(Meteor.userId(), {
+            $set: {
+                verificationCode: code
+            }
+        });
+        //verify the change by comparing the code to the user's verification code
+        if(Meteor.user().verificationCode == code){
+            console.log("verification code saved");
+        } else {
+            console.log("verification code not saved");
+        }
+    },
+    saveLoginScreenshot: function(screenshot){
+        console.log("saving login screenshot");
+        Meteor.users.update(Meteor.userId(), {
+            $set: {
+                loginScreenshot: screenshot
+            }
+        });
+        //verify the change by comparing the code to the user's verification code
+        if(Meteor.user().loginScreenshot == screenshot){
+            console.log("login screenshot saved");
+        } else {
+            console.log("login screenshot not saved");
+        }
     },
     generateApiToken: function(userId){
         var newToken = "";
@@ -1919,7 +1951,7 @@ function getInviteInfo(inviteCode) {
     supervisor = Meteor.users.findOne({supervisorInviteCode: inviteCode});
     console.log("supervisor", supervisor);
     targetSupervisorId = supervisor._id;
-    organization = Orgs.findOne({_id: supervisor.org});
+    organization = Orgs.findOne({_id: supervisor.organization});
     targetSupervisorName = supervisor.firstname + " " + supervisor.lastname;
     targetOrgId = supervisor.organization;
     targetOrgName = organization.orgName;
