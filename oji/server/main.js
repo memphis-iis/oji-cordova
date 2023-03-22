@@ -160,6 +160,7 @@ Meteor.startup(() => {
             }
         }
     );
+    //start synchron job to import private asset into files collection
     SyncedCron.start();
     
     //Iron Router Api
@@ -1520,27 +1521,6 @@ Meteor.methods({
             }
         });
     },
-    getAPKUrl: function(){
-        //if the apkUrl is not set, get the file from the server at /opt/oji-release-location
-        console.log("getting apk location from server");
-        //require the fs module
-        try{
-            var fs = Npm.require('fs');
-            //read the file as text and parse it as JSON
-            var file = fs.readFileSync('/ojidocs/oji-release-location.json', 'utf8');
-        } catch (e){
-            console.log("error reading file", e);
-        }
-        var json = JSON.parse(file);
-        //get the url from the JSON
-        result = json.apkUrl;
-        if(!result){
-            result =  Meteor.settings.public.apkUrl;
-            console.log("using default apkUrl", result);
-        }
-        console.log("apkUrl", result);
-        return result;
-    },
     getFirebaseConfig: function(){
         return firebaseConfig;
     },
@@ -1923,6 +1903,14 @@ Meteor.methods({
         data.user = Meteor.userId();
         data.timeReadable = new Date().toISOString().slice(0, 10);
         Exercises.insert(data);
+    },
+    getAPKURL: function(){
+        //open /ojidocs/apkurl.txt
+        var fs = Npm.require('fs');
+        var path = Npm.require('path');
+        var filePath = '/ojidocs/apkurl.txt';
+        file = fs.readFileSync(filePath, 'utf8');
+        return file;
     }
 });
 

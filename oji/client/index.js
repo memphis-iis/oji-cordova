@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import './lib/router.js';
 import WebPush, { CordovaPush } from 'meteor/activitree:push';
 import { webPushSubscribe } from 'meteor/activitree:push';
 

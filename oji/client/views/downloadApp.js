@@ -10,7 +10,7 @@ Template.downloadApp.events({
     'click #downloadAndroid': function(event) {
         event.preventDefault();
         //get the asset url from meteor
-        Meteor.call('getAPKUrl', function(err, url){
+        Meteor.call('getAPKURL', function(err, url){
             //open the url in a new tab
             window.open(url, '_blank');
         });
