@@ -1,6 +1,5 @@
-cordova-plugin-device@2.1.0
-cordova-plugin-firebasex@16.0.0
-cordova-plugin-meteor-webapp@2.0.0
-cordova-plugin-remove-googleservices@0.1.1
-cordova-plugin-vibration@3.1.1
-phonegap-plugin-push@2.3.0
+cordova-android-support-gradle-release@3.0.1
+cordova-plugin-device@2.0.2
+cordova-plugin-dialogs@2.0.1
+cordova-plugin-vibration@3.1.0
+phonegap-plugin-push@2.1.2
