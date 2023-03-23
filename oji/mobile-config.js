@@ -6,6 +6,23 @@ App.info({
     author: 'UofM Institute for Intelligent Systems'
   });
   
+  //set icon for android
+  App.icons({
+    'android_mdpi': 'resources/icons/mipmap-mdpi/icon.png',
+    'android_hdpi': 'resources/icons/mipmap-hdpi/icon.png',
+    'android_xhdpi': 'resources/icons/mipmap-xhdpi/icon.png',
+    'android_xxhdpi': 'resources/icons/mipmap-xxhdpi/icon.png',
+    'android_xxxhdpi': 'resources/icons/mipmap-xxxhdpi/icon.png'
+  });
+
+  //set splash screen for android
+  App.launchScreens({
+    'android_mdpi_portrait': 'resources/splash/mipmap-mdpi/splash.png',
+    'android_hdpi_portrait': 'resources/splash/mipmap-hdpi/splash.png',
+    'android_xhdpi_portrait': 'resources/splash/mipmap-xhdpi/splash.png',
+    'android_xxhdpi_portrait': 'resources/splash/mipmap-xxhdpi/splash.png',
+    'android_xxxhdpi_portrait': 'resources/splash/mipmap-xxxhdpi/splash.png'
+  });
 
   // Set PhoneGap/Cordova preferences.
   App.configurePlugin('phonegap-plugin-push', {
@@ -20,3 +37,6 @@ App.info({
     </edit-config>
   </platform>
   `);
+
+App.setPreference("GradlePluginGoogleServicesEnabled", true);
+App.setPreference("GradlePluginGoogleServicesVersion", "4.3.10");
