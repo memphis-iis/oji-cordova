@@ -1,81 +1,83 @@
 <template name="userAssessmentReport">
-    <br>
-    <div class="titlebar">
-        <b>{{currentUser.firstname}}'s Report</b>
-    </div>
-    <div class="assessment-report-container content">
+    <div class="profileCard">
+        <br>
+        <div class="titlebar">
+            <b>{{currentUser.firstname}}'s Report</b>
+        </div>
+        <div class="assessment-report-container content">
 
-        <div class="item profileCard">
-            <div class="tab">
-                <button class="tabLinks" data-linkName="Scores">Graph</button>
-                {{#if displayCritItems}}
-                <button class="tabLinks" data-linkName="CriticalItems">Critical Items</button>
-                {{/if}}
-                <button class="tabLinks" data-linkName="Info">Info</button>
-              </div>
-              
-              <div id="Scores" class="tabcontent" style="display: block;">
-                <div class="trialReportChartContainer" id="trialReportChartContainer">
-                    {{chart}}
-                    <canvas id="trialReportChart"></canvas>
+            <div class="item profileCard">
+                <div class="tab">
+                    <button class="tabLinks" data-linkName="Scores">Graph</button>
+                    {{#if displayCritItems}}
+                    <button class="tabLinks" data-linkName="CriticalItems">Critical Items</button>
+                    {{/if}}
+                    <button class="tabLinks" data-linkName="Info">Info</button>
                 </div>
-                <table class="table" id="subscaleBreakdown">
-                    <thead>
-                        <tr>
-                            <th scope="col">Scale</th>
-                            <th scope="col">Current Score</th>
-                            {{#if comparison}}
-                                <th scope="col">Original Score</th>
-                            {{/if}}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each subscaleScores}}
-                            <tr>
-                                <th scope="row">{{this.subscaleName}}</th>
-                                <td>{{this.subscaleScore}}</td>
-                                {{#if comparison}}
-                                    <td>{{this.subscaleOriginalScore}}</td>
-                                {{/if}}
-                            </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-              </div>
-              
-            {{#if displayCritItems}}
-                <div id="CriticalItems" class="tabcontent">
-                    <table class="table" id="criticalItems">
+                
+                <div id="Scores" class="tabcontent" style="display: block;">
+                    <div class="trialReportChartContainer" id="trialReportChartContainer">
+                        {{chart}}
+                        <canvas id="trialReportChart"></canvas>
+                    </div>
+                    <table class="table" id="subscaleBreakdown">
                         <thead>
                             <tr>
-                                <th scope="col">Critical Items</th>
-                                <th></th>
+                                <th scope="col">Scale</th>
+                                <th scope="col">Current Score</th>
+                                {{#if comparison}}
+                                    <th scope="col">Original Score</th>
+                                {{/if}}
                             </tr>
                         </thead>
                         <tbody>
-                            {{#each criticalItems}}
+                            {{#each subscaleScores}}
                                 <tr>
-                                    <th scope="row">{{this.itemName}}</th>
-                                    <td>{{this.itemValue}}</td>
+                                    <th scope="row">{{this.subscaleName}}</th>
+                                    <td>{{this.subscaleScore}}</td>
+                                    {{#if comparison}}
+                                        <td>{{this.subscaleOriginalScore}}</td>
+                                    {{/if}}
                                 </tr>
                             {{/each}}
                         </tbody>
                     </table>
                 </div>
-              {{/if}}
-              
-              <div id="Info" class="tabcontent">
-                <table class="table" id="subscaleDescriptions">
-                    <tbody>
-                        {{#each tooltips}}
-                            <tr>
-                                <td>{{this}}</td>
-                            </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-              </div>
+                
+                {{#if displayCritItems}}
+                    <div id="CriticalItems" class="tabcontent">
+                        <table class="table" id="criticalItems">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Critical Items</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each criticalItems}}
+                                    <tr>
+                                        <th scope="row">{{this.itemName}}</th>
+                                        <td>{{this.itemValue}}</td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                {{/if}}
+                
+                <div id="Info" class="tabcontent">
+                    <table class="table" id="subscaleDescriptions">
+                        <tbody>
+                            {{#each tooltips}}
+                                <tr>
+                                    <td>{{this}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {{> menu}}
         </div>
-        {{> menu}}
     </div>
 </template>

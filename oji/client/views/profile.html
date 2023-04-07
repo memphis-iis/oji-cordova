@@ -3,6 +3,7 @@
         <b>{{currentUser.firstname}}'s Profile</b>
     </div>
     <div class="text-center content container">
+    {{> serverMessages}}
     {{#if isInRole 'admin,supervisor'}}
     <div class="profileCardNext" role="alert">
         <h3>{{currentUser.firstname}}, welcome back.</h3>

@@ -119,8 +119,6 @@ Router.route('/web', function () {
 //setup logout
 Router.route('/logout', function(){
   Meteor.logout();
-  //set overrideCordova to false
-  Session.set('overrideCordova', false);
   window.location = '/';
 })
 
@@ -315,14 +313,15 @@ Router.route('/signup/:_id', function(){
 
 // route module results report
 Router.route('/moduleReport/:_id', {
-  waitOn: function(){
-   return Meteor.subscribe('getModuleResultsByTrialId', this.params._id);
-  },
   action: function(){
     if(this.ready){
       if(Meteor.user()){
         if (Roles.userIsInRole(Meteor.user(), 'admin') || Roles.userIsInRole(Meteor.user(), 'supervisor')  ) {
-          this.render('moduleReport');
+          this.render('moduleReport', {
+            data:{
+              moduleId: this.params._id,
+            }
+          });
         }
       } else {
         this.render('/');
@@ -330,6 +329,20 @@ Router.route('/moduleReport/:_id', {
     }
   }
 });
+
+//route image viewer, use :_source passed in to determine which image to display
+Router.route(':_source', {
+  action: function(){
+    if(Meteor.user()){
+      this.render('imageViewer', {
+        data:{
+          source: this.params._source,
+        }
+      });
+    }
+  }
+});
+
 // route assessments results report
 Router.route('/assessmentReport/:_id', {
   action: function(){

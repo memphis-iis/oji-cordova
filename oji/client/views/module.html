@@ -40,7 +40,7 @@
         <h3>{{page.subheader}}</h3>
         <h5>{{#if displayLastPageBth}}<a id="goBackPage"><span class="glyphicon glyphicon-chevron-left"></span></a>{{/if}}Page {{pageid}} of {{totalpages}}{{#if displayNextPageBtn}} <a id="goForward"><span class="glyphicon glyphicon-chevron-right"></span></a>{{/if}}</h5>
         {{#if page.imageAbove}}
-            <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+                <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             <br>
         {{/if}}
         <p class="lead mb-4">{{{page.text}}}</p>
@@ -48,7 +48,7 @@
         <br>
         <br>
         {{#if page.imageBelow}}
-            <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+                <img src="{{page.image}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
             <br>
             <br>
         {{/if}}
@@ -58,7 +58,9 @@
         {{/if}}
         {{#if this.questionId}}
             {{#if question.promptImg}}
-            <img src="{{question.promptImg}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+            <a href="/imageViewer/{{question.promptImg}}">
+                <img src="{{question.promptImg}}" class="mx-auto img-fluid rounded" style="{{page.imgStyle}}">
+            </a>
             {{/if}}
             {{#if question.typeBlank}}
                 <p class="lead mb-4">{{{question.prompt}}}</p><br>
@@ -81,6 +83,7 @@
                 <button class="btn btn-primary readTTS" data-text="Save and Continue"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             {{/if}}
             {{#if question.typeMultiChoice}}
+            <div class="profileCard">
             <p class="lead mb-4">{{{question.prompt}}}</p><br>
             <button class="btn btn-primary readTTS-solo" data-text="{{question.prompt}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
             <form>
@@ -90,12 +93,14 @@
                         <img class="img-responsive center-block" src="{{this.image}}" alt="Your Alt Text">
                     </button>
                     {{else}}
-                     <button  class="btn btn-secondary text-nowrap btn-block multichoice continue answer" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{this.value}}" name="">{{this.answer}}</button>
-                     <button class="btn btn-primary readTTS" data-text="{{this.answer}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+                     <button  class="btn btn-secondary text-nowrap multichoice continue answer" data-group="{{this.group}}" style="white-space: normal;" id="{{@index}}" value="{{this.value}}" name="">{{this.answer}}</button>
+                     <button class="btn btn-primary readTTS" data-text="{{this.answer}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>  
+                     <br><br>
                      {{/if}}
                 {{/each}}
             </form>
             <br>
+            </div>
             {{/if}}
             {{#if question.typeCombo}}
             <div class="profileCard">
@@ -111,21 +116,24 @@
                     {{#if this.typeDisplayText}}
                <p class="lead mb-4">{{this.text}}</p>
                <button class="btn btn-primary readTTS-solo" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+               <br>
                     {{/if}}
                     {{#if this.typeBlank}}
                <p class="lead mb-4">{{this.text}}</p>
                <button class="btn btn-primary readTTS-solo" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
+               <br>
                             <input class="combo" type="text">
                     {{/if}}
                     {{#if this.typeLongText}}
            <p class="lead mb-4">{{this.text}}</p><br>
+           <button class="btn btn-primary readTTS-solo" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button><br>
                     <form>
                         <textarea style="height:50px; font-size: 20px; width:100%;" class="combo"></textarea>
                     </form>
                     <br>
                    {{/if}}
                     {{#if this.typeMultiChoice}}
-           <p class="lead mb-4">{{this.text}}</p>
+           <p class="lead mb-4">{{this.text}}</p><br>
            <button class="btn btn-primary readTTS-solo" data-text="{{this.text}}"><span class=" glyphicon glyphicon-bullhorn" ></span></button>
            <br>
                         {{#each this.answers}}

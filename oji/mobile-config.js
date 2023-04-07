@@ -38,5 +38,26 @@ App.info({
   </platform>
   `);
 
+
+App.setPreference('android-targetSdkVersion', '30')
+App.setPreference('StatusBarOverlaysWebView', 'true')
+App.setPreference('StatusBarStyle', 'lightcontent')
+App.setPreference('Orientation', 'portrait')
+// App.setPreference('StatusBarBackgroundColor', '#111')
+App.setPreference('KeyboardDisplayRequiresUserAction', 'false')
+
+App.setPreference('SplashMaintainAspectRatio', 'true') // Android
+App.setPreference('ShowSplashScreenSpinner', 'false') // IOS
+App.setPreference('iosPersistentFileLocation', 'Library') // IOS
+App.setPreference('DisallowOverscroll', 'true') // IOS
+App.setPreference('webviewbounce', 'false')
+
+
+App.appendToConfig(`
+<platform name="android">
+  <resource-file target="/app/google-services.json" src="../../../cordova-build-override/google-services.json"/>
+</platform>
+`)
+
 App.setPreference("GradlePluginGoogleServicesEnabled", true);
 App.setPreference("GradlePluginGoogleServicesVersion", "4.3.10");

@@ -109,7 +109,7 @@ nvm install 14
 nvm use 14
 
 #Install meteor
-curl https://install.meteor.com/?release=2.6.1 | sh
+npm install -g meteor@2.6.1
 
 #meteor update
 meteor npm install --save babel-runtime --no-bin-links

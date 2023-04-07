@@ -12,6 +12,7 @@ Journals = new Mongo.Collection('journals');
 Exercises =  new Mongo.Collection('exercises');
 Chats = new Mongo.Collection('chats');
 Emails = new Mongo.Collection('emails');
+Settings = new Mongo.Collection('settings');
 
 
 //Init DynamicAssets Collection

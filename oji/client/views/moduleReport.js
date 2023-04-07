@@ -1,6 +1,6 @@
 Template.moduleReport.helpers({
     'generalinfo': function (){
-        resultsData = ModuleResults.findOne();
+        resultsData = ModuleResults.findOne({_id: this.moduleId});
         modData = Modules.findOne({_id: resultsData.moduleId})
         dateAccessed = new Date(0);
         data = { 
@@ -13,17 +13,18 @@ Template.moduleReport.helpers({
     },
 
     'pages': function(){
-        resultsData = ModuleResults.findOne();
+        resultsData = ModuleResults.findOne({_id: this.moduleId});
         modData = Modules.findOne({_id: resultsData.moduleId})
         responses = [];
         //get the timestamp of the first response
-        firstTimeStamp = resultsData.responses[0].responseTimeStamp.toDate();
+        firstTimeStamp = resultsData.responses[0].responseTimeStamp;
         for(i = 0; i < resultsData.responses.length; i++){
             if(modData.pages[resultsData.responses[i].pageId].questions[resultsData.responses[i].questionId].type != "combo"){
                 data = {
                     question: modData.pages[resultsData.responses[i].pageId].questions[resultsData.responses[i].questionId].prompt,
                     response: resultsData.responses[i].response[0],
-                    timeElapsed: (resultsData.responses[i].responseTimeStamp.toDate() - firstTimeStamp ) / /* convert to minutes */ 60000 + " minutes"
+                    timeElapsed: /* convert to minutes and truncate to 2 decimal places */ Math.round((resultsData.responses[i].responseTimeStamp - firstTimeStamp) / 60000) + " minutes",
+                    screenshot: resultsData.responses[i].screenshot
                 }
                 responses.push(data)
             } else {
@@ -32,7 +33,8 @@ Template.moduleReport.helpers({
                     data = {
                         question: comboQuestions[j].text,
                         response: resultsData.responses[i].response[j],
-                        timeElapsed: (resultsData.responses[i].responseTimeStamp.toDate() - firstTimeStamp ) / /* convert to minutes */ 60000 + " minutes"
+                        timeElapsed: /* convert to minutes and truncate to 2 decimal places */ Math.round((resultsData.responses[i].responseTimeStamp - firstTimeStamp) / 60000) + " minutes",
+                        screenshot: resultsData.responses[i].screenshot
                     }
                     responses.push(data);
                 }

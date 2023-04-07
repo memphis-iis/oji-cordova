@@ -7,6 +7,7 @@ import { firebaseConfig } from './private/firebaseConfig.js';
 import { Push } from 'meteor/activitree:push';
 import { serviceAccountData } from './private/serviceAccount.js';
 import Papa from 'papaparse';
+import { Email } from 'meteor/email';
 
 Push.debug = true;
 
@@ -1216,13 +1217,14 @@ Meteor.methods({
             subscaleTotals = oldResults.subscaleTotals;
             identifier = oldResults.identifier;
         }
-        //get the current date and time
-        let now = new Date();
+        //get the current date and time 
+        now = new Date().getTime();
         data[newData.questionId] = {
             response: newData.response,
             responseValue: newData.responseValue,
             subscales: newData.subscales,
-            timestamp: now
+            timestamp: now,
+            screenshot: newData.screenshot
         }
         //sum the response values by subscale for data reporting
         if(!newData.subscales){
@@ -1386,13 +1388,15 @@ Meteor.methods({
     },
     saveModuleData: function (moduleData){
         ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
+        // get the Module data
+        moduleInfo = Modules.find({_id: moduleData.moduleId}).fetch();
         nextModule = Meteor.user().nextModule;
         console.log("nextModule", nextModule, typeof nextModule);
         if(moduleData.nextPage == 'completed'){
             nextModule++;
             supervisor = Meteor.user().supervisor;
             console.log("sending message to supervisor", supervisor);
-            sendSystemMessage(supervisor, "The module " + moduleData.name + " has been completed by " + Meteor.user().firstname + " " + Meteor.user().lastname + ". Please review the results.", "Module Completed");
+            sendSystemMessage(supervisor, moduleInfo.title + " has been completed by " + Meteor.user().firstname + " " + Meteor.user().lastname + ". Please review the results.", "Module Completed");
         }
         Meteor.users.upsert(Meteor.userId(), {
             $set: {
@@ -1624,6 +1628,9 @@ Meteor.methods({
         })
     },
     createEvent: function(type, month, day, year, time, title, importance){
+        //convert mm/dd/yyyy and time to unix timestamp
+        var date = new Date(year, month, day, time);
+        var unixDate = date.getTime();
         Events.insert({
             type: type,
             org: Meteor.user().organization,
@@ -1633,7 +1640,9 @@ Meteor.methods({
             title: title,
             time: time,
             importance: importance,
-            createdBy: this.userId
+            createdBy: this.userId,
+            unixDate: unixDate,
+            notified: false
         })
     },
     deleteEvent: function(eventId){
@@ -1911,6 +1920,12 @@ Meteor.methods({
         var filePath = '/ojidocs/apkurl.txt';
         file = fs.readFileSync(filePath, 'utf8');
         return file;
+    },
+    logError: function(error){
+        console.log("Client Error:" + error);
+    },
+    setServerMessage: function(message){
+        Settings.update({}, {$set: { publicMessage: message}});
     }
 });
 
@@ -1967,6 +1982,11 @@ Meteor.users.deny({
 
 Meteor.users.allow({
 
+});
+
+//publish settings to everyone
+Meteor.publish(null, function(){
+    return Settings.find();
 });
 
 //Show current user data for current user
@@ -2029,10 +2049,6 @@ Meteor.publish(null, function () {
 
 //allow current module pages to be published
 Meteor.publish(null, function (){
-    return Modules.find({});
-});
-//allow all modules to be seen
-Meteor.publish(null, function () {
     return Modules.find({});
 });
 //get module results
@@ -2120,11 +2136,23 @@ function sendPushNotifications(){
     //loop through chats, send push notification, and set notified to true
     chats.forEach(chat => {
         Meteor.call('userPushNotification',{
-            title: chat.subject,
-            body: chat.message,
+            title: "You have a new message from " + chat.fromName + "!",
+            body: "Open your Oji app to view your messages.",
             userId: chat.to,
-            badge: 1,
+            badge: 1
         });
         Chats.update({_id: chat._id}, {$set: {notified: true}});
+    });
+    //get all events where notified is false, and the event is in the next hour
+    events = Events.find({notified: false, unixDate: {$lt: new Date().getTime() + 3600000}}).fetch();
+    //loop through events, send push notification, and set notified to true
+    events.forEach(event => {
+        Meteor.call('userPushNotification',{
+            title: "You have an event coming up!",
+            body: "The event " + event.title + " is soon at " + event.time + "!",
+            userId: event.createdBy,
+            badge: 1
+        });
+        Events.update({_id: event._id}, {$set: {notified: true}});
     });
 }

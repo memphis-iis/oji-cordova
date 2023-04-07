@@ -175,7 +175,10 @@ Template.adminControlPanel.helpers({
         }
 
         return api;
-      }
+      },
+      'serverMessage': function(){
+        return Settings.findOne({}).publicMessage;
+    }
 })
 
 Template.adminControlPanel.events({
@@ -464,6 +467,9 @@ Template.adminControlPanel.events({
     },
     'click #googleAPIKeyButton': function(event){
         Meteor.call('setGoogleAPIKey', $('#googleAPIKey').val());
+    },
+    'click #serverMessageButton': function(event){
+        Meteor.call('setServerMessage', $('#serverMessage').val());
     },
     'click #testGoogleVoice': function(event){
         //get template instance

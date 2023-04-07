@@ -61,6 +61,11 @@ Accounts.onLogin(function(){
   }
 });
 
+Accounts.onLogout(function(){
+  if(Meteor.isCordova){
+    CordovaPush.push.unregister();
+  }
+});
 Meteor.startup(() => {
   Meteor.subscribe('files.images.all');
 })

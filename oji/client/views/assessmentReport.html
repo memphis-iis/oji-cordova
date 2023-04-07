@@ -1,5 +1,6 @@
 <template name="assessmentReport">
-    <div class="px-4 py-5 my-5 text-left">
+    {{> menu}}
+    <div class="px-4 py-5 my-5 text-left profileCard">
        <h1>Assessment Report:</h1>
        <p>Assessment Name: {{generalinfo.title}}<br>
         Last Accessed: {{generalinfo.lastAccessed}}<br>
@@ -7,18 +8,24 @@
        <div class="d-grid gap-2 d-sm-flex">
         <table class="table" id="moduleList">
             <thead>
-                <th scope="col" width="50%">Question</th>
-                <th scope="col" width="30%">Response</th>
-                <th scope="col" width="10%">Value</th>
-                <th scope="col" width="10%">Subscales</th>
+                <th scope="col" width="40%">Question</th>
+                <th scope="col" width="20%">Response</th>
+                <th scope="col" width="5%">Time</th>
+                <th scope="col" width="20%">Screenshot</th>
             </thead>
             <tbody>
                 {{#each generalinfo.questions}}
                     <tr>
                         <td>{{this.question}}</td>
                         <td>{{this.responseText}}</td>
-                        <td>{{this.value}}</td>
-                        <td>{{this.subscales}}</td>
+                        <td>{{this.timeElapsed}}</td>
+                        <td>
+                            {{#if this.screenshot}}
+                                <img src="{{this.screenshot}}" class="img-fluid" style="max-height: 200px;" alt="Responsive image">
+                            {{else}}
+                                <p>No screenshot</p>
+                            {{/if}}
+                        </td>
                     </tr>
                 {{/each}}
             </tbody>

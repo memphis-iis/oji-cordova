@@ -22,6 +22,9 @@ Template.login.events({
         Meteor.loginWithPassword($('#usernameLogin').val(), $('#passwordLogin').val(), function(error) {
             if (error) {
                 console.log(error);
+                alert("Login failed, please try again");
+                //send error to server to log
+                Meteor.call('logError', error);
                 $('#passwordLogin').val('');
                 Session.set('overrideCordova', true);
                 Router.go('/', 
@@ -39,39 +42,48 @@ Template.login.events({
                 //verify that html2canvas is working
                 if(!html2canvas){
                     console.log("html2canvas not working");
+                    alert("Verification not working, please contact support. Error: html2canvas not working" + e);
                 }
-                html2canvas(document.body, {
-                    scale: 0.5
-                    }).then(function(canvas) {
-                    //add timestamp to image in readable format
-                    var ctx = canvas.getContext('2d');
-                    ctx.font = "100px Arial";
-                    ctx.fillStyle = "red";
-                    //get human readable timestamp
-                    var date = new Date();
-                    var timestamp = date.toDateString() + " " + date.toLocaleTimeString();
-                    //break timestamp into lines
-                    var lines = timestamp.split(" ");
-                    //add each line to the image
-                    for(var i = 0; i < lines.length; i++){
-                        ctx.fillText(lines[i], 10, 200 + (i * 100));
-                    }
-                    //add verification code to image at the bottom
-                    ctx.font = "100px Arial";
-                    ctx.fillStyle = "red";
-                    ctx.fillText(verCode, 10, 800);
-                    //convert canvas to data url
-                    var dataURL = canvas.toDataURL();
-                    //save data url to user's profile
-                    Meteor.call('saveLoginScreenshot', dataURL, function(error, result){
-                        if(error){
-                            console.log(error);
+                    try{
+                    html2canvas(document.body, {
+                        scale: 0.25
+                        }).then(function(canvas) {
+                        //add timestamp to image in readable format
+                        var ctx = canvas.getContext('2d');
+                        ctx.font = "100px Arial";
+                        ctx.fillStyle = "red";
+                        //get human readable timestamp
+                        var date = new Date();
+                        var timestamp = date.toDateString() + " " + date.toLocaleTimeString();
+                        //break timestamp into lines
+                        var lines = timestamp.split(" ");
+                        //add each line to the image
+                        for(var i = 0; i < lines.length; i++){
+                            ctx.fillText(lines[i], 10, 200 + (i * 100));
                         }
-                        else{
-                            console.log("Login screenshot saved");
-                        }
-                    })
-                });
+                        //add verification code to image at the bottom
+                        ctx.font = "100px Arial";
+                        ctx.fillStyle = "red";
+                        ctx.fillText(verCode, 10, 800);
+                        //convert canvas to data url
+                        var dataURL = canvas.toDataURL();
+                        //save data url to user's profile
+                        Meteor.call('saveLoginScreenshot', dataURL, function(error, result){
+                            if(error){
+                                console.log(error);
+                                alert("Verification not working, please contact support. Error: " + error)
+                                Meteor.call('logError', error);
+                            }
+                            else{
+                                console.log("Login screenshot saved");
+                            }
+                        })
+                    });
+                } catch (e) {
+                    console.log(e);
+                    alert("Verification not working, please contact support. Error: " + e);
+                    Meteor.call('logError', e);
+                }
             }
         });
         Meteor.call('saveVerificationCode', verCode, function(error, result){

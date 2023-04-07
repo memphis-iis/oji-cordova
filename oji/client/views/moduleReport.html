@@ -1,8 +1,6 @@
 <template name="moduleReport">
-    <div class="titlebar">
-        <b>Module Report</b>
-    </div>
         <div class="text-center content container">
+            {{> menu}}
         <div class="profileCard">
         <h1>Module Report:</h1>
         <p>Module Name: {{generalinfo.title}}<br>
@@ -12,8 +10,9 @@
             <table class="table" id="moduleList">
                 <thead>
                     <th scope="col" width="50%">Question</th>
-                    <th scope="col" width="40%">Response</th>
+                    <th scope="col" width="30%">Response</th>
                     <th scope="col" width="10%">Time Elapsed</th>
+                    <th scope="col" width="10%">Screenshot</th>
                 </thead>
                 <tbody>
                     {{#each pages}}
@@ -21,6 +20,13 @@
                             <td>{{this.question}}</td>
                             <td>{{this.response}}</td>
                             <td>{{this.timeElapsed}}</td>
+                            <td>
+                            {{#if this.screenshot}}
+                                <a href="{{this.screenshot}}" target="_blank">
+                                    <img src="{{this.screenshot}}" class="img-fluid" style="max-height: 200px;" alt="Responsive image">
+                                </a>
+                            {{/if}}
+                            </td>
                         </tr>
                     {{/each}}
                 </tbody>

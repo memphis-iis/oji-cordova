@@ -5,15 +5,12 @@
     <div class="certificates-container">
             {{#each certificates}}
             <div class="certificate-container2">
+                <a href="{{this.file}}" target="_blank">
                         <img src="{{this.file}}" class="certificate">
-                        <br>
-                        <a href="{{this.file}}" download="{{this.file}}.png" class="btn btn-primary">Download</a>
+                </a>
             </div>
-                    
-            
             {{/each}}
-
-    </div>
+        </div>
     </div>
     {{/if}}
 </template>

@@ -1,3 +1,5 @@
+import html2canvas from 'html2canvas';
+
 Template.module.helpers({
     'module': () => Modules.findOne({_id: Meteor.user().curAssignment.id}),
     'pageid': function() {return parseInt(this.pageId) + 1;},
@@ -17,7 +19,7 @@ Template.module.helpers({
             return false;
         },
     'completed' : function(){
-            if(Meteor.user().curModule.pageId == "completed"){
+            if(this.pageId == "completed"){
                 return true;
             } else {
                 return false;
@@ -99,7 +101,8 @@ Template.module.helpers({
     'page': function(){
         const user = Meteor.user();
         if(user && user.curAssignment){
-            page = Modules.findOne({_id: this.moduleId}).pages[parseInt(this.pageId)];
+            moduleData = Modules.findOne({_id: this.moduleId});
+            page = moduleData.pages[parseInt(this.pageId)];
             if(page) {
                 const t = Template.instance();
                 $('.continue').show();
@@ -215,19 +218,20 @@ Template.module.events({
         event.preventDefault();
         //scroll to top of page
         $('html, body').animate({ scrollTop: 0 }, 'fast');
-        const curModule = Modules.findOne({_id: this.moduleId});
+        let curAssesment = Meteor.user().curModule.moduleId;
+        let moduleId = Meteor.user().curAssignment.id
+        let curModule = Modules.findOne({_id: moduleId});
         const curUser = Meteor.user();
         const t = Template.instance();
         let target = "";
         let allowContinue = true;
-        let moduleId = curUser.curModule.moduleId;
         console.log("curUSer", curUser);
-        let moduleData = ModuleResults.findOne({_id: moduleId});
+        let moduleData = ModuleResults.findOne({_id: curAssesment});
         console.log("moduleData", moduleData);
         moduleData.lastAccessed = Date.now().toString();
         thisPage = curUser.curModule.pageId;
         thisQuestion = parseInt(curUser.curModule.questionId);
-        if(t.pageType.get() == "activity"){
+        if(t.pageType.get() == "activity" || t.pageType.get() == "quiz"){
             questionData = {};
             questionData.questionType = t.questionType.get();
             if(questionData.questionType.toLowerCase() == "blank"){
@@ -337,6 +341,7 @@ Template.module.events({
         } else {
             moduleData.nextPage = parseInt(thisPage) + 1;
             moduleData.nextQuestion = 0;
+            curModule = Modules.findOne({_id: Meteor.user().curAssignment.id});
             if((curModule.pages[moduleData.nextPage]?.type == "activity" || curModule.pages[moduleData.nextPage]?.type == "quiz")  && curModule.pages[moduleData.nextPage]?.questions.length > 0){
                 target = "/module/" + curModule._id + "/" + moduleData.nextPage + "/" + moduleData.nextQuestion;
             } else {
@@ -367,9 +372,17 @@ Template.module.events({
         } 
         //if allowContinue is false, do not redirect
         if(allowContinue){
-            $('textArea').val("");
-            Meteor.call("saveModuleData", moduleData);
-            Router.go(target);
+            //use html2canvas to take a screenshot of the page
+            html2canvas(document.body, { scale: 0.25 }).then(function(canvas) {
+                //get the data url of the screenshot
+                var dataURL = canvas.toDataURL();
+                //save the screenshot to the module data
+                data.screenshot = dataURL;
+                Meteor.call("saveModuleData", moduleData);
+                $('textArea').val("");
+                $(".btn-info").removeClass("btn-info");
+                Router.go(target);
+            });
         } else {
             alert("Please fill in all fields and select an option for each question.");
         }
@@ -471,7 +484,6 @@ Template.module.events({
 })
 
 Template.module.onCreated(function(){
-    Meteor.subscribe('getUserModuleResults');
     console.log(this.moduleId);
     this.questionType = new ReactiveVar("");
     this.pageType = new ReactiveVar("");

@@ -1,3 +1,5 @@
+import html2canvas from 'html2canvas';
+
 Template.assessment.helpers({
     'assessment': () => Assessments.findOne({_id: Meteor.user().curAssignment.id}),
     'isNotQuestion': () => this.isNotQuestion,
@@ -74,6 +76,8 @@ Template.assessment.helpers({
 Template.assessment.events({
     'click .continue': function(event) {
         event.preventDefault();
+        //change the color of the button to indicate that it has been clicked
+        $(event.target).css("background-color", "#4CAF50");
         userId = Meteor.userId();
         trialData = Meteor.user().curTrial;
         let curAssesment = Assessments.findOne({_id: Meteor.user().curAssignment.id});
@@ -109,7 +113,7 @@ Template.assessment.events({
         if(curAssesment.reversedQuestions.includes(curQuestion)){
             selectedAnswerValue = curAssesment.reversedValues[selectedAnswer]
         }
-
+        //get time stamp
         let data = {
             trialId: trialId,
             assessmentId: curAssesment._id,
@@ -120,20 +124,30 @@ Template.assessment.events({
             response: selectedAnswer,
             responseValue: selectedAnswerValue,
             subscales: subscales || "",
-            nextQuestion: curQuestion
+            nextQuestion: curQuestion,
+            date: Date.now().toString()
         }
-
-        Meteor.call('saveAssessmentData', data, function(error, result){
-            if(error){
-                console.log(error);
-            } else {
-                if (completed) {
-                    Meteor.call('endAssessment', result);
+        //use html2canvas to take a screenshot of the page
+        html2canvas(document.body, {scale:0.25}).then(canvas => {
+            console.log("saving screenshot");
+            //convert the canvas to a data url
+            let dataURL = canvas.toDataURL();
+            //save the data url to the data object
+            data.screenshot = dataURL;
+            console.log(data);
+            Meteor.call('saveAssessmentData', data, function(error, result){
+                if(error){
+                    console.log(error);
+                } else {
+                    if (completed) {
+                        Meteor.call('endAssessment', result);
+                    }
                 }
-            }
+            });
+            //reset the button color
+            $(event.target).css("background-color", "#22847f");
+            Router.go(target);
         });
-        Router.go(target);
-
     },
     'click #congrats': function(event) {
         target = "/congrats";

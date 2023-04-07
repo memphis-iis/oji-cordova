@@ -1,5 +1,7 @@
 cordova-android-support-gradle-release@3.0.1
 cordova-plugin-device@2.1.0
 cordova-plugin-dialogs@2.0.2
+cordova-plugin-remove-googleservices@0.1.1
 cordova-plugin-vibration@3.1.1
+cordova-support-google-services@1.4.1
 phonegap-plugin-push@2.3.0

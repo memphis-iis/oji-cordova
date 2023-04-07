@@ -245,7 +245,7 @@ td.display-message-icon-readFalse{
 .messageDateSmall{
     max-width: 120px;
 }
-.messageDate h2, .messageDateSmall h2{
+.messageDate h3, .messageDateSmall h2{
     color: #e26b4d;
     padding-left: 10px;
     padding: 30px;
@@ -283,9 +283,9 @@ td.display-message-icon-readFalse{
 
 }
 .eventTime-Low, .eventTime-Medium, .eventTime-Critical{
-    max-width: 100px;
+    width:100px;
 }
-.eventTime-Low h2, .eventTime-Medium h2{
+.eventTime-Low h3, .eventTime-Medium h3{
     color: #e26b4d;
     border: #061b1a 1px solid;
     padding-left: 10px;

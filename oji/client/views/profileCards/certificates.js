@@ -1,6 +1,8 @@
 Template.awards.helpers({
     'certificates': function(){
-        return Meteor.user().certificates;
+        certificates = Meteor.user().certificates;
+        Console.log(certificates);
+        return certificates;
     },
 });
 
@@ -12,28 +14,35 @@ Template.awards.events({
         //open the url as an image object
         var image = new Image();
         image.src = url;
+        //get the certificate's name
+        var name = $(e.target).attr('data-itemname');
         //convert the image to a blob
         image.onload = function() {
             //if cordova is available, save the image to the device's downloads folder
             if (Meteor.isCordova) {
                 //ask the user for permission to save the image using xhttp request
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', url, true);
-                xhr.responseType = 'blob';
-                xhr.onload = function(e) {
-                    if (this.status == 200) {
-                        var blob = this.response;
-                        //save the blob to the device's downloads folder
-                        window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
-                            dir.getFile('certificate.png', { create: true }, function(file) {
-                                file.createWriter(function(fileWriter) {
-                                    fileWriter.write(blob);
-                                    alert('certificate saved to downloads folder');
-                                });
-                            });
+                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
+                    fileSystem.root.getFile("Download/" + name + ".png", {
+                        create: true,
+                        exclusive: false
+                    }, function(fileEntry) {
+                        var fileTransfer = new FileTransfer();
+                        fileTransfer.download(url, fileEntry.toURL(), function(entry) {
+                            //success
+                            console.log("download complete: " + entry.toURL());
+                            alert('Certificate saved to your downloads folder');
+                        }, function(error) {
+                            //error
+                            console.log("download error source " + error.source);
+                            console.log("download error target " + error.target);
+                            console.log("upload error code" + error.code);
+                            alert('Error saving certificate:' + error.code);
                         });
-                    }
-                }
+                    }, function() {
+                        //error
+                        console.log('error');
+                    });
+                });
             } else {
                 //if cordova is not available, save the blob to the browser's downloads folder
                 var link = document.createElement('a');

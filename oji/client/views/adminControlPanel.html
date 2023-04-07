@@ -70,5 +70,12 @@
             <button class="btn btn-primary" type="button" id="testGoogleVoice">Test</button>
         </div>
         {{/if}}
+        {{#if isInRole 'admin'}}
+        <div class="profileCard">
+            <h3>Public Server Message:</h3>
+            <input type="text" class="form-control" id="serverMessage" value="{{serverMessage}}">
+            <button class="btn btn-primary" type="button" id="serverMessageButton">Save</button>
+        </div>
+        {{/if}}
     </div>
 </template>
