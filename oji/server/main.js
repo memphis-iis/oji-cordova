@@ -1217,6 +1217,28 @@ Meteor.methods({
             subscaleTotals = oldResults.subscaleTotals;
             identifier = oldResults.identifier;
         }
+        //convert screenshot URI to buffer
+        if(newData.screenshot){
+            let base64Data = newData.screenshot.replace(/^data:image\/png;base64,/, "");
+            let binaryData = new Buffer.from(base64Data, 'base64').toString('binary');
+            screenshot = binaryData;
+            //save screenshot to file using Files collection
+            Files.write(screenshot, {
+                fileName: Meteor.userId() + '_' + assessmentName + '_' + questionId + '.png',
+                type: 'image/png',
+                meta: {
+                    verificationCode: newData.verificationCode
+                }
+            } , function (error, fileObj) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    screenshotId = fileObj._id;
+                    console.log('screenshot saved to file collection');
+                    newData.screenshot = Files.link(fileObj);
+                }
+            });
+        }
         //get the current date and time 
         now = new Date().getTime();
         data[newData.questionId] = {
@@ -1387,6 +1409,26 @@ Meteor.methods({
         return moduleData.score;
     },
     saveModuleData: function (moduleData){
+        //check if a screenshot was passed
+        if(moduleData.screenshot){
+            let base64Data = newData.screenshot.replace(/^data:image\/png;base64,/, "");
+            let binaryData = new Buffer.from(base64Data, 'base64').toString('binary');
+            screenshot = binaryData;
+            //save screenshot to file using Files collection
+            Files.write(screenshot, {
+                fileName: Meteor.userId() + '_' + assessmentName + '_' + questionId + '.png',
+                type: 'image/png',
+            } , function (error, fileObj) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    screenshotId = fileObj._id;
+                    console.log('screenshot saved to file collection');
+                    //append the screenshot id to the most recent moduleData.responses
+                    moduleData.responses[moduleData.responses.length - 1].screenshot = Files.link(screenshotId);
+                }
+            });
+        }
         ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
         // get the Module data
         moduleInfo = Modules.find({_id: moduleData.moduleId}).fetch();
@@ -1543,19 +1585,34 @@ Meteor.methods({
             console.log("verification code not saved");
         }
     },
-    saveLoginScreenshot: function(screenshot){
-        console.log("saving login screenshot");
-        Meteor.users.update(Meteor.userId(), {
-            $set: {
-                loginScreenshot: screenshot
+    saveLoginScreenshot: function(screenshot, verficationCode){
+        console.log("saving login screenshot with verification code", verficationCode);
+        //convert screenshot URI to array buffer            
+        const screenshotBuffer = new Buffer.from(screenshot.replace(/^data:image\/\w+;base64,/, ""),'base64');
+        //save screenshot to file using Files collection
+        user = Meteor.user();
+        Files.write(screenshotBuffer, {
+            fileName: user + "_" + verficationCode + '.png',
+            type: 'image/png',
+            meta: {
+                verificationCode:  verficationCode  
+            }
+        } , function (error, fileObj) {
+            if (error) {
+                console.log(error);
+            } else {
+                screenshotId = fileObj._id;
+                console.log('screenshot saved to file collection');
+                        //get the screenshot's link
+                screenshot = Files.link(fileObj);
+                Meteor.users.update(user, {
+                    $set: {
+                        loginScreenshot: screenshot,
+                        verificationCode: verficationCode
+                    }
+                });
             }
         });
-        //verify the change by comparing the code to the user's verification code
-        if(Meteor.user().loginScreenshot == screenshot){
-            console.log("login screenshot saved");
-        } else {
-            console.log("login screenshot not saved");
-        }
     },
     generateApiToken: function(userId){
         var newToken = "";

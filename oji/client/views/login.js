@@ -68,7 +68,7 @@ Template.login.events({
                         //convert canvas to data url
                         var dataURL = canvas.toDataURL();
                         //save data url to user's profile
-                        Meteor.call('saveLoginScreenshot', dataURL, function(error, result){
+                        Meteor.call('saveLoginScreenshot', dataURL, verCode, function(error, result){
                             if(error){
                                 console.log(error);
                                 alert("Verification not working, please contact support. Error: " + error)
