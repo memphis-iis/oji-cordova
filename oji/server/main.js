@@ -153,7 +153,7 @@ Meteor.startup(() => {
             name: 'Send Notification Emails/Mobile Push Notifications',
             schedule: function(parser) {
                 // parser is a later.parse object
-                return parser.text('every 1 minutes');
+                return parser.text('every 5 minutes');
             },
             job: function() {
                 Meteor.call('sendNotificationEmails');
@@ -1411,12 +1411,16 @@ Meteor.methods({
     saveModuleData: function (moduleData){
         //check if a screenshot was passed
         if(moduleData.screenshot){
-            let base64Data = newData.screenshot.replace(/^data:image\/png;base64,/, "");
+            let base64Data = moduleData.screenshot.replace(/^data:image\/png;base64,/, "");
             let binaryData = new Buffer.from(base64Data, 'base64').toString('binary');
+            moduleName = Modules.findOne({_id: moduleData.moduleId}).title;
+            questionId = moduleData.questionId;
+            pageId = moduleData.pageId;
+            questionId = moduleData.questionId;
             screenshot = binaryData;
             //save screenshot to file using Files collection
             Files.write(screenshot, {
-                fileName: Meteor.userId() + '_' + assessmentName + '_' + questionId + '.png',
+                fileName: Meteor.userId() + '_' + moduleName + '_' + questionId + '.png',
                 type: 'image/png',
             } , function (error, fileObj) {
                 if (error) {
@@ -1425,13 +1429,13 @@ Meteor.methods({
                     screenshotId = fileObj._id;
                     console.log('screenshot saved to file collection');
                     //append the screenshot id to the most recent moduleData.responses
-                    moduleData.responses[moduleData.responses.length - 1].screenshot = Files.link(screenshotId);
+                    moduleData.responses[moduleData.responses.length - 1].screenshot = Files.link(fileObj);
                 }
             });
         }
         ModuleResults.upsert({_id: moduleData._id}, {$set: moduleData});
         // get the Module data
-        moduleInfo = Modules.find({_id: moduleData.moduleId}).fetch();
+ 
         nextModule = Meteor.user().nextModule;
         console.log("nextModule", nextModule, typeof nextModule);
         if(moduleData.nextPage == 'completed'){

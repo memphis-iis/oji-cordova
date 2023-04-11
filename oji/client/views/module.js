@@ -378,6 +378,8 @@ Template.module.events({
                 var dataURL = canvas.toDataURL();
                 //save the screenshot to the module data
                 moduleData.screenshot = dataURL;
+                moduleData.pageId = thisPage;
+                moduleData.questionId = thisQuestion;
                 Meteor.call("saveModuleData", moduleData);
                 $('textArea').val("");
                 $(".btn-info").removeClass("btn-info");
