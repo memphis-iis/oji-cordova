@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Local MongoDB settings
+LOCAL_HOST="localhost"
+LOCAL_PORT="27017"
+LOCAL_DB="Oji"
+
+# Remote MongoDB settings
+REMOTE_HOST="ojis-journey.com"
+REMOTE_PORT="27017"
+REMOTE_DB="Oji"
+
+# Backup settings
+BACKUP_DIR="~/temp"
+BACKUP_DATE=$(date +%Y-%m-%d_%H-%M-%S)
+BACKUP_FILE="$BACKUP_DIR/$LOCAL_DB-$BACKUP_DATE.tar.gz"
+
+# Dump the local database using gzip compression
+mongodump --host $LOCAL_HOST --port $LOCAL_PORT --db $LOCAL_DB --gzip --archive=$BACKUP_FILE
+
+# Copy the backup to the remote server using key-based authentication
+scp -i ~/oji/oji-staging.pem $BACKUP_FILE ubuntu@$REMOTE_HOST:/tmp/
+
+# SSH into the remote server and restore the database
+ssh -i ~/oji/oji-staging.pem ubuntu@$REMOTE_HOST "mongorestore --drop --archive=/tmp/$LOCAL_DB-$BACKUP_DATE.tar.gz --gzip"
+
+# Cleanup the backup file and directory
+rm -rf $BACKUP_DIR/$LOCAL_DB
+rm $BACKUP_FILE
+
+#cd into .deploy directory
+cd ~/oji/oji/.deploy
+
+#run mup deploy
+mup deploy

@@ -1,0 +1,337 @@
+{
+    "admins": [
+        {
+            "username": "RSchwartz",
+            "password": "xblt3aok",
+            "firstname": "Roberto",
+            "lastname": "Schwartz",
+            "org": "Downtown",
+            "email": "Roberto.Schwartz@test.com",
+            "role": "Admin",
+            "moduleIndex": "0",
+            "AssessmentIndex": "0"
+        },
+        {
+            "username": "JPeterson",
+            "password": "ge6mnvya",
+            "firstname": "Jeffery",
+            "lastname": "Peterson",
+            "org": "NormalStation",
+            "email": "Jeffery.Peterson@test.com",
+            "role": "Admin",
+            "moduleIndex": "1",
+            "AssessmentIndex": "1"
+        },
+        {
+            "username": "KLuna",
+            "password": "kmuxrsea",
+            "firstname": "Kenny",
+            "lastname": "Luna",
+            "org": "SouthMain",
+            "email": "Kenny.Luna@test.com",
+            "role": "Admin",
+            "moduleIndex": "2",
+            "AssessmentIndex": "2"
+        },
+        {
+            "username": "RHammond",
+            "password": "9p0qqepm",
+            "firstname": "Raul",
+            "lastname": "Hammond",
+            "org": "CooperYoung",
+            "email": "Raul.Hammond@test.com",
+            "role": "Admin",
+            "moduleIndex": "3",
+            "AssessmentIndex": "3"
+        },
+        {
+            "username": "RHudson",
+            "password": "zhthi4cs",
+            "firstname": "Rosa",
+            "lastname": "Hudson",
+            "org": "Whitehaven",
+            "email": "Rosa.Hudson@test.com",
+            "role": "Admin",
+            "moduleIndex": "4",
+            "AssessmentIndex": "4"
+        },
+        {
+            "username": "RCastillo",
+            "password": "iiq7es1f",
+            "firstname": "Rosie",
+            "lastname": "Castillo",
+            "org": "Frayser",
+            "email": "Rosie.Castillo@test.com",
+            "role": "Admin",
+            "moduleIndex": "5",
+            "AssessmentIndex": "0"
+        },
+        {
+            "username": "MRogers",
+            "password": "pk56e0rt",
+            "firstname": "Mercedes",
+            "lastname": "Rogers",
+            "org": "Raleigh",
+            "email": "Mercedes.Rogers@test.com",
+            "role": "Admin",
+            "moduleIndex": "6",
+            "AssessmentIndex": "1"
+        },
+        {
+            "username": "KGrant",
+            "password": "jeb5w2bi",
+            "firstname": "Kim",
+            "lastname": "Grant",
+            "org": "Midtown",
+            "email": "Kim.Grant@test.com",
+            "role": "Admin",
+            "moduleIndex": "7",
+            "AssessmentIndex": "2"
+        },
+        {
+            "username": "MBurgess",
+            "password": "po81xaxf",
+            "firstname": "Madeline",
+            "lastname": "Burgess",
+            "org": "Binghampton",
+            "email": "Madeline.Burgess@test.com",
+            "role": "Admin",
+            "moduleIndex": "8",
+            "AssessmentIndex": "3"
+        },
+        {
+            "username": "AJenkins",
+            "password": "ze3y0rjv",
+            "firstname": "Alexander",
+            "lastname": "Jenkins",
+            "org": "Chicasaw",
+            "email": "Alexander.Jenkins@test.com",
+            "role": "Admin",
+            "moduleIndex": "9",
+            "AssessmentIndex": "4"
+        }
+    ],
+    "supervisors": [],
+    "users": [
+        {
+            "username": "SFowler",
+            "password": "rr9xj0q9",
+            "firstname": "Santiago",
+            "lastname": "Fowler",
+            "org": "Downtown",
+            "email": "Santiago.Fowler@test.com",
+            "role": "User",
+            "moduleIndex": "0",
+            "AssessmentIndex": "0"
+        },
+        {
+            "username": "SThomas",
+            "password": "ppjpqr28",
+            "firstname": "Sherman",
+            "lastname": "Thomas",
+            "org": "NormalStation",
+            "email": "Sherman.Thomas@test.com",
+            "role": "User",
+            "moduleIndex": "1",
+            "AssessmentIndex": "1"
+        },
+        {
+            "username": "GBecker",
+            "password": "ni6tlwug",
+            "firstname": "Gwen",
+            "lastname": "Becker",
+            "org": "SouthMain",
+            "email": "Gwen.Becker@test.com",
+            "role": "User",
+            "moduleIndex": "2",
+            "AssessmentIndex": "2"
+        },
+        {
+            "username": "BDavis",
+            "password": "yys2vcoe",
+            "firstname": "Bonnie",
+            "lastname": "Davis",
+            "org": "CooperYoung",
+            "email": "Bonnie.Davis@test.com",
+            "role": "User",
+            "moduleIndex": "3",
+            "AssessmentIndex": "3"
+        },
+        {
+            "username": "MRose",
+            "password": "oqpubh06",
+            "firstname": "Marlon",
+            "lastname": "Rose",
+            "org": "Whitehaven",
+            "email": "Marlon.Rose@test.com",
+            "role": "User",
+            "moduleIndex": "4",
+            "AssessmentIndex": "4"
+        },
+        {
+            "username": "BBell",
+            "password": "w9h50n1r",
+            "firstname": "Beverly",
+            "lastname": "Bell",
+            "org": "Frayser",
+            "email": "Beverly.Bell@test.com",
+            "role": "User",
+            "moduleIndex": "5",
+            "AssessmentIndex": "0"
+        },
+        {
+            "username": "RCopeland",
+            "password": "aw0ph0wm",
+            "firstname": "Ronald",
+            "lastname": "Copeland",
+            "org": "Raleigh",
+            "email": "Ronald.Copeland@test.com",
+            "role": "User",
+            "moduleIndex": "6",
+            "AssessmentIndex": "1"
+        },
+        {
+            "username": "TJensen",
+            "password": "vxv8jrp9",
+            "firstname": "Theodore",
+            "lastname": "Jensen",
+            "org": "Midtown",
+            "email": "Theodore.Jensen@test.com",
+            "role": "User",
+            "moduleIndex": "7",
+            "AssessmentIndex": "2"
+        },
+        {
+            "username": "CJimenez",
+            "password": "ig58k3fo",
+            "firstname": "Cindy",
+            "lastname": "Jimenez",
+            "org": "Binghampton",
+            "email": "Cindy.Jimenez@test.com",
+            "role": "User",
+            "moduleIndex": "8",
+            "AssessmentIndex": "3"
+        },
+        {
+            "username": "LWeber",
+            "password": "vgqjy52o",
+            "firstname": "Louise",
+            "lastname": "Weber",
+            "org": "Chicasaw",
+            "email": "Louise.Weber@test.com",
+            "role": "User",
+            "moduleIndex": "9",
+            "AssessmentIndex": "4"
+        },
+        {
+            "username": "NMckinney",
+            "password": "xc7h6np9",
+            "firstname": "Nancy",
+            "lastname": "Mckinney",
+            "org": "Downtown",
+            "email": "Nancy.Mckinney@test.com",
+            "role": "User",
+            "moduleIndex": "0",
+            "AssessmentIndex": "0"
+        },
+        {
+            "username": "DButler",
+            "password": "eyyymgqq",
+            "firstname": "Darin",
+            "lastname": "Butler",
+            "org": "NormalStation",
+            "email": "Darin.Butler@test.com",
+            "role": "User",
+            "moduleIndex": "1",
+            "AssessmentIndex": "1"
+        },
+        {
+            "username": "RFernandez",
+            "password": "toioe475",
+            "firstname": "Rose",
+            "lastname": "Fernandez",
+            "org": "SouthMain",
+            "email": "Rose.Fernandez@test.com",
+            "role": "User",
+            "moduleIndex": "2",
+            "AssessmentIndex": "2"
+        },
+        {
+            "username": "JJordan",
+            "password": "5pc95wqt",
+            "firstname": "Jean",
+            "lastname": "Jordan",
+            "org": "CooperYoung",
+            "email": "Jean.Jordan@test.com",
+            "role": "User",
+            "moduleIndex": "3",
+            "AssessmentIndex": "3"
+        },
+        {
+            "username": "CRodriquez",
+            "password": "r95b7oxs",
+            "firstname": "Clay",
+            "lastname": "Rodriquez",
+            "org": "Whitehaven",
+            "email": "Clay.Rodriquez@test.com",
+            "role": "User",
+            "moduleIndex": "4",
+            "AssessmentIndex": "4"
+        },
+        {
+            "username": "LFields",
+            "password": "yhw2s11s",
+            "firstname": "Leslie",
+            "lastname": "Fields",
+            "org": "Frayser",
+            "email": "Leslie.Fields@test.com",
+            "role": "User",
+            "moduleIndex": "5",
+            "AssessmentIndex": "0"
+        },
+        {
+            "username": "KPaul",
+            "password": "mvhv5sxr",
+            "firstname": "Kristopher",
+            "lastname": "Paul",
+            "org": "Raleigh",
+            "email": "Kristopher.Paul@test.com",
+            "role": "User",
+            "moduleIndex": "6",
+            "AssessmentIndex": "1"
+        },
+        {
+            "username": "JHerrera",
+            "password": "ru83lopr",
+            "firstname": "Jeremiah",
+            "lastname": "Herrera",
+            "org": "Midtown",
+            "email": "Jeremiah.Herrera@test.com",
+            "role": "User",
+            "moduleIndex": "7",
+            "AssessmentIndex": "2"
+        },
+        {
+            "username": "LGibson",
+            "password": "2u04fg5p",
+            "firstname": "Leslie",
+            "lastname": "Gibson",
+            "org": "Binghampton",
+            "email": "Leslie.Gibson@test.com",
+            "role": "User",
+            "moduleIndex": "8",
+            "AssessmentIndex": "3"
+        },
+        {
+            "username": "KWells",
+            "password": "txqz24dq",
+            "firstname": "Katherine",
+            "lastname": "Wells",
+            "org": "Chicasaw",
+            "email": "Katherine.Wells@test.com",
+            "role": "User",
+            "moduleIndex": "9",
+            "AssessmentIndex": "4"
+        }
+    ]
+}

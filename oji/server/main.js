@@ -753,7 +753,25 @@ Meteor.methods({
         }
     },
     changeAssignmentOneUser: function(userId, assignment){
-        Meteor.users.upsert({_id: userId},{$set: {assigned: assignment}});
+        curUser = Meteor.users.findOne({_id: userId});
+        curAssignment = curAssignment.id;
+        //compare if curAssignment  is in assignment array in .assignment, if it is, reset curAssignment to null
+        filter = assignment.filter(function(assignment){
+            return assignment.assignment == curAssignment;
+        });
+        //if filter is empty, then curAssignment is not in assignment array, so we need to reset curModule
+        curModule = curUser.curModule;
+        if(filter.length == 0){
+            curModule = {
+                moduleId: null,
+                pageId: 0,
+                questionId: 0,
+            }
+        }
+        Meteor.users.upsert({_id: userId},{$set: {
+            assigned: assignment,
+            curModule: curModule
+        }});
     },
     deleteAssessment: function(assessment){
         Assessments.remove({_id: assessment});
@@ -1583,8 +1601,12 @@ Meteor.methods({
             }
         });
         //verify the change by comparing the code to the user's verification code
-        if(Meteor.user().verificationCode == code){
-            console.log("verification code saved");
+        if(Meteor.user().verificationCode){
+            if(Meteor.user().verificationCode == code){
+                console.log("verification code saved");
+            } else {
+                console.log("verification code not saved");
+            }
         } else {
             console.log("verification code not saved");
         }

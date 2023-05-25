@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Set variables
+remote_host="ojis-journey.com" # Replace with the IP address or hostname of the remote server
+remote_port="22" # Replace with the SSH port number for the remote server
+mongo_database="Oji" # Replace with the name of the MongoDB database
+remote_db_dir="~/" # Replace with the path to the directory containing the MongoDB data files inside the Docker container
+remote_docs_dir="/ojidocs" # Replace with the path to the directory containing the ojidocs files on the remote server
+local_dir="/ojidocs" # Replace with the path to the directory where the collection dump and ojidocs should be stored on the local machine
+ssh_key_path="~/oji/oji-staging.pem"
+
+# Create a temporary directory to store the collection dump and ojidocs
+temp_dir=$(mktemp -d)
+
+# Use SSH to execute mongodump outside of the Docker container and save the output to a file
+ssh -i $ssh_key_path ubuntu@ojis-journey.com "mongodump --gzip --archive=/home/ubuntu/mongodump.gz --db $mongo_database"
+
+# Copy the dump files from the remote server to the temporary directory on the local machine
+scp -i $ssh_key_path -P $remote_port ubuntu@ojis-journey.com:/home/ubuntu/mongodump.gz $temp_dir/mongodump.gz
+
+# Copy the ojidocs directory from the remote server to the temporary directory on the local machine
+scp -i $ssh_key_path -r -P $remote_port ubuntu@ojis-journey.com:$remote_docs_dir $temp_dir/
+
+#rename the mongodump.gz file on the server with the date
+ssh -i $ssh_key_path ubuntu@ojis-journey.com "cp /home/ubuntu/mongodump.gz /home/ubuntu/mongodump-$(date +%Y-%m-%d).gz"
+
+# delete local Oji mongo database
+mongo $mongo_database --eval "db.dropDatabase()"
+
+# Use mongorestore to restore the collection to the local MongoDB instance
+mongorestore --gzip --archive=$temp_dir/mongodump.gz --db $mongo_database
+
+#delete the contents of the local ojidocs directory
+sudo rm -rf /$local_dir
+
+#create /ojidocs directory with correct permissions using sudo
+sudo mkdir /$local_dir
+sudo chmod 777 /$local_dir
+
+# Move the ojidocs directory from the temporary directory to the local directory
+mv $temp_dir/ojidocs/* /$local_dir/
+
+#rename the mongodump.gz file on the server with the date
+mv $temp_dir/mongodump.gz /ojidocs/mongodump-$(date +%Y-%m-%d).gz
+
+# Clean up the temporary directory
+rm -rf $temp_dir
+
+# Print a message indicating that the restore process is complete
+echo "MongoDB for Oji and ojidocs have been restored to local machine."
+
+#run ./run_meteor.sh to start meteor
+./run_meteor

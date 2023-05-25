@@ -4,7 +4,7 @@ module.exports = {
       host: 'ojis-journey.com',
       username: 'ubuntu',
       pem: '~/oji/oji-staging.pem'
-    }
+    },
   },
   app: {
     name: 'Oji',
@@ -19,7 +19,7 @@ module.exports = {
 
     },
     servers: {
-      one: {}
+      one: {},
     },
     buildOptions: {
       serverOnly: true,
@@ -34,7 +34,7 @@ module.exports = {
   mongo: {
     version: '3.6.1',
     servers: {
-      one: {}
+      one: {},
     }
   },
   proxy: {
