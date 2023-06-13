@@ -102,7 +102,7 @@ Router.route('/', function () {
     //if not cordova, then render downloadApp if not logged in
     if(!Meteor.userId()){
       console.log("not logged in");
-      this.render('downloadApp');
+      this.layout('downloadApp');
     } else {
       console.log("logged in");
       //if not cordova and logged in, then render home

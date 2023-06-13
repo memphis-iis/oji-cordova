@@ -630,7 +630,6 @@ img #logo-color{
 }
 #large-logo-color{
     margin:20px 00px 20px 20px;
-    background-image: url('/logo.png');
     max-width:100px;
     border-radius: 20px;
 }
