@@ -7,23 +7,15 @@
         {{#Template.dynamic template=selectedTechnique}}
         {{/Template.dynamic}}
     {{else}}    
-    <div class="profileCard">
+    <div class="profileCard gy-5">
         <div class="container text-center">
             {{#if todaysExercises}}
             <div class="row">
                 <div class="col-md-12">
-                    <h3>You have completed the following exercises today:</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        {{#each todaysExercises}}
-
-                                {{this.title}}
-
-                        {{/each}}
-                    </div>
+                    <h3>You have completed the following exercises today:    <br><br>
+                        {{#each todaysExercises}} 
+                        <li>{{this.title}}</li>
+                        {{/each}}</h3>
                 </div>
             </div>
             {{else}}
@@ -36,23 +28,19 @@
         </div>
     </div>
     {{#if completedExercises}}
-        <div class="profileCard">
+        <div class="profileCard gy-5">  
             <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <select id="completed-exercises-select">
-                            <option value="0">Relaxation Log</option>
-                            {{#each completedExercises}}
-                                <option value="{{this._id}}">{{this.month}}/{{this.day}}/{{this.year}} - {{this.title}}</option>
-                            {{/each}}
-                        </select>
-                    </div>
-                </div>
+                <select id="completed-exercises-select">
+                    <option value="0">Relaxation Log</option>
+                    {{#each completedExercises}}
+                        <option value="{{this._id}}">{{this.month}}/{{this.day}}/{{this.year}} - {{this.title}}</option>
+                    {{/each}}
+                </select>
             </div>
         </div>
         {{/if}}
         {{#if selectedExercise}}
-        <div class="profileCard">
+        <div class="profileCard gy-5">
             <div class="message-header">
                 <h3>{{selectedExercise.title}}</h3>
             </div>
@@ -63,7 +51,7 @@
             </div>
         </div>
         {{/if}}
-        <div class="profileCard">
+        <div class="profileCard gy-5">
         {{> relaxationTechniqueMenu}}
         </div>
     {{/if}}
@@ -73,35 +61,32 @@
 </template>
 
 <template name="relaxationTechniqueMenu">
-    <div class="container text-center">
+    <div class="container text-center w-100 mx-auto">
         <div class="row">
             <div class="col-md-12">
                 <h3>Relaxation Techniques</h3>
+                <br>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-                    {{#each relaxationTechniques}}
-                        <button class="btn btn-default btn-primary btn-wide select-tech" data-technique-id="{{@index}}">
-                            {{title}}
-                        </button>
-                    {{/each}}
-                </div>
-            </div>
-        </div>
+    <div class="row">
+        {{#each relaxationTechniques}}
+            <button class="btn btn-default btn-primary btn-wide select-tech mx-auto" data-technique-id="{{@index}}">
+                {{title}}
+            </button>
+        {{/each}}  
+    </div>
     </div>
 </template>
 
 <template name="rt0">
     <div class="row profile">
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <h3>Using Your Breathing</h3>
         </div>
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <p>This is similar to what you learned in <u>Preparing for Community Supervision</u> but presented in a slightly different way to give you more variety in the strategies you use. Not all exercises will work as well for you as they do for some other people but try them all a few times so you can decide which ones work best for you. </p>
         </div>
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <!-- Audio player of relaxation technique -->
             <audio controls>
                 <source src="/deep_breathing.m4a" type="audio/mp4">
@@ -110,7 +95,7 @@
             <!-- button to show div with class transcript-->
             <button type="button" class="btn btn-primary" id="transcript">Show Transcript</button>
         </div>
-        <div class="col-md-12 transcript profileCard" hidden>
+        <div class="col-md-12 transcript profileCard gy-5" hidden>
             <h3>Deep Breathing</h3>
             <ul>
                 <li>Lie down on your bed or on the floor. Bend your knees and move your feet about eight inches apart with your toes turned slightly outward. Make sure that your spine is straight and flat.</li>
@@ -140,20 +125,20 @@
             </ul>
         </div>
         <div class="row">
-            <div class="col-md-12 profileCard">
+            <div class="col-md-12 profileCard gy-5 text-center">
                 <h3>Record your use of these strategies</h3>
                 <form>
-                        <label for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</label>
+                        <p for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</p>
                         <textarea class="form-control" id="question1" rows="3"></textarea>
-                        <label for="rt1DeepBreathing">Which Strategy Did You Use?</label>
+                        <p for="rt1DeepBreathing">Which Strategy Did You Use?</p>
                         <select class="form-control" id="question2">
                             <option>Deep Breathing</option>
                             <option>Counting Your Breaths</option>
                             <option>Letting Go of Tension</option>
                         </select>
-                        <label for="rt1DeepBreathing">How long did you use this strategy?</label>
+                        <p for="rt1DeepBreathing">How long did you use this strategy?</p>
                         <input type="text" class="form-control" id="question3" placeholder="How long did you use this strategy?">
-                        <label for="rt1DeepBreathing">Did you feel better after using this strategy?</label>
+                        <p for="rt1DeepBreathing">Did you feel better after using this strategy?</p>
                         <select class="form-control" id="question4">
                             <option>Yes</option>
                             <option>No</option>
@@ -167,13 +152,13 @@
 
 <template name="rt1">
     <div class="row">
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <h3>Progressive Muscle Relaxation</h3>
         </div>
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <p>You may want to go through and read all of the instructions first so you can have an idea on what to expect.</p>
         </div>
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <!-- Audio player of relaxation technique -->
             <audio controls>
                 <source src="/pmr.m4a" type="audio/mp4">
@@ -182,7 +167,7 @@
             <!-- button to show div with class transcript-->
             <button type="button" class="btn btn-primary" id="transcript">Show Transcript</button>
         </div>
-        <div class="col-md-12 transcript profileCard">
+        <div class="col-md-12 transcript profileCard gy-5">
             <h3>Basic Procedure</h3>
             <ul>
                 <li>Get into a comfortable position. Try to block out other noises the best you can.</li>
@@ -214,17 +199,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <h3>Record your use of these strategies</h3>
             <form>
                 <div class="form-group">
-                    <label for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</label>
+                    <p for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</p>
                     <textarea class="form-control" id="question1" rows="3"></textarea>
-                    <label for="rt1DeepBreathing">Which Strategy Did You Use?</label>
+                    <p for="rt1DeepBreathing">Which Strategy Did You Use?</p>
                     <textarea class="form-control" id="question2" rows="3"></textarea>
-                    <label for="rt1DeepBreathing">How long did you use this strategy?</label>
+                    <p for="rt1DeepBreathing">How long did you use this strategy?</p>
                     <input type="text" class="form-control" id="question3" placeholder="How long did you use this strategy?">
-                    <label for="rt1DeepBreathing">Did you feel better after using this strategy?</label>
+                    <p for="rt1DeepBreathing">Did you feel better after using this strategy?</p>
                     <select class="form-control" id="question4">
                         <option>Yes</option>
                         <option>No</option>
@@ -238,10 +223,10 @@
         
 <template name="rt2">
     <div class="row">
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <h3>Guided Imagery</h3>
         </div>
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <!-- Audio player of relaxation technique -->
             <audio controls>
                 <source src="/guided_imagery.m4a" type="audio/mp4">
@@ -250,7 +235,7 @@
             <!-- button to show div with class transcript-->
             <button type="button" class="btn btn-primary" id="transcript">Show Transcript</button>
         </div>
-        <div class="col-md-12 profileCard transcript" hidden>
+        <div class="col-md-12 profileCard gy-5 text-center transcript" hidden>
             <h3>Creating an Imaginary Special Place</h3>
             <p>In creating your special place, you will make an imaginary retreat for relaxation and guidance. This place may be indoors or out. In structuring your place, follow a few guidelines</p>
             <ul>
@@ -278,17 +263,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <h3>Record your use of these strategies</h3>
             <form>
                 <div class="form-group">
-                    <label for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</label>
+                    <p for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</p>
                     <textarea class="form-control" id="question1" rows="3"></textarea>
-                    <label for="rt1DeepBreathing">The place I went</label>
+                    <p for="rt1DeepBreathing">The place I went</p>
                     <textarea class="form-control" id="question2" rows="3"></textarea>
-                    <label for="rt1DeepBreathing">How long did you use this strategy?</label>
+                    <p for="rt1DeepBreathing">How long did you use this strategy?</p>
                     <input type="text" class="form-control" id="question3" placeholder="How long did you use this strategy?">
-                    <label for="rt1DeepBreathing">Did you feel better after using this strategy?</label>
+                    <p for="rt1DeepBreathing">Did you feel better after using this strategy?</p>
                     <select class="form-control" id="question4">
                         <option>Yes</option>
                         <option>No</option>
@@ -302,10 +287,10 @@
 
 <template name="rt3">
     <div class="row">
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <h3>Positive Self-Talk</h3>
         </div>
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <!-- Audio player of relaxation technique -->
             <audio controls>
                 <source src="/letting_go.m4a" type="audio/mp4">
@@ -314,7 +299,7 @@
             <!-- button to show div with class transcript-->
             <button type="button" class="btn btn-primary" id="transcript">Show Transcript</button>
         </div>
-        <div class="col-md-12 profilecard transcript" hidden>
+        <div class="col-md-12 profileCard gy-5 text-center transcript" hidden>
             <p>Sometimes when you are stressed, your mind will start to get worked up and wander all over the place. That is, you have negative automatic thoughts in response to a stressful situation. Many people feel that they are much worse at things than they really are or that their situation is much worse than it really is. So, people will make themselves feel bad. This is called negative self-talk. And it’s not helpful. One way to deal with this kind of stress is to start talking yourself back down to reality again using positive self-talk. Have a conversation with yourself. It helps to think about what you might say to yourself when negative self-talk happens to you. You’ve had some practice with positive self-talk before (see Worksheet #10). But, here are some other ideas.</p>
             <h3>Steps for Positive Self-Talk</h3>
             <ul>
@@ -324,7 +309,7 @@
                 <li>Repeat these thoughts until you start to feel better. </li>
             </ul>  
         </div>
-        <div class="col-md-12 profileCard transcript" hidden>
+        <div class="col-md-12 profileCard gy-5 text-center transcript" hidden>
             <h3>List of Positive Self-Talk Thoughts</h3>
             <ul>
                 <li>Take a deep breath and relax.</li>
@@ -362,17 +347,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12 profileCard">
+        <div class="col-md-12 profileCard gy-5 text-center">
             <h3>Record your use of these strategies</h3>
             <form>
                 <div class="form-group">
-                    <label for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</label>
+                    <p for="rt1DeepBreathing">What happened/What situation prompted you to use deep breathing?</p>
                     <textarea class="form-control" id="question1" rows="3"></textarea>
-                    <label for="rt1DeepBreathing">What I said to myself</label>
+                    <p for="rt1DeepBreathing">What I said to myself</p>
                     <textarea class="form-control" id="question2" rows="3"></textarea>
-                    <label for="rt1DeepBreathing">How long did you use this strategy?</label>
+                    <p for="rt1DeepBreathing">How long did you use this strategy?</p>
                     <input type="text" class="form-control" id="question3" placeholder="How long did you use this strategy?">
-                    <label for="rt1DeepBreathing">Did you feel better after using this strategy?</label>
+                    <p for="rt1DeepBreathing">Did you feel better after using this strategy?</p>
                     <select class="form-control" id="question4">
                         <option>Yes</option>
                         <option>No</option>

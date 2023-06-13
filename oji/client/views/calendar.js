@@ -5,76 +5,84 @@ import { ReactiveVar } from 'meteor/reactive-var';
 Template.calendar.helpers({
     'calendar': function(){
         allEvents = Events.find({}).fetch();
-        console.log(allEvents);
-        calendar = {};
-        // get displayed day
+        calendar = [];
+        //get the selected date
         const t = Template.instance();
-        displayDay = t.displayDay.get();
-        displayMonth = t.displayMonth.get();
-        // if display day is not set, set it to today's numeric day
-        if(!displayDay){
-            //get current day
-            displayDay = moment().date();
-            calendar.displayDay = displayDay;
-            calendar.displayMonth = displayMonth;
-        } else {
-            calendar.displayDay = displayDay;
-            calendar.displayMonth = displayMonth;
+        displayDate = t.displayDate.get();
+        //parse the date
+        unixDate = displayDate || new Date();
+        //get the month and year
+        selectedMonth = displayDate.getMonth() || unixDate.getMonth();
+        selectedYear = displayDate.getFullYear() || unixDate.getFullYear();
+        selectedDay = displayDate.getDate() || unixDate.getDate();
+        //parse into readable format (Day of the week, Month Day, Year)
+        const monthNames = ["January", "February", "March", "April", "May", "June", 
+        "July", "August", "September", "October", "November", "December"];
+        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        calendar.selectedMonth = monthNames[selectedMonth];
+        calendar.selectedYear = selectedYear;
+        selectedMonthName = monthNames[selectedMonth];
+        selectedDate =  selectedMonthName + " " + selectedDay + ", " + selectedYear;
+        calendar.selectedDayFull = selectedDate;
+        //get the number of days in the month
+        daysInAMonth = new Date(selectedYear, selectedMonth + 1, 0).getDate();
+        //get the first day of the month
+        firstDay = new Date(selectedYear, selectedMonth, 1).getDay();
+        //get the last day of the month
+        lastDay = new Date(selectedYear, selectedMonth, daysInAMonth).getDay();
+        //make into an array, prepending empty days corresponding to days of the week
+        for (i = 0; i < firstDay; i++){
+            calendar.push({day: ""});
         }
-        //get an array of this week's numeric days
-        var days = [];
-        for(var i = 0; i < 7; i++){
-            days.push(displayDay - moment().day() + i);
+        //add the days of the month
+        for (i = 1; i <= daysInAMonth; i++){
+            calendar.push({day: i,
+            unixDate: new Date(selectedYear, selectedMonth, i).getTime(),
+            today: (i == new Date().getDate() && selectedMonth == new Date().getMonth() && selectedYear == new Date().getFullYear()),
+            viewdate: (i == displayDate.getDate()),
+            });
         }
-        //for each day in the week, get the english name of the day
-        var dayNames = [];
-        for(var i = 0; i < 7; i++){
-            dayNameShort = moment().date(days[i]).format('ddd');
-            dayNames.push(dayNameShort);
+        //append empty days corresponding to days of the week
+        for (i = lastDay; i < 6; i++){
+            calendar.push({day: ""});
         }
-        //combine the day names and numeric days into an array of objects
-        var daysOfWeek = [];
-        for(var i = 0; i < 7; i++){
-            month = moment().month();
-            today = false;
-            if(days[i] == moment().date()){
-                today = true;
-            }
-            //set the date 
-            date = moment().date(days[i]).format('YYYY-MM-DD');
-            //get the date's numeric day
-            day = moment().date(days[i]).format('D');
-            daysOfWeek.push({relDay: days[i], dayName: dayNames[i], today: today, date: date, day: day});
-            //if the day is today, set today to true
+        //divide into weeks as calendar.weeks
+        calendar.weeks = [];
+        for (i = 0; i < calendar.length; i+=7){
+            calendar.weeks.push(calendar.slice(i, i+7));
         }
-        calendar.daysOfWeek = daysOfWeek;
-        calendar.selectedDayFull = moment().date(displayDay).format('dddd, MMMM Do');
+        console.log(calendar);
+        //get calendar.numberOfEvents and calendar.selectedDayEvents
+        calendar.numberOfEvents = 0;
         calendar.selectedDayEvents = [];
-        //get the events for the selected day
-        for(var i = 0; i < allEvents.length; i++){
-            //collate month, day and year fields into a single date field with moment
-            allEvents[i].date = moment().month(allEvents[i].month).date(allEvents[i].day).year(allEvents[i].year);
-            //if the event is on the selected day, add it to the selected day events array
-            if(allEvents[i].date.date() == displayDay){
-                //convert time to 12 hour local time
-                allEvents[i].time = moment(allEvents[i].time, "HH:mm").format("h:mm a");
-                //if the event is not createdBy the user, set delete to false
-                allEvents[i].delete = true;
-                if(allEvents[i].createdBy !== Meteor.userId()){
-                    allEvents[i].delete = false;
+        for (i = 0; i < allEvents.length; i++){
+            event = allEvents[i];
+            eventDate = new Date(event.year, event.month, event.day);
+            unixDateWithoutTime = new Date(unixDate.getFullYear(), unixDate.getMonth(), unixDate.getDate());
+            console.log(eventDate, unixDate);   
+            //check if the event is on the selected day, stripping time
+            if (eventDate.getTime() == unixDateWithoutTime.getTime()){
+                calendar.numberOfEvents++;
+                calendar.selectedDayEvents.push(event);
+                //set this day to have event to true
+                for (j = 0; j < calendar.weeks.length; j++){
+                    for (k = 0; k < calendar.weeks[j].length; k++){
+                        if (calendar.weeks[j][k].day == event.day){
+                            calendar.weeks[j][k].event = true;
+                        }
+                    }
                 }
-                calendar.selectedDayEvents.push(allEvents[i]);
             }
         }
-        //sort the events by time
-        calendar.selectedDayEvents.sort(function(a, b){
-            return moment(a.time, "h:mm a").diff(moment(b.time, "h:mm a"));
-        });
-        //get today's numeric day
-        calendar.relToday = moment().date();
-        calendar.numberOfEvents = calendar.selectedDayEvents.length;
-        return calendar;    
+        return calendar;
     },
+    'selectedDayFull': function(){
+        const t = Template.instance();
+        displayDate = t.displayDate.get();
+        unixDate = new Date();
+        unixDate.setDate(displayDate);
+        return unixDate.toDateString();
+    }
 })
 
 Template.calendar.events({
@@ -113,9 +121,9 @@ Template.calendar.events({
         Meteor.call('deleteEvent',eventId);
     },
     'click #openCreateEventModal': function(event){
-        $('#createEventModal').show();
-        /* fade in the modal and focus on the first input */
-        $('#createEventModal').scrollBottom();
+        console.log("clicked");
+        console.log($('#createEventModal'));
+        $('#createEventModal').css('display', 'block');
     },
     'click #closeCreateEventModal': function(event){
         $('#createEventModal').fadeOut();
@@ -125,7 +133,26 @@ Template.calendar.events({
         const t = Template.instance();
         //get data-relDay attribute from the clicked element
         newDay = $(event.target).attr('data-date');
-        t.displayDay.set(newDay);
+        //console.log(newDay);
+        //convert from unix time to date object
+        unixDate = new Date(parseInt(newDay));
+        t.displayDate.set(unixDate);
+    },
+    'click #prevMonth': function(event){
+        const t = Template.instance();
+        displayDate = t.displayDate.get();
+        console.log(displayDate);
+        displayDate.setMonth(displayDate.getMonth() - 1);
+        t.displayDate.set(unixDate);
+        console.log("clicked");
+    },
+    'click #nextMonth': function(event){
+        const t = Template.instance();
+        displayDate = t.displayDate.get();
+        displayDate.setMonth(displayDate.getMonth() + 1);
+        t.displayDate.set(displayDate);
+        console.log(displayDate);
+        console.log("clicked");
     }
 })
 
@@ -138,10 +165,6 @@ Template.calendar.onCreated(function() {
     this.displayMonth = new ReactiveVar(false);
     this.displayMonthName = new ReactiveVar(curMonthName);
     daysInAMonth = new Date(unixDate.getMonth() + 1, curYear, 0).getDate();
-    this.displayYear = new ReactiveVar(curYear);
-    this.displayDay = new ReactiveVar(false);
-    this.daysInAMonth = new ReactiveVar(daysInAMonth)
-    this.thoughtlogview = new ReactiveVar(false);
-    this.exerciseview = new ReactiveVar(false);
+    this.displayDate = new ReactiveVar(unixDate);
 })
 

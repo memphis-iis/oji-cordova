@@ -11,8 +11,8 @@ Template.signup.events({
     'click #terms-accept': function(event) {
         event.preventDefault();
         //hide terms and show signup form
-        $('#terms').hide();
-        $('#signup-form').show();
+        $('#terms').prop('hidden', true);
+        $('#signup-form').prop('hidden', false);
         //set reactive variable to current time
         Template.instance().acceptedTermsTimestamp.set(Date.now());
     },

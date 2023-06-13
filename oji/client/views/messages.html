@@ -18,7 +18,7 @@
                 </div>
             </div>
         {{/if}}
-        <div class="profileCard">
+        <div class="profileCard text-center">
             <h3>Inbox</h3>
 
             {{#if message}}
@@ -55,11 +55,12 @@
             <p>Your inbox is empty.</p>
             {{/if}}
         </div>
-        <div class="profileCard">
+        <div class="profileCard text-center container">
         <form id="msg-reply-display">
             {{#if isInRole 'supervisor,admin'}}
             <h3>Compose</h3>
-            <div class="form-group">
+            <br>
+            <div class="text-center mx-auto  gy-2">
                 <select id="msg-to">
                     {{#each usersList}}
                     <option value="{{this._id}}">{{this.firstname}} {{this.lastname}}</option>
@@ -67,22 +68,32 @@
                 </select>
             </div>
             {{#if curMessage}}
-            <input type="text"  id="msg-subject" value="Re: {{curMessage.subject}}">
+            <div class="text-center mx-auto  gy-2">
+             <input type="text"  id="msg-subject" value="Re: {{curMessage.subject}}">  
+            </div>  
             {{else}}
-                <input type="text" id="msg-subject" placeholder="Subject">
+                <div class="text-center mx-auto  gy-2">
+                    <input type="text" id="msg-subject" placeholder="Subject">
+                </div>
             {{/if}}
             {{else}}
             <h3>Message Supervisor</h3>
             {{#if curMessage}}
+            <div class="text-center mx-auto  gy-2">
                 <input type="text" id="msg-subject" value="{{curMessage.subject}}">
+            </div>
             {{else}}
-
+            <div class="text-center mx-auto  gy-2">
                 <input type="text" id="msg-subject" placeholder="Subject">
+            </div>
             {{/if}}
             {{/if}}
-            <textarea id="message" rows="3" style="width:90%" placeholder="Message"></textarea>
-            <br>
-            <button type="Send" class="btn btn-primary" id="msg-send">Send</button>
+            <div class="text-center mx-auto  gy-2">
+                <textarea id="message" rows="3"  placeholder="Message"></textarea>
+            </div>
+            <div class="text-center mx-auto gy-2">
+                <button type="Send" class="btn btn-primary" id="msg-send">Send</button>
+            </div>
         </form>
         </div>
         {{> menu}}

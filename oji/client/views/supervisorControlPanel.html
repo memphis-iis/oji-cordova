@@ -5,7 +5,7 @@
                 <h3>Users Supervised</h3>
             </div>
         </div>
-        <table class="table" id="UserListTable">
+        <table class="table table-dark" id="UserListtable table-dark">
             <thead>
             <tr>
                 <th scope="col" width="30%">Last</th>
@@ -64,7 +64,7 @@
                     User Flow can be seen when selecting an individual user  that you supervise.
                 {{else}}
                 {{#if assignments}}
-                <table class="table" id="assessmentList">
+                <table class="table table-dark" id="assessmentList">
                     <thead>
                         <th scope="col" width="50%">Module/Assignment</th>
                         <th scope="col" width="50%">Actions</th>
@@ -92,7 +92,7 @@
                 {{/if}}
                 <h4>Available Assessments</h4>
                 {{#if assessmentsAvailable}}
-                <table class="table" id="assessmentList">
+                <table class="table table-dark" id="assessmentList">
                     <thead>
                         <th scope="col" width="70%">Assessment</th>
                         <th scope="col" width="30%">Actions</th>
@@ -109,7 +109,7 @@
                 {{/if}}
                 <h4>Available Modules</h4>
                 {{#if modulesAvailable}}
-                <table class="table" id="assessmentList">
+                <table class="table table-dark" id="assessmentList">
                     <thead>
                         <th scope="col" width="70%">Module</th>
                         <th scope="col" width="30%">Actions</th>
@@ -126,7 +126,7 @@
                 {{/if}}
                 <h4>History</h4>
                 {{#if assessments}}
-                <table class="table" id="moduleList">
+                <table class="table table-dark" id="moduleList">
                     <thead>
                         <th scope="col" width="40%">Date Last Accessed</th>
                         <th scope="col" width="40%">Assessment</th>
@@ -152,7 +152,7 @@
                 No assessments have been started by this user.<br>
                 {{/if}}
                 {{#if modules}}
-                <table class="table" id="moduleList">
+                <table class="table table-dark" id="moduleList">
                     <thead>
                         <th scope="col" width="40%">Date Last Accessed</th>
                         <th scope="col" width="40%">Module</th>

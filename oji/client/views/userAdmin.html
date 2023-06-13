@@ -7,22 +7,22 @@
         <div class="container profileCard">
             <ul class="nav nav-tabs" style>
                 <li class="nav-item">
-                <a class="nav-link active" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
+                <a class="nav-link nav-link-mod" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
                 </li>
                 {{#if isInRole 'admin'}}
                 <li class="nav-item">
-                    <a class="nav-link active" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Content</a>
+                    <a class="nav-link nav-link-mod" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Content</a>
                     </li>
                     {{/if}}
                 <li class="nav-item">
-                <a class="nav-link toggle-users-view" href="/usersAdmin">Users</a>
+                <a class="nav-link nav-link-mod toggle-users-view" href="/usersAdmin">Users</a>
                 </li>
             </ul>
     </div>
     {{#if isInRole 'admin'}}
     <div class="profileCard container hideOnUserSelect">
                 <h3>Supervisors</h3>
-                <table class="table" id="supervisorListTable">
+                <table class="table table-dark" id="supervisorListtable table-dark">
                 <thead>
                 <tr>
                     <th scope="col" width="30%">Last</th>
@@ -59,7 +59,7 @@
 
             <h3>Users</h3>
 
-    <table class="table" id="UserListTable">
+    <table class="table table-dark" id="UserListtable table-dark">
         <thead>
         <tr>
             <th scope="col" width="30%">Last</th>
@@ -136,7 +136,7 @@
             {{#if assignments}}
             <div class="profileCard container">
                 <h3>Individual Assignments</h3>
-            <table class="table" id="assessmentList">
+            <table class="table table-dark" id="assessmentList">
                 <thead>
                     <th scope="col" width="50%">Assignment</th>
                     <th scope="col" width="50%">Actions</th>
@@ -164,7 +164,7 @@
             {{#if assessmentsAvailable}}
             <div class="profileCard container">
             <h3>Available Assessments</h3>
-            <table class="table" id="assessmentList">
+            <table class="table table-dark" id="assessmentList">
                 <thead>
                     <th scope="col" width="70%">Assessment</th>
                     <th scope="col" width="30%">Actions</th>
@@ -185,7 +185,7 @@
             {{#if modulesAvailable}}
             <div class="profileCard container">
             <h3>Available Modules</h3>
-            <table class="table" id="assessmentList">
+            <table class="table table-dark" id="assessmentList">
                 <thead>
                     <th scope="col" width="70%">Module</th>
                     <th scope="col" width="30%">Actions</th>
@@ -203,7 +203,7 @@
             <div class="profileCard container">
             <h3>History</h3>
             {{#if assessments}}
-                <table class="table" id="moduleList">
+                <table class="table table-dark" id="moduleList">
                     <thead>
                         <th scope="col" width="40%">Date Last Accessed</th>
                         <th scope="col" width="40%">Assessment</th>
@@ -229,7 +229,7 @@
                 <p>No assessments have been started by this user.<br></p>
                 {{/if}}
             {{#if modules}}
-            <table class="table" id="moduleList">
+            <table class="table table-dark" id="moduleList">
                 <thead>
                     <th scope="col" width="40%">Date Last Accessed</th>
                     <th scope="col" width="30%">Module</th>

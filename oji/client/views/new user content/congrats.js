@@ -47,7 +47,7 @@ Template.congrats.events({
     },
     'click #view-transcript': function(){
         //show transcript div
-          $('#transcript').show();
+          $('#transcript').prop('hidden', false);
      }
 })
 

@@ -20,7 +20,6 @@ hot-module-replacement@0.5.1  # Update client in development without reloading t
 react-meteor-data       # React higher-order component for reactively tracking Meteor data
 iron:router
 blaze-html-templates
-twbs:bootstrap
 react-template-helper
 gadicc:blaze-react-component
 accounts-password@2.2.0

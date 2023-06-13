@@ -3,15 +3,29 @@
         <b>{{currentUser.firstname}}'s Agenda</b>
     </div>
     <div class="text-center content container">
-    <div class="text-center daySelector" role="alert">
-        <div class="flex-row justify-content-center">
-            <div class="flex-col">
-                <a class="daySelect today-{{calendar.relToday}}" data-date="{{calendar.relToday}}">Today</a>
-                {{#each calendar.daysOfWeek}}
-                    <a class="daySelect today-{{this.today}}" data-date="{{this.relDay}}">{{this.day}}</a>
-                {{/each}}
-            </div>
+    <div class="text-center daySelector row" role="alert">
+        <div class="col">
+            <a id="prevMonth">&lt;</a>
         </div>
+        <div class="col">
+        <h3>
+           
+            {{calendar.selectedMonth}} {{calendar.selectedYear}}
+         
+        </h3>
+        </div>
+        <div class="col">
+            <a id="nextMonth">&gt;</a>
+        </div>
+        {{#each calendar.weeks}}
+        <div class="row justify-content-center row-cols-7">    
+            {{#each this}}
+            <div class="col">
+                <a class="daySelect event-{{this.event}} today-{{this.today}} viewdate-{{this.viewdate}}" data-date="{{this.unixDate}}">{{this.day}}</a>
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
     </div>
     <div class="text-center daySelector" role="alert">
             {{#if calendar.numberOfEvents}}
@@ -20,12 +34,12 @@
             <table style="width:100%">
                 {{#each calendar.selectedDayEvents}}
                 <tr class="event">
-                    <td class="eventTime-{{importance}}">
+                    <td class="eventTime-{{importance}} mx-2">
                         <h3>{{time}}</h3>
                     </td>
                     <td class="eventTitle">
-                        <h4>{{title}}</h4>
-                        <h5>{{importance}} priorty</h5>
+                        <h4 class="mx-2">{{title}}</h4>
+                        <h5 class="mx-2">{{importance}} priorty</h5>
                     </td>
                     <td>
                         {{#if this.delete}}
@@ -39,11 +53,11 @@
             <h3>No events are scheduled for {{calendar.selectedDayFull}}.</h3>
             {{/if}}
             <br>
-            <button class="btn btn-primary" id="openCreateEventModal">Add an event</button>
+            <button class="btn btn-primary" id="openCreateEventModal">Create event</button>
         </div>
         {{#each calendar.selectedDayEvents}}
     {{/each}}
-        <div class="text-center daySelector" id="createEventModal" hidden role="alert">
+        <div class="text-center daySelector" id="createEventModal" style="display:none;" role="alert">
             <div class="cardIcon">
                 <a id="closeCreateEventModal"><span class="glyphicon glyphicon-remove"></span></a>
             </div>
@@ -66,8 +80,8 @@
                         <option value="{{this._id}}">{{this.lastname}}, {{this.firstname}}</option>
                         {{/each}}
                     </select><br><br>
-                    Priority:
                     <select id="importance">
+                        <option disabled selected>Select Priority</option>
                         <option>Low</option>
                         <option>Medium</option>
                         <option>Critical</option>

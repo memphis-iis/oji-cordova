@@ -1,37 +1,37 @@
 <template name="login">
     <div class="profileCard">
     <h3>Login</h3>
-    <form class="login">
-      <div class="form-floating mb-3">
-        <input
-          id="usernameLogin"
-          type="text"
-          placeholder="Username"
-          name="username"
-          required
-          class="form-control"
-        />
-        <br>
+    <div class="row">
+      <form class="login">
+          <input
+            id="usernameLogin"
+            type="text"
+            placeholder="Username"
+            name="username"
+            required
+            class="form-control mx-auto"
+          />
+          <br>
 
-  
-        <input
-          id="passwordLogin"
-          type="password"
-          placeholder="Password"
-          name="password"
-          required
-          class="form-control"
-        />
+    
+          <input
+            id="passwordLogin"
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+            class="form-control mx-auto"
+          />
+        </form>
+        </div>
         <div style="margin-top:10px;">
           <button id="login-submit" class="btn btn-primary">Log In</button>
-          <button id="code-submit" class="btn btn-caution">I have a code</button>
-          <button id="signup-submit" class="btn btn-caution">Create Admin Account</button>
+          <button id="code-submit" class="btn btn-secondary">I have a code</button>
+          <button id="signup-submit" class="btn btn-secondary">Create Admin Account</button>
         </div>
         <div style="margin-top:10px;">
           <!-- display current time for screenshot -->
           Verification Code: <span id="code">{{verficationCode}}</span>
         </div>
-      </div>
-    </form>
-  </div>
+    </div>
 </template>

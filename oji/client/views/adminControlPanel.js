@@ -259,7 +259,7 @@ Template.adminControlPanel.events({
         const newAssignment = {assignment: assessmentId, type: "assessment"};
         Meteor.call('assignToAllUsers', newAssignment);
         assignment = Assessments.findOne({_id: assessmentId});
-        $('#alert').show();
+        $('#alert').prop('hidden', false);
         $('#alert').removeClass();
         $('#alert').addClass("alert alert-success");
         $('#alert-p').html("Successfully assigned " + assignment.title + " to all users.");
@@ -270,22 +270,22 @@ Template.adminControlPanel.events({
         const newModule = {assignment: moduleId, type: "module"};
         Meteor.call('assignToAllUsers', newModule);
         module = Modules.findOne({_id: moduleId});
-        $('#alert').show();
+        $('#alert').prop('hidden', false);
         $('#alert').removeClass();
         $('#alert').addClass("alert alert-success");
         $('#alert-p').html("Successfully assigned " + module.title + " to all users.");
 
     },
     'click #close-alert': function(event){
-        $('#alert').hide();
+        $('#alert').prop('hidden', true);
 
     },
     'click #close-files-alert': function(event){
-        $('#alert-files').hide();
+        $('#alert-files').prop('hidden', true);
 
     },
     'click #close-mods-alert': function(event){
-        $('#alert-mods').hide();
+        $('#alert-mods').prop('hidden', true);
 
     },
     'click #copy-assessment': function (event){
@@ -304,7 +304,7 @@ Template.adminControlPanel.events({
         event.preventDefault();
         deletedAssessment = $(event.target).data("assessment-id");
         assessment = Assessments.findOne({_id: deletedAssessment});
-        $('#alert').show();
+        $('#alert').prop('hidden', false);
         $('#alert').removeClass();
         $('#alert').addClass("alert alert-danger");
         $('#alert-p').html("This cannot be undone." + assessment.title + " will be permanently deleted. Did you make a backup?");
@@ -327,7 +327,7 @@ Template.adminControlPanel.events({
         event.preventDefault();
         deletedModule = $(event.target).data("module-id");
         moduleDeleted = Modules.findOne({_id: deletedModule});
-        $('#alert-mods').show();
+        $('#alert-mods').prop('hidden', false);
         $('#alert-mods').removeClass();
         $('#alert-mods').addClass("alert alert-danger");
         $('#alert-mods-p').html("This cannot be undone." + moduleDeleted.title + " will be permanently deleted. Did you make a backup?");
@@ -339,14 +339,14 @@ Template.adminControlPanel.events({
         deletedModule = event.target.getAttribute('data-module-id');
         Meteor.call('deleteModule',deletedModule);
         $('#alert-mods-confirm').removeAttr('module-id');
-        $('#alert-mods').hide();
+        $('#alert-mods').prop('hidden', true);
     },
     'click .confirm-delete-assessment': function (event){
         event.preventDefault();
         deletedAssessment= event.target.getAttribute('data-assessment-id');
         Meteor.call('deleteAssessment',deletedAssessment);
         $('#alert-confirm').removeAttr('assessment-id');
-        $('#alert').hide();
+        $('#alert').prop('hidden', true);
     },
     'click #add-module': function (event){
         Meteor.call('createModule');
@@ -405,7 +405,7 @@ Template.adminControlPanel.events({
     'click #delete-file': function (event){
         event.preventDefault();
         deletedFile = $(event.target).data("name");
-        $('#alert-files').show();
+        $('#alert-files').prop('hidden', false);
         $('#alert-files').removeClass();
         $('#alert-files').addClass("alert alert-danger");
         $('#alert-files-p').html("This cannot be undone." + deletedFile + " will be permanently deleted. Did you make a backup?");
@@ -417,7 +417,7 @@ Template.adminControlPanel.events({
         deletedFile = $(event.target).data("name");
         Meteor.call('deleteFileFromOrg', deletedFile);
         $('#alert-files-confirm').removeAttr('module-id');
-        $('#alert-files').hide();
+        $('#alert-files').prop('hidden', true);
     },
     'click .delete-all-files': function (event){
         Meteor.call('deleteAllFilesFromOrg');

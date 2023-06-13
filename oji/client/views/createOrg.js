@@ -11,10 +11,10 @@ Template.createOrg.events({
         Meteor.call('createOrganization', newOrgName, newOrgOwner, newOrgDesc,useDefaultFlow);    
         Meteor.call('generateInvite', newOrgOwner, function(err, res) {
             orgUrl = window.location.protocol + "//" + window.location.host + "/signup/" + res;
-            $('#step-1').hide();
+            $('#step-1').prop('hidden', true);
             $('#orgLink').text(orgUrl);
             $('#orgLink').attr("href", orgUrl);
-            $('#step-2').show();
+            $('#step-2').prop('hidden', false);
         });
     },
     'click #admin-control-panel': function(event) {

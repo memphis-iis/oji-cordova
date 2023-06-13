@@ -50,14 +50,14 @@ Template.assessmentEditor.helpers({
 
 Template.assessmentEditor.events({
    'click #show-json': function(event) {
-        $('#json').show();
-        $('#hide-json').show();
-        $('#show-json').hide();
+        $('#json').prop('hidden', false);
+        $('#hide-json').prop('hidden', false);
+        $('#show-json').prop('hidden', true);
     },
     'click #hide-json': function(event) {
-        $('#json').hide();
-        $('#show-json').show();
-        $('#hide-json').hide();
+        $('#json').prop('hidden', true);
+        $('#show-json').prop('hidden', false);
+        $('#hide-json').prop('hidden', true);
     },
     'click #switch-display': function(event){
         assessmentId = $('#assessmentId').val();
@@ -77,7 +77,7 @@ Template.assessmentEditor.events({
             cloneTo = event.target;
         } else {
             cloneTo = "#" + event.target.getAttribute('data-target')
-            $(cloneTo).hide();
+            $(cloneTo).prop('hidden', true);
         }
         $("#input-editor").val(value);
         $("#text-editor").clone().attr("id","clone").show().insertAfter(cloneTo);
@@ -87,7 +87,7 @@ Template.assessmentEditor.events({
         event.preventDefault();
         field = event.target.getAttribute('data-field');
         cloneTo = event.target.getAttribute('data-target');
-        $(cloneTo).show();
+        $(cloneTo).prop('hidden', false);
         result = "\"" + $('#clone #input-editor').val() + "\"";
         assessmentId = $('#assessmentid').val();
         changeAssessment(assessmentId, field, result);

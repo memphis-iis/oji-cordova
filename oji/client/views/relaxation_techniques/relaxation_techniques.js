@@ -105,7 +105,7 @@ Template.rt0.events({
     },
     'click #transcript': function(event) {
         //show transcript class div
-        $('.transcript').show();
+        $('.transcript').prop('hidden', false);
     }
 })
 
@@ -128,7 +128,7 @@ Template.rt1.events({
     },
     'click #transcript': function(event) {
         //show transcript class div
-        $('.transcript').show();
+        $('.transcript').prop('hidden', false);
     }
 })
 Template.rt2.events({
@@ -150,7 +150,7 @@ Template.rt2.events({
     },
     'click #transcript': function(event) {
         //show transcript class div
-        $('.transcript').show();
+        $('.transcript').prop('hidden', false);
     }
 })
 Template.rt3.events({
@@ -172,6 +172,6 @@ Template.rt3.events({
     },
     'click #transcript': function(event) {
         //show transcript class div
-        $('.transcript').show();
+        $('.transcript').prop('hidden', false);
     }
 })

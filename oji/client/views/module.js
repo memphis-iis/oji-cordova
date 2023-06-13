@@ -105,9 +105,9 @@ Template.module.helpers({
             page = moduleData.pages[parseInt(this.pageId)];
             if(page) {
                 const t = Template.instance();
-                $('.continue').show();
+                $('.continue').prop('hidden', false);
                 if(parseInt(this.pageId) < Meteor.user().curModule.pageId){
-                    $('.continue').hide();
+                    $('.continue').prop('hidden', true);
                 }
                 if(page.type == "text"){
                     page.typeText = true;

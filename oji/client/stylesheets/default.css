@@ -69,9 +69,10 @@ td.display-message{
     color: white;
     text-align: left;
     padding: 10px;
-    border: 10px solid rgba(0, 0, 0, 0.0);
-    background-color: #22847f;
-    /* box shadow */
+    /* gradient background */
+    background-color: #421f17;
+    border-bottom: 1px solid #e26b4d;
+    
 }
 .message-content{
     font-family: 'Arvo', serif;
@@ -164,11 +165,10 @@ td.display-message-icon-readFalse{
 }
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6{
     color:white;
-    margin-left:20px;
-    margin-right: 20px;
 }
 .btn{
     border-radius: 20px;
+    min-width:150px;
 }
 .menu{
     width: 100%;
@@ -284,6 +284,7 @@ td.display-message-icon-readFalse{
 }
 .eventTime-Low, .eventTime-Medium, .eventTime-Critical{
     width:100px;
+    margin-left:50px;
 }
 .eventTime-Low h3, .eventTime-Medium h3{
     color: #e26b4d;
@@ -306,7 +307,6 @@ td.display-message-icon-readFalse{
     
 }
 .daySelect{
-    border: #22847f 1px solid;
     font-size: 15px;
     line-height: 30px;
     border-radius:30x;
@@ -316,8 +316,22 @@ td.display-message-icon-readFalse{
     min-height:30px;
     margin-right: 5px;
 }
+a{
+    color: white;
+    text-decoration: none !important;
+}
+.daySelect a{
+    color: white;
+    text-decoration: none !important;
+}
 .today-true{
     border: #cc3232 1px solid;
+}
+.viewdate-true{
+    border: #22847f 1px solid;
+}
+.event-true{
+    border: #e26b4d 1px solid;
 }
 .menuItem{
     background: #22847f;
@@ -390,7 +404,7 @@ td.display-message-icon-readFalse{
     background-image: linear-gradient(to top, #492117, #0d312f);
     color: white;
     border-radius: 10px;
-    padding: 10px;
+    padding: 25px;
     margin-left: 0px;
     margin-right: 0px;
     margin-top:20px;
@@ -399,31 +413,25 @@ td.display-message-icon-readFalse{
     /* box shadow */
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
-.profileCard p{
-    margin-left:20px;
-}
 .profileCard [hidden]{
     animation: fadeOutDown 1s;
 
 }
-.profileCard label{
-    margin-left:20px;
-}
-.profileCard input, .profileCard textarea, select{
-    margin-left:20px;
-    max-width: 80%;
+.profileCard input, .profileCard textarea, select, .profileCard option{
     color:white;
-    background-color: black;
+    background-color: black !important;
     border: none;
     min-height: 30px;
-    font-size: 20px;
+    font-size: 20px !important;
     border-radius: 5px;
+    margin-top: 10px;
+    /* center objects */
+    margin-left: auto;
 }
-.profileCard select{
-    margin-left:20px;
-}
-.profileCard button{
-    margin-left:20px;
+.profileCard input:focus, .profileCard textarea:focus, select:focus{
+    outline: none;
+    background-color: #061b1a;
+    color: white;
 }
 .menuCard{
     background-image: linear-gradient(to top, #110806, #061b1a);
@@ -443,7 +451,7 @@ td.display-message-icon-readFalse{
     background-image: linear-gradient(to top, #e26b4d, #22847f);
     color: white;
     border-radius: 10px;
-    padding: 10px;
+    padding: 25px;
     margin-left: 0px;
     margin-right: 0px;
     margin-top:20px;
@@ -459,7 +467,6 @@ td.display-message-icon-readFalse{
     font-style: bold;
     font-stretch: condensed;
     font-size:25px;
-    margin-bottom: 20px;
 }
 a {
     color:white;
@@ -500,14 +507,18 @@ select {
     height:15px;
 }
 .btn{
+    margin-top:20px;
     margin-bottom:20px;
     white-space: normal;
+    background-color: #e26b4d !important;
+    font-size: 15px !important;
+    padding: 10px !important;
 }
 .btn-caution{
-    background-color: #e26b4d;
+    background-color: #e26b4d !important;
 }
 .btn-primary{
-    background-color: #22847f;
+    background-color: #22847f !important;
 }
 .btn-secondary{
     background-color: #22847f;
@@ -580,6 +591,13 @@ input, option, textarea, select {
     margin-top: 0px;
     color: #e26b4d;
 }
+.login input:focus, .code input:focus{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-color: #22847f;
+    border-radius: 50px;
+    margin-top: 0px;
+    color: #e26b4d;
+}
 
 .footer-container{
     position: fixed;
@@ -595,6 +613,11 @@ input, option, textarea, select {
 }
 #footer p{
     text-align: center;
+}
+p{
+    font-size: 15px;
+    color:white;
+    margin-bottom: 10px;
 }
 #mark{
     vertical-align: bottom;
@@ -616,4 +639,64 @@ img #logo-color{
     border-top: 1px white;
     border-bottom: 1px white;
     margin-right: 50px;
+}
+
+.nav-tabs{
+    border-bottom: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.25);
+    font-size: 20px;
+}
+
+.nav-tabs{
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none;
+    border-bottom: 1px solid white;
+    border-radius: 0px;
+    color: white;
+}
+
+.nav-tabs .nav-link{
+    color: white !important;
+}
+
+.nav-link-mod{
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none;
+    border-bottom: 1px solid white;
+    border-radius: 0px;
+    color: white;
+}
+.nav-link-mod a{
+    color: white !important;
+}
+
+/* file input */
+input[type="file"] {
+    /* style button */
+    cursor: pointer;
+    font-size: 15px;
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    background-color: #22847f;
+}
+
+.btn{
+    color: white !important;
+}
+
+table{
+    font-size: 15px;
+}
+
+.table-dark{
+    background-color: #22847f;
+}
+
+.form-control{
+    color: white;
+}
+
+a{
+    color: white;
 }

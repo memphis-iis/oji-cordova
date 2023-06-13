@@ -7,28 +7,30 @@
     <div class="container profileCard">
         <ul class="nav nav-tabs" style>
             <li class="nav-item">
-            <a class="nav-link active" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
+            <a class="nav-link nav-link-mod" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
             </li>
             {{#if isInRole 'admin'}}
             <li class="nav-item">
-                <a class="nav-link active" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Content</a>
+                <a class="nav-link nav-link-mod" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Content</a>
                 </li>
                 {{/if}}
             <li class="nav-item">
-            <a class="nav-link toggle-users-view" href="/usersAdmin">Users</a>
+            <a class="nav-link nav-link-mod toggle-users-view" href="/usersAdmin">Users</a>
             </li>
         </ul>
     </div>
     {{#if author}}
     <div id="author-alert" class="alert alert-danger" role="alert">
-        Author mode activated. All editing is enabled.
+        <p><b>Author Mode</b></p>
     </div>
     {{/if}}
     <div class="profileCard">
             <h3>Default Flow</h3>
+            <p>
             This is the flow of assignments and modules for new users.
+            </p>
             {{#if assignments}}
-            <table class="table" id="assessmentList">
+            <table class="table table-dark" id="assessmentList">
                 <thead>
                     <th scope="col" width="50%">Module/Assignment</th>
                     <th scope="col" width="50%">Actions</th>
@@ -55,7 +57,9 @@
                 </tbody>
             </table>
             {{else}}
+            <p>
             Your organization does not have a default assignment flow for new users.
+            </p>
             {{/if}}
             </div>
             {{#if author}}
@@ -68,11 +72,12 @@
             <div class="profileCard">
             <h3>Assessments Available</h3>
             <div id="alert" class="alert" role="alert" hidden>
-                <span id="alert-p"></span>
-                <button id="alert-confirm" class="btn btn-caution" hidden>Confirm</button>
+                <p id="alert-p"></p>
+                <br>
+                <button id="alert-confirm" class="btn btn-caution">Confirm</button>
                 <button id="close-alert" class="btn btn-caution">Close</button>
             </div>
-            <table class="table" id="assessmentList">
+            <table class="table table-dark" id="assessmentList">
                 <thead>
                     <th scope="col" width="30%">Assessment</th>
                     <th scope="col" width="20%">Status</th>
@@ -141,13 +146,12 @@
                         </td>
                     </tr>
                 {{/each}}
-                <tr>
-                    <td>
-                        <a id="add-assessment">Create New Assessment</a>
-                    </td>
-                </tr>
+           
+                      
+              
                 </tbody>
                 </table>
+                <a id="add-assessment">Create New Assessment</a>
                 </div>
                 <div class="profileCard">
                 <h3>Modules Available</h3>
@@ -156,7 +160,7 @@
                     <button id="alert-mods-confirm" class="btn btn-caution" hidden>Confirm</button>
                     <button id="close-mods-alert" class="btn btn-caution">Close</button>
                 </div>
-                <table class="table" id="assessmentList">
+                <table class="table table-dark" id="assessmentList">
                     <thead>
                         <th scope="col" width="30%">Module</th>
                         <th scope="col" width="20%">Status</th>
@@ -210,13 +214,10 @@
                             </td>
                         </tr>
                     {{/each}}
-                        <tr>
-                            <td>
-                                <a id="add-module">Create New Module</a>
-                            </td>
-                        </tr>
+        
                     </tbody>
                 </table>
+                <a id="add-module">Create New Module</a>
         </div>   
     </div>
 </template>

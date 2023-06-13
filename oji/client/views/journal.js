@@ -55,28 +55,28 @@ Template.journal.events({
         template = Template.instance();
         currentCard = template.currentCard.get();
         currentCardHandle = $('#card' + currentCard);
-        currentCardHandle.hide();
+        currentCardHandle.prop('hidden', true);
         nextCardHandle = $('#card' + (currentCard + 1));
-        nextCardHandle.show();
+        nextCardHandle.prop('hidden', false);
         currentCard++;
         template.currentCard.set(currentCard);
-        $('#prompt').hide();
-        $('#prompt2').hide();
-        $('.selectDate').hide();
+        $('#prompt').prop('hidden', true);
+        $('#prompt2').prop('hidden', true);
+        $('.selectDate').prop('hidden', true);
     },
     'click #prev': function(event){
         event.preventDefault();
         template = Template.instance();
         currentCard = template.currentCard.get();
         currentCardHandle = $('#card' + currentCard);
-        currentCardHandle.hide();
+        currentCardHandle.prop('hidden', true);
         prevCardHandle = $('#card' + (currentCard - 1));
-        prevCardHandle.show();
+        prevCardHandle.prop('hidden', false);
         currentCard--;
         template.currentCard.set(currentCard);
-        $('#prompt').hide();
-        $('#prompt2').hide();
-        $('.selectDate').hide();
+        $('#prompt').prop('hidden', true);
+        $('#prompt2').prop('hidden', true);
+        $('.selectDate').prop('hidden', true);
     },
 
     'click #createEntry': function(event){
@@ -90,10 +90,10 @@ Template.journal.events({
         data.otherThoughts =  $('#otherThoughts').val();
         data.newMood = $('#newMood').val();
         Meteor.call('addEntry',data);
-        $('#card6').hide();
-        $('#prompt').show();
-        $('#prompt2').show();
-        $('.selectDate').show();
+        $('#card6').prop('hidden', true);
+        $('#prompt').prop('hidden', false);
+        $('#prompt2').prop('hidden', false);
+        $('.selectDate').prop('hidden', false);
     },
     'click #stopLog': function(event){
         //clear all fields
@@ -104,16 +104,16 @@ Template.journal.events({
         $('#evidenceAgainstThoughts').val("");
         $('#otherThoughts').val("");
         $('#newMood').val("");
-        $('#prompt').show();
+        $('#prompt').prop('hidden', false);
         //hide all cards
         template = Template.instance();
         currentCard = template.currentCard.get();
         currentCardHandle = $('#card' + currentCard);
-        currentCardHandle.hide();
+        currentCardHandle.prop('hidden', true);
         template.currentCard.set(-1);
-        $('#prompt2').show();
-        $('#prompt').show();
-        $('.selectDate').show();
+        $('#prompt2').prop('hidden', false);
+        $('#prompt').prop('hidden', false);
+        $('.selectDate').prop('hidden', false);
     },
     'change #dateSelect': function(event){
         event.preventDefault();

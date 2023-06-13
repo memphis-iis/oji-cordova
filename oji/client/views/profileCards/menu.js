@@ -48,7 +48,7 @@ Template.menu.events({
         template.compose.set(false);
     },
     'click #msg-reply-display': function(e){
-        $('#msg-reply-display').show();
+        $('#msg-reply-display').prop('hidden', false);
         var to = $(e.target).attr('data-id');
         $('#msg-reply-to').val(to);
     },

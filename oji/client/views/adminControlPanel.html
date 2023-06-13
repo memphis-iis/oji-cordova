@@ -7,15 +7,15 @@
     <div class="container profileCard">
         <ul class="nav nav-tabs" style>
             <li class="nav-item">
-            <a class="nav-link active" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
+            <a class="nav-link nav-link-mod" id="toggle-general-tab" aria-current="page" href="/control-panel">General</a>
             </li>
             {{#if isInRole 'admin'}}
             <li class="nav-item">
-                <a class="nav-link active" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Content</a>
+                <a class="nav-link nav-link-mod" id="toggle-modules-tab" aria-current="page" href="/modulesAdmin">Content</a>
                 </li>
                 {{/if}}
             <li class="nav-item">
-            <a class="nav-link toggle-users-view" href="/usersAdmin">Users</a>
+            <a class="nav-link nav-link-mod toggle-users-view" href="/usersAdmin">Users</a>
             </li>
         </ul>
     </div>
